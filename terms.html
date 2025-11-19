@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - SeaDays</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #4a6b7c;
+            --teal-dark: #3a5566;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --background: #f0f9ff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8d5e2 0%, #c2e5ec 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--teal-dark);
+            transform: translateX(-5px);
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 20px rgba(74, 107, 124, 0.2);
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 16px;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            color: var(--text-gray);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .section ul {
+            list-style: disc;
+            padding-left: 24px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: #f0f9ff;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-teal);
+            margin: 16px 0;
+            font-style: italic;
+        }
+
+        .contact-info {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/landing-page.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <div class="icon-container">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4a6b7c" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+            </div>
+            <h1>Terms & Conditions</h1>
+            <p class="last-updated">Last Updated: November 9, 2025</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Acceptance of Terms</h2>
+                <p>By accessing or using SeaDays, you agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree to these terms, please do not use our services.</p>
+            </div>
+
+            <div class="section">
+                <h2>Description of Service</h2>
+                <p>SeaDays is a cruise planning and management application that helps users organize their cruise vacations, track itineraries, collaborate with crew members, and share experiences with the community.</p>
+            </div>
+
+            <div class="section">
+                <h2>User Accounts</h2>
+                <p>To use SeaDays, you must:</p>
+                <ul>
+                    <li>Be at least 13 years old</li>
+                    <li>Provide accurate and complete registration information</li>
+                    <li>Maintain the security of your account credentials</li>
+                    <li>Promptly update your account information</li>
+                    <li>Not share your account with others</li>
+                </ul>
+                <p>You are responsible for all activities under your account.</p>
+            </div>
+
+            <div class="section">
+                <h2>Subscription Plans</h2>
+                <h3>Free Tier</h3>
+                <p>Includes basic features with limitations on trips and ports.</p>
+
+                <h3>Paid Subscriptions</h3>
+                <ul>
+                    <li>Sailor: $4.99/month</li>
+                    <li>Captain: $9.99/month</li>
+                    <li>Admiral: $19.99/month</li>
+                </ul>
+
+                <p>Subscription terms:</p>
+                <ul>
+                    <li>Auto-renewal unless cancelled</li>
+                    <li>No partial refunds for unused time</li>
+                    <li>Pricing subject to change with notice</li>
+                    <li>Cancel anytime through your account settings</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>User Content</h2>
+                <p>You retain ownership of content you post. By posting content, you grant SeaDays:</p>
+                <ul>
+                    <li>A worldwide, non-exclusive license to use, display, and distribute your content</li>
+                    <li>The right to moderate and remove inappropriate content</li>
+                </ul>
+                <p>You are responsible for ensuring you have rights to any content you post.</p>
+            </div>
+
+            <div class="section">
+                <h2>Prohibited Activities</h2>
+                <p>You may not:</p>
+                <ul>
+                    <li>Violate any laws or regulations</li>
+                    <li>Post offensive, discriminatory, or harmful content</li>
+                    <li>Harass or impersonate other users</li>
+                    <li>Attempt to hack or disrupt the service</li>
+                    <li>Use automated tools (bots) without permission</li>
+                    <li>Collect user data without consent</li>
+                    <li>Resell or redistribute SeaDays services</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Intellectual Property</h2>
+                <p>SeaDays and its content (excluding user content) are protected by copyright, trademark, and other intellectual property laws. You may not copy, modify, or distribute our content without permission.</p>
+            </div>
+
+            <div class="section">
+                <h2>Third-Party Services</h2>
+                <p>SeaDays integrates with third-party services (cruise lines, payment processors, map providers). We are not responsible for the availability or accuracy of third-party services.</p>
+            </div>
+
+            <div class="section">
+                <h2>Disclaimers</h2>
+                <p>SeaDays is provided "AS IS" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted or error-free service</li>
+                    <li>Accuracy of cruise information</li>
+                    <li>Availability of specific features</li>
+                    <li>Security against unauthorized access</li>
+                </ul>
+                <div class="highlight">
+                    Always verify critical information directly with your cruise line.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, SeaDays shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service, including lost profits, data loss, or missed cruises.</p>
+            </div>
+
+            <div class="section">
+                <h2>Termination</h2>
+                <p>We may suspend or terminate your account if you:</p>
+                <ul>
+                    <li>Violate these Terms and Conditions</li>
+                    <li>Engage in fraudulent activity</li>
+                    <li>Fail to pay subscription fees</li>
+                </ul>
+                <p>You may delete your account at any time through the app settings.</p>
+            </div>
+
+            <div class="section">
+                <h2>Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. We will notify users of material changes. Continued use after changes constitutes acceptance of the updated terms.</p>
+            </div>
+
+            <div class="section">
+                <h2>Governing Law</h2>
+                <p>These terms are governed by the laws of the European Union. Any disputes shall be resolved in the appropriate courts of jurisdiction.</p>
+            </div>
+
+            <div class="section">
+                <h2>Contact Information</h2>
+                <p>For questions about these Terms and Conditions:</p>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> legal@seadays.semprog.de</p>
+                    <p><strong>Support:</strong> support@seadays.semprog.de</p>
+                    <p><strong>Website:</strong> www.seadays.app/terms</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

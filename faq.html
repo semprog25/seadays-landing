@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SeaDays</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #4a6b7c;
+            --teal-dark: #3a5566;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8d5e2 0%, #c2e5ec 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--teal-dark);
+            transform: translateX(-5px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 20px rgba(74, 107, 124, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .faq-icon {
+            color: var(--primary-teal);
+            font-weight: 900;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .faq-answer {
+            color: var(--text-gray);
+            line-height: 1.7;
+            padding-left: 36px;
+        }
+
+        .cta-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary-teal);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 107, 124, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .faq-item {
+                padding: 20px;
+            }
+
+            .faq-question {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/landing-page.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Frequently Asked Questions</h1>
+            <p class="subtitle">Everything you need to know about SeaDays</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>What is SeaDays?</span>
+                </div>
+                <div class="faq-answer">
+                    SeaDays is a comprehensive cruise planning app that helps you organize your cruise vacations, track your maritime adventures, earn XP and achievements, connect with fellow cruisers, and share your experiences with a vibrant community.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>How does the XP and leveling system work?</span>
+                </div>
+                <div class="faq-answer">
+                    Earn XP by adding cruises, visiting ports, completing challenges, and engaging with the community. Progress through 30 Nautical Ranks from Landlubber to Fleet Admiral. Premium subscriptions offer XP multipliers to level up faster!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>Is SeaDays free to use?</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! SeaDays offers a free tier that includes basic cruise tracking, XP earning, and community access. Premium subscriptions (Sailor, Captain, Admiral) unlock additional features like unlimited cruises, XP multipliers, exclusive badges, and advanced maps.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>What are the different subscription tiers?</span>
+                </div>
+                <div class="faq-answer">
+                    <strong>Free:</strong> Track up to 5 cruises, basic XP & leveling<br>
+                    <strong>Sailor ($4.99/mo):</strong> 15 cruises, 2x XP, premium badges<br>
+                    <strong>Captain ($9.99/mo):</strong> 50 cruises, 3x XP, all premium features<br>
+                    <strong>Admiral ($19.99/mo):</strong> Unlimited cruises, 5x XP, VIP support
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>Can I use SeaDays with my crew/travel group?</span>
+                </div>
+                <div class="faq-answer">
+                    Absolutely! SeaDays includes crew collaboration features. Create a crew, invite members, share itineraries, chat in real-time, and plan your cruise adventure together. Perfect for families, friends, or solo cruisers looking to meet new people!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>How do I track my cruise history?</span>
+                </div>
+                <div class="faq-answer">
+                    Simply add your past and upcoming cruises to your profile. SeaDays automatically tracks ports visited, days at sea, miles sailed, and creates beautiful visualizations of your maritime journey on interactive maps.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>What kind of achievements can I unlock?</span>
+                </div>
+                <div class="faq-answer">
+                    Unlock badges for visiting specific ports, completing certain numbers of cruises, reaching XP milestones, social engagement, and special events. Each badge adds to your maritime credentials and shows off your cruising expertise!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>Is my data secure?</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! We use industry-standard encryption, secure authentication, and follow strict data protection practices. We never sell your personal data. Check our Privacy Policy for complete details.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>Can I cancel my subscription anytime?</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, you can cancel your subscription at any time through your account settings. You'll continue to have access to premium features until the end of your billing period.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>Will SeaDays be available on mobile?</span>
+                </div>
+                <div class="faq-answer">
+                    SeaDays is currently available as a web app and is fully optimized for mobile browsers. Native iOS and Android apps are coming soon! Join our waitlist to be notified when they launch.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>How do I contact support?</span>
+                </div>
+                <div class="faq-answer">
+                    You can reach our support team at support@seadays.app. Premium subscribers get priority support with faster response times.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span class="faq-icon">Q</span>
+                    <span>What is the Points Shop?</span>
+                </div>
+                <div class="faq-answer">
+                    Earn points by using SeaDays and spend them in our Points Shop on exclusive rewards, premium features, custom themes, and special items. It's our way of rewarding active cruisers!
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Still Have Questions?</h2>
+            <p>Our support team is here to help!</p>
+            <a href="/contact.html" class="cta-button">Contact Support</a>
+        </div>
+    </div>
+</body>
+</html>

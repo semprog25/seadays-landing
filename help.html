@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - SeaDays</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #4a6b7c;
+            --teal-dark: #3a5566;
+            --cyan: #06B6D4;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8d5e2 0%, #c2e5ec 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--teal-dark);
+            transform: translateX(-5px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(74, 107, 124, 0.15);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 22px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .category-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .articles-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .articles-section h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 32px;
+        }
+
+        .article-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .article-item {
+            padding: 20px;
+            border-radius: 10px;
+            background: #f9fafb;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .article-item:hover {
+            background: #f0f9ff;
+            transform: translateX(5px);
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .article-description {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        .contact-banner {
+            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .contact-banner h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .contact-banner p {
+            font-size: 17px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: white;
+            color: var(--primary-teal);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .help-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .articles-section {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/landing-page.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>Help Center</h1>
+            <p class="subtitle">Find answers and get the most out of SeaDays</p>
+        </div>
+
+        <div class="help-categories">
+            <div class="category-card">
+                <div class="category-icon">🚀</div>
+                <h3>Getting Started</h3>
+                <p>Learn the basics of SeaDays and start planning your first cruise adventure.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🎮</div>
+                <h3>XP & Leveling</h3>
+                <p>Understand how to earn XP, unlock achievements, and climb the Nautical Ranks.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">👥</div>
+                <h3>Crew & Social</h3>
+                <p>Connect with friends, create crews, and share your cruise experiences.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">💳</div>
+                <h3>Subscriptions</h3>
+                <p>Manage your subscription, upgrade plans, and understand billing.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">🗺️</div>
+                <h3>Maps & Tracking</h3>
+                <p>Use interactive maps, track your voyages, and visualize your journey.</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">⚙️</div>
+                <h3>Settings & Privacy</h3>
+                <p>Customize your experience and manage your privacy preferences.</p>
+            </div>
+        </div>
+
+        <div class="articles-section">
+            <h2>Popular Articles</h2>
+            <div class="article-list">
+                <div class="article-item">
+                    <div class="article-title">How do I add my first cruise?</div>
+                    <div class="article-description">Step-by-step guide to adding your cruise information and tracking your voyage.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">Understanding the XP system</div>
+                    <div class="article-description">Learn how to earn XP, what actions give points, and how multipliers work.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">How to create and manage a crew</div>
+                    <div class="article-description">Invite friends, share itineraries, and collaborate on cruise planning.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">What are the different subscription tiers?</div>
+                    <div class="article-description">Compare Free, Sailor, Captain, and Admiral plans to find what's right for you.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">How to unlock achievements and badges</div>
+                    <div class="article-description">Discover all available achievements and how to earn special badges.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">Using the interactive cruise map</div>
+                    <div class="article-description">Navigate the map, view port details, and visualize your cruise route.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">How to change my subscription</div>
+                    <div class="article-description">Upgrade, downgrade, or cancel your subscription at any time.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">Managing notifications and emails</div>
+                    <div class="article-description">Control what notifications you receive and how often.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">How to export my cruise data</div>
+                    <div class="article-description">Download your cruise history, stats, and personal data.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">Troubleshooting common issues</div>
+                    <div class="article-description">Solutions to frequently encountered problems and error messages.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">What is the Points Shop?</div>
+                    <div class="article-description">Learn how to earn and spend points on exclusive rewards and features.</div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-title">How to delete my account</div>
+                    <div class="article-description">Steps to permanently delete your SeaDays account and data.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-banner">
+            <h2>Can't Find What You're Looking For?</h2>
+            <p>Our support team is ready to help you with any questions</p>
+            <a href="/contact.html" class="contact-button">Contact Support</a>
+        </div>
+    </div>
+</body>
+</html>
