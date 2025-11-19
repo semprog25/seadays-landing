@@ -645,30 +645,41 @@
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 42px;
+                font-size: 36px;
+                letter-spacing: -1px;
             }
 
             .subtitle {
-                font-size: 18px;
+                font-size: 16px;
+                padding: 0 10px;
             }
 
             .section-title {
-                font-size: 36px;
+                font-size: 32px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+                padding: 0 10px;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
 
             .btn-primary, .btn-secondary {
                 width: 100%;
-                max-width: 320px;
+                max-width: 300px;
                 justify-content: center;
+                padding: 16px 40px;
+                font-size: 16px;
             }
 
             .waitlist-form {
                 flex-direction: column;
+                gap: 10px;
             }
 
             .waitlist-form input,
@@ -676,8 +687,31 @@
                 width: 100%;
             }
 
+            .waitlist-form button {
+                padding: 14px 24px;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+
+            .feature-title {
+                font-size: 20px;
+            }
+
+            .feature-description {
+                font-size: 14px;
             }
 
             .tiers-grid {
@@ -687,15 +721,189 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 30px;
             }
 
             .screenshots-carousel {
                 flex-direction: column;
+                gap: 30px;
             }
 
             .phone-mockup {
-                width: 280px;
-                height: 560px;
+                width: 260px;
+                height: 520px;
+            }
+
+            .hero-content {
+                padding: 120px 0 60px;
+            }
+
+            .store-badges {
+                gap: 15px;
+                margin-top: 40px;
+            }
+
+            .store-badge {
+                min-width: 140px;
+                padding: 12px 18px;
+            }
+
+            .features {
+                padding: 80px 0;
+            }
+
+            .screenshots {
+                padding: 80px 0;
+            }
+
+            .download {
+                padding: 80px 0;
+            }
+
+            .download h2 {
+                font-size: 36px;
+            }
+
+            .download p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .nav-cta {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .waitlist-container {
+                margin: 30px auto 15px;
+            }
+
+            .waitlist-note {
+                font-size: 14px;
+            }
+
+            .waitlist-badge {
+                font-size: 12px;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+                letter-spacing: -0.5px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-subtitle {
+                font-size: 15px;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 14px 30px;
+                font-size: 15px;
+            }
+
+            .phone-mockup {
+                width: 240px;
+                height: 480px;
+            }
+
+            .feature-card {
+                padding: 25px 15px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+
+            .header-content {
+                padding: 0 12px;
+            }
+        }
+
+        /* Mobile-specific responsive adjustments for dark mode section */
+        @media (max-width: 768px) {
+            .screenshots[style] .section-title {
+                font-size: 32px !important;
+            }
+
+            .screenshots[style] .section-subtitle {
+                font-size: 16px !important;
+            }
+
+            .screenshots[style] div[style*="max-width: 900px"] p {
+                font-size: 15px !important;
+                padding: 0 10px !important;
+            }
+
+            /* Mobile apps section */
+            #mobile-apps .section-title {
+                font-size: 32px !important;
+            }
+
+            #mobile-apps div[style*="padding: 50px"] {
+                padding: 30px 20px !important;
+            }
+
+            #mobile-apps div[style*="width: 80px"] {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 30px !important;
+            }
+
+            #mobile-apps h3[style] {
+                font-size: 20px !important;
+            }
+
+            #mobile-apps p[style*="text-align: center"] {
+                font-size: 14px !important;
+                padding: 0 10px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .screenshots[style] .section-title {
+                font-size: 28px !important;
+            }
+
+            .screenshots[style] .section-subtitle {
+                font-size: 14px !important;
+            }
+
+            .screenshots[style] div[style*="max-width: 900px"] p {
+                font-size: 14px !important;
+            }
+
+            #mobile-apps .section-title {
+                font-size: 28px !important;
+            }
+
+            #mobile-apps div[style*="padding: 30px"] {
+                padding: 25px 15px !important;
             }
         }
 
