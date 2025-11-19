@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SeaDays - Your ultimate cruise planning companion with gamification, social features, and comprehensive cruise tracking. Plan, share, and earn rewards for your nautical adventures.">
+    <meta name="keywords" content="cruise planning, cruise app, travel, vacation, cruise tracker, maritime, sailing">
+    <meta name="author" content="SeaDays">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seadays.app/">
+    <meta property="og:title" content="SeaDays - The Ultimate Cruise Planning App">
+    <meta property="og:description" content="Plan, track, and share your cruise adventures with gamification, social features, and comprehensive cruise data.">
+    <meta property="og:image" content="https://seadays.app/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://seadays.app/">
+    <meta property="twitter:title" content="SeaDays - The Ultimate Cruise Planning App">
+    <meta property="twitter:description" content="Plan, track, and share your cruise adventures with gamification, social features, and comprehensive cruise data.">
+    <meta property="twitter:image" content="https://seadays.app/og-image.png">
+
+    <title>SeaDays - The Ultimate Cruise Planning App</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Day Theme Colors */
+            --primary-teal: #4a6b7c;
+            --teal-dark: #3a5566;
+            --teal-light: #6ba3b8;
+            --sky-blue: #a8d5e2;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --card-bg: #ffffff;
+            --background: #f0f9ff;
+            
+            /* Vibrant XP Colors */
+            --pink: #FF0099;
+            --purple: #9333EA;
+            --cyan: #06B6D4;
+            --blue: #3B82F6;
+            --orange: #F97316;
+            --yellow: #FBBF24;
+            --green: #10B981;
+            --red: #EF4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #a8d5e2 0%, #b5dde5 50%, #c2e5ec 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 153, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 40%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 0 4px 20px rgba(74, 107, 124, 0.4), 0 0 40px rgba(74, 107, 124, 0.2); 
+            }
+            50% { 
+                box-shadow: 0 6px 30px rgba(74, 107, 124, 0.6), 0 0 60px rgba(74, 107, 124, 0.3); 
+            }
+        }
+
+        @keyframes headerGlow {
+            0%, 100% { 
+                box-shadow: 0 4px 15px rgba(74, 107, 124, 0.3), 0 0 25px rgba(74, 107, 124, 0.2); 
+            }
+            50% { 
+                box-shadow: 0 6px 25px rgba(74, 107, 124, 0.5), 0 0 40px rgba(74, 107, 124, 0.4); 
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(58, 85, 102, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: headerGlow 2s ease-in-out infinite;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .nav-cta {
+            padding: 12px 30px;
+            background: var(--primary-teal);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 107, 124, 0.3);
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-cta:hover {
+            background: var(--teal-dark);
+            box-shadow: 0 6px 25px rgba(74, 107, 124, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--cyan), var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            padding: 20px 50px;
+            background: var(--primary-teal);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(74, 107, 124, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .btn-primary:hover {
+            background: var(--teal-dark);
+            box-shadow: 0 8px 35px rgba(74, 107, 124, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            padding: 20px 50px;
+            background: white;
+            color: var(--primary-teal);
+            border: 2px solid var(--primary-teal);
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(74, 107, 124, 0.1);
+            border-color: var(--teal-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Waitlist Form */
+        .waitlist-container {
+            max-width: 550px;
+            margin: 40px auto 20px;
+        }
+
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            padding: 16px 24px;
+            border: 2px solid rgba(74, 107, 124, 0.3);
+            border-radius: 30px;
+            background: white;
+            color: var(--text-dark);
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .waitlist-form input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .waitlist-form input:focus {
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(74, 107, 124, 0.1);
+        }
+
+        .waitlist-form button {
+            padding: 16px 32px;
+            background: var(--cyan);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .waitlist-form button:hover {
+            background: #0891B2;
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .waitlist-note {
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .waitlist-badge {
+            font-size: 13px;
+            color: var(--text-gray);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Store Badges */
+        .store-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .store-badge {
+            padding: 14px 24px;
+            background: white;
+            border: 1px solid rgba(74, 107, 124, 0.15);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            font-size: 13px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            min-width: 160px;
+        }
+
+        .store-badge:hover {
+            background: var(--card-bg);
+            border-color: var(--primary-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 107, 124, 0.2);
+        }
+
+        .store-badge .badge-icon {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .store-badge-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .store-badge .badge-text {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        .store-badge .badge-subtext {
+            font-size: 11px;
+            color: var(--text-gray);
+            line-height: 1;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .section-title {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 2px solid rgba(74, 107, 124, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary-teal);
+            box-shadow: 0 10px 40px rgba(74, 107, 124, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 24px auto;
+            box-shadow: 0 4px 20px rgba(74, 107, 124, 0.3);
+        }
+
+        .feature-card:nth-child(1) .feature-icon {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, var(--cyan), var(--blue));
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+        }
+
+        .feature-card:nth-child(5) .feature-icon {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+        }
+
+        .feature-card:nth-child(6) .feature-icon {
+            background: linear-gradient(135deg, var(--red), var(--orange));
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text-dark);
+        }
+
+        .feature-description {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            padding: 120px 0;
+            background: white;
+            overflow: hidden;
+        }
+
+        .screenshots-carousel {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 80px;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 600px;
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 
+                        0 0 0 1px rgba(255, 255, 255, 0.1),
+                        inset 0 0 0 2px rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(74, 107, 124, 0.4), 
+                        0 0 0 1px rgba(74, 107, 124, 0.3),
+                        inset 0 0 0 2px rgba(74, 107, 124, 0.1);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 28px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen-content {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1));
+        }
+
+        .download-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .download h2 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: var(--text-dark);
+        }
+
+        .download p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(74, 107, 124, 0.2);
+            text-align: center;
+            background: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-teal);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(74, 107, 124, 0.1);
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 42px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+
+            .waitlist-form {
+                flex-direction: column;
+            }
+
+            .waitlist-form input,
+            .waitlist-form button {
+                width: 100%;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tiers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .screenshots-carousel {
+                flex-direction: column;
+            }
+
+            .phone-mockup {
+                width: 280px;
+                height: 560px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://i.imghippo.com/files/XYQr7127rSI.png" alt="SeaDays">
+            </div>
+            
+            <a href="/App.tsx" class="nav-cta">Launch App</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Ultimate Cruise<br>Planning Companion</h1>
+                <p class="subtitle">Plan, track, and share your nautical adventures with gamification, social features, and comprehensive cruise data. Level up as you sail!</p>
+                
+                <div class="cta-buttons">
+                    <a href="/App.tsx" class="btn-primary">
+                        Get Started Free
+                        <span>→</span>
+                    </a>
+                    <a href="#features" class="btn-secondary">Explore Features</a>
+                </div>
+
+                <div class="waitlist-container">
+                    <form class="waitlist-form" onsubmit="handleWaitlistSignup(event)">
+                        <input 
+                            type="email" 
+                            id="waitlistEmail"
+                            placeholder="Your email address" 
+                            required
+                            aria-label="Email for waitlist"
+                        />
+                        <button type="submit">Get Notified</button>
+                    </form>
+                    
+                    <div class="success-message" id="successMessage">
+                        Success! You've been added to the waitlist and earned 1000 bonus XP!
+                    </div>
+                    
+                    <p class="waitlist-note">Join now and get 1000 bonus XP + exclusive Founder Badge</p>
+                    <p class="waitlist-badge">Waitlist SEADAYS</p>
+                </div>
+
+                <div class="store-badges">
+                    <a href="#" class="store-badge">
+                        <div class="badge-icon">📱</div>
+                        <div class="store-badge-content">
+                            <div class="badge-text">App Store</div>
+                            <div class="badge-subtext">Coming Soon</div>
+                        </div>
+                    </a>
+                    <a href="#" class="store-badge">
+                        <div class="badge-icon">🤖</div>
+                        <div class="store-badge-content">
+                            <div class="badge-text">Google Play</div>
+                            <div class="badge-subtext">Coming Soon</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <div class="container">
+            <h2 class="section-title">Experience SeaDays</h2>
+            <p class="section-subtitle">Beautiful design meets powerful functionality</p>
+            
+            <div class="screenshots-carousel">
+                <!-- Phone 1 - Voyage Screen -->
+                <!-- 📱 SCREENSHOT PLACEHOLDER 1: Replace the src below with your Voyage screen screenshot -->
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <img src="https://i.imghippo.com/files/zs9078zg.png" alt="Voyage Screen" class="screen-content">
+                    </div>
+                </div>
+
+                <!-- Phone 2 - XP Profile Screen -->
+                <!-- 📱 SCREENSHOT PLACEHOLDER 2: Replace the src below with your XP Profile screenshot -->
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <img src="https://i.imghippo.com/files/gIs1648COk.png" alt="XP Profile" class="screen-content">
+                    </div>
+                </div>
+
+                <!-- Phone 3 - Cruise/Map Screen -->
+                <!-- 📱 SCREENSHOT PLACEHOLDER 3: Replace the src below with your Cruise/Map screenshot -->
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <img src="https://i.imghippo.com/files/FiOp1794WA.png" alt="Cruise Map" class="screen-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Packed with Features</h2>
+            <p class="section-subtitle">Everything you need for the perfect cruise experience</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3 class="feature-title">Gamification System</h3>
+                    <p class="feature-description">Earn XP, unlock achievements, and climb through 30 Nautical Ranks from Landlubber to Fleet Admiral. Complete challenges and earn rewards!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3 class="feature-title">Interactive Cruise Maps</h3>
+                    <p class="feature-description">Visualize your journey with beautiful interactive maps. Track ports visited, plan your itinerary, and share your cruise routes with friends.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Social Features</h3>
+                    <p class="feature-description">Connect with fellow cruisers, share your SeaStories, and build your maritime community. Make friends before you even board!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Cruise Tracking</h3>
+                    <p class="feature-description">Comprehensive tracking of your cruise history, ports visited, days at sea, and miles sailed. Watch your maritime credentials grow!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Achievements & Badges</h3>
+                    <p class="feature-description">Unlock special badges and achievements as you explore. Show off your accomplishments and compete on the leaderboards!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3 class="feature-title">Points Shop</h3>
+                    <p class="feature-description">Spend your earned points on exclusive rewards, premium features, and special items. Your adventures pay off!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2>Start Your Journey Today</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="/App.tsx">Launch App</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/help.html">Help Center</a></li>
+                        <li><a href="/faq.html">FAQ</a></li>
+                        <li><a href="/community.html">Community</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about.html">About</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy</a></li>
+                        <li><a href="/terms.html">Terms</a></li>
+                        <li><a href="/cookies.html">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 SeaDays. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function handleWaitlistSignup(event) {
+            event.preventDefault();
+            const email = document.getElementById('waitlistEmail').value;
+            const successMessage = document.getElementById('successMessage');
+            const submitButton = event.target.querySelector('button');
+            
+            // Disable button during submission
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            try {
+                // Get Supabase project info
+                const projectId = 'bwwqmworhevnbzprpaug';
+                const publicAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3d3Ftd29yaGV2bmJ6cHJwYXVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA2NzY0OTIsImV4cCI6MjA0NjI1MjQ5Mn0.QDkVjAIgcXCm2NInpJgj5Hm1nUhIDqPwcY8s99eUb-g';
+                
+                // Call backend to save email
+                const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-51d3ca8d/waitlist`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${publicAnonKey}`
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Show success message
+                    successMessage.textContent = data.message || 'Success! You\'ve been added to the waitlist and earned 1000 bonus XP!';
+                    successMessage.classList.add('show');
+                    
+                    // Clear form
+                    document.getElementById('waitlistEmail').value = '';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                } else {
+                    throw new Error(data.error || 'Failed to join waitlist');
+                }
+            } catch (error) {
+                console.error('Waitlist signup error:', error);
+                successMessage.textContent = 'Oops! Something went wrong. Please try again.';
+                successMessage.style.background = 'linear-gradient(135deg, #EF4444, #F97316)';
+                successMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                    successMessage.style.background = 'linear-gradient(135deg, var(--green), var(--cyan))';
+                }, 5000);
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Get Notified';
+            }
+        }
+    </script>
+</body>
+</html>
