@@ -50,197 +50,274 @@
             --yellow: #FBBF24;
             --green: #10B981;
             --red: #EF4444;
+
+            /* Dark theme colors */
+            --dark-bg: #0a0a0a;
+            --dark-bg-alt: #1a1a1a;
+            --neon-red: #FF0033;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #a8d5e2 0%, #b5dde5 50%, #c2e5ec 100%);
-            color: var(--text-dark);
+            background: var(--dark-bg);
+            color: white;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Animated Background */
+        /* Starfield Background - now with nautical elements */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            font-size: 16px;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Animated particles */
+        .particle {
+            position: absolute;
+            font-size: 12px;
+            pointer-events: none;
+            animation: float-up linear infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Animated Grid Background */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image: 
+                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* All content needs higher z-index */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Fullscreen Hero Section */
         .hero {
             position: relative;
             overflow: hidden;
             min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 0, 153, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 40%);
-            animation: pulse 8s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 0, 51, 0.08) 0%, transparent 70%);
+            animation: pulse-glow 4s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        @keyframes glow {
+        @keyframes pulse-glow {
             0%, 100% { 
-                box-shadow: 0 4px 20px rgba(74, 107, 124, 0.4), 0 0 40px rgba(74, 107, 124, 0.2); 
+                opacity: 0.3; 
+                transform: translate(-50%, -50%) scale(1); 
             }
             50% { 
-                box-shadow: 0 6px 30px rgba(74, 107, 124, 0.6), 0 0 60px rgba(74, 107, 124, 0.3); 
+                opacity: 0.6; 
+                transform: translate(-50%, -50%) scale(1.15); 
             }
         }
 
-        @keyframes headerGlow {
-            0%, 100% { 
-                box-shadow: 0 4px 15px rgba(74, 107, 124, 0.3), 0 0 25px rgba(74, 107, 124, 0.2); 
-            }
-            50% { 
-                box-shadow: 0 6px 25px rgba(74, 107, 124, 0.5), 0 0 40px rgba(74, 107, 124, 0.4); 
-            }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: rgba(58, 85, 102, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            animation: headerGlow 2s ease-in-out infinite;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-
-        .nav-cta {
-            padding: 12px 30px;
-            background: var(--primary-teal);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(74, 107, 124, 0.3);
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-cta:hover {
-            background: var(--teal-dark);
-            box-shadow: 0 6px 25px rgba(74, 107, 124, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
         .hero-content {
             position: relative;
             z-index: 10;
-            padding: 140px 0 80px;
-            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        h1 {
-            font-size: 72px;
+        /* Animated Logo */
+        .logo-container {
+            position: relative;
+            margin-bottom: 50px;
+            animation: float-logo 3s ease-in-out infinite;
+        }
+
+        @keyframes float-logo {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .logo-glow-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 0, 51, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: circle-pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes circle-pulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1); 
+                opacity: 0.4; 
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.2); 
+                opacity: 0.7; 
+            }
+        }
+
+        .animated-logo {
+            width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.7)) 
+                    drop-shadow(0 0 60px rgba(255, 0, 51, 0.5))
+                    drop-shadow(0 0 90px rgba(255, 0, 51, 0.3));
+            animation: logo-glow 2.5s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes logo-glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.7)) 
+                        drop-shadow(0 0 60px rgba(255, 0, 51, 0.5))
+                        drop-shadow(0 0 90px rgba(255, 0, 51, 0.3));
+            }
+            50% { 
+                filter: drop-shadow(0 0 45px rgba(255, 0, 51, 0.9)) 
+                        drop-shadow(0 0 80px rgba(255, 0, 51, 0.7))
+                        drop-shadow(0 0 120px rgba(255, 0, 51, 0.5));
+            }
+        }
+
+        .tagline {
+            font-size: 56px;
             font-weight: 900;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan), var(--blue));
+            margin-bottom: 28px;
+            background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
+            line-height: 1.15;
             letter-spacing: -2px;
         }
 
         .subtitle {
-            font-size: 24px;
-            color: var(--text-dark);
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.65);
             margin-bottom: 50px;
-            max-width: 700px;
+            line-height: 1.7;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.5;
         }
 
+        /* CTA Buttons */
         .cta-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .btn-primary {
-            padding: 20px 50px;
-            background: var(--primary-teal);
+            padding: 19px 48px;
+            background: var(--neon-red);
             color: white;
             border: none;
             border-radius: 30px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 25px rgba(74, 107, 124, 0.4);
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.5);
             display: inline-flex;
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            animation: glow 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:hover {
-            background: var(--teal-dark);
-            box-shadow: 0 8px 35px rgba(74, 107, 124, 0.6);
-            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(255, 0, 51, 0.8), 
+                        0 0 100px rgba(255, 0, 51, 0.5),
+                        0 0 150px rgba(255, 0, 51, 0.3);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            padding: 20px 50px;
-            background: white;
-            color: var(--primary-teal);
-            border: 2px solid var(--primary-teal);
+            padding: 19px 48px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.25);
             border-radius: 30px;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -249,142 +326,168 @@
         }
 
         .btn-secondary:hover {
-            background: rgba(74, 107, 124, 0.1);
-            border-color: var(--teal-dark);
+            border-color: var(--neon-red);
+            color: white;
+            box-shadow: 0 0 25px rgba(255, 0, 51, 0.4);
             transform: translateY(-2px);
         }
 
-        /* Waitlist Form */
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            border-color: var(--neon-red);
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: white;
+            border-radius: 2px;
+            animation: scroll-down 2s infinite;
+        }
+
+        @keyframes scroll-down {
+            0% { transform: translateY(0); opacity: 0; }
+            40% { opacity: 1; }
+            80% { transform: translateY(20px); opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Waitlist Form - Dark Theme */
         .waitlist-container {
-            max-width: 550px;
-            margin: 40px auto 20px;
+            max-width: 600px;
+            margin: 45px auto 20px;
         }
 
         .waitlist-form {
             display: flex;
             gap: 12px;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .waitlist-form input {
             flex: 1;
-            padding: 16px 24px;
-            border: 2px solid rgba(74, 107, 124, 0.3);
+            padding: 17px 26px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 30px;
-            background: white;
-            color: var(--text-dark);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            color: white;
             font-size: 15px;
             outline: none;
             transition: all 0.3s ease;
         }
 
         .waitlist-form input::placeholder {
-            color: var(--text-gray);
+            color: rgba(255, 255, 255, 0.45);
         }
 
         .waitlist-form input:focus {
-            border-color: var(--primary-teal);
-            box-shadow: 0 0 0 3px rgba(74, 107, 124, 0.1);
+            border-color: var(--neon-red);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 25px rgba(255, 0, 51, 0.3);
         }
 
         .waitlist-form button {
-            padding: 16px 32px;
-            background: var(--cyan);
+            padding: 17px 35px;
+            background: var(--neon-red);
             color: white;
             border: none;
             border-radius: 30px;
             font-weight: 600;
+            font-size: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
             white-space: nowrap;
-            text-align: center;
         }
 
         .waitlist-form button:hover {
-            background: #0891B2;
-            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 40px rgba(255, 0, 51, 0.7);
             transform: translateY(-2px);
         }
 
         .waitlist-note {
             font-size: 15px;
-            color: var(--text-dark);
-            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 10px;
             font-weight: 500;
+            text-align: center;
         }
 
         .waitlist-badge {
-            font-size: 13px;
-            color: var(--text-gray);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.45);
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
         }
 
-        /* Store Badges */
-        .store-badges {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 60px;
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            color: white;
+            padding: 16px 26px;
+            border-radius: 12px;
+            margin-top: 16px;
+            display: none;
+            animation: slideIn 0.3s ease;
+            text-align: center;
         }
 
-        .store-badge {
-            padding: 14px 24px;
-            background: white;
-            border: 1px solid rgba(74, 107, 124, 0.15);
-            border-radius: 16px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-dark);
-            font-size: 13px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            min-width: 160px;
+        .success-message.show {
+            display: block;
         }
 
-        .store-badge:hover {
-            background: var(--card-bg);
-            border-color: var(--primary-teal);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(74, 107, 124, 0.2);
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .store-badge .badge-icon {
-            font-size: 28px;
-            line-height: 1;
-        }
-
-        .store-badge-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
-        }
-
-        .store-badge .badge-text {
-            font-weight: 700;
-            color: var(--text-dark);
-            font-size: 14px;
-            line-height: 1;
-        }
-
-        .store-badge .badge-subtext {
-            font-size: 11px;
-            color: var(--text-gray);
-            line-height: 1;
-        }
-
-        /* Features Section */
-        .features {
+        /* Secondary Sections - Light Theme */
+        section:not(.hero) {
+            background: linear-gradient(135deg, #a8d5e2 0%, #b5dde5 50%, #c2e5ec 100%);
             padding: 120px 0;
+            position: relative;
+        }
+
+        section:nth-child(even):not(.hero) {
             background: rgba(255, 255, 255, 0.6);
+        }
+
+        section:nth-child(odd):not(.hero):not(.dark-mode-section) {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .section-title {
@@ -403,6 +506,7 @@
             text-align: center;
         }
 
+        /* Features Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -467,21 +571,17 @@
             font-weight: 700;
             margin-bottom: 14px;
             color: var(--text-dark);
+            text-align: center;
         }
 
         .feature-description {
             color: var(--text-gray);
             font-size: 15px;
             line-height: 1.7;
+            text-align: center;
         }
 
         /* Screenshots Section */
-        .screenshots {
-            padding: 120px 0;
-            background: white;
-            overflow: hidden;
-        }
-
         .screenshots-carousel {
             display: flex;
             gap: 40px;
@@ -512,7 +612,7 @@
         }
 
         /* Dark mode phones with red glow on hover */
-        .screenshots[style*="1a1a1a"] .phone-mockup:hover {
+        .dark-mode-section .phone-mockup:hover {
             box-shadow: 0 30px 80px rgba(255, 0, 51, 0.5), 
                         0 0 0 1px #000000,
                         0 0 120px rgba(255, 0, 51, 0.4),
@@ -561,6 +661,7 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.5);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .dot.active {
@@ -569,30 +670,173 @@
             border-radius: 4px;
         }
 
-        /* Download Section */
-        .download {
+        /* Dark Mode Section */
+        .dark-mode-section {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a) !important;
             padding: 120px 0;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1));
         }
 
-        .download-content {
-            max-width: 700px;
+        .dark-mode-section .section-title {
+            color: white;
+        }
+
+        .dark-mode-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .dark-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .dark-text-secondary {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* Mobile Apps Section */
+        .mobile-apps-grid {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .download h2 {
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+        .app-card {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 24px;
+            border: 2px solid rgba(74, 107, 124, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            border-color: var(--primary-teal);
+            box-shadow: 0 10px 40px rgba(74, 107, 124, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+        }
+
+        .app-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
             color: var(--text-dark);
         }
 
-        .download p {
-            font-size: 20px;
+        .app-card p {
             color: var(--text-gray);
-            margin-bottom: 40px;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            padding: 12px 28px;
+            background: rgba(74, 107, 124, 0.1);
+            color: var(--primary-teal);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Store Badges */
+        .store-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .store-badge {
+            padding: 14px 24px;
+            background: white;
+            border: 1px solid rgba(74, 107, 124, 0.15);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            font-size: 13px;
+            transition: all 0.3s ease;
+            cursor: not-allowed;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            min-width: 160px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .store-badge:hover {
+            background: var(--card-bg);
+            border-color: var(--primary-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 107, 124, 0.2);
+        }
+        
+        .store-badges-wrapper {
+            text-align: center;
+        }
+        
+        .coming-soon-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        .store-badge .badge-icon {
+            font-size: 28px;
+            line-height: 1;
+        }
+
+        .store-badge-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+
+        .store-badge .badge-text {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        .store-badge .badge-subtext {
+            font-size: 11px;
+            color: var(--text-gray);
+            line-height: 1;
         }
 
         /* Footer */
@@ -642,15 +886,20 @@
             font-size: 14px;
         }
 
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            h1 {
+            .tagline {
                 font-size: 36px;
                 letter-spacing: -1px;
             }
 
             .subtitle {
-                font-size: 16px;
+                font-size: 17px;
                 padding: 0 10px;
             }
 
@@ -685,9 +934,6 @@
             .waitlist-form input,
             .waitlist-form button {
                 width: 100%;
-            }
-
-            .waitlist-form button {
                 padding: 14px 24px;
             }
 
@@ -714,10 +960,6 @@
                 font-size: 14px;
             }
 
-            .tiers-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -734,8 +976,8 @@
                 height: 520px;
             }
 
-            .hero-content {
-                padding: 120px 0 60px;
+            .hero {
+                padding: 40px 20px;
             }
 
             .store-badges {
@@ -748,46 +990,12 @@
                 padding: 12px 18px;
             }
 
-            .features {
+            section {
                 padding: 80px 0;
-            }
-
-            .screenshots {
-                padding: 80px 0;
-            }
-
-            .download {
-                padding: 80px 0;
-            }
-
-            .download h2 {
-                font-size: 36px;
-            }
-
-            .download p {
-                font-size: 16px;
-                padding: 0 10px;
             }
 
             .container {
                 padding: 0 15px;
-            }
-
-            header {
-                padding: 15px 0;
-            }
-
-            .header-content {
-                padding: 0 15px;
-            }
-
-            .logo img {
-                height: 40px;
-            }
-
-            .nav-cta {
-                padding: 10px 20px;
-                font-size: 14px;
             }
 
             .waitlist-container {
@@ -799,31 +1007,29 @@
             }
 
             .waitlist-badge {
-                font-size: 12px;
+                font-size: 11px;
+            }
+
+            .dark-text {
+                font-size: 15px;
+            }
+
+            .animated-logo {
+                width: 160px;
+            }
+
+            .logo-glow-circle {
+                width: 280px;
+                height: 280px;
             }
         }
 
-        /* Extra small mobile devices */
         @media (max-width: 480px) {
-            h1 {
-                font-size: 28px;
-                letter-spacing: -0.5px;
+            .tagline {
+                font-size: 30px;
             }
 
             .subtitle {
-                font-size: 15px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .section-subtitle {
-                font-size: 15px;
-            }
-
-            .btn-primary, .btn-secondary {
-                padding: 14px 30px;
                 font-size: 15px;
             }
 
@@ -840,130 +1046,42 @@
                 padding: 0 12px;
             }
 
-            .header-content {
-                padding: 0 12px;
-            }
-        }
-
-        /* Mobile-specific responsive adjustments for dark mode section */
-        @media (max-width: 768px) {
-            .screenshots[style] .section-title {
-                font-size: 32px !important;
+            .app-card {
+                padding: 25px 15px;
             }
 
-            .screenshots[style] .section-subtitle {
-                font-size: 16px !important;
-            }
-
-            .screenshots[style] div[style*="max-width: 900px"] p {
-                font-size: 15px !important;
-                padding: 0 10px !important;
-            }
-
-            /* Mobile apps section */
-            #mobile-apps .section-title {
-                font-size: 32px !important;
-            }
-
-            #mobile-apps div[style*="padding: 50px"] {
-                padding: 30px 20px !important;
-            }
-
-            #mobile-apps div[style*="width: 80px"] {
-                width: 60px !important;
-                height: 60px !important;
-                font-size: 30px !important;
-            }
-
-            #mobile-apps h3[style] {
-                font-size: 20px !important;
-            }
-
-            #mobile-apps p[style*="text-align: center"] {
-                font-size: 14px !important;
-                padding: 0 10px !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .screenshots[style] .section-title {
-                font-size: 28px !important;
-            }
-
-            .screenshots[style] .section-subtitle {
-                font-size: 14px !important;
-            }
-
-            .screenshots[style] div[style*="max-width: 900px"] p {
-                font-size: 14px !important;
-            }
-
-            #mobile-apps .section-title {
-                font-size: 28px !important;
-            }
-
-            #mobile-apps div[style*="padding: 30px"] {
-                padding: 25px 15px !important;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Success Message */
-        .success-message {
-            background: linear-gradient(135deg, var(--green), var(--cyan));
-            color: white;
-            padding: 15px 25px;
-            border-radius: 12px;
-            margin-top: 15px;
-            display: none;
-            animation: slideIn 0.3s ease;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .animated-logo {
+                width: 140px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <img src="https://i.imghippo.com/files/XYQr7127rSI.png" alt="SeaDays">
-            </div>
-            
-            <a href="#mobile-apps" class="nav-cta">Download App</a>
-        </div>
-    </header>
+    <!-- Starfield Background -->
+    <div class="starfield" id="starfield"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <!-- All content -->
+    <div class="content-layer">
+        <!-- Fullscreen Hero Section -->
+        <section class="hero" id="home">
             <div class="hero-content">
-                <h1>Your Ultimate Cruise<br>Planning Companion</h1>
+                <div class="logo-container">
+                    <div class="logo-glow-circle"></div>
+                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjM2NjE4MjUsImV4cCI6NDI1NTAwNTgyNX0.Zpksao9irhLHLjmcwUQM0-Om4qzjrcYC84GLm59s-mE" alt="SeaDays" class="animated-logo">
+                </div>
+                
+                <h1 class="tagline">Your Ultimate Cruise<br>Planning Companion</h1>
                 <p class="subtitle">Plan, track, and share your nautical adventures with gamification, social features, and comprehensive cruise data. Level up as you sail!</p>
                 
                 <div class="cta-buttons">
-                    <a href="#mobile-apps" class="btn-primary">
+                    <a href="#features" class="btn-primary">
                         Get Started Free
                         <span>→</span>
                     </a>
-                    <a href="#features" class="btn-secondary">Explore Features</a>
+                    <a href="#screenshots" class="btn-secondary">Explore Features</a>
                 </div>
 
                 <div class="waitlist-container">
@@ -971,7 +1089,7 @@
                         <input 
                             type="email" 
                             id="waitlistEmail"
-                            placeholder="Your email address" 
+                            placeholder="Enter your email" 
                             required
                             aria-label="Email for waitlist"
                         />
@@ -983,262 +1101,299 @@
                     </div>
                     
                     <p class="waitlist-note">Join now and get 1000 bonus XP + exclusive Founder Badge</p>
-                    <p class="waitlist-badge">Waitlist SEADAYS</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Section -->
-    <section class="screenshots">
-        <div class="container">
-            <h2 class="section-title">Experience SeaDays</h2>
-            <p class="section-subtitle">Beautiful design meets powerful functionality</p>
-            
-            <div class="screenshots-carousel">
-                <!-- Phone 1 - Day Mode -->
-                <!-- 📱 INSERT YOUR 3 SCREENSHOT LINKS BELOW FOR PHONE 1 (Day Mode) -->
-                <div class="phone-mockup" data-phone="1">
-                    <div class="phone-screen">
-                        <img src="https://i.imghippo.com/files/aFJ3312ARA.png" alt="Screenshot 1" class="screen-content active">
-                        <img src="https://i.imghippo.com/files/rcH8727Rw.png" alt="Screenshot 2" class="screen-content">
-                        <img src="https://i.imghippo.com/files/iAc7560i.png" alt="Screenshot 3" class="screen-content">
-                    </div>
-                    <div class="slideshow-dots">
-                        <div class="dot active" onclick="showSlide(0, 1)"></div>
-                        <div class="dot" onclick="showSlide(1, 1)"></div>
-                        <div class="dot" onclick="showSlide(2, 1)"></div>
-                    </div>
-                </div>
-
-                <!-- Phone 2 - Day Mode -->
-                <!-- 📱 INSERT YOUR 3 SCREENSHOT LINKS BELOW FOR PHONE 2 (Day Mode) -->
-                <div class="phone-mockup" data-phone="2">
-                    <div class="phone-screen">
-                        <img src="https://i.imghippo.com/files/bSh5070.png" alt="Screenshot 1" class="screen-content active">
-                        <img src="https://i.imghippo.com/files/mWcj3014LdM.png" alt="Screenshot 2" class="screen-content">
-                        <img src="https://i.imghippo.com/files/kuP8965myw.png" alt="Screenshot 3" class="screen-content">
-                    </div>
-                    <div class="slideshow-dots">
-                        <div class="dot active" onclick="showSlide(0, 2)"></div>
-                        <div class="dot" onclick="showSlide(1, 2)"></div>
-                        <div class="dot" onclick="showSlide(2, 2)"></div>
-                    </div>
-                </div>
-
-                <!-- Phone 3 - Day Mode -->
-                <!-- 📱 INSERT YOUR 3 SCREENSHOT LINKS BELOW FOR PHONE 3 (Day Mode) -->
-                <div class="phone-mockup" data-phone="3">
-                    <div class="phone-screen">
-                        <img src="https://i.imghippo.com/files/eGn4061vk.png" alt="Screenshot 1" class="screen-content active">
-                        <img src="https://i.imghippo.com/files/eVK5578fQ.png" alt="Screenshot 2" class="screen-content">
-                        <img src="https://i.imghippo.com/files/rcH8727Rw.png" alt="Screenshot 3" class="screen-content">
-                    </div>
-                    <div class="slideshow-dots">
-                        <div class="dot active" onclick="showSlide(0, 3)"></div>
-                        <div class="dot" onclick="showSlide(1, 3)"></div>
-                        <div class="dot" onclick="showSlide(2, 3)"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dark Mode Section -->
-    <section class="screenshots" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); padding: 120px 0;">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Seamless Night Mode</h2>
-            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.7);">Plan your cruises comfortably, day or night, with our cyberpunk-inspired dark theme</p>
-            
-            <div style="max-width: 900px; margin: 0 auto 60px; text-align: center;">
-                <p style="color: rgba(255, 255, 255, 0.8); font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
-                    Whether you're planning your next adventure during a late-night session or reviewing your cruise itinerary from the comfort of your cabin, SeaDays' sophisticated dark mode reduces eye strain while maintaining perfect readability. Toggle between vibrant day mode and sleek cyberpunk night mode instantly with a single tap.
-                </p>
-                <p style="color: rgba(255, 255, 255, 0.6); font-size: 16px; line-height: 1.7;">
-                    Our dark mode is engineered for comfort, not just style. The matte-black interface paired with subtle neon-red highlights reduces eye strain and supports healthier circadian rhythms during evening use. Red tones are scientifically known to limit melatonin suppression, meaning your screen won’t blast your eyes with harsh blue light while you plan your next cruise. Every card, button, and UI element is crafted to stay sharp, readable, and visually striking—day or night—so your entire experience feels smooth, modern, and easy on your eyes.
-                </p>
-            </div>
-
-            <div class="screenshots-carousel">
-                <!-- Phone 1 - Dark Mode -->
-                <!-- 🌙 INSERT YOUR 3 DARK MODE SCREENSHOT LINKS BELOW FOR PHONE 1 -->
-                <div class="phone-mockup" data-phone="dark1">
-                    <div class="phone-screen">
-                        <img src="https://i.imghippo.com/files/GikU9404o.png" alt="Dark Mode Screenshot 1" class="screen-content active">
-                        <img src="https://i.imghippo.com/files/pDD5667Gc.png" alt="Dark Mode Screenshot 2" class="screen-content">
-                        <img src="https://i.imghippo.com/files/Mg6004XQ.png" alt="Dark Mode Screenshot 3" class="screen-content">
-                    </div>
-                    <div class="slideshow-dots">
-                        <div class="dot active" onclick="showSlide(0, 'dark1')"></div>
-                        <div class="dot" onclick="showSlide(1, 'dark1')"></div>
-                        <div class="dot" onclick="showSlide(2, 'dark1')"></div>
-                    </div>
-                </div>
-
-                <!-- Phone 2 - Dark Mode -->
-                <!-- 🌙 INSERT YOUR 3 DARK MODE SCREENSHOT LINKS BELOW FOR PHONE 2 -->
-                <div class="phone-mockup" data-phone="dark2">
-                    <div class="phone-screen">
-                        <img src="https://i.imghippo.com/files/UqKk7098HUQ.png" alt="Dark Mode Screenshot 1" class="screen-content active">
-                        <img src="https://i.imghippo.com/files/ODQ6359zfo.png" alt="Dark Mode Screenshot 2" class="screen-content">
-                        <img src="https://i.imghippo.com/files/xuBM2868Qg.png" alt="Dark Mode Screenshot 3" class="screen-content">
-                    </div>
-                    <div class="slideshow-dots">
-                        <div class="dot active" onclick="showSlide(0, 'dark2')"></div>
-                        <div class="dot" onclick="showSlide(1, 'dark2')"></div>
-                        <div class="dot" onclick="showSlide(2, 'dark2')"></div>
-                    </div>
-                </div>
-
-                <!-- Phone 3 - Dark Mode -->
-                <!-- 🌙 INSERT YOUR 3 DARK MODE SCREENSHOT LINKS BELOW FOR PHONE 3 -->
-                <div class="phone-mockup" data-phone="dark3">
-                    <div class="phone-screen">
-                        <img src="https://i.imghippo.com/files/AVc5885Vk.png" alt="Dark Mode Screenshot 1" class="screen-content active">
-                        <img src="https://i.imghippo.com/files/gSUK3961C.png" alt="Dark Mode Screenshot 2" class="screen-content">
-                        <img src="https://i.imghippo.com/files/Gce2706yNY.png" alt="Dark Mode Screenshot 3" class="screen-content">
-                    </div>
-                    <div class="slideshow-dots">
-                        <div class="dot active" onclick="showSlide(0, 'dark3')"></div>
-                        <div class="dot" onclick="showSlide(1, 'dark3')"></div>
-                        <div class="dot" onclick="showSlide(2, 'dark3')"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Packed with Features</h2>
-            <p class="section-subtitle">Everything you need for the perfect cruise experience</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3 class="feature-title">Gamification System</h3>
-                    <p class="feature-description">Earn XP, unlock achievements, and climb through 30 Nautical Ranks from Landlubber to Fleet Admiral. Complete challenges and earn rewards!</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🗺️</div>
-                    <h3 class="feature-title">Interactive Cruise Maps</h3>
-                    <p class="feature-description">Visualize your journey with beautiful interactive maps. Track ports visited, plan your itinerary, and share your cruise routes with friends.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">Social Features</h3>
-                    <p class="feature-description">Connect with fellow cruisers, share your SeaStories, and build your maritime community. Make friends before you even board!</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Cruise Tracking</h3>
-                    <p class="feature-description">Comprehensive tracking of your cruise history, ports visited, days at sea, and miles sailed. Watch your maritime credentials grow!</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3 class="feature-title">Achievements & Badges</h3>
-                    <p class="feature-description">Unlock special badges and achievements as you explore. Show off your accomplishments and compete on the leaderboards!</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
-                    <h3 class="feature-title">Points Shop</h3>
-                    <p class="feature-description">Spend your earned points on exclusive rewards, premium features, and special items. Your adventures pay off!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mobile Apps Coming Soon Section -->
-    <section class="features" style="padding: 80px 0; background: white;" id="mobile-apps">
-        <div class="container">
-            <h2 class="section-title" style="font-size: 48px;">Download Mobile Apps</h2>
-            <p class="section-subtitle" style="margin-bottom: 60px;">Native apps for iOS and Android launching soon</p>
-            
-            <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
-                <!-- iOS Card -->
-                <div style="background: white; padding: 50px 40px; border-radius: 24px; border: 2px solid rgba(74, 107, 124, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); flex: 1; min-width: 280px; text-align: center;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #000000, #434343); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
-                        📱
-                    </div>
-                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark);">iOS App</h3>
-                    <p style="color: var(--text-gray); font-size: 15px; margin-bottom: 20px;">Available on iPhone and iPad</p>
-                    <div style="display: inline-block; padding: 12px 28px; background: rgba(74, 107, 124, 0.1); color: var(--primary-teal); border-radius: 20px; font-weight: 600; font-size: 14px;">
-                        Coming Soon
-                    </div>
-                </div>
-
-                <!-- Android Card -->
-                <div style="background: white; padding: 50px 40px; border-radius: 24px; border: 2px solid rgba(74, 107, 124, 0.1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); flex: 1; min-width: 280px; text-align: center;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3DDC84, #07C160); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
-                        🤖
-                    </div>
-                    <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark);">Android App</h3>
-                    <p style="color: var(--text-gray); font-size: 15px; margin-bottom: 20px;">Available on Google Play</p>
-                    <div style="display: inline-block; padding: 12px 28px; background: rgba(74, 107, 124, 0.1); color: var(--primary-teal); border-radius: 20px; font-weight: 600; font-size: 14px;">
-                        Coming Soon
-                    </div>
+                    <p class="waitlist-badge">Waitlist • SeaDays</p>
                 </div>
             </div>
 
-            <p style="text-align: center; margin-top: 50px; font-size: 16px; color: var(--text-gray);">
-                Want early access? <a href="#" onclick="document.getElementById('waitlistEmail').focus(); return false;" style="color: var(--primary-teal); text-decoration: none; font-weight: 600;">Join the waitlist</a> to be notified when apps launch!
-            </p>
-        </div>
-    </section>
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})"></div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="/App.tsx">Download App</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/help.html">Help Center</a></li>
-                        <li><a href="/faq.html">FAQ</a></li>
-                        <li><a href="/community.html">Community</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="/privacy.html">Privacy</a></li>
-                        <li><a href="/terms.html">Terms</a></li>
-                        <li><a href="/cookies.html">Cookies</a></li>
-                    </ul>
+        <!-- Features Section -->
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">Powerful Features</h2>
+                <p class="section-subtitle">Everything you need to plan the perfect cruise adventure</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h3 class="feature-title">Gamification</h3>
+                        <p class="feature-description">Earn XP, unlock achievements, and level up as you plan and complete cruises. Compete with friends and climb the leaderboard!</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🚢</div>
+                        <h3 class="feature-title">Cruise Tracking</h3>
+                        <p class="feature-description">Track all your past, current, and future cruises in one place. Get detailed itineraries and destination information.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3 class="feature-title">Social Features</h3>
+                        <p class="feature-description">Connect with fellow cruisers, share experiences, and build your maritime community. Message friends directly in-app!</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3 class="feature-title">Achievements</h3>
+                        <p class="feature-description">Unlock exclusive badges and achievements as you explore more destinations and complete cruise milestones.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title">Statistics</h3>
+                        <p class="feature-description">View detailed stats about your cruising history, favorite destinations, ships sailed, and miles traveled.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎁</div>
+                        <h3 class="feature-title">Referral Rewards</h3>
+                        <p class="feature-description">Earn bonus XP and exclusive perks by inviting friends. Both you and your friends get rewarded!</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <p>&copy; 2025 SeaDays. All rights reserved.</p>
-                <p style="margin-top: 8px; font-size: 13px;">Made with ❤️ from the port city of Hamburg</p>
+        <!-- Screenshots Section -->
+        <section id="screenshots">
+            <div class="container">
+                <h2 class="section-title">Experience SeaDays</h2>
+                <p class="section-subtitle">Beautiful design meets powerful functionality</p>
+                
+                <div class="screenshots-carousel">
+                    <!-- Phone 1 - Day Mode -->
+                    <div class="phone-mockup" data-phone="1">
+                        <div class="phone-screen">
+                            <img src="https://i.imghippo.com/files/aFJ3312ARA.png" alt="Screenshot 1" class="screen-content active">
+                            <img src="https://i.imghippo.com/files/rcH8727Rw.png" alt="Screenshot 2" class="screen-content">
+                            <img src="https://i.imghippo.com/files/iAc7560i.png" alt="Screenshot 3" class="screen-content">
+                        </div>
+                        <div class="slideshow-dots">
+                            <div class="dot active" onclick="showSlide(0, 1)"></div>
+                            <div class="dot" onclick="showSlide(1, 1)"></div>
+                            <div class="dot" onclick="showSlide(2, 1)"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone 2 - Day Mode -->
+                    <div class="phone-mockup" data-phone="2">
+                        <div class="phone-screen">
+                            <img src="https://i.imghippo.com/files/bSh5070.png" alt="Screenshot 1" class="screen-content active">
+                            <img src="https://i.imghippo.com/files/mWcj3014LdM.png" alt="Screenshot 2" class="screen-content">
+                            <img src="https://i.imghippo.com/files/kuP8965myw.png" alt="Screenshot 3" class="screen-content">
+                        </div>
+                        <div class="slideshow-dots">
+                            <div class="dot active" onclick="showSlide(0, 2)"></div>
+                            <div class="dot" onclick="showSlide(1, 2)"></div>
+                            <div class="dot" onclick="showSlide(2, 2)"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone 3 - Day Mode -->
+                    <div class="phone-mockup" data-phone="3">
+                        <div class="phone-screen">
+                            <img src="https://i.imghippo.com/files/eGn4061vk.png" alt="Screenshot 1" class="screen-content active">
+                            <img src="https://i.imghippo.com/files/eVK5578fQ.png" alt="Screenshot 2" class="screen-content">
+                            <img src="https://i.imghippo.com/files/rcH8727Rw.png" alt="Screenshot 3" class="screen-content">
+                        </div>
+                        <div class="slideshow-dots">
+                            <div class="dot active" onclick="showSlide(0, 3)"></div>
+                            <div class="dot" onclick="showSlide(1, 3)"></div>
+                            <div class="dot" onclick="showSlide(2, 3)"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Dark Mode Section -->
+        <section class="dark-mode-section" id="dark-mode">
+            <div class="container">
+                <h2 class="section-title">Seamless Night Mode</h2>
+                <p class="section-subtitle">Plan your cruises comfortably, day or night, with our cyberpunk-inspired dark theme</p>
+                
+                <div style="margin-bottom: 60px;">
+                    <p class="dark-text">
+                        Whether you're planning your next adventure during a late-night session or reviewing your cruise itinerary from the comfort of your cabin, SeaDays' sophisticated dark mode reduces eye strain while maintaining perfect readability. Toggle between vibrant day mode and sleek cyberpunk night mode instantly with a single tap.
+                    </p>
+                    <p class="dark-text-secondary">
+                        Our dark mode is engineered for comfort, not just style. The matte-black interface paired with subtle neon-red highlights reduces eye strain and supports healthier circadian rhythms during evening use. Red tones are scientifically known to limit melatonin suppression, meaning your screen won't blast your eyes with harsh blue light while you plan your next cruise. Every card, button, and UI element is crafted to stay sharp, readable, and visually striking—day or night—so your entire experience feels smooth, modern, and easy on your eyes.
+                    </p>
+                </div>
+
+                <div class="screenshots-carousel">
+                    <!-- Phone 1 - Dark Mode -->
+                    <div class="phone-mockup" data-phone="dark1">
+                        <div class="phone-screen">
+                            <img src="https://i.imghippo.com/files/GikU9404o.png" alt="Dark Mode Screenshot 1" class="screen-content active">
+                            <img src="https://i.imghippo.com/files/pDD5667Gc.png" alt="Dark Mode Screenshot 2" class="screen-content">
+                            <img src="https://i.imghippo.com/files/Mg6004XQ.png" alt="Dark Mode Screenshot 3" class="screen-content">
+                        </div>
+                        <div class="slideshow-dots">
+                            <div class="dot active" onclick="showSlide(0, 'dark1')"></div>
+                            <div class="dot" onclick="showSlide(1, 'dark1')"></div>
+                            <div class="dot" onclick="showSlide(2, 'dark1')"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone 2 - Dark Mode -->
+                    <div class="phone-mockup" data-phone="dark2">
+                        <div class="phone-screen">
+                            <img src="https://i.imghippo.com/files/UqKk7098HUQ.png" alt="Dark Mode Screenshot 1" class="screen-content active">
+                            <img src="https://i.imghippo.com/files/ODQ6359zfo.png" alt="Dark Mode Screenshot 2" class="screen-content">
+                            <img src="https://i.imghippo.com/files/xuBM2868Qg.png" alt="Dark Mode Screenshot 3" class="screen-content">
+                        </div>
+                        <div class="slideshow-dots">
+                            <div class="dot active" onclick="showSlide(0, 'dark2')"></div>
+                            <div class="dot" onclick="showSlide(1, 'dark2')"></div>
+                            <div class="dot" onclick="showSlide(2, 'dark2')"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone 3 - Dark Mode -->
+                    <div class="phone-mockup" data-phone="dark3">
+                        <div class="phone-screen">
+                            <img src="https://i.imghippo.com/files/UqKk7098HUQ.png" alt="Dark Mode Screenshot 1" class="screen-content active">
+                            <img src="https://i.imghippo.com/files/GikU9404o.png" alt="Dark Mode Screenshot 2" class="screen-content">
+                            <img src="https://i.imghippo.com/files/pDD5667Gc.png" alt="Dark Mode Screenshot 3" class="screen-content">
+                        </div>
+                        <div class="slideshow-dots">
+                            <div class="dot active" onclick="showSlide(0, 'dark3')"></div>
+                            <div class="dot" onclick="showSlide(1, 'dark3')"></div>
+                            <div class="dot" onclick="showSlide(2, 'dark3')"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Apps Section -->
+        <section id="mobile-apps">
+            <div class="container">
+                <h2 class="section-title">Download SeaDays</h2>
+                <p class="section-subtitle">Available soon on iOS and Android</p>
+                
+                <div class="mobile-apps-grid">
+                    <div class="app-card">
+                        <div class="app-icon" style="background: transparent;">
+                            
+                        </div>
+                        <h3>iOS App</h3>
+                        <p>Download from the App Store and start planning your cruises on iPhone and iPad</p>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                    
+                    <div class="app-card">
+                        <div class="app-icon" style="background: transparent;">
+                            
+                        </div>
+                        <h3>Android App</h3>
+                        <p>Get it on Google Play and enjoy SeaDays on your Android device</p>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                </div>
+
+                <div class="store-badges-wrapper">
+                    <div class="store-badges">
+                        <a href="#" class="store-badge">
+                            <span class="badge-icon"></span>
+                            <div class="store-badge-content">
+                                <span class="badge-subtext">Download on the</span>
+                                <span class="badge-text">App Store</span>
+                            </div>
+                        </a>
+                        <a href="#" class="store-badge">
+                            <span class="badge-icon">▶</span>
+                            <div class="store-badge-content">
+                                <span class="badge-subtext">GET IT ON</span>
+                                <span class="badge-text">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="coming-soon-text">Coming Soon</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#screenshots">Screenshots</a></li>
+                            <li><a href="#dark-mode">Dark Mode</a></li>
+                            <li><a href="#mobile-apps">Download</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Press Kit</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 SeaDays. All rights reserved.</p>
+                    <p style="margin-top: 12px;">Made with ✨ from the port city of Hamburg</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Generate animated starfield with simple particles
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 150;
+            
+            // Create simple dot particles
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1; // 1-4px dots
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.borderRadius = '50%';
+                star.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.7 + 0.2})`;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
+        }
+
+        // Initialize starfield on page load
+        createStarfield();
+
         async function handleWaitlistSignup(event) {
             event.preventDefault();
             const email = document.getElementById('waitlistEmail').value;
