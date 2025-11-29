@@ -1,0 +1,113 @@
+================================================================================
+SeaDays Waitlist Backend Setup
+================================================================================
+
+This file contains the necessary Supabase Edge Function code to handle waitlist signups.
+If you haven't already deployed this code, you need to add it to your Supabase project.
+
+File Location: supabase/functions/server/index.tsx
+
+--------------------------------------------------------------------------------
+1. WAITLIST SIGNUP ENDPOINT (POST)
+--------------------------------------------------------------------------------
+
+app.post("/make-server-51d3ca8d/waitlist", async (c) => {
+  try {
+    const { email } = await c.req.json();
+    
+    if (!email || !email.includes('@')) {
+      return c.json({ 
+        success: false, 
+        error: 'Invalid email address' 
+      }, 400);
+    }
+
+    // Normalize email
+    const normalizedEmail = email.toLowerCase().trim();
+    
+    // Check if email already exists
+    const existingEntry = await safeKV.get(`waitlist:${normalizedEmail}`);
+    
+    if (existingEntry) {
+      return c.json({ 
+        success: true, 
+        message: 'You are already on the waitlist!',
+        alreadyExists: true
+      });
+    }
+
+    // Store email with timestamp
+    const waitlistData = {
+      email: normalizedEmail,
+      signupDate: new Date().toISOString(),
+      source: 'landing-page'
+    };
+    
+    await safeKV.set(`waitlist:${normalizedEmail}`, waitlistData);
+    
+    // Also add to a list for easy retrieval
+    const allWaitlistEmails = await safeKV.get('waitlist:all-emails') || [];
+    allWaitlistEmails.push(normalizedEmail);
+    await safeKV.set('waitlist:all-emails', allWaitlistEmails);
+    
+    console.log(`✅ Waitlist signup: ${normalizedEmail}`);
+    
+    return c.json({ 
+      success: true, 
+      message: 'Successfully joined the waitlist!',
+      email: normalizedEmail
+    });
+  } catch (error) {
+    console.error('❌ Waitlist signup error:', error);
+    return c.json({ 
+      success: false, 
+      error: 'Failed to join waitlist. Please try again.' 
+    }, 500);
+  }
+});
+
+--------------------------------------------------------------------------------
+2. WAITLIST ADMIN ENDPOINT (GET)
+--------------------------------------------------------------------------------
+
+app.get("/make-server-51d3ca8d/waitlist/all", async (c) => {
+  try {
+    const allEmails = await safeKV.get('waitlist:all-emails') || [];
+    const count = allEmails.length;
+    
+    return c.json({ 
+      success: true, 
+      count,
+      emails: allEmails 
+    });
+  } catch (error) {
+    console.error('❌ Failed to fetch waitlist:', error);
+    return c.json({ 
+      success: false, 
+      error: 'Failed to fetch waitlist' 
+    }, 500);
+  }
+});
+
+================================================================================
+DEPLOYMENT INSTRUCTIONS
+================================================================================
+
+1. Ensure your Supabase project is set up with the KV store helper (kv_store.tsx).
+2. Copy the code snippets above into your `supabase/functions/server/index.tsx` file.
+3. Deploy the function:
+   supabase functions deploy server
+
+4. To use the Waitlist Admin page:
+   - Open `waitlist-admin.html`
+   - Update the `SUPABASE_PROJECT_ID` and `SUPABASE_ANON_KEY` variables in the <script> tag.
+   - You can find these keys in your Supabase Dashboard under Settings > API.
+
+================================================================================
+GDPR COMPLIANCE NOTES
+================================================================================
+
+- The waitlist stores emails in the `waitlist:all-emails` key and individual `waitlist:{email}` keys.
+- The admin tool allows exporting (CSV) and viewing all emails.
+- To be fully GDPR compliant, ensure you have a mechanism to DELETE emails if requested.
+- You can add a delete endpoint or manually remove keys using `kv.del('waitlist:email@example.com')` and filtering the `waitlist:all-emails` array.
