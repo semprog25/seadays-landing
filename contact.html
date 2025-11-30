@@ -5,313 +5,184 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - SeaDays</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-teal: #0077be;
-            --teal-dark: #005a8f;
-            --cyan: #06B6D4;
-            --text-dark: #1f2937;
-            --text-gray: #6b7280;
+            --dark-bg: #0a0a0a;
+            --neon-red: #FF0033;
+            --text-light: #ffffff;
+            --text-gray: rgba(255, 255, 255, 0.6);
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
         }
-
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        .grid-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image: 
+                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .content-layer { position: relative; z-index: 10; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px 80px; }
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary-teal);
+            color: var(--neon-red);
             text-decoration: none;
             font-weight: 600;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: var(--teal-dark);
-            transform: translateX(-5px);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-gray);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
             margin-bottom: 40px;
-        }
-
-        .contact-card {
-            background: white;
-            border-radius: 16px;
-            padding: 32px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0, 119, 190, 0.15);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+        .back-link:hover { transform: translateX(-5px); }
+        .header { text-align: center; margin-bottom: 60px; }
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 0, 51, 0.1);
+            border: 2px solid rgba(255, 0, 51, 0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.3);
         }
-
-        .contact-card h3 {
-            font-size: 20px;
-            color: var(--text-dark);
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
             margin-bottom: 12px;
+            letter-spacing: -1px;
         }
-
+        .subtitle { color: var(--text-gray); }
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 50px;
+        }
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 0, 51, 0.2);
+        }
+        .contact-card h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--neon-red);
+        }
         .contact-card p {
             color: var(--text-gray);
-            margin-bottom: 16px;
-        }
-
-        .contact-card a {
-            color: var(--primary-teal);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--teal-dark);
-        }
-
-        .form-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .form-section h2 {
-            font-size: 28px;
-            color: var(--text-dark);
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--text-dark);
             margin-bottom: 8px;
         }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-size: 16px;
-            font-family: inherit;
-            transition: all 0.3s ease;
+        .contact-card a {
+            color: var(--text-light);
+            text-decoration: none;
         }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-teal);
-            box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.1);
+        .contact-card a:hover {
+            color: var(--neon-red);
         }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: var(--primary-teal);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background: var(--teal-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 119, 190, 0.3);
-        }
-
-        .success-message {
-            background: linear-gradient(135deg, #10B981, #06B6D4);
-            color: white;
-            padding: 16px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            display: none;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-section {
-                padding: 28px;
-            }
+            .content { padding: 30px 24px; }
+            h1 { font-size: 36px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="landing-page.html" class="back-link">← Back to Home</a>
-        
-        <div class="header">
-            <h1>Contact Us</h1>
-            <p class="subtitle">We're here to help! Reach out anytime.</p>
-        </div>
+    <div class="starfield" id="starfield"></div>
+    <div class="grid-overlay"></div>
 
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon">📧</div>
-                <h3>Email Support</h3>
-                <p>Get help from our support team</p>
-                <a href="mailto:support@seadays.semprog.de">support@seadays.semprog.de</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">🔒</div>
-                <h3>Privacy Inquiries</h3>
-                <p>Questions about your data</p>
-                <a href="mailto:privacy@seadays.semprog.de">privacy@seadays.semprog.de</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">⚖️</div>
-                <h3>Legal</h3>
-                <p>Terms and legal matters</p>
-                <a href="mailto:legal@seadays.semprog.de">legal@seadays.semprog.de</a>
-            </div>
-        </div>
-
-        <div class="form-section">
-            <h2>Send Us a Message</h2>
+    <div class="content-layer">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Home</a>
             
-            <div class="success-message" id="successMessage">
-                Thanks for reaching out! We'll get back to you soon.
+            <div class="header">
+                <div class="icon-container">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0033" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <h1>Contact Us</h1>
+                <p class="subtitle">We're here to help</p>
             </div>
 
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="content">
+                <div class="contact-card">
+                    <h2>📧 General Support</h2>
+                    <p><strong>Email:</strong> <a href="mailto:support@seadays.semprog.de">support@seadays.semprog.de</a></p>
+                    <p>For general questions, bug reports, and feature requests</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="contact-card">
+                    <h2>🔒 Privacy & Legal</h2>
+                    <p><strong>Email:</strong> <a href="mailto:privacy@seadays.semprog.de">privacy@seadays.semprog.de</a></p>
+                    <p>For privacy concerns and data requests</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a topic...</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="support">Technical Support</option>
-                        <option value="billing">Billing & Subscriptions</option>
-                        <option value="feature">Feature Request</option>
-                        <option value="bug">Bug Report</option>
-                        <option value="partnership">Partnership Opportunity</option>
-                        <option value="other">Other</option>
-                    </select>
+                <div class="contact-card">
+                    <h2>⚖️ Legal</h2>
+                    <p><strong>Email:</strong> <a href="mailto:legal@seadays.semprog.de">legal@seadays.semprog.de</a></p>
+                    <p>For legal inquiries and terms questions</p>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required></textarea>
+                <div class="contact-card">
+                    <h2>🌐 Website</h2>
+                    <p><a href="https://seadays.semprog.de">https://seadays.semprog.de</a></p>
                 </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            </div>
         </div>
     </div>
 
     <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Show success message
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
-            
-            // Reset form
-            document.getElementById('contactForm').reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-            
-            // In a real implementation, you would send this to your backend
-            console.log('Contact form submitted');
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
         }
+        createStarfield();
     </script>
 </body>
 </html>

@@ -9,17 +9,17 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seadays.app/">
+    <meta property="og:url" content="https://seadays.semprog.de/">
     <meta property="og:title" content="SeaDays - The Ultimate Cruise Planning App">
     <meta property="og:description" content="Plan, track, and share your cruise adventures with gamification, social features, and comprehensive cruise data.">
-    <meta property="og:image" content="https://seadays.app/og-image.png">
+    <meta property="og:image" content="https://seadays.semprog.de/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://seadays.app/">
+    <meta property="twitter:url" content="https://seadays.semprog.de/">
     <meta property="twitter:title" content="SeaDays - The Ultimate Cruise Planning App">
     <meta property="twitter:description" content="Plan, track, and share your cruise adventures with gamification, social features, and comprehensive cruise data.">
-    <meta property="twitter:image" content="https://seadays.app/og-image.png">
+    <meta property="twitter:image" content="https://seadays.semprog.de/og-image.png">
 
     <title>SeaDays - The Ultimate Cruise Planning App</title>
     
@@ -66,7 +66,7 @@
             position: relative;
         }
 
-        /* Starfield Background - now with nautical elements */
+        /* Starfield Background */
         .starfield {
             position: fixed;
             top: 0;
@@ -179,64 +179,47 @@
             margin: 0 auto;
         }
 
-        /* Animated Logo */
-        .logo-container {
-            position: relative;
-            margin-bottom: 50px;
-            animation: float-logo 3s ease-in-out infinite;
-        }
-
-        @keyframes float-logo {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-        }
-
-        .logo-glow-circle {
+        /* Header with Logo */
+        .header {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(255, 0, 51, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: circle-pulse 3s ease-in-out infinite;
-            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
         }
 
-        @keyframes circle-pulse {
-            0%, 100% { 
-                transform: translate(-50%, -50%) scale(1); 
-                opacity: 0.4; 
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.2); 
-                opacity: 0.7; 
-            }
+        .header-logo {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 51, 0.3));
+            transition: all 0.3s ease;
         }
 
-        .animated-logo {
-            width: 220px;
-            height: auto;
-            filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.7)) 
-                    drop-shadow(0 0 60px rgba(255, 0, 51, 0.5))
-                    drop-shadow(0 0 90px rgba(255, 0, 51, 0.3));
-            animation: logo-glow 2.5s ease-in-out infinite;
-            position: relative;
-            z-index: 2;
+        .header-logo:hover {
+            filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.5));
+            transform: scale(1.05);
         }
 
-        @keyframes logo-glow {
-            0%, 100% { 
-                filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.7)) 
-                        drop-shadow(0 0 60px rgba(255, 0, 51, 0.5))
-                        drop-shadow(0 0 90px rgba(255, 0, 51, 0.3));
-            }
-            50% { 
-                filter: drop-shadow(0 0 45px rgba(255, 0, 51, 0.9)) 
-                        drop-shadow(0 0 80px rgba(255, 0, 51, 0.7))
-                        drop-shadow(0 0 120px rgba(255, 0, 51, 0.5));
-            }
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: white;
         }
 
         .tagline {
@@ -419,9 +402,14 @@
             white-space: nowrap;
         }
 
-        .waitlist-form button:hover {
+        .waitlist-form button:hover:not(:disabled) {
             box-shadow: 0 0 40px rgba(255, 0, 51, 0.7);
             transform: translateY(-2px);
+        }
+
+        .waitlist-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .waitlist-note {
@@ -457,6 +445,10 @@
             display: block;
         }
 
+        .success-message.error {
+            background: linear-gradient(135deg, var(--red), var(--orange));
+        }
+
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -468,26 +460,22 @@
             }
         }
 
-        /* Secondary Sections - Light Theme */
-        section:not(.hero) {
-            background: linear-gradient(135deg, #a8d5e2 0%, #b5dde5 50%, #c2e5ec 100%);
-            padding: 120px 0;
-            position: relative;
-        }
-
-        section:nth-child(even):not(.hero) {
-            background: rgba(255, 255, 255, 0.6);
-        }
-
-        section:nth-child(odd):not(.hero):not(.dark-mode-section) {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
         /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Secondary Sections - Dark Theme */
+        section:not(.hero) {
+            background: var(--dark-bg-alt);
+            padding: 120px 0;
+            position: relative;
+        }
+
+        section:nth-child(even):not(.hero) {
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .section-title {
@@ -496,12 +484,12 @@
             margin-bottom: 20px;
             text-align: center;
             letter-spacing: -1px;
-            color: var(--text-dark);
+            color: white;
         }
 
         .section-subtitle {
             font-size: 20px;
-            color: var(--text-gray);
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 80px;
             text-align: center;
         }
@@ -515,18 +503,19 @@
         }
 
         .feature-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.03);
             padding: 40px 30px;
             border-radius: 24px;
-            border: 2px solid rgba(74, 107, 124, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .feature-card:hover {
-            border-color: var(--primary-teal);
-            box-shadow: 0 10px 40px rgba(74, 107, 124, 0.15);
+            border-color: var(--neon-red);
+            box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2);
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .feature-icon {
@@ -539,7 +528,7 @@
             justify-content: center;
             font-size: 32px;
             margin: 0 auto 24px auto;
-            box-shadow: 0 4px 20px rgba(74, 107, 124, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 0, 51, 0.3);
         }
 
         .feature-card:nth-child(1) .feature-icon {
@@ -570,201 +559,15 @@
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 14px;
-            color: var(--text-dark);
+            color: white;
             text-align: center;
         }
 
         .feature-description {
-            color: var(--text-gray);
-            font-size: 15px;
-            line-height: 1.7;
-            text-align: center;
-        }
-
-        /* Screenshots Section */
-        .screenshots-carousel {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-top: 80px;
-        }
-
-        .phone-mockup {
-            position: relative;
-            width: 300px;
-            height: 600px;
-            background: #000000;
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 
-                        0 0 0 1px #000000,
-                        0 0 100px rgba(74, 107, 124, 0.2);
-            transition: all 0.4s ease;
-        }
-
-        .phone-mockup:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(74, 107, 124, 0.4), 
-                        0 0 0 1px #000000,
-                        0 0 120px rgba(74, 107, 124, 0.3);
-        }
-
-        /* Dark mode phones with red glow on hover */
-        .dark-mode-section .phone-mockup:hover {
-            box-shadow: 0 30px 80px rgba(255, 0, 51, 0.5), 
-                        0 0 0 1px #000000,
-                        0 0 120px rgba(255, 0, 51, 0.4),
-                        0 0 200px rgba(255, 0, 51, 0.3);
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: #000;
-            border-radius: 28px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .screen-content {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .screen-content.active {
-            opacity: 1;
-        }
-
-        .slideshow-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 20;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .dot.active {
-            background: white;
-            width: 24px;
-            border-radius: 4px;
-        }
-
-        /* Dark Mode Section */
-        .dark-mode-section {
-            background: linear-gradient(135deg, #1a1a1a, #2a2a2a) !important;
-            padding: 120px 0;
-        }
-
-        .dark-mode-section .section-title {
-            color: white;
-        }
-
-        .dark-mode-section .section-subtitle {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .dark-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .dark-text-secondary {
             color: rgba(255, 255, 255, 0.6);
-            font-size: 16px;
-            line-height: 1.7;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        /* Mobile Apps Section */
-        .mobile-apps-grid {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .app-card {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 24px;
-            border: 2px solid rgba(74, 107, 124, 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            flex: 1;
-            min-width: 280px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .app-card:hover {
-            border-color: var(--primary-teal);
-            box-shadow: 0 10px 40px rgba(74, 107, 124, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin: 0 auto 24px;
-        }
-
-        .app-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .app-card p {
-            color: var(--text-gray);
             font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .coming-soon-badge {
-            display: inline-block;
-            padding: 12px 28px;
-            background: rgba(74, 107, 124, 0.1);
-            color: var(--primary-teal);
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
+            line-height: 1.7;
+            text-align: center;
         }
 
         /* Store Badges */
@@ -788,30 +591,17 @@
             color: var(--text-dark);
             font-size: 13px;
             transition: all 0.3s ease;
-            cursor: not-allowed;
+            cursor: pointer;
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             min-width: 160px;
-            opacity: 0.6;
-            pointer-events: none;
         }
 
         .store-badge:hover {
             background: var(--card-bg);
-            border-color: var(--primary-teal);
+            border-color: var(--neon-red);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(74, 107, 124, 0.2);
-        }
-        
-        .store-badges-wrapper {
-            text-align: center;
-        }
-        
-        .coming-soon-text {
-            margin-top: 20px;
-            font-size: 14px;
-            color: var(--text-gray);
-            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(255, 0, 51, 0.2);
         }
 
         .store-badge .badge-icon {
@@ -842,9 +632,9 @@
         /* Footer */
         footer {
             padding: 60px 0 30px;
-            border-top: 1px solid rgba(74, 107, 124, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            background: white;
+            background: #050505;
         }
 
         .footer-content {
@@ -858,7 +648,7 @@
         .footer-section h4 {
             margin-bottom: 20px;
             font-size: 18px;
-            color: var(--text-dark);
+            color: white;
         }
 
         .footer-section ul {
@@ -870,19 +660,19 @@
         }
 
         .footer-section a {
-            color: var(--text-gray);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: var(--primary-teal);
+            color: var(--neon-red);
         }
 
         .footer-bottom {
             padding-top: 30px;
-            border-top: 1px solid rgba(74, 107, 124, 0.1);
-            color: var(--text-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.3);
             font-size: 14px;
         }
 
@@ -893,6 +683,22 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .header-logo {
+                height: 40px;
+            }
+
+            .header-nav {
+                gap: 15px;
+            }
+
+            .header-nav a {
+                font-size: 13px;
+            }
+
             .tagline {
                 font-size: 36px;
                 letter-spacing: -1px;
@@ -966,16 +772,6 @@
                 gap: 30px;
             }
 
-            .screenshots-carousel {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .phone-mockup {
-                width: 260px;
-                height: 520px;
-            }
-
             .hero {
                 padding: 40px 20px;
             }
@@ -1009,22 +805,13 @@
             .waitlist-badge {
                 font-size: 11px;
             }
-
-            .dark-text {
-                font-size: 15px;
-            }
-
-            .animated-logo {
-                width: 160px;
-            }
-
-            .logo-glow-circle {
-                width: 280px;
-                height: 280px;
-            }
         }
 
         @media (max-width: 480px) {
+            .header-nav a {
+                display: none;
+            }
+
             .tagline {
                 font-size: 30px;
             }
@@ -1033,25 +820,12 @@
                 font-size: 15px;
             }
 
-            .phone-mockup {
-                width: 240px;
-                height: 480px;
-            }
-
             .feature-card {
                 padding: 25px 15px;
             }
 
             .container {
                 padding: 0 12px;
-            }
-
-            .app-card {
-                padding: 25px 15px;
-            }
-
-            .animated-logo {
-                width: 140px;
             }
         }
     </style>
@@ -1065,23 +839,28 @@
 
     <!-- All content -->
     <div class="content-layer">
+        <!-- Header -->
+        <header class="header">
+            <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seacloud.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhY2xvdWQucG5nIiwiaWF0IjoxNzYzNjY2Nzc2LCJleHAiOjQyNTUwMTA3NzZ9.3D0BKwkKv-Jm6SN5FZnCpYfxoJQvAWPvJBNzBN9WOjI" alt="SeaDays" class="header-logo">
+            <nav class="header-nav">
+                <a href="#features">Features</a>
+                <a href="landing_page_package/privacy.html">Privacy</a>
+                <a href="landing_page_package/terms.html">Terms</a>
+            </nav>
+        </header>
+
         <!-- Fullscreen Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
-                <div class="logo-container">
-                    <div class="logo-glow-circle"></div>
-                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjM2NjE4MjUsImV4cCI6NDI1NTAwNTgyNX0.Zpksao9irhLHLjmcwUQM0-Om4qzjrcYC84GLm59s-mE" alt="SeaDays" class="animated-logo">
-                </div>
-                
                 <h1 class="tagline">Your Ultimate Cruise<br>Planning Companion</h1>
                 <p class="subtitle">Plan, track, and share your nautical adventures with gamification, social features, and comprehensive cruise data. Level up as you sail!</p>
                 
                 <div class="cta-buttons">
-                    <a href="#features" class="btn-primary">
+                    <a href="https://seadays.semprog.de/app" class="btn-primary">
                         Get Started Free
                         <span>→</span>
                     </a>
-                    <a href="#screenshots" class="btn-secondary">Explore Features</a>
+                    <a href="#features" class="btn-secondary">Explore Features</a>
                 </div>
 
                 <div class="waitlist-container">
@@ -1093,7 +872,7 @@
                             required
                             aria-label="Email for waitlist"
                         />
-                        <button type="submit">Get Notified</button>
+                        <button type="submit" id="waitlistButton">Get Notified</button>
                     </form>
                     
                     <div class="success-message" id="successMessage">
@@ -1155,163 +934,27 @@
             </div>
         </section>
 
-        <!-- Screenshots Section -->
-        <section id="screenshots">
-            <div class="container">
-                <h2 class="section-title">Experience SeaDays</h2>
-                <p class="section-subtitle">Beautiful design meets powerful functionality</p>
-                
-                <div class="screenshots-carousel">
-                    <!-- Phone 1 - Day Mode -->
-                    <div class="phone-mockup" data-phone="1">
-                        <div class="phone-screen">
-                            <img src="https://i.imghippo.com/files/aFJ3312ARA.png" alt="Screenshot 1" class="screen-content active">
-                            <img src="https://i.imghippo.com/files/rcH8727Rw.png" alt="Screenshot 2" class="screen-content">
-                            <img src="https://i.imghippo.com/files/iAc7560i.png" alt="Screenshot 3" class="screen-content">
-                        </div>
-                        <div class="slideshow-dots">
-                            <div class="dot active" onclick="showSlide(0, 1)"></div>
-                            <div class="dot" onclick="showSlide(1, 1)"></div>
-                            <div class="dot" onclick="showSlide(2, 1)"></div>
-                        </div>
-                    </div>
-
-                    <!-- Phone 2 - Day Mode -->
-                    <div class="phone-mockup" data-phone="2">
-                        <div class="phone-screen">
-                            <img src="https://i.imghippo.com/files/bSh5070.png" alt="Screenshot 1" class="screen-content active">
-                            <img src="https://i.imghippo.com/files/mWcj3014LdM.png" alt="Screenshot 2" class="screen-content">
-                            <img src="https://i.imghippo.com/files/kuP8965myw.png" alt="Screenshot 3" class="screen-content">
-                        </div>
-                        <div class="slideshow-dots">
-                            <div class="dot active" onclick="showSlide(0, 2)"></div>
-                            <div class="dot" onclick="showSlide(1, 2)"></div>
-                            <div class="dot" onclick="showSlide(2, 2)"></div>
-                        </div>
-                    </div>
-
-                    <!-- Phone 3 - Day Mode -->
-                    <div class="phone-mockup" data-phone="3">
-                        <div class="phone-screen">
-                            <img src="https://i.imghippo.com/files/eGn4061vk.png" alt="Screenshot 1" class="screen-content active">
-                            <img src="https://i.imghippo.com/files/eVK5578fQ.png" alt="Screenshot 2" class="screen-content">
-                            <img src="https://i.imghippo.com/files/rcH8727Rw.png" alt="Screenshot 3" class="screen-content">
-                        </div>
-                        <div class="slideshow-dots">
-                            <div class="dot active" onclick="showSlide(0, 3)"></div>
-                            <div class="dot" onclick="showSlide(1, 3)"></div>
-                            <div class="dot" onclick="showSlide(2, 3)"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Dark Mode Section -->
-        <section class="dark-mode-section" id="dark-mode">
-            <div class="container">
-                <h2 class="section-title">Seamless Night Mode</h2>
-                <p class="section-subtitle">Plan your cruises comfortably, day or night, with our cyberpunk-inspired dark theme</p>
-                
-                <div style="margin-bottom: 60px;">
-                    <p class="dark-text">
-                        Whether you're planning your next adventure during a late-night session or reviewing your cruise itinerary from the comfort of your cabin, SeaDays' sophisticated dark mode reduces eye strain while maintaining perfect readability. Toggle between vibrant day mode and sleek cyberpunk night mode instantly with a single tap.
-                    </p>
-                    <p class="dark-text-secondary">
-                        Our dark mode is engineered for comfort, not just style. The matte-black interface paired with subtle neon-red highlights reduces eye strain and supports healthier circadian rhythms during evening use. Red tones are scientifically known to limit melatonin suppression, meaning your screen won't blast your eyes with harsh blue light while you plan your next cruise. Every card, button, and UI element is crafted to stay sharp, readable, and visually striking—day or night—so your entire experience feels smooth, modern, and easy on your eyes.
-                    </p>
-                </div>
-
-                <div class="screenshots-carousel">
-                    <!-- Phone 1 - Dark Mode -->
-                    <div class="phone-mockup" data-phone="dark1">
-                        <div class="phone-screen">
-                            <img src="https://i.imghippo.com/files/GikU9404o.png" alt="Dark Mode Screenshot 1" class="screen-content active">
-                            <img src="https://i.imghippo.com/files/pDD5667Gc.png" alt="Dark Mode Screenshot 2" class="screen-content">
-                            <img src="https://i.imghippo.com/files/Mg6004XQ.png" alt="Dark Mode Screenshot 3" class="screen-content">
-                        </div>
-                        <div class="slideshow-dots">
-                            <div class="dot active" onclick="showSlide(0, 'dark1')"></div>
-                            <div class="dot" onclick="showSlide(1, 'dark1')"></div>
-                            <div class="dot" onclick="showSlide(2, 'dark1')"></div>
-                        </div>
-                    </div>
-
-                    <!-- Phone 2 - Dark Mode -->
-                    <div class="phone-mockup" data-phone="dark2">
-                        <div class="phone-screen">
-                            <img src="https://i.imghippo.com/files/UqKk7098HUQ.png" alt="Dark Mode Screenshot 1" class="screen-content active">
-                            <img src="https://i.imghippo.com/files/ODQ6359zfo.png" alt="Dark Mode Screenshot 2" class="screen-content">
-                            <img src="https://i.imghippo.com/files/xuBM2868Qg.png" alt="Dark Mode Screenshot 3" class="screen-content">
-                        </div>
-                        <div class="slideshow-dots">
-                            <div class="dot active" onclick="showSlide(0, 'dark2')"></div>
-                            <div class="dot" onclick="showSlide(1, 'dark2')"></div>
-                            <div class="dot" onclick="showSlide(2, 'dark2')"></div>
-                        </div>
-                    </div>
-
-                    <!-- Phone 3 - Dark Mode -->
-                    <div class="phone-mockup" data-phone="dark3">
-                        <div class="phone-screen">
-                            <img src="https://i.imghippo.com/files/UqKk7098HUQ.png" alt="Dark Mode Screenshot 1" class="screen-content active">
-                            <img src="https://i.imghippo.com/files/GikU9404o.png" alt="Dark Mode Screenshot 2" class="screen-content">
-                            <img src="https://i.imghippo.com/files/pDD5667Gc.png" alt="Dark Mode Screenshot 3" class="screen-content">
-                        </div>
-                        <div class="slideshow-dots">
-                            <div class="dot active" onclick="showSlide(0, 'dark3')"></div>
-                            <div class="dot" onclick="showSlide(1, 'dark3')"></div>
-                            <div class="dot" onclick="showSlide(2, 'dark3')"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mobile Apps Section -->
-        <section id="mobile-apps">
+        <!-- Download Section -->
+        <section id="download">
             <div class="container">
                 <h2 class="section-title">Download SeaDays</h2>
-                <p class="section-subtitle">Available soon on iOS and Android</p>
+                <p class="section-subtitle">Available on iOS and Android</p>
                 
-                <div class="mobile-apps-grid">
-                    <div class="app-card">
-                        <div class="app-icon" style="background: transparent;">
-                            
+                <div class="store-badges">
+                    <a href="https://apps.apple.com/seadays" class="store-badge">
+                        <span class="badge-icon">🍎</span>
+                        <div class="store-badge-content">
+                            <span class="badge-subtext">Download on the</span>
+                            <span class="badge-text">App Store</span>
                         </div>
-                        <h3>iOS App</h3>
-                        <p>Download from the App Store and start planning your cruises on iPhone and iPad</p>
-                        <span class="coming-soon-badge">Coming Soon</span>
-                    </div>
-                    
-                    <div class="app-card">
-                        <div class="app-icon" style="background: transparent;">
-                            
+                    </a>
+                    <a href="https://play.google.com/store/seadays" class="store-badge">
+                        <span class="badge-icon">▶</span>
+                        <div class="store-badge-content">
+                            <span class="badge-subtext">GET IT ON</span>
+                            <span class="badge-text">Google Play</span>
                         </div>
-                        <h3>Android App</h3>
-                        <p>Get it on Google Play and enjoy SeaDays on your Android device</p>
-                        <span class="coming-soon-badge">Coming Soon</span>
-                    </div>
-                </div>
-
-                <div class="store-badges-wrapper">
-                    <div class="store-badges">
-                        <a href="#" class="store-badge">
-                            <span class="badge-icon"></span>
-                            <div class="store-badge-content">
-                                <span class="badge-subtext">Download on the</span>
-                                <span class="badge-text">App Store</span>
-                            </div>
-                        </a>
-                        <a href="#" class="store-badge">
-                            <span class="badge-icon">▶</span>
-                            <div class="store-badge-content">
-                                <span class="badge-subtext">GET IT ON</span>
-                                <span class="badge-text">Google Play</span>
-                            </div>
-                        </a>
-                    </div>
-                    <p class="coming-soon-text">Coming Soon</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1324,29 +967,27 @@
                         <h4>Product</h4>
                         <ul>
                             <li><a href="#features">Features</a></li>
-                            <li><a href="#screenshots">Screenshots</a></li>
-                            <li><a href="#dark-mode">Dark Mode</a></li>
-                            <li><a href="#mobile-apps">Download</a></li>
+                            <li><a href="#download">Download</a></li>
+                            <li><a href="https://seadays.semprog.de/app">Web App</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Press Kit</a></li>
+                            <li><a href="landing_page_package/about.html">About Us</a></li>
+                            <li><a href="landing_page_package/help.html">Help Center</a></li>
+                            <li><a href="landing_page_package/contact.html">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
-                        <h4>Support</h4>
+                        <h4>Legal</h4>
                         <ul>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="https://seadays.semprog.de/privacy.html">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="landing_page_package/privacy.html">Privacy Policy</a></li>
+                            <li><a href="landing_page_package/terms.html">Terms of Service</a></li>
+                            <li><a href="landing_page_package/cookies.html">Cookie Policy</a></li>
+                            <li><a href="landing_page_package/gdpr.html">GDPR</a></li>
                         </ul>
                     </div>
                     
@@ -1363,7 +1004,7 @@
                 
                 <div class="footer-bottom">
                     <p>&copy; 2025 SeaDays. All rights reserved.</p>
-                    <p style="margin-top: 12px;">Made with ✨ from the port city of Hamburg</p>
+                    <p style="margin-top: 12px;">Made with ✨ from the high seas</p>
                 </div>
             </div>
         </footer>
@@ -1394,11 +1035,14 @@
         // Initialize starfield on page load
         createStarfield();
 
+        // Waitlist signup handler
         async function handleWaitlistSignup(event) {
             event.preventDefault();
-            const email = document.getElementById('waitlistEmail').value;
+            
+            const emailInput = document.getElementById('waitlistEmail');
+            const submitButton = document.getElementById('waitlistButton');
             const successMessage = document.getElementById('successMessage');
-            const submitButton = event.target.querySelector('button');
+            const email = emailInput.value;
             
             // Disable button during submission
             submitButton.disabled = true;
@@ -1421,13 +1065,14 @@
                 
                 const data = await response.json();
                 
-                if (response.ok) {
+                if (response.ok && data.success) {
                     // Show success message
                     successMessage.textContent = data.message || 'Success! You\'ve been added to the waitlist and earned 1000 bonus XP!';
+                    successMessage.classList.remove('error');
                     successMessage.classList.add('show');
                     
                     // Clear form
-                    document.getElementById('waitlistEmail').value = '';
+                    emailInput.value = '';
                     
                     // Hide success message after 5 seconds
                     setTimeout(() => {
@@ -1439,12 +1084,12 @@
             } catch (error) {
                 console.error('Waitlist signup error:', error);
                 successMessage.textContent = 'Oops! Something went wrong. Please try again.';
-                successMessage.style.background = 'linear-gradient(135deg, #EF4444, #F97316)';
+                successMessage.classList.add('error');
                 successMessage.classList.add('show');
                 
                 setTimeout(() => {
                     successMessage.classList.remove('show');
-                    successMessage.style.background = 'linear-gradient(135deg, var(--green), var(--cyan))';
+                    successMessage.classList.remove('error');
                 }, 5000);
             } finally {
                 // Re-enable button
@@ -1452,45 +1097,6 @@
                 submitButton.textContent = 'Get Notified';
             }
         }
-
-        // Slideshow functionality
-        const phoneMockups = ['1', '2', '3', 'dark1', 'dark2', 'dark3'];
-        const currentSlideIndex = {};
-        
-        // Initialize current slide index for each phone
-        phoneMockups.forEach(phone => {
-            currentSlideIndex[phone] = 0;
-        });
-
-        function showSlide(index, phone) {
-            const phoneSlides = document.querySelectorAll(`.phone-mockup[data-phone="${phone}"] .phone-screen .screen-content`);
-            const phoneDots = document.querySelectorAll(`.phone-mockup[data-phone="${phone}"] .slideshow-dots .dot`);
-            
-            if (phoneSlides.length === 0) return; // Skip if no slides found
-            
-            phoneSlides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            phoneDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            currentSlideIndex[phone] = index;
-        }
-
-        function nextSlideForPhone(phone) {
-            const phoneSlides = document.querySelectorAll(`.phone-mockup[data-phone="${phone}"] .phone-screen .screen-content`);
-            if (phoneSlides.length === 0) return; // Skip if no slides found
-            
-            const nextIndex = (currentSlideIndex[phone] + 1) % phoneSlides.length;
-            showSlide(nextIndex, phone);
-        }
-
-        // Auto-play the slideshow for all phones independently
-        phoneMockups.forEach(phone => {
-            setInterval(() => {
-                nextSlideForPhone(phone);
-            }, 3500); // 3.5 seconds per slide
-        });
     </script>
 </body>
 </html>

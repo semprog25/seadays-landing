@@ -5,322 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help Center - SeaDays</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-teal: #0077be;
-            --teal-dark: #005a8f;
-            --cyan: #06B6D4;
-            --text-dark: #1f2937;
-            --text-gray: #6b7280;
+            --dark-bg: #0a0a0a;
+            --neon-red: #FF0033;
+            --text-light: #ffffff;
+            --text-gray: rgba(255, 255, 255, 0.6);
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
         }
-
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        .grid-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image: 
+                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .content-layer { position: relative; z-index: 10; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary-teal);
+            color: var(--neon-red);
             text-decoration: none;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             transition: all 0.3s ease;
         }
-
-        .back-link:hover {
-            color: var(--teal-dark);
-            transform: translateX(-5px);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--text-dark);
-            margin-bottom: 16px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-gray);
-        }
-
-        .help-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 50px;
-        }
-
-        .category-card {
-            background: white;
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0, 119, 190, 0.15);
-        }
-
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
-            border-radius: 12px;
+        .back-link:hover { transform: translateX(-5px); }
+        .header { text-align: center; margin-bottom: 60px; }
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 0, 51, 0.1);
+            border: 2px solid rgba(255, 0, 51, 0.3);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            margin-bottom: 20px;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.3);
         }
-
-        .category-card h3 {
-            font-size: 22px;
-            color: var(--text-dark);
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
             margin-bottom: 12px;
+            letter-spacing: -1px;
         }
-
-        .category-card p {
-            color: var(--text-gray);
-            line-height: 1.6;
+        .subtitle { color: var(--text-gray); }
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 50px;
         }
-
-        .articles-section {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .articles-section h2 {
-            font-size: 28px;
-            color: var(--text-dark);
+        .faq-item {
             margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-
-        .article-list {
-            display: grid;
-            gap: 16px;
+        .faq-item:last-child {
+            border-bottom: none;
         }
-
-        .article-item {
-            padding: 20px;
-            border-radius: 10px;
-            background: #f9fafb;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .article-item:hover {
-            background: #f0f9ff;
-            transform: translateX(5px);
-        }
-
-        .article-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-        }
-
-        .article-description {
-            font-size: 15px;
-            color: var(--text-gray);
-        }
-
-        .contact-banner {
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            color: white;
-            margin-top: 40px;
-        }
-
-        .contact-banner h2 {
-            font-size: 28px;
+        .faq-item h2 {
+            font-size: 22px;
             margin-bottom: 12px;
+            color: var(--neon-red);
         }
-
-        .contact-banner p {
-            font-size: 17px;
-            margin-bottom: 24px;
-            opacity: 0.95;
+        .faq-item p {
+            color: var(--text-gray);
+            line-height: 1.7;
         }
-
-        .contact-button {
-            display: inline-block;
-            padding: 14px 32px;
-            background: white;
-            color: var(--primary-teal);
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .contact-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            .help-categories {
-                grid-template-columns: 1fr;
-            }
-
-            .articles-section {
-                padding: 28px;
-            }
+            .content { padding: 30px 24px; }
+            h1 { font-size: 36px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="landing-page.html" class="back-link">← Back to Home</a>
-        
-        <div class="header">
-            <h1>Help Center</h1>
-            <p class="subtitle">Find answers and get the most out of SeaDays</p>
-        </div>
+    <div class="starfield" id="starfield"></div>
+    <div class="grid-overlay"></div>
 
-        <div class="help-categories">
-            <div class="category-card">
-                <div class="category-icon">🚀</div>
-                <h3>Getting Started</h3>
-                <p>Learn the basics of SeaDays and start planning your first cruise adventure.</p>
+    <div class="content-layer">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Home</a>
+            
+            <div class="header">
+                <div class="icon-container">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0033" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <h1>Help Center</h1>
+                <p class="subtitle">Frequently Asked Questions</p>
             </div>
 
-            <div class="category-card">
-                <div class="category-icon">🎮</div>
-                <h3>XP & Leveling</h3>
-                <p>Understand how to earn XP, unlock achievements, and climb the Nautical Ranks.</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">👥</div>
-                <h3>Crew & Social</h3>
-                <p>Connect with friends, create crews, and share your cruise experiences.</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">💳</div>
-                <h3>Subscriptions</h3>
-                <p>Manage your subscription, upgrade plans, and understand billing.</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">🗺️</div>
-                <h3>Maps & Tracking</h3>
-                <p>Use interactive maps, track your voyages, and visualize your journey.</p>
-            </div>
-
-            <div class="category-card">
-                <div class="category-icon">⚙️</div>
-                <h3>Settings & Privacy</h3>
-                <p>Customize your experience and manage your privacy preferences.</p>
-            </div>
-        </div>
-
-        <div class="articles-section">
-            <h2>Popular Articles</h2>
-            <div class="article-list">
-                <div class="article-item">
-                    <div class="article-title">How do I add my first cruise?</div>
-                    <div class="article-description">Step-by-step guide to adding your cruise information and tracking your voyage.</div>
+            <div class="content">
+                <div class="faq-item">
+                    <h2>What is SeaDays?</h2>
+                    <p>SeaDays is a comprehensive cruise planning app that helps you track your voyages, earn XP and achievements, connect with fellow cruisers, and manage every aspect of your maritime adventures.</p>
                 </div>
 
-                <div class="article-item">
-                    <div class="article-title">Understanding the XP system</div>
-                    <div class="article-description">Learn how to earn XP, what actions give points, and how multipliers work.</div>
+                <div class="faq-item">
+                    <h2>How do I add a cruise?</h2>
+                    <p>You can add cruises through the "Plan" tab in the app. Enter your booking details or connect directly with supported cruise lines to import your itinerary automatically.</p>
                 </div>
 
-                <div class="article-item">
-                    <div class="article-title">How to create and manage a crew</div>
-                    <div class="article-description">Invite friends, share itineraries, and collaborate on cruise planning.</div>
+                <div class="faq-item">
+                    <h2>What are XP and Achievements?</h2>
+                    <p>XP (Experience Points) are earned by completing cruises, visiting ports, and engaging with the community. Achievements are special badges unlocked by reaching milestones in your cruising journey.</p>
                 </div>
 
-                <div class="article-item">
-                    <div class="article-title">What are the different subscription tiers?</div>
-                    <div class="article-description">Compare Free, Basic, Pro, and Premium plans to find what's right for you.</div>
+                <div class="faq-item">
+                    <h2>Is SeaDays free?</h2>
+                    <p>Yes! SeaDays offers a free tier with core features. Premium tiers unlock unlimited cruises, advanced statistics, and exclusive benefits.</p>
                 </div>
 
-                <div class="article-item">
-                    <div class="article-title">How to unlock achievements and badges</div>
-                    <div class="article-description">Discover all available achievements and how to earn special badges.</div>
+                <div class="faq-item">
+                    <h2>How do I contact support?</h2>
+                    <p>Email us at support@seadays.semprog.de for any questions, bug reports, or feature requests. We typically respond within 24-48 hours.</p>
                 </div>
 
-                <div class="article-item">
-                    <div class="article-title">Using the interactive cruise map</div>
-                    <div class="article-description">Navigate the map, view port details, and visualize your cruise route.</div>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title">How to change my subscription</div>
-                    <div class="article-description">Upgrade, downgrade, or cancel your subscription at any time.</div>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title">Managing notifications and emails</div>
-                    <div class="article-description">Control what notifications you receive and how often.</div>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title">How to export my cruise data</div>
-                    <div class="article-description">Download your cruise history, stats, and personal data.</div>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title">Troubleshooting common issues</div>
-                    <div class="article-description">Solutions to frequently encountered problems and error messages.</div>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title">What is the Points Shop?</div>
-                    <div class="article-description">Learn how to earn and spend points on exclusive rewards and features.</div>
-                </div>
-
-                <div class="article-item">
-                    <div class="article-title">How to delete my account</div>
-                    <div class="article-description">Steps to permanently delete your SeaDays account and data.</div>
+                <div class="faq-item">
+                    <h2>Can I export my data?</h2>
+                    <p>Yes! You can export all your cruise data, statistics, and photos from your account settings at any time.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="contact-banner">
-            <h2>Can't Find What You're Looking For?</h2>
-            <p>Our support team is ready to help you with any questions</p>
-            <a href="contact.html" class="contact-button">Contact Support</a>
         </div>
     </div>
+
+    <script>
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
+        }
+        createStarfield();
+    </script>
 </body>
 </html>
