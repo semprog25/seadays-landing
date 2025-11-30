@@ -179,6 +179,25 @@
             margin: 0 auto;
         }
 
+        /* Hero Logo - Centered and Cute */
+        .hero-logo {
+            width: 180px;
+            height: auto;
+            margin: 0 auto 40px;
+            display: block;
+            filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.4));
+            animation: float-logo 3s ease-in-out infinite;
+        }
+
+        @keyframes float-logo {
+            0%, 100% { 
+                transform: translateY(0px);
+            }
+            50% { 
+                transform: translateY(-10px);
+            }
+        }
+
         /* Header with Logo */
         .header {
             position: absolute;
@@ -187,21 +206,9 @@
             right: 0;
             padding: 20px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             z-index: 100;
-        }
-
-        .header-logo {
-            height: 50px;
-            width: auto;
-            filter: drop-shadow(0 0 20px rgba(255, 0, 51, 0.3));
-            transition: all 0.3s ease;
-        }
-
-        .header-logo:hover {
-            filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.5));
-            transform: scale(1.05);
         }
 
         .header-nav {
@@ -839,19 +846,20 @@
 
     <!-- All content -->
     <div class="content-layer">
-        <!-- Header -->
+        <!-- Header ---->
         <header class="header">
-            <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seacloud.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhY2xvdWQucG5nIiwiaWF0IjoxNzYzNjY2Nzc2LCJleHAiOjQyNTUwMTA3NzZ9.3D0BKwkKv-Jm6SN5FZnCpYfxoJQvAWPvJBNzBN9WOjI" alt="SeaDays" class="header-logo">
             <nav class="header-nav">
                 <a href="#features">Features</a>
-                <a href="landing_page_package/privacy.html">Privacy</a>
-                <a href="landing_page_package/terms.html">Terms</a>
+                <a href="https://seadays.semprog.de/privacy.html">Privacy</a>
+                <a href="https://seadays.semprog.de/terms.html">Terms</a>
             </nav>
         </header>
 
         <!-- Fullscreen Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
+                <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays" class="hero-logo">
+                
                 <h1 class="tagline">Your Ultimate Cruise<br>Planning Companion</h1>
                 <p class="subtitle">Plan, track, and share your nautical adventures with gamification, social features, and comprehensive cruise data. Level up as you sail!</p>
                 
@@ -975,19 +983,21 @@
                     <div class="footer-section">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="landing_page_package/about.html">About Us</a></li>
-                            <li><a href="landing_page_package/help.html">Help Center</a></li>
-                            <li><a href="landing_page_package/contact.html">Contact</a></li>
+                            <li><a href="https://seadays.semprog.de/about.html">About Us</a></li>
+                            <li><a href="https://seadays.semprog.de/help.html">Help Center</a></li>
+                            <li><a href="https://seadays.semprog.de/contact.html">Contact</a></li>
+                            <li><a href="https://seadays.semprog.de/faq.html">FAQ</a></li>
+                            <li><a href="https://seadays.semprog.de/community.html">Community</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Legal</h4>
                         <ul>
-                            <li><a href="landing_page_package/privacy.html">Privacy Policy</a></li>
-                            <li><a href="landing_page_package/terms.html">Terms of Service</a></li>
-                            <li><a href="landing_page_package/cookies.html">Cookie Policy</a></li>
-                            <li><a href="landing_page_package/gdpr.html">GDPR</a></li>
+                            <li><a href="https://seadays.semprog.de/privacy.html">Privacy Policy</a></li>
+                            <li><a href="https://seadays.semprog.de/terms.html">Terms of Service</a></li>
+                            <li><a href="https://seadays.semprog.de/cookies.html">Cookie Policy</a></li>
+                            <li><a href="https://seadays.semprog.de/gdpr.html">GDPR</a></li>
                         </ul>
                     </div>
                     
