@@ -1,4 +1,4 @@
-Put your HTML text here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,17 +9,17 @@ Put your HTML text here<!DOCTYPE html>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seadays.semprog.de/">
+    <meta property="og:url" content="https://seadays.app/">
     <meta property="og:title" content="SeaDays - The Ultimate Cruise Planning App">
     <meta property="og:description" content="Plan, track, and share your cruise adventures with gamification, social features, and comprehensive cruise data.">
-    <meta property="og:image" content="https://seadays.semprog.de/og-image.png">
+    <meta property="og:image" content="https://seadays.app/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://seadays.semprog.de/">
+    <meta property="twitter:url" content="https://seadays.app/">
     <meta property="twitter:title" content="SeaDays - The Ultimate Cruise Planning App">
     <meta property="twitter:description" content="Plan, track, and share your cruise adventures with gamification, social features, and comprehensive cruise data.">
-    <meta property="twitter:image" content="https://seadays.semprog.de/og-image.png">
+    <meta property="twitter:image" content="https://seadays.app/og-image.png">
 
     <title>SeaDays - The Ultimate Cruise Planning App</title>
     
@@ -538,6 +538,13 @@ Put your HTML text here<!DOCTYPE html>
             box-shadow: 0 4px 20px rgba(255, 0, 51, 0.3);
         }
 
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
         .feature-card:nth-child(1) .feature-icon {
             background: linear-gradient(135deg, var(--pink), var(--purple));
         }
@@ -777,6 +784,11 @@ Put your HTML text here<!DOCTYPE html>
                 font-size: 28px;
             }
 
+            .feature-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
             .feature-title {
                 font-size: 20px;
             }
@@ -862,8 +874,8 @@ Put your HTML text here<!DOCTYPE html>
         <header class="header">
             <nav class="header-nav">
                 <a href="#features">Features</a>
-                <a href="https://seadays.semprog.de/privacy.html">Privacy</a>
-                <a href="https://seadays.semprog.de/terms.html">Terms</a>
+                <a href="https://seadays.app/privacy.html">Privacy</a>
+                <a href="https://seadays.app/terms.html">Terms</a>
             </nav>
         </header>
 
@@ -890,10 +902,10 @@ Put your HTML text here<!DOCTYPE html>
                     </form>
                     
                     <div class="success-message" id="successMessage">
-                        Success! You've been added to the waitlist and earned 200 bonus XP!
+                        Success! You've been added to the waitlist and earned 1000 bonus XP!
                     </div>
                     
-                    <p class="waitlist-note">Join now and get 200 bonus XP + exclusive Founder Badge</p>
+                    <p class="waitlist-note">Join now and get 1000 bonus XP + exclusive Founder Badge</p>
                     <p class="waitlist-badge">Waitlist • SeaDays</p>
                 </div>
             </div>
@@ -910,37 +922,37 @@ Put your HTML text here<!DOCTYPE html>
                 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🎮</div>
+                        <div class="feature-icon"><i data-lucide="gamepad-2"></i></div>
                         <h3 class="feature-title">Gamification</h3>
                         <p class="feature-description">Earn XP, unlock achievements, and level up as you plan and complete cruises. Compete with friends and climb the leaderboard!</p>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">🚢</div>
+                        <div class="feature-icon"><i data-lucide="ship"></i></div>
                         <h3 class="feature-title">Cruise Tracking</h3>
                         <p class="feature-description">Track all your past, current, and future cruises in one place. Get detailed itineraries and destination information.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">👥</div>
+                        <div class="feature-icon"><i data-lucide="users"></i></div>
                         <h3 class="feature-title">Social Features</h3>
                         <p class="feature-description">Connect with fellow cruisers, share experiences, and build your maritime community. Message friends directly in-app!</p>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">🏆</div>
+                        <div class="feature-icon"><i data-lucide="trophy"></i></div>
                         <h3 class="feature-title">Achievements</h3>
                         <p class="feature-description">Unlock exclusive badges and achievements as you explore more destinations and complete cruise milestones.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">📊</div>
+                        <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
                         <h3 class="feature-title">Statistics</h3>
                         <p class="feature-description">View detailed stats about your cruising history, favorite destinations, ships sailed, and miles traveled.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">🎁</div>
+                        <div class="feature-icon"><i data-lucide="gift"></i></div>
                         <h3 class="feature-title">Referral Rewards</h3>
                         <p class="feature-description">Earn bonus XP and exclusive perks by inviting friends. Both you and your friends get rewarded!</p>
                     </div>
@@ -952,7 +964,7 @@ Put your HTML text here<!DOCTYPE html>
         <section id="download">
             <div class="container">
                 <h2 class="section-title">Download SeaDays</h2>
-                <p class="section-subtitle">Coming soon on iOS and Android</p>
+                <p class="section-subtitle">Available on iOS and Android</p>
                 
                 <div class="store-badges">
                     <div class="store-badge">
@@ -986,43 +998,45 @@ Put your HTML text here<!DOCTYPE html>
                         <ul>
                             <li><a href="#features">Features</a></li>
                             <li><a href="#download">Download</a></li>
-                            <li><a href="https://seadays.semprog.de/">Web App</a></li>
+                            <li><a href="https://seadays.app/app">Web App</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="https://seadays.semprog.de/about.html">About Us</a></li>
-                            <li><a href="https://seadays.semprog.de/help.html">Help Center</a></li>
-                            <li><a href="https://seadays.semprog.de/contact.html">Contact</a></li>
+                            <li><a href="https://seadays.app/about.html">About Us</a></li>
+                            <li><a href="https://seadays.app/help.html">Help Center</a></li>
+                            <li><a href="https://seadays.app/contact.html">Contact</a></li>
+                            <li><a href="https://seadays.app/faq.html">FAQ</a></li>
+                            <li><a href="https://seadays.app/community.html">Community</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Legal</h4>
                         <ul>
-                            <li><a href="https://seadays.semprog.de/privacy.html">Privacy Policy</a></li>
-                            <li><a href="https://seadays.semprog.de/terms.html">Terms of Service</a></li>
-                            <li><a href="https://seadays.semprog.de/cookies.html">Cookie Policy</a></li>
-                            <li><a href="https://seadays.semprog.de/gdpr.html">GDPR</a></li>
+                            <li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li>
+                            <li><a href="https://seadays.app/terms.html">Terms of Service</a></li>
+                            <li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li>
+                            <li><a href="https://seadays.app/gdpr.html">GDPR</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-section">
                         <h4>Connect</h4>
                         <ul>
-                            <li><a href="#"></a></li>
-                            <li><a href="https://www.instagram.com/seadaysapp/">Instagram</a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2025 SeaDays. All rights reserved.</p>
-                    <p style="margin-top: 12px;">Made with ✨ from the high seas</p>
+                    <p>&copy; 2026 SeaDays. All rights reserved.</p>
+                    <p style="margin-top: 12px;">Made with <i data-lucide="sparkles" style="display:inline;vertical-align:middle;width:1em;height:1em;"></i> from Hamburg</p>
                 </div>
             </div>
         </footer>
@@ -1116,5 +1130,7 @@ Put your HTML text here<!DOCTYPE html>
             }
         }
     </script>
+    <script src="https://unpkg.com/lucide@0.487.0/dist/umd/lucide.min.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
