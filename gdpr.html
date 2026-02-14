@@ -5,164 +5,354 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GDPR Compliance - SeaDays</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            margin: 0;
+            padding: 40px 20px;
             min-height: 100vh;
-            overflow-x: hidden;
         }
-        .starfield {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
-        }
-        .grid-overlay {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background-image: 
-                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
-            background-size: 100px 100px;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-        .content-layer { position: relative; z-index: 10; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #FF0033;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 40px;
-            transition: all 0.3s ease;
-        }
-        .back-link:hover { transform: translateX(-5px); }
-        .header { text-align: center; margin-bottom: 60px; }
-        .icon-container {
-            width: 80px;
-            height: 80px;
+        h1 { color: #FF0033; margin-bottom: 10px; }
+        h2 { color: white; margin-top: 40px; font-size: 22px; }
+        h3 { color: #FF0033; margin-top: 25px; font-size: 18px; }
+        p, li { line-height: 1.8; color: #a0a0a0; margin-bottom: 15px; }
+        ul { margin-left: 20px; }
+        a { color: #FF0033; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .last-updated { color: #666; font-size: 14px; margin-bottom: 30px; }
+        
+        .info-box {
             background: rgba(255, 0, 51, 0.1);
-            border: 2px solid rgba(255, 0, 51, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 0 30px rgba(255, 0, 51, 0.3);
+            border-left: 4px solid #FF0033;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
         }
-        h1 { font-size: 48px; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
-        .subtitle { color: rgba(255, 255, 255, 0.6); }
-        .content {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 50px;
+        
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
-        .section { margin-bottom: 32px; }
-        .section h2 { font-size: 24px; margin-bottom: 16px; color: #FF0033; }
-        .section p { color: rgba(255, 255, 255, 0.6); line-height: 1.8; margin-bottom: 12px; }
-        .section ul { padding-left: 24px; color: rgba(255, 255, 255, 0.6); margin-bottom: 12px; }
-        .section li { margin-bottom: 8px; }
-        @media (max-width: 768px) {
-            .content { padding: 30px 24px; }
-            h1 { font-size: 36px; }
+        
+        .right-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .right-card h3 {
+            color: white;
+            margin-top: 0;
+            font-size: 18px;
+        }
+        
+        .action-button {
+            background: #FF0033;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+        }
+        
+        .action-button:hover {
+            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.5);
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <div class="starfield" id="starfield"></div>
-    <div class="grid-overlay"></div>
-
-    <div class="content-layer">
-        <div class="container">
-            <a href="../index.html" class="back-link">← Back to Home</a>
-            
-            <div class="header">
-                <div class="icon-container">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0033" stroke-width="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
-                </div>
-                <h1>GDPR Compliance</h1>
-                <p class="subtitle">Your Data Rights Under GDPR</p>
+    <div class="container">
+        <h1>GDPR Compliance & Your Rights</h1>
+        <p class="last-updated">Last Updated: November 14, 2024</p>
+        
+        <p>SeaDays is committed to protecting your privacy and complying with the General Data Protection Regulation (GDPR) and other applicable data protection laws. This page explains your rights and how we comply with GDPR requirements.</p>
+        
+        <div class="info-box">
+            <p style="margin: 0;"><strong>🇪🇺 EU/EEA Users:</strong> If you're located in the European Union, European Economic Area, or Switzerland, you have additional privacy rights under GDPR. We're here to help you exercise those rights.</p>
+        </div>
+        
+        <h2>Your GDPR Rights</h2>
+        <p>Under GDPR, you have the following rights regarding your personal data:</p>
+        
+        <div class="rights-grid">
+            <div class="right-card">
+                <h3>1. Right to Access</h3>
+                <p>You can request a copy of all personal data we hold about you, including:</p>
+                <ul>
+                    <li>Account information</li>
+                    <li>Cruise history and data</li>
+                    <li>Community posts and photos</li>
+                    <li>Usage analytics</li>
+                    <li>Communication history</li>
+                </ul>
             </div>
-
-            <div class="content">
-                <div class="section">
-                    <h2>Your Rights</h2>
-                    <p>Under GDPR (General Data Protection Regulation), you have the following rights:</p>
-                    <ul>
-                        <li><strong>Right to Access:</strong> Request a copy of your personal data</li>
-                        <li><strong>Right to Rectification:</strong> Correct inaccurate data</li>
-                        <li><strong>Right to Erasure:</strong> Request deletion of your data</li>
-                        <li><strong>Right to Portability:</strong> Receive your data in a portable format</li>
-                        <li><strong>Right to Object:</strong> Object to processing of your data</li>
-                        <li><strong>Right to Restrict Processing:</strong> Limit how we use your data</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>Data Protection</h2>
-                    <p>We implement appropriate technical and organizational measures to ensure the security of your personal data, including encryption, access controls, and regular security audits.</p>
-                </div>
-
-                <div class="section">
-                    <h2>Data Processing</h2>
-                    <p>We process your data lawfully, fairly, and transparently for specific, legitimate purposes. We only collect data necessary for providing SeaDays services.</p>
-                </div>
-
-                <div class="section">
-                    <h2>Exercising Your Rights</h2>
-                    <p>To exercise any of your GDPR rights, contact us at:</p>
-                    <p><strong>Email:</strong> privacy.seadays@semprog.de</p>
-                    <p>We will respond to your request within 30 days.</p>
-                </div>
-
-                <div class="section">
-                    <h2>Data Protection Officer</h2>
-                    <p>For data protection inquiries, contact our DPO at privacy.seadays@semprog.de</p>
-                </div>
+            
+            <div class="right-card">
+                <h3>2. Right to Rectification</h3>
+                <p>You can update or correct inaccurate or incomplete personal data at any time through:</p>
+                <ul>
+                    <li>In-app profile settings</li>
+                    <li>Editing your posts and content</li>
+                    <li>Contacting our support team</li>
+                </ul>
+            </div>
+            
+            <div class="right-card">
+                <h3>3. Right to Erasure</h3>
+                <p>You can request deletion of your personal data ("right to be forgotten") when:</p>
+                <ul>
+                    <li>Data is no longer necessary</li>
+                    <li>You withdraw consent</li>
+                    <li>You object to processing</li>
+                    <li>Data was unlawfully processed</li>
+                </ul>
+            </div>
+            
+            <div class="right-card">
+                <h3>4. Right to Restriction</h3>
+                <p>You can request we restrict processing of your data while we:</p>
+                <ul>
+                    <li>Verify data accuracy</li>
+                    <li>Assess objections to processing</li>
+                    <li>Retain data for legal claims</li>
+                </ul>
+            </div>
+            
+            <div class="right-card">
+                <h3>5. Right to Portability</h3>
+                <p>You can receive your data in a structured, machine-readable format (JSON, CSV) and transfer it to another service.</p>
+            </div>
+            
+            <div class="right-card">
+                <h3>6. Right to Object</h3>
+                <p>You can object to:</p>
+                <ul>
+                    <li>Processing for direct marketing</li>
+                    <li>Processing based on legitimate interests</li>
+                    <li>Automated decision-making</li>
+                </ul>
             </div>
         </div>
+        
+        <h2>How to Exercise Your Rights</h2>
+        
+        <h3>In-App Tools</h3>
+        <p>Access most privacy controls directly in the app:</p>
+        <ul>
+            <li><strong>Settings > Privacy > Download My Data</strong> - Export all your data</li>
+            <li><strong>Settings > Account > Delete Account</strong> - Permanent account deletion</li>
+            <li><strong>Settings > Privacy > Manage Consent</strong> - Update privacy preferences</li>
+            <li><strong>Settings > Data & Privacy</strong> - View and manage collected data</li>
+        </ul>
+        
+        <h3>Contact Our Data Protection Team</h3>
+        <p>For requests that require manual processing:</p>
+        <p>📧 Email: <strong>gdpr@seadays.app</strong><br>
+        Subject Line: "GDPR Request - [Your Request Type]"</p>
+        
+        <div style="margin: 20px 0;">
+            <a href="mailto:gdpr@seadays.app?subject=GDPR%20Data%20Access%20Request" class="action-button">Request My Data</a>
+            <a href="mailto:gdpr@seadays.app?subject=GDPR%20Data%20Deletion%20Request" class="action-button">Delete My Data</a>
+            <a href="contact.html" class="action-button">Contact Support</a>
+        </div>
+        
+        <h3>Response Timeline</h3>
+        <p>We will respond to your GDPR requests:</p>
+        <ul>
+            <li><strong>Within 30 days</strong> of receiving your request</li>
+            <li><strong>Extended to 60 days</strong> for complex requests (we'll notify you)</li>
+            <li><strong>Free of charge</strong> for the first request per year</li>
+        </ul>
+        
+        <h2>Legal Basis for Processing</h2>
+        <p>We process your personal data based on:</p>
+        
+        <h3>1. Contract Performance</h3>
+        <p>To provide SeaDays services as outlined in our <a href="terms.html">Terms of Service</a></p>
+        
+        <h3>2. Consent</h3>
+        <p>When you explicitly agree to:</p>
+        <ul>
+            <li>Marketing communications</li>
+            <li>Non-essential cookies</li>
+            <li>Location tracking</li>
+            <li>Personalized recommendations</li>
+        </ul>
+        
+        <h3>3. Legitimate Interests</h3>
+        <p>For purposes such as:</p>
+        <ul>
+            <li>Fraud prevention and security</li>
+            <li>App improvement and analytics</li>
+            <li>Customer support</li>
+            <li>Business development</li>
+        </ul>
+        
+        <h3>4. Legal Obligations</h3>
+        <p>When required by law for:</p>
+        <ul>
+            <li>Tax and accounting requirements</li>
+            <li>Compliance with court orders</li>
+            <li>Regulatory requirements</li>
+        </ul>
+        
+        <h2>Data We Collect</h2>
+        
+        <h3>Personal Data</h3>
+        <ul>
+            <li>Email address, username, password (encrypted)</li>
+            <li>Profile information (name, photo, bio)</li>
+            <li>Cruise booking details you provide</li>
+            <li>User-generated content (posts, photos, reviews)</li>
+        </ul>
+        
+        <h3>Usage Data</h3>
+        <ul>
+            <li>App usage statistics and feature interactions</li>
+            <li>Device information (model, OS version, unique identifiers)</li>
+            <li>IP address and approximate location</li>
+            <li>Performance and error logs</li>
+        </ul>
+        
+        <h3>Optional Data</h3>
+        <ul>
+            <li>Precise location (only with permission)</li>
+            <li>Camera and photo library access (for uploads)</li>
+            <li>Social media profile data (for social login)</li>
+            <li>Contact list (for friend finding, with permission)</li>
+        </ul>
+        
+        <h2>How We Protect Your Data</h2>
+        
+        <h3>Security Measures</h3>
+        <ul>
+            <li><strong>Encryption:</strong> All data encrypted in transit (TLS/SSL) and at rest (AES-256)</li>
+            <li><strong>Access Control:</strong> Role-based access with multi-factor authentication</li>
+            <li><strong>Regular Audits:</strong> Security assessments and penetration testing</li>
+            <li><strong>Data Minimization:</strong> We only collect necessary data</li>
+            <li><strong>Anonymization:</strong> Analytics data is anonymized when possible</li>
+        </ul>
+        
+        <h3>Data Storage</h3>
+        <ul>
+            <li><strong>Provider:</strong> Supabase (GDPR-compliant cloud infrastructure)</li>
+            <li><strong>Location:</strong> EU-based servers for EU users</li>
+            <li><strong>Backups:</strong> Regular encrypted backups with 30-day retention</li>
+            <li><strong>Redundancy:</strong> Multiple geographic regions for reliability</li>
+        </ul>
+        
+        <h2>International Data Transfers</h2>
+        <p>If we transfer your data outside the EEA, we ensure adequate protection through:</p>
+        <ul>
+            <li><strong>Standard Contractual Clauses (SCCs):</strong> EU-approved data transfer agreements</li>
+            <li><strong>Adequacy Decisions:</strong> Transfers only to countries with adequate protection</li>
+            <li><strong>Privacy Shield Alternatives:</strong> Additional safeguards for US transfers</li>
+            <li><strong>Your Consent:</strong> Explicit consent when required</li>
+        </ul>
+        
+        <h2>Data Retention</h2>
+        <p>We retain your data for different periods:</p>
+        <ul>
+            <li><strong>Active Account Data:</strong> While your account is active plus 30 days</li>
+            <li><strong>Deleted Account Data:</strong> Securely deleted within 90 days</li>
+            <li><strong>Backup Data:</strong> Removed from backups within 30 days of deletion</li>
+            <li><strong>Legal Requirements:</strong> Some data kept longer for compliance (tax, legal)</li>
+            <li><strong>Anonymized Data:</strong> Analytics may be retained indefinitely (non-identifiable)</li>
+        </ul>
+        
+        <h2>Children's Privacy</h2>
+        <p>SeaDays is not intended for children under 16 (or applicable age in your country). We:</p>
+        <ul>
+            <li>Do not knowingly collect data from children</li>
+            <li>Require parental consent for users under 16</li>
+            <li>Delete data if we learn it's from a child</li>
+            <li>Comply with COPPA and other child protection laws</li>
+        </ul>
+        
+        <h2>Automated Decision-Making</h2>
+        <p>We use limited automated processing for:</p>
+        <ul>
+            <li><strong>Fraud Detection:</strong> Automated systems flag suspicious activity</li>
+            <li><strong>Content Moderation:</strong> AI helps identify inappropriate content</li>
+            <li><strong>Recommendations:</strong> Algorithms suggest cruises and content</li>
+        </ul>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Request human review of automated decisions</li>
+            <li>Contest the decision</li>
+            <li>Opt out of profiling for marketing</li>
+        </ul>
+        
+        <h2>Third-Party Processors</h2>
+        <p>We work with GDPR-compliant processors:</p>
+        <ul>
+            <li><strong>Supabase:</strong> Database and authentication</li>
+            <li><strong>Cloudflare:</strong> CDN and DDoS protection</li>
+            <li><strong>SendGrid:</strong> Transactional emails</li>
+            <li><strong>Google Analytics:</strong> Usage analytics (anonymized)</li>
+            <li><strong>Stripe:</strong> Payment processing (premium subscriptions)</li>
+        </ul>
+        <p>All processors sign Data Processing Agreements (DPAs) with us.</p>
+        
+        <h2>Data Breach Notification</h2>
+        <p>In the unlikely event of a data breach:</p>
+        <ul>
+            <li>We'll notify supervisory authorities within <strong>72 hours</strong></li>
+            <li>Affected users will be notified <strong>without undue delay</strong></li>
+            <li>We'll describe the breach, potential consequences, and mitigation steps</li>
+            <li>We'll provide support and guidance to affected users</li>
+        </ul>
+        
+        <h2>Supervisory Authority</h2>
+        <p>You have the right to lodge a complaint with your local data protection authority:</p>
+        <ul>
+            <li><strong>EU Users:</strong> Find your authority at <a href="https://edpb.europa.eu/about-edpb/board/members_en" target="_blank">EDPB.europa.eu</a></li>
+            <li><strong>UK Users:</strong> Information Commissioner's Office (ICO) - <a href="https://ico.org.uk/" target="_blank">ico.org.uk</a></li>
+            <li><strong>Other Countries:</strong> Contact your national privacy regulator</li>
+        </ul>
+        
+        <h2>Updates to This Policy</h2>
+        <p>We may update our GDPR practices. You'll be notified of material changes via:</p>
+        <ul>
+            <li>Email notification (at least 30 days before changes)</li>
+            <li>In-app notification</li>
+            <li>Notice on this page</li>
+        </ul>
+        <p>Continued use after notification indicates acceptance.</p>
+        
+        <h2>Contact Information</h2>
+        <p><strong>Data Protection Officer (DPO):</strong><br>
+        📧 Email: dpo@seadays.app<br>
+        📧 GDPR Requests: gdpr@seadays.app<br>
+        📬 Address: SeaDays Inc., [Your EU Address Here]</p>
+        
+        <h2>Related Documents</h2>
+        <ul>
+            <li><a href="privacy.html">Privacy Policy</a> - Complete privacy information</li>
+            <li><a href="cookies.html">Cookie Policy</a> - How we use cookies</li>
+            <li><a href="terms.html">Terms of Service</a> - Terms and conditions</li>
+            <li><a href="contact.html">Contact Us</a> - Get in touch with support</li>
+        </ul>
+        
+        <div class="info-box" style="margin-top: 40px;">
+            <p style="margin: 0;"><strong>Questions about GDPR?</strong> Our data protection team is here to help. Email us at <a href="mailto:gdpr@seadays.app" style="color: white;">gdpr@seadays.app</a> or use the contact buttons above.</p>
+        </div>
+        
+        <p style="margin-top: 40px;"><a href="landing-page.html">← Back to Home</a></p>
     </div>
-
-    <script>
-        function createStarfield() {
-            const starfield = document.getElementById('starfield');
-            for (let i = 0; i < 150; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = (Math.random() * 3 + 1) + 'px';
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                starfield.appendChild(star);
-            }
-        }
-        createStarfield();
-    </script>
 </body>
 </html>
