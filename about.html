@@ -3,180 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - SeaDays</title>
+    <title>About SeaDays</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --dark-bg: #0a0a0a;
-            --neon-red: #FF0033;
-            --text-light: #ffffff;
-            --text-gray: rgba(255, 255, 255, 0.6);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary-teal: #0077be;
+            --teal-dark: #005a8f;
+            --cyan: #06B6D4;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-light);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            color: var(--text-dark);
             line-height: 1.6;
             min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
         }
-        .starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 1; }
-        }
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background-image: 
-                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
-            background-size: 100px 100px;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-        .content-layer { position: relative; z-index: 10; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--neon-red);
+            color: var(--primary-teal);
             text-decoration: none;
             font-weight: 600;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             transition: all 0.3s ease;
         }
-        .back-link:hover { transform: translateX(-5px); }
-        .header { text-align: center; margin-bottom: 60px; }
-        .icon-container {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 0, 51, 0.1);
-            border: 2px solid rgba(255, 0, 51, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 0 30px rgba(255, 0, 51, 0.3);
+
+        .back-link:hover {
+            color: var(--teal-dark);
+            transform: translateX(-5px);
         }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            margin-bottom: 24px;
+        }
+
+        .logo img {
+            height: 80px;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+        }
+
         h1 {
             font-size: 48px;
             font-weight: 900;
-            margin-bottom: 12px;
-            letter-spacing: -1px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
         }
-        .subtitle { color: var(--text-gray); font-size: 18px; }
-        .content {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 50px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+        .tagline {
+            font-size: 20px;
+            color: var(--text-gray);
         }
-        .section { margin-bottom: 40px; }
-        .section h2 {
-            font-size: 28px;
-            font-weight: 700;
+
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-section h2 {
+            font-size: 32px;
+            color: var(--text-dark);
             margin-bottom: 20px;
         }
-        .section p {
+
+        .content-section p {
             color: var(--text-gray);
-            margin-bottom: 16px;
             line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 17px;
         }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .value-card {
+            padding: 24px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(0, 119, 190, 0.05), rgba(6, 182, 212, 0.05));
+            border: 2px solid rgba(0, 119, 190, 0.1);
+        }
+
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            border-radius: 12px;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: var(--primary-teal);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 768px) {
-            .content { padding: 30px 24px; }
-            h1 { font-size: 36px; }
+            h1 {
+                font-size: 36px;
+            }
+
+            .content-section {
+                padding: 28px;
+            }
+
+            .values-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="starfield" id="starfield"></div>
-    <div class="grid-overlay"></div>
-
-    <div class="content-layer">
-        <div class="container">
-            <a href="../index.html" class="back-link">← Back to Home</a>
-            
-            <div class="header">
-                <div class="icon-container">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0033" stroke-width="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                </div>
-                <h1>About SeaDays</h1>
-                <p class="subtitle">The Ultimate Cruise Planning Companion</p>
+    <div class="container">
+        <a href="landing-page.html" class="back-link">← Back to Home</a>
+        
+        <div class="hero">
+            <div class="logo">
+                <img src="https://i.imghippo.com/files/XYQr7127rSI.png" alt="SeaDays">
             </div>
+            <h1>About SeaDays</h1>
+            <p class="tagline">Revolutionizing cruise planning, one voyage at a time</p>
+        </div>
 
-            <div class="content">
-                <div class="section">
-                    <h2>Our Mission</h2>
-                    <p>SeaDays was created to revolutionize how cruisers plan, track, and share their nautical adventures. We believe that cruise planning should be exciting, social, and rewarding – not stressful.</p>
+        <div class="content-section">
+            <h2>Our Story</h2>
+            <p>SeaDays was born from a simple observation: cruise planning shouldn't be complicated. We noticed that cruisers were juggling multiple apps, spreadsheets, and paper documents just to organize their maritime adventures. There had to be a better way.</p>
+            <p>Our team of passionate cruisers and developers came together to create the ultimate cruise planning companion. We combined comprehensive tracking features with gamification elements, social connectivity, and beautiful design to make cruise planning not just easier, but genuinely fun.</p>
+            <p>Today, SeaDays helps thousands of cruisers plan their perfect voyages, track their maritime journeys, connect with fellow seafarers, and earn rewards for their adventures. We're just getting started on our mission to become the world's most beloved cruise planning platform.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Mission</h2>
+            <p>To empower cruisers worldwide with the tools, community, and inspiration they need to plan unforgettable maritime adventures. We believe that every cruise should be a seamless journey from planning to boarding, and SeaDays is here to make that happen.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>What We Believe</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🚢</div>
+                    <h3>Cruisers First</h3>
+                    <p>Every feature we build starts with one question: Does this make cruising better for our users?</p>
                 </div>
 
-                <div class="section">
-                    <h2>What We Do</h2>
-                    <p>We provide a comprehensive platform that combines:</p>
-                    <p>🎮 <strong>Gamification</strong> - Earn XP, unlock achievements, and level up as you cruise<br>
-                    🚢 <strong>Cruise Tracking</strong> - Organize all your past, present, and future voyages<br>
-                    👥 <strong>Social Features</strong> - Connect with fellow sailors and build your crew<br>
-                    📊 <strong>Detailed Statistics</strong> - Track your maritime milestones and memories</p>
+                <div class="value-card">
+                    <div class="value-icon">🌊</div>
+                    <h3>Innovation</h3>
+                    <p>We're constantly pushing boundaries to create features that transform how people plan and experience cruises.</p>
                 </div>
 
-                <div class="section">
-                    <h2>Why SeaDays?</h2>
-                    <p>Traditional cruise planning tools are fragmented and boring. We've built SeaDays to be the one app that does it all – with a beautiful interface, powerful features, and a vibrant community of cruise enthusiasts.</p>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>The best cruising experiences are shared. We're building a global community of maritime enthusiasts.</p>
                 </div>
 
-                <div class="section">
-                    <h2>Contact Us</h2>
-                    <p><strong>Email:</strong> support.seadays@semprog.de<br>
-                    <strong>Website:</strong> https://seadays.semprog.de/</p>
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Delight</h3>
+                    <p>Cruise planning should spark joy. We sweat the details to create magical moments throughout your journey.</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        function createStarfield() {
-            const starfield = document.getElementById('starfield');
-            for (let i = 0; i < 150; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const size = Math.random() * 3 + 1;
-                star.style.width = size + 'px';
-                star.style.height = size + 'px';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                starfield.appendChild(star);
-            }
-        }
-        createStarfield();
-    </script>
+        <div class="content-section">
+            <h2>By The Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Active Cruisers</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Cruises Tracked</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Ports Worldwide</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">XP Earned</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Join the SeaDays Community</h2>
+            <p>Start planning your perfect cruise adventure today</p>
+            <a href="https://seadays.app/app" class="cta-button">Get Started Free</a>
+        </div>
+    </div>
 </body>
 </html>
