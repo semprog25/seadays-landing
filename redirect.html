@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SeaDays – Sign in</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+      background-size: 100px 100px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .card {
+      max-width: 440px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      padding: 40px 32px;
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      z-index: 1;
+    }
+    .app-name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+      color: white;
+    }
+    .sub {
+      font-size: 0.9375rem;
+      margin: 0 0 28px;
+      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin: 0 0 12px;
+      line-height: 1.4;
+      color: white;
+    }
+    .steps {
+      text-align: left;
+      margin: 0 0 28px;
+      padding: 0 0 0 20px;
+      opacity: 0.95;
+    }
+    .steps li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      margin: 6px;
+      border-radius: 30px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background: #FF0033;
+      color: white;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 30px rgba(255, 0, 51, 0.5);
+    }
+    .btn:hover {
+      box-shadow: 0 0 50px rgba(255, 0, 51, 0.8);
+      transform: translateY(-2px);
+    }
+    .btn.secondary {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      font-weight: 600;
+    }
+    .btn.secondary:hover {
+      border-color: #FF0033;
+      color: white;
+      box-shadow: 0 0 25px rgba(255, 0, 51, 0.4);
+      transform: translateY(-2px);
+    }
+    .copy-feedback {
+      font-size: 0.875rem;
+      margin-top: 12px;
+      min-height: 1.25em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    #loading .card { padding: 32px; }
+    .failure-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      opacity: 0.9;
+      color: #FF0033;
+    }
+  </style>
+</head>
+<body>
+  <div id="success-view" class="card" style="display: none;">
+    <p class="app-name">SeaDays</p>
+    <p class="sub">Your cruise planning companion</p>
+    <h2>Thank you for accepting</h2>
+    <p style="margin: 0 0 20px; line-height: 1.5; color: rgba(255, 255, 255, 0.75);">
+      Go back to the device where you have the SeaDays app to complete sign-in.
+    </p>
+    <p style="margin: 0 0 20px; line-height: 1.5; font-size: 0.9375rem; color: rgba(255, 255, 255, 0.65);">
+      You can also copy the link below and open it on your phone.
+    </p>
+    <button type="button" class="btn" id="copy-btn">Copy link</button>
+    <a href="#" class="btn secondary" id="mailto-btn">Email this link to my phone</a>
+    <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+  </div>
+  <div id="failure-view" class="card" style="display: none;">
+    <p class="app-name">SeaDays</p>
+    <p class="sub">Your cruise planning companion</p>
+    <p class="failure-icon" aria-hidden="true">&#9888;</p>
+    <h2>This link has expired or isn't valid</h2>
+    <p style="margin: 0; line-height: 1.5; color: rgba(255, 255, 255, 0.75);">
+      Please request a new magic link from the SeaDays app.
+    </p>
+  </div>
+  <div id="loading" class="card">
+    <p style="margin: 0; color: white;">Redirecting to SeaDays…</p>
+  </div>
+  <div id="mobile-open-view" class="card" style="display: none;">
+    <p class="app-name">SeaDays</p>
+    <p class="sub">Your cruise planning companion</p>
+    <h2>Sign-in successful</h2>
+    <p style="margin: 0 0 24px; line-height: 1.5; color: rgba(255, 255, 255, 0.75);">
+      Tap the button below to return to the SeaDays app and complete sign-in.
+    </p>
+    <button type="button" class="btn" id="open-app-btn" style="min-height: 48px; padding: 16px 32px;">
+      Open SeaDays
+    </button>
+  </div>
+
+  <script>
+    (function() {
+      var ua = navigator.userAgent || '';
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+
+      var qs = window.location.search || '';
+      var hash = window.location.hash || '';
+      var hashParams = new URLSearchParams(hash.substring(1));
+      var hasError = hashParams.has('error') || hashParams.has('error_description');
+      var appUrl = 'capacitor://localhost/auth/callback' + qs + hash;
+
+      if (isMobile) {
+        document.getElementById('loading').style.display = 'none';
+        if (hasError) {
+          document.getElementById('failure-view').style.display = 'block';
+        } else {
+          document.getElementById('mobile-open-view').style.display = 'block';
+          document.getElementById('open-app-btn').addEventListener('click', function() {
+            window.location.replace(appUrl);
+          });
+        }
+        return;
+      }
+
+      document.getElementById('loading').style.display = 'none';
+
+      if (hasError) {
+        document.getElementById('failure-view').style.display = 'block';
+      } else {
+        document.getElementById('success-view').style.display = 'block';
+
+        var fullUrl = window.location.href;
+        var copyBtn = document.getElementById('copy-btn');
+        var copyFeedback = document.getElementById('copy-feedback');
+        var mailtoBtn = document.getElementById('mailto-btn');
+
+        mailtoBtn.href = 'mailto:?subject=SeaDays%20sign-in%20link&body=' + encodeURIComponent('Open this link on your phone to sign in to SeaDays:\n\n' + fullUrl);
+
+        copyBtn.addEventListener('click', function() {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(fullUrl).then(function() {
+              copyFeedback.textContent = 'Link copied. Send it to your phone (e.g. by email) and open it in the SeaDays app.';
+            }).catch(function() {
+              copyFeedback.textContent = 'Could not copy. Copy the address from your browser bar and send it to your phone.';
+            });
+          } else {
+            copyFeedback.textContent = 'Copy the address from your browser bar and open it on your phone.';
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
