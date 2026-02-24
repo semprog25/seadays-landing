@@ -12,17 +12,16 @@
         }
 
         :root {
-            --primary-teal: #0077be;
-            --teal-dark: #005a8f;
-            --cyan: #06B6D4;
-            --text-dark: #1f2937;
-            --text-gray: #6b7280;
+            --dark-bg: #0a0a0a;
+            --neon-red: #FF0033;
+            --text-light: #ffffff;
+            --text-gray: rgba(255, 255, 255, 0.7);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            color: var(--text-dark);
+            background: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -37,7 +36,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary-teal);
+            color: var(--neon-red);
             text-decoration: none;
             font-weight: 600;
             margin-bottom: 30px;
@@ -45,7 +44,7 @@
         }
 
         .back-link:hover {
-            color: var(--teal-dark);
+            color: #ff3366;
             transform: translateX(-5px);
         }
 
@@ -57,7 +56,7 @@
         h1 {
             font-size: 48px;
             font-weight: 900;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 16px;
         }
 
@@ -74,23 +73,25 @@
         }
 
         .category-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 51, 0.2);
             border-radius: 16px;
             padding: 32px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .category-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0, 119, 190, 0.15);
+            border-color: rgba(255, 0, 51, 0.4);
+            box-shadow: 0 6px 25px rgba(255, 0, 51, 0.15);
         }
 
         .category-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            background: rgba(255, 0, 51, 0.15);
+            border: 1px solid rgba(255, 0, 51, 0.3);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -101,7 +102,7 @@
 
         .category-card h3 {
             font-size: 22px;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 12px;
         }
 
@@ -111,15 +112,15 @@
         }
 
         .articles-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .articles-section h2 {
             font-size: 28px;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 32px;
         }
 
@@ -131,20 +132,22 @@
         .article-item {
             padding: 20px;
             border-radius: 10px;
-            background: #f9fafb;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
         .article-item:hover {
-            background: #f0f9ff;
+            background: rgba(255, 0, 51, 0.08);
+            border-color: rgba(255, 0, 51, 0.2);
             transform: translateX(5px);
         }
 
         .article-title {
             font-size: 18px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 8px;
         }
 
@@ -154,11 +157,12 @@
         }
 
         .contact-banner {
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            background: rgba(255, 0, 51, 0.15);
+            border: 1px solid rgba(255, 0, 51, 0.3);
             border-radius: 16px;
             padding: 40px;
             text-align: center;
-            color: white;
+            color: var(--text-light);
             margin-top: 40px;
         }
 
@@ -171,13 +175,14 @@
             font-size: 17px;
             margin-bottom: 24px;
             opacity: 0.95;
+            color: var(--text-gray);
         }
 
         .contact-button {
             display: inline-block;
             padding: 14px 32px;
-            background: white;
-            color: var(--primary-teal);
+            background: var(--neon-red);
+            color: white;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 700;
@@ -186,7 +191,8 @@
 
         .contact-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: #cc0029;
+            box-shadow: 0 8px 20px rgba(255, 0, 51, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -206,7 +212,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="landing-page.html" class="back-link">← Back to Home</a>
+        <a href="https://seadays.app/" class="back-link">← Back to Home</a>
         
         <div class="header">
             <h1>Help Center</h1>
@@ -324,7 +330,7 @@
         <div class="contact-banner">
             <h2>Can't Find What You're Looking For?</h2>
             <p>Our support team is ready to help you with any questions</p>
-            <a href="contact.html" class="contact-button">Contact Support</a>
+            <a href="https://seadays.app/contact.html" class="contact-button">Contact Support</a>
         </div>
     </div>
 </body>
