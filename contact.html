@@ -5,39 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - SeaDays</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-teal: #0077be;
-            --teal-dark: #005a8f;
-            --cyan: #06B6D4;
-            --text-dark: #1f2937;
-            --text-gray: #6b7280;
             --dark-bg: #0a0a0a;
-            --dark-bg-alt: #1a1a1a;
             --neon-red: #FF0033;
             --text-light: #ffffff;
-            --text-gray-dark: rgba(255, 255, 255, 0.7);
+            --text-gray: rgba(255, 255, 255, 0.6);
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             background: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
         }
-
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        .grid-overlay {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image:
+                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .content-layer { position: relative; z-index: 10; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px 80px; }
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -45,57 +62,22 @@
             color: var(--neon-red);
             text-decoration: none;
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             transition: all 0.3s ease;
         }
-
-        .back-link:hover {
-            color: #ff3366;
-            transform: translateX(-5px);
+        .back-link:hover { transform: translateX(-5px); }
+        .header { text-align: center; margin-bottom: 40px; }
+        h1 { font-size: 48px; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
+        .subtitle { color: var(--text-gray); }
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 50px;
         }
-
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--text-light);
-            margin-bottom: 16px;
-        }
-
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-gray-dark);
-        }
-
-        .form-section {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 40px;
-        }
-
-        .form-section h2 {
-            font-size: 28px;
-            color: var(--text-light);
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--text-light);
-            margin-bottom: 8px;
-        }
-
+        .form-section h2 { font-size: 24px; margin-bottom: 24px; text-align: center; color: var(--text-light); }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-light); }
         .form-group input,
         .form-group textarea,
         .form-group select {
@@ -107,14 +89,7 @@
             font-family: inherit;
             background: rgba(0, 0, 0, 0.2);
             color: var(--text-light);
-            transition: all 0.3s ease;
         }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
@@ -122,12 +97,7 @@
             border-color: var(--neon-red);
             box-shadow: 0 0 0 3px rgba(255, 0, 51, 0.2);
         }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
+        .form-group textarea { resize: vertical; min-height: 150px; }
         .submit-btn {
             width: 100%;
             padding: 16px;
@@ -140,13 +110,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
-        .submit-btn:hover {
-            background: #cc0029;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 0, 51, 0.4);
-        }
-
+        .submit-btn:hover { background: #cc0029; }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
         .success-message {
             background: rgba(255, 0, 51, 0.2);
             border: 1px solid var(--neon-red);
@@ -157,75 +122,61 @@
             text-align: center;
             display: none;
         }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .success-message.error {
-            background: rgba(239, 68, 68, 0.2);
-            border-color: #ef4444;
-        }
-
+        .success-message.show { display: block; }
+        .success-message.error { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            .form-section {
-                padding: 28px;
-            }
+            .content { padding: 30px 24px; }
+            h1 { font-size: 36px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://seadays.app/" class="back-link">← Back to Home</a>
-        
-        <div class="header">
-            <h1>Contact Us</h1>
-            <p class="subtitle">We're here to help! Reach out anytime.</p>
-        </div>
+    <div class="starfield" id="starfield"></div>
+    <div class="grid-overlay"></div>
 
-        <div class="form-section">
-            <h2>Send Us a Message</h2>
-            
-            <div class="success-message" id="successMessage">
-                Thanks for reaching out! We'll get back to you soon.
+    <div class="content-layer">
+        <div class="container">
+            <a href="https://seadays.app/" class="back-link">← Back to Home</a>
+
+            <div class="header">
+                <h1>Contact Us</h1>
+                <p class="subtitle">We're here to help! Reach out anytime.</p>
             </div>
 
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="content">
+                <div class="form-section">
+                    <h2>Send Us a Message</h2>
+                    <div class="success-message" id="successMessage">Thanks for reaching out! We'll get back to you soon.</div>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic...</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="billing">Billing & Subscriptions</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a topic...</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="support">Technical Support</option>
-                        <option value="billing">Billing & Subscriptions</option>
-                        <option value="feature">Feature Request</option>
-                        <option value="bug">Bug Report</option>
-                        <option value="partnership">Partnership Opportunity</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            </div>
         </div>
     </div>
 
@@ -235,7 +186,6 @@
 
         async function handleSubmit(event) {
             event.preventDefault();
-
             const form = document.getElementById('contactForm');
             const submitBtn = form.querySelector('.submit-btn');
             const successMessage = document.getElementById('successMessage');
@@ -247,8 +197,8 @@
 
             if (!name || !email || !subject || !message) {
                 successMessage.textContent = 'Please fill in all fields.';
-                successMessage.classList.add('show');
-                setTimeout(() => successMessage.classList.remove('show'), 5000);
+                successMessage.classList.add('error', 'show');
+                setTimeout(function() { successMessage.classList.remove('show', 'error'); }, 5000);
                 return;
             }
 
@@ -256,11 +206,11 @@
             submitBtn.textContent = 'Sending...';
 
             try {
-                const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-51d3ca8d/feedback`, {
+                const response = await fetch('https://' + projectId + '.supabase.co/functions/v1/make-server-51d3ca8d/feedback', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${publicAnonKey}`,
+                        'Authorization': 'Bearer ' + publicAnonKey,
                     },
                     body: JSON.stringify({
                         userId: 'contact-form',
@@ -276,25 +226,40 @@
                 const data = await response.json();
 
                 if (response.ok && !data.error) {
-                    successMessage.textContent = 'Thanks for reaching out! We\'ll get back to you soon.';
+                    successMessage.textContent = "Thanks for reaching out! We'll get back to you soon.";
                     successMessage.classList.remove('error');
                     successMessage.classList.add('show');
                     form.reset();
-                    setTimeout(() => successMessage.classList.remove('show'), 5000);
+                    setTimeout(function() { successMessage.classList.remove('show'); }, 5000);
                 } else {
                     throw new Error(data.error || 'Failed to send message');
                 }
             } catch (err) {
                 successMessage.textContent = err.message || 'Something went wrong. Please try again.';
                 successMessage.classList.add('error', 'show');
-                setTimeout(() => {
-                    successMessage.classList.remove('show', 'error');
-                }, 5000);
+                setTimeout(function() { successMessage.classList.remove('show', 'error'); }, 5000);
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Send Message';
             }
         }
+    </script>
+    <script>
+        function createStarfield() {
+            var starfield = document.getElementById('starfield');
+            for (var i = 0; i < 150; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                var size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
+        }
+        createStarfield();
     </script>
 </body>
 </html>
