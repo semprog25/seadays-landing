@@ -17,12 +17,17 @@
             --cyan: #06B6D4;
             --text-dark: #1f2937;
             --text-gray: #6b7280;
+            --dark-bg: #0a0a0a;
+            --dark-bg-alt: #1a1a1a;
+            --neon-red: #FF0033;
+            --text-light: #ffffff;
+            --text-gray-dark: rgba(255, 255, 255, 0.7);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-            color: var(--text-dark);
+            background: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -37,7 +42,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary-teal);
+            color: var(--neon-red);
             text-decoration: none;
             font-weight: 600;
             margin-bottom: 30px;
@@ -45,7 +50,7 @@
         }
 
         .back-link:hover {
-            color: var(--teal-dark);
+            color: #ff3366;
             transform: translateX(-5px);
         }
 
@@ -57,80 +62,25 @@
         h1 {
             font-size: 48px;
             font-weight: 900;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 16px;
         }
 
         .subtitle {
             font-size: 18px;
-            color: var(--text-gray);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .contact-card {
-            background: white;
-            border-radius: 16px;
-            padding: 32px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(0, 119, 190, 0.15);
-        }
-
-        .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 28px;
-        }
-
-        .contact-card h3 {
-            font-size: 20px;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-        }
-
-        .contact-card p {
-            color: var(--text-gray);
-            margin-bottom: 16px;
-        }
-
-        .contact-card a {
-            color: var(--primary-teal);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--teal-dark);
+            color: var(--text-gray-dark);
         }
 
         .form-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .form-section h2 {
             font-size: 28px;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 24px;
             text-align: center;
         }
@@ -142,7 +92,7 @@
         .form-group label {
             display: block;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 8px;
         }
 
@@ -151,19 +101,26 @@
         .form-group select {
             width: 100%;
             padding: 14px 18px;
-            border: 2px solid #e5e7eb;
+            border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 10px;
             font-size: 16px;
             font-family: inherit;
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-light);
             transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--primary-teal);
-            box-shadow: 0 0 0 3px rgba(0, 119, 190, 0.1);
+            border-color: var(--neon-red);
+            box-shadow: 0 0 0 3px rgba(255, 0, 51, 0.2);
         }
 
         .form-group textarea {
@@ -174,7 +131,7 @@
         .submit-btn {
             width: 100%;
             padding: 16px;
-            background: var(--primary-teal);
+            background: var(--neon-red);
             color: white;
             border: none;
             border-radius: 10px;
@@ -185,14 +142,15 @@
         }
 
         .submit-btn:hover {
-            background: var(--teal-dark);
+            background: #cc0029;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 119, 190, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 0, 51, 0.4);
         }
 
         .success-message {
-            background: linear-gradient(135deg, #10B981, #06B6D4);
-            color: white;
+            background: rgba(255, 0, 51, 0.2);
+            border: 1px solid var(--neon-red);
+            color: var(--text-light);
             padding: 16px;
             border-radius: 10px;
             margin-bottom: 20px;
@@ -204,13 +162,14 @@
             display: block;
         }
 
+        .success-message.error {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 36px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
             }
 
             .form-section {
@@ -221,49 +180,11 @@
 </head>
 <body>
     <div class="container">
-        <a href="landing-page.html" class="back-link">← Back to Home</a>
+        <a href="https://seadays.app/" class="back-link">← Back to Home</a>
         
         <div class="header">
             <h1>Contact Us</h1>
             <p class="subtitle">We're here to help! Reach out anytime.</p>
-        </div>
-
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="contact-icon">📧</div>
-                <h3>Email Support</h3>
-                <p>Get help from our support team</p>
-                <a href="mailto:support@seadays.app">support@seadays.app</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">ℹ️</div>
-                <h3>General Information</h3>
-                <p>Feature requests and general inquiries</p>
-                <a href="mailto:info@seadays.app">info@seadays.app</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">🔒</div>
-                <h3>Privacy Inquiries</h3>
-                <p>Questions about your data</p>
-                <a href="mailto:privacy@seadays.app">privacy@seadays.app</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">⚖️</div>
-                <h3>Legal</h3>
-                <p>Terms and legal matters</p>
-                <a href="mailto:legal@seadays.app">legal@seadays.app</a>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-icon">📋</div>
-                <h3>GDPR & Data Requests</h3>
-                <p>Data access, deletion, and DPO inquiries</p>
-                <a href="mailto:gdpr@seadays.app">gdpr@seadays.app</a><br>
-                <a href="mailto:dpo@seadays.app">dpo@seadays.app</a>
-            </div>
         </div>
 
         <div class="form-section">
@@ -309,23 +230,70 @@
     </div>
 
     <script>
-        function handleSubmit(event) {
+        const projectId = 'soqkgrfzluewpuiguypm';
+        const publicAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
+
+        async function handleSubmit(event) {
             event.preventDefault();
-            
-            // Show success message
+
+            const form = document.getElementById('contactForm');
+            const submitBtn = form.querySelector('.submit-btn');
             const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
-            
-            // Reset form
-            document.getElementById('contactForm').reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-            
-            // In a real implementation, you would send this to your backend
-            console.log('Contact form submitted');
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const subject = form.subject.value;
+            const message = form.message.value.trim();
+
+            if (!name || !email || !subject || !message) {
+                successMessage.textContent = 'Please fill in all fields.';
+                successMessage.classList.add('show');
+                setTimeout(() => successMessage.classList.remove('show'), 5000);
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(`https://${projectId}.supabase.co/functions/v1/make-server-51d3ca8d/feedback`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${publicAnonKey}`,
+                    },
+                    body: JSON.stringify({
+                        userId: 'contact-form',
+                        userName: name,
+                        userEmail: email,
+                        feedbackType: 'feedback',
+                        subject: form.subject.options[form.subject.selectedIndex].text || subject,
+                        message: message,
+                        rating: 0,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok && !data.error) {
+                    successMessage.textContent = 'Thanks for reaching out! We\'ll get back to you soon.';
+                    successMessage.classList.remove('error');
+                    successMessage.classList.add('show');
+                    form.reset();
+                    setTimeout(() => successMessage.classList.remove('show'), 5000);
+                } else {
+                    throw new Error(data.error || 'Failed to send message');
+                }
+            } catch (err) {
+                successMessage.textContent = err.message || 'Something went wrong. Please try again.';
+                successMessage.classList.add('error', 'show');
+                setTimeout(() => {
+                    successMessage.classList.remove('show', 'error');
+                }, 5000);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
         }
     </script>
 </body>
