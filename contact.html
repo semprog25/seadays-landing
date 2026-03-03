@@ -124,6 +124,9 @@
         }
         .success-message.show { display: block; }
         .success-message.error { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
+        .email-alt { text-align: center; margin-top: 24px; color: var(--text-gray); font-size: 16px; }
+        .email-alt a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
+        .email-alt a:hover { text-decoration: underline; }
         @media (max-width: 768px) {
             .content { padding: 30px 24px; }
             h1 { font-size: 36px; }
@@ -175,6 +178,7 @@
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
+                    <p class="email-alt">Or write to us at <a href="mailto:support@seadays.app">support@seadays.app</a></p>
                 </div>
             </div>
         </div>
