@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaDays - SEO Admin</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #242424;
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #FF0033);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle { color: #a0a0a0; margin-bottom: 32px; font-size: 14px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 15px;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF0033;
+        }
+        .form-group small {
+            display: block;
+            margin-top: 6px;
+            color: #888;
+            font-size: 12px;
+        }
+        .btn {
+            padding: 14px 28px;
+            background: #FF0033;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+        .actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+        .login-box {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        .login-box .form-group { margin-bottom: 20px; }
+        .message {
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .message.show { display: block; }
+        .message.error { background: rgba(255,0,0,0.15); color: #ff6b6b; }
+        .message.success { background: rgba(0,255,0,0.15); color: #6bff6b; }
+        #seoForm { display: none; }
+        #seoForm.visible { display: block; }
+        #loginForm.visible { display: block; }
+        #loginForm { display: none; }
+        .sign-out { margin-top: 24px; }
+        .sign-out a { color: #a0a0a0; font-size: 14px; }
+        .sign-out a:hover { color: #fff; }
+        .copy-hint { font-size: 12px; color: #888; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SEO Admin</h1>
+        <p class="subtitle">Manage global meta tags and SEO settings for the SeaDays site.</p>
+
+        <div id="loginForm" class="login-box">
+            <div id="loginMessage" class="message"></div>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="admin@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+        </div>
+
+        <div id="seoForm">
+            <div id="formMessage" class="message"></div>
+            <form onsubmit="handleSave(event)">
+                <div class="form-group">
+                    <label for="metaTitle">Meta Title</label>
+                    <input type="text" id="metaTitle" placeholder="SeaDays - The Ultimate Cruise Planning App">
+                    <small>Default &lt;title&gt; for pages</small>
+                </div>
+                <div class="form-group">
+                    <label for="metaDescription">Meta Description</label>
+                    <input type="text" id="metaDescription" placeholder="Plan, track, and share your cruise adventures...">
+                    <small>Default meta description (155 chars recommended)</small>
+                </div>
+                <div class="form-group">
+                    <label for="siteUrl">Site URL</label>
+                    <input type="url" id="siteUrl" placeholder="https://seadays.app">
+                    <small>Base URL of the site</small>
+                </div>
+                <div class="form-group">
+                    <label for="canonicalBase">Canonical Base URL</label>
+                    <input type="url" id="canonicalBase" placeholder="https://seadays.app">
+                    <small>Used for canonical links</small>
+                </div>
+                <div class="form-group">
+                    <label for="articleAuthor">article:author (default)</label>
+                    <input type="text" id="articleAuthor" placeholder="SeaDays">
+                    <small>Default author for article meta</small>
+                </div>
+                <div class="form-group">
+                    <label for="ogSiteName">og:site_name</label>
+                    <input type="text" id="ogSiteName" placeholder="SeaDays">
+                </div>
+                <div class="form-group">
+                    <label for="maxImagePreview">max-image-preview</label>
+                    <select id="maxImagePreview">
+                        <option value="none">none</option>
+                        <option value="standard">standard</option>
+                        <option value="large" selected>large</option>
+                    </select>
+                    <small>Controls image preview size in search results</small>
+                </div>
+                <div class="form-group">
+                    <label for="robots">robots</label>
+                    <select id="robots">
+                        <option value="index,follow" selected>index,follow</option>
+                        <option value="noindex,follow">noindex,follow</option>
+                        <option value="index,nofollow">index,nofollow</option>
+                        <option value="noindex,nofollow">noindex,nofollow</option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <button type="submit" class="btn" id="saveBtn">Save Settings</button>
+                    <button type="button" class="btn btn-secondary" onclick="copyMetaTags()">Copy Meta Tags</button>
+                </div>
+            </form>
+            <div class="sign-out">
+                <a href="#" onclick="handleSignOut(event)">Sign Out</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+        (function() {
+            const SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
+            const API = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
+
+            window.supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
+            if (!window.supabase) {
+                document.getElementById('loginForm').innerHTML = '<p class="message error show">Supabase SDK failed to load.</p>';
+                return;
+            }
+            const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            function showLogin() {
+                document.getElementById('loginForm').classList.add('visible');
+                document.getElementById('seoForm').classList.remove('visible');
+            }
+            function showForm() {
+                document.getElementById('loginForm').classList.remove('visible');
+                document.getElementById('seoForm').classList.add('visible');
+            }
+
+            function showMsg(elId, text, type) {
+                var el = document.getElementById(elId);
+                el.textContent = text;
+                el.className = 'message ' + (type || '') + ' show';
+            }
+
+            async function checkSession() {
+                var { data: { session } } = await supabaseClient.auth.getSession();
+                if (session) {
+                    showForm();
+                    loadSeoSettings();
+                } else {
+                    showLogin();
+                }
+            }
+
+            window.handleLogin = async function(e) {
+                e.preventDefault();
+                var email = document.getElementById('loginEmail').value;
+                var password = document.getElementById('loginPassword').value;
+                showMsg('loginMessage', 'Signing in...', '');
+                try {
+                    var { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+                    if (error) throw error;
+                    showForm();
+                    loadSeoSettings();
+                    showMsg('loginMessage', '', '');
+                } catch (err) {
+                    showMsg('loginMessage', err.message || 'Sign in failed', 'error');
+                }
+            };
+
+            window.handleSignOut = async function(e) {
+                e.preventDefault();
+                await supabaseClient.auth.signOut();
+                showLogin();
+                showMsg('loginMessage', '', '');
+            };
+
+            async function loadSeoSettings() {
+                try {
+                    var res = await fetch(API + '/site-seo');
+                    var data = await res.json();
+                    if (data.success !== false && data.metaTitle !== undefined) {
+                        document.getElementById('metaTitle').value = data.metaTitle || '';
+                        document.getElementById('metaDescription').value = data.metaDescription || '';
+                        document.getElementById('siteUrl').value = data.siteUrl || '';
+                        document.getElementById('canonicalBase').value = data.canonicalBase || '';
+                        document.getElementById('articleAuthor').value = data.articleAuthor || '';
+                        document.getElementById('ogSiteName').value = data.ogSiteName || '';
+                        document.getElementById('maxImagePreview').value = data.maxImagePreview || 'large';
+                        document.getElementById('robots').value = data.robots || 'index,follow';
+                    }
+                } catch (err) {
+                    console.warn('Could not load SEO settings:', err);
+                }
+            }
+
+            window.handleSave = async function(e) {
+                e.preventDefault();
+                var btn = document.getElementById('saveBtn');
+                btn.disabled = true;
+                btn.textContent = 'Saving...';
+                showMsg('formMessage', '', '');
+                try {
+                    var { data: { session } } = await supabaseClient.auth.getSession();
+                    if (!session) {
+                        showMsg('formMessage', 'Session expired. Please sign in again.', 'error');
+                        showLogin();
+                        return;
+                    }
+                    var payload = {
+                        metaTitle: document.getElementById('metaTitle').value,
+                        metaDescription: document.getElementById('metaDescription').value,
+                        siteUrl: document.getElementById('siteUrl').value,
+                        canonicalBase: document.getElementById('canonicalBase').value,
+                        articleAuthor: document.getElementById('articleAuthor').value,
+                        ogSiteName: document.getElementById('ogSiteName').value,
+                        maxImagePreview: document.getElementById('maxImagePreview').value,
+                        robots: document.getElementById('robots').value
+                    };
+                    var res = await fetch(API + '/site-seo', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + session.access_token
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    var data = await res.json();
+                    if (!res.ok) throw new Error(data.error || 'Save failed');
+                    showMsg('formMessage', 'Settings saved.', 'success');
+                    setTimeout(function() { showMsg('formMessage', '', ''); }, 3000);
+                } catch (err) {
+                    showMsg('formMessage', err.message || 'Failed to save', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = 'Save Settings';
+                }
+            };
+
+            window.copyMetaTags = async function() {
+                try {
+                    var res = await fetch(API + '/site-seo');
+                    var s = await res.json();
+                    var base = s.siteUrl || s.canonicalBase || 'https://seadays.app';
+                    var html = '<!-- Global SEO meta (from admin) -->\n';
+                    html += '<meta name="description" content="' + (s.metaDescription || '').replace(/"/g, '&quot;') + '">\n';
+                    html += '<meta name="robots" content="' + (s.robots || 'index,follow') + '">\n';
+                    html += '<meta name="max-image-preview" content="' + (s.maxImagePreview || 'large') + '">\n';
+                    html += '<meta property="og:site_name" content="' + (s.ogSiteName || 'SeaDays').replace(/"/g, '&quot;') + '">\n';
+                    html += '<meta property="article:author" content="' + (s.articleAuthor || '').replace(/"/g, '&quot;') + '">\n';
+                    await navigator.clipboard.writeText(html);
+                    showMsg('formMessage', 'Meta tags copied to clipboard.', 'success');
+                    setTimeout(function() { showMsg('formMessage', '', ''); }, 2000);
+                } catch (err) {
+                    showMsg('formMessage', 'Failed to copy: ' + err.message, 'error');
+                }
+            };
+
+            supabaseClient.auth.onAuthStateChange(function(ev, session) {
+                if (ev === 'SIGNED_IN' && session) {
+                    showForm();
+                    loadSeoSettings();
+                } else if (ev === 'SIGNED_OUT') {
+                    showLogin();
+                }
+            });
+
+            checkSession();
+        })();
+    </script>
+</body>
+</html>

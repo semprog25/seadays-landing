@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SeaDays Blog - Port Site Stories from the cruise community. Read tips, reviews, and experiences from fellow cruisers.">
+    <title>Blog | SeaDays - Port Site Stories</title>
+    <script src="seo-inject.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-bg-alt: #1a1a1a;
+            --neon-red: #FF0033;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image:
+                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .content-layer { position: relative; z-index: 10; }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            z-index: 100;
+        }
+        .header-nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .header-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        .header-nav a:hover { color: white; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .blog-hero {
+            padding: 140px 20px 80px;
+            text-align: center;
+        }
+        .blog-hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .blog-hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 0 20px 120px;
+        }
+        .article-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .article-card:hover {
+            border-color: var(--neon-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2);
+        }
+        .article-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .article-card-body {
+            padding: 24px;
+        }
+        .article-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .article-card-excerpt {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .article-card-meta .author { color: rgba(255, 255, 255, 0.7); }
+        .loading, .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            background: #050505;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .footer-section h4 { margin-bottom: 20px; font-size: 18px; }
+        .footer-section ul { list-style: none; }
+        .footer-section li { margin-bottom: 12px; }
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+        .footer-section a:hover { color: var(--neon-red); }
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .blog-hero h1 { font-size: 32px; }
+            .blog-hero p { font-size: 16px; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+    <div class="grid-overlay"></div>
+    <div class="content-layer">
+        <header class="header">
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="https://seadays.app/features">Features</a>
+                <a href="https://seadays.app/privacy.html">Privacy</a>
+                <a href="https://seadays.app/terms.html">Terms</a>
+            </nav>
+        </header>
+
+        <section class="blog-hero">
+            <div class="container">
+                <h1>Blog</h1>
+                <p>Port Site Stories from the SeaDays community</p>
+            </div>
+        </section>
+
+        <div id="blogContent" class="container">
+            <div id="blogGrid" class="blog-grid" style="display:none;"></div>
+            <div id="blogLoading" class="loading">Loading stories...</div>
+            <div id="blogEmpty" class="empty-state" style="display:none;">No stories yet. Be the first to share your port experiences in the SeaDays app!</div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#download">Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="https://seadays.app/about.html">About Us</a></li>
+                            <li><a href="https://seadays.app/help.html">Help Center</a></li>
+                            <li><a href="https://seadays.app/contact.html">Contact</a></li>
+                            <li><a href="https://seadays.app/faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li>
+                            <li><a href="https://seadays.app/terms.html">Terms of Service</a></li>
+                            <li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 SeaDays. All rights reserved.</p>
+                    <p style="margin-top: 12px;">made with love from the port city of Hamburg</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function() {
+            const projectId = 'soqkgrfzluewpuiguypm';
+            const publicAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
+            const API = `https://${projectId}.supabase.co/functions/v1/make-server-51d3ca8d`;
+
+            function createStarfield() {
+                const sf = document.getElementById('starfield');
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.animationDelay = Math.random() * 3 + 's';
+                    sf.appendChild(star);
+                }
+            }
+            createStarfield();
+
+            function formatDate(ts) {
+                if (!ts) return '';
+                const d = new Date(typeof ts === 'number' ? ts : ts);
+                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+
+            async function loadArticles() {
+                const grid = document.getElementById('blogGrid');
+                const loading = document.getElementById('blogLoading');
+                const empty = document.getElementById('blogEmpty');
+
+                try {
+                    const res = await fetch(API + '/portside-articles?limit=50', {
+                        headers: { 'Authorization': 'Bearer ' + publicAnonKey }
+                    });
+                    const data = await res.json();
+                    loading.style.display = 'none';
+
+                    const articles = (data.articles || []).filter(function(a) { return !a.isDraft; });
+                    if (articles.length === 0) {
+                        empty.style.display = 'block';
+                        return;
+                    }
+
+                    grid.style.display = 'grid';
+                    grid.innerHTML = articles.map(function(a) {
+                        const img = (a.heroImageUrl || a.thumbnailUrl) ? ('<img src="' + escapeHtml(a.heroImageUrl || a.thumbnailUrl) + '" alt="" class="article-card-image">') : '<div class="article-card-image" style="background: linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2));"></div>';
+                        const slug = (a.slug || a.id);
+                        const link = 'blog-article.html?id=' + encodeURIComponent(a.id);
+                        return '<a href="' + link + '" class="article-card">' +
+                            img +
+                            '<div class="article-card-body">' +
+                            '<h3 class="article-card-title">' + escapeHtml(a.title || 'Untitled') + '</h3>' +
+                            '<p class="article-card-excerpt">' + escapeHtml(a.excerpt || a.content?.substring(0, 150) || '') + '</p>' +
+                            '<div class="article-card-meta">' +
+                            '<span class="author">' + escapeHtml(a.author || 'Anonymous') + '</span>' +
+                            '<span>' + formatDate(a.publishedAt || a.timestamp || a.updatedAt) + '</span>' +
+                            (a.readTime ? '<span>' + a.readTime + ' min read</span>' : '') +
+                            '</div></div></a>';
+                    }).join('');
+                } catch (e) {
+                    loading.textContent = 'Failed to load stories. Please try again later.';
+                }
+            }
+
+            function escapeHtml(s) {
+                if (!s) return '';
+                const d = document.createElement('div');
+                d.textContent = s;
+                return d.innerHTML;
+            }
+
+            loadArticles();
+        })();
+    </script>
+</body>
+</html>

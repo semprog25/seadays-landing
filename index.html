@@ -22,7 +22,7 @@
     <meta property="twitter:image" content="https://seadays.app/og-image.png">
 
     <title>SeaDays - The Ultimate Cruise Planning App</title>
-    
+    <script src="seo-inject.js"></script>
     <style>
         * {
             margin: 0;
@@ -874,6 +874,7 @@
         <header class="header">
             <nav class="header-nav">
                 <a href="#features">Features</a>
+                <a href="blog.html">Blog</a>
                 <a href="https://seadays.app/privacy.html">Privacy</a>
                 <a href="https://seadays.app/terms.html">Terms</a>
             </nav>
@@ -960,6 +961,20 @@
             </div>
         </section>
 
+        <!-- Blog Preview Section -->
+        <section id="blog-preview">
+            <div class="container">
+                <h2 class="section-title">Latest from the Community</h2>
+                <p class="section-subtitle">Port Site Stories from fellow cruisers</p>
+                <div id="blogPreviewGrid" class="features-grid" style="display:none;"></div>
+                <div id="blogPreviewLoading" class="section-subtitle" style="margin-top:20px;margin-bottom:0;">Loading stories...</div>
+                <div id="blogPreviewEmpty" style="display:none;text-align:center;color:rgba(255,255,255,0.5);padding:20px 0;">No stories yet. Share your first port story in the app!</div>
+                <div style="text-align:center;margin-top:40px;">
+                    <a href="blog.html" class="btn-secondary" style="text-decoration:none;display:inline-block;">View all stories</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Download Section -->
         <section id="download">
             <div class="container">
@@ -998,6 +1013,7 @@
                         <ul>
                             <li><a href="#features">Features</a></li>
                             <li><a href="#download">Download</a></li>
+                            <li><a href="blog.html">Blog</a></li>
                         </ul>
                     </div>
                     
@@ -1033,7 +1049,7 @@
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>&copy; 2026 SeaDays. All rights reserved.</p>
+                    <p>&copy; 2025 SeaDays. All rights reserved.</p>
                     <p style="margin-top: 12px;">made with love from the port city of Hamburg</p>
                 </div>
             </div>
@@ -1064,6 +1080,53 @@
 
         // Initialize starfield on page load
         createStarfield();
+
+        // Blog preview - load 3 latest Port Site Stories
+        (function() {
+            const projectId = 'soqkgrfzluewpuiguypm';
+            const publicAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
+            const API = 'https://' + projectId + '.supabase.co/functions/v1/make-server-51d3ca8d';
+            const grid = document.getElementById('blogPreviewGrid');
+            const loading = document.getElementById('blogPreviewLoading');
+            const empty = document.getElementById('blogPreviewEmpty');
+
+            function esc(s) {
+                if (!s) return '';
+                const d = document.createElement('div');
+                d.textContent = s;
+                return d.innerHTML;
+            }
+            function fmtDate(ts) {
+                if (!ts) return '';
+                const d = new Date(typeof ts === 'number' ? ts : ts);
+                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+
+            fetch(API + '/portside-articles?limit=3', { headers: { 'Authorization': 'Bearer ' + publicAnonKey } })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    loading.style.display = 'none';
+                    const articles = (data.articles || []).filter(function(a) { return !a.isDraft; }).slice(0, 3);
+                    if (articles.length === 0) {
+                        empty.style.display = 'block';
+                        return;
+                    }
+                    grid.style.display = 'grid';
+                    grid.innerHTML = articles.map(function(a) {
+                        return '<a href="blog-article.html?id=' + encodeURIComponent(a.id) + '" class="feature-card" style="text-decoration:none;color:inherit;">' +
+                            '<div class="feature-icon"><i data-lucide="file-text"></i></div>' +
+                            '<h3 class="feature-title">' + esc(a.title || 'Untitled') + '</h3>' +
+                            '<p class="feature-description">' + esc((a.excerpt || a.content || '').substring(0, 100)) + '...</p>' +
+                            '<p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px;">' + esc(a.author || 'Anonymous') + ' • ' + fmtDate(a.publishedAt || a.timestamp) + '</p>' +
+                            '</a>';
+                    }).join('');
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                })
+                .catch(function() {
+                    loading.style.display = 'none';
+                    empty.style.display = 'block';
+                });
+        })();
 
         // Waitlist signup handler
         async function handleWaitlistSignup(event) {
