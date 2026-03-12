@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeaDays - SEO Admin</title>
+    <title>SeaDays - Admin</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -99,12 +99,14 @@
         .sign-out a { color: #a0a0a0; font-size: 14px; }
         .sign-out a:hover { color: #fff; }
         .copy-hint { font-size: 12px; color: #888; margin-top: 8px; }
+        .section-divider { margin: 48px 0 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .section-divider h2 { font-size: 22px; margin-bottom: 16px; color: rgba(255,255,255,0.9); }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>SEO Admin</h1>
-        <p class="subtitle">Manage global meta tags and SEO settings for the SeaDays site.</p>
+        <h1>Admin</h1>
+        <p class="subtitle">Manage site settings and per-article SEO.</p>
 
         <div id="loginForm" class="login-box">
             <div id="loginMessage" class="message"></div>
@@ -176,6 +178,65 @@
                     <button type="button" class="btn btn-secondary" onclick="copyMetaTags()">Copy Meta Tags</button>
                 </div>
             </form>
+
+            <div class="section-divider">
+                <h2>Article SEO</h2>
+                <p class="subtitle" style="margin-bottom:20px;">Override SEO for individual blog articles.</p>
+                <div id="articleSeoMessage" class="message"></div>
+                <div class="form-group">
+                    <label for="articleSelect">Select Article</label>
+                    <select id="articleSelect" onchange="loadArticleSeo()">
+                        <option value="">-- Choose an article --</option>
+                    </select>
+                </div>
+                <form id="articleSeoForm" onsubmit="handleSaveArticleSeo(event)">
+                    <div class="form-group">
+                        <label for="articleMetaTitle">Meta Title</label>
+                        <input type="text" id="articleMetaTitle" placeholder="Article title for search">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleMetaDescription">Meta Description</label>
+                        <input type="text" id="articleMetaDescription" placeholder="155 chars recommended">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleCanonicalUrl">Canonical URL</label>
+                        <input type="url" id="articleCanonicalUrl" placeholder="https://seadays.app/blog-article.html?id=...">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleOgImage">og:image URL</label>
+                        <input type="url" id="articleOgImage" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleAuthor">article:author</label>
+                        <input type="text" id="articleSeoAuthor" placeholder="Author name">
+                    </div>
+                    <div class="form-group">
+                        <label for="articlePublishedTime">article:published_time (ISO 8601)</label>
+                        <input type="text" id="articlePublishedTime" placeholder="2025-01-15T12:00:00Z">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleRobots">robots</label>
+                        <select id="articleRobots">
+                            <option value="index,follow" selected>index,follow</option>
+                            <option value="noindex,follow">noindex,follow</option>
+                            <option value="index,nofollow">index,nofollow</option>
+                            <option value="noindex,nofollow">noindex,nofollow</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleMaxImagePreview">max-image-preview</label>
+                        <select id="articleMaxImagePreview">
+                            <option value="none">none</option>
+                            <option value="standard">standard</option>
+                            <option value="large" selected>large</option>
+                        </select>
+                    </div>
+                    <div class="actions">
+                        <button type="submit" class="btn" id="saveArticleSeoBtn">Save Article SEO</button>
+                    </div>
+                </form>
+            </div>
+
             <div class="sign-out">
                 <a href="#" onclick="handleSignOut(event)">Sign Out</a>
             </div>
@@ -258,10 +319,100 @@
                         document.getElementById('maxImagePreview').value = data.maxImagePreview || 'large';
                         document.getElementById('robots').value = data.robots || 'index,follow';
                     }
+                    loadArticlesIntoSelect();
                 } catch (err) {
                     console.warn('Could not load SEO settings:', err);
                 }
             }
+
+            async function loadArticlesIntoSelect() {
+                var sel = document.getElementById('articleSelect');
+                sel.innerHTML = '<option value="">-- Loading articles --</option>';
+                try {
+                    var res = await fetch(API + '/portside-articles?limit=100', {
+                        headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    });
+                    var data = await res.json();
+                    var articles = (data.articles || []).filter(function(a) { return a.id && a.title; });
+                    sel.innerHTML = '<option value="">-- Choose an article --</option>';
+                    articles.forEach(function(a) {
+                        var opt = document.createElement('option');
+                        opt.value = a.id;
+                        opt.textContent = (a.title || 'Untitled').substring(0, 60) + (a.title && a.title.length > 60 ? '...' : '');
+                        sel.appendChild(opt);
+                    });
+                } catch (err) {
+                    sel.innerHTML = '<option value="">-- Failed to load --</option>';
+                }
+            }
+
+            window.loadArticleSeo = async function() {
+                var id = document.getElementById('articleSelect').value;
+                if (!id) return;
+                showMsg('articleSeoMessage', '', '');
+                try {
+                    var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id) + '/seo');
+                    var data = await res.json();
+                    var s = (data.seo || {});
+                    document.getElementById('articleMetaTitle').value = s.metaTitle || '';
+                    document.getElementById('articleMetaDescription').value = s.metaDescription || '';
+                    document.getElementById('articleCanonicalUrl').value = s.canonicalUrl || '';
+                    document.getElementById('articleOgImage').value = s.ogImage || '';
+                    document.getElementById('articleSeoAuthor').value = s.articleAuthor || '';
+                    document.getElementById('articlePublishedTime').value = s.articlePublishedTime || '';
+                    document.getElementById('articleRobots').value = s.robots || 'index,follow';
+                    document.getElementById('articleMaxImagePreview').value = s.maxImagePreview || 'large';
+                } catch (err) {
+                    showMsg('articleSeoMessage', 'Failed to load article SEO', 'error');
+                }
+            };
+
+            window.handleSaveArticleSeo = async function(e) {
+                e.preventDefault();
+                var id = document.getElementById('articleSelect').value;
+                if (!id) {
+                    showMsg('articleSeoMessage', 'Select an article first', 'error');
+                    return;
+                }
+                var btn = document.getElementById('saveArticleSeoBtn');
+                btn.disabled = true;
+                btn.textContent = 'Saving...';
+                showMsg('articleSeoMessage', '', '');
+                try {
+                    var { data: { session } } = await supabaseClient.auth.getSession();
+                    if (!session) {
+                        showMsg('articleSeoMessage', 'Session expired. Please sign in again.', 'error');
+                        return;
+                    }
+                    var payload = {
+                        metaTitle: document.getElementById('articleMetaTitle').value,
+                        metaDescription: document.getElementById('articleMetaDescription').value,
+                        canonicalUrl: document.getElementById('articleCanonicalUrl').value,
+                        ogImage: document.getElementById('articleOgImage').value,
+                        articleAuthor: document.getElementById('articleSeoAuthor').value,
+                        articlePublishedTime: document.getElementById('articlePublishedTime').value,
+                        robots: document.getElementById('articleRobots').value,
+                        maxImagePreview: document.getElementById('articleMaxImagePreview').value
+                    };
+                    var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id) + '/seo', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + session.access_token
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    var data = await res.json();
+                    if (!res.ok) throw new Error(data.error || 'Save failed');
+                    showMsg('articleSeoMessage', 'Article SEO saved.', 'success');
+                    setTimeout(function() { showMsg('articleSeoMessage', '', ''); }, 3000);
+                } catch (err) {
+                    showMsg('articleSeoMessage', err.message || 'Failed to save', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.textContent = 'Save Article SEO';
+                }
+            };
 
             window.handleSave = async function(e) {
                 e.preventDefault();

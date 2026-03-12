@@ -250,25 +250,37 @@
                     }
 
                     var a = data;
-                    var baseUrl = window.location.origin + window.location.pathname + '?id=' + encodeURIComponent(a.id);
                     var fullUrl = window.location.href;
 
-                    document.title = (a.title || 'Untitled') + ' | SeaDays Blog';
-                    setMeta('description', a.metaDescription || a.excerpt || a.content?.substring(0, 160), false);
-                    setMeta('og:title', a.title || 'SeaDays Blog', true);
-                    setMeta('og:description', a.metaDescription || a.excerpt || '', true);
+                    var seo = {};
+                    try {
+                        var seoRes = await fetch(API + '/portside-articles/' + encodeURIComponent(articleId) + '/seo', {
+                            headers: { 'Authorization': 'Bearer ' + publicAnonKey }
+                        });
+                        var seoData = await seoRes.json();
+                        if (seoData.success && seoData.seo) seo = seoData.seo;
+                    } catch (e) {}
+
+                    var metaTitle = seo.metaTitle || a.title || 'Untitled';
+                    var metaDesc = seo.metaDescription || a.metaDescription || a.excerpt || (a.content ? a.content.substring(0, 160) : '');
+                    var metaAuthor = seo.articleAuthor || a.author || '';
+                    var metaPubTime = seo.articlePublishedTime || a.publishedAt || (a.timestamp ? new Date(a.timestamp).toISOString() : '');
+                    var metaOgImage = seo.ogImage || a.ogImage || a.heroImageUrl || a.thumbnailUrl;
+                    var metaCanonical = seo.canonicalUrl || a.canonicalUrl || fullUrl;
+
+                    document.title = metaTitle + (metaTitle.indexOf('|') >= 0 ? '' : ' | SeaDays Blog');
+                    setMeta('description', metaDesc, false);
+                    setMeta('og:title', metaTitle, true);
+                    setMeta('og:description', metaDesc, true);
                     setMeta('og:url', fullUrl, true);
                     setMeta('og:type', 'article', true);
-                    setMeta('article:author', a.author || '', true);
-                    var pubTime = a.publishedAt || (a.timestamp ? new Date(a.timestamp).toISOString() : '');
-                    setMeta('article:published_time', pubTime, true);
-                    if (a.ogImage || a.heroImageUrl || a.thumbnailUrl) {
-                        setMeta('og:image', a.ogImage || a.heroImageUrl || a.thumbnailUrl, true);
-                    }
+                    setMeta('article:author', metaAuthor, true);
+                    setMeta('article:published_time', metaPubTime, true);
+                    if (metaOgImage) setMeta('og:image', metaOgImage, true);
+                    if (seo.robots) setMeta('robots', seo.robots, false);
+                    if (seo.maxImagePreview) setMeta('max-image-preview', seo.maxImagePreview, false);
                     var canonicalEl = document.querySelector('link[rel="canonical"]');
-                    if (canonicalEl) {
-                        canonicalEl.href = a.canonicalUrl || fullUrl;
-                    }
+                    if (canonicalEl) canonicalEl.href = metaCanonical;
 
                     var html = '';
                     if (a.heroImageUrl || a.thumbnailUrl) {
