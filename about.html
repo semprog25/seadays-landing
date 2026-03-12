@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About SeaDays</title>
+    <title>About Us - SeaDays</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --dark-bg: #0a0a0a;
-            --dark-bg-alt: #1a1a1a;
             --neon-red: #FF0033;
             --text-light: #ffffff;
             --text-gray: rgba(255, 255, 255, 0.6);
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
             background: var(--dark-bg);
             color: var(--text-light);
             line-height: 1.6;
@@ -28,7 +21,6 @@
             position: relative;
             overflow-x: hidden;
         }
-
         .starfield {
             position: fixed;
             top: 0;
@@ -38,7 +30,6 @@
             z-index: 0;
             background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
         }
-
         .star {
             position: absolute;
             width: 2px;
@@ -47,12 +38,10 @@
             border-radius: 50%;
             animation: twinkle 3s infinite ease-in-out;
         }
-
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
         }
-
         .grid-overlay {
             position: fixed;
             top: 0;
@@ -60,25 +49,15 @@
             width: 100%;
             height: 100%;
             z-index: 1;
-            background-image:
+            background-image: 
                 linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
             background-size: 100px 100px;
             opacity: 0.4;
             pointer-events: none;
         }
-
-        .content-layer {
-            position: relative;
-            z-index: 10;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px 80px;
-        }
-
+        .content-layer { position: relative; z-index: 10; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -89,106 +68,48 @@
             margin-bottom: 40px;
             transition: all 0.3s ease;
         }
-
-        .back-link:hover {
-            transform: translateX(-5px);
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .logo {
-            margin-bottom: 24px;
-        }
-
-        .logo img {
+        .back-link:hover { transform: translateX(-5px); }
+        .header { text-align: center; margin-bottom: 60px; }
+        .icon-container {
+            width: 80px;
             height: 80px;
-            filter: drop-shadow(0 0 20px rgba(255, 0, 51, 0.3));
+            background: rgba(255, 0, 51, 0.1);
+            border: 2px solid rgba(255, 0, 51, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.3);
         }
-
         h1 {
             font-size: 48px;
             font-weight: 900;
-            color: var(--text-light);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
         }
-
-        .tagline {
-            font-size: 20px;
-            color: var(--text-gray);
-        }
-
-        .content-section {
+        .subtitle { color: var(--text-gray); font-size: 18px; }
+        .content {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 24px;
+            border-radius: 24px;
+            padding: 50px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-
-        .content-section h2 {
-            font-size: 32px;
-            color: var(--text-light);
+        .section { margin-bottom: 40px; }
+        .section h2 {
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 20px;
         }
-
-        .content-section p {
+        .section p {
             color: var(--text-gray);
+            margin-bottom: 16px;
             line-height: 1.8;
-            margin-bottom: 16px;
-            font-size: 17px;
         }
-
-        .content-section p:last-child {
-            margin-bottom: 0;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 32px;
-        }
-
-        .value-card {
-            padding: 24px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .value-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-        }
-
-        .value-card h3 {
-            font-size: 20px;
-            color: var(--text-light);
-            margin-bottom: 12px;
-        }
-
-        .value-card p {
-            font-size: 15px;
-            color: var(--text-gray);
-            margin: 0;
-        }
-
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            .content-section {
-                padding: 28px;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
+            .content { padding: 30px 24px; }
+            h1 { font-size: 36px; }
         }
     </style>
 </head>
@@ -199,53 +120,42 @@
     <div class="content-layer">
         <div class="container">
             <a href="https://seadays.app/" class="back-link">← Back to Home</a>
-
-            <div class="hero">
-                <div class="logo">
-                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays">
+            
+            <div class="header">
+                <div class="icon-container">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0033" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
                 </div>
                 <h1>About SeaDays</h1>
-                <p class="tagline">Revolutionizing cruise planning, one voyage at a time</p>
+                <p class="subtitle">The Ultimate Cruise Planning Companion</p>
             </div>
 
-            <div class="content-section">
-                <h2>Our Story</h2>
-                <p>SeaDays was born from a simple observation: cruise planning shouldn't be complicated. We noticed that cruisers were juggling multiple apps, spreadsheets, and paper documents just to organize their maritime adventures. There had to be a better way.</p>
-                <p>Our team of passionate cruisers and developers came together to create the ultimate cruise planning companion. We combined comprehensive tracking features with gamification elements, social connectivity, and beautiful design to make cruise planning not just easier, but genuinely fun.</p>
-                <p>Today, SeaDays helps cruisers plan their perfect voyages, track their maritime journeys, connect with fellow seafarers, and earn rewards for their adventures. We're just getting started on our mission to become the world's most beloved cruise planning platform.</p>
-            </div>
+            <div class="content">
+                <div class="section">
+                    <h2>Our Mission</h2>
+                    <p>SeaDays was created to revolutionize how cruisers plan, track, and share their nautical adventures. We believe that cruise planning should be exciting, social, and rewarding – not stressful.</p>
+                </div>
 
-            <div class="content-section">
-                <h2>Our Mission</h2>
-                <p>To empower cruisers worldwide with the tools, community, and inspiration they need to plan unforgettable maritime adventures. We believe that every cruise should be a seamless journey from planning to boarding, and SeaDays is here to make that happen.</p>
-            </div>
+                <div class="section">
+                    <h2>What We Do</h2>
+                    <p>We provide a comprehensive platform that combines:</p>
+                    <p>🎮 <strong>Gamification</strong> - Earn XP, unlock achievements, and level up as you cruise<br>
+                    🚢 <strong>Cruise Tracking</strong> - Organize all your past, present, and future voyages<br>
+                    👥 <strong>Social Features</strong> - Connect with fellow sailors and build your crew<br>
+                    📊 <strong>Detailed Statistics</strong> - Track your maritime milestones and memories</p>
+                </div>
 
-            <div class="content-section">
-                <h2>What We Believe</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">🚢</div>
-                        <h3>Cruisers First</h3>
-                        <p>Every feature we build starts with one question: Does this make cruising better for our users?</p>
-                    </div>
+                <div class="section">
+                    <h2>Why SeaDays?</h2>
+                    <p>Traditional cruise planning tools are fragmented and boring. We've built SeaDays to be the one app that does it all – with a beautiful interface, powerful features, and a vibrant community of cruise enthusiasts.</p>
+                </div>
 
-                    <div class="value-card">
-                        <div class="value-icon">🌊</div>
-                        <h3>Innovation</h3>
-                        <p>We're constantly pushing boundaries to create features that transform how people plan and experience cruises.</p>
-                    </div>
-
-                    <div class="value-card">
-                        <div class="value-icon">🤝</div>
-                        <h3>Community</h3>
-                        <p>The best cruising experiences are shared. We're building a global community of maritime enthusiasts.</p>
-                    </div>
-
-                    <div class="value-card">
-                        <div class="value-icon">✨</div>
-                        <h3>Delight</h3>
-                        <p>Cruise planning should spark joy. We sweat the details to create magical moments throughout your journey.</p>
-                    </div>
+                <div class="section">
+                    <h2>Contact Us</h2>
+                    <p><strong>Email:</strong> support@seadays.app<br>
+                    <strong>Website:</strong> https://seadays.app/</p>
                 </div>
             </div>
         </div>

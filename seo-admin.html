@@ -101,6 +101,21 @@
         .copy-hint { font-size: 12px; color: #888; margin-top: 8px; }
         .section-divider { margin: 48px 0 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
         .section-divider h2 { font-size: 22px; margin-bottom: 16px; color: rgba(255,255,255,0.9); }
+        .seo-preview { margin-top: 20px; }
+        .seo-preview label { display: block; margin-bottom: 8px; font-size: 13px; color: #888; }
+        .seo-preview pre {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 12px;
+            color: #ccc;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+            max-height: 300px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
@@ -233,6 +248,12 @@
                     </div>
                     <div class="actions">
                         <button type="submit" class="btn" id="saveArticleSeoBtn">Save Article SEO</button>
+                        <button type="button" class="btn btn-secondary" onclick="copyArticleMetaTags()">Copy Article Meta Tags</button>
+                        <button type="button" class="btn btn-secondary" onclick="toggleArticleSeoPreview()">Preview SEO Tags</button>
+                    </div>
+                    <div id="articleSeoPreview" class="seo-preview" style="display:none;">
+                        <label>Generated meta tags for this article:</label>
+                        <pre id="articleSeoPreviewContent"></pre>
                     </div>
                 </form>
             </div>
@@ -348,6 +369,8 @@
 
             window.loadArticleSeo = async function() {
                 var id = document.getElementById('articleSelect').value;
+                var prev = document.getElementById('articleSeoPreview');
+                if (prev) prev.style.display = 'none';
                 if (!id) return;
                 showMsg('articleSeoMessage', '', '');
                 try {
@@ -473,6 +496,63 @@
                     setTimeout(function() { showMsg('formMessage', '', ''); }, 2000);
                 } catch (err) {
                     showMsg('formMessage', 'Failed to copy: ' + err.message, 'error');
+                }
+            };
+
+            function getArticleSeoTagsHtml() {
+                var title = document.getElementById('articleMetaTitle').value;
+                var desc = document.getElementById('articleMetaDescription').value;
+                var canonical = document.getElementById('articleCanonicalUrl').value;
+                var ogImage = document.getElementById('articleOgImage').value;
+                var author = document.getElementById('articleSeoAuthor').value;
+                var pubTime = document.getElementById('articlePublishedTime').value;
+                var robots = document.getElementById('articleRobots').value;
+                var maxPreview = document.getElementById('articleMaxImagePreview').value;
+                var esc = function(s) { return (s || '').replace(/"/g, '&quot;'); };
+                var html = '<!-- Article SEO meta (from admin) -->\n';
+                html += '<title>' + esc(title) + ' | SeaDays Blog</title>\n';
+                html += '<meta name="description" content="' + esc(desc) + '">\n';
+                html += '<meta name="robots" content="' + (robots || 'index,follow') + '">\n';
+                html += '<meta name="max-image-preview" content="' + (maxPreview || 'large') + '">\n';
+                html += '<meta property="og:title" content="' + esc(title) + '">\n';
+                html += '<meta property="og:description" content="' + esc(desc) + '">\n';
+                if (canonical) html += '<meta property="og:url" content="' + esc(canonical) + '">\n';
+                html += '<meta property="og:type" content="article">\n';
+                if (ogImage) html += '<meta property="og:image" content="' + esc(ogImage) + '">\n';
+                if (author) html += '<meta property="article:author" content="' + esc(author) + '">\n';
+                if (pubTime) html += '<meta property="article:published_time" content="' + esc(pubTime) + '">\n';
+                if (canonical) html += '<link rel="canonical" href="' + esc(canonical) + '">\n';
+                return html;
+            }
+
+            window.toggleArticleSeoPreview = function() {
+                var id = document.getElementById('articleSelect').value;
+                var box = document.getElementById('articleSeoPreview');
+                if (!id) {
+                    showMsg('articleSeoMessage', 'Select an article first', 'error');
+                    return;
+                }
+                if (box.style.display === 'none') {
+                    document.getElementById('articleSeoPreviewContent').textContent = getArticleSeoTagsHtml();
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            };
+
+            window.copyArticleMetaTags = async function() {
+                var id = document.getElementById('articleSelect').value;
+                if (!id) {
+                    showMsg('articleSeoMessage', 'Select an article first', 'error');
+                    return;
+                }
+                try {
+                    var html = getArticleSeoTagsHtml();
+                    await navigator.clipboard.writeText(html);
+                    showMsg('articleSeoMessage', 'Article meta tags copied to clipboard.', 'success');
+                    setTimeout(function() { showMsg('articleSeoMessage', '', ''); }, 2000);
+                } catch (err) {
+                    showMsg('articleSeoMessage', 'Failed to copy: ' + err.message, 'error');
                 }
             };
 

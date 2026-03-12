@@ -133,6 +133,44 @@
         }
         .loading { text-align: center; padding: 80px 24px; color: rgba(255,255,255,0.6); }
         .error { text-align: center; padding: 80px 24px; color: #ff6b6b; }
+        .article-cta {
+            margin-top: 48px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(255,0,51,0.12), rgba(6,182,212,0.08));
+            border: 2px solid rgba(255,0,51,0.3);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .article-cta h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+        .article-cta p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .article-cta .cta-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--neon-red);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+        }
+        .article-cta .cta-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255,0,51,0.4);
+        }
         .back-link {
             display: inline-block;
             margin-top: 40px;
@@ -144,6 +182,8 @@
         @media (max-width: 768px) {
             .article-title { font-size: 28px; }
             .article-content { font-size: 16px; }
+            .article-cta { padding: 24px 20px; }
+            .article-cta h3 { font-size: 20px; }
         }
     </style>
 </head>
@@ -295,6 +335,11 @@
                     if (a.readTime) html += '<span>' + a.readTime + ' min read</span>';
                     html += '</div>';
                     html += '<div class="article-content">' + sanitizeHtml(a.content || '') + '</div>';
+                    html += '<div class="article-cta">';
+                    html += '<h3>Plan your next cruise with SeaDays</h3>';
+                    html += '<p>Track your voyages, discover ports, and connect with fellow cruisers. Download the free SeaDays app and start your maritime adventure.</p>';
+                    html += '<a href="index.html#download" class="cta-btn">Download SeaDays</a>';
+                    html += '</div>';
 
                     var articleEl = document.getElementById('articleContent');
                     articleEl.innerHTML = html + '<a href="blog.html" class="back-link">&larr; Back to Blog</a>';
