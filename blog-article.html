@@ -89,7 +89,14 @@
             max-height: 400px;
             object-fit: cover;
             border-radius: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 8px;
+        }
+        .article-hero-caption {
+            font-size: 14px;
+            font-style: italic;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 24px;
+            display: block;
         }
         .article-hero-placeholder {
             width: 100%;
@@ -152,6 +159,8 @@
         .article-content ul, .article-content ol { margin: 20px 0 20px 24px; }
         .article-content li { margin-bottom: 8px; }
         .article-content img { max-width: 100%; height: auto; border-radius: 8px; }
+        .article-content figure { margin: 1rem 0 1.5rem 0; display: block; }
+        .article-content figcaption { margin-top: 0.5rem; margin-bottom: 0; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.6); display: block; }
         .article-content blockquote {
             border-left: 4px solid var(--neon-red);
             padding-left: 20px;
@@ -360,6 +369,9 @@
                     var html = '';
                     if (a.heroImageUrl || a.thumbnailUrl) {
                         html += '<img src="' + (a.heroImageUrl || a.thumbnailUrl).replace(/"/g, '&quot;') + '" alt="" class="article-hero-img">';
+                        if (a.heroImageAttributes && String(a.heroImageAttributes).trim()) {
+                            html += '<span class="article-hero-caption">' + String(a.heroImageAttributes).trim().replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
+                        }
                     } else {
                         html += '<div class="article-hero-placeholder"></div>';
                     }
