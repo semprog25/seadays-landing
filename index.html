@@ -22,7 +22,7 @@
     <meta property="twitter:image" content="https://seadays.app/og-image.png">
 
     <title>SeaDays - The Ultimate Cruise Planning App</title>
-    <script src="seo-inject.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -655,19 +655,6 @@
             letter-spacing: 0.5px;
         }
 
-        .store-badge-coming-soon {
-            opacity: 0.6;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .store-badge-coming-soon:hover {
-            transform: none;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
         /* Footer */
         footer {
             padding: 60px 0 30px;
@@ -887,7 +874,6 @@
         <header class="header">
             <nav class="header-nav">
                 <a href="#features">Features</a>
-                <a href="blog.html">Blog</a>
                 <a href="https://seadays.app/privacy.html">Privacy</a>
                 <a href="https://seadays.app/terms.html">Terms</a>
             </nav>
@@ -974,27 +960,22 @@
             </div>
         </section>
 
-        <!-- Blog Preview Section -->
-        <section id="blog-preview">
-            <div class="container">
-                <h2 class="section-title">Latest from the Community</h2>
-                <p class="section-subtitle">Port Site Stories from fellow cruisers</p>
-                <div id="blogPreviewGrid" class="features-grid" style="display:none;"></div>
-                <div id="blogPreviewLoading" class="section-subtitle" style="margin-top:20px;margin-bottom:0;">Loading stories...</div>
-                <div id="blogPreviewEmpty" style="display:none;text-align:center;color:rgba(255,255,255,0.5);padding:20px 0;">No stories yet. Share your first port story in the app!</div>
-                <div style="text-align:center;margin-top:40px;">
-                    <a href="blog.html" class="btn-secondary" style="text-decoration:none;display:inline-block;">View all stories</a>
-                </div>
-            </div>
-        </section>
-
         <!-- Download Section -->
         <section id="download">
             <div class="container">
                 <h2 class="section-title">Download SeaDays</h2>
-                <p class="section-subtitle">Available on Android, coming soon on iOS</p>
+                <p class="section-subtitle">Available on iOS and Android</p>
                 
                 <div class="store-badges">
+                    <div class="store-badge">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.93 3.12-.93 2.52.16 3.34 1.73 3.34 1.73-2.6 1.23-2.22 4.63.41 5.7-.47 2.04-1.58 3.5-2.38 4.66-1.02 1.58-1.02 1.58-1.95 2.93.03 0 .03 0 .03 0zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.87 1.5-2.95 1.5-.11-1.24.42-2.36 1.05-3.19z" fill="currentColor"/>
+                        </svg>
+                        <div class="store-badge-content">
+                            <span class="badge-subtext">Download on the</span>
+                            <span class="badge-text">App Store</span>
+                        </div>
+                    </div>
                     <a href="https://play.google.com/store/apps/details?id=com.seadays.app" class="store-badge" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3,20.5V3.5C3,2.91,3.34,2.39,3.84,2.14L13.65,12L3.84,21.86C3.34,21.61,3,21.09,3,20.5z M16.95,15.31L15.41,13.77 L5.48,23.7L16.95,15.31z M5.48,0.3L15.41,10.23L16.95,8.69L5.48,0.3z M18.65,10.4L22.09,12.22c0.78,0.41,0.78,1.15,0,1.57l-3.44,1.82 L16.9,12L18.65,10.4z" fill="currentColor"/>
@@ -1004,15 +985,6 @@
                             <span class="badge-text">Google Play</span>
                         </div>
                     </a>
-                    <div class="store-badge store-badge-coming-soon" aria-label="Coming soon on App Store">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.21-.93 3.12-.93 2.52.16 3.34 1.73 3.34 1.73-2.6 1.23-2.22 4.63.41 5.7-.47 2.04-1.58 3.5-2.38 4.66-1.02 1.58-1.02 1.58-1.95 2.93.03 0 .03 0 .03 0zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.87 1.5-2.95 1.5-.11-1.24.42-2.36 1.05-3.19z" fill="currentColor"/>
-                        </svg>
-                        <div class="store-badge-content">
-                            <span class="badge-subtext">Coming soon</span>
-                            <span class="badge-text">App Store</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1026,7 +998,6 @@
                         <ul>
                             <li><a href="#features">Features</a></li>
                             <li><a href="#download">Download</a></li>
-                            <li><a href="blog.html">Blog</a></li>
                         </ul>
                     </div>
                     
@@ -1037,7 +1008,7 @@
                             <li><a href="https://seadays.app/help.html">Help Center</a></li>
                             <li><a href="https://seadays.app/contact.html">Contact</a></li>
                             <li><a href="https://seadays.app/faq.html">FAQ</a></li>
-                            <li><a href="https://seadays.app/seo-admin.html">Admin</a></li>
+                            <li><a href="https://seadays.app/community.html">Community</a></li>
                         </ul>
                     </div>
                     
@@ -1052,19 +1023,31 @@
                     </div>
                     
                     <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:support@seadays.app">support@seadays.app</a></li>
+                            <li><a href="mailto:info@seadays.app">info@seadays.app</a></li>
+                            <li><a href="mailto:privacy@seadays.app">privacy@seadays.app</a></li>
+                            <li><a href="mailto:legal@seadays.app">legal@seadays.app</a></li>
+                            <li><a href="mailto:gdpr@seadays.app">gdpr@seadays.app</a></li>
+                            <li><a href="mailto:dpo@seadays.app">dpo@seadays.app</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
                         <h4>Connect</h4>
                         <ul>
                             <li><a href="#">Twitter</a></li>
-                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="#">Instagram</a></li>
                             <li><a href="#">Facebook</a></li>
-                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                            <li><a href="#">LinkedIn</a></li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="footer-bottom">
                     <p>&copy; 2025 SeaDays. All rights reserved.</p>
-                    <p style="margin-top: 12px;">made with love from the port city of Hamburg</p>
+                    <p style="margin-top: 12px;">Made with <i data-lucide="sparkles" style="display:inline;vertical-align:middle;width:1em;height:1em;"></i> from the high seas</p>
                 </div>
             </div>
         </footer>
@@ -1094,53 +1077,6 @@
 
         // Initialize starfield on page load
         createStarfield();
-
-        // Blog preview - load 3 latest Port Site Stories
-        (function() {
-            const projectId = 'soqkgrfzluewpuiguypm';
-            const publicAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
-            const API = 'https://' + projectId + '.supabase.co/functions/v1/make-server-51d3ca8d';
-            const grid = document.getElementById('blogPreviewGrid');
-            const loading = document.getElementById('blogPreviewLoading');
-            const empty = document.getElementById('blogPreviewEmpty');
-
-            function esc(s) {
-                if (!s) return '';
-                const d = document.createElement('div');
-                d.textContent = s;
-                return d.innerHTML;
-            }
-            function fmtDate(ts) {
-                if (!ts) return '';
-                const d = new Date(typeof ts === 'number' ? ts : ts);
-                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-            }
-
-            fetch(API + '/portside-articles?limit=3&forWebsite=1', { headers: { 'Authorization': 'Bearer ' + publicAnonKey } })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    loading.style.display = 'none';
-                    const articles = (data.articles || []).filter(function(a) { return !a.isDraft; }).slice(0, 3);
-                    if (articles.length === 0) {
-                        empty.style.display = 'block';
-                        return;
-                    }
-                    grid.style.display = 'grid';
-                    grid.innerHTML = articles.map(function(a) {
-                        return '<a href="blog-article.html?id=' + encodeURIComponent(a.id) + '" class="feature-card" style="text-decoration:none;color:inherit;">' +
-                            '<div class="feature-icon"><i data-lucide="file-text"></i></div>' +
-                            '<h3 class="feature-title">' + esc(a.title || 'Untitled') + '</h3>' +
-                            '<p class="feature-description">' + esc((a.excerpt || a.content || '').substring(0, 100)) + '...</p>' +
-                            '<p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px;">' + esc(a.author || 'Anonymous') + ' • ' + fmtDate(a.publishedAt || a.timestamp) + '</p>' +
-                            '</a>';
-                    }).join('');
-                    if (typeof lucide !== 'undefined') lucide.createIcons();
-                })
-                .catch(function() {
-                    loading.style.display = 'none';
-                    empty.style.display = 'block';
-                });
-        })();
 
         // Waitlist signup handler
         async function handleWaitlistSignup(event) {
