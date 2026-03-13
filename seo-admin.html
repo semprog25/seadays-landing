@@ -116,6 +116,209 @@
             max-height: 300px;
             overflow-y: auto;
         }
+        .article-seo-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 600px) {
+            .article-seo-thumbnails { grid-template-columns: 1fr; }
+        }
+        .article-thumb-card {
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .article-thumb-card:hover {
+            border-color: #FF0033;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255,0,51,0.15);
+        }
+        .article-thumb-card.selected {
+            border-color: #FF0033;
+            box-shadow: 0 0 0 2px rgba(255,0,51,0.3);
+        }
+        .article-thumb-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(255,0,51,0.15), rgba(6,182,212,0.15));
+        }
+        .article-thumb-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2));
+        }
+        .article-thumb-body {
+            padding: 16px;
+        }
+        .article-thumb-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-thumb-seo {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .article-thumb-meta {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .article-thumb-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .article-thumb-badge.configured {
+            background: rgba(16,185,129,0.2);
+            color: #6bff6b;
+        }
+        .article-thumb-badge.needs-seo {
+            background: rgba(245,158,11,0.2);
+            color: #fbbf24;
+        }
+        .admin-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .admin-tab {
+            padding: 12px 20px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .admin-tab:hover { color: rgba(255,255,255,0.9); }
+        .admin-tab.active {
+            color: #fff;
+            border-bottom-color: #FF0033;
+        }
+        .admin-pane { display: none; }
+        .admin-pane.active { display: block; }
+        .cms-summary {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .cms-summary-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cms-summary-item span { color: #888; font-size: 13px; }
+        .cms-summary-item strong { font-size: 18px; }
+        .cms-filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .cms-filter-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cms-filter-btn:hover { border-color: #FF0033; background: rgba(255,0,51,0.1); }
+        .cms-filter-btn.active { border-color: #FF0033; background: rgba(255,0,51,0.15); color: #fff; }
+        .cms-search {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 16px;
+            border: 2px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 14px;
+        }
+        .cms-search:focus { outline: none; border-color: #FF0033; }
+        .cms-article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .cms-article-card {
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .cms-article-card:hover { border-color: rgba(255,0,51,0.5); }
+        .cms-article-img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(255,0,51,0.15), rgba(6,182,212,0.15));
+        }
+        .cms-article-img-placeholder {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2));
+        }
+        .cms-article-body { padding: 16px; }
+        .cms-article-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .cms-article-meta { font-size: 12px; color: #888; margin-bottom: 12px; }
+        .cms-status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .cms-status-badge.pending { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .cms-status-badge.live { background: rgba(16,185,129,0.2); color: #6bff6b; }
+        .cms-article-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .cms-article-actions .btn { padding: 8px 16px; font-size: 13px; }
+        .cms-article-actions .btn-secondary { padding: 8px 16px; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -139,6 +342,12 @@
         </div>
 
         <div id="seoForm">
+            <div class="admin-tabs">
+                <button type="button" class="admin-tab active" data-pane="seo" onclick="switchAdminTab('seo')">SEO Settings</button>
+                <button type="button" class="admin-tab" data-pane="cms" onclick="switchAdminTab('cms')">Blog CMS</button>
+            </div>
+
+            <div id="seoSettingsPane" class="admin-pane active">
             <div id="formMessage" class="message"></div>
             <form onsubmit="handleSave(event)">
                 <div class="form-group">
@@ -191,12 +400,21 @@
                 <div class="actions">
                     <button type="submit" class="btn" id="saveBtn">Save Settings</button>
                     <button type="button" class="btn btn-secondary" onclick="copyMetaTags()">Copy Meta Tags</button>
+                    <button type="button" class="btn btn-secondary" onclick="toggleSiteSeoPreview()">Preview SEO Tags</button>
+                </div>
+                <div id="siteSeoPreview" class="seo-preview" style="display:none;">
+                    <label>Generated meta tags (Site SEO) — paste into page &lt;head&gt;</label>
+                    <pre id="siteSeoPreviewContent"></pre>
                 </div>
             </form>
 
             <div class="section-divider">
                 <h2>Article SEO</h2>
                 <p class="subtitle" style="margin-bottom:20px;">Override SEO for individual blog articles.</p>
+                <h3 style="font-size:16px;margin-bottom:12px;color:rgba(255,255,255,0.9);">Article SEO Overview</h3>
+                <div id="articleSeoThumbnails" class="article-seo-thumbnails">
+                    <div id="articleSeoThumbnailsLoading" style="grid-column:1/-1;text-align:center;color:#888;padding:24px;">Loading articles...</div>
+                </div>
                 <div id="articleSeoMessage" class="message"></div>
                 <div class="form-group">
                     <label for="articleSelect">Select Article</label>
@@ -248,11 +466,12 @@
                     </div>
                     <div class="actions">
                         <button type="submit" class="btn" id="saveArticleSeoBtn">Save Article SEO</button>
+                        <button type="button" class="btn btn-secondary" onclick="generateFromArticle()">Generate from article</button>
                         <button type="button" class="btn btn-secondary" onclick="copyArticleMetaTags()">Copy Article Meta Tags</button>
                         <button type="button" class="btn btn-secondary" onclick="toggleArticleSeoPreview()">Preview SEO Tags</button>
                     </div>
                     <div id="articleSeoPreview" class="seo-preview" style="display:none;">
-                        <label>Generated meta tags for this article:</label>
+                        <label>Generated meta tags (Article SEO) — paste into blog-article &lt;head&gt;</label>
                         <pre id="articleSeoPreviewContent"></pre>
                     </div>
                 </form>
@@ -260,6 +479,27 @@
 
             <div class="sign-out">
                 <a href="#" onclick="handleSignOut(event)">Sign Out</a>
+            </div>
+            </div>
+
+            <div id="cmsPane" class="admin-pane">
+                <h2 style="font-size:22px;margin-bottom:16px;">Blog Content Management</h2>
+                <p class="subtitle" style="margin-bottom:20px;">Approve or hide articles to control which appear on the website blog.</p>
+                <div id="cmsMessage" class="message"></div>
+                <div id="cmsSummary" class="cms-summary" style="display:none;">
+                    <div class="cms-summary-item"><strong id="cmsCountPending">0</strong><span>Pending</span></div>
+                    <div class="cms-summary-item"><strong id="cmsCountLive">0</strong><span>Live</span></div>
+                    <div class="cms-summary-item"><strong id="cmsCountTotal">0</strong><span>Total</span></div>
+                </div>
+                <div class="cms-filters">
+                    <input type="text" id="cmsSearch" class="cms-search" placeholder="Search by title or author..." oninput="filterCmsArticles()">
+                    <button type="button" class="cms-filter-btn active" data-filter="all" onclick="setCmsFilter('all')">All</button>
+                    <button type="button" class="cms-filter-btn" data-filter="pending" onclick="setCmsFilter('pending')">Pending</button>
+                    <button type="button" class="cms-filter-btn" data-filter="live" onclick="setCmsFilter('live')">Live</button>
+                </div>
+                <div id="cmsLoading" style="text-align:center;color:#888;padding:40px;">Loading articles...</div>
+                <div id="cmsArticleGrid" class="cms-article-grid" style="display:none;"></div>
+                <div id="cmsEmpty" style="text-align:center;color:#888;padding:40px;display:none;">No articles match your filters.</div>
             </div>
         </div>
     </div>
@@ -289,8 +529,171 @@
 
             function showMsg(elId, text, type) {
                 var el = document.getElementById(elId);
-                el.textContent = text;
-                el.className = 'message ' + (type || '') + ' show';
+                if (el) { el.textContent = text; el.className = 'message ' + (type || '') + ' show'; }
+            }
+
+            var cmsArticles = [];
+            var cmsFilter = 'all';
+            var cmsSearchQuery = '';
+
+            window.switchAdminTab = function(pane) {
+                document.querySelectorAll('.admin-tab').forEach(function(t) { t.classList.toggle('active', t.getAttribute('data-pane') === pane); });
+                document.getElementById('seoSettingsPane').classList.toggle('active', pane === 'seo');
+                document.getElementById('cmsPane').classList.toggle('active', pane === 'cms');
+                if (pane === 'cms') loadCmsArticles();
+            };
+
+            async function loadCmsArticles() {
+                var grid = document.getElementById('cmsArticleGrid');
+                var loading = document.getElementById('cmsLoading');
+                var empty = document.getElementById('cmsEmpty');
+                var summary = document.getElementById('cmsSummary');
+                if (!grid || !loading) return;
+                loading.style.display = 'block';
+                grid.style.display = 'none';
+                empty.style.display = 'none';
+                try {
+                    var { data: { session } } = await supabaseClient.auth.getSession();
+                    if (!session) {
+                        showMsg('cmsMessage', 'Session expired. Please sign in again.', 'error');
+                        loading.style.display = 'none';
+                        return;
+                    }
+                    var res = await fetch(API + '/portside-articles?admin=1&limit=100', {
+                        headers: { 'Authorization': 'Bearer ' + session.access_token }
+                    });
+                    var data = await res.json();
+                    if (!res.ok) throw new Error(data.error || 'Failed to load articles');
+                    cmsArticles = (data.articles || []).filter(function(a) { return a.id && a.title; });
+                    loading.style.display = 'none';
+                    renderCmsSummary();
+                    renderCmsArticles();
+                } catch (err) {
+                    loading.style.display = 'none';
+                    showMsg('cmsMessage', err.message || 'Failed to load articles', 'error');
+                }
+            }
+
+            function renderCmsSummary() {
+                var pending = cmsArticles.filter(function(a) { return a.showOnWebsite === false; }).length;
+                var live = cmsArticles.filter(function(a) { return a.showOnWebsite === true || a.showOnWebsite === undefined; }).length;
+                document.getElementById('cmsCountPending').textContent = pending;
+                document.getElementById('cmsCountLive').textContent = live;
+                document.getElementById('cmsCountTotal').textContent = cmsArticles.length;
+                document.getElementById('cmsSummary').style.display = 'flex';
+            }
+
+            function getFilteredCmsArticles() {
+                var list = cmsArticles;
+                if (cmsFilter === 'pending') list = list.filter(function(a) { return a.showOnWebsite === false; });
+                else if (cmsFilter === 'live') list = list.filter(function(a) { return a.showOnWebsite === true || a.showOnWebsite === undefined; });
+                if (cmsSearchQuery) {
+                    var q = cmsSearchQuery.toLowerCase();
+                    list = list.filter(function(a) {
+                        return (a.title || '').toLowerCase().indexOf(q) >= 0 || (a.author || '').toLowerCase().indexOf(q) >= 0;
+                    });
+                }
+                return list;
+            }
+
+            function formatCmsDate(ts) {
+                if (!ts) return '';
+                var d = new Date(typeof ts === 'number' ? ts : ts);
+                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+
+            function escapeHtml(s) {
+                if (!s) return '';
+                var d = document.createElement('div');
+                d.textContent = s;
+                return d.innerHTML;
+            }
+
+            function renderCmsArticles() {
+                var list = getFilteredCmsArticles();
+                var grid = document.getElementById('cmsArticleGrid');
+                var empty = document.getElementById('cmsEmpty');
+                if (!grid || !empty) return;
+                if (list.length === 0) {
+                    grid.style.display = 'none';
+                    empty.style.display = 'block';
+                    return;
+                }
+                empty.style.display = 'none';
+                grid.style.display = 'grid';
+                var baseUrl = window.location.origin + window.location.pathname.replace('seo-admin.html', '');
+                grid.innerHTML = list.map(function(a) {
+                    var isLive = a.showOnWebsite === true || a.showOnWebsite === undefined;
+                    var statusClass = isLive ? 'live' : 'pending';
+                    var statusLabel = isLive ? 'Live' : 'Pending';
+                    var imgHtml = (a.heroImageUrl || a.thumbnailUrl)
+                        ? '<img src="' + (a.heroImageUrl || a.thumbnailUrl).replace(/"/g, '&quot;') + '" alt="" class="cms-article-img">'
+                        : '<div class="cms-article-img-placeholder"></div>';
+                    var actions = '';
+                    if (isLive) {
+                        actions = '<button type="button" class="btn btn-secondary" onclick="cmsHideArticle(\'' + a.id.replace(/'/g, "\\'") + '\')">Hide from Website</button>';
+                    } else {
+                        actions = '<button type="button" class="btn" onclick="cmsApproveArticle(\'' + a.id.replace(/'/g, "\\'") + '\')">Show on Website</button>';
+                    }
+                    actions += ' <a href="' + baseUrl + 'blog-article.html?id=' + encodeURIComponent(a.id) + '" target="_blank" class="btn btn-secondary">Preview</a>';
+                    return '<div class="cms-article-card" data-article-id="' + escapeHtml(a.id) + '">' +
+                        imgHtml +
+                        '<div class="cms-article-body">' +
+                        '<span class="cms-status-badge ' + statusClass + '">' + statusLabel + '</span>' +
+                        '<h3 class="cms-article-title">' + escapeHtml(a.title || 'Untitled') + '</h3>' +
+                        '<div class="cms-article-meta">' + escapeHtml(a.author || 'Anonymous') + ' · ' + formatCmsDate(a.publishedAt || a.timestamp || a.updatedAt) + '</div>' +
+                        '<div class="cms-article-actions">' + actions + '</div>' +
+                        '</div></div>';
+                }).join('');
+            }
+
+            window.setCmsFilter = function(filter) {
+                cmsFilter = filter;
+                document.querySelectorAll('.cms-filter-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-filter') === filter); });
+                renderCmsArticles();
+            };
+
+            var cmsSearchEl = document.getElementById('cmsSearch');
+            if (cmsSearchEl) cmsSearchEl.addEventListener('input', function() {
+                cmsSearchQuery = (this.value || '').trim();
+                filterCmsArticles();
+            });
+
+            window.filterCmsArticles = function() {
+                var el = document.getElementById('cmsSearch');
+                cmsSearchQuery = (el ? el.value : '') ? String(el.value).trim() : '';
+                renderCmsArticles();
+            };
+
+            window.cmsApproveArticle = async function(articleId) {
+                await cmsSetVisibility(articleId, true);
+            };
+
+            window.cmsHideArticle = async function(articleId) {
+                await cmsSetVisibility(articleId, false);
+            };
+
+            async function cmsSetVisibility(articleId, showOnWebsite) {
+                showMsg('cmsMessage', 'Updating...', '');
+                try {
+                    var { data: { session } } = await supabaseClient.auth.getSession();
+                    if (!session) throw new Error('Session expired');
+                    var res = await fetch(API + '/portside-articles/' + encodeURIComponent(articleId) + '/visibility', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + session.access_token },
+                        body: JSON.stringify({ showOnWebsite: showOnWebsite })
+                    });
+                    var data = await res.json();
+                    if (!res.ok) throw new Error(data.error || 'Failed to update');
+                    var a = cmsArticles.find(function(x) { return x.id === articleId; });
+                    if (a) a.showOnWebsite = showOnWebsite;
+                    renderCmsSummary();
+                    renderCmsArticles();
+                    showMsg('cmsMessage', showOnWebsite ? 'Article is now live on the website.' : 'Article hidden from website.', 'success');
+                    setTimeout(function() { showMsg('cmsMessage', '', ''); }, 3000);
+                } catch (err) {
+                    showMsg('cmsMessage', err.message || 'Failed to update', 'error');
+                }
             }
 
             async function checkSession() {
@@ -341,10 +744,139 @@
                         document.getElementById('robots').value = data.robots || 'index,follow';
                     }
                     loadArticlesIntoSelect();
+                    loadArticleSeoThumbnails();
                 } catch (err) {
                     console.warn('Could not load SEO settings:', err);
                 }
             }
+
+            var articlesCache = [];
+
+            async function loadArticleSeoThumbnails() {
+                var container = document.getElementById('articleSeoThumbnails');
+                var loading = document.getElementById('articleSeoThumbnailsLoading');
+                if (!container) return;
+                loading = loading || container.querySelector('#articleSeoThumbnailsLoading');
+                if (loading) loading.style.display = 'block';
+                try {
+                    var res = await fetch(API + '/portside-articles?limit=50', {
+                        headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    });
+                    var data = await res.json();
+                    var articles = (data.articles || []).filter(function(a) { return a.id && a.title; });
+                    articlesCache = articles;
+                    if (loading) loading.style.display = 'none';
+                    if (articles.length === 0) {
+                        container.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#888;padding:24px;">No articles yet.</div>';
+                        return;
+                    }
+                    var cardsHtml = '';
+                    for (var i = 0; i < articles.length; i++) {
+                        var a = articles[i];
+                        var seoRes = await fetch(API + '/portside-articles/' + encodeURIComponent(a.id) + '/seo', {
+                            headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                        });
+                        var seoData = await seoRes.json();
+                        var s = (seoData.seo || {});
+                        var metaDesc = (s.metaDescription || a.excerpt || (a.content ? stripHtml(a.content).substring(0, 80) : '') || 'No meta description');
+                        if (metaDesc.length > 80) metaDesc = metaDesc.substring(0, 77) + '...';
+                        var author = s.articleAuthor || a.author || '—';
+                        var robots = s.robots || 'index,follow';
+                        var isConfigured = !!(s.metaDescription || s.metaTitle);
+                        var imgHtml = (a.heroImageUrl || a.thumbnailUrl)
+                            ? '<img src="' + escapeAttr(a.heroImageUrl || a.thumbnailUrl) + '" alt="" class="article-thumb-img">'
+                            : '<div class="article-thumb-placeholder"></div>';
+                        var title = (a.title || 'Untitled');
+                        if (title.length > 60) title = title.substring(0, 57) + '...';
+                        cardsHtml += '<div class="article-thumb-card" data-article-id="' + escapeAttr(a.id) + '" onclick="selectArticleFromThumb(this.getAttribute(\'data-article-id\'))">' +
+                            imgHtml +
+                            '<div class="article-thumb-body">' +
+                            '<div class="article-thumb-title">' + escapeHtml(title) + '</div>' +
+                            '<div class="article-thumb-seo">' + escapeHtml(metaDesc) + '</div>' +
+                            '<div class="article-thumb-meta">' + escapeHtml(author) + ' · ' + robots + '</div>' +
+                            '<span class="article-thumb-badge ' + (isConfigured ? 'configured' : 'needs-seo') + '">' + (isConfigured ? 'Configured' : 'Needs SEO') + '</span>' +
+                            '</div></div>';
+                    }
+                    container.innerHTML = cardsHtml;
+                } catch (err) {
+                    if (loading) loading.style.display = 'none';
+                    container.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#ff6b6b;padding:24px;">Failed to load articles.</div>';
+                }
+            }
+
+            function stripHtml(html) {
+                if (!html) return '';
+                var d = document.createElement('div');
+                d.innerHTML = html;
+                return (d.textContent || d.innerText || '').replace(/\s+/g, ' ').trim();
+            }
+
+            function escapeAttr(s) {
+                if (!s) return '';
+                return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+
+            function escapeHtml(s) {
+                if (!s) return '';
+                var d = document.createElement('div');
+                d.textContent = s;
+                return d.innerHTML;
+            }
+
+            window.selectArticleFromThumb = function(articleId) {
+                var sel = document.getElementById('articleSelect');
+                if (sel) sel.value = articleId;
+                loadArticleSeo();
+                var cards = document.querySelectorAll('.article-thumb-card');
+                cards.forEach(function(c) {
+                    c.classList.toggle('selected', c.getAttribute('data-article-id') === articleId);
+                });
+                var form = document.getElementById('articleSeoForm');
+                if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            window.generateFromArticle = async function() {
+                var id = document.getElementById('articleSelect').value;
+                if (!id) {
+                    showMsg('articleSeoMessage', 'Select an article first', 'error');
+                    return;
+                }
+                showMsg('articleSeoMessage', 'Generating...', '');
+                var article = articlesCache.find(function(a) { return a.id === id; });
+                if (!article) {
+                    try {
+                        var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id), {
+                            headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                        });
+                        var data = await res.json();
+                        article = data.article || data;
+                    } catch (e) {
+                        showMsg('articleSeoMessage', 'Could not load article', 'error');
+                        return;
+                    }
+                }
+                if (!article) {
+                    showMsg('articleSeoMessage', 'Article not found', 'error');
+                    return;
+                }
+                var metaDesc = article.excerpt || stripHtml(article.content || '').substring(0, 155);
+                if (metaDesc.length > 155) metaDesc = metaDesc.substring(0, 152) + '...';
+                var pubTime = article.publishedAt || '';
+                if (!pubTime && (article.timestamp || article.updatedAt)) {
+                    var ts = article.timestamp || article.updatedAt;
+                    pubTime = typeof ts === 'number' ? new Date(ts).toISOString() : (ts ? new Date(ts).toISOString() : '');
+                }
+                document.getElementById('articleMetaTitle').value = article.title || '';
+                document.getElementById('articleMetaDescription').value = metaDesc || '';
+                document.getElementById('articleSeoAuthor').value = article.author || 'SeaDays';
+                document.getElementById('articleCanonicalUrl').value = 'https://seadays.app/blog-article.html?id=' + id;
+                document.getElementById('articleOgImage').value = article.heroImageUrl || article.thumbnailUrl || '';
+                document.getElementById('articlePublishedTime').value = pubTime || '';
+                document.getElementById('articleRobots').value = 'index,follow';
+                document.getElementById('articleMaxImagePreview').value = 'large';
+                showMsg('articleSeoMessage', 'Form populated from article. Review and save.', 'success');
+                setTimeout(function() { showMsg('articleSeoMessage', '', ''); }, 3000);
+            };
 
             async function loadArticlesIntoSelect() {
                 var sel = document.getElementById('articleSelect');
@@ -371,6 +903,10 @@
                 var id = document.getElementById('articleSelect').value;
                 var prev = document.getElementById('articleSeoPreview');
                 if (prev) prev.style.display = 'none';
+                var cards = document.querySelectorAll('.article-thumb-card');
+                cards.forEach(function(c) {
+                    c.classList.toggle('selected', c.getAttribute('data-article-id') === id);
+                });
                 if (!id) return;
                 showMsg('articleSeoMessage', '', '');
                 try {
@@ -383,8 +919,12 @@
                     document.getElementById('articleOgImage').value = s.ogImage || '';
                     document.getElementById('articleSeoAuthor').value = s.articleAuthor || '';
                     document.getElementById('articlePublishedTime').value = s.articlePublishedTime || '';
-                    document.getElementById('articleRobots').value = s.robots || 'index,follow';
                     document.getElementById('articleMaxImagePreview').value = s.maxImagePreview || 'large';
+                    var prev = document.getElementById('articleSeoPreview');
+                    if (prev) {
+                        document.getElementById('articleSeoPreviewContent').textContent = getArticleSeoTagsHtml();
+                        prev.style.display = 'block';
+                    }
                 } catch (err) {
                     showMsg('articleSeoMessage', 'Failed to load article SEO', 'error');
                 }
@@ -428,6 +968,7 @@
                     var data = await res.json();
                     if (!res.ok) throw new Error(data.error || 'Save failed');
                     showMsg('articleSeoMessage', 'Article SEO saved.', 'success');
+                    loadArticleSeoThumbnails();
                     setTimeout(function() { showMsg('articleSeoMessage', '', ''); }, 3000);
                 } catch (err) {
                     showMsg('articleSeoMessage', err.message || 'Failed to save', 'error');
@@ -480,17 +1021,43 @@
                 }
             };
 
+            function getSiteSeoTagsHtml() {
+                var title = document.getElementById('metaTitle').value;
+                var desc = document.getElementById('metaDescription').value;
+                var siteUrl = document.getElementById('siteUrl').value;
+                var canonicalBase = document.getElementById('canonicalBase').value;
+                var author = document.getElementById('articleAuthor').value;
+                var ogSiteName = document.getElementById('ogSiteName').value;
+                var robots = document.getElementById('robots').value;
+                var maxPreview = document.getElementById('maxImagePreview').value;
+                var esc = function(s) { return (s || '').replace(/"/g, '&quot;'); };
+                var base = siteUrl || canonicalBase || 'https://seadays.app';
+                var html = '<!-- Site SEO meta (from admin) -->\n';
+                if (title) html += '<title>' + esc(title) + '</title>\n';
+                html += '<meta name="description" content="' + esc(desc) + '">\n';
+                html += '<meta name="robots" content="' + (robots || 'index,follow') + '">\n';
+                html += '<meta name="max-image-preview" content="' + (maxPreview || 'large') + '">\n';
+                html += '<meta property="og:site_name" content="' + esc(ogSiteName || 'SeaDays') + '">\n';
+                if (title) html += '<meta property="og:title" content="' + esc(title) + '">\n';
+                if (desc) html += '<meta property="og:description" content="' + esc(desc) + '">\n';
+                if (base) html += '<meta property="og:url" content="' + esc(base) + '">\n';
+                html += '<meta property="article:author" content="' + esc(author) + '">\n';
+                return html;
+            }
+
+            window.toggleSiteSeoPreview = function() {
+                var box = document.getElementById('siteSeoPreview');
+                if (box.style.display === 'none') {
+                    document.getElementById('siteSeoPreviewContent').textContent = getSiteSeoTagsHtml();
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            };
+
             window.copyMetaTags = async function() {
                 try {
-                    var res = await fetch(API + '/site-seo');
-                    var s = await res.json();
-                    var base = s.siteUrl || s.canonicalBase || 'https://seadays.app';
-                    var html = '<!-- Global SEO meta (from admin) -->\n';
-                    html += '<meta name="description" content="' + (s.metaDescription || '').replace(/"/g, '&quot;') + '">\n';
-                    html += '<meta name="robots" content="' + (s.robots || 'index,follow') + '">\n';
-                    html += '<meta name="max-image-preview" content="' + (s.maxImagePreview || 'large') + '">\n';
-                    html += '<meta property="og:site_name" content="' + (s.ogSiteName || 'SeaDays').replace(/"/g, '&quot;') + '">\n';
-                    html += '<meta property="article:author" content="' + (s.articleAuthor || '').replace(/"/g, '&quot;') + '">\n';
+                    var html = getSiteSeoTagsHtml();
                     await navigator.clipboard.writeText(html);
                     showMsg('formMessage', 'Meta tags copied to clipboard.', 'success');
                     setTimeout(function() { showMsg('formMessage', '', ''); }, 2000);
