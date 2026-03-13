@@ -287,13 +287,20 @@
                 const empty = document.getElementById('blogEmpty');
 
                 try {
-                    const res = await fetch(API + '/portside-articles?limit=50&forWebsite=1', {
+                    const res = await fetch(API + '/portside-articles?limit=50', {
                         headers: { 'Authorization': 'Bearer ' + publicAnonKey }
                     });
                     const data = await res.json();
                     loading.style.display = 'none';
 
-                    const articles = (data.articles || []).filter(function(a) { return !a.isDraft; });
+                    if (!res.ok) {
+                        loading.textContent = 'Failed to load stories. Please try again later.';
+                        loading.style.display = 'block';
+                        return;
+                    }
+
+                    var raw = (data && data.articles) ? data.articles : [];
+                    const articles = raw.filter(function(a) { return a && a.isDraft !== true; });
                     if (articles.length === 0) {
                         empty.style.display = 'block';
                         return;
