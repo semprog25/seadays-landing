@@ -118,19 +118,54 @@
             font-size: 18px;
             color: rgba(255,255,255,0.9);
         }
+        /* Force readable text on dark background – overrides inline styles from CMS/pasted content */
+        .article-content,
+        .article-content p,
+        .article-content li,
+        .article-content span,
+        .article-content div {
+            color: rgba(255,255,255,0.9) !important;
+        }
+        .article-content h1,
+        .article-content h2,
+        .article-content h3,
+        .article-content h4,
+        .article-content h5,
+        .article-content h6 {
+            color: #ffffff !important;
+        }
+        .article-content a {
+            color: var(--neon-red) !important;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .article-content a:hover {
+            color: #ff3366 !important;
+            text-decoration: underline;
+        }
+        .article-content a:visited {
+            color: rgba(255, 0, 51, 0.9) !important;
+        }
         .article-content h2 { font-size: 28px; margin: 40px 0 16px; }
         .article-content h3 { font-size: 22px; margin: 32px 0 12px; }
         .article-content p { margin-bottom: 20px; }
         .article-content ul, .article-content ol { margin: 20px 0 20px 24px; }
         .article-content li { margin-bottom: 8px; }
-        .article-content a { color: var(--neon-red); }
         .article-content img { max-width: 100%; height: auto; border-radius: 8px; }
         .article-content blockquote {
             border-left: 4px solid var(--neon-red);
             padding-left: 20px;
             margin: 24px 0;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.7) !important;
         }
+        .article-content strong, .article-content b { color: rgba(255,255,255,0.95) !important; }
+        .article-content code, .article-content pre {
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.95) !important;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .article-content pre { padding: 16px; overflow-x: auto; display: block; }
         .loading { text-align: center; padding: 80px 24px; color: rgba(255,255,255,0.6); }
         .error { text-align: center; padding: 80px 24px; color: #ff6b6b; }
         .article-cta {
