@@ -10,8 +10,10 @@ FILE LIST
 --------------------------------------------------------------------------------
 
 1. HTML PAGES (Main Website)
-   - index.html         (Homepage - same as landing-page.html)
+   - index.html         (Homepage with waitlist, features, and blog preview)
    - landing-page.html  (The main homepage with waitlist and features)
+   - blog.html          (Blog listing - Port Site Stories from the community)
+   - blog-article.html  (Individual article page with full content)
    - about.html         (About Us page)
    - help.html          (Help Center & FAQ)
    - faq.html           (Frequently Asked Questions)
@@ -24,11 +26,15 @@ FILE LIST
 
 2. ADMIN TOOLS
    - waitlist-admin.html (Dashboard to view/export waitlist subscribers)
+   - seo-admin.html     (SEO settings - Meta title, description, og:site_name, robots, etc.)
 
-3. BACKEND SETUP
+3. SCRIPTS
+   - seo-inject.js      (Fetches admin-configured SEO and injects meta tags - include in pages)
+
+4. BACKEND SETUP
    - waitlist-backend-setup.txt (Instructions and code for Supabase waitlist)
 
-4. ADMOB VERIFICATION
+5. ADMOB VERIFICATION
    - app-ads.txt (Required for Google AdMob app verification - upload to web root)
 
 --------------------------------------------------------------------------------
@@ -45,7 +51,11 @@ HOW TO USE
    - The "Start Planning" buttons link to `https://seadays.app/app`.
    - Legal links open in new tabs (`target="_blank"`).
 
-3. Waitlist Setup (Optional):
+3. SEO Admin Setup:
+   - Set Supabase secret SEO_ADMIN_USER_IDS (comma-separated user UUIDs) to allow admin access.
+   - Sign in at seo-admin.html with a whitelisted account to manage meta tags.
+
+5. Waitlist Setup (Optional):
    - If you want to re-enable the waitlist feature, you can use the `waitlist-admin.html` tool.
    - See `waitlist-backend-setup.txt` for backend deployment instructions.
 

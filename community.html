@@ -12,17 +12,16 @@
         }
 
         :root {
-            --primary-teal: #4a6b7c;
-            --teal-dark: #3a5566;
-            --cyan: #06B6D4;
-            --text-dark: #1f2937;
-            --text-gray: #6b7280;
+            --dark-bg: #0a0a0a;
+            --neon-red: #FF0033;
+            --text-light: #ffffff;
+            --text-gray: rgba(255, 255, 255, 0.7);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #a8d5e2 0%, #c2e5ec 100%);
-            color: var(--text-dark);
+            background: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -37,7 +36,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--primary-teal);
+            color: var(--neon-red);
             text-decoration: none;
             font-weight: 600;
             margin-bottom: 30px;
@@ -45,7 +44,7 @@
         }
 
         .back-link:hover {
-            color: var(--teal-dark);
+            color: #ff3366;
             transform: translateX(-5px);
         }
 
@@ -57,7 +56,7 @@
         h1 {
             font-size: 48px;
             font-weight: 900;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 16px;
         }
 
@@ -69,11 +68,11 @@
         }
 
         .stats-banner {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 51, 0.2);
             border-radius: 16px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .stats-grid {
@@ -90,10 +89,7 @@
         .stat-number {
             font-size: 42px;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--neon-red);
             margin-bottom: 8px;
         }
 
@@ -110,16 +106,17 @@
         }
 
         .feature-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 51, 0.2);
             border-radius: 16px;
             padding: 32px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 25px rgba(74, 107, 124, 0.15);
+            border-color: rgba(255, 0, 51, 0.4);
+            box-shadow: 0 6px 25px rgba(255, 0, 51, 0.15);
         }
 
         .feature-icon {
@@ -129,7 +126,7 @@
 
         .feature-card h3 {
             font-size: 22px;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 12px;
         }
 
@@ -139,30 +136,30 @@
         }
 
         .guidelines-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 40px;
             margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .guidelines-section h2 {
             font-size: 32px;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 24px;
         }
 
         .guideline-item {
             padding: 20px;
             margin-bottom: 16px;
-            background: #f9fafb;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 10px;
-            border-left: 4px solid var(--primary-teal);
+            border-left: 4px solid var(--neon-red);
         }
 
         .guideline-item h4 {
             font-size: 18px;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 8px;
         }
 
@@ -172,11 +169,12 @@
         }
 
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-teal), var(--cyan));
+            background: rgba(255, 0, 51, 0.15);
+            border: 1px solid rgba(255, 0, 51, 0.3);
             border-radius: 16px;
             padding: 50px 40px;
             text-align: center;
-            color: white;
+            color: var(--text-light);
         }
 
         .cta-section h2 {
@@ -188,13 +186,14 @@
             font-size: 18px;
             margin-bottom: 32px;
             opacity: 0.95;
+            color: var(--text-gray);
         }
 
         .cta-button {
             display: inline-block;
             padding: 16px 40px;
-            background: white;
-            color: var(--primary-teal);
+            background: var(--neon-red);
+            color: white;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 700;
@@ -204,7 +203,8 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: #cc0029;
+            box-shadow: 0 10px 30px rgba(255, 0, 51, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -337,7 +337,7 @@
         <div class="cta-section">
             <h2>Ready to Set Sail?</h2>
             <p>Join thousands of cruisers planning their next adventure</p>
-            <a href="https://seadays.app/app" class="cta-button">Join SeaDays Free</a>
+            <a href="https://seadays.app/" class="cta-button">Join SeaDays Free</a>
         </div>
     </div>
 </body>

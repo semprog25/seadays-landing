@@ -109,6 +109,31 @@
             color: var(--text-gray);
             line-height: 1.7;
         }
+        .contact-banner {
+            background: rgba(255, 0, 51, 0.15);
+            border: 1px solid rgba(255, 0, 51, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 40px;
+        }
+        .contact-banner h2 { font-size: 28px; margin-bottom: 12px; }
+        .contact-banner p { font-size: 17px; margin-bottom: 24px; opacity: 0.95; color: var(--text-gray); }
+        .contact-email-alt { font-size: 16px; margin-bottom: 24px; }
+        .contact-email-alt a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
+        .contact-email-alt a:hover { text-decoration: underline; }
+        .contact-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--neon-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .contact-button:hover { transform: translateY(-2px); background: #cc0029; box-shadow: 0 8px 20px rgba(255, 0, 51, 0.3); }
         @media (max-width: 768px) {
             .content { padding: 30px 24px; }
             h1 { font-size: 36px; }
@@ -121,7 +146,7 @@
 
     <div class="content-layer">
         <div class="container">
-            <a href="../index.html" class="back-link">← Back to Home</a>
+            <a href="https://seadays.app/" class="back-link">← Back to Home</a>
             
             <div class="header">
                 <div class="icon-container">
@@ -165,6 +190,13 @@
                     <h2>Can I export my data?</h2>
                     <p>Yes! You can export all your cruise data, statistics, and photos from your account settings at any time.</p>
                 </div>
+            </div>
+
+            <div class="contact-banner">
+                <h2>Can't Find What You're Looking For?</h2>
+                <p>Our support team is ready to help you with any questions</p>
+                <p class="contact-email-alt">Or write to us at <a href="mailto:support@seadays.app">support@seadays.app</a></p>
+                <a href="contact.html" class="contact-button">Contact Support</a>
             </div>
         </div>
     </div>
