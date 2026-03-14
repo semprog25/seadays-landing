@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Port Site Story - SeaDays Blog">
     <meta property="og:title" content="Port Site Story | SeaDays">
@@ -79,16 +80,6 @@
             font-size: 14px;
         }
         .header-nav a:hover { color: white; }
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--neon-red);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .back-btn:hover { color: #ff3366; text-decoration: underline; }
         .article-wrap {
             max-width: 800px;
             margin: 0 auto;
@@ -99,14 +90,7 @@
             max-height: 400px;
             object-fit: cover;
             border-radius: 16px;
-            margin-bottom: 8px;
-        }
-        .article-hero-caption {
-            font-size: 14px;
-            font-style: italic;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 24px;
-            display: block;
+            margin-bottom: 32px;
         }
         .article-hero-placeholder {
             width: 100%;
@@ -169,8 +153,6 @@
         .article-content ul, .article-content ol { margin: 20px 0 20px 24px; }
         .article-content li { margin-bottom: 8px; }
         .article-content img { max-width: 100%; height: auto; border-radius: 8px; }
-        .article-content figure { margin: 1rem 0 1.5rem 0; display: block; }
-        .article-content figcaption { margin-top: 0.5rem; margin-bottom: 0; font-size: 14px; font-style: italic; color: rgba(255,255,255,0.6); display: block; }
         .article-content blockquote {
             border-left: 4px solid var(--neon-red);
             padding-left: 20px;
@@ -233,84 +215,11 @@
             font-weight: 600;
         }
         .back-link:hover { text-decoration: underline; }
-        .article-nav {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .article-nav a {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-        .article-nav a:hover {
-            border-color: var(--neon-red);
-            background: rgba(255,0,51,0.08);
-        }
-        .article-nav .nav-prev { flex-direction: row; }
-        .article-nav .nav-next { flex-direction: row-reverse; text-align: right; }
-        .article-nav .nav-thumb {
-            width: 80px;
-            height: 60px;
-            flex-shrink: 0;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .article-nav .nav-label { font-size: 12px; color: rgba(255,255,255,0.5); }
-        .article-nav .nav-title { font-weight: 600; font-size: 15px; }
-        .more-articles {
-            margin-top: 48px;
-        }
-        .more-articles h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .more-articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        .more-article-card {
-            display: block;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            overflow: hidden;
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-        .more-article-card:hover {
-            border-color: var(--neon-red);
-            transform: translateY(-2px);
-        }
-        .more-article-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-        .more-article-card .card-body { padding: 12px; }
-        .more-article-card .card-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
         @media (max-width: 768px) {
             .article-title { font-size: 28px; }
             .article-content { font-size: 16px; }
             .article-cta { padding: 24px 20px; }
             .article-cta h3 { font-size: 20px; }
-            .article-nav { flex-direction: column; }
-            .article-nav .nav-next { flex-direction: row; text-align: left; }
-            .more-articles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -320,7 +229,6 @@
     <div class="content-layer">
         <header class="header">
             <nav class="header-nav">
-                <a href="javascript:history.back()" class="back-btn" title="Go back">&#8592; Back</a>
                 <a href="index.html">Home</a>
                 <a href="blog.html">Blog</a>
                 <a href="https://seadays.app/privacy.html">Privacy</a>
@@ -384,13 +292,6 @@
                 d.innerHTML = html;
                 var scripts = d.querySelectorAll('script');
                 scripts.forEach(function(s) { s.remove(); });
-                return d.innerHTML;
-            }
-
-            function escapeHtml(s) {
-                if (!s) return '';
-                var d = document.createElement('div');
-                d.textContent = s;
                 return d.innerHTML;
             }
 
@@ -460,9 +361,6 @@
                     var html = '';
                     if (a.heroImageUrl || a.thumbnailUrl) {
                         html += '<img src="' + (a.heroImageUrl || a.thumbnailUrl).replace(/"/g, '&quot;') + '" alt="" class="article-hero-img">';
-                        if (a.heroImageAttributes && String(a.heroImageAttributes).trim()) {
-                            html += '<span class="article-hero-caption">' + String(a.heroImageAttributes).trim().replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
-                        }
                     } else {
                         html += '<div class="article-hero-placeholder"></div>';
                     }
@@ -479,49 +377,8 @@
                     html += '<a href="index.html#download" class="cta-btn">Download SeaDays</a>';
                     html += '</div>';
 
-                    var navHtml = '';
-                    var thumbHtml = '';
-                    try {
-                        var listRes = await fetch(API + '/portside-articles?limit=50&forWebsite=1', {
-                            headers: { 'Authorization': 'Bearer ' + publicAnonKey }
-                        });
-                        var listData = await listRes.json();
-                        var rawList = (listData && listData.articles) ? listData.articles : [];
-                        var allArticles = rawList.filter(function(x) { return x && x.isDraft !== true; });
-                        var idx = allArticles.findIndex(function(x) { return x.id === articleId; });
-                        var prevA = idx > 0 ? allArticles[idx - 1] : null;
-                        var nextA = idx >= 0 && idx < allArticles.length - 1 ? allArticles[idx + 1] : null;
-                        var moreArticles = allArticles.filter(function(x) { return x.id !== articleId; }).slice(0, 4);
-
-                        if (prevA || nextA) {
-                            navHtml = '<div class="article-nav">';
-                            navHtml += prevA
-                                ? '<a href="blog-article.html?id=' + encodeURIComponent(prevA.id) + '" class="nav-prev">' +
-                                    (prevA.thumbnailUrl || prevA.heroImageUrl ? '<img src="' + escapeHtml(prevA.thumbnailUrl || prevA.heroImageUrl) + '" alt="" class="nav-thumb">' : '') +
-                                    '<div><span class="nav-label">&larr; Previous</span><div class="nav-title">' + escapeHtml(prevA.title || 'Untitled') + '</div></div></a>'
-                                : '<div></div>';
-                            navHtml += nextA
-                                ? '<a href="blog-article.html?id=' + encodeURIComponent(nextA.id) + '" class="nav-next">' +
-                                    (nextA.thumbnailUrl || nextA.heroImageUrl ? '<img src="' + escapeHtml(nextA.thumbnailUrl || nextA.heroImageUrl) + '" alt="" class="nav-thumb">' : '') +
-                                    '<div><span class="nav-label">Next &rarr;</span><div class="nav-title">' + escapeHtml(nextA.title || 'Untitled') + '</div></div></a>'
-                                : '<div></div>';
-                            navHtml += '</div>';
-                        }
-
-                        if (moreArticles.length > 0) {
-                            thumbHtml = '<div class="more-articles"><h3>More to read</h3><div class="more-articles-grid">' +
-                                moreArticles.map(function(m) {
-                                    var img = (m.heroImageUrl || m.thumbnailUrl)
-                                        ? '<img src="' + escapeHtml(m.heroImageUrl || m.thumbnailUrl) + '" alt="">'
-                                        : '<div style="height:120px;background:linear-gradient(135deg,rgba(255,0,51,0.2),rgba(6,182,212,0.2));"></div>';
-                                    return '<a href="blog-article.html?id=' + encodeURIComponent(m.id) + '" class="more-article-card">' + img +
-                                        '<div class="card-body"><div class="card-title">' + escapeHtml(m.title || 'Untitled') + '</div></div></a>';
-                                }).join('') + '</div></div>';
-                        }
-                    } catch (e) {}
-
                     var articleEl = document.getElementById('articleContent');
-                    articleEl.innerHTML = html + navHtml + thumbHtml + '<a href="blog.html" class="back-link">&larr; Back to Blog</a>';
+                    articleEl.innerHTML = html + '<a href="blog.html" class="back-link">&larr; Back to Blog</a>';
                     articleEl.style.display = 'block';
                 } catch (e) {
                     document.getElementById('articleLoading').style.display = 'none';
