@@ -5,6 +5,7 @@
  */
 (function() {
     const API = 'https://soqkgrfzluewpuiguypm.supabase.co/functions/v1/make-server-51d3ca8d';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
 
     function setMetaIfEmpty(nameOrProp, content, isProp) {
         if (!content) return;
@@ -21,7 +22,9 @@
     }
 
     function run() {
-        fetch(API + '/site-seo')
+        fetch(API + '/site-seo', {
+            headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+        })
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 if (data.error || !data.metaTitle) return;
