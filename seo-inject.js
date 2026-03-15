@@ -27,14 +27,19 @@
         })
             .then(function(r) { return r.json(); })
             .then(function(data) {
-                if (data.error || !data.metaTitle) return;
-                setMetaIfEmpty('description', data.metaDescription, false);
-                setMetaIfEmpty('robots', data.robots, false);
-                setMetaIfEmpty('max-image-preview', data.maxImagePreview, false);
-                setMetaIfEmpty('og:site_name', data.ogSiteName, true);
-                setMetaIfEmpty('article:author', data.articleAuthor, true);
+                var s = (data && data.seo) ? data.seo : data;
+                if (data.error || !(s && (s.metaTitle || s.metaDescription))) return;
+                setMetaIfEmpty('description', s.metaDescription, false);
+                setMetaIfEmpty('robots', s.robots, false);
+                setMetaIfEmpty('max-image-preview', s.maxImagePreview, false);
+                setMetaIfEmpty('og:site_name', s.ogSiteName, true);
+                setMetaIfEmpty('article:author', s.articleAuthor, true);
+                if (s.ogImage) {
+                    setMetaIfEmpty('og:image', s.ogImage, true);
+                    setMetaIfEmpty('twitter:image', s.ogImage, true);
+                }
                 if (!document.title || document.title === '') {
-                    document.title = data.metaTitle;
+                    document.title = s.metaTitle || document.title;
                 }
             })
             .catch(function() {});

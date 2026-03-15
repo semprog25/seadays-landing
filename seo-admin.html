@@ -732,17 +732,20 @@
 
             async function loadSeoSettings() {
                 try {
-                    var res = await fetch(API + '/site-seo');
+                    var res = await fetch(API + '/site-seo', {
+                        headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    });
                     var data = await res.json();
-                    if (data.success !== false && data.metaTitle !== undefined) {
-                        document.getElementById('metaTitle').value = data.metaTitle || '';
-                        document.getElementById('metaDescription').value = data.metaDescription || '';
-                        document.getElementById('siteUrl').value = data.siteUrl || '';
-                        document.getElementById('canonicalBase').value = data.canonicalBase || '';
-                        document.getElementById('articleAuthor').value = data.articleAuthor || '';
-                        document.getElementById('ogSiteName').value = data.ogSiteName || '';
-                        document.getElementById('maxImagePreview').value = data.maxImagePreview || 'large';
-                        document.getElementById('robots').value = data.robots || 'index,follow';
+                    var s = (data && data.seo) ? data.seo : data;
+                    if (data.success !== false && (s.metaTitle !== undefined || s.metaDescription !== undefined || s.siteUrl !== undefined)) {
+                        document.getElementById('metaTitle').value = s.metaTitle || '';
+                        document.getElementById('metaDescription').value = s.metaDescription || '';
+                        document.getElementById('siteUrl').value = s.siteUrl || '';
+                        document.getElementById('canonicalBase').value = s.canonicalBase || '';
+                        document.getElementById('articleAuthor').value = s.articleAuthor || '';
+                        document.getElementById('ogSiteName').value = s.ogSiteName || '';
+                        document.getElementById('maxImagePreview').value = s.maxImagePreview || 'large';
+                        document.getElementById('robots').value = s.robots || 'index,follow';
                     }
                     loadArticlesIntoSelect();
                     loadArticleSeoThumbnails();
@@ -1003,7 +1006,7 @@
                         robots: document.getElementById('robots').value
                     };
                     var res = await fetch(API + '/site-seo', {
-                        method: 'POST',
+                        method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': 'Bearer ' + session.access_token
