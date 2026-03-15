@@ -359,7 +359,8 @@
         .monitor-how-it-works p:last-child { margin-bottom: 0; }
         .monitor-how-it-works code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
         .monitor-same-origin { color: #888; font-size: 12px; }
-        .monitor-actions { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+        .monitor-actions { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+        .monitor-last-refresh { font-size: 12px; color: #888; margin-left: 8px; }
     </style>
 </head>
 <body>
@@ -547,12 +548,13 @@
             <div id="monitorPane" class="admin-pane">
                 <h2 class="monitor-title">Real-time operations</h2>
                 <div class="monitor-how-it-works">
-                    <p><strong>How it works:</strong> This dashboard reads from the <strong>SeaDays app</strong> on the same origin. Open the app (e.g. your app URL or <code>/app</code>) in another tab and use it — tabs, feeds, and API calls will appear here. Data refreshes every 2 seconds.</p>
-                    <p class="monitor-same-origin">If you see only zeros, the app and this admin page may be on different domains (localStorage is not shared across origins).</p>
+                    <p><strong>How it works:</strong> This dashboard reads from the <strong>SeaDays app</strong> on the same origin. Run <code>npm run dev</code> in the app repo (port may be 3001, 3002, etc.). Open the app in one tab and this page in another — both must be the same origin (e.g. both <code>http://localhost:3002</code>). Data refreshes every 2 seconds.</p>
+                    <p class="monitor-same-origin">If you see only zeros, the app and this admin page are on different origins (localStorage is not shared). Use the app’s <code>monitor.html</code> (e.g. <code>http://localhost:3002/monitor.html</code>) to see live data from the same dev server.</p>
                 </div>
                 <div class="monitor-actions">
-                    <button type="button" class="btn" onclick="refreshMonitorDashboard()">Refresh now</button>
-                    <button type="button" class="btn btn-secondary" onclick="loadMonitorSampleData()">Load sample data</button>
+                    <button type="button" class="btn" onclick="refreshMonitorDashboard(); updateMonitorRefreshTime();">Refresh now</button>
+                    <button type="button" class="btn btn-secondary" onclick="clearMonitorStoredData();">Clear stored data</button>
+                    <span id="monitorLastRefresh" class="monitor-last-refresh"></span>
                 </div>
                 <div id="monitorWarning" class="monitor-warning"></div>
                 <div class="monitor-grid">
@@ -773,35 +775,18 @@
             }
             window.refreshMonitorDashboard = refreshMonitorDashboard;
 
-            window.loadMonitorSampleData = function() {
-                var now = Date.now();
-                var startTime = now - 8 * 60000;
-                var timeline = [];
-                for (var i = 0; i < 60; i++) {
-                    var t = now - (59 - i) * 1000;
-                    timeline.push({ type: i % 3 === 0 ? 'supabase' : 'api', label: 'sample', time: t });
-                    if (i % 5 === 0) timeline.push({ type: 'supabase', label: 'rest:posts', time: t + 100 });
-                }
-                var sample = {
-                    supabaseQueries: 142,
-                    apiCalls: 89,
-                    edgeCalls: 45,
-                    authCalls: 12,
-                    userRequests: 8,
-                    feedLoads: { seastories: 5, portside: 3, blogs: 3 },
-                    tabs: { home: 12, stories: 4, portside: 6, profile: 3, users: 2, admin: 0 },
-                    errors: [
-                        { message: 'Sample: Network timeout (demo)', time: now - 30000 },
-                        { message: 'Sample: Failed to load resource (demo)', time: now - 15000 }
-                    ],
-                    requestsTimeline: timeline,
-                    startTime: startTime
-                };
+            window.updateMonitorRefreshTime = function() {
+                var el = document.getElementById('monitorLastRefresh');
+                if (el) el.textContent = 'Last refreshed ' + new Date().toLocaleTimeString();
+            };
+
+            window.clearMonitorStoredData = function() {
                 try {
-                    localStorage.setItem('SeaDaysMonitor', JSON.stringify(sample));
+                    localStorage.removeItem('SeaDaysMonitor');
                     refreshMonitorDashboard();
+                    updateMonitorRefreshTime();
                 } catch (e) {
-                    console.warn('Could not set sample data:', e);
+                    console.warn('Could not clear stored data:', e);
                 }
             };
 
