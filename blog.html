@@ -321,9 +321,10 @@
                     }
 
                     grid.style.display = 'grid';
+                    var defaultCardImage = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
                     grid.innerHTML = articles.map(function(a) {
-                        var imgUrl = (a.heroImageUrl || a.thumbnailUrl || '').trim();
-                    const img = imgUrl ? ('<img src="' + escapeHtml(imgUrl) + '" alt="" class="article-card-image" loading="lazy">') : '<div class="article-card-image" style="background: linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2));"></div>';
+                        var imgUrl = (a.heroImageUrl || a.thumbnailUrl || '').trim() || defaultCardImage;
+                    const img = '<img src="' + escapeHtml(imgUrl) + '" alt="" class="article-card-image" loading="lazy" onerror="this.onerror=null;this.style.background=\'linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2))\';this.style.minHeight=\'230px\';this.removeAttribute(\'src\');">';
                         const slug = (a.slug || a.id);
                         const link = 'blog-article.html?id=' + encodeURIComponent(a.id);
                         return '<a href="' + link + '" class="article-card">' +
