@@ -873,6 +873,78 @@
                 padding: 0 12px;
             }
         }
+
+        /* Community / blog preview cards - same as blog section with thumbnails */
+        .blog-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .blog-preview-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .blog-preview-card:hover {
+            border-color: var(--neon-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2);
+        }
+        .blog-preview-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: top center;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .blog-preview-card-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 0, 51, 0.2), rgba(6, 182, 212, 0.2));
+        }
+        .blog-preview-card-body {
+            padding: 20px;
+        }
+        .blog-preview-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            color: white;
+        }
+        .blog-preview-card-excerpt {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .blog-preview-card-meta {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .blog-preview-card-meta .author {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        @media (max-width: 1024px) {
+            .blog-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .blog-preview-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -975,12 +1047,12 @@
             </div>
         </section>
 
-        <!-- Blog Preview Section -->
+        <!-- Blog Preview Section - 4 posts with thumbnails like blog -->
         <section id="blog-preview">
             <div class="container">
                 <h2 class="section-title">Latest from the Community</h2>
                 <p class="section-subtitle">Port Site Stories from fellow cruisers</p>
-                <div id="blogPreviewGrid" class="features-grid" style="display:none;"></div>
+                <div id="blogPreviewGrid" class="blog-preview-grid" style="display:none;"></div>
                 <div id="blogPreviewLoading" class="section-subtitle" style="margin-top:20px;margin-bottom:0;">Loading stories...</div>
                 <div id="blogPreviewEmpty" style="display:none;text-align:center;color:rgba(255,255,255,0.5);padding:20px 0;">No stories yet. Share your first port story in the app!</div>
                 <div style="text-align:center;margin-top:40px;">
@@ -1117,25 +1189,29 @@
                 return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
             }
 
-            fetch(API + '/portside-articles?limit=3&forWebsite=1', { headers: { 'Authorization': 'Bearer ' + publicAnonKey } })
+            fetch(API + '/portside-articles?limit=4&forWebsite=1', { headers: { 'Authorization': 'Bearer ' + publicAnonKey } })
                 .then(function(r) { return r.json(); })
                 .then(function(data) {
                     loading.style.display = 'none';
-                    const articles = (data.articles || []).filter(function(a) { return !a.isDraft; }).slice(0, 3);
+                    const articles = (data.articles || []).filter(function(a) { return !a.isDraft; }).slice(0, 4);
                     if (articles.length === 0) {
                         empty.style.display = 'block';
                         return;
                     }
                     grid.style.display = 'grid';
                     grid.innerHTML = articles.map(function(a) {
-                        return '<a href="blog-article.html?id=' + encodeURIComponent(a.id) + '" class="feature-card" style="text-decoration:none;color:inherit;">' +
-                            '<div class="feature-icon"><i data-lucide="file-text"></i></div>' +
-                            '<h3 class="feature-title">' + esc(a.title || 'Untitled') + '</h3>' +
-                            '<p class="feature-description">' + esc((a.excerpt || a.content || '').substring(0, 100)) + '...</p>' +
-                            '<p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:8px;">' + esc(a.author || 'Anonymous') + ' • ' + fmtDate(a.publishedAt || a.timestamp) + '</p>' +
-                            '</a>';
+                        var imgUrl = a.heroImageUrl || a.thumbnailUrl;
+                        var imgHtml = imgUrl
+                            ? '<img src="' + esc(imgUrl) + '" alt="" class="blog-preview-card-image">'
+                            : '<div class="blog-preview-card-image-placeholder"></div>';
+                        return '<a href="blog-article.html?id=' + encodeURIComponent(a.id) + '" class="blog-preview-card">' +
+                            imgHtml +
+                            '<div class="blog-preview-card-body">' +
+                            '<h3 class="blog-preview-card-title">' + esc(a.title || 'Untitled') + '</h3>' +
+                            '<p class="blog-preview-card-excerpt">' + esc((a.excerpt || (a.content || '')).substring(0, 120)) + (a.excerpt || a.content ? '...' : '') + '</p>' +
+                            '<p class="blog-preview-card-meta"><span class="author">' + esc(a.author || 'Anonymous') + '</span> • ' + esc(fmtDate(a.publishedAt || a.timestamp)) + '</p>' +
+                            '</div></a>';
                     }).join('');
-                    if (typeof lucide !== 'undefined') lucide.createIcons();
                 })
                 .catch(function() {
                     loading.style.display = 'none';
