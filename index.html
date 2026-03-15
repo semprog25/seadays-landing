@@ -874,10 +874,10 @@
             }
         }
 
-        /* Community / blog preview cards - same as blog section with thumbnails */
+        /* Community / blog preview cards - 2x2 layout, same as blog section with thumbnails */
         .blog-preview-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
             margin-top: 40px;
         }
@@ -933,11 +933,6 @@
         }
         .blog-preview-card-meta .author {
             color: rgba(255, 255, 255, 0.7);
-        }
-        @media (max-width: 1024px) {
-            .blog-preview-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
         @media (max-width: 600px) {
             .blog-preview-grid {
@@ -1200,9 +1195,9 @@
                     }
                     grid.style.display = 'grid';
                     grid.innerHTML = articles.map(function(a) {
-                        var imgUrl = a.heroImageUrl || a.thumbnailUrl;
+                        var imgUrl = (a.heroImageUrl || a.thumbnailUrl || '').trim();
                         var imgHtml = imgUrl
-                            ? '<img src="' + esc(imgUrl) + '" alt="" class="blog-preview-card-image">'
+                            ? '<img src="' + esc(imgUrl) + '" alt="" class="blog-preview-card-image" loading="lazy">'
                             : '<div class="blog-preview-card-image-placeholder"></div>';
                         return '<a href="blog-article.html?id=' + encodeURIComponent(a.id) + '" class="blog-preview-card">' +
                             imgHtml +

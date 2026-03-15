@@ -354,6 +354,12 @@
         .monitor-error-item .err-msg { word-break: break-word; }
         .monitor-error-item .err-time { font-size: 10px; color: #666; margin-top: 4px; }
         .monitor-no-data { color: #666; font-style: italic; padding: 20px; text-align: center; }
+        .monitor-how-it-works { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 18px; margin-bottom: 16px; font-size: 13px; color: rgba(255,255,255,0.85); }
+        .monitor-how-it-works p { margin: 0 0 8px 0; }
+        .monitor-how-it-works p:last-child { margin-bottom: 0; }
+        .monitor-how-it-works code { background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+        .monitor-same-origin { color: #888; font-size: 12px; }
+        .monitor-actions { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -540,7 +546,14 @@
 
             <div id="monitorPane" class="admin-pane">
                 <h2 class="monitor-title">Real-time operations</h2>
-                <p class="monitor-subtitle">Data from the SeaDays app (same origin). Open the app in another tab to see activity.</p>
+                <div class="monitor-how-it-works">
+                    <p><strong>How it works:</strong> This dashboard reads from the <strong>SeaDays app</strong> on the same origin. Open the app (e.g. your app URL or <code>/app</code>) in another tab and use it — tabs, feeds, and API calls will appear here. Data refreshes every 2 seconds.</p>
+                    <p class="monitor-same-origin">If you see only zeros, the app and this admin page may be on different domains (localStorage is not shared across origins).</p>
+                </div>
+                <div class="monitor-actions">
+                    <button type="button" class="btn" onclick="refreshMonitorDashboard()">Refresh now</button>
+                    <button type="button" class="btn btn-secondary" onclick="loadMonitorSampleData()">Load sample data</button>
+                </div>
                 <div id="monitorWarning" class="monitor-warning"></div>
                 <div class="monitor-grid">
                     <section class="monitor-card monitor-system">
@@ -758,6 +771,40 @@
                     console.warn('Monitor dashboard refresh error:', err);
                 }
             }
+            window.refreshMonitorDashboard = refreshMonitorDashboard;
+
+            window.loadMonitorSampleData = function() {
+                var now = Date.now();
+                var startTime = now - 8 * 60000;
+                var timeline = [];
+                for (var i = 0; i < 60; i++) {
+                    var t = now - (59 - i) * 1000;
+                    timeline.push({ type: i % 3 === 0 ? 'supabase' : 'api', label: 'sample', time: t });
+                    if (i % 5 === 0) timeline.push({ type: 'supabase', label: 'rest:posts', time: t + 100 });
+                }
+                var sample = {
+                    supabaseQueries: 142,
+                    apiCalls: 89,
+                    edgeCalls: 45,
+                    authCalls: 12,
+                    userRequests: 8,
+                    feedLoads: { seastories: 5, portside: 3, blogs: 3 },
+                    tabs: { home: 12, stories: 4, portside: 6, profile: 3, users: 2, admin: 0 },
+                    errors: [
+                        { message: 'Sample: Network timeout (demo)', time: now - 30000 },
+                        { message: 'Sample: Failed to load resource (demo)', time: now - 15000 }
+                    ],
+                    requestsTimeline: timeline,
+                    startTime: startTime
+                };
+                try {
+                    localStorage.setItem('SeaDaysMonitor', JSON.stringify(sample));
+                    refreshMonitorDashboard();
+                } catch (e) {
+                    console.warn('Could not set sample data:', e);
+                }
+            };
+
             if (document.getElementById('monitorPane')) {
                 monitorRefreshInterval = setInterval(function() {
                     if (document.getElementById('monitorPane') && document.getElementById('monitorPane').classList.contains('active')) {
