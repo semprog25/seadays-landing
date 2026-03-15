@@ -320,6 +320,40 @@
         }
         .cms-article-actions .btn { padding: 8px 16px; font-size: 13px; }
         .cms-article-actions .btn-secondary { padding: 8px 16px; font-size: 13px; }
+
+        .monitor-title { font-size: 24px; margin-bottom: 4px; color: #fff; }
+        .monitor-subtitle { color: #888; font-size: 13px; margin-bottom: 20px; }
+        .monitor-warning { padding: 12px 16px; border-radius: 12px; margin-bottom: 20px; font-weight: 600; display: none; transition: opacity 0.3s, transform 0.2s; }
+        .monitor-warning.show { display: block; animation: monitorPulse 1.5s ease-in-out infinite; }
+        .monitor-warning.warn { background: rgba(245,158,11,0.25); color: #fbbf24; border: 1px solid rgba(245,158,11,0.5); }
+        .monitor-warning.critical { background: rgba(239,68,68,0.25); color: #f87171; border: 1px solid rgba(239,68,68,0.5); }
+        @keyframes monitorPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.85; } }
+        .monitor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-bottom: 24px; }
+        .monitor-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; transition: transform 0.2s, box-shadow 0.2s; }
+        .monitor-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .monitor-card-title { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .monitor-stats { display: flex; flex-wrap: wrap; gap: 16px; }
+        .monitor-stat { display: flex; flex-direction: column; align-items: center; min-width: 56px; }
+        .monitor-stat-value { font-size: 22px; font-weight: 800; color: #fff; transition: color 0.3s; font-variant-numeric: tabular-nums; }
+        .monitor-stat-value.animate { animation: monitorBump 0.4s ease; }
+        @keyframes monitorBump { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .monitor-stat-label { font-size: 11px; color: #888; margin-top: 2px; text-transform: uppercase; }
+        .monitor-tabs-grid { gap: 12px; }
+        .monitor-timeline { margin-bottom: 24px; }
+        .monitor-timeline-bar { height: 48px; background: rgba(0,0,0,0.25); border-radius: 12px; display: flex; align-items: flex-end; gap: 1px; overflow: hidden; padding: 0 2px; }
+        .monitor-timeline-segment { height: 100%; min-width: 2px; transition: opacity 0.2s; }
+        .monitor-timeline-segment.supabase { background: linear-gradient(180deg, #3b82f6, #1d4ed8); }
+        .monitor-timeline-segment.api { background: linear-gradient(180deg, #10b981, #059669); }
+        .monitor-timeline-legend { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #888; margin-right: 16px; margin-top: 8px; }
+        .monitor-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .monitor-legend-dot.supabase { background: #3b82f6; }
+        .monitor-legend-dot.api { background: #10b981; }
+        .monitor-error-count { font-weight: 700; color: #f87171; margin-left: 6px; }
+        .monitor-error-list { max-height: 200px; overflow-y: auto; font-size: 12px; color: #aaa; }
+        .monitor-error-item { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 8px; margin-bottom: 4px; background: rgba(255,255,255,0.02); }
+        .monitor-error-item .err-msg { word-break: break-word; }
+        .monitor-error-item .err-time { font-size: 10px; color: #666; margin-top: 4px; }
+        .monitor-no-data { color: #666; font-style: italic; padding: 20px; text-align: center; }
     </style>
 </head>
 <body>
@@ -346,6 +380,7 @@
             <div class="admin-tabs">
                 <button type="button" class="admin-tab active" data-pane="seo" onclick="switchAdminTab('seo')">SEO Settings</button>
                 <button type="button" class="admin-tab" data-pane="cms" onclick="switchAdminTab('cms')">Blog CMS</button>
+                <button type="button" class="admin-tab" data-pane="monitor" onclick="switchAdminTab('monitor')">Monitoring</button>
             </div>
 
             <div id="seoSettingsPane" class="admin-pane active">
@@ -502,6 +537,60 @@
                 <div id="cmsArticleGrid" class="cms-article-grid" style="display:none;"></div>
                 <div id="cmsEmpty" style="text-align:center;color:#888;padding:40px;display:none;">No articles match your filters.</div>
             </div>
+
+            <div id="monitorPane" class="admin-pane">
+                <h2 class="monitor-title">Real-time operations</h2>
+                <p class="monitor-subtitle">Data from the SeaDays app (same origin). Open the app in another tab to see activity.</p>
+                <div id="monitorWarning" class="monitor-warning"></div>
+                <div class="monitor-grid">
+                    <section class="monitor-card monitor-system">
+                        <h3 class="monitor-card-title">System activity</h3>
+                        <div class="monitor-stats">
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mSupabase">0</span><span class="monitor-stat-label">Supabase</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mApi">0</span><span class="monitor-stat-label">API</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mEdge">0</span><span class="monitor-stat-label">Edge</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mAuth">0</span><span class="monitor-stat-label">Auth</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mUserReq">0</span><span class="monitor-stat-label">User req</span></div>
+                        </div>
+                    </section>
+                    <section class="monitor-card monitor-feeds">
+                        <h3 class="monitor-card-title">Feeds</h3>
+                        <div class="monitor-stats">
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mSeastories">0</span><span class="monitor-stat-label">SeaStories</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mPortside">0</span><span class="monitor-stat-label">Portside</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mBlogs">0</span><span class="monitor-stat-label">Blogs</span></div>
+                        </div>
+                    </section>
+                    <section class="monitor-card monitor-tabs">
+                        <h3 class="monitor-card-title">Tabs</h3>
+                        <div class="monitor-stats monitor-tabs-grid">
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mTabHome">0</span><span class="monitor-stat-label">Home</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mTabStories">0</span><span class="monitor-stat-label">Stories</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mTabPortside">0</span><span class="monitor-stat-label">Portside</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mTabProfile">0</span><span class="monitor-stat-label">Profile</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mTabUsers">0</span><span class="monitor-stat-label">Users</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mTabAdmin">0</span><span class="monitor-stat-label">Admin</span></div>
+                        </div>
+                    </section>
+                    <section class="monitor-card monitor-perf">
+                        <h3 class="monitor-card-title">Performance</h3>
+                        <div class="monitor-stats">
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mUptime">0m</span><span class="monitor-stat-label">Uptime</span></div>
+                            <div class="monitor-stat"><span class="monitor-stat-value" id="mRpm">0</span><span class="monitor-stat-label">Req/min</span></div>
+                        </div>
+                    </section>
+                </div>
+                <section class="monitor-card monitor-timeline">
+                    <h3 class="monitor-card-title">Request timeline (last 60s)</h3>
+                    <div id="monitorTimeline" class="monitor-timeline-bar"></div>
+                    <div class="monitor-timeline-legend"><span class="monitor-legend-dot supabase"></span> Supabase</div>
+                    <div class="monitor-timeline-legend"><span class="monitor-legend-dot api"></span> API</div>
+                </section>
+                <section class="monitor-card monitor-errors">
+                    <h3 class="monitor-card-title">Errors <span id="mErrorCount" class="monitor-error-count">0</span></h3>
+                    <div id="monitorErrorList" class="monitor-error-list"></div>
+                </section>
+            </div>
         </div>
     </div>
 
@@ -541,8 +630,141 @@
                 document.querySelectorAll('.admin-tab').forEach(function(t) { t.classList.toggle('active', t.getAttribute('data-pane') === pane); });
                 document.getElementById('seoSettingsPane').classList.toggle('active', pane === 'seo');
                 document.getElementById('cmsPane').classList.toggle('active', pane === 'cms');
+                var monitorPane = document.getElementById('monitorPane');
+                if (monitorPane) monitorPane.classList.toggle('active', pane === 'monitor');
                 if (pane === 'cms') loadCmsArticles();
+                if (pane === 'monitor') refreshMonitorDashboard();
             };
+            var monitorRefreshInterval = null;
+            function refreshMonitorDashboard() {
+                try {
+                    var raw = localStorage.getItem('SeaDaysMonitor');
+                    var data = raw ? JSON.parse(raw) : null;
+                    var warnEl = document.getElementById('monitorWarning');
+                    var now = Date.now();
+                    var startTime = data && data.startTime ? data.startTime : now;
+                    var elapsedMs = Math.max(0, now - startTime);
+                    var elapsedMin = elapsedMs / 60000;
+                    var totalRequests = (data ? (data.supabaseQueries || 0) + (data.apiCalls || 0) : 0);
+                    var rpm = elapsedMin > 0 ? Math.round(totalRequests / elapsedMin) : 0;
+                    var supabasePerMin = elapsedMin > 0 && data ? Math.round((data.supabaseQueries || 0) / elapsedMin) : 0;
+
+                    if (warnEl) {
+                        if (supabasePerMin > 300) {
+                            warnEl.textContent = 'Critical: Supabase queries ' + supabasePerMin + '/min (threshold 300/min). Check for runaway loops.';
+                            warnEl.className = 'monitor-warning critical show';
+                        } else if (supabasePerMin > 100) {
+                            warnEl.textContent = 'Warning: Supabase queries ' + supabasePerMin + '/min (threshold 100/min).';
+                            warnEl.className = 'monitor-warning warn show';
+                        } else {
+                            warnEl.className = 'monitor-warning';
+                            warnEl.textContent = '';
+                        }
+                    }
+
+                    function setStat(id, value, animate) {
+                        var el = document.getElementById(id);
+                        if (!el) return;
+                        var v = String(value);
+                        if (el.textContent !== v) {
+                            el.textContent = v;
+                            if (animate) el.classList.add('animate');
+                        }
+                        setTimeout(function() { if (el) el.classList.remove('animate'); }, 400);
+                    }
+                    if (data) {
+                        setStat('mSupabase', data.supabaseQueries || 0, true);
+                        setStat('mApi', data.apiCalls || 0, true);
+                        setStat('mEdge', data.edgeCalls || 0, true);
+                        setStat('mAuth', data.authCalls || 0, true);
+                        setStat('mUserReq', data.userRequests || 0, true);
+                        var fl = data.feedLoads || {};
+                        setStat('mSeastories', fl.seastories || 0, true);
+                        setStat('mPortside', fl.portside || 0, true);
+                        setStat('mBlogs', fl.blogs || 0, true);
+                        var tabs = data.tabs || {};
+                        setStat('mTabHome', tabs.home || 0, true);
+                        setStat('mTabStories', tabs.stories || 0, true);
+                        setStat('mTabPortside', tabs.portside || 0, true);
+                        setStat('mTabProfile', tabs.profile || 0, true);
+                        setStat('mTabUsers', tabs.users || 0, true);
+                        setStat('mTabAdmin', tabs.admin || 0, true);
+                    } else {
+                        setStat('mSupabase', 0); setStat('mApi', 0); setStat('mEdge', 0); setStat('mAuth', 0); setStat('mUserReq', 0);
+                        setStat('mSeastories', 0); setStat('mPortside', 0); setStat('mBlogs', 0);
+                        setStat('mTabHome', 0); setStat('mTabStories', 0); setStat('mTabPortside', 0);
+                        setStat('mTabProfile', 0); setStat('mTabUsers', 0); setStat('mTabAdmin', 0);
+                    }
+                    var uptimeMin = Math.floor(elapsedMs / 60000);
+                    var uptimeStr = uptimeMin >= 60 ? (Math.floor(uptimeMin / 60) + 'h ' + (uptimeMin % 60) + 'm') : (uptimeMin + 'm');
+                    setStat('mUptime', uptimeStr);
+                    setStat('mRpm', rpm);
+
+                    var timeline = (data && data.requestsTimeline) ? data.requestsTimeline : [];
+                    var cutoff = now - 60000;
+                    var last60 = timeline.filter(function(r) { return r.time >= cutoff; });
+                    var barEl = document.getElementById('monitorTimeline');
+                    if (barEl) {
+                        barEl.innerHTML = '';
+                        var bins = 60;
+                        var step = 60000 / bins;
+                        var counts = { supabase: [], api: [] };
+                        for (var i = 0; i < bins; i++) {
+                            counts.supabase[i] = 0;
+                            counts.api[i] = 0;
+                        }
+                        last60.forEach(function(r) {
+                            var idx = Math.min(bins - 1, Math.floor((r.time - cutoff) / step));
+                            if (idx >= 0) {
+                                if (r.type === 'supabase') counts.supabase[idx]++;
+                                else counts.api[idx]++;
+                            }
+                        });
+                        var maxVal = 1;
+                        for (var j = 0; j < bins; j++) {
+                            var s = counts.supabase[j] + counts.api[j];
+                            if (s > maxVal) maxVal = s;
+                        }
+                        for (var k = 0; k < bins; k++) {
+                            var seg = document.createElement('div');
+                            seg.className = 'monitor-timeline-segment ' + (counts.supabase[k] > 0 ? 'supabase' : 'api');
+                            var total = counts.supabase[k] + counts.api[k];
+                            var pct = maxVal > 0 ? (total / maxVal) * 100 : 0;
+                            if (pct < 4 && total > 0) pct = 4;
+                            seg.style.height = pct + '%';
+                            seg.style.minWidth = '3px';
+                            seg.style.flexShrink = 0;
+                            barEl.appendChild(seg);
+                        }
+                    }
+
+                    var errList = data && data.errors ? data.errors : [];
+                    var errCountEl = document.getElementById('mErrorCount');
+                    var errListEl = document.getElementById('monitorErrorList');
+                    if (errCountEl) errCountEl.textContent = errList.length;
+                    if (errListEl) {
+                        var last10 = errList.slice(-10).reverse();
+                        if (last10.length === 0) {
+                            errListEl.innerHTML = '<div class="monitor-no-data">No recent errors</div>';
+                        } else {
+                            errListEl.innerHTML = last10.map(function(e) {
+                                var msg = (e.message || '').substring(0, 200);
+                                var t = new Date(e.time || 0).toLocaleTimeString();
+                                return '<div class="monitor-error-item"><div class="err-msg">' + escapeHtml(msg) + '</div><div class="err-time">' + t + '</div></div>';
+                            }).join('');
+                        }
+                    }
+                } catch (err) {
+                    console.warn('Monitor dashboard refresh error:', err);
+                }
+            }
+            if (document.getElementById('monitorPane')) {
+                monitorRefreshInterval = setInterval(function() {
+                    if (document.getElementById('monitorPane') && document.getElementById('monitorPane').classList.contains('active')) {
+                        refreshMonitorDashboard();
+                    }
+                }, 2000);
+            }
 
             async function loadCmsArticles() {
                 var grid = document.getElementById('cmsArticleGrid');
