@@ -1994,32 +1994,38 @@
             document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
         })();
 
-        // Blog section – load published posts via server proxy (no keys in browser).
+        // Blog section – unified fetch: try /api/blog first, fallback to Supabase Edge Function
         (function() {
             var grid = document.getElementById('blogGrid');
             var loading = document.getElementById('blogLoading');
             var empty = document.getElementById('blogEmpty');
             if (!grid || !loading) return;
-            function getBlogApiCandidates() {
-                if (window.location.protocol === 'file:') return ['http://localhost:3001/api/blog'];
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    return ['/api/blog', 'http://localhost:3001/api/blog'];
-                }
-                return ['/api/blog'];
-            }
-            function fetchBlogData() {
-                var urls = getBlogApiCandidates();
-                var lastError = null;
-                return urls.reduce(function(chain, url) {
-                    return chain.catch(function() {
-                        return fetch(url).then(function(r) {
-                            if (!r.ok) throw new Error('Request failed');
-                            return r.json();
-                        });
+            var SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
+            var SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
+            var EDGE_FUNCTION = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d/portside-articles';
+            function fetchBlogs() {
+                var apiUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') ? 'http://localhost:3001/api/blog' : '/api/blog';
+                console.log('Trying API:', apiUrl);
+                return fetch(apiUrl).then(function(res) {
+                    if (!res.ok) throw new Error('API failed');
+                    return res.json();
+                }).then(function(data) {
+                    console.log('Blogs loaded from API');
+                    return data;
+                }).catch(function(err) {
+                    console.warn('API failed. Falling back to Supabase Edge Function.');
+                    return fetch(EDGE_FUNCTION + '?limit=100&forWebsite=1', {
+                        headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY }
+                    }).then(function(res) {
+                        if (!res.ok) throw new Error('Edge function failed');
+                        return res.json();
+                    }).then(function(data) {
+                        console.log('Blogs loaded from Supabase Edge Function');
+                        return data;
+                    }).catch(function(fallbackErr) {
+                        console.error('Blog loading completely failed', fallbackErr);
+                        return { articles: [] };
                     });
-                }, Promise.reject()).catch(function(err) {
-                    lastError = err;
-                    throw lastError;
                 });
             }
             function esc(s) {
@@ -2028,7 +2034,7 @@
                 d.textContent = s;
                 return d.innerHTML;
             }
-            fetchBlogData()
+            fetchBlogs()
                 .then(function(data) {
                     loading.style.display = 'none';
                     var articles = (data.articles || []).filter(function(a) { return !a.isDraft; });
