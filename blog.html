@@ -223,7 +223,7 @@
         <section class="blog-hero">
             <div class="container">
                 <h1>Blog</h1>
-                <p>Port Site Stories from the SeaDays community</p>
+                <p>Stories, tips, and experiences shared by the SeaDays community.</p>
             </div>
         </section>
 
@@ -272,10 +272,6 @@
 
     <script>
         (function() {
-            const projectId = 'soqkgrfzluewpuiguypm';
-            const publicAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
-            const API = `https://${projectId}.supabase.co/functions/v1/make-server-51d3ca8d`;
-
             function createStarfield() {
                 const sf = document.getElementById('starfield');
                 for (let i = 0; i < 150; i++) {
@@ -295,43 +291,78 @@
                 return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
             }
 
+            function getBlogApiCandidates() {
+                if (window.location.protocol === 'file:') return ['http://localhost:3001/api/blog'];
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    return ['/api/blog', 'http://localhost:3001/api/blog'];
+                }
+                return ['/api/blog'];
+            }
+
+            async function fetchBlogData() {
+                const urls = getBlogApiCandidates();
+                for (const url of urls) {
+                    try {
+                        const res = await fetch(url);
+                        if (!res.ok) continue;
+                        return await res.json();
+                    } catch (error) {
+                        continue;
+                    }
+                }
+                throw new Error('Failed to load blog data');
+            }
+
             async function loadArticles() {
                 const grid = document.getElementById('blogGrid');
                 const loading = document.getElementById('blogLoading');
                 const empty = document.getElementById('blogEmpty');
 
-                try {
-                    const res = await fetch(API + '/portside-articles?limit=50&forWebsite=1', {
-                        headers: { 'Authorization': 'Bearer ' + publicAnonKey }
-                    });
-                    const data = await res.json();
-                    loading.style.display = 'none';
-
-                    if (!res.ok) {
-                        loading.textContent = 'Failed to load stories. Please try again later.';
+                function showError(msg) {
+                    if (loading) {
+                        loading.textContent = msg || 'Failed to load stories. Please try again later.';
                         loading.style.display = 'block';
+                    }
+                    if (grid) grid.style.display = 'none';
+                    if (empty) empty.style.display = 'none';
+                }
+
+                function showEmpty() {
+                    if (loading) loading.style.display = 'none';
+                    if (grid) grid.style.display = 'none';
+                    if (empty) empty.style.display = 'block';
+                }
+
+                try {
+                    var data = null;
+                    try {
+                        data = await fetchBlogData();
+                    } catch (parseErr) {
+                        showError('Invalid response from server. Please try again later.');
                         return;
                     }
+                    if (loading) loading.style.display = 'none';
 
-                    var raw = (data && data.articles) ? data.articles : [];
+                    var raw = (data && data.articles);
+                    if (!Array.isArray(raw)) raw = [];
                     const articles = raw.filter(function(a) { return a && a.isDraft !== true; });
                     if (articles.length === 0) {
-                        empty.style.display = 'block';
+                        showEmpty();
                         return;
                     }
 
-                    grid.style.display = 'grid';
+                    if (grid) grid.style.display = 'grid';
+                    if (empty) empty.style.display = 'none';
                     var defaultCardImage = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
                     grid.innerHTML = articles.map(function(a) {
                         var imgUrl = (a.heroImageUrl || a.thumbnailUrl || '').trim() || defaultCardImage;
-                    const img = '<img src="' + escapeHtml(imgUrl) + '" alt="" class="article-card-image" loading="lazy" onerror="this.onerror=null;this.style.background=\'linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2))\';this.style.minHeight=\'230px\';this.removeAttribute(\'src\');">';
-                        const slug = (a.slug || a.id);
-                        const link = 'blog-article.html?id=' + encodeURIComponent(a.id);
+                        var img = '<img src="' + escapeHtml(imgUrl) + '" alt="" class="article-card-image" loading="lazy" onerror="this.onerror=null;this.style.background=\'linear-gradient(135deg, rgba(255,0,51,0.2), rgba(6,182,212,0.2))\';this.style.minHeight=\'230px\';this.removeAttribute(\'src\');">';
+                        var link = 'blog-article.html?id=' + encodeURIComponent(a.id);
                         return '<a href="' + link + '" class="article-card">' +
                             img +
                             '<div class="article-card-body">' +
                             '<h3 class="article-card-title">' + escapeHtml(a.title || 'Untitled') + '</h3>' +
-                            '<p class="article-card-excerpt">' + escapeHtml(a.excerpt || a.content?.substring(0, 150) || '') + '</p>' +
+                            '<p class="article-card-excerpt">' + escapeHtml(a.excerpt || (a.content && a.content.substring(0, 150)) || '') + '</p>' +
                             '<div class="article-card-meta">' +
                             '<span class="author">' + escapeHtml(a.author || 'Anonymous') + '</span>' +
                             '<span>' + formatDate(a.publishedAt || a.timestamp || a.updatedAt) + '</span>' +
@@ -339,7 +370,7 @@
                             '</div></div></a>';
                     }).join('');
                 } catch (e) {
-                    loading.textContent = 'Failed to load stories. Please try again later.';
+                    showError('Failed to load stories. Please try again later.');
                 }
             }
 
