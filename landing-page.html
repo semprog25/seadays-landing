@@ -2001,7 +2001,7 @@
             var empty = document.getElementById('blogEmpty');
             if (!grid || !loading) return;
             var SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
-            var SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
+            var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
             var EDGE_FUNCTION = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d/portside-articles';
             function fetchBlogs() {
                 var apiUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') ? 'http://localhost:3001/api/blog' : '/api/blog';
