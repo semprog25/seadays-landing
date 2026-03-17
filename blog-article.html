@@ -168,6 +168,36 @@
         .article-nav a.article-nav-next { margin-left: auto; text-align: right; flex-direction: row-reverse; }
         .article-nav a.article-nav-prev { margin-right: auto; }
         .article-nav-label { font-size: 12px; color: rgba(255, 255, 255, 0.5); font-weight: 500; display: block; margin-bottom: 4px; }
+        .next-article-card {
+            padding: 32px 0 48px;
+        }
+        .next-article-heading {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .next-article-single {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+            align-items: stretch;
+            text-align: left;
+        }
+        .next-article-single .more-card-image {
+            height: 100%;
+            min-height: 180px;
+        }
+        .next-article-cta {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neon-red);
+        }
+        @media (max-width: 768px) {
+            .next-article-single { grid-template-columns: 1fr; }
+        }
         .more-to-read {
             padding: 48px 0 80px;
         }
@@ -314,6 +344,18 @@
                     </a>
                 </nav>
 
+                <section class="next-article-card" id="nextArticleCard" style="display:none;">
+                    <h2 class="next-article-heading">Next article</h2>
+                    <a href="#" id="nextArticleLink" class="more-card next-article-single">
+                        <img id="nextArticleImg" class="more-card-image" alt="" src="" loading="lazy">
+                        <div class="more-card-body">
+                            <h3 class="more-card-title" id="nextArticleTitle"></h3>
+                            <p class="more-card-excerpt" id="nextArticleExcerpt"></p>
+                            <span class="next-article-cta">Read next →</span>
+                        </div>
+                    </a>
+                </section>
+
                 <section class="more-to-read" id="moreToRead" style="display:none;">
                     <h2>More to Read</h2>
                     <div id="moreToReadGrid" class="more-to-read-grid"></div>
@@ -414,10 +456,30 @@
                 }
             }
 
-            async function fetchBlogArticle(id) {
-                const data = await fetchBlogs();
-                const articles = data.articles || (Array.isArray(data) ? data : []);
-                return articles.find(function(b) { return b.id === id || b.slug === id; });
+            function getApiBase() {
+                return (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') ? 'http://localhost:3001' : '';
+            }
+
+            async function fetchFullArticle(id) {
+                const base = getApiBase();
+                const apiUrl = base ? base + '/api/blog/' + encodeURIComponent(id) : '/api/blog/' + encodeURIComponent(id);
+                try {
+                    const res = await fetch(apiUrl);
+                    if (!res.ok) return null;
+                    const data = await res.json();
+                    return (data && data.article) ? data.article : null;
+                } catch (e) {
+                    console.warn('Full article API failed, trying edge function', e);
+                    try {
+                        const res = await fetch(EDGE_FUNCTION + '/' + encodeURIComponent(id), { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY } });
+                        if (!res.ok) return null;
+                        const data = await res.json();
+                        return (data && data.article) ? data.article : null;
+                    } catch (err) {
+                        console.error('Full article fetch failed', err);
+                        return null;
+                    }
+                }
             }
 
             function escapeHtml(s) {
@@ -455,6 +517,10 @@
                     article = articles.find(function(b) { return b.id === articleId || b.slug === articleId; });
                     allArticles = articles.filter(function(a) { return a && a.isDraft !== true; });
                     if (!article) throw new Error('Not found');
+                    var fullArticle = await fetchFullArticle(articleId);
+                    if (fullArticle && (fullArticle.content || fullArticle.structuredContent)) {
+                        article = Object.assign({}, article, fullArticle);
+                    }
                 } catch (e) {
                     if (loading) loading.style.display = 'none';
                     if (errorEl) { errorEl.style.display = 'block'; errorEl.innerHTML = (e && e.message === 'Not found') ? 'Article not found. <a href="blog.html">Back to Blog</a>' : 'Failed to load article. <a href="blog.html">Back to Blog</a>'; }
@@ -494,7 +560,23 @@
                     }
 
                     const bodyEl = document.getElementById('articleBody');
-                    bodyEl.innerHTML = article.content || '<p>No content available.</p>';
+                    var bodyHtml = article.content;
+                    if (!bodyHtml && article.structuredContent) {
+                        try {
+                            var sc = typeof article.structuredContent === 'string' ? JSON.parse(article.structuredContent) : article.structuredContent;
+                            if (sc && sc.sections && Array.isArray(sc.sections)) {
+                                bodyHtml = sc.sections.map(function(sec) {
+                                    return (sec.blocks || []).map(function(b) {
+                                        if (b.type === 'paragraph' && b.content) return '<p>' + escapeHtml(b.content) + '</p>';
+                                        if (b.type === 'heading' && b.content) return '<h2>' + escapeHtml(b.content) + '</h2>';
+                                        if (b.type === 'image' && b.images && b.images[0] && b.images[0].url) return '<p><img src="' + escapeHtml(b.images[0].url) + '" alt="" style="max-width:100%;height:auto;border-radius:12px;"></p>';
+                                        return '';
+                                    }).join('');
+                                }).join('');
+                            }
+                        } catch (e) { /* ignore */ }
+                    }
+                    bodyEl.innerHTML = (bodyHtml && bodyHtml.trim()) ? bodyHtml : '<p>No content available.</p>';
 
                     var idx = allArticles.findIndex(function(a) { return a.id === article.id || a.slug === article.slug; });
                     var prevArticle = idx > 0 ? allArticles[idx - 1] : null;
@@ -513,8 +595,31 @@
                         navNext.href = 'blog-article.html?id=' + encodeURIComponent(nextArticle.id);
                         document.getElementById('navNextTitle').textContent = nextArticle.title || 'Next';
                         navNext.style.display = 'inline-flex';
+
+                        var nextCard = document.getElementById('nextArticleCard');
+                        var nextLink = document.getElementById('nextArticleLink');
+                        var nextImg = document.getElementById('nextArticleImg');
+                        var nextTitle = document.getElementById('nextArticleTitle');
+                        var nextExcerpt = document.getElementById('nextArticleExcerpt');
+                        if (nextCard && nextLink && nextImg && nextTitle && nextExcerpt) {
+                            nextLink.href = 'blog-article.html?id=' + encodeURIComponent(nextArticle.id);
+                            var nextImgUrl = (nextArticle.heroImageUrl || nextArticle.thumbnailUrl || '').trim();
+                            if (nextImgUrl) {
+                                nextImg.src = nextImgUrl;
+                                nextImg.alt = nextArticle.title || 'Next article';
+                                nextImg.style.display = 'block';
+                                nextImg.onerror = function() { nextImg.style.display = 'none'; };
+                            } else {
+                                nextImg.style.display = 'none';
+                            }
+                            nextTitle.textContent = nextArticle.title || 'Next article';
+                            nextExcerpt.textContent = nextArticle.excerpt || (nextArticle.content && nextArticle.content.replace(/<[^>]+>/g, '').substring(0, 160)) || '';
+                            nextCard.style.display = 'block';
+                        }
                     } else {
                         navNext.style.display = 'none';
+                        var nextCard = document.getElementById('nextArticleCard');
+                        if (nextCard) nextCard.style.display = 'none';
                     }
 
                     var moreArticles = allArticles.filter(function(a) { return a.id !== article.id && a.slug !== article.slug; }).slice(0, 4);
