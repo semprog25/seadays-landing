@@ -615,6 +615,7 @@
             const SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
             const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
             const API = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
+            const EDGE_FUNCTION = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d/portside-articles';
 
             window.supabase = window.supabase || (typeof supabase !== 'undefined' ? supabase : null);
             if (!window.supabase) {
@@ -1001,10 +1002,11 @@
                         document.getElementById('maxImagePreview').value = s.maxImagePreview || 'large';
                         document.getElementById('robots').value = s.robots || 'index,follow';
                     }
-                    loadArticlesIntoSelect();
-                    loadArticleSeoThumbnails();
                 } catch (err) {
                     console.warn('Could not load SEO settings:', err);
+                } finally {
+                    loadArticlesIntoSelect();
+                    loadArticleSeoThumbnails();
                 }
             }
 
@@ -1016,13 +1018,20 @@
                 if (!container) return;
                 loading = loading || container.querySelector('#articleSeoThumbnailsLoading');
                 if (loading) loading.style.display = 'block';
+                var articlesUrl = EDGE_FUNCTION + '?limit=50&forWebsite=0';
+                console.log('[seo-admin] Loading articles:', articlesUrl);
                 try {
-                    var res = await fetch(API + '/portside-articles?limit=50&forWebsite=0', {
+                    var res = await fetch(articlesUrl, {
                         headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
                     var data = await res.json();
+                    if (!res.ok) {
+                        console.error('[seo-admin] Articles fetch failed:', res.status, data);
+                        throw new Error(data.error || 'Articles fetch failed');
+                    }
                     var articles = (data.articles || []).filter(function(a) { return a.id && a.title; });
                     articlesCache = articles;
+                    console.log('[seo-admin] Articles loaded:', articles.length);
                     if (loading) loading.style.display = 'none';
                     if (articles.length === 0) {
                         container.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#888;padding:24px;">No articles yet.</div>';
@@ -1031,7 +1040,8 @@
                     var cardsHtml = '';
                     for (var i = 0; i < articles.length; i++) {
                         var a = articles[i];
-                        var seoRes = await fetch(API + '/portside-articles/' + encodeURIComponent(a.id) + '/seo', {
+                        var seoUrl = EDGE_FUNCTION + '/' + encodeURIComponent(a.id) + '/seo';
+                        var seoRes = await fetch(seoUrl, {
                             headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                         });
                         var seoData = await seoRes.json();
@@ -1057,6 +1067,7 @@
                     }
                     container.innerHTML = cardsHtml;
                 } catch (err) {
+                    console.error('[seo-admin] loadArticleSeoThumbnails error:', err);
                     if (loading) loading.style.display = 'none';
                     container.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#ff6b6b;padding:24px;">Failed to load articles.</div>';
                 }
@@ -1103,7 +1114,8 @@
                 var article = articlesCache.find(function(a) { return a.id === id; });
                 if (!article) {
                     try {
-                        var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id), {
+                        var articleUrl = EDGE_FUNCTION + '/' + encodeURIComponent(id);
+                        var res = await fetch(articleUrl, {
                             headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                         });
                         var data = await res.json();
@@ -1138,13 +1150,21 @@
 
             async function loadArticlesIntoSelect() {
                 var sel = document.getElementById('articleSelect');
+                if (!sel) return;
                 sel.innerHTML = '<option value="">-- Loading articles --</option>';
+                var url = EDGE_FUNCTION + '?limit=100&forWebsite=0';
+                console.log('[seo-admin] loadArticlesIntoSelect:', url);
                 try {
-                    var res = await fetch(API + '/portside-articles?limit=100&forWebsite=0', {
+                    var res = await fetch(url, {
                         headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
                     var data = await res.json();
+                    if (!res.ok) {
+                        console.error('[seo-admin] loadArticlesIntoSelect failed:', res.status, data);
+                        throw new Error(data.error || 'Load failed');
+                    }
                     var articles = (data.articles || []).filter(function(a) { return a.id && a.title; });
+                    console.log('[seo-admin] loadArticlesIntoSelect loaded:', articles.length);
                     sel.innerHTML = '<option value="">-- Choose an article --</option>';
                     articles.forEach(function(a) {
                         var opt = document.createElement('option');
@@ -1153,6 +1173,7 @@
                         sel.appendChild(opt);
                     });
                 } catch (err) {
+                    console.error('[seo-admin] loadArticlesIntoSelect error:', err);
                     sel.innerHTML = '<option value="">-- Failed to load --</option>';
                 }
             }
@@ -1167,8 +1188,9 @@
                 });
                 if (!id) return;
                 showMsg('articleSeoMessage', '', '');
+                var seoUrl = EDGE_FUNCTION + '/' + encodeURIComponent(id) + '/seo';
                 try {
-                    var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id) + '/seo', {
+                    var res = await fetch(seoUrl, {
                         headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
                     var data = await res.json();
