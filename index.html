@@ -2037,7 +2037,13 @@
             fetchBlogs()
                 .then(function(data) {
                     loading.style.display = 'none';
-                    var articles = (data.articles || []).filter(function(a) { return !a.isDraft; });
+                    var articles = (data.articles || []).filter(function(a) { return !a.isDraft && a.showOnWebsite !== false; });
+                    articles.sort(function(a, b) {
+                        var ta = (a.publishedAt || a.timestamp || a.updatedAt || 0);
+                        var tb = (b.publishedAt || b.timestamp || b.updatedAt || 0);
+                        return (typeof ta === 'number' ? ta : new Date(ta).getTime()) < (typeof tb === 'number' ? tb : new Date(tb).getTime()) ? 1 : -1;
+                    });
+                    articles = articles.slice(0, 4);
                     if (articles.length === 0) {
                         empty.style.display = 'block';
                         return;

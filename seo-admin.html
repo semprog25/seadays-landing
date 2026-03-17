@@ -815,7 +815,7 @@
                         return;
                     }
                     var res = await fetch(API + '/portside-articles?admin=1&limit=100', {
-                        headers: { 'Authorization': 'Bearer ' + session.access_token }
+                        headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + session.access_token }
                     });
                     var data = await res.json();
                     if (!res.ok) throw new Error(data.error || 'Failed to load articles');
@@ -935,7 +935,7 @@
                     if (!session) throw new Error('Session expired');
                     var res = await fetch(API + '/portside-articles/' + encodeURIComponent(articleId) + '/visibility', {
                         method: 'PUT',
-                        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + session.access_token },
+                        headers: { apikey: SUPABASE_ANON_KEY, 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + session.access_token },
                         body: JSON.stringify({ showOnWebsite: showOnWebsite })
                     });
                     var data = await res.json();
@@ -987,7 +987,7 @@
             async function loadSeoSettings() {
                 try {
                     var res = await fetch(API + '/site-seo', {
-                        headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                        headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
                     var data = await res.json();
                     var s = (data && data.seo) ? data.seo : data;
@@ -1017,8 +1017,8 @@
                 loading = loading || container.querySelector('#articleSeoThumbnailsLoading');
                 if (loading) loading.style.display = 'block';
                 try {
-                    var res = await fetch(API + '/portside-articles?limit=50', {
-                        headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    var res = await fetch(API + '/portside-articles?limit=50&forWebsite=0', {
+                        headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
                     var data = await res.json();
                     var articles = (data.articles || []).filter(function(a) { return a.id && a.title; });
@@ -1032,7 +1032,7 @@
                     for (var i = 0; i < articles.length; i++) {
                         var a = articles[i];
                         var seoRes = await fetch(API + '/portside-articles/' + encodeURIComponent(a.id) + '/seo', {
-                            headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                            headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                         });
                         var seoData = await seoRes.json();
                         var s = (seoData.seo || {});
@@ -1104,7 +1104,7 @@
                 if (!article) {
                     try {
                         var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id), {
-                            headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                            headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                         });
                         var data = await res.json();
                         article = data.article || data;
@@ -1140,8 +1140,8 @@
                 var sel = document.getElementById('articleSelect');
                 sel.innerHTML = '<option value="">-- Loading articles --</option>';
                 try {
-                    var res = await fetch(API + '/portside-articles?limit=100', {
-                        headers: { 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    var res = await fetch(API + '/portside-articles?limit=100&forWebsite=0', {
+                        headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
                     var data = await res.json();
                     var articles = (data.articles || []).filter(function(a) { return a.id && a.title; });
@@ -1168,7 +1168,9 @@
                 if (!id) return;
                 showMsg('articleSeoMessage', '', '');
                 try {
-                    var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id) + '/seo');
+                    var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id) + '/seo', {
+                        headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
+                    });
                     var data = await res.json();
                     var s = (data.seo || {});
                     document.getElementById('articleMetaTitle').value = s.metaTitle || '';
@@ -1218,6 +1220,7 @@
                     var res = await fetch(API + '/portside-articles/' + encodeURIComponent(id) + '/seo', {
                         method: 'PUT',
                         headers: {
+                            apikey: SUPABASE_ANON_KEY,
                             'Content-Type': 'application/json',
                             'Authorization': 'Bearer ' + session.access_token
                         },
@@ -1262,6 +1265,7 @@
                     var res = await fetch(API + '/site-seo', {
                         method: 'PUT',
                         headers: {
+                            apikey: SUPABASE_ANON_KEY,
                             'Content-Type': 'application/json',
                             'Authorization': 'Bearer ' + session.access_token
                         },
