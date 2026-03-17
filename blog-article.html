@@ -461,24 +461,25 @@
             }
 
             async function fetchFullArticle(id) {
-                const base = getApiBase();
-                const apiUrl = base ? base + '/api/blog/' + encodeURIComponent(id) : '/api/blog/' + encodeURIComponent(id);
+                var base = getApiBase();
+                var apiUrl = base ? base + '/api/blog/' + encodeURIComponent(id) : '/api/blog/' + encodeURIComponent(id);
                 try {
-                    const res = await fetch(apiUrl);
-                    if (!res.ok) return null;
-                    const data = await res.json();
-                    return (data && data.article) ? data.article : null;
+                    var res = await fetch(apiUrl);
+                    if (res.ok) {
+                        var data = await res.json();
+                        if (data && data.article) return data.article;
+                    }
                 } catch (e) {
                     console.warn('Full article API failed, trying edge function', e);
-                    try {
-                        const res = await fetch(EDGE_FUNCTION + '/' + encodeURIComponent(id), { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY } });
-                        if (!res.ok) return null;
-                        const data = await res.json();
-                        return (data && data.article) ? data.article : null;
-                    } catch (err) {
-                        console.error('Full article fetch failed', err);
-                        return null;
-                    }
+                }
+                try {
+                    var edgeRes = await fetch(EDGE_FUNCTION + '/' + encodeURIComponent(id), { headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY } });
+                    if (!edgeRes.ok) return null;
+                    var edgeData = await edgeRes.json();
+                    return (edgeData && edgeData.article) ? edgeData.article : null;
+                } catch (err) {
+                    console.error('Full article fetch failed', err);
+                    return null;
                 }
             }
 
@@ -580,7 +581,8 @@
 
                     var idx = allArticles.findIndex(function(a) { return a.id === article.id || a.slug === article.slug; });
                     var prevArticle = idx > 0 ? allArticles[idx - 1] : null;
-                    var nextArticle = idx >= 0 && idx < allArticles.length - 1 ? allArticles[idx + 1] : null;
+                    var nextCandidate = idx >= 0 && idx < allArticles.length - 1 ? allArticles[idx + 1] : null;
+                    var nextArticle = (nextCandidate && nextCandidate.id !== article.id && nextCandidate.slug !== article.slug) ? nextCandidate : null;
 
                     var navPrev = document.getElementById('navPrev');
                     var navNext = document.getElementById('navNext');
