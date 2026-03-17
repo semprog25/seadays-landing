@@ -421,11 +421,13 @@
             }
 
             function formatDate(ts) {
-                if (!ts) return '';
+                if (ts === undefined || ts === null) return '';
                 var ms = typeof ts === 'number' ? ts : (typeof ts === 'string' ? parseInt(ts, 10) : Date.parse(ts));
-                if (isNaN(ms)) return '';
+                if (isNaN(ms) || ms === 0 || !Number.isFinite(ms)) return '';
                 if (ms < 10000000000) ms *= 1000;
-                return new Date(ms).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                var d = new Date(ms);
+                if (isNaN(d.getTime())) return '';
+                return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
             }
 
             const SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';

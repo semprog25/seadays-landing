@@ -119,6 +119,12 @@
             gap: 30px;
             padding: 0 20px 120px;
         }
+        .article-card,
+        .article-card:link,
+        .article-card:visited,
+        .article-card:hover {
+            color: #fff;
+        }
         .article-card {
             background: rgba(255, 255, 255, 0.03);
             border: 2px solid rgba(255, 255, 255, 0.05);
@@ -126,7 +132,6 @@
             overflow: hidden;
             transition: all 0.3s ease;
             text-decoration: none;
-            color: inherit;
             display: block;
         }
         .article-card:hover {
@@ -149,6 +154,7 @@
             font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.3;
+            color: #fff;
         }
         .article-card-excerpt {
             font-size: 14px;
@@ -284,8 +290,12 @@
             createStarfield();
 
             function formatDate(ts) {
-                if (!ts) return '';
-                const d = new Date(typeof ts === 'number' ? ts : ts);
+                if (ts === undefined || ts === null) return '';
+                var ms = typeof ts === 'number' ? ts : (typeof ts === 'string' ? parseInt(ts, 10) : Date.parse(ts));
+                if (isNaN(ms) || ms === 0) return '';
+                if (ms < 10000000000) ms *= 1000;
+                var d = new Date(ms);
+                if (isNaN(d.getTime())) return '';
                 return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
             }
 
