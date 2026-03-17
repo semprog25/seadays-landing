@@ -1018,13 +1018,13 @@
                 if (!container) return;
                 loading = loading || container.querySelector('#articleSeoThumbnailsLoading');
                 if (loading) loading.style.display = 'block';
-                var articlesUrl = EDGE_FUNCTION + '?limit=50&forWebsite=0';
+                var articlesUrl = EDGE_FUNCTION + '?limit=50&forWebsite=1';
                 console.log('[seo-admin] Loading articles:', articlesUrl);
                 try {
                     var res = await fetch(articlesUrl, {
                         headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
-                    var data = await res.json();
+                    var data = await res.json().catch(function() { return {}; });
                     if (!res.ok) {
                         console.error('[seo-admin] Articles fetch failed:', res.status, data);
                         throw new Error(data.error || 'Articles fetch failed');
@@ -1152,13 +1152,13 @@
                 var sel = document.getElementById('articleSelect');
                 if (!sel) return;
                 sel.innerHTML = '<option value="">-- Loading articles --</option>';
-                var url = EDGE_FUNCTION + '?limit=100&forWebsite=0';
+                var url = EDGE_FUNCTION + '?limit=100&forWebsite=1';
                 console.log('[seo-admin] loadArticlesIntoSelect:', url);
                 try {
                     var res = await fetch(url, {
                         headers: { apikey: SUPABASE_ANON_KEY, 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY }
                     });
-                    var data = await res.json();
+                    var data = await res.json().catch(function() { return {}; });
                     if (!res.ok) {
                         console.error('[seo-admin] loadArticlesIntoSelect failed:', res.status, data);
                         throw new Error(data.error || 'Load failed');
