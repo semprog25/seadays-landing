@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generates sitemap.xml with all blog articles for static deploy (e.g. GitHub Pages).
- * Run before deploy: node scripts/generate-sitemap.js
+ * Generates sitemap.xml with static pages and blog article URLs.
+ * Prefer scripts/generateBlogs.js for full static blog generation (creates HTML + sitemap).
+ * Run: node scripts/generate-sitemap.js
  * Requires: SUPABASE_ANON_KEY in .env or environment
  */
 'use strict';
@@ -18,9 +19,14 @@ const BASE = 'https://seadays.app';
 const staticUrls = [
   { loc: BASE + '/', changefreq: 'weekly', priority: '1.0' },
   { loc: BASE + '/index.html', changefreq: 'weekly', priority: '1.0' },
-  { loc: BASE + '/blog.html', changefreq: 'daily', priority: '0.9' },
+  { loc: BASE + '/blog/', changefreq: 'daily', priority: '0.9' },
   { loc: BASE + '/landing-page.html', changefreq: 'weekly', priority: '0.8' },
 ];
+
+function slugify(title) {
+  if (!title || typeof title !== 'string') return 'article';
+  return title.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'article';
+}
 
 function escapeXml(s) {
   return String(s)
@@ -67,9 +73,15 @@ fetchBlog().then((data) => {
   staticUrls.forEach((u) => {
     xml += '  <url><loc>' + escapeXml(u.loc) + '</loc><changefreq>' + u.changefreq + '</changefreq><priority>' + u.priority + '</priority></url>\n';
   });
+  const slugMap = new Map();
   articles.forEach((a) => {
     if (a && a.id && a.isDraft !== true && a.showOnWebsite !== false) {
-      const url = BASE + '/blog-article.html?id=' + encodeURIComponent(a.id);
+      let slug = (a.slug || '').trim() || slugify(a.title || 'article');
+      let base = slug;
+      let n = 1;
+      while (slugMap.has(slug)) { slug = base + '-' + n; n++; }
+      slugMap.set(slug, true);
+      const url = BASE + '/blog/' + slug + '.html';
       xml += '  <url><loc>' + escapeXml(url) + '</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n';
     }
   });

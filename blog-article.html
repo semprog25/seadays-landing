@@ -311,7 +311,7 @@
         <header class="header">
             <nav class="header-nav">
                 <a href="index.html">Home</a>
-                <a href="blog.html">Blog</a>
+                <a href="/blog/">Blog</a>
                 <a href="https://seadays.app/privacy.html">Privacy</a>
                 <a href="https://seadays.app/terms.html">Terms</a>
             </nav>
@@ -319,9 +319,9 @@
 
         <main class="container">
             <div id="articleLoading" class="loading">Loading article...</div>
-            <div id="articleError" class="error-state" style="display:none;">Article not found. <a href="blog.html">Back to Blog</a></div>
+            <div id="articleError" class="error-state" style="display:none;">Article not found. <a href="/blog/">Back to Blog</a></div>
             <article id="articleContent" style="display:none;">
-                <a href="blog.html" class="back-to-blog">← Back to Blog</a>
+                <a href="/blog/" class="back-to-blog">← Back to Blog</a>
                 <div class="article-hero">
                     <h1 id="articleTitle"></h1>
                     <div class="article-meta">
@@ -506,7 +506,7 @@
 
                 if (!articleId.trim()) {
                     if (loading) loading.style.display = 'none';
-                    if (errorEl) { errorEl.style.display = 'block'; errorEl.innerHTML = 'No article specified. <a href="blog.html">Back to Blog</a>'; }
+                    if (errorEl) { errorEl.style.display = 'block'; errorEl.innerHTML = 'No article specified. <a href="/blog/">Back to Blog</a>'; }
                     if (contentEl) contentEl.style.display = 'none';
                     return;
                 }
@@ -526,7 +526,7 @@
                     }
                 } catch (e) {
                     if (loading) loading.style.display = 'none';
-                    if (errorEl) { errorEl.style.display = 'block'; errorEl.innerHTML = (e && e.message === 'Not found') ? 'Article not found. <a href="blog.html">Back to Blog</a>' : 'Failed to load article. <a href="blog.html">Back to Blog</a>'; }
+                    if (errorEl) { errorEl.style.display = 'block'; errorEl.innerHTML = (e && e.message === 'Not found') ? 'Article not found. <a href="/blog/">Back to Blog</a>' : 'Failed to load article. <a href="/blog/">Back to Blog</a>'; }
                     if (contentEl) contentEl.style.display = 'none';
                     return;
                 }
@@ -657,7 +657,7 @@
                     if (loading) loading.style.display = 'none';
                     if (errorEl) {
                         errorEl.style.display = 'block';
-                        errorEl.innerHTML = 'Article not found. <a href="blog.html">Back to Blog</a>';
+                        errorEl.innerHTML = 'Article not found. <a href="/blog/">Back to Blog</a>';
                     }
                     if (contentEl) contentEl.style.display = 'none';
                 }

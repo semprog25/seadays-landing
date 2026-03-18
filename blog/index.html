@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="SeaDays Blog - Cruise tips, guides & stories from the community. Plan smarter, pack lighter, and cruise better with expert advice and real experiences.">
+  <title>SeaDays Blog | Cruise Tips, Guides &amp; Stories</title>
+  <link rel="canonical" href="https://seadays.app/blog/">
+  <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seadays.app/blog/">
+  <meta property="og:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
+  <meta property="og:description" content="Cruise tips, guides &amp; stories from the SeaDays community. Plan smarter, pack lighter, and cruise better.">
+  <meta property="og:image" content="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://seadays.app/blog/">
+  <meta property="twitter:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
+  <meta property="twitter:description" content="Cruise tips, guides &amp; stories from the SeaDays community. Plan smarter, pack lighter, and cruise better.">
+  <meta property="twitter:image" content="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --dark-bg: #0a0a0a; --neon-red: #FF0033; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark-bg); color: white; line-height: 1.6; overflow-x: hidden; }
+.starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); overflow: hidden; }
+.star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.5); border-radius: 50%; animation: twinkle 3s infinite ease-in-out; }
+@keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+.grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-image: linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px); background-size: 100px 100px; opacity: 0.4; pointer-events: none; }
+.content-layer { position: relative; z-index: 10; }
+.header { position: absolute; top: 0; left: 0; right: 0; padding: 20px 40px; display: flex; justify-content: flex-end; align-items: center; z-index: 100; }
+.header-nav { display: flex; gap: 30px; align-items: center; }
+.header-nav a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500; font-size: 15px; }
+.header-nav a:hover { color: white; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.blog-hero { padding: 140px 20px 80px; text-align: center; }
+.blog-hero h1 { font-size: 56px; font-weight: 900; margin-bottom: 16px; letter-spacing: -1px; }
+.blog-hero p { font-size: 20px; color: rgba(255, 255, 255, 0.6); }
+.blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 20px 120px; }
+.article-card { background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(255, 255, 255, 0.05); border-radius: 24px; overflow: hidden; transition: all 0.3s ease; text-decoration: none; color: #fff; display: block; }
+.article-card:hover { border-color: var(--neon-red); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2); }
+.article-card-image { width: 100%; height: 230px; object-fit: cover; object-position: top center; background: rgba(255, 255, 255, 0.05); }
+.article-card-body { padding: 24px; }
+.article-card-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; line-height: 1.3; color: #fff; }
+.article-card-excerpt { font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.article-card-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.5); }
+.footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
+.footer-section h4 { margin-bottom: 20px; font-size: 18px; }
+.footer-section ul { list-style: none; }
+.footer-section li { margin-bottom: 12px; }
+.footer-section a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
+.footer-section a:hover { color: var(--neon-red); }
+.footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
+@media (max-width: 768px) { .blog-hero h1 { font-size: 32px; } .blog-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+  <div class="starfield" id="starfield"></div>
+  <div class="grid-overlay"></div>
+  <div class="content-layer">
+    <header class="header">
+      <nav class="header-nav">
+        <a href="/index.html">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://seadays.app/privacy.html">Privacy</a>
+        <a href="https://seadays.app/terms.html">Terms</a>
+      </nav>
+    </header>
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Blog</h1>
+        <p>Stories, tips, and experiences shared by the SeaDays community.</p>
+      </div>
+    </section>
+    <div class="container">
+      <div class="blog-grid"><a href="/blog/7-cruise-passenger-mistakes-that-cost-you-time-and-money.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">7 Cruise Passenger Mistakes That Cost You Time and Money</h3>
+        <p class="article-card-excerpt">Even seasoned cruisers make mistakes. From overpacking to missing the boat (literally), here are the most common cruise passenger blunders—and how to avoid them on your next trip.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 18, 2026</span>
+          <span>3 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/sea-days-why-cruisers-actually-love-days-at-sea.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">Sea Days: Why Cruisers Actually Love Days at Sea</h3>
+        <p class="article-card-excerpt">New to cruising? You might wonder why &quot;sea days&quot;—when the ship doesn&#39;t dock—are often the most anticipated part of the trip. Here&#39;s why experienced cruisers count them among the best days of the voyage.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 18, 2026</span>
+          <span>3 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">The Real Cost of Cruise Drink Packages: Is It Worth It?</h3>
+        <p class="article-card-excerpt">Cruise drink packages can seem like a steal—or a rip-off—depending on how you vacation. We break down the math, the fine print, and the honest truth about whether that all-you-can-drink deal actually saves you money.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 17, 2026</span>
+          <span>2 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/12-cruise-ship-secrets-the-crew-wont-tell-you-but-you-should-know.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">12 Cruise Ship Secrets the Crew Won&#39;t Tell You (But You Should Know)</h3>
+        <p class="article-card-excerpt">Ever wondered what really goes on behind the scenes on a cruise ship? From hidden crew areas to money-saving tricks, we&#39;ve gathered insider knowledge that will change how you think about your next voyage. Some of these might surprise you.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 16, 2026</span>
+          <span>2 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/what-happens-if-you-miss-your-cruise-ship-in-port.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">What Happens If You Miss Your Cruise Ship in Port?</h3>
+        <p class="article-card-excerpt">Missing the ship is every cruiser’s worst nightmare. But what actually happens if you miss your cruise ship while exploring a port?</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 16, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/the-best-cruise-ship-cabins-and-which-ones-to-avoid.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">The Best Cruise Ship Cabins (And Which Ones to Avoid)</h3>
+        <p class="article-card-excerpt">Choosing the right cabin can make a big difference during a cruise vacation. Learn which cabins offer the best views and which locations to avoid.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 16, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/10-cruise-mistakes-first-time-passengers-always-make.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">10 Cruise Mistakes First-Time Passengers Always Make</h3>
+        <p class="article-card-excerpt">Your first cruise is exciting, but many travelers make small mistakes that can affect the whole trip. Learn the most common cruise mistakes and how to avoid them.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 14, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/what-is-a-sea-day-on-a-cruise.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">What Is a Sea Day on a Cruise?</h3>
+        <p class="article-card-excerpt">Sea days are one of the most relaxing parts of cruise travel. Learn what sea days are and how travelers spend their time onboard cruise ships.</p>
+        <div class="article-card-meta">
+          <span class="author">SeaStories</span>
+          <span>Mar 14, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/cruise-packing-checklist-what-most-passengers-forget.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">Cruise Packing Checklist: What Most Passengers Forget</h3>
+        <p class="article-card-excerpt">Even experienced cruisers forget key items before a cruise. Here’s a practical packing checklist used by frequent travelers.</p>
+        <div class="article-card-meta">
+          <span class="author">SeaStories</span>
+          <span>Mar 14, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/first-time-cruise-tips-what-new-cruise-travelers-should-know.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">First Time Cruise Tips: What New Cruise Travelers Should Know</h3>
+        <p class="article-card-excerpt">Planning your first cruise can feel overwhelming. These cruise planning tips help first-time travelers understand sea days, cruise ships, and onboard experiences.</p>
+        <div class="article-card-meta">
+          <span class="author">SeaStories</span>
+          <span>Mar 14, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/cruise-drink-package-calculator-is-it-actually-worth-it.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">Cruise Drink Package Calculator: Is It Actually Worth It?</h3>
+        <p class="article-card-excerpt">Cruise drink packages can cost hundreds of dollars per trip. Learn how to calculate whether a drink package is worth it and how cruise planners estimate their onboard spending.</p>
+        <div class="article-card-meta">
+          <span class="author">Seadays</span>
+          <span>Mar 13, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/how-to-keep-track-of-all-your-cruises-without-forgetting-the-details.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">How to Keep Track of All Your Cruises (Without Forgetting the Details)</h3>
+        <p class="article-card-excerpt">Frequent cruisers often forget which ships, ports, and itineraries they’ve sailed. Here’s how experienced cruisers track their cruise history.</p>
+        <div class="article-card-meta">
+          <span class="author">SeaStories</span>
+          <span>Mar 13, 2026</span>
+          <span>1 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/aida-cruises-secrets-10-things-regular-guests-know-but-newcomers-dont.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">AIDA Cruises Secrets: 10 Things Regular Guests Know (But Newcomers Don’t)</h3>
+        <p class="article-card-excerpt">AIDA cruises feel easy — until you miss the details that matter. These insider tips save money, time, and frustration on every AIDA ship. Read this before you board.</p>
+        <div class="article-card-meta">
+          <span class="author">sharanestone</span>
+          <span>Jan 2, 2026</span>
+          <span>3 min read</span>
+        </div>
+      </div>
+    </a>
+<a href="/blog/7-days-of-pure-fun-why-a-mediterranean-cruise-is-the-ultimate-feel-good-trip.html" class="article-card">
+      <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" class="article-card-image" loading="lazy" decoding="async">
+      <div class="article-card-body">
+        <h3 class="article-card-title">7 Days of Pure Fun: Why a Mediterranean Cruise Is the Ultimate Feel-Good Trip</h3>
+        <p class="article-card-excerpt">Sun, food, ocean views, and zero stress. A Mediterranean cruise packs more fun into one week than most vacations manage in a month. Here’s why it works so well.</p>
+        <div class="article-card-meta">
+          <span class="author">SeaStories</span>
+          <span>Jan 2, 2026</span>
+          <span>2 min read</span>
+        </div>
+      </div>
+    </a></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
+          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "seadays-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SeaDays landing site with /api/blog proxy (no client-side Supabase key)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate-blogs": "node scripts/generateBlogs.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.2.0",
+    "@supabase/supabase-js": "^2.45.0"
+  }
+}
