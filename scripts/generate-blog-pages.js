@@ -192,7 +192,7 @@ function saveManifest(manifest) {
 }
 
 function buildRedirectPage(slug) {
-  const target = '/blog/' + encodeURI(slug);
+  const target = '/blog/' + encodeURI(slug) + '/';
   return (
     '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
     '<meta http-equiv="refresh" content="0;url=' + escapeHtml(target) + '">' +
