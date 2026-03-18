@@ -32,7 +32,11 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet blog/ sitemap.xml .blog-pages-manifest.json 2>/dev/null || echo "changed=true" >> $GITHUB_OUTPUT
+          if [ -f .blog-pages-manifest.json ]; then
+            git diff --quiet -- blog/ sitemap.xml .blog-pages-manifest.json || echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            git diff --quiet -- blog/ sitemap.xml || echo "changed=true" >> $GITHUB_OUTPUT
+          fi
           git status --short
 
       - name: Commit and push
@@ -41,6 +45,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # blog/ includes new dirs (blog/{slug}/) and redirect files (blog/{slug}.html)
-          git add blog/ sitemap.xml .blog-pages-manifest.json
+          git add blog/ sitemap.xml
+          if [ -f .blog-pages-manifest.json ]; then
+            git add .blog-pages-manifest.json
+          fi
           git commit -m "chore: regenerate static blog pages and sitemap [skip ci]"
           git push
