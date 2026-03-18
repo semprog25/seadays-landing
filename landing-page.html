@@ -1609,28 +1609,28 @@
                 <h2 class="section-title">Latest from the Community</h2>
                 <p class="section-subtitle">Portside Stories, cruise tips, and experiences shared by fellow SeaDays travelers.</p>
                 <!-- INJECT_BLOG_CARDS_START -->
-                <div id="blogGrid" class="blog-section-grid"><a href="/blog/7-cruise-passenger-mistakes-that-cost-you-time-and-money" class="blog-card">
+                <div id="blogGrid" class="blog-section-grid"><a href="https://seadays.app/blog/7-cruise-passenger-mistakes-that-cost-you-time-and-money/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773790701536_jle3nd9ej/2f684f1a5ea138a4.jpg" alt="7 Cruise Passenger Mistakes That Cost You Time and Money" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">7 Cruise Passenger Mistakes That Cost You Time and Money</h3>
                         <p class="blog-card-excerpt">Even seasoned cruisers make mistakes. From overpacking to missing the boat (literally), here are the most common cruise passenger blunders—and how to avoid them on your next trip....</p>
                     </div>
                 </a>
-                <a href="/blog/sea-days-why-cruisers-actually-love-days-at-sea" class="blog-card">
+                <a href="https://seadays.app/blog/sea-days-why-cruisers-actually-love-days-at-sea/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773789679934_7k1v2i3k9/9c57b66cec1f1059.jpg" alt="Sea Days: Why Cruisers Actually Love Days at Sea" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">Sea Days: Why Cruisers Actually Love Days at Sea</h3>
                         <p class="blog-card-excerpt">New to cruising? You might wonder why &quot;sea days&quot;—when the ship doesn't dock—are often the most anticipated part of the trip. Here's why experienced cruisers count them among the best days of the voyage....</p>
                     </div>
                 </a>
-                <a href="/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it" class="blog-card">
+                <a href="https://seadays.app/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773787438317_9q22xxpuj/5f428df3c65cd89f.jpg" alt="The Real Cost of Cruise Drink Packages: Is It Worth It?" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">The Real Cost of Cruise Drink Packages: Is It Worth It?</h3>
                         <p class="blog-card-excerpt">Cruise drink packages can seem like a steal—or a rip-off—depending on how you vacation. We break down the math, the fine print, and the honest truth about whether that all-you-can-drink deal actually saves you money....</p>
                     </div>
                 </a>
-                <a href="/blog/12-cruise-ship-secrets-the-crew-wont-tell-you-but-you-should-know" class="blog-card">
+                <a href="https://seadays.app/blog/12-cruise-ship-secrets-the-crew-wont-tell-you-but-you-should-know/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773699946772_g65l764f8/de0add84d5a71fda.jpg" alt="12 Cruise Ship Secrets the Crew Won't Tell You (But You Should Know)" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">12 Cruise Ship Secrets the Crew Won't Tell You (But You Should Know)</h3>
@@ -1901,7 +1901,7 @@
 
             document.addEventListener('keydown', function(e) {
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
-                if (e.target.closest && e.target.closest('.flip-card-wrap, button, [role="button"]')) return;
+                if (e.target.closest && e.target.closest('.flip-card-wrap, button, [role="button"], .blog-card')) return;
                 var key = e.key;
                 if (key === 'ArrowDown' || key === 'PageDown' || (key === ' ' && !e.ctrlKey && !e.metaKey)) {
                     if (key === ' ') e.preventDefault();

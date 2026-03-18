@@ -1170,9 +1170,137 @@
             border-color: rgba(255, 255, 255, 0.2);
             box-shadow: 0 12px 40px rgba(255, 0, 51, 0.15);
         }
+
+        .passport-explainer {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            text-align: center;
+        }
+        .passport-explainer p {
+            margin-bottom: 16px;
+        }
+        .passport-explainer p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Passport preview card – share-style layout */
+        .passport-preview-card {
+            max-width: 420px;
+            margin: 0 auto 24px;
+            padding: 28px 24px;
+            background: var(--dark-bg-alt);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 0, 51, 0.35);
+            box-shadow: 0 0 0 1px rgba(255, 0, 51, 0.15), 0 0 24px rgba(255, 0, 51, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .passport-preview-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .passport-preview-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=160&h=160&q=80");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 0 2px rgba(10, 10, 10, 0.9), 0 0 0 3px rgba(255, 0, 51, 0.8);
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        .passport-preview-header .passport-preview-username {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+        .passport-preview-header .passport-preview-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .passport-preview-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .passport-preview-stats .stat-cell {
+            text-align: center;
+            padding: 12px 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+        .passport-preview-stats .stat-value {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+        }
+        .passport-preview-stats .stat-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-top: 2px;
+        }
+        .passport-preview-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .passport-preview-badges .badge-pill {
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .passport-preview-share {
+            display: block;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            background: var(--neon-red);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .passport-preview-share:hover {
+            background: #ff1a4d;
+            transform: translateY(-1px);
+        }
         @media (max-width: 768px) {
             .passport-stats-grid { grid-template-columns: repeat(2, 1fr); }
             .passport-hero-image { max-width: 100%; margin-bottom: 24px; border-radius: 16px; }
+            .passport-preview-card { margin: 0 auto 20px; padding: 20px 16px; border-radius: 20px; }
+            .passport-preview-stats { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+            .passport-preview-stats .stat-value { font-size: 16px; }
+            .passport-preview-badges { gap: 6px; margin-bottom: 16px; }
+            .passport-preview-badges .badge-pill { padding: 6px 12px; font-size: 11px; }
+            .passport-preview-share { max-width: 100%; padding: 12px 20px; font-size: 14px; }
+        }
+        @media (max-width: 480px) {
+            .passport-preview-stats { grid-template-columns: 1fr; }
         }
 
         /* Feature detail modal */
@@ -1622,28 +1750,28 @@
                 <h2 class="section-title">Latest from the Community</h2>
                 <p class="section-subtitle">Portside Stories, cruise tips, and experiences shared by fellow SeaDays travelers.</p>
                 <!-- INJECT_BLOG_CARDS_START -->
-                <div id="blogGrid" class="blog-section-grid"><a href="/blog/7-cruise-passenger-mistakes-that-cost-you-time-and-money" class="blog-card">
+                <div id="blogGrid" class="blog-section-grid"><a href="https://seadays.app/blog/7-cruise-passenger-mistakes-that-cost-you-time-and-money/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773790701536_jle3nd9ej/2f684f1a5ea138a4.jpg" alt="7 Cruise Passenger Mistakes That Cost You Time and Money" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">7 Cruise Passenger Mistakes That Cost You Time and Money</h3>
                         <p class="blog-card-excerpt">Even seasoned cruisers make mistakes. From overpacking to missing the boat (literally), here are the most common cruise passenger blunders—and how to avoid them on your next trip....</p>
                     </div>
                 </a>
-                <a href="/blog/sea-days-why-cruisers-actually-love-days-at-sea" class="blog-card">
+                <a href="https://seadays.app/blog/sea-days-why-cruisers-actually-love-days-at-sea/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773789679934_7k1v2i3k9/9c57b66cec1f1059.jpg" alt="Sea Days: Why Cruisers Actually Love Days at Sea" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">Sea Days: Why Cruisers Actually Love Days at Sea</h3>
                         <p class="blog-card-excerpt">New to cruising? You might wonder why &quot;sea days&quot;—when the ship doesn&#39;t dock—are often the most anticipated part of the trip. Here&#39;s why experienced cruisers count them among the best days of the voyage....</p>
                     </div>
                 </a>
-                <a href="/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it" class="blog-card">
+                <a href="https://seadays.app/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773787438317_9q22xxpuj/5f428df3c65cd89f.jpg" alt="The Real Cost of Cruise Drink Packages: Is It Worth It?" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">The Real Cost of Cruise Drink Packages: Is It Worth It?</h3>
                         <p class="blog-card-excerpt">Cruise drink packages can seem like a steal—or a rip-off—depending on how you vacation. We break down the math, the fine print, and the honest truth about whether that all-you-can-drink deal actually saves you money....</p>
                     </div>
                 </a>
-                <a href="/blog/12-cruise-ship-secrets-the-crew-wont-tell-you-but-you-should-know" class="blog-card">
+                <a href="https://seadays.app/blog/12-cruise-ship-secrets-the-crew-wont-tell-you-but-you-should-know/" class="blog-card">
                     <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/article_1773699946772_g65l764f8/de0add84d5a71fda.jpg" alt="12 Cruise Ship Secrets the Crew Won&#39;t Tell You (But You Should Know)" class="blog-card-image" loading="lazy" decoding="async">
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">12 Cruise Ship Secrets the Crew Won&#39;t Tell You (But You Should Know)</h3>
@@ -1733,36 +1861,48 @@
             <div class="container">
                 <h2 id="cruise-passport-title" class="section-title">Cruise Passport</h2>
                 <p class="section-subtitle">Your personal cruise history, built automatically.</p>
-                <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Passport.jpg" alt="Cruise Passport – your voyages, ships, ports, and achievements in one place" class="passport-hero-image" width="420" height="auto" loading="lazy" decoding="async">
-                <p class="passport-desc">SeaDays automatically tracks your voyages, ships, and ports to build your personal cruise passport. See your cruising stats at a glance and unlock achievements as you explore the seas.</p>
-                <div class="passport-stats-grid" aria-label="Passport stats">
-                    <div class="passport-stat-item">
-                        <strong>Total Voyages</strong>
-                        <span>Track every cruise you take</span>
+                <div class="passport-explainer">
+                    <p>
+                        The SeaDays Cruise Passport automatically builds your personal cruising history.
+                        Every voyage you take, every ship you sail on, and every port you visit becomes part of your digital passport.
+                    </p>
+                    <p>
+                        Track your cruise stats, unlock achievements, and share your progress with the SeaDays community.
+                        Your Cruise Passport shows your voyages, ships sailed, ports visited, and cruise lines traveled — all in one place.
+                    </p>
+                </div>
+                <div class="passport-preview-card" role="img" aria-label="Example Cruise Passport share card – Captain Alex, 12 voyages, 7 ships, 18 ports, 4 cruise lines, with achievement badges">
+                    <div class="passport-preview-header">
+                        <div class="passport-preview-avatar" aria-hidden="true"></div>
+                        <span class="passport-preview-username">Captain Alex</span>
+                        <span class="passport-preview-label">SeaDays Cruise Passport</span>
                     </div>
-                    <div class="passport-stat-item">
-                        <strong>Ships Sailed</strong>
-                        <span>All the ships you've been on</span>
+                    <div class="passport-preview-stats" aria-label="Passport statistics">
+                        <div class="stat-cell">
+                            <span class="stat-value">12</span>
+                            <span class="stat-label">Voyages</span>
+                        </div>
+                        <div class="stat-cell">
+                            <span class="stat-value">7</span>
+                            <span class="stat-label">Ships</span>
+                        </div>
+                        <div class="stat-cell">
+                            <span class="stat-value">18</span>
+                            <span class="stat-label">Ports</span>
+                        </div>
+                        <div class="stat-cell">
+                            <span class="stat-value">4</span>
+                            <span class="stat-label">Cruise Lines</span>
+                        </div>
                     </div>
-                    <div class="passport-stat-item">
-                        <strong>Ports Visited</strong>
-                        <span>Destinations you've explored</span>
-                    </div>
-                    <div class="passport-stat-item">
-                        <strong>Cruise Lines Traveled</strong>
-                        <span>Lines you've sailed with</span>
+                    <div class="passport-preview-badges" aria-label="Achievement badges">
+                        <span class="badge-pill">First Voyage</span>
+                        <span class="badge-pill">Port Explorer</span>
+                        <span class="badge-pill">Ship Collector</span>
+                        <span class="badge-pill">Sea Day Champion</span>
                     </div>
                 </div>
-                <h3 class="passport-subsection-title">Achievements</h3>
-                <p class="section-subtitle" style="margin-bottom: 24px;">Unlock badges as you cruise and share your progress.</p>
-                <div class="passport-badges">
-                    <span class="passport-badge">First Voyage</span>
-                    <span class="passport-badge">Port Explorer</span>
-                    <span class="passport-badge">Ship Collector</span>
-                    <span class="passport-badge">Sea Day Champion</span>
-                    <span class="passport-badge">World Cruiser</span>
-                </div>
-                <p class="passport-share-note">Share your Cruise Passport with friends and the SeaDays community. Your passport profile shows your voyage history, achievements, and cruising milestones in one place.</p>
+                <a href="#home" class="passport-preview-share" aria-label="Share your Cruise Passport">Share Passport</a>
             </div>
         </section>
 
@@ -1914,7 +2054,7 @@
 
             document.addEventListener('keydown', function(e) {
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
-                if (e.target.closest && e.target.closest('.flip-card-wrap, button, [role="button"]')) return;
+                if (e.target.closest && e.target.closest('.flip-card-wrap, button, [role="button"], .blog-card')) return;
                 var key = e.key;
                 if (key === 'ArrowDown' || key === 'PageDown' || (key === ' ' && !e.ctrlKey && !e.metaKey)) {
                     if (key === ' ') e.preventDefault();

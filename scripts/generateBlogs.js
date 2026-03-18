@@ -696,7 +696,7 @@ async function buildHomePageBlogCards(articles) {
     const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'home-' + i) : null;
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
     const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">` : '';
-    cards.push(`<a href="/blog/${a.slug}" class="blog-card">
+    cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="blog-card">
                     ${imgTag}
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
@@ -715,7 +715,7 @@ async function buildIndexHtml(articles) {
     const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'index-' + i) : null;
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
     const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="article-card-image" loading="lazy" decoding="async">` : '';
-    cards.push(`<a href="/blog/${a.slug}" class="article-card">
+    cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
         <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
