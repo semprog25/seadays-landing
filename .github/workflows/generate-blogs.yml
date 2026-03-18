@@ -3,9 +3,6 @@ name: Generate Static Blogs
 on:
   push:
     branches: [main]
-    paths:
-      - 'scripts/generateBlogs.js'
-      - '.github/workflows/generate-blogs.yml'
   workflow_dispatch:
   schedule:
     # Run daily at 06:00 UTC
@@ -28,6 +25,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Verify SUPABASE_ANON_KEY
+        run: |
+          if [ -z "${{ secrets.SUPABASE_ANON_KEY }}" ]; then
+            echo "::error::SUPABASE_ANON_KEY is required. Add it to repository secrets."
+            exit 1
+          fi
 
       - name: Generate static blogs
         env:

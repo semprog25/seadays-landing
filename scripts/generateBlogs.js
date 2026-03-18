@@ -86,11 +86,13 @@ async function uploadBase64ToStorage(dataUrl, articleId, index) {
 }
 
 /**
- * Resolve image URL: upload base64 to storage or use DEFAULT_FAVICON if upload fails.
- * Ensures HTTPS; never returns base64.
+ * Resolve image URL: upload base64 to storage, or return null if upload fails.
+ * For HTTP URLs: returns HTTPS version. Never returns base64.
+ * When base64 upload fails (e.g. no SUPABASE_SERVICE_ROLE_KEY): returns null.
+ * Callers must use DEFAULT_FAVICON for og:image/twitter:image when null.
  */
 async function resolveImageUrl(url, articleId, index = 0) {
-  if (!url || typeof url !== 'string') return DEFAULT_FAVICON;
+  if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
   if (!trimmed.startsWith('data:image')) {
     if (trimmed.startsWith('http://')) return trimmed.replace(/^http:\/\//, 'https://');
@@ -99,7 +101,7 @@ async function resolveImageUrl(url, articleId, index = 0) {
   const uploaded = await uploadBase64ToStorage(trimmed, articleId, index);
   if (uploaded) imageStats.uploaded++;
   else imageStats.removed++;
-  return uploaded || DEFAULT_FAVICON;
+  return uploaded || null;
 }
 
 // ---------------------------------------------------------------------------
@@ -546,10 +548,11 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     stripHtmlToPlainText(article.content || bodyHtml, 160)
   );
   const rawOgImage = (article.ogImage || article.heroImageUrl || article.thumbnailUrl || DEFAULT_FAVICON).trim();
-  const ogImage = await resolveImageUrl(rawOgImage, article.id, 'og');
+  const ogImageResolved = await resolveImageUrl(rawOgImage, article.id, 'og');
+  const ogImage = ogImageResolved || DEFAULT_FAVICON;
   const canonicalUrl = BASE_URL + '/blog/' + article.slug + '.html';
   const rawHeroImg = (article.heroImageUrl || article.thumbnailUrl || '').trim();
-  const heroImg = rawHeroImg ? await resolveImageUrl(rawHeroImg, article.id, 'hero') : '';
+  const heroImg = rawHeroImg ? await resolveImageUrl(rawHeroImg, article.id, 'hero') : null;
 
   let navHtml = '';
   if (prevArticle) {
@@ -564,10 +567,10 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     const moreCards = [];
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
-      const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim() || DEFAULT_FAVICON;
-      const img = await resolveImageUrl(rawImg, a.id, 'more-' + i);
-      const safeImg = (img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img);
-      moreCards.push(`<a href="/blog/${a.slug}.html" class="more-card"><img src="${escapeHtml(safeImg)}" alt="" class="more-card-image" loading="lazy" decoding="async"><div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
+      const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
+      const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'more-' + i) : null;
+      const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="more-card-image" loading="lazy" decoding="async">` : '';
+      moreCards.push(`<a href="/blog/${a.slug}.html" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
   }
@@ -678,12 +681,12 @@ async function buildHomePageBlogCards(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim() || DEFAULT_FAVICON;
-    const img = await resolveImageUrl(rawImg, a.id, 'home-' + i);
+    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
+    const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'home-' + i) : null;
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
-    const safeImg = (img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img);
+    const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">` : '';
     cards.push(`<a href="/blog/${a.slug}.html" class="blog-card">
-                    <img src="${escapeHtml(safeImg)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">
+                    ${imgTag}
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
                         <p class="blog-card-excerpt">${escapeHtml(excerpt)}</p>
@@ -697,12 +700,12 @@ async function buildIndexHtml(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim() || DEFAULT_FAVICON;
-    const img = await resolveImageUrl(rawImg, a.id, 'index-' + i);
+    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
+    const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'index-' + i) : null;
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
-    const safeImg = (img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img);
+    const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="article-card-image" loading="lazy" decoding="async">` : '';
     cards.push(`<a href="/blog/${a.slug}.html" class="article-card">
-      <img src="${escapeHtml(safeImg)}" alt="" class="article-card-image" loading="lazy" decoding="async">
+      ${imgTag}
       <div class="article-card-body">
         <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
         <p class="article-card-excerpt">${escapeHtml(excerpt)}</p>
@@ -781,6 +784,11 @@ async function buildIndexHtml(articles) {
 // ---------------------------------------------------------------------------
 
 async function main() {
+  if (!process.env.SUPABASE_ANON_KEY) {
+    console.error('SUPABASE_ANON_KEY is required. Set it in environment or .env.');
+    process.exit(1);
+  }
+
   const repoRoot = path.join(__dirname, '..');
   const blogDir = path.join(repoRoot, 'blog');
 
@@ -851,7 +859,7 @@ async function main() {
 
   const indexPath = path.join(repoRoot, 'index.html');
   if (fs.existsSync(indexPath)) {
-    const homeCardsHtml = await buildHomePageBlogCards(articles.slice(0, 4));
+    const homeCardsHtml = await buildHomePageBlogCards(articles.slice(0, 3));
     let homeHtml = fs.readFileSync(indexPath, 'utf8');
     const startMarker = '<!-- INJECT_BLOG_CARDS_START -->';
     const endMarker = '<!-- INJECT_BLOG_CARDS_END -->';
