@@ -569,7 +569,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
       const safeImg = (img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img);
       moreCards.push(`<a href="/blog/${a.slug}.html" class="more-card"><img src="${escapeHtml(safeImg)}" alt="" class="more-card-image" loading="lazy" decoding="async"><div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
-    moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid">' + moreCards.join('') + '</div></section>';
+    moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
   }
 
   const navSection = navHtml ? `<nav class="article-nav" aria-label="Article navigation">${navHtml}</nav>` : '';
@@ -667,9 +667,30 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
+    (function(){var g=document.querySelector('.more-to-read-grid[data-shuffle-more]');if(!g)return;var cards=[].slice.call(g.querySelectorAll('.more-card'));if(cards.length<=4)return;for(var i=cards.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cards[i];cards[i]=cards[j];cards[j]=t;}g.innerHTML='';cards.forEach(function(c,i){g.appendChild(c);if(i>=4)c.style.display='none';});})();
   </script>
 </body>
 </html>`;
+}
+
+async function buildHomePageBlogCards(articles) {
+  if (articles.length === 0) return '<div id="blogGrid" class="blog-section-grid" style="display:none;"></div>\n                <div id="blogEmpty" class="blog-empty" style="display:block;">No posts yet. Check back soon for stories and tips.</div>';
+  const cards = [];
+  for (let i = 0; i < articles.length; i++) {
+    const a = articles[i];
+    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim() || DEFAULT_FAVICON;
+    const img = await resolveImageUrl(rawImg, a.id, 'home-' + i);
+    const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
+    const safeImg = (img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img);
+    cards.push(`<a href="/blog/${a.slug}.html" class="blog-card">
+                    <img src="${escapeHtml(safeImg)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
+                        <p class="blog-card-excerpt">${escapeHtml(excerpt)}</p>
+                    </div>
+                </a>`);
+  }
+  return '<div id="blogGrid" class="blog-section-grid">' + cards.join('\n                ') + '</div>';
 }
 
 async function buildIndexHtml(articles) {
@@ -807,7 +828,8 @@ async function main() {
     let bodyHtml = await getArticleBodyHtml(article);
     const prev = i > 0 ? articles[i - 1] : null;
     const next = i < articles.length - 1 ? articles[i + 1] : null;
-    const more = articles.filter((x) => x.id !== article.id).slice(0, 4);
+    const morePool = articles.filter((x) => x.id !== article.id);
+    const more = morePool.slice(0, 12);
     const excludeIds = new Set([article.id, ...more.map((a) => a.id)]);
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
@@ -826,6 +848,25 @@ async function main() {
   fs.writeFileSync(path.join(blogDir, 'index.html'), indexHtml, 'utf8');
   const indexSizeKb = Math.round(Buffer.byteLength(indexHtml, 'utf8') / 1024);
   console.log(`  wrote blog/index.html (${indexSizeKb}KB)`);
+
+  const indexPath = path.join(repoRoot, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    const homeCardsHtml = await buildHomePageBlogCards(articles.slice(0, 4));
+    let homeHtml = fs.readFileSync(indexPath, 'utf8');
+    const startMarker = '<!-- INJECT_BLOG_CARDS_START -->';
+    const endMarker = '<!-- INJECT_BLOG_CARDS_END -->';
+    const startIdx = homeHtml.indexOf(startMarker);
+    const endIdx = homeHtml.indexOf(endMarker);
+    if (startIdx !== -1 && endIdx !== -1 && endIdx > startIdx) {
+      const before = homeHtml.slice(0, startIdx + startMarker.length);
+      const after = homeHtml.slice(endIdx + endMarker.length);
+      homeHtml = before + '\n                ' + homeCardsHtml + '\n                ' + endMarker + after;
+      fs.writeFileSync(indexPath, homeHtml, 'utf8');
+      console.log('  updated index.html with static blog cards');
+    } else {
+      console.warn('  [warn] index.html markers not found, skipping home page injection');
+    }
+  }
 
   console.log(`\nImage stats: ${imageStats.uploaded} uploaded, ${imageStats.removed} removed (base64)`);
 
