@@ -81,7 +81,7 @@ fetchBlog().then((data) => {
       let n = 1;
       while (slugMap.has(slug)) { slug = base + '-' + n; n++; }
       slugMap.set(slug, true);
-      const url = BASE + '/blog/' + slug + '.html';
+      const url = BASE + '/blog/' + slug;
       xml += '  <url><loc>' + escapeXml(url) + '</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n';
     }
   });

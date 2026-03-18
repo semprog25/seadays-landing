@@ -198,6 +198,44 @@
         @media (max-width: 768px) {
             .next-article-single { grid-template-columns: 1fr; }
         }
+        .blog-engagement {
+            margin: 40px 0 32px;
+            padding: 28px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .blog-engagement h2 { font-size: 22px; margin-bottom: 16px; font-weight: 700; }
+        .engagement-actions { margin-bottom: 24px; }
+        .engagement-actions button {
+            background: rgba(255, 0, 51, 0.15);
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .engagement-actions button:focus { outline: 2px solid var(--neon-red); outline-offset: 2px; }
+        .comment-item {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 15px;
+        }
+        .comment-item .comment-author { font-weight: 600; color: rgba(255, 255, 255, 0.85); margin-bottom: 6px; }
+        .comment-item .comment-meta { font-size: 12px; color: rgba(255, 255, 255, 0.45); margin-bottom: 8px; }
+        .guest-comment-form label { display: block; margin-top: 14px; font-size: 14px; color: rgba(255, 255, 255, 0.7); }
+        .guest-comment-form input, .guest-comment-form textarea {
+            width: 100%; max-width: 480px; margin-top: 6px; padding: 10px 12px;
+            border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.06); color: #fff; font-size: 15px; box-sizing: border-box;
+        }
+        .guest-comment-form textarea { min-height: 100px; resize: vertical; }
+        .guest-comment-form .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+        .guest-comment-form button[type="submit"] {
+            margin-top: 18px; background: var(--neon-red); color: #fff; border: none;
+            padding: 12px 24px; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 15px;
+        }
+        .guest-comment-form .form-msg { margin-top: 12px; font-size: 14px; }
         .more-to-read {
             padding: 48px 0 80px;
         }
@@ -332,6 +370,28 @@
                     <img id="articleHeroImage" class="article-hero-image" alt="" style="display:none;">
                 </div>
                 <div id="articleBody" class="article-body"></div>
+
+                <section id="blogEngagement" class="blog-engagement" style="display:none;" aria-label="Comments">
+                    <h2>Comments</h2>
+                    <div class="engagement-actions">
+                        <button type="button" id="btnShareArticle">Share article</button>
+                    </div>
+                    <div id="commentsList" role="list"></div>
+                    <h3 style="font-size:18px;margin:28px 0 8px;font-weight:600;">Leave a comment</h3>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:8px;">Comments are reviewed before they appear. Your email is kept private.</p>
+                    <form id="guestCommentForm" class="guest-comment-form">
+                        <label class="hp" for="website">Website</label>
+                        <input class="hp" type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        <label for="gcName">Name</label>
+                        <input type="text" id="gcName" name="authorName" required maxlength="80" autocomplete="name">
+                        <label for="gcEmail">Email</label>
+                        <input type="email" id="gcEmail" name="authorEmail" required maxlength="120" autocomplete="email">
+                        <label for="gcBody">Comment</label>
+                        <textarea id="gcBody" name="body" required maxlength="2000"></textarea>
+                        <button type="submit">Submit for review</button>
+                        <p id="guestCommentMsg" class="form-msg" role="status" aria-live="polite"></p>
+                    </form>
+                </section>
 
                 <nav class="article-nav" id="articleNav" aria-label="Article navigation">
                     <a href="#" id="navPrev" class="article-nav-prev" style="display:none;">
@@ -653,6 +713,84 @@
                             image: article.ogImage || article.heroImageUrl || article.thumbnailUrl
                         });
                     }
+
+                    var eng = document.getElementById('blogEngagement');
+                    if (eng) eng.style.display = 'block';
+                    (function initEngagement(aid) {
+                        var edgeBase = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
+                        var hdr = { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY };
+                        var listEl = document.getElementById('commentsList');
+                        function loadComments() {
+                            fetch(edgeBase + '/make-server-51d3ca8d/portside-articles/' + encodeURIComponent(aid) + '/comments/public', { headers: hdr })
+                                .then(function(r) { return r.json(); })
+                                .then(function(d) {
+                                    var list = (d && d.comments) ? d.comments : [];
+                                    if (!listEl) return;
+                                    if (list.length === 0) {
+                                        listEl.innerHTML = '<p style="color:rgba(255,255,255,0.45);font-size:15px;">No comments yet. Be the first to comment.</p>';
+                                        return;
+                                    }
+                                    listEl.innerHTML = list.map(function(c) {
+                                        var name = escapeHtml(c.authorName || 'Reader');
+                                        var text = escapeHtml(String(c.body || c.content || '').slice(0, 2000));
+                                        var ts = formatDate(c.timestamp);
+                                        return '<div class="comment-item" role="listitem"><div class="comment-author">' + name + '</div><div class="comment-meta">' + escapeHtml(ts) + '</div><div>' + text.replace(/\n/g, '<br>') + '</div></div>';
+                                    }).join('');
+                                })
+                                .catch(function() {
+                                    if (listEl) listEl.innerHTML = '<p style="color:rgba(255,100,100,0.8);">Could not load comments.</p>';
+                                });
+                        }
+                        loadComments();
+                        var shareBtn = document.getElementById('btnShareArticle');
+                        if (shareBtn) {
+                            shareBtn.onclick = function() {
+                                var u = window.location.href;
+                                if (navigator.share) {
+                                    navigator.share({ title: document.title, url: u }).catch(function() {});
+                                } else if (navigator.clipboard && navigator.clipboard.writeText) {
+                                    navigator.clipboard.writeText(u);
+                                    shareBtn.textContent = 'Link copied!';
+                                    setTimeout(function() { shareBtn.textContent = 'Share article'; }, 2000);
+                                }
+                            };
+                        }
+                        var form = document.getElementById('guestCommentForm');
+                        var msg = document.getElementById('guestCommentMsg');
+                        if (form) {
+                            form.onsubmit = function(ev) {
+                                ev.preventDefault();
+                                if (msg) msg.textContent = '';
+                                var fd = new FormData(form);
+                                var website = fd.get('website');
+                                var payload = {
+                                    website: website || '',
+                                    authorName: fd.get('authorName'),
+                                    authorEmail: fd.get('authorEmail'),
+                                    body: fd.get('body')
+                                };
+                                fetch(edgeBase + '/make-server-51d3ca8d/portside-articles/' + encodeURIComponent(aid) + '/comments/guest', {
+                                    method: 'POST',
+                                    headers: Object.assign({ 'Content-Type': 'application/json' }, hdr),
+                                    body: JSON.stringify(payload)
+                                })
+                                    .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, j: j }; }); })
+                                    .then(function(x) {
+                                        if (msg) {
+                                            if (x.ok && x.j.success) {
+                                                msg.textContent = 'Thanks! Your comment will appear after moderation.';
+                                                form.reset();
+                                            } else {
+                                                msg.textContent = (x.j && x.j.error) ? x.j.error : 'Something went wrong.';
+                                            }
+                                        }
+                                    })
+                                    .catch(function() {
+                                        if (msg) msg.textContent = 'Network error. Try again later.';
+                                    });
+                            };
+                        }
+                    })(article.id);
                 } catch (e) {
                     if (loading) loading.style.display = 'none';
                     if (errorEl) {

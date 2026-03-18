@@ -5,8 +5,8 @@ This document describes the static blog generation system that pre-renders blog 
 ## Overview
 
 - **Source**: Supabase Edge Function (`portside-articles`)
-- **Output**: Static HTML files in `/blog/` (e.g. `/blog/cruise-packing-mistakes.html`)
-- **Sitemap**: Auto-updated `sitemap.xml` with all article URLs
+- **Output**: Static HTML in `/blog/{slug}/index.html` (clean URL `/blog/{slug}`). Redirect pages at `/blog/{slug}.html` for backward compatibility.
+- **Sitemap**: Auto-updated `sitemap.xml` with clean article URLs (`/blog/{slug}`)
 
 ## Prerequisites
 
@@ -33,19 +33,23 @@ node scripts/generateBlogs.js
 2. **Fetches full content** for each article (including `structuredContent` / `content`)
 3. **Generates slug** from title if missing (e.g. "10 Cruise Packing Mistakes" → `10-cruise-packing-mistakes`)
 4. **Converts** `structuredContent` (contentVersion 2) to HTML (headings, paragraphs, images, tables, tips, etc.)
-5. **Writes** one HTML file per article: `blog/{slug}.html`
+5. **Writes** one folder per article: `blog/{slug}/index.html` (full content). Also writes `blog/{slug}.html` as a redirect to `/blog/{slug}` for old URLs.
 6. **Writes** `blog/index.html` with article cards and links
-7. **Updates** `sitemap.xml` with homepage, blog index, and all article URLs
+7. **Updates** `sitemap.xml` with homepage, blog index, and all article URLs (clean URLs only)
 
 ## Output Structure
 
 ```
 /blog/
-  index.html           # Blog index with all articles
-  cruise-packing-mistakes.html
-  cruise-wifi-guide.html
+  index.html                    # Blog index with all articles
+  cruise-packing-mistakes/
+    index.html                  # Full article (URL: /blog/cruise-packing-mistakes)
+  cruise-packing-mistakes.html  # Redirect page (old URL → /blog/cruise-packing-mistakes)
+  cruise-wifi-guide/
+    index.html
+  cruise-wifi-guide.html       # Redirect
   ...
-sitemap.xml            # Updated with all URLs
+sitemap.xml                     # Updated with clean URLs (/blog/{slug})
 ```
 
 ## SEO Features
@@ -76,7 +80,7 @@ All images get `loading="lazy"` and `decoding="async"`. No base64 remains in fin
 
 ## Contextual Internal Links
 
-The generator injects 2–4 related-article links inside content (after the 2nd paragraph) based on keyword overlap (title, excerpt, tags). Uses real `<a href="/blog/{slug}.html">` anchors.
+The generator injects 2–4 related-article links inside content (after the 2nd paragraph) based on keyword overlap (title, excerpt, tags). Uses clean URLs: `<a href="/blog/{slug}">`.
 
 ## Deployment
 
@@ -98,12 +102,13 @@ A workflow (`.github/workflows/generate-blogs.yml`) runs:
 
 The workflow commits updated `blog/` and `sitemap.xml` and pushes back to `main`.
 
-## URL Migration
+## URL Structure
 
-- **Old**: `/blog-article.html?id=123`
-- **New**: `/blog/{slug}.html` (e.g. `/blog/cruise-packing-mistakes.html`)
+- **Canonical / sitemap**: `/blog/{slug}` (e.g. `/blog/cruise-packing-mistakes`) — clean URLs for SEO.
+- **Physical files**: `blog/{slug}/index.html` (full content). Browsers resolve `/blog/{slug}` to `blog/{slug}/index.html`.
+- **Backward compatibility**: `blog/{slug}.html` is a small redirect page (meta refresh + JS) that sends visitors from the old URL to `/blog/{slug}`.
 
-`blog-article.html` remains for backwards compatibility (dynamic fallback). All new links and sitemap use static URLs.
+**Legacy**: `blog-article.html?id=123` remains for dynamic fallback. All new links and sitemap use clean static URLs.
 
 ## Slug Generation
 

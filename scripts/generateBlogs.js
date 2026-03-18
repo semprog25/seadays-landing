@@ -127,6 +127,17 @@ function escapeXml(s) {
     .replace(/'/g, '&apos;');
 }
 
+function buildRedirectPage(slug) {
+  const target = '/blog/' + encodeURI(slug);
+  return (
+    '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<meta http-equiv="refresh" content="0;url=' + escapeHtml(target) + '">' +
+    '<title>Redirect</title></head><body>' +
+    '<script>window.location.replace("' + target.replace(/"/g, '\\"') + '");</script>' +
+    '<p>Redirecting to <a href="' + escapeHtml(target) + '">article</a>...</p></body></html>'
+  );
+}
+
 /**
  * Generate URL-safe slug from title.
  * "10 Cruise Packing Mistakes" -> "10-cruise-packing-mistakes"
@@ -371,7 +382,7 @@ function findRelatedArticles(article, allArticles, excludeIds, maxCount = 4) {
 function injectContextualLinks(bodyHtml, relatedArticles, maxLinks = 4) {
   if (!relatedArticles.length || !bodyHtml) return bodyHtml;
   const links = relatedArticles.slice(0, maxLinks).map(
-    (a) => `<a href="/blog/${a.slug}.html" class="contextual-link">${escapeHtml(a.title || 'Read more')}</a>`
+    (a) => `<a href="/blog/${a.slug}" class="contextual-link">${escapeHtml(a.title || 'Read more')}</a>`
   );
   const linkBlock = `<p class="related-inline">Related: ${links.join(' · ')}</p>`;
   const re = /(<\/p>\s*)/gi;
@@ -550,16 +561,16 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   const rawOgImage = (article.ogImage || article.heroImageUrl || article.thumbnailUrl || DEFAULT_FAVICON).trim();
   const ogImageResolved = await resolveImageUrl(rawOgImage, article.id, 'og');
   const ogImage = ogImageResolved || DEFAULT_FAVICON;
-  const canonicalUrl = BASE_URL + '/blog/' + article.slug + '.html';
+  const canonicalUrl = BASE_URL + '/blog/' + article.slug;
   const rawHeroImg = (article.heroImageUrl || article.thumbnailUrl || '').trim();
   const heroImg = rawHeroImg ? await resolveImageUrl(rawHeroImg, article.id, 'hero') : null;
 
   let navHtml = '';
   if (prevArticle) {
-    navHtml += `<a href="/blog/${prevArticle.slug}.html" class="article-nav-prev"><span class="article-nav-label">Previous</span><span>${escapeHtml(prevArticle.title || 'Previous')}</span></a>`;
+    navHtml += `<a href="/blog/${prevArticle.slug}" class="article-nav-prev"><span class="article-nav-label">Previous</span><span>${escapeHtml(prevArticle.title || 'Previous')}</span></a>`;
   }
   if (nextArticle) {
-    navHtml += `<a href="/blog/${nextArticle.slug}.html" class="article-nav-next"><span class="article-nav-label">Next</span><span>${escapeHtml(nextArticle.title || 'Next')}</span></a>`;
+    navHtml += `<a href="/blog/${nextArticle.slug}" class="article-nav-next"><span class="article-nav-label">Next</span><span>${escapeHtml(nextArticle.title || 'Next')}</span></a>`;
   }
 
   let moreHtml = '';
@@ -570,7 +581,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
       const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
       const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'more-' + i) : null;
       const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="more-card-image" loading="lazy" decoding="async">` : '';
-      moreCards.push(`<a href="/blog/${a.slug}.html" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
+      moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
   }
@@ -685,7 +696,7 @@ async function buildHomePageBlogCards(articles) {
     const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'home-' + i) : null;
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
     const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">` : '';
-    cards.push(`<a href="/blog/${a.slug}.html" class="blog-card">
+    cards.push(`<a href="/blog/${a.slug}" class="blog-card">
                     ${imgTag}
                     <div class="blog-card-body">
                         <h3 class="blog-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
@@ -704,7 +715,7 @@ async function buildIndexHtml(articles) {
     const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'index-' + i) : null;
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
     const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="article-card-image" loading="lazy" decoding="async">` : '';
-    cards.push(`<a href="/blog/${a.slug}.html" class="article-card">
+    cards.push(`<a href="/blog/${a.slug}" class="article-card">
       ${imgTag}
       <div class="article-card-body">
         <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
@@ -842,14 +853,19 @@ async function main() {
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
     const html = await buildArticleHtml(article, bodyHtml, prev, next, more);
-    const outPath = path.join(blogDir, article.slug + '.html');
-    fs.writeFileSync(outPath, html, 'utf8');
+    const articleDir = path.join(blogDir, article.slug);
+    const indexPath = path.join(articleDir, 'index.html');
+    const redirectPath = path.join(blogDir, article.slug + '.html');
+    fs.mkdirSync(articleDir, { recursive: true });
+    fs.writeFileSync(indexPath, html, 'utf8');
+    fs.writeFileSync(redirectPath, buildRedirectPage(article.slug), 'utf8');
     const sizeBytes = Buffer.byteLength(html, 'utf8');
     const sizeKb = Math.round(sizeBytes / 1024);
     if (sizeBytes > SIZE_WARN_KB * 1024) {
-      console.warn(`  [warn] ${article.slug}.html is ${sizeKb}KB (over ${SIZE_WARN_KB}KB threshold)`);
+      console.warn(`  [warn] blog/${article.slug}/index.html is ${sizeKb}KB (over ${SIZE_WARN_KB}KB threshold)`);
     }
-    console.log(`  wrote ${article.slug}.html (${sizeKb}KB)`);
+    console.log(`  wrote blog/${article.slug}/index.html (${sizeKb}KB)`);
+    console.log(`  wrote blog/${article.slug}.html (redirect)`);
   }
 
   const indexHtml = await buildIndexHtml(articles);
@@ -859,7 +875,7 @@ async function main() {
 
   const indexPath = path.join(repoRoot, 'index.html');
   if (fs.existsSync(indexPath)) {
-    const homeCardsHtml = await buildHomePageBlogCards(articles.slice(0, 3));
+    const homeCardsHtml = await buildHomePageBlogCards(articles.slice(0, 4));
     let homeHtml = fs.readFileSync(indexPath, 'utf8');
     const startMarker = '<!-- INJECT_BLOG_CARDS_START -->';
     const endMarker = '<!-- INJECT_BLOG_CARDS_END -->';
@@ -892,7 +908,7 @@ async function main() {
     sitemap += '  <url><loc>' + escapeXml(u.loc) + '</loc><changefreq>' + u.changefreq + '</changefreq><priority>' + u.priority + '</priority></url>\n';
   }
   for (const a of articles) {
-    const url = BASE_URL + '/blog/' + a.slug + '.html';
+    const url = BASE_URL + '/blog/' + a.slug;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
     sitemap += '  <url><loc>' + escapeXml(url) + '</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n';
@@ -902,7 +918,7 @@ async function main() {
   const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
   if (!sitemapValid) console.warn('[warn] sitemap.xml may be invalid');
   const base64Check = (html) => !html.includes('data:image');
-  const sampleHtml = articles.length ? fs.readFileSync(path.join(blogDir, articles[0].slug + '.html'), 'utf8') : '';
+  const sampleHtml = articles.length ? fs.readFileSync(path.join(blogDir, articles[0].slug, 'index.html'), 'utf8') : '';
   if (sampleHtml && !base64Check(sampleHtml)) console.warn('[warn] base64 images may remain in output');
   console.log('Wrote sitemap.xml with', seenUrls.size, 'URLs (no duplicates)');
   console.log('Done.');

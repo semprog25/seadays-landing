@@ -20,29 +20,19 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Verify SUPABASE_ANON_KEY
-        run: |
-          if [ -z "${{ secrets.SUPABASE_ANON_KEY }}" ]; then
-            echo "::error::SUPABASE_ANON_KEY is required. Add it to repository secrets."
-            exit 1
-          fi
-
-      - name: Generate static blogs
-        env:
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: npm run generate-blogs
+      - name: Generate blog pages and sitemap
+        run: node scripts/generate-blog-pages.js
 
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet blog/ sitemap.xml index.html || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet blog/ sitemap.xml .blog-pages-manifest.json 2>/dev/null || echo "changed=true" >> $GITHUB_OUTPUT
           git status --short
 
       - name: Commit and push
@@ -50,6 +40,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add blog/ sitemap.xml index.html
+          # blog/ includes new dirs (blog/{slug}/) and redirect files (blog/{slug}.html)
+          git add blog/ sitemap.xml .blog-pages-manifest.json
           git commit -m "chore: regenerate static blog pages and sitemap [skip ci]"
           git push

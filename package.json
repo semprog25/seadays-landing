@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "generate-blogs": "node scripts/generateBlogs.js"
+    "generate-blogs": "node scripts/generateBlogs.js",
+    "generate-blog-pages": "node scripts/generate-blog-pages.js"
   },
   "engines": {
     "node": ">=18"
