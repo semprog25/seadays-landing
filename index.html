@@ -905,8 +905,28 @@
 
         /* Flip cards – Cruise Planning Tools */
         .flip-cards-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             margin-bottom: 40px;
+        }
+        .flip-cards-title-panel {
+            width: min(100%, 760px);
+            padding: 24px 32px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(255, 0, 51, 0.95), rgba(255, 0, 51, 0.72));
+            border: 2px solid rgba(255, 0, 51, 0.9);
+            box-shadow: 0 0 24px rgba(255, 0, 51, 0.35), 0 0 48px rgba(255, 0, 51, 0.18);
+            margin-bottom: 18px;
+        }
+        .flip-cards-title-panel .section-title {
+            margin-bottom: 0;
+        }
+        .flip-cards-subtitle {
+            max-width: 760px;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.72);
         }
         .flip-cards-sections {
             display: flex;
@@ -922,9 +942,17 @@
             .flip-cards-grid { grid-template-columns: repeat(2, 1fr); }
         }
         .flip-card-wrap {
+            --card-accent: var(--neon-red);
+            --card-glow: 255, 0, 51;
             perspective: 1000px;
             min-height: 300px;
         }
+        .flip-card-wrap.theme-1 { --card-accent: #ff0033; --card-glow: 255, 0, 51; }
+        .flip-card-wrap.theme-2 { --card-accent: #06b6d4; --card-glow: 6, 182, 212; }
+        .flip-card-wrap.theme-3 { --card-accent: #f59e0b; --card-glow: 245, 158, 11; }
+        .flip-card-wrap.theme-4 { --card-accent: #48bb78; --card-glow: 72, 187, 120; }
+        .flip-card-wrap.theme-5 { --card-accent: #ec4899; --card-glow: 236, 72, 153; }
+        .flip-card-wrap.theme-6 { --card-accent: #14b8a6; --card-glow: 20, 184, 166; }
         .flip-card-inner {
             position: relative;
             width: 100%;
@@ -943,9 +971,9 @@
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             border-radius: 24px;
-            border: 2px solid var(--neon-red);
+            border: 2px solid var(--card-accent);
             background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 12px rgba(255, 0, 51, 0.25), 0 0 24px rgba(255, 0, 51, 0.12), 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 12px rgba(var(--card-glow), 0.25), 0 0 24px rgba(var(--card-glow), 0.12), 0 4px 15px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -953,8 +981,8 @@
         }
         .flip-card-face.back { transform: rotateY(180deg); }
         .flip-card-wrap:hover .flip-card-face {
-            border-color: var(--neon-red);
-            box-shadow: 0 0 20px rgba(255, 0, 51, 0.5), 0 0 40px rgba(255, 0, 51, 0.25), 0 10px 40px rgba(255, 0, 51, 0.2);
+            border-color: var(--card-accent);
+            box-shadow: 0 0 20px rgba(var(--card-glow), 0.5), 0 0 40px rgba(var(--card-glow), 0.25), 0 10px 40px rgba(var(--card-glow), 0.2);
         }
         .flip-card-image {
             width: 100%;
@@ -968,10 +996,10 @@
         .flip-card-image.color-4 { background: linear-gradient(135deg, rgba(72, 187, 120, 0.35), rgba(72, 187, 120, 0.15)); }
         .flip-card-image.color-5 { background: linear-gradient(135deg, rgba(147, 112, 219, 0.35), rgba(147, 112, 219, 0.15)); }
         .flip-card-image.color-6 { background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(236, 72, 153, 0.15)); }
-        .flip-card-image.back-color-1 { background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0.15)); }
-        .flip-card-image.back-color-2 { background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(16, 185, 129, 0.15)); }
+        .flip-card-image.back-color-1 { background: linear-gradient(135deg, rgba(255, 0, 51, 0.4), rgba(255, 0, 51, 0.15)); }
+        .flip-card-image.back-color-2 { background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(6, 182, 212, 0.15)); }
         .flip-card-image.back-color-3 { background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.15)); }
-        .flip-card-image.back-color-4 { background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(139, 92, 246, 0.15)); }
+        .flip-card-image.back-color-4 { background: linear-gradient(135deg, rgba(72, 187, 120, 0.4), rgba(72, 187, 120, 0.15)); }
         .flip-card-image.back-color-5 { background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.15)); }
         .flip-card-image.back-color-6 { background: linear-gradient(135deg, rgba(20, 184, 166, 0.4), rgba(20, 184, 166, 0.15)); }
         .flip-card-body { padding: 20px; flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
@@ -1559,24 +1587,26 @@
         <section id="cruise-planning-tools" class="fullpage-section">
             <div class="container">
                 <div class="flip-cards-header">
-                    <h2 class="section-title">Cruise Planning Tools<br>for Smarter Voyages</h2>
-                    <p class="section-subtitle">SeaDays brings cruise planning, ship discovery, community discussions, and voyage analytics into one powerful platform.</p>
+                    <div class="flip-cards-title-panel">
+                        <h2 class="section-title">Cruise Planning Tools<br>for Smarter Voyages</h2>
+                    </div>
+                    <p class="section-subtitle flip-cards-subtitle">SeaDays brings cruise planning, ship discovery, community discussions, and voyage analytics into one powerful platform.</p>
                 </div>
                 <div class="flip-cards-sections" id="flipCardsGrid">
                     <div class="flip-cards-grid">
-                        <div class="flip-card-wrap" tabindex="0" role="button" aria-label="Cruise Planner – click to flip">
+                        <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Cruise Planner – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-1"></div><div class="flip-card-body"><h3 class="flip-card-title">Cruise Planner</h3><p class="flip-card-desc">Plan every moment of your cruise. Organize excursions, shows, reservations, and sea days so you always know what's next.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-1"></div><div class="flip-card-body"><h3 class="flip-card-title">Maritime Profile</h3><p class="flip-card-desc">Build your personal cruising profile. Track voyages, achievements, and cruising history in one place.</p></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap" tabindex="0" role="button" aria-label="Voyage Analytics – click to flip">
+                        <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Voyage Analytics – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-2"></div><div class="flip-card-body"><h3 class="flip-card-title">Voyage Analytics</h3><p class="flip-card-desc">Understand the real cost of your cruise. Track trip expenses, onboard spending, and extras with clear financial insights.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-2"></div><div class="flip-card-body"><h3 class="flip-card-title">Rate Ships</h3><p class="flip-card-desc">Share your experience and rate cruise ships based on cabins, dining, entertainment, and overall atmosphere.</p></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap" tabindex="0" role="button" aria-label="Drink Package Calculator – click to flip">
+                        <div class="flip-card-wrap theme-3" tabindex="0" role="button" aria-label="Drink Package Calculator – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-3"></div><div class="flip-card-body"><h3 class="flip-card-title">Drink Package Calculator</h3><p class="flip-card-desc">See if the drink package is worth it. Enter your cruise line and habits to calculate your break-even point.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-3"></div><div class="flip-card-body"><h3 class="flip-card-title">Rate Ports</h3><p class="flip-card-desc">Review cruise destinations and help other travelers discover the best beaches, excursions, and local attractions.</p></div></div>
@@ -1584,19 +1614,19 @@
                         </div>
                     </div>
                     <div class="flip-cards-grid">
-                        <div class="flip-card-wrap" tabindex="0" role="button" aria-label="Port Safety – click to flip">
+                        <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Port Safety – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-4"></div><div class="flip-card-body"><h3 class="flip-card-title">Port Safety</h3><p class="flip-card-desc">Stay informed before arriving. Check safety insights, travel tips, and important local guidance for every cruise port.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-4"></div><div class="flip-card-body"><h3 class="flip-card-title">Rate Drinks</h3><p class="flip-card-desc">Log and rate cocktails, wines, and specialty drinks you try onboard so others know what's worth ordering.</p></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap" tabindex="0" role="button" aria-label="Cruise Community – click to flip">
+                        <div class="flip-card-wrap theme-5" tabindex="0" role="button" aria-label="Cruise Community – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-5"></div><div class="flip-card-body"><h3 class="flip-card-title">Cruise Community</h3><p class="flip-card-desc">Connect with fellow cruisers on the same sailing. Share tips, experiences, and recommendations with the SeaDays community.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-5"></div><div class="flip-card-body"><h3 class="flip-card-title">Voyage Planning Tools</h3><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap" tabindex="0" role="button" aria-label="Carbon Footprint – click to flip">
+                        <div class="flip-card-wrap theme-6" tabindex="0" role="button" aria-label="Carbon Footprint – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-6"></div><div class="flip-card-body"><h3 class="flip-card-title">Carbon Footprint</h3><p class="flip-card-desc">See the environmental impact of your voyage. Understand estimated emissions and how your cruise contributes to travel footprints.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-6"></div><div class="flip-card-body"><h3 class="flip-card-title">Crew Chat</h3><p class="flip-card-desc">Chat with fellow cruisers before and during your voyage to plan meetups, excursions, and onboard activities.</p></div></div>
