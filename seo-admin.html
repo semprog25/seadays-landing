@@ -109,6 +109,8 @@
         .toast.ok { border-color: var(--ok); }
         .toast.err { border-color: var(--accent); }
         .hidden { display: none !important; }
+        #loginErr { min-height: 1.25em; }
+        #btnSignIn:disabled { opacity: 0.7; cursor: not-allowed; }
         .user-bar { font-size: 13px; color: var(--muted); padding: 0 20px 16px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; }
         th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
@@ -241,7 +243,15 @@
     var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
     var EDGE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
 
-    var supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    var supa = null;
+    try {
+        if (typeof window.supabase === 'undefined' || typeof window.supabase.createClient !== 'function') {
+            throw new Error('Supabase script did not load (check network or blockers on cdn.jsdelivr.net).');
+        }
+        supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    } catch (initErr) {
+        console.error('seo-admin init:', initErr);
+    }
     var session = null;
 
     function toast(msg, isErr) {
@@ -259,8 +269,18 @@
             Authorization: 'Bearer ' + (session && session.access_token ? session.access_token : SUPABASE_ANON_KEY)
         }, opts.headers || {});
         return fetch(EDGE + path, Object.assign({}, opts, { headers: h })).then(function (r) {
-            return r.json().then(function (j) {
-                if (!r.ok) throw new Error((j && j.error) || r.statusText);
+            return r.text().then(function (text) {
+                var j = null;
+                if (text) {
+                    try {
+                        j = JSON.parse(text);
+                    } catch (parseErr) {
+                        throw new Error(r.ok ? 'Invalid JSON from server' : (r.status + ' ' + r.statusText));
+                    }
+                } else {
+                    j = {};
+                }
+                if (!r.ok) throw new Error((j && (j.error || j.message)) || r.statusText || ('HTTP ' + r.status));
                 return j;
             });
         });
@@ -279,18 +299,19 @@
     var canTeam = false;
 
     function afterLogin() {
-        api('/make-server-51d3ca8d/landing-cms/me').then(function (me) {
+        return api('/make-server-51d3ca8d/landing-cms/me').then(function (me) {
             if (!me.role) {
-                document.getElementById('loginErr').textContent =
+                var noAccessMsg =
                     'Signed in, but this account has no CMS access. Add your user UUID to LANDING_CMS_BOOTSTRAP_ADMIN_IDS (Edge Function secret) or ask an admin to add you in Team.';
+                document.getElementById('loginErr').textContent = noAccessMsg;
+                toast(noAccessMsg, true);
                 document.getElementById('loginScreen').classList.remove('hidden');
                 document.getElementById('appShell').classList.add('hidden');
-                supa.auth.signOut().then(function () {
+                return supa.auth.signOut().then(function () {
                     session = null;
                     cmsRole = null;
                     canTeam = false;
                 });
-                return;
             }
             document.getElementById('loginScreen').classList.add('hidden');
             document.getElementById('appShell').classList.remove('hidden');
@@ -313,31 +334,65 @@
             loadArticlesForSeoAndBlog();
             loadPending();
             if (canTeam) loadTeam();
-        }).catch(function () {
-            document.getElementById('loginErr').textContent =
+        }).catch(function (err) {
+            console.error('landing-cms/me:', err);
+            var verifyMsg =
                 'Could not verify CMS role. Check your connection, confirm seo-admin uses the correct Supabase project, and try again.';
+            document.getElementById('loginErr').textContent = verifyMsg;
             document.getElementById('loginScreen').classList.remove('hidden');
             document.getElementById('appShell').classList.add('hidden');
-            supa.auth.signOut().then(function () {
-                session = null;
-                cmsRole = null;
-                canTeam = false;
-            });
-            toast('Could not verify CMS role', true);
+            toast(verifyMsg, true);
+            if (supa) {
+                return supa.auth.signOut().then(function () {
+                    session = null;
+                    cmsRole = null;
+                    canTeam = false;
+                });
+            }
         });
     }
 
+    function setSignInLoading(isLoading) {
+        var btn = document.getElementById('btnSignIn');
+        if (!btn) return;
+        btn.disabled = !!isLoading;
+        btn.textContent = isLoading ? 'Signing in…' : 'Sign in';
+    }
+
+    function reportSignInProblem(msg) {
+        document.getElementById('loginErr').textContent = msg;
+        toast(msg, true);
+    }
+
     document.getElementById('btnSignIn').onclick = function () {
+        if (!supa) {
+            reportSignInProblem('Sign-in is unavailable: Supabase client failed to load. Refresh the page or allow scripts from cdn.jsdelivr.net.');
+            return;
+        }
         var em = document.getElementById('email').value.trim();
         var pw = document.getElementById('password').value;
         document.getElementById('loginErr').textContent = '';
+        if (!em || !pw) {
+            reportSignInProblem('Enter your email and password.');
+            return;
+        }
+        setSignInLoading(true);
         supa.auth.signInWithPassword({ email: em, password: pw }).then(function (res) {
             if (res.error) {
-                document.getElementById('loginErr').textContent = res.error.message;
+                reportSignInProblem(res.error.message || 'Sign-in failed.');
+                return;
+            }
+            if (!res.data || !res.data.session) {
+                reportSignInProblem('No session returned. Confirm your email or try again.');
                 return;
             }
             session = res.data.session;
-            afterLogin();
+            return afterLogin();
+        }).catch(function (err) {
+            console.error('signInWithPassword:', err);
+            reportSignInProblem((err && err.message) ? err.message : 'Sign-in failed (network or server error).');
+        }).finally(function () {
+            setSignInLoading(false);
         });
     };
 
@@ -576,12 +631,21 @@
         });
     };
 
-    supa.auth.getSession().then(function (res) {
-        if (res.data && res.data.session) {
-            session = res.data.session;
-            afterLogin();
-        }
-    });
+    if (supa) {
+        supa.auth.getSession().then(function (res) {
+            if (res.data && res.data.session) {
+                session = res.data.session;
+                afterLogin().catch(function (e) {
+                    console.error('afterLogin (session restore):', e);
+                });
+            }
+        }).catch(function (e) {
+            console.error('getSession:', e);
+        });
+    } else {
+        document.getElementById('loginErr').textContent =
+            'Sign-in library failed to load. Allow cdn.jsdelivr.net or refresh the page.';
+    }
 })();
     </script>
 </body>
