@@ -109,7 +109,7 @@
         .toast.ok { border-color: var(--ok); }
         .toast.err { border-color: var(--accent); }
         .hidden { display: none !important; }
-        #loginErr { min-height: 1.25em; }
+        #loginErr { min-height: 1.25em; white-space: pre-wrap; word-break: break-word; }
         #btnSignIn:disabled { opacity: 0.7; cursor: not-allowed; }
         .user-bar { font-size: 13px; color: var(--muted); padding: 0 20px 16px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -301,10 +301,17 @@
     function afterLogin() {
         return api('/make-server-51d3ca8d/landing-cms/me').then(function (me) {
             if (!me.role) {
+                var uid = (me && me.userId) ? String(me.userId) : '';
                 var noAccessMsg =
-                    'Signed in, but this account has no CMS access. Add your user UUID to LANDING_CMS_BOOTSTRAP_ADMIN_IDS (Edge Function secret) or ask an admin to add you in Team.';
+                    'Signed in, but this account has no CMS role yet.\n\n' +
+                    (uid ? 'Your Supabase Auth user id:\n' + uid + '\n\n' : '') +
+                    'Fix (pick one):\n' +
+                    '1) Supabase Dashboard → Project Settings → Edge Functions → Secrets → add or edit LANDING_CMS_BOOTSTRAP_ADMIN_IDS with exactly that UUID (comma-separated if several).\n' +
+                    '2) Save the secret, then redeploy edge function make-server-51d3ca8d once so it picks up env.\n' +
+                    '3) Or ask an existing admin to add you under Team in this CMS.\n\n' +
+                    'Creating a user under Authentication is not enough — bootstrap or Team assigns CMS access.';
                 document.getElementById('loginErr').textContent = noAccessMsg;
-                toast(noAccessMsg, true);
+                toast('No CMS access — see steps below (set LANDING_CMS_BOOTSTRAP_ADMIN_IDS).', true);
                 document.getElementById('loginScreen').classList.remove('hidden');
                 document.getElementById('appShell').classList.add('hidden');
                 return supa.auth.signOut().then(function () {

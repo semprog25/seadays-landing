@@ -23,6 +23,19 @@ Those users are always **admins** until you remove them from this env var. They 
 
 If this is empty **and** no one is stored in KV as admin, **nobody** can use the CMS until you set bootstrap IDs and redeploy the function.
 
+### You are the only admin but cannot sign in
+
+Symptoms: email/password is accepted (or you see a long message with **your user id**), but you stay on the login screen.
+
+That means **Supabase Auth worked**; **CMS access** did not. Fix:
+
+1. Open **Supabase Dashboard** → **Authentication** → **Users** → select your user → copy **User UID** (UUID).
+2. **Project Settings** → **Edge Functions** → **Secrets** → create or edit **`LANDING_CMS_BOOTSTRAP_ADMIN_IDS`** → value = that UUID (only the UUID, or comma-separated UUIDs with no spaces, e.g. `uuid-one,uuid-two`).
+3. **Deploy** (or redeploy) the **`make-server-51d3ca8d`** function so the runtime loads the secret (if access still fails after saving, redeploy once).
+4. Sign in again at `seo-admin.html`.
+
+The admin page uses the same Supabase project as the app (`soqkgrfzluewpuiguypm` in the URL). Your account must exist **in that project**, not a fork or different Supabase project.
+
 ## Troubleshooting CMS login (`seo-admin.html`)
 
 Signing in uses **two steps**: (1) Supabase Auth email/password, (2) Edge Function `GET …/landing-cms/me` must return `role: "admin"` or `"moderator"`.
