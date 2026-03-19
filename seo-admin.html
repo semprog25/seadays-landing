@@ -299,7 +299,7 @@
     var canTeam = false;
 
     function afterLogin() {
-        return api('/make-server-51d3ca8d/landing-cms/me').then(function (me) {
+        return api('/landing-cms/me').then(function (me) {
             if (!me.role) {
                 var uid = (me && me.userId) ? String(me.userId) : '';
                 var noAccessMsg =
@@ -423,7 +423,7 @@
 
     function loadSeo() {
         if (cmsRole !== 'admin' && cmsRole !== 'moderator') return;
-        fetch(EDGE + '/make-server-51d3ca8d/site-seo', {
+        fetch(EDGE + '/site-seo', {
             headers: { apikey: SUPABASE_ANON_KEY, Authorization: 'Bearer ' + SUPABASE_ANON_KEY }
         }).then(function (r) { return r.json(); }).then(function (d) {
             var s = d.seo || {};
@@ -442,7 +442,7 @@
 
     document.getElementById('btnSaveSeo').onclick = function () {
         if (cmsRole !== 'admin') return toast('Admins only', true);
-        api('/make-server-51d3ca8d/site-seo', {
+        api('/site-seo', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -460,7 +460,7 @@
     var articlesCache = [];
 
     function loadArticlesForSeoAndBlog() {
-        api('/make-server-51d3ca8d/portside-articles?admin=1&limit=500').then(function (d) {
+        api('/portside-articles?admin=1&limit=500').then(function (d) {
             articlesCache = d.articles || [];
             var sel = document.getElementById('seoArticlePick');
             sel.innerHTML = '<option value="">— Choose —</option>';
@@ -476,7 +476,7 @@
     document.getElementById('seoArticlePick').onchange = function () {
         var id = this.value;
         if (!id) return;
-        api('/make-server-51d3ca8d/portside-articles/' + encodeURIComponent(id) + '/seo').then(function (d) {
+        api('/portside-articles/' + encodeURIComponent(id) + '/seo').then(function (d) {
             var s = d.seo || {};
             document.getElementById('artSeoTitle').value = s.metaTitle || '';
             document.getElementById('artSeoDesc').value = s.metaDescription || '';
@@ -488,7 +488,7 @@
     document.getElementById('btnSaveArtSeo').onclick = function () {
         var id = document.getElementById('seoArticlePick').value;
         if (!id) return toast('Pick an article', true);
-        api('/make-server-51d3ca8d/portside-articles/' + encodeURIComponent(id) + '/seo', {
+        api('/portside-articles/' + encodeURIComponent(id) + '/seo', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -504,7 +504,7 @@
         if (cmsRole !== 'admin' && cmsRole !== 'moderator') return;
         var w = document.getElementById('blogTableWrap');
         w.innerHTML = '<p>Loading…</p>';
-        api('/make-server-51d3ca8d/portside-articles?admin=1&limit=500').then(function (d) {
+        api('/portside-articles?admin=1&limit=500').then(function (d) {
             var rows = (d.articles || []).map(function (a) {
                 var live = a.showOnWebsite !== false;
                 var title = (a.title || a.id).replace(/</g, '&lt;');
@@ -520,7 +520,7 @@
             w.querySelectorAll('[data-show]').forEach(function (btn) {
                 btn.onclick = function () {
                     var aid = btn.getAttribute('data-show');
-                    api('/make-server-51d3ca8d/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
+                    api('/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ showOnWebsite: true })
@@ -530,7 +530,7 @@
             w.querySelectorAll('[data-hide]').forEach(function (btn) {
                 btn.onclick = function () {
                     var aid = btn.getAttribute('data-hide');
-                    api('/make-server-51d3ca8d/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
+                    api('/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ showOnWebsite: false })
@@ -545,7 +545,7 @@
         if (cmsRole !== 'admin' && cmsRole !== 'moderator') return;
         var w = document.getElementById('pendingWrap');
         w.innerHTML = 'Loading…';
-        api('/make-server-51d3ca8d/landing-cms/comments/pending').then(function (d) {
+        api('/landing-cms/comments/pending').then(function (d) {
             var list = d.pending || [];
             if (list.length === 0) {
                 w.innerHTML = '<p style="color:var(--muted)">No pending comments.</p>';
@@ -573,7 +573,7 @@
     }
 
     function moderate(articleId, commentId, action) {
-        api('/make-server-51d3ca8d/landing-cms/comments/moderate', {
+        api('/landing-cms/comments/moderate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ articleId: articleId, commentId: commentId, action: action })
@@ -584,7 +584,7 @@
 
     function loadTeam() {
         if (!canTeam) return;
-        api('/make-server-51d3ca8d/landing-cms/members').then(function (d) {
+        api('/landing-cms/members').then(function (d) {
             var tb = document.getElementById('teamBody');
             tb.innerHTML = (d.members || []).map(function (m) {
                 var actions = '';
@@ -597,7 +597,7 @@
                 btn.onclick = function () {
                     var uid = btn.getAttribute('data-rm');
                     if (!confirm('Remove this member from CMS?')) return;
-                    api('/make-server-51d3ca8d/landing-cms/members', {
+                    api('/landing-cms/members', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ userId: uid, role: 'none' })
@@ -613,7 +613,7 @@
         var email = document.getElementById('teamEmail').value.trim();
         var role = document.getElementById('teamRole').value;
         if (!email) return toast('Enter email', true);
-        api('/make-server-51d3ca8d/landing-cms/members', {
+        api('/landing-cms/members', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email, role: role })
@@ -624,7 +624,7 @@
         if (cmsRole !== 'admin') return;
         var st = document.getElementById('publishGitStatus');
         if (st) st.textContent = 'Requesting workflow…';
-        api('/make-server-51d3ca8d/landing-cms/trigger-github-publish', {
+        api('/landing-cms/trigger-github-publish', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: '{}'

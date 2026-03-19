@@ -58,9 +58,18 @@ Signing in uses **two steps**: (1) Supabase Auth email/password, (2) Edge Functi
 
 Email lookup scans up to 5,000 Auth users (paginated). For very large projects, use UUID via API instead.
 
+## Edge function URL (important for `seo-admin.html`)
+
+Browser and `fetch` must call **one** path segment for the function name, then the route **without** repeating `make-server-51d3ca8d`:
+
+- Correct: `https://YOUR_PROJECT.supabase.co/functions/v1/make-server-51d3ca8d/landing-cms/me`
+- Wrong (404): `…/make-server-51d3ca8d/make-server-51d3ca8d/landing-cms/me`
+
+If `landing-cms/me` returns **404**, the deployed `make-server-51d3ca8d` build is missing those routes — **redeploy** the function from the repo that includes `landing-cms` in `index.ts`.
+
 ## API (for automation)
 
-- `GET /make-server-51d3ca8d/landing-cms/me` — current role
+- `GET /make-server-51d3ca8d/landing-cms/me` — current role (full path as registered inside Hono; see URL note above for HTTP clients)
 - `GET /make-server-51d3ca8d/landing-cms/members` — list team (admin only)
 - `POST /make-server-51d3ca8d/landing-cms/members` — body `{ "email": "...", "role": "admin"|"moderator" }` or `{ "userId": "uuid", "role": "none" }` to remove (admin only; cannot remove bootstrap)
 
