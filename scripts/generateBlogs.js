@@ -28,9 +28,6 @@ const EDGE_BASE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
 const BASE_URL = 'https://seadays.app';
 const DEFAULT_FAVICON = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
 const LOGO_URL = 'https://seadays.app/logo.png';
-const HTTP_TIMEOUT_MS = Math.max(10000, Number(process.env.GENERATE_BLOGS_HTTP_TIMEOUT_MS || 60000));
-const HTTP_MAX_RETRIES = Math.max(0, Number(process.env.GENERATE_BLOGS_HTTP_RETRIES || 3));
-const HTTP_RETRY_BASE_DELAY_MS = Math.max(200, Number(process.env.GENERATE_BLOGS_HTTP_RETRY_BASE_DELAY_MS || 1200));
 
 // ---------------------------------------------------------------------------
 // Base64 image upload (optional; requires SUPABASE_SERVICE_ROLE_KEY)
@@ -419,40 +416,8 @@ function httpsGet(url, headers = {}) {
       });
     });
     req.on('error', reject);
-    req.setTimeout(HTTP_TIMEOUT_MS, () => { req.destroy(); reject(new Error(`Timeout after ${HTTP_TIMEOUT_MS}ms`)); });
+    req.setTimeout(20000, () => { req.destroy(); reject(new Error('Timeout')); });
   });
-}
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function isRetryableError(err) {
-  if (!err || !err.message) return false;
-  const msg = String(err.message);
-  if (/Timeout after/i.test(msg)) return true;
-  if (/ECONNRESET|ETIMEDOUT|EAI_AGAIN|ENOTFOUND|socket hang up/i.test(msg)) return true;
-  if (/^HTTP (408|425|429|500|502|503|504)/i.test(msg)) return true;
-  return false;
-}
-
-async function httpsGetWithRetry(url, headers = {}, opts = {}) {
-  const maxRetries = typeof opts.maxRetries === 'number' ? opts.maxRetries : HTTP_MAX_RETRIES;
-  const baseDelayMs = typeof opts.baseDelayMs === 'number' ? opts.baseDelayMs : HTTP_RETRY_BASE_DELAY_MS;
-  let lastErr = null;
-  for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    try {
-      return await httpsGet(url, headers);
-    } catch (err) {
-      lastErr = err;
-      const canRetry = attempt < maxRetries && isRetryableError(err);
-      if (!canRetry) throw err;
-      const waitMs = baseDelayMs * Math.pow(2, attempt);
-      console.warn(`[retry] ${url} failed (${err.message}); retrying in ${waitMs}ms (attempt ${attempt + 1}/${maxRetries})`);
-      await sleep(waitMs);
-    }
-  }
-  throw lastErr || new Error('Request failed');
 }
 
 async function fetchArticles() {
@@ -462,7 +427,7 @@ async function fetchArticles() {
     return { articles: [] };
   }
   const url = EDGE_BASE + '/portside-articles?limit=500&forWebsite=1';
-  const data = await httpsGetWithRetry(url, {
+  const data = await httpsGet(url, {
     Authorization: 'Bearer ' + key,
     apikey: key,
   });
@@ -474,10 +439,10 @@ async function fetchFullArticle(articleId) {
   if (!key) return null;
   const url = EDGE_BASE + '/portside-articles/' + encodeURIComponent(articleId);
   try {
-    const data = await httpsGetWithRetry(url, {
+    const data = await httpsGet(url, {
       Authorization: 'Bearer ' + key,
       apikey: key,
-    }, { maxRetries: 2 });
+    });
     return data?.article || null;
   } catch {
     return null;
