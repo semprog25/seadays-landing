@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>SeaDays — Landing CMS</title>
+    <title>seadays — admin</title>
     <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
@@ -125,8 +125,8 @@
 </head>
 <body>
     <div id="loginScreen" class="login-wrap panel">
-        <h1>SeaDays CMS</h1>
-        <p style="color:var(--muted);font-size:14px;">Sign in with a SeaDays account that has admin or moderator access.</p>
+        <h1>seadays</h1>
+        <p style="color:var(--muted);font-size:14px;">login</p>
         <label for="email">Email</label>
         <input type="email" id="email" autocomplete="username">
         <label for="password">Password</label>
@@ -279,12 +279,24 @@
     var canTeam = false;
 
     function afterLogin() {
-        document.getElementById('loginScreen').classList.add('hidden');
-        document.getElementById('appShell').classList.remove('hidden');
         api('/make-server-51d3ca8d/landing-cms/me').then(function (me) {
+            if (!me.role) {
+                document.getElementById('loginErr').textContent =
+                    'Signed in, but this account has no CMS access. Add your user UUID to LANDING_CMS_BOOTSTRAP_ADMIN_IDS (Edge Function secret) or ask an admin to add you in Team.';
+                document.getElementById('loginScreen').classList.remove('hidden');
+                document.getElementById('appShell').classList.add('hidden');
+                supa.auth.signOut().then(function () {
+                    session = null;
+                    cmsRole = null;
+                    canTeam = false;
+                });
+                return;
+            }
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('appShell').classList.remove('hidden');
             cmsRole = me.role;
             canTeam = !!me.canManageTeam;
-            document.getElementById('userBar').textContent = (me.role ? me.role : 'no access') + (me.isBootstrapAdmin ? ' · bootstrap' : '');
+            document.getElementById('userBar').textContent = me.role + (me.isBootstrapAdmin ? ' · bootstrap' : '');
             document.getElementById('navTeam').style.display = canTeam ? 'block' : 'none';
             var modHint = document.getElementById('moderatorSeoHint');
             var adminPanels = document.getElementById('adminSeoPanels');
@@ -297,15 +309,20 @@
             }
             var pg = document.getElementById('publishGitPanel');
             if (pg) pg.style.display = (me.role === 'admin') ? 'block' : 'none';
-            if (!me.role) {
-                toast('No CMS access. Ask an admin to add you, or set LANDING_CMS_BOOTSTRAP_ADMIN_IDS.', true);
-                return;
-            }
             loadSeo();
             loadArticlesForSeoAndBlog();
             loadPending();
             if (canTeam) loadTeam();
         }).catch(function () {
+            document.getElementById('loginErr').textContent =
+                'Could not verify CMS role. Check your connection, confirm seo-admin uses the correct Supabase project, and try again.';
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('appShell').classList.add('hidden');
+            supa.auth.signOut().then(function () {
+                session = null;
+                cmsRole = null;
+                canTeam = false;
+            });
             toast('Could not verify CMS role', true);
         });
     }
