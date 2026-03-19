@@ -254,12 +254,32 @@
     }
     var session = null;
 
-    function toast(msg, isErr) {
+    function toast(msg, isErr, durationMs) {
         var el = document.getElementById('toast');
         el.textContent = msg;
         el.className = 'toast' + (isErr ? ' err' : ' ok');
         el.classList.remove('hidden');
-        setTimeout(function () { el.classList.add('hidden'); }, 4000);
+        var ms = durationMs != null ? durationMs : (isErr ? 10000 : 4000);
+        setTimeout(function () { el.classList.add('hidden'); }, ms);
+    }
+
+    function humanizeNetworkError(err) {
+        var m = (err && err.message) ? String(err.message) : (err ? String(err) : '');
+        if (!m) return 'Request failed.';
+        if (m === 'Failed to fetch' || /NetworkError|network error|Load failed|ECONNREFUSED|timed out/i.test(m))
+            return 'Cannot reach the server. Check your internet, VPN, ad blockers, or whether Supabase is blocked.';
+        return m;
+    }
+
+    function humanizeAuthError(authError) {
+        if (!authError) return 'Sign-in failed.';
+        var msg = String(authError.message || authError.msg || authError || '');
+        if (!msg) return 'Sign-in failed.';
+        if (/Invalid login credentials|invalid_grant/i.test(msg)) return 'Wrong email or password.';
+        if (/Email not confirmed|email_not_confirmed/i.test(msg)) return 'Confirm your email before signing in (check your inbox).';
+        if (/Too many requests|rate limit|over_request_rate/i.test(msg)) return 'Too many attempts. Wait a few minutes and try again.';
+        if (/User not found|user not found/i.test(msg)) return 'No account found for this email.';
+        return msg;
     }
 
     function api(path, opts) {
@@ -275,12 +295,21 @@
                     try {
                         j = JSON.parse(text);
                     } catch (parseErr) {
-                        throw new Error(r.ok ? 'Invalid JSON from server' : (r.status + ' ' + r.statusText));
+                        var plain = (text || '').replace(/\s+/g, ' ').trim().slice(0, 160);
+                        throw new Error(
+                            r.ok
+                                ? 'Invalid response from server'
+                                : ('HTTP ' + r.status + (plain ? ': ' + plain : ' ' + r.statusText))
+                        );
                     }
                 } else {
                     j = {};
                 }
-                if (!r.ok) throw new Error((j && (j.error || j.message)) || r.statusText || ('HTTP ' + r.status));
+                if (!r.ok) {
+                    var serverMsg = (j && (j.error || j.message)) || '';
+                    if (typeof serverMsg === 'object') serverMsg = JSON.stringify(serverMsg);
+                    throw new Error(serverMsg || r.statusText || ('HTTP ' + r.status));
+                }
                 return j;
             });
         });
@@ -311,7 +340,7 @@
                     '3) Or ask an existing admin to add you under Team in this CMS.\n\n' +
                     'Creating a user under Authentication is not enough — bootstrap or Team assigns CMS access.';
                 document.getElementById('loginErr').textContent = noAccessMsg;
-                toast('No CMS access — see steps below (set LANDING_CMS_BOOTSTRAP_ADMIN_IDS).', true);
+                toast('No CMS access — open bootstrap steps below (LANDING_CMS_BOOTSTRAP_ADMIN_IDS).', true, 12000);
                 document.getElementById('loginScreen').classList.remove('hidden');
                 document.getElementById('appShell').classList.add('hidden');
                 return supa.auth.signOut().then(function () {
@@ -343,12 +372,15 @@
             if (canTeam) loadTeam();
         }).catch(function (err) {
             console.error('landing-cms/me:', err);
+            var reason = humanizeNetworkError(err);
             var verifyMsg =
-                'Could not verify CMS role. Check your connection, confirm seo-admin uses the correct Supabase project, and try again.';
+                'Could not verify CMS access.\n\nReason: ' + reason + '\n\n' +
+                'If you see 404, redeploy edge function make-server-51d3ca8d so /landing-cms/me exists. ' +
+                'Otherwise check your connection and that this page uses the correct Supabase project.';
             document.getElementById('loginErr').textContent = verifyMsg;
             document.getElementById('loginScreen').classList.remove('hidden');
             document.getElementById('appShell').classList.add('hidden');
-            toast(verifyMsg, true);
+            toast('CMS check failed: ' + reason, true, 12000);
             if (supa) {
                 return supa.auth.signOut().then(function () {
                     session = null;
@@ -368,7 +400,9 @@
 
     function reportSignInProblem(msg) {
         document.getElementById('loginErr').textContent = msg;
-        toast(msg, true);
+        var oneLine = String(msg).split('\n')[0].trim();
+        if (oneLine.length > 220) oneLine = oneLine.slice(0, 217) + '…';
+        toast(oneLine || 'Sign-in error', true, 12000);
     }
 
     document.getElementById('btnSignIn').onclick = function () {
@@ -386,18 +420,19 @@
         setSignInLoading(true);
         supa.auth.signInWithPassword({ email: em, password: pw }).then(function (res) {
             if (res.error) {
-                reportSignInProblem(res.error.message || 'Sign-in failed.');
+                var authMsg = humanizeAuthError(res.error);
+                reportSignInProblem(authMsg);
                 return;
             }
             if (!res.data || !res.data.session) {
-                reportSignInProblem('No session returned. Confirm your email or try again.');
+                reportSignInProblem('No session returned. Confirm your email in Supabase or try again.');
                 return;
             }
             session = res.data.session;
             return afterLogin();
         }).catch(function (err) {
             console.error('signInWithPassword:', err);
-            reportSignInProblem((err && err.message) ? err.message : 'Sign-in failed (network or server error).');
+            reportSignInProblem(humanizeNetworkError(err));
         }).finally(function () {
             setSignInLoading(false);
         });
