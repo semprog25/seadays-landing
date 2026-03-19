@@ -418,7 +418,16 @@
             return;
         }
         setSignInLoading(true);
-        supa.auth.signInWithPassword({ email: em, password: pw }).then(function (res) {
+        var signInPromise = null;
+        try {
+            signInPromise = supa.auth.signInWithPassword({ email: em, password: pw });
+        } catch (signInErr) {
+            console.error('signInWithPassword (sync):', signInErr);
+            reportSignInProblem(humanizeNetworkError(signInErr));
+            setSignInLoading(false);
+            return;
+        }
+        signInPromise.then(function (res) {
             if (res.error) {
                 var authMsg = humanizeAuthError(res.error);
                 reportSignInProblem(authMsg);
@@ -430,10 +439,13 @@
             }
             session = res.data.session;
             return afterLogin();
-        }).catch(function (err) {
+        }, function (err) {
             console.error('signInWithPassword:', err);
             reportSignInProblem(humanizeNetworkError(err));
-        }).finally(function () {
+        }).then(function () {
+            setSignInLoading(false);
+        }, function (err) {
+            console.error('signIn cleanup:', err);
             setSignInLoading(false);
         });
     };
