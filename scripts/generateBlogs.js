@@ -416,7 +416,7 @@ function httpsGet(url, headers = {}) {
       });
     });
     req.on('error', reject);
-    req.setTimeout(90000, () => { req.destroy(); reject(new Error('Timeout')); });
+    req.setTimeout(20000, () => { req.destroy(); reject(new Error('Timeout')); });
   });
 }
 
