@@ -242,13 +242,60 @@
     var SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
     var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
     var EDGE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
+    var SUPABASE_SCRIPT_FALLBACKS = [
+        'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js',
+        'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js'
+    ];
 
     var supa = null;
-    try {
+    var supabaseScriptPromise = null;
+    function initializeSupabaseClient() {
         if (typeof window.supabase === 'undefined' || typeof window.supabase.createClient !== 'function') {
-            throw new Error('Supabase script did not load (check network or blockers on cdn.jsdelivr.net).');
+            return false;
         }
-        supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        if (!supa) supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        return true;
+    }
+    function loadScript(src) {
+        return new Promise(function (resolve, reject) {
+            var existing = document.querySelector('script[data-supabase-fallback="' + src + '"]');
+            if (existing) {
+                if (initializeSupabaseClient()) return resolve(true);
+                existing.addEventListener('load', function () { resolve(initializeSupabaseClient()); }, { once: true });
+                existing.addEventListener('error', function () { reject(new Error('Failed loading ' + src)); }, { once: true });
+                return;
+            }
+            var s = document.createElement('script');
+            s.src = src;
+            s.async = true;
+            s.setAttribute('data-supabase-fallback', src);
+            s.onload = function () { resolve(initializeSupabaseClient()); };
+            s.onerror = function () { reject(new Error('Failed loading ' + src)); };
+            document.head.appendChild(s);
+        });
+    }
+    function ensureSupabaseClient() {
+        if (initializeSupabaseClient()) return Promise.resolve(true);
+        if (supabaseScriptPromise) return supabaseScriptPromise;
+        var next = Promise.resolve(false);
+        SUPABASE_SCRIPT_FALLBACKS.forEach(function (src) {
+            next = next.then(function (ok) {
+                if (ok) return true;
+                return loadScript(src).catch(function () { return false; });
+            });
+        });
+        supabaseScriptPromise = next.then(function (ok) {
+            if (!ok) throw new Error('Supabase script did not load (check network or blockers on cdn.jsdelivr.net/unpkg.com).');
+            supabaseScriptPromise = null;
+            return true;
+        }, function (err) {
+            supabaseScriptPromise = null;
+            throw err;
+        });
+        return supabaseScriptPromise;
+    }
+    try {
+        initializeSupabaseClient();
     } catch (initErr) {
         console.error('seo-admin init:', initErr);
     }
@@ -407,7 +454,12 @@
 
     document.getElementById('btnSignIn').onclick = function () {
         if (!supa) {
-            reportSignInProblem('Sign-in is unavailable: Supabase client failed to load. Refresh the page or allow scripts from cdn.jsdelivr.net.');
+            ensureSupabaseClient().then(function () {
+                document.getElementById('btnSignIn').click();
+            }).catch(function (err) {
+                console.error('ensureSupabaseClient:', err);
+                reportSignInProblem('Sign-in is unavailable: Supabase client failed to load. Allow scripts from cdn.jsdelivr.net or unpkg.com.');
+            });
             return;
         }
         var em = document.getElementById('email').value.trim();
@@ -698,7 +750,12 @@
         });
     } else {
         document.getElementById('loginErr').textContent =
-            'Sign-in library failed to load. Allow cdn.jsdelivr.net or refresh the page.';
+            'Loading sign-in library… If this keeps failing, allow cdn.jsdelivr.net or unpkg.com.';
+        ensureSupabaseClient().then(function () {
+            document.getElementById('loginErr').textContent = '';
+        }).catch(function (e) {
+            console.error('ensureSupabaseClient (boot):', e);
+        });
     }
 })();
     </script>
