@@ -25,9 +25,11 @@ const STORAGE_PUBLIC_URL = 'https://auth.seadays.app/storage/v1/object/public';
 const BLOG_IMAGES_BUCKET = 'SeadaysPublic';
 const BLOG_IMAGES_PREFIX = 'blog-images';
 const EDGE_BASE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
+const KV_REST_BASE = SUPABASE_URL + '/rest/v1/kv_store_51d3ca8d';
 const BASE_URL = 'https://seadays.app';
 const DEFAULT_FAVICON = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
 const LOGO_URL = 'https://seadays.app/logo.png';
+const BLOG_FETCH_LIMIT = Math.max(20, Number(process.env.GENERATE_BLOGS_FETCH_LIMIT || 120));
 const HTTP_TIMEOUT_MS = Math.max(10000, Number(process.env.GENERATE_BLOGS_HTTP_TIMEOUT_MS || 60000));
 const HTTP_MAX_RETRIES = Math.max(0, Number(process.env.GENERATE_BLOGS_HTTP_RETRIES || 3));
 const HTTP_RETRY_BASE_DELAY_MS = Math.max(200, Number(process.env.GENERATE_BLOGS_HTTP_RETRY_BASE_DELAY_MS || 1200));
@@ -455,30 +457,68 @@ async function httpsGetWithRetry(url, headers = {}, opts = {}) {
   throw lastErr || new Error('Request failed');
 }
 
+function parseMaybeJson(raw) {
+  if (raw == null) return null;
+  if (typeof raw === 'object') return raw;
+  if (typeof raw !== 'string') return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+async function fetchKvValue(keyName, authKey) {
+  if (!authKey) return null;
+  const url = KV_REST_BASE + '?key=eq.' + encodeURIComponent(keyName) + '&select=value';
+  const rows = await httpsGetWithRetry(url, {
+    Authorization: 'Bearer ' + authKey,
+    apikey: authKey,
+  }, { maxRetries: 2 });
+  if (!Array.isArray(rows) || rows.length === 0) return null;
+  return parseMaybeJson(rows[0]?.value);
+}
+
 async function fetchArticles() {
-  const key = process.env.SUPABASE_ANON_KEY;
-  if (!key) {
+  const anonKey = process.env.SUPABASE_ANON_KEY;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!anonKey) {
     console.warn('SUPABASE_ANON_KEY not set. Cannot fetch articles.');
     return { articles: [] };
   }
-  const url = EDGE_BASE + '/portside-articles?limit=500&forWebsite=1';
-  const data = await httpsGetWithRetry(url, {
-    Authorization: 'Bearer ' + key,
-    apikey: key,
-  });
-  return data;
+  const url = EDGE_BASE + '/portside-articles?limit=' + BLOG_FETCH_LIMIT + '&forWebsite=1';
+  try {
+    const data = await httpsGetWithRetry(url, {
+      Authorization: 'Bearer ' + anonKey,
+      apikey: anonKey,
+    });
+    return data;
+  } catch (edgeErr) {
+    console.warn('[fallback] edge article list failed, trying KV summaries:', edgeErr.message);
+  }
+  const kvAuthKey = serviceKey || anonKey;
+  const summaries = await fetchKvValue('portside:articles:summaries', kvAuthKey);
+  if (Array.isArray(summaries)) return { articles: summaries };
+  return { articles: [] };
 }
 
 async function fetchFullArticle(articleId) {
-  const key = process.env.SUPABASE_ANON_KEY;
-  if (!key) return null;
+  const anonKey = process.env.SUPABASE_ANON_KEY;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!anonKey && !serviceKey) return null;
   const url = EDGE_BASE + '/portside-articles/' + encodeURIComponent(articleId);
   try {
     const data = await httpsGetWithRetry(url, {
-      Authorization: 'Bearer ' + key,
-      apikey: key,
+      Authorization: 'Bearer ' + anonKey,
+      apikey: anonKey,
     }, { maxRetries: 2 });
     return data?.article || null;
+  } catch (edgeErr) {
+    console.warn(`[fallback] edge article fetch failed for ${articleId}, trying KV article key: ${edgeErr.message}`);
+  }
+  try {
+    const kvAuthKey = serviceKey || anonKey;
+    return await fetchKvValue('portside:article:' + articleId, kvAuthKey);
   } catch {
     return null;
   }
