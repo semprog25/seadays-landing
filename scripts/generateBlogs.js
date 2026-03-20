@@ -27,6 +27,12 @@ const BLOG_IMAGES_PREFIX = 'blog-images';
 const EDGE_BASE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
 const BASE_URL = 'https://seadays.app';
 const DEFAULT_FAVICON = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
+/**
+ * Ultimate fallback shown when every image resolution strategy fails.
+ * Must be a guaranteed-valid auth.seadays.app/storage URL so it passes
+ * validateImageUrl() itself and never causes an infinite onerror loop.
+ */
+const FALLBACK_IMAGE_URL = DEFAULT_FAVICON;
 const LOGO_URL = 'https://seadays.app/logo.png';
 /** CDN origin used by the edge function in API responses; may have routing issues on static pages. */
 const CDN_SITE_ORIGIN = 'https://cdn.seadays.app';
@@ -729,6 +735,8 @@ footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); 
 .footer-section a:hover { color: var(--neon-red); }
 .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
 @media (max-width: 768px) { .article-hero h1 { font-size: 28px; } }
+img { transition: filter 0.35s ease, transform 0.35s ease; }
+img.img-loading { filter: blur(8px); transform: scale(1.03); }
 `;
 
 const INDEX_STYLES = `
@@ -765,7 +773,74 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .footer-section a:hover { color: var(--neon-red); }
 .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
 @media (max-width: 768px) { .blog-hero h1 { font-size: 32px; } .blog-grid { grid-template-columns: 1fr; } }
+img { transition: filter 0.35s ease, transform 0.35s ease; }
+img.img-loading { filter: blur(8px); transform: scale(1.03); }
 `;
+
+// ---------------------------------------------------------------------------
+// Centralised <img> tag builder
+// ---------------------------------------------------------------------------
+
+/**
+ * Build a fully-featured <img> tag for any card or hero image.
+ *
+ * Features baked in for every tag:
+ *   - onerror recovery → FALLBACK_IMAGE_URL (never a broken-image icon)
+ *   - data-img-source attribute for DevTools debugging
+ *   - img-loading class + onload removal for CSS blur-fade animation (Part 7)
+ *   - loading="eager" for above-the-fold cards, "lazy" for the rest (Part 4)
+ *   - decoding="async" always
+ *
+ * @param {string|null} url       - Validated image URL (from pickCardImage)
+ * @param {string}      source    - Resolution source: 'thumbnail'|'hero'|'body'|'fallback'
+ * @param {string}      alt       - Alt text
+ * @param {string}      className - CSS class(es) for sizing/styling
+ * @param {object}      opts
+ * @param {boolean}     opts.eager - True for above-the-fold cards
+ * @returns {string} HTML img tag, or empty string when url is null/undefined
+ */
+function buildImgTag(url, source, alt, className, { eager = false } = {}) {
+  if (!url) return '';
+  return (
+    `<img` +
+    ` src="${escapeHtml(url)}"` +
+    ` alt="${escapeHtml(alt)}"` +
+    ` class="${className} img-loading"` +
+    ` data-img-source="${source}"` +
+    ` loading="${eager ? 'eager' : 'lazy'}"` +
+    ` decoding="async"` +
+    ` onerror="this.onerror=null;this.src='${FALLBACK_IMAGE_URL}'"` +
+    ` onload="this.classList.remove('img-loading')"` +
+    `>`
+  );
+}
+
+/**
+ * Inline runtime validation guard script.
+ * After DOMContentLoaded, scans every img[data-img-source] and redirects
+ * any CDN, SVG, or non-storage src to FALLBACK_IMAGE_URL before the browser
+ * even attempts to load the image. Last line of defence against bad data.
+ */
+const RUNTIME_GUARD_SCRIPT = `<script>
+(function(){
+  var FB='${FALLBACK_IMAGE_URL}';
+  function safeImage(src){
+    if(!src)return FB;
+    if(src.includes('cdn.seadays.app'))return FB;
+    if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
+    if(!src.includes('auth.seadays.app/storage'))return FB;
+    return src;
+  }
+  function applyGuard(){
+    document.querySelectorAll('img[data-img-source]').forEach(function(el){
+      var safe=safeImage(el.getAttribute('src')||'');
+      if(safe!==(el.getAttribute('src')||'')){el.dataset.originalSrc=el.src;el.src=safe;}
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyGuard);}
+  else{applyGuard();}
+})();
+</script>`;
 
 async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, moreArticles) {
   const title = escapeHtml(article.seoTitle || article.title || 'Article');
@@ -793,10 +868,8 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     const moreCards = [];
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
-      const { url: moreImgUrl } = await pickCardImage(a, 'more-' + i);
-      const imgTag = moreImgUrl
-        ? `<img src="${escapeHtml(moreImgUrl)}" alt="" class="more-card-image" loading="lazy" decoding="async" onerror="this.style.display='none'">`
-        : '';
+      const { url: moreImgUrl, source: moreSource } = await pickCardImage(a, 'more-' + i);
+      const imgTag = buildImgTag(moreImgUrl, moreSource, '', 'more-card-image');
       moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
@@ -877,7 +950,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
-          ${heroImg ? `<img src="${escapeHtml(heroImg)}" alt="${escapeHtml(article.title || 'Article')}" class="article-hero-image" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
+          ${buildImgTag(heroImg, heroSource, article.title || 'Article', 'article-hero-image', { eager: true })}
         </div>
         <div class="article-body">${bodyHtml}</div>
         ${navSection}
@@ -899,6 +972,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
     (function(){var g=document.querySelector('.more-to-read-grid[data-shuffle-more]');if(!g)return;var cards=[].slice.call(g.querySelectorAll('.more-card'));if(cards.length<=4)return;for(var i=cards.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cards[i];cards[i]=cards[j];cards[j]=t;}g.innerHTML='';cards.forEach(function(c,i){g.appendChild(c);if(i>=4)c.style.display='none';});})();
   </script>
+  ${RUNTIME_GUARD_SCRIPT}
 </body>
 </html>`;
 }
@@ -911,9 +985,8 @@ async function buildHomePageBlogCards(articles) {
     const { url: imgUrl, source } = await pickCardImage(a, 'home-' + i);
     logImageResolution(a, source, imgUrl);
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
-    const imgTag = imgUrl
-      ? `<img src="${escapeHtml(imgUrl)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async" onerror="this.style.display='none'">`
-      : '';
+    // First 2 home-page cards are above the fold → eager-load for perceived performance
+    const imgTag = buildImgTag(imgUrl, source, a.title || 'Article', 'blog-card-image', { eager: i < 2 });
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="blog-card">
                     ${imgTag}
                     <div class="blog-card-body">
@@ -926,15 +999,32 @@ async function buildHomePageBlogCards(articles) {
 }
 
 async function buildIndexHtml(articles) {
+  // Phase 1: resolve images for ALL cards before touching the HTML template.
+  // This lets us (a) compute <link rel="preload"> URLs for above-the-fold cards,
+  // and (b) avoid calling pickCardImage a second time when building card HTML.
+  const imageResults = [];
+  for (let i = 0; i < articles.length; i++) {
+    const result = await pickCardImage(articles[i], 'index-' + i);
+    logImageResolution(articles[i], result.source, result.url);
+    imageResults.push(result);
+  }
+
+  // First 3 non-null images get <link rel="preload"> — they appear above the fold
+  // on most viewports and should start loading before the browser parses <body>.
+  const preloadLinks = imageResults
+    .slice(0, 3)
+    .filter(r => r.url)
+    .map(r => `  <link rel="preload" as="image" href="${escapeHtml(r.url)}">`)
+    .join('\n');
+
+  // Phase 2: build card HTML using cached image results
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const { url: imgUrl, source } = await pickCardImage(a, 'index-' + i);
-    logImageResolution(a, source, imgUrl);
+    const { url: imgUrl, source } = imageResults[i];
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
-    const imgTag = imgUrl
-      ? `<img src="${escapeHtml(imgUrl)}" alt="" class="article-card-image" loading="lazy" decoding="async" onerror="this.style.display='none'">`
-      : '';
+    // First 3 cards are above the fold → eager-load; rest lazy-load
+    const imgTag = buildImgTag(imgUrl, source, '', 'article-card-image', { eager: i < 3 });
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
@@ -959,6 +1049,7 @@ async function buildIndexHtml(articles) {
   <title>SeaDays Blog | Cruise Tips, Guides &amp; Stories</title>
   <link rel="canonical" href="${BASE_URL}/blog/">
   <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+${preloadLinks}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/blog/">
   <meta property="og:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
@@ -1006,6 +1097,7 @@ async function buildIndexHtml(articles) {
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
   </script>
+  ${RUNTIME_GUARD_SCRIPT}
 </body>
 </html>`;
 }
@@ -1015,14 +1107,14 @@ async function buildIndexHtml(articles) {
 // ---------------------------------------------------------------------------
 
 /**
- * Perform an HTTP HEAD request and return the response status code.
- * Returns 0 on network error.
+ * Single HTTP request, returns status code or 0 on error/timeout.
+ * Used by httpCheck; not called directly.
  */
-function httpHead(url) {
+function httpRequest(url, method) {
   return new Promise((resolve) => {
     try {
       const lib = require('https');
-      const req = lib.request(url, { method: 'HEAD', timeout: 8000 }, (res) => {
+      const req = lib.request(url, { method, timeout: 8000 }, (res) => {
         resolve(res.statusCode || 0);
         res.resume();
       });
@@ -1033,6 +1125,27 @@ function httpHead(url) {
       resolve(0);
     }
   });
+}
+
+/**
+ * Check URL reachability with automatic retry and HEAD→GET fallback.
+ *
+ * Strategy:
+ *   Attempt 0..maxRetries-1: HEAD  (fast, no body transfer)
+ *   Attempt maxRetries:       GET   (some servers reject HEAD with 405)
+ *
+ * Waits 500 ms between attempts to avoid hammering the server.
+ * Returns 200 on success, last non-200 status on exhaustion.
+ */
+async function httpCheck(url, maxRetries = 2) {
+  let lastStatus = 0;
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    const method = attempt < maxRetries ? 'HEAD' : 'GET';
+    lastStatus = await httpRequest(url, method);
+    if (lastStatus === 200) return 200;
+    if (attempt < maxRetries) await new Promise(r => setTimeout(r, 500 * (attempt + 1)));
+  }
+  return lastStatus;
 }
 
 /**
@@ -1093,30 +1206,40 @@ async function runPostBuildValidation(blogDir, repoRoot, articles) {
       allStorageUrls.add(m[1]);
     }
 
-    // 5. Card coverage stats (blog index only)
+    // 5. Card coverage — STRICT: every card must have a validated image
     if (relPath.replace(/\\/g, '/').endsWith('blog/index.html')) {
       totalCards   = (html.match(/class="article-card"/g) || []).length;
       cardsWithImg = (html.match(/class="article-card-image"/g) || []).length;
       if (cardsWithImg < totalCards) {
-        warnings.push(`${totalCards - cardsWithImg}/${totalCards} blog index cards missing thumbnails [${relPath}]`);
+        violations.push(
+          `${totalCards - cardsWithImg}/${totalCards} blog index cards missing thumbnails — ` +
+          `resolve all image resolution issues before deploying [${relPath}]`
+        );
+      }
+      // Assert generated card count matches the article list passed to the generator
+      if (articles.length > 0 && totalCards !== articles.length) {
+        violations.push(
+          `Card count mismatch: expected ${articles.length} cards, ` +
+          `generated ${totalCards} in blog/index.html [${relPath}]`
+        );
       }
     }
   }
 
-  // HTTP 200 reachability checks
+  // HTTP 200 reachability checks with retry + GET fallback
   const uniqueUrls = [...allStorageUrls];
-  console.log(`[validate] HTTP-checking ${uniqueUrls.length} unique storage image URLs...`);
+  console.log(`[validate] HTTP-checking ${uniqueUrls.length} unique storage image URLs (with retry)...`);
   let httpOk = 0;
   for (const url of uniqueUrls) {
-    const status = await httpHead(url);
+    const status = await httpCheck(url);
     if (status === 200) {
       httpOk++;
     } else {
-      violations.push(`HTTP ${status} [${url.slice(0, 100)}]`);
+      violations.push(`HTTP ${status} after retries [${url.slice(0, 100)}]`);
     }
   }
 
-  // Report warnings
+  // Report non-fatal warnings
   for (const w of warnings) console.warn(`  [warn] ${w}`);
 
   if (violations.length > 0) {
