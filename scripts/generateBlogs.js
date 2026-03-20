@@ -89,16 +89,13 @@ async function uploadBase64ToStorage(dataUrl, articleId, index) {
   }
 }
 
-/**
- * Resolve image URL: upload base64 to storage, or return null if upload fails.
- * For HTTP URLs: returns HTTPS version. Never returns base64.
- * When base64 upload fails (e.g. no SUPABASE_SERVICE_ROLE_KEY): returns null.
- * Callers must use DEFAULT_FAVICON for og:image/twitter:image when null.
- */
+// ---------------------------------------------------------------------------
+// Image validation and resolution pipeline
+// ---------------------------------------------------------------------------
+
 /**
  * Convert cdn.seadays.app URLs to direct Supabase Storage URLs.
- * The CDN may have routing issues when used in static HTML outside the app, so
- * all card/hero image URLs must point to the reliable auth.seadays.app origin.
+ * The CDN has routing issues in static GitHub Pages context.
  */
 function cdnToDirectStorageUrl(url) {
   if (!url || !url.startsWith(`${CDN_SITE_ORIGIN}/`)) return url;
@@ -115,12 +112,16 @@ function cdnToDirectStorageUrl(url) {
   }
 }
 
+/**
+ * Resolve a raw image URL: upload base64 to storage, convert CDN to direct, or return as-is.
+ * Never returns a base64 data URL. Returns null when base64 upload fails.
+ */
 async function resolveImageUrl(url, articleId, index = 0) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
   if (!trimmed.startsWith('data:image')) {
-    const https = trimmed.startsWith('http://') ? trimmed.replace(/^http:\/\//, 'https://') : trimmed;
-    return cdnToDirectStorageUrl(https);
+    const httpsUrl = trimmed.startsWith('http://') ? trimmed.replace(/^http:\/\//, 'https://') : trimmed;
+    return cdnToDirectStorageUrl(httpsUrl);
   }
   const uploaded = await uploadBase64ToStorage(trimmed, articleId, index);
   if (uploaded) imageStats.uploaded++;
@@ -128,15 +129,28 @@ async function resolveImageUrl(url, articleId, index = 0) {
   return uploaded || null;
 }
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
 /**
- * Returns true if the URL points to an SVG file.
- * SVGs uploaded from base64 article body images render poorly as card thumbnails
- * because they lack explicit width/height and object-fit:cover doesn't work on them.
+ * Hard validation gate for any URL that will appear in a card thumbnail or hero img src.
+ *
+ * Guarantees:
+ *   - CDN URLs (cdn.seadays.app) are ALWAYS rejected → null
+ *   - SVG files are ALWAYS rejected → null (blank renders at fixed card height)
+ *   - Only auth.seadays.app/storage URLs are accepted
+ *
+ * Returns the URL string if valid, null otherwise.
  */
+function validateImageUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  const trimmed = url.trim();
+  if (!trimmed.startsWith('https://')) return null;
+  if (trimmed.includes('cdn.seadays.app')) return null;
+  const lower = trimmed.toLowerCase().split('?')[0];
+  if (lower.endsWith('.svg') || lower.includes('svg+xml')) return null;
+  if (!trimmed.includes('auth.seadays.app/storage')) return null;
+  return trimmed;
+}
+
+/** Returns true for SVG URLs — used to skip them during content scanning. */
 function isSvgUrl(url) {
   if (!url || typeof url !== 'string') return false;
   const lower = url.toLowerCase().split('?')[0];
@@ -144,21 +158,17 @@ function isSvgUrl(url) {
 }
 
 /**
- * Extract the first raster image URL (jpg/png/webp/gif) from article content.
- * Checks processed bodyHtml first (base64 already converted to storage URLs),
- * then falls back to structuredContent and raw HTML. Used when thumbnail/hero is absent or SVG.
+ * Scan article content for the first raster image URL.
+ * Resolution order: processed bodyHtml → structuredContent → raw content.
+ * processedBodyHtml is preferred because base64 images have already been
+ * uploaded to Supabase Storage and replaced with real https:// URLs.
  */
 function extractFirstRasterImageFromContent(article) {
   const rasterPattern = /src="(https?:\/\/[^"]+\.(?:jpg|jpeg|png|webp|gif)(?:[^"]*)?)"/i;
-
-  // Prefer the already-processed body HTML where base64 images have been uploaded
-  // to Supabase Storage and replaced with real URLs.
   if (article._processedBodyHtml) {
-    const match = article._processedBodyHtml.match(rasterPattern);
-    if (match) return match[1];
+    const m = article._processedBodyHtml.match(rasterPattern);
+    if (m) return m[1];
   }
-
-  // Fallback: scan structured content for non-base64, non-SVG image URLs.
   if (article.structuredContent) {
     try {
       const parsed = typeof article.structuredContent === 'string'
@@ -177,27 +187,62 @@ function extractFirstRasterImageFromContent(article) {
           }
         }
       }
-    } catch { /* ignore parse errors */ }
+    } catch { /* ignore JSON parse errors */ }
   }
-
-  // Last resort: scan raw content HTML for any raster image src.
   const html = article.content || '';
   if (!html) return null;
-  const match = html.match(rasterPattern);
-  return match ? match[1] : null;
+  const m = html.match(rasterPattern);
+  return m ? m[1] : null;
 }
 
 /**
- * Resolve the best thumbnail URL for a card: prefer a dedicated hero/thumbnail,
- * but skip SVG files (uploaded base64 article images) and fall back to the first
- * raster image found in the article body.
+ * Unified card image picker.
+ *
+ * Resolution order (each candidate is resolved then hard-validated):
+ *   1. thumbnailUrl   → validated
+ *   2. heroImageUrl   → validated
+ *   3. First raster from processed body HTML → validated
+ *   4. null  (card shows CSS placeholder background)
+ *
+ * Returns { url: string|null, source: 'thumbnail'|'hero'|'body'|'fallback' }
  */
-function resolveBestThumbnailUrl(article) {
-  const hero = (article.heroImageUrl || '').trim();
-  if (hero && !isSvgUrl(hero)) return hero;
-  const thumb = (article.thumbnailUrl || '').trim();
-  if (thumb && !isSvgUrl(thumb)) return thumb;
-  return extractFirstRasterImageFromContent(article) || '';
+async function pickCardImage(article, index) {
+  const id = article.id || 'unknown';
+
+  const candidates = [
+    { raw: (article.thumbnailUrl || '').trim(), source: 'thumbnail' },
+    { raw: (article.heroImageUrl  || '').trim(), source: 'hero'      },
+  ];
+  for (const { raw, source } of candidates) {
+    if (!raw) continue;
+    const resolved = await resolveImageUrl(raw, id, `${index}-${source}`);
+    const validated = validateImageUrl(resolved);
+    if (validated) return { url: validated, source };
+  }
+
+  const bodyRaw = extractFirstRasterImageFromContent(article);
+  if (bodyRaw) {
+    const resolved = await resolveImageUrl(bodyRaw, id, `${index}-body`);
+    const validated = validateImageUrl(resolved);
+    if (validated) return { url: validated, source: 'body' };
+  }
+
+  return { url: null, source: 'fallback' };
+}
+
+/**
+ * Log per-article image resolution result for CI visibility.
+ * Emits a warning when no valid image was found.
+ */
+function logImageResolution(article, source, finalUrl) {
+  const title  = (article.title || article.id || '?').slice(0, 50);
+  const thumb  = (article.thumbnailUrl || '—').slice(0, 70);
+  const hero   = (article.heroImageUrl  || '—').slice(0, 70);
+  const result = finalUrl ? finalUrl.split('/').pop().slice(0, 40) : 'NONE (placeholder)';
+  console.log(`  [img] "${title}" → source=${source} file=${result}`);
+  if (source === 'fallback') {
+    console.warn(`  [img-warn] No valid image for "${title}". thumb=${thumb} hero=${hero}`);
+  }
 }
 
 function escapeHtml(s) {
@@ -728,15 +773,12 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
     stripHtmlToPlainText(article.content || bodyHtml, 160)
   );
-  const rawOgImageRaw = (article.ogImage || article.heroImageUrl || article.thumbnailUrl || DEFAULT_FAVICON).trim();
-  const rawOgImage = isSvgUrl(rawOgImageRaw)
-    ? (extractFirstRasterImageFromContent(article) || DEFAULT_FAVICON)
-    : rawOgImageRaw;
-  const ogImageResolved = await resolveImageUrl(rawOgImage, article.id, 'og');
-  const ogImage = ogImageResolved || DEFAULT_FAVICON;
+  const { url: pickedHeroUrl, source: heroSource } = await pickCardImage(article, 'article-hero');
+  logImageResolution(article, heroSource, pickedHeroUrl);
+  // og:image falls back to DEFAULT_FAVICON when no valid storage URL exists
+  const ogImage = validateImageUrl(pickedHeroUrl) || DEFAULT_FAVICON;
+  const heroImg = pickedHeroUrl || null;
   const canonicalUrl = BASE_URL + '/blog/' + article.slug;
-  const rawHeroImg = resolveBestThumbnailUrl(article);
-  const heroImg = rawHeroImg ? await resolveImageUrl(rawHeroImg, article.id, 'hero') : null;
 
   let navHtml = '';
   if (prevArticle) {
@@ -751,9 +793,10 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     const moreCards = [];
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
-      const rawImg = resolveBestThumbnailUrl(a);
-      const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'more-' + i) : null;
-      const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="more-card-image" loading="lazy" decoding="async">` : '';
+      const { url: moreImgUrl } = await pickCardImage(a, 'more-' + i);
+      const imgTag = moreImgUrl
+        ? `<img src="${escapeHtml(moreImgUrl)}" alt="" class="more-card-image" loading="lazy" decoding="async" onerror="this.style.display='none'">`
+        : '';
       moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
@@ -834,7 +877,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
-          ${heroImg ? `<img src="${escapeHtml(heroImg.startsWith('http://') ? heroImg.replace(/^http:\/\//, 'https://') : heroImg)}" alt="${escapeHtml(article.title || 'Article')}" class="article-hero-image" loading="lazy" decoding="async">` : ''}
+          ${heroImg ? `<img src="${escapeHtml(heroImg)}" alt="${escapeHtml(article.title || 'Article')}" class="article-hero-image" loading="lazy" decoding="async" onerror="this.style.display='none'">` : ''}
         </div>
         <div class="article-body">${bodyHtml}</div>
         ${navSection}
@@ -865,10 +908,12 @@ async function buildHomePageBlogCards(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const rawImg = resolveBestThumbnailUrl(a);
-    const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'home-' + i) : null;
+    const { url: imgUrl, source } = await pickCardImage(a, 'home-' + i);
+    logImageResolution(a, source, imgUrl);
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
-    const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">` : '';
+    const imgTag = imgUrl
+      ? `<img src="${escapeHtml(imgUrl)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async" onerror="this.style.display='none'">`
+      : '';
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="blog-card">
                     ${imgTag}
                     <div class="blog-card-body">
@@ -884,10 +929,12 @@ async function buildIndexHtml(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const rawImg = resolveBestThumbnailUrl(a);
-    const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'index-' + i) : null;
+    const { url: imgUrl, source } = await pickCardImage(a, 'index-' + i);
+    logImageResolution(a, source, imgUrl);
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
-    const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="article-card-image" loading="lazy" decoding="async">` : '';
+    const imgTag = imgUrl
+      ? `<img src="${escapeHtml(imgUrl)}" alt="" class="article-card-image" loading="lazy" decoding="async" onerror="this.style.display='none'">`
+      : '';
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
@@ -964,6 +1011,130 @@ async function buildIndexHtml(articles) {
 }
 
 // ---------------------------------------------------------------------------
+// Post-build validation
+// ---------------------------------------------------------------------------
+
+/**
+ * Perform an HTTP HEAD request and return the response status code.
+ * Returns 0 on network error.
+ */
+function httpHead(url) {
+  return new Promise((resolve) => {
+    try {
+      const lib = require('https');
+      const req = lib.request(url, { method: 'HEAD', timeout: 8000 }, (res) => {
+        resolve(res.statusCode || 0);
+        res.resume();
+      });
+      req.on('error', () => resolve(0));
+      req.on('timeout', () => { req.destroy(); resolve(0); });
+      req.end();
+    } catch {
+      resolve(0);
+    }
+  });
+}
+
+/**
+ * Post-build validation: scans every generated HTML file for violations.
+ *
+ * Checks:
+ *   1. CDN URLs in any <img src>
+ *   2. SVG URLs in any <img src>
+ *   3. Nested <a> tags (invalid HTML, breaks click behaviour)
+ *   4. HTTP 200 reachability for every unique Supabase storage URL
+ *
+ * Throws if any violation is found, causing the build to fail loudly
+ * instead of shipping broken content silently.
+ */
+async function runPostBuildValidation(blogDir, repoRoot, articles) {
+  console.log('\n[validate] Running post-build validation...');
+
+  const violations = [];
+  const warnings   = [];
+
+  const filesToScan = [
+    path.join(blogDir, 'index.html'),
+    path.join(repoRoot, 'index.html'),
+  ];
+  for (const a of articles) {
+    filesToScan.push(path.join(blogDir, a.slug, 'index.html'));
+  }
+
+  const allStorageUrls = new Set();
+  let totalCards   = 0;
+  let cardsWithImg = 0;
+
+  for (const filePath of filesToScan) {
+    if (!fs.existsSync(filePath)) continue;
+    const html     = fs.readFileSync(filePath, 'utf8');
+    const relPath  = path.relative(repoRoot, filePath);
+
+    // 1. CDN URLs in <img>
+    const cdnMatches = [...html.matchAll(/<img\b[^>]*src="([^"]*cdn\.seadays\.app[^"]*)"[^>]*>/gi)];
+    for (const m of cdnMatches) {
+      violations.push(`CDN in img [${relPath}]: ${m[1].slice(0, 100)}`);
+    }
+
+    // 2. SVG in <img src>
+    const svgMatches = [...html.matchAll(/<img\b[^>]*src="([^"]*\.svg[^"]*)"[^>]*>/gi)];
+    for (const m of svgMatches) {
+      violations.push(`SVG in img [${relPath}]: ${m[1].slice(0, 100)}`);
+    }
+
+    // 3. Nested <a> — simplified heuristic: an <a ...> that contains another <a ...> before </a>
+    const nestedAnchorPattern = /<a\b[^>]*>(?:[^<]|<(?!\/a\b))*<a\b/i;
+    if (nestedAnchorPattern.test(html)) {
+      violations.push(`Nested <a> tags detected [${relPath}]`);
+    }
+
+    // 4. Collect Supabase storage URLs for HTTP check
+    for (const m of html.matchAll(/<img\b[^>]*src="(https:\/\/auth\.seadays\.app\/storage\/[^"]+)"[^>]*>/gi)) {
+      allStorageUrls.add(m[1]);
+    }
+
+    // 5. Card coverage stats (blog index only)
+    if (relPath.replace(/\\/g, '/').endsWith('blog/index.html')) {
+      totalCards   = (html.match(/class="article-card"/g) || []).length;
+      cardsWithImg = (html.match(/class="article-card-image"/g) || []).length;
+      if (cardsWithImg < totalCards) {
+        warnings.push(`${totalCards - cardsWithImg}/${totalCards} blog index cards missing thumbnails [${relPath}]`);
+      }
+    }
+  }
+
+  // HTTP 200 reachability checks
+  const uniqueUrls = [...allStorageUrls];
+  console.log(`[validate] HTTP-checking ${uniqueUrls.length} unique storage image URLs...`);
+  let httpOk = 0;
+  for (const url of uniqueUrls) {
+    const status = await httpHead(url);
+    if (status === 200) {
+      httpOk++;
+    } else {
+      violations.push(`HTTP ${status} [${url.slice(0, 100)}]`);
+    }
+  }
+
+  // Report warnings
+  for (const w of warnings) console.warn(`  [warn] ${w}`);
+
+  if (violations.length > 0) {
+    console.error('\n[validate] ✗ BUILD VIOLATIONS:');
+    for (const v of violations) console.error(`  ✗ ${v}`);
+    throw new Error(
+      `Post-build validation failed with ${violations.length} violation(s). Fix the issues above before deploying.`
+    );
+  }
+
+  console.log(
+    `[validate] ✓ All checks passed. ` +
+    `Blog index: ${cardsWithImg}/${totalCards} cards with images. ` +
+    `Storage URLs: ${httpOk}/${uniqueUrls.length} OK.`
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -1021,8 +1192,8 @@ async function main() {
       article.structuredContent = full.structuredContent;
     }
     let bodyHtml = await getArticleBodyHtml(article);
-    // Store processed bodyHtml so resolveBestThumbnailUrl can scan it for
-    // raster images when heroImageUrl/thumbnailUrl is absent or SVG-only.
+    // Store processed bodyHtml so pickCardImage/extractFirstRasterImageFromContent
+    // can scan it for raster images when heroImageUrl/thumbnailUrl is absent or SVG-only.
     article._processedBodyHtml = bodyHtml;
     const prev = i > 0 ? articles[i - 1] : null;
     const next = i < articles.length - 1 ? articles[i + 1] : null;
@@ -1096,10 +1267,12 @@ async function main() {
   fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
   const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
   if (!sitemapValid) console.warn('[warn] sitemap.xml may be invalid');
-  const base64Check = (html) => !html.includes('data:image');
-  const sampleHtml = articles.length ? fs.readFileSync(path.join(blogDir, articles[0].slug, 'index.html'), 'utf8') : '';
-  if (sampleHtml && !base64Check(sampleHtml)) console.warn('[warn] base64 images may remain in output');
   console.log('Wrote sitemap.xml with', seenUrls.size, 'URLs (no duplicates)');
+
+  // Scan every generated file for CDN URLs, SVG thumbnails, nested anchors,
+  // and HTTP reachability. Throws on any violation — build fails loudly.
+  await runPostBuildValidation(blogDir, repoRoot, articles);
+
   console.log('Done.');
 }
 
