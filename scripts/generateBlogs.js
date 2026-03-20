@@ -33,6 +33,20 @@ const DEFAULT_FAVICON = 'https://auth.seadays.app/storage/v1/object/public/Seada
  * validateImageUrl() itself and never causes an infinite onerror loop.
  */
 const FALLBACK_IMAGE_URL = DEFAULT_FAVICON;
+/**
+ * Fallback image pool — picks by article position so cards with no thumbnail
+ * don't all show the same icon. Add more Supabase storage URLs here when
+ * additional placeholder images are uploaded.
+ */
+const FALLBACK_IMAGES = [
+  DEFAULT_FAVICON,
+  // Additional fallback images can be added here as auth.seadays.app/storage URLs
+];
+function getFallbackImage(indexKey) {
+  const n = Math.abs(parseInt(String(indexKey).replace(/\D+/g, '') || '0', 10));
+  return FALLBACK_IMAGES[n % FALLBACK_IMAGES.length];
+}
+
 const LOGO_URL = 'https://seadays.app/logo.png';
 /** CDN origin used by the edge function in API responses; may have routing issues on static pages. */
 const CDN_SITE_ORIGIN = 'https://cdn.seadays.app';
@@ -46,6 +60,8 @@ const PORTSIDE_IMAGES_BUCKET = 'make-51d3ca8d-portside-images';
 
 const base64UrlCache = new Map();
 const imageStats = { uploaded: 0, removed: 0 };
+/** Counts per quality tier accumulated across all pickCardImage calls. */
+const imageQualityStats = { supabase: 0, external: 0, fallback: 0 };
 const SIZE_WARN_KB = 500;
 const MIME_TO_EXT = { jpeg: 'jpg', jpg: 'jpg', png: 'png', gif: 'gif', webp: 'webp', 'svg+xml': 'svg', svg: 'svg' };
 
@@ -210,6 +226,43 @@ function extractFirstRasterImageFromContent(article) {
   return m ? m[1] : null;
 }
 
+// ---------------------------------------------------------------------------
+// External image reachability (build-time light validation)
+// ---------------------------------------------------------------------------
+
+/** Cache of already-checked external URLs to avoid duplicate HEAD requests. */
+const externalCheckCache = new Map();
+/** Number of external HEAD checks performed this run. */
+let externalChecksCount = 0;
+/** Maximum external images to HEAD-check per build (keeps CI fast). */
+const MAX_EXTERNAL_CHECKS = 10;
+
+/**
+ * Lightweight HEAD check for external images.
+ * Returns true when reachable (HTTP 200) or when the check budget is exhausted
+ * (assume ok to avoid stalling the build). Returns false on non-200/error.
+ * Cached so the same URL is never checked twice.
+ */
+async function checkExternalUrl(url) {
+  if (externalCheckCache.has(url)) return externalCheckCache.get(url);
+  if (externalChecksCount >= MAX_EXTERNAL_CHECKS) return true;
+  externalChecksCount++;
+  const ok = await new Promise((resolve) => {
+    try {
+      const req = https.request(url, { method: 'HEAD', timeout: 5000 }, (res) => {
+        resolve(res.statusCode === 200);
+        res.resume();
+      });
+      req.on('error', () => resolve(false));
+      req.on('timeout', () => { req.destroy(); resolve(false); });
+      req.end();
+    } catch { resolve(false); }
+  });
+  externalCheckCache.set(url, ok);
+  if (!ok) console.warn(`  [external-check] Non-200 for ${url.slice(0, 100)} — will use fallback`);
+  return ok;
+}
+
 /**
  * Unified card image picker with tiered priority.
  *
@@ -219,10 +272,10 @@ function extractFirstRasterImageFromContent(article) {
  * Priority order:
  *   1. thumbnailUrl  (supabase tier)
  *   2. heroImageUrl  (supabase tier)
- *   3. thumbnailUrl  (external tier) — same field, lower tier
- *   4. heroImageUrl  (external tier)
- *   5. First raster from processed body HTML (either tier)
- *   6. FALLBACK_IMAGE_URL — guaranteed non-null, SeaDays favicon
+ *   3. thumbnailUrl  (external tier) — HEAD-checked; downgraded to fallback if non-200
+ *   4. heroImageUrl  (external tier) — same check
+ *   5. First raster from processed body HTML (either tier, same check for external)
+ *   6. getFallbackImage(index) — varies by article position, never null
  *
  * Returns { url: string, source: string, type: 'supabase'|'external'|'fallback' }
  */
@@ -238,7 +291,13 @@ async function pickCardImage(article, index) {
     if (!raw) continue;
     const resolved = await resolveImageUrl(raw, id, `${index}-${source}`);
     const type = classifyImageUrl(resolved);
-    if (type) pool.push({ url: resolved.trim(), source, type });
+    if (!type) continue;
+    if (type === 'external') {
+      // Validate external images at build time (first MAX_EXTERNAL_CHECKS only)
+      const ok = await checkExternalUrl(resolved.trim());
+      if (!ok) continue; // skip broken external, try next candidate
+    }
+    pool.push({ url: resolved.trim(), source, type });
   }
 
   // Body extraction as lower-priority fallback
@@ -246,23 +305,25 @@ async function pickCardImage(article, index) {
   if (bodyRaw) {
     const resolved = await resolveImageUrl(bodyRaw, id, `${index}-body`);
     const type = classifyImageUrl(resolved);
-    if (type) pool.push({ url: resolved.trim(), source: 'body', type });
+    if (type) {
+      const ok = type === 'external' ? await checkExternalUrl(resolved.trim()) : true;
+      if (ok) pool.push({ url: resolved.trim(), source: 'body', type });
+    }
   }
 
   if (pool.length > 0) {
     // Prefer supabase over external; within each tier preserve insertion order
-    const supabase = pool.find(p => p.type === 'supabase');
-    if (supabase) return supabase;
-    return pool[0]; // first external or body match
+    const best = pool.find(p => p.type === 'supabase') || pool[0];
+    return best;
   }
 
-  // Nothing valid — use guaranteed-present favicon
-  return { url: FALLBACK_IMAGE_URL, source: 'fallback', type: 'fallback' };
+  // Nothing valid — use index-varied fallback to avoid visual repetition
+  return { url: getFallbackImage(index), source: 'fallback', type: 'fallback' };
 }
 
 /**
- * Log per-article image resolution with quality tier.
- * Warns explicitly when the fallback favicon is used.
+ * Log per-article image resolution with quality tier, and accumulate
+ * counts in imageQualityStats for the end-of-run summary.
  */
 function logImageResolution(article, source, type, finalUrl) {
   const title  = (article.title || article.id || '?').slice(0, 50);
@@ -273,6 +334,10 @@ function logImageResolution(article, source, type, finalUrl) {
     const hero  = (article.heroImageUrl  || '—').slice(0, 80);
     console.warn(`  [img-warn] No real image found for "${title}". thumb=${thumb} hero=${hero}`);
   }
+  // Accumulate quality stats (only count once per article, not per more-card repeat)
+  if (type === 'supabase')  imageQualityStats.supabase++;
+  else if (type === 'external') imageQualityStats.external++;
+  else                          imageQualityStats.fallback++;
 }
 
 function escapeHtml(s) {
@@ -815,21 +880,25 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
  *   onerror          — auto-recovers to FALLBACK_IMAGE_URL
  *   loading          — eager for above-the-fold, lazy otherwise
  *
- * @param {string|null}  url       - Validated image URL (from pickCardImage)
- * @param {string}       source    - 'thumbnail'|'hero'|'body'|'fallback'
- * @param {string}       type      - 'supabase'|'external'|'fallback'
- * @param {string}       alt       - Alt text
- * @param {string}       className - CSS class(es) for sizing/styling
+ * @param {string|null}  url        - Validated image URL (from pickCardImage)
+ * @param {string}       source     - 'thumbnail'|'hero'|'body'|'fallback'
+ * @param {string}       type       - 'supabase'|'external'|'fallback'
+ * @param {string}       alt        - Alt text
+ * @param {string}       className  - CSS class(es) for sizing/styling
  * @param {object}       opts
- * @param {boolean}      opts.eager - True for above-the-fold cards
+ * @param {boolean}      opts.eager  - True for above-the-fold cards (loading="eager")
+ * @param {number}       opts.width  - Intrinsic width hint (prevents layout shift / CLS)
+ * @param {number}       opts.height - Intrinsic height hint (prevents layout shift / CLS)
  * @returns {string} HTML img tag, or empty string when url is falsy
  */
-function buildImgTag(url, source, type, alt, className, { eager = false } = {}) {
+function buildImgTag(url, source, type, alt, className, { eager = false, width = 400, height = 250 } = {}) {
   if (!url) return '';
   return (
     `<img` +
     ` src="${escapeHtml(url)}"` +
     ` alt="${escapeHtml(alt)}"` +
+    ` width="${width}"` +
+    ` height="${height}"` +
     ` class="${className} img-loading"` +
     ` data-img-source="${source}"` +
     ` data-img-type="${type}"` +
@@ -897,7 +966,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
       const { url: moreImgUrl, source: moreSource, type: moreType } = await pickCardImage(a, 'more-' + i);
-      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, '', 'more-card-image');
+      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, '', 'more-card-image', { width: 400, height: 160 });
       moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
@@ -978,7 +1047,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
-          ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true })}
+          ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
         </div>
         <div class="article-body">${bodyHtml}</div>
         ${navSection}
@@ -1014,7 +1083,7 @@ async function buildHomePageBlogCards(articles) {
     logImageResolution(a, source, type, imgUrl);
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
     // First 2 home-page cards are above the fold → eager-load for perceived performance
-    const imgTag = buildImgTag(imgUrl, source, type, a.title || 'Article', 'blog-card-image', { eager: i < 2 });
+    const imgTag = buildImgTag(imgUrl, source, type, a.title || 'Article', 'blog-card-image', { eager: i < 2, width: 400, height: 230 });
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="blog-card">
                     ${imgTag}
                     <div class="blog-card-body">
@@ -1052,7 +1121,7 @@ async function buildIndexHtml(articles) {
     const { url: imgUrl, source, type } = imageResults[i];
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
     // First 3 cards are above the fold → eager-load; rest lazy-load
-    const imgTag = buildImgTag(imgUrl, source, type, '', 'article-card-image', { eager: i < 3 });
+    const imgTag = buildImgTag(imgUrl, source, type, '', 'article-card-image', { eager: i < 3, width: 400, height: 230 });
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
@@ -1305,6 +1374,11 @@ async function main() {
 
   imageStats.uploaded = 0;
   imageStats.removed = 0;
+  imageQualityStats.supabase = 0;
+  imageQualityStats.external = 0;
+  imageQualityStats.fallback = 0;
+  externalChecksCount = 0;
+  externalCheckCache.clear();
   base64UrlCache.clear();
   console.log('Fetching articles from Supabase...');
   const data = await fetchArticles();
@@ -1399,6 +1473,16 @@ async function main() {
   }
 
   console.log(`\nImage stats: ${imageStats.uploaded} uploaded, ${imageStats.removed} removed (base64)`);
+  const total = imageQualityStats.supabase + imageQualityStats.external + imageQualityStats.fallback;
+  console.log(
+    `\n[summary] Image quality across ${total} articles:\n` +
+    `  supabase : ${imageQualityStats.supabase} (${total ? Math.round(imageQualityStats.supabase / total * 100) : 0}%)\n` +
+    `  external : ${imageQualityStats.external} (${total ? Math.round(imageQualityStats.external / total * 100) : 0}%)\n` +
+    `  fallback : ${imageQualityStats.fallback} (${total ? Math.round(imageQualityStats.fallback / total * 100) : 0}%)`
+  );
+  if (imageQualityStats.fallback > 0) {
+    console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
+  }
 
   const staticUrls = [
     { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0' },
