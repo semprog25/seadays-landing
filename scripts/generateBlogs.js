@@ -116,20 +116,53 @@ async function uploadBase64ToStorage(dataUrl, articleId, index) {
 // ---------------------------------------------------------------------------
 
 /**
+ * Ensure storage object path includes the public bucket when the CDN/API
+ * omits it (common bug: cdn.seadays.app/portside/... → wrong bucket "portside").
+ */
+function ensureSeadaysPublicBucketInObjectPath(objectPathNoQuery) {
+  let p = objectPathNoQuery.replace(/^\/+/, '');
+  if (!p) return p;
+  if (p.startsWith(`${BLOG_IMAGES_BUCKET}/`)) return p;
+  if (p.startsWith('portside/') || p.startsWith(`${BLOG_IMAGES_PREFIX}/`)) {
+    return `${BLOG_IMAGES_BUCKET}/${p}`;
+  }
+  return p;
+}
+
+/**
  * Convert cdn.seadays.app URLs to direct Supabase Storage URLs.
  * The CDN has routing issues in static GitHub Pages context.
  *
- * The edge function's transformStorageUrl produces:
- *   cdn.seadays.app/{bucket}/{object-path}
- * which maps directly to:
- *   {STORAGE_PUBLIC_URL}/{bucket}/{object-path}
+ * The edge function usually emits:
+ *   cdn.seadays.app/SeadaysPublic/portside/...
+ * but some responses omit the bucket segment:
+ *   cdn.seadays.app/portside/...
+ * which would wrongly map to .../public/portside/... (invalid bucket "portside").
  */
 function cdnToDirectStorageUrl(url) {
   if (!url || !url.startsWith(`${CDN_SITE_ORIGIN}/`)) return url;
-  const objectPath = url.slice(`${CDN_SITE_ORIGIN}/`.length);
-  if (!objectPath) return url;
-  const qs = objectPath.includes('?') ? '' : '';
-  return `${STORAGE_PUBLIC_URL}/${objectPath}${qs}`;
+  const rest = url.slice(`${CDN_SITE_ORIGIN}/`.length);
+  const qIdx = rest.indexOf('?');
+  const pathPart = (qIdx === -1 ? rest : rest.slice(0, qIdx)).replace(/^\/+/, '');
+  const query = qIdx === -1 ? '' : rest.slice(qIdx);
+  if (!pathPart) return url;
+  const fixed = ensureSeadaysPublicBucketInObjectPath(pathPart);
+  return `${STORAGE_PUBLIC_URL}/${fixed}${query}`;
+}
+
+/**
+ * Fix direct auth.seadays.app public URLs that are missing the SeadaysPublic bucket segment.
+ */
+function normalizeAuthStoragePublicUrl(url) {
+  if (!url || typeof url !== 'string') return url;
+  const prefix = `${STORAGE_PUBLIC_URL}/`;
+  if (!url.startsWith(prefix)) return url;
+  const qIdx = url.indexOf('?', prefix.length);
+  const pathPart = (qIdx === -1 ? url.slice(prefix.length) : url.slice(prefix.length, qIdx));
+  const query = qIdx === -1 ? '' : url.slice(qIdx);
+  const fixed = ensureSeadaysPublicBucketInObjectPath(pathPart);
+  if (fixed === pathPart) return url;
+  return `${prefix}${fixed}${query}`;
 }
 
 /** Returns true for gradient-SVG data URLs emitted by the edge function as a "no image" placeholder. */
@@ -148,7 +181,7 @@ async function resolveImageUrl(url, articleId, index = 0) {
   const trimmed = url.trim();
   if (!trimmed.startsWith('data:image')) {
     const httpsUrl = trimmed.startsWith('http://') ? trimmed.replace(/^http:\/\//, 'https://') : trimmed;
-    return cdnToDirectStorageUrl(httpsUrl);
+    return normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(httpsUrl));
   }
   const uploaded = await uploadBase64ToStorage(trimmed, articleId, index);
   if (uploaded) imageStats.uploaded++;
@@ -1222,7 +1255,7 @@ ${preloadLinks}
  * Single HTTP request, returns status code or 0 on error/timeout.
  * Used by httpCheck; not called directly.
  */
-function httpRequest(url, method, { useRange = true } = {}) {
+function httpRequest(url, method, { useRange = false } = {}) {
   return new Promise((resolve) => {
     try {
       const lib = require('https');
@@ -1249,22 +1282,15 @@ function isHttpOkStatus(status) {
 }
 
 /**
- * Check URL reachability with HEAD→GET fallback.
- *
- * auth.seadays.app (and some CDN fronts) often return 400/405 for HEAD on
- * public storage objects while GET (or ranged GET) succeeds. We try HEAD once,
- * then retry GET with exponential backoff — never waste multiple HEAD attempts.
+ * Check URL reachability with HEAD→GET fallback (plain GET, no Range — some
+ * gateways return 400 for ranged requests on public storage).
  */
 async function httpCheck(url, maxRetries = 2) {
   let lastStatus = await httpRequest(url, 'HEAD');
   if (isHttpOkStatus(lastStatus)) return 200;
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    lastStatus = await httpRequest(url, 'GET', { useRange: true });
+    lastStatus = await httpRequest(url, 'GET', { useRange: false });
     if (isHttpOkStatus(lastStatus)) return 200;
-    if (lastStatus === 400) {
-      lastStatus = await httpRequest(url, 'GET', { useRange: false });
-      if (isHttpOkStatus(lastStatus)) return 200;
-    }
     if (attempt < maxRetries) await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
   }
   return lastStatus;
@@ -1357,11 +1383,17 @@ async function runPostBuildValidation(blogDir, repoRoot, articles) {
   console.log(`[validate] HTTP-checking ${uniqueStorageUrls.length} Supabase storage URLs (with retry)...`);
   let httpOk = 0;
   for (const url of uniqueStorageUrls) {
-    const status = await httpCheck(url);
+    const checkUrl = normalizeAuthStoragePublicUrl(url);
+    if (checkUrl !== url) {
+      warnings.push(
+        `Repaired missing bucket in img src for HTTP check (re-run generator to fix HTML): ${url.slice(0, 120)}…`
+      );
+    }
+    const status = await httpCheck(checkUrl);
     if (status === 200) {
       httpOk++;
     } else {
-      violations.push(`HTTP ${status} after retries [${url.slice(0, 100)}]`);
+      violations.push(`HTTP ${status} after retries [${checkUrl.slice(0, 220)}]`);
     }
   }
 
