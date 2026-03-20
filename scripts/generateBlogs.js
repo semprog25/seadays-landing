@@ -108,6 +108,61 @@ async function resolveImageUrl(url, articleId, index = 0) {
 // Helpers
 // ---------------------------------------------------------------------------
 
+/**
+ * Returns true if the URL points to an SVG file.
+ * SVGs uploaded from base64 article body images render poorly as card thumbnails
+ * because they lack explicit width/height and object-fit:cover doesn't work on them.
+ */
+function isSvgUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  const lower = url.toLowerCase().split('?')[0];
+  return lower.endsWith('.svg') || lower.includes('svg+xml');
+}
+
+/**
+ * Extract the first raster image URL (jpg/png/webp/gif) from article structured
+ * content or HTML body. Used as a fallback when the thumbnail/hero is an SVG.
+ */
+function extractFirstRasterImageFromContent(article) {
+  if (article.structuredContent) {
+    try {
+      const parsed = typeof article.structuredContent === 'string'
+        ? JSON.parse(article.structuredContent)
+        : article.structuredContent;
+      if (parsed?.sections) {
+        for (const section of parsed.sections) {
+          for (const block of (section.blocks || [])) {
+            if (block.type === 'image' && block.images?.length) {
+              for (const img of block.images) {
+                if (img?.url && !isSvgUrl(img.url) && !img.url.startsWith('data:')) {
+                  return img.url;
+                }
+              }
+            }
+          }
+        }
+      }
+    } catch { /* ignore parse errors */ }
+  }
+  const html = article.content || '';
+  if (!html) return null;
+  const match = html.match(/src="(https?:\/\/[^"]+\.(?:jpg|jpeg|png|webp|gif)(?:[^"]*)?)"/i);
+  return match ? match[1] : null;
+}
+
+/**
+ * Resolve the best thumbnail URL for a card: prefer a dedicated hero/thumbnail,
+ * but skip SVG files (uploaded base64 article images) and fall back to the first
+ * raster image found in the article body.
+ */
+function resolveBestThumbnailUrl(article) {
+  const hero = (article.heroImageUrl || '').trim();
+  if (hero && !isSvgUrl(hero)) return hero;
+  const thumb = (article.thumbnailUrl || '').trim();
+  if (thumb && !isSvgUrl(thumb)) return thumb;
+  return extractFirstRasterImageFromContent(article) || '';
+}
+
 function escapeHtml(s) {
   if (s == null || s === '') return '';
   return String(s)
@@ -636,11 +691,14 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
     stripHtmlToPlainText(article.content || bodyHtml, 160)
   );
-  const rawOgImage = (article.ogImage || article.heroImageUrl || article.thumbnailUrl || DEFAULT_FAVICON).trim();
+  const rawOgImageRaw = (article.ogImage || article.heroImageUrl || article.thumbnailUrl || DEFAULT_FAVICON).trim();
+  const rawOgImage = isSvgUrl(rawOgImageRaw)
+    ? (extractFirstRasterImageFromContent(article) || DEFAULT_FAVICON)
+    : rawOgImageRaw;
   const ogImageResolved = await resolveImageUrl(rawOgImage, article.id, 'og');
   const ogImage = ogImageResolved || DEFAULT_FAVICON;
   const canonicalUrl = BASE_URL + '/blog/' + article.slug;
-  const rawHeroImg = (article.heroImageUrl || article.thumbnailUrl || '').trim();
+  const rawHeroImg = resolveBestThumbnailUrl(article);
   const heroImg = rawHeroImg ? await resolveImageUrl(rawHeroImg, article.id, 'hero') : null;
 
   let navHtml = '';
@@ -656,7 +714,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     const moreCards = [];
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
-      const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
+      const rawImg = resolveBestThumbnailUrl(a);
       const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'more-' + i) : null;
       const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="more-card-image" loading="lazy" decoding="async">` : '';
       moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
@@ -770,7 +828,7 @@ async function buildHomePageBlogCards(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
+    const rawImg = resolveBestThumbnailUrl(a);
     const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'home-' + i) : null;
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
     const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="${escapeHtml(a.title || 'Article')}" class="blog-card-image" loading="lazy" decoding="async">` : '';
@@ -789,7 +847,7 @@ async function buildIndexHtml(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const rawImg = (a.heroImageUrl || a.thumbnailUrl || '').trim();
+    const rawImg = resolveBestThumbnailUrl(a);
     const img = rawImg ? await resolveImageUrl(rawImg, a.id, 'index-' + i) : null;
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
     const imgTag = img ? `<img src="${escapeHtml(img.startsWith('http://') ? img.replace(/^http:\/\//, 'https://') : img)}" alt="" class="article-card-image" loading="lazy" decoding="async">` : '';
