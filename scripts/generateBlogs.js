@@ -28,6 +28,10 @@ const EDGE_BASE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
 const BASE_URL = 'https://seadays.app';
 const DEFAULT_FAVICON = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
 const LOGO_URL = 'https://seadays.app/logo.png';
+/** CDN origin used by the edge function in API responses; may have routing issues on static pages. */
+const CDN_SITE_ORIGIN = 'https://cdn.seadays.app';
+/** Supabase bucket for portside images served outside the SeadaysPublic/portside/ path. */
+const PORTSIDE_IMAGES_BUCKET = 'make-51d3ca8d-portside-images';
 
 // ---------------------------------------------------------------------------
 // Base64 image upload (optional; requires SUPABASE_SERVICE_ROLE_KEY)
@@ -91,12 +95,32 @@ async function uploadBase64ToStorage(dataUrl, articleId, index) {
  * When base64 upload fails (e.g. no SUPABASE_SERVICE_ROLE_KEY): returns null.
  * Callers must use DEFAULT_FAVICON for og:image/twitter:image when null.
  */
+/**
+ * Convert cdn.seadays.app URLs to direct Supabase Storage URLs.
+ * The CDN may have routing issues when used in static HTML outside the app, so
+ * all card/hero image URLs must point to the reliable auth.seadays.app origin.
+ */
+function cdnToDirectStorageUrl(url) {
+  if (!url || !url.startsWith(`${CDN_SITE_ORIGIN}/`)) return url;
+  try {
+    const u = new URL(url);
+    const objectPath = u.pathname.replace(/^\/+/, '');
+    if (!objectPath) return url;
+    if (objectPath.startsWith('portside/')) {
+      return `${STORAGE_PUBLIC_URL}/${BLOG_IMAGES_BUCKET}/${objectPath}${u.search}`;
+    }
+    return `${STORAGE_PUBLIC_URL}/${PORTSIDE_IMAGES_BUCKET}/${objectPath}${u.search}`;
+  } catch {
+    return url;
+  }
+}
+
 async function resolveImageUrl(url, articleId, index = 0) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
   if (!trimmed.startsWith('data:image')) {
-    if (trimmed.startsWith('http://')) return trimmed.replace(/^http:\/\//, 'https://');
-    return trimmed;
+    const https = trimmed.startsWith('http://') ? trimmed.replace(/^http:\/\//, 'https://') : trimmed;
+    return cdnToDirectStorageUrl(https);
   }
   const uploaded = await uploadBase64ToStorage(trimmed, articleId, index);
   if (uploaded) imageStats.uploaded++;
