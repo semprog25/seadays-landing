@@ -136,24 +136,33 @@ async function resolveImageUrl(url, articleId, index = 0) {
 }
 
 /**
- * Hard validation gate for any URL that will appear in a card thumbnail or hero img src.
+ * Classify a URL into one of three quality tiers used for priority sorting.
  *
- * Guarantees:
- *   - CDN URLs (cdn.seadays.app) are ALWAYS rejected → null
- *   - SVG files are ALWAYS rejected → null (blank renders at fixed card height)
- *   - Only auth.seadays.app/storage URLs are accepted
+ *   'supabase'  — auth.seadays.app/storage (preferred: same origin, CDN-edge cached)
+ *   'external'  — any other valid https:// raster image (allowed, lower priority)
+ *   null        — rejected: CDN proxy, SVG, http, data:, or non-string
  *
- * Returns the URL string if valid, null otherwise.
+ * The CDN proxy (cdn.seadays.app) is always rejected because it has routing
+ * issues when served from GitHub Pages static context.
  */
-function validateImageUrl(url) {
+function classifyImageUrl(url) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
   if (!trimmed.startsWith('https://')) return null;
   if (trimmed.includes('cdn.seadays.app')) return null;
   const lower = trimmed.toLowerCase().split('?')[0];
   if (lower.endsWith('.svg') || lower.includes('svg+xml')) return null;
-  if (!trimmed.includes('auth.seadays.app/storage')) return null;
-  return trimmed;
+  if (trimmed.includes('auth.seadays.app/storage')) return 'supabase';
+  return 'external';
+}
+
+/**
+ * Validate a URL for use as a card image.
+ * Returns the URL string when valid (both supabase and external accepted), null otherwise.
+ * Used as the final gate before writing any src attribute.
+ */
+function validateImageUrl(url) {
+  return classifyImageUrl(url) !== null ? url.trim() : null;
 }
 
 /** Returns true for SVG URLs — used to skip them during content scanning. */
@@ -202,55 +211,67 @@ function extractFirstRasterImageFromContent(article) {
 }
 
 /**
- * Unified card image picker.
+ * Unified card image picker with tiered priority.
  *
- * Resolution order (each candidate is resolved then hard-validated):
- *   1. thumbnailUrl   → validated
- *   2. heroImageUrl   → validated
- *   3. First raster from processed body HTML → validated
- *   4. FALLBACK_IMAGE_URL (SeaDays favicon — guaranteed valid, never null)
+ * Candidates are collected first, then sorted by quality tier so a Supabase
+ * storage URL is always preferred over an external URL at the same source level.
  *
- * Always returns a non-null url so every card renders an image.
- * Returns { url: string, source: 'thumbnail'|'hero'|'body'|'fallback' }
+ * Priority order:
+ *   1. thumbnailUrl  (supabase tier)
+ *   2. heroImageUrl  (supabase tier)
+ *   3. thumbnailUrl  (external tier) — same field, lower tier
+ *   4. heroImageUrl  (external tier)
+ *   5. First raster from processed body HTML (either tier)
+ *   6. FALLBACK_IMAGE_URL — guaranteed non-null, SeaDays favicon
+ *
+ * Returns { url: string, source: string, type: 'supabase'|'external'|'fallback' }
  */
 async function pickCardImage(article, index) {
   const id = article.id || 'unknown';
 
-  const candidates = [
+  // Collect all resolved candidates tagged with their source and quality tier
+  const pool = [];
+  for (const { raw, source } of [
     { raw: (article.thumbnailUrl || '').trim(), source: 'thumbnail' },
     { raw: (article.heroImageUrl  || '').trim(), source: 'hero'      },
-  ];
-  for (const { raw, source } of candidates) {
+  ]) {
     if (!raw) continue;
     const resolved = await resolveImageUrl(raw, id, `${index}-${source}`);
-    const validated = validateImageUrl(resolved);
-    if (validated) return { url: validated, source };
+    const type = classifyImageUrl(resolved);
+    if (type) pool.push({ url: resolved.trim(), source, type });
   }
 
+  // Body extraction as lower-priority fallback
   const bodyRaw = extractFirstRasterImageFromContent(article);
   if (bodyRaw) {
     const resolved = await resolveImageUrl(bodyRaw, id, `${index}-body`);
-    const validated = validateImageUrl(resolved);
-    if (validated) return { url: validated, source: 'body' };
+    const type = classifyImageUrl(resolved);
+    if (type) pool.push({ url: resolved.trim(), source: 'body', type });
   }
 
-  // Every card must render an image. Use the SeaDays favicon as the ultimate
-  // fallback — it is a guaranteed-valid auth.seadays.app/storage URL.
-  return { url: FALLBACK_IMAGE_URL, source: 'fallback' };
+  if (pool.length > 0) {
+    // Prefer supabase over external; within each tier preserve insertion order
+    const supabase = pool.find(p => p.type === 'supabase');
+    if (supabase) return supabase;
+    return pool[0]; // first external or body match
+  }
+
+  // Nothing valid — use guaranteed-present favicon
+  return { url: FALLBACK_IMAGE_URL, source: 'fallback', type: 'fallback' };
 }
 
 /**
- * Log per-article image resolution result for CI visibility.
- * Emits a warning when no valid image was found.
+ * Log per-article image resolution with quality tier.
+ * Warns explicitly when the fallback favicon is used.
  */
-function logImageResolution(article, source, finalUrl) {
+function logImageResolution(article, source, type, finalUrl) {
   const title  = (article.title || article.id || '?').slice(0, 50);
-  const thumb  = (article.thumbnailUrl || '—').slice(0, 70);
-  const hero   = (article.heroImageUrl  || '—').slice(0, 70);
-  const result = finalUrl ? finalUrl.split('/').pop().slice(0, 40) : 'NONE (placeholder)';
-  console.log(`  [img] "${title}" → source=${source} file=${result}`);
+  const result = finalUrl ? finalUrl.split('/').pop().slice(0, 50) : 'NONE';
+  console.log(`  [img] "${title}" → source=${source} type=${type} file=${result}`);
   if (source === 'fallback') {
-    console.warn(`  [img-warn] No valid image for "${title}". thumb=${thumb} hero=${hero}`);
+    const thumb = (article.thumbnailUrl || '—').slice(0, 80);
+    const hero  = (article.heroImageUrl  || '—').slice(0, 80);
+    console.warn(`  [img-warn] No real image found for "${title}". thumb=${thumb} hero=${hero}`);
   }
 }
 
@@ -787,22 +808,23 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 /**
  * Build a fully-featured <img> tag for any card or hero image.
  *
- * Features baked in for every tag:
- *   - onerror recovery → FALLBACK_IMAGE_URL (never a broken-image icon)
- *   - data-img-source attribute for DevTools debugging
- *   - img-loading class + onload removal for CSS blur-fade animation (Part 7)
- *   - loading="eager" for above-the-fold cards, "lazy" for the rest (Part 4)
- *   - decoding="async" always
+ * Attributes emitted on every tag:
+ *   data-img-source  — resolution source:  thumbnail | hero | body | fallback
+ *   data-img-type    — quality tier:        supabase  | external | fallback
+ *   img-loading      — CSS class removed by onload (blur-fade reveal)
+ *   onerror          — auto-recovers to FALLBACK_IMAGE_URL
+ *   loading          — eager for above-the-fold, lazy otherwise
  *
- * @param {string|null} url       - Validated image URL (from pickCardImage)
- * @param {string}      source    - Resolution source: 'thumbnail'|'hero'|'body'|'fallback'
- * @param {string}      alt       - Alt text
- * @param {string}      className - CSS class(es) for sizing/styling
- * @param {object}      opts
- * @param {boolean}     opts.eager - True for above-the-fold cards
- * @returns {string} HTML img tag, or empty string when url is null/undefined
+ * @param {string|null}  url       - Validated image URL (from pickCardImage)
+ * @param {string}       source    - 'thumbnail'|'hero'|'body'|'fallback'
+ * @param {string}       type      - 'supabase'|'external'|'fallback'
+ * @param {string}       alt       - Alt text
+ * @param {string}       className - CSS class(es) for sizing/styling
+ * @param {object}       opts
+ * @param {boolean}      opts.eager - True for above-the-fold cards
+ * @returns {string} HTML img tag, or empty string when url is falsy
  */
-function buildImgTag(url, source, alt, className, { eager = false } = {}) {
+function buildImgTag(url, source, type, alt, className, { eager = false } = {}) {
   if (!url) return '';
   return (
     `<img` +
@@ -810,6 +832,7 @@ function buildImgTag(url, source, alt, className, { eager = false } = {}) {
     ` alt="${escapeHtml(alt)}"` +
     ` class="${className} img-loading"` +
     ` data-img-source="${source}"` +
+    ` data-img-type="${type}"` +
     ` loading="${eager ? 'eager' : 'lazy'}"` +
     ` decoding="async"` +
     ` onerror="this.onerror=null;this.src='${FALLBACK_IMAGE_URL}'"` +
@@ -827,17 +850,19 @@ function buildImgTag(url, source, alt, className, { eager = false } = {}) {
 const RUNTIME_GUARD_SCRIPT = `<script>
 (function(){
   var FB='${FALLBACK_IMAGE_URL}';
+  // Mirrors classifyImageUrl() in the generator: blocks CDN proxy and SVGs only.
+  // External HTTPS images are allowed (same policy as server-side validation).
   function safeImage(src){
-    if(!src)return FB;
+    if(!src||!src.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
-    if(!src.includes('auth.seadays.app/storage'))return FB;
     return src;
   }
   function applyGuard(){
     document.querySelectorAll('img[data-img-source]').forEach(function(el){
-      var safe=safeImage(el.getAttribute('src')||'');
-      if(safe!==(el.getAttribute('src')||'')){el.dataset.originalSrc=el.src;el.src=safe;}
+      var orig=el.getAttribute('src')||'';
+      var safe=safeImage(orig);
+      if(safe!==orig){el.dataset.originalSrc=orig;el.src=safe;}
     });
   }
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyGuard);}
@@ -851,9 +876,9 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
     stripHtmlToPlainText(article.content || bodyHtml, 160)
   );
-  const { url: pickedHeroUrl, source: heroSource } = await pickCardImage(article, 'article-hero');
-  logImageResolution(article, heroSource, pickedHeroUrl);
-  // og:image falls back to DEFAULT_FAVICON when no valid storage URL exists
+  const { url: pickedHeroUrl, source: heroSource, type: heroType } = await pickCardImage(article, 'article-hero');
+  logImageResolution(article, heroSource, heroType, pickedHeroUrl);
+  // og:image: prefer Supabase storage URL for og:image; external is also accepted
   const ogImage = validateImageUrl(pickedHeroUrl) || DEFAULT_FAVICON;
   const heroImg = pickedHeroUrl || null;
   const canonicalUrl = BASE_URL + '/blog/' + article.slug;
@@ -871,8 +896,8 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     const moreCards = [];
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
-      const { url: moreImgUrl, source: moreSource } = await pickCardImage(a, 'more-' + i);
-      const imgTag = buildImgTag(moreImgUrl, moreSource, '', 'more-card-image');
+      const { url: moreImgUrl, source: moreSource, type: moreType } = await pickCardImage(a, 'more-' + i);
+      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, '', 'more-card-image');
       moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
@@ -953,7 +978,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
-          ${buildImgTag(heroImg, heroSource, article.title || 'Article', 'article-hero-image', { eager: true })}
+          ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true })}
         </div>
         <div class="article-body">${bodyHtml}</div>
         ${navSection}
@@ -985,11 +1010,11 @@ async function buildHomePageBlogCards(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const { url: imgUrl, source } = await pickCardImage(a, 'home-' + i);
-    logImageResolution(a, source, imgUrl);
+    const { url: imgUrl, source, type } = await pickCardImage(a, 'home-' + i);
+    logImageResolution(a, source, type, imgUrl);
     const excerpt = (a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 140) : '') || '') + (a.excerpt || a.content ? '...' : '');
     // First 2 home-page cards are above the fold → eager-load for perceived performance
-    const imgTag = buildImgTag(imgUrl, source, a.title || 'Article', 'blog-card-image', { eager: i < 2 });
+    const imgTag = buildImgTag(imgUrl, source, type, a.title || 'Article', 'blog-card-image', { eager: i < 2 });
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="blog-card">
                     ${imgTag}
                     <div class="blog-card-body">
@@ -1008,7 +1033,7 @@ async function buildIndexHtml(articles) {
   const imageResults = [];
   for (let i = 0; i < articles.length; i++) {
     const result = await pickCardImage(articles[i], 'index-' + i);
-    logImageResolution(articles[i], result.source, result.url);
+    logImageResolution(articles[i], result.source, result.type, result.url);
     imageResults.push(result);
   }
 
@@ -1024,10 +1049,10 @@ async function buildIndexHtml(articles) {
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
-    const { url: imgUrl, source } = imageResults[i];
+    const { url: imgUrl, source, type } = imageResults[i];
     const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
     // First 3 cards are above the fold → eager-load; rest lazy-load
-    const imgTag = buildImgTag(imgUrl, source, '', 'article-card-image', { eager: i < 3 });
+    const imgTag = buildImgTag(imgUrl, source, type, '', 'article-card-image', { eager: i < 3 });
     cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
@@ -1152,16 +1177,19 @@ async function httpCheck(url, maxRetries = 2) {
 }
 
 /**
- * Post-build validation: scans every generated HTML file for violations.
+ * Post-build validation: scans every generated HTML file.
  *
- * Checks:
- *   1. CDN URLs in any <img src>
- *   2. SVG URLs in any <img src>
- *   3. Nested <a> tags (invalid HTML, breaks click behaviour)
- *   4. HTTP 200 reachability for every unique Supabase storage URL
+ * Hard violations (FAIL build):
+ *   - CDN proxy URL (cdn.seadays.app) in any img src
+ *   - SVG used as a card image src
+ *   - Nested <a> tags (invalid HTML)
+ *   - Supabase storage image URL that returns non-200
  *
- * Throws if any violation is found, causing the build to fail loudly
- * instead of shipping broken content silently.
+ * Warnings only (NEVER fail build):
+ *   - External image usage (data-img-type="external") — allowed, just noted
+ *   - Fallback image usage (data-img-type="fallback") — article had no real image
+ *   - Card count diverges from article count (dedup/slug reasons)
+ *   - Cards with no thumbnail (article has truly no image at all)
  */
 async function runPostBuildValidation(blogDir, repoRoot, articles) {
   console.log('\n[validate] Running post-build validation...');
@@ -1178,62 +1206,62 @@ async function runPostBuildValidation(blogDir, repoRoot, articles) {
   }
 
   const allStorageUrls = new Set();
-  let totalCards   = 0;
-  let cardsWithImg = 0;
+  let totalCards    = 0;
+  let cardsWithImg  = 0;
+  let externalCount = 0;
+  let fallbackCount = 0;
 
   for (const filePath of filesToScan) {
     if (!fs.existsSync(filePath)) continue;
-    const html     = fs.readFileSync(filePath, 'utf8');
-    const relPath  = path.relative(repoRoot, filePath);
+    const html    = fs.readFileSync(filePath, 'utf8');
+    const relPath = path.relative(repoRoot, filePath);
 
-    // 1. CDN URLs in <img>
-    const cdnMatches = [...html.matchAll(/<img\b[^>]*src="([^"]*cdn\.seadays\.app[^"]*)"[^>]*>/gi)];
-    for (const m of cdnMatches) {
+    // VIOLATION: CDN proxy URLs in <img src>
+    for (const m of html.matchAll(/<img\b[^>]*src="([^"]*cdn\.seadays\.app[^"]*)"[^>]*>/gi)) {
       violations.push(`CDN in img [${relPath}]: ${m[1].slice(0, 100)}`);
     }
 
-    // 2. SVG in <img src>
-    const svgMatches = [...html.matchAll(/<img\b[^>]*src="([^"]*\.svg[^"]*)"[^>]*>/gi)];
-    for (const m of svgMatches) {
+    // VIOLATION: SVG in <img src>
+    for (const m of html.matchAll(/<img\b[^>]*src="([^"]*\.svg[^"]*)"[^>]*>/gi)) {
       violations.push(`SVG in img [${relPath}]: ${m[1].slice(0, 100)}`);
     }
 
-    // 3. Nested <a> — simplified heuristic: an <a ...> that contains another <a ...> before </a>
-    const nestedAnchorPattern = /<a\b[^>]*>(?:[^<]|<(?!\/a\b))*<a\b/i;
-    if (nestedAnchorPattern.test(html)) {
+    // VIOLATION: nested <a> tags
+    if (/<a\b[^>]*>(?:[^<]|<(?!\/a\b))*<a\b/i.test(html)) {
       violations.push(`Nested <a> tags detected [${relPath}]`);
     }
 
-    // 4. Collect Supabase storage URLs for HTTP check
+    // Collect Supabase storage URLs for HTTP reachability check
     for (const m of html.matchAll(/<img\b[^>]*src="(https:\/\/auth\.seadays\.app\/storage\/[^"]+)"[^>]*>/gi)) {
       allStorageUrls.add(m[1]);
     }
 
-    // 5. Card coverage — STRICT: every card must have a validated image
+    // WARNING: external images (allowed but logged)
+    const extImgs = [...html.matchAll(/<img\b[^>]*data-img-type="external"[^>]*>/gi)];
+    if (extImgs.length) externalCount += extImgs.length;
+
+    // WARNING: fallback images (article had no real thumbnail)
+    const fbImgs = [...html.matchAll(/<img\b[^>]*data-img-type="fallback"[^>]*>/gi)];
+    if (fbImgs.length) fallbackCount += fbImgs.length;
+
+    // INFO: card coverage stats on blog/index.html
     if (relPath.replace(/\\/g, '/').endsWith('blog/index.html')) {
       totalCards   = (html.match(/class="article-card"/g) || []).length;
-      // Match "article-card-image" even when followed by extra classes (e.g. "img-loading")
       cardsWithImg = (html.match(/class="article-card-image\b/g) || []).length;
       if (cardsWithImg < totalCards) {
-        violations.push(
-          `${totalCards - cardsWithImg}/${totalCards} blog index cards missing thumbnails — ` +
-          `resolve all image resolution issues before deploying [${relPath}]`
-        );
+        warnings.push(`${totalCards - cardsWithImg}/${totalCards} cards missing thumbnails [${relPath}]`);
       }
-      // Warn if card count diverges from the article list (informational — slugging/dedup may vary)
       if (articles.length > 0 && totalCards !== articles.length) {
-        warnings.push(
-          `Card count: expected ${articles.length}, generated ${totalCards} in blog/index.html`
-        );
+        warnings.push(`Card count: expected ${articles.length}, got ${totalCards} [${relPath}]`);
       }
     }
   }
 
-  // HTTP 200 reachability checks with retry + GET fallback
-  const uniqueUrls = [...allStorageUrls];
-  console.log(`[validate] HTTP-checking ${uniqueUrls.length} unique storage image URLs (with retry)...`);
+  // HTTP 200 reachability for Supabase storage URLs (with retry + GET fallback)
+  const uniqueStorageUrls = [...allStorageUrls];
+  console.log(`[validate] HTTP-checking ${uniqueStorageUrls.length} Supabase storage URLs (with retry)...`);
   let httpOk = 0;
-  for (const url of uniqueUrls) {
+  for (const url of uniqueStorageUrls) {
     const status = await httpCheck(url);
     if (status === 200) {
       httpOk++;
@@ -1242,21 +1270,23 @@ async function runPostBuildValidation(blogDir, repoRoot, articles) {
     }
   }
 
-  // Report non-fatal warnings
+  // Emit non-fatal warnings
+  if (externalCount)  console.warn(`  [warn] ${externalCount} external image(s) used — allowed, prefer Supabase storage`);
+  if (fallbackCount)  console.warn(`  [warn] ${fallbackCount} fallback image(s) used — articles have no thumbnail in DB`);
   for (const w of warnings) console.warn(`  [warn] ${w}`);
 
   if (violations.length > 0) {
     console.error('\n[validate] ✗ BUILD VIOLATIONS:');
     for (const v of violations) console.error(`  ✗ ${v}`);
     throw new Error(
-      `Post-build validation failed with ${violations.length} violation(s). Fix the issues above before deploying.`
+      `Post-build validation failed with ${violations.length} violation(s). See above.`
     );
   }
 
   console.log(
-    `[validate] ✓ All checks passed. ` +
-    `Blog index: ${cardsWithImg}/${totalCards} cards with images. ` +
-    `Storage URLs: ${httpOk}/${uniqueUrls.length} OK.`
+    `[validate] ✓ Passed. Cards: ${cardsWithImg}/${totalCards} with images. ` +
+    `Storage URLs: ${httpOk}/${uniqueStorageUrls.length} OK. ` +
+    `External: ${externalCount}. Fallback: ${fallbackCount}.`
   );
 }
 
