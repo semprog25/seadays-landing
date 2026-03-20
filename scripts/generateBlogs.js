@@ -1222,11 +1222,16 @@ ${preloadLinks}
  * Single HTTP request, returns status code or 0 on error/timeout.
  * Used by httpCheck; not called directly.
  */
-function httpRequest(url, method) {
+function httpRequest(url, method, { useRange = true } = {}) {
   return new Promise((resolve) => {
     try {
       const lib = require('https');
-      const req = lib.request(url, { method, timeout: 8000 }, (res) => {
+      const headers = {
+        'User-Agent': 'SeadaysBlogValidator/1.0 (+https://seadays.app)',
+        Accept: 'image/*,*/*;q=0.8',
+      };
+      if (method === 'GET' && useRange) headers.Range = 'bytes=0-0';
+      const req = lib.request(url, { method, timeout: 12000, headers }, (res) => {
         resolve(res.statusCode || 0);
         res.resume();
       });
@@ -1239,23 +1244,28 @@ function httpRequest(url, method) {
   });
 }
 
+function isHttpOkStatus(status) {
+  return status === 200 || status === 206 || status === 304;
+}
+
 /**
- * Check URL reachability with automatic retry and HEAD→GET fallback.
+ * Check URL reachability with HEAD→GET fallback.
  *
- * Strategy:
- *   Attempt 0..maxRetries-1: HEAD  (fast, no body transfer)
- *   Attempt maxRetries:       GET   (some servers reject HEAD with 405)
- *
- * Waits 500 ms between attempts to avoid hammering the server.
- * Returns 200 on success, last non-200 status on exhaustion.
+ * auth.seadays.app (and some CDN fronts) often return 400/405 for HEAD on
+ * public storage objects while GET (or ranged GET) succeeds. We try HEAD once,
+ * then retry GET with exponential backoff — never waste multiple HEAD attempts.
  */
 async function httpCheck(url, maxRetries = 2) {
-  let lastStatus = 0;
+  let lastStatus = await httpRequest(url, 'HEAD');
+  if (isHttpOkStatus(lastStatus)) return 200;
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
-    const method = attempt < maxRetries ? 'HEAD' : 'GET';
-    lastStatus = await httpRequest(url, method);
-    if (lastStatus === 200) return 200;
-    if (attempt < maxRetries) await new Promise(r => setTimeout(r, 500 * (attempt + 1)));
+    lastStatus = await httpRequest(url, 'GET', { useRange: true });
+    if (isHttpOkStatus(lastStatus)) return 200;
+    if (lastStatus === 400) {
+      lastStatus = await httpRequest(url, 'GET', { useRange: false });
+      if (isHttpOkStatus(lastStatus)) return 200;
+    }
+    if (attempt < maxRetries) await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
   }
   return lastStatus;
 }
@@ -1267,7 +1277,8 @@ async function httpCheck(url, maxRetries = 2) {
  *   - CDN proxy URL (cdn.seadays.app) in any img src
  *   - SVG used as a card image src
  *   - Nested <a> tags (invalid HTML)
- *   - Supabase storage image URL that returns non-200
+ *   - Supabase storage image URL that returns non-200 on GET (after HEAD may fail
+ *     with 400/405 on custom domains — httpCheck falls back to ranged GET)
  *
  * Warnings only (NEVER fail build):
  *   - External image usage (data-img-type="external") — allowed, just noted
