@@ -420,6 +420,84 @@ function httpsGet(url, headers = {}) {
   });
 }
 
+function httpsPostJson(url, body, headers = {}) {
+  return new Promise((resolve, reject) => {
+    const payload = JSON.stringify(body);
+    const u = new URL(url);
+    const opts = {
+      hostname: u.hostname,
+      port: u.port || 443,
+      path: u.pathname + u.search,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload),
+        ...headers,
+      },
+    };
+    const req = https.request(opts, (res) => {
+      let data = '';
+      res.on('data', (chunk) => { data += chunk; });
+      res.on('end', () => {
+        if (res.statusCode !== 200) {
+          reject(new Error(`HTTP ${res.statusCode}: ${data.slice(0, 200)}`));
+          return;
+        }
+        try {
+          resolve(JSON.parse(data));
+        } catch {
+          reject(new Error('Invalid JSON response'));
+        }
+      });
+    });
+    req.on('error', reject);
+    req.setTimeout(20000, () => { req.destroy(); reject(new Error('Timeout')); });
+    req.write(payload);
+    req.end();
+  });
+}
+
+/** Edge function accepts up to 50 ids per POST (see make-server-51d3ca8d portside-articles/thumbnails). */
+const PORTSIDE_THUMBNAIL_POST_BATCH = 50;
+
+/**
+ * After GET forWebsite summaries, fill missing thumbnail/hero from POST /portside-articles/thumbnails
+ * (same resolution path as the app). Non-fatal on failure.
+ */
+async function mergePortsideThumbnailsIntoArticles(articles) {
+  const key = process.env.SUPABASE_ANON_KEY;
+  if (!key || !articles.length) return articles;
+  const idsNeeding = articles
+    .filter((a) => a && a.id && !(String(a.thumbnailUrl || '').trim()) && !(String(a.heroImageUrl || '').trim()))
+    .map((a) => a.id);
+  if (idsNeeding.length === 0) return articles;
+
+  const byId = new Map(articles.map((a) => [a.id, a]));
+  const thumbUrl = EDGE_BASE + '/portside-articles/thumbnails';
+  for (let i = 0; i < idsNeeding.length; i += PORTSIDE_THUMBNAIL_POST_BATCH) {
+    const batch = idsNeeding.slice(i, i + PORTSIDE_THUMBNAIL_POST_BATCH);
+    try {
+      const data = await httpsPostJson(thumbUrl, { ids: batch }, {
+        Authorization: 'Bearer ' + key,
+        apikey: key,
+      });
+      const thumbs = Array.isArray(data?.thumbnails) ? data.thumbnails : [];
+      for (const row of thumbs) {
+        if (!row || !row.id) continue;
+        const art = byId.get(row.id);
+        if (!art) continue;
+        const thumb = typeof row.thumbnailUrl === 'string' && row.thumbnailUrl.trim() ? row.thumbnailUrl.trim() : '';
+        const hero = typeof row.heroImageUrl === 'string' && row.heroImageUrl.trim() ? row.heroImageUrl.trim() : '';
+        if (thumb) art.thumbnailUrl = thumb;
+        if (hero) art.heroImageUrl = hero;
+      }
+    } catch (err) {
+      console.warn('[generateBlogs] thumbnails POST batch failed:', err?.message || err);
+    }
+  }
+  return articles;
+}
+
 async function fetchArticles() {
   const key = process.env.SUPABASE_ANON_KEY;
   if (!key) {
@@ -834,6 +912,9 @@ async function main() {
     const mb = typeof tb === 'number' ? tb : (tb < 10000000000 ? tb * 1000 : Date.parse(tb) || 0);
     return mb - ma;
   });
+
+  console.log('Merging thumbnail payloads for articles missing hero/thumbnail...');
+  await mergePortsideThumbnailsIntoArticles(articles);
 
   fs.mkdirSync(blogDir, { recursive: true });
 
