@@ -118,20 +118,25 @@ async function uploadBase64ToStorage(dataUrl, articleId, index) {
 /**
  * Convert cdn.seadays.app URLs to direct Supabase Storage URLs.
  * The CDN has routing issues in static GitHub Pages context.
+ *
+ * The edge function's transformStorageUrl produces:
+ *   cdn.seadays.app/{bucket}/{object-path}
+ * which maps directly to:
+ *   {STORAGE_PUBLIC_URL}/{bucket}/{object-path}
  */
 function cdnToDirectStorageUrl(url) {
   if (!url || !url.startsWith(`${CDN_SITE_ORIGIN}/`)) return url;
-  try {
-    const u = new URL(url);
-    const objectPath = u.pathname.replace(/^\/+/, '');
-    if (!objectPath) return url;
-    if (objectPath.startsWith('portside/')) {
-      return `${STORAGE_PUBLIC_URL}/${BLOG_IMAGES_BUCKET}/${objectPath}${u.search}`;
-    }
-    return `${STORAGE_PUBLIC_URL}/${PORTSIDE_IMAGES_BUCKET}/${objectPath}${u.search}`;
-  } catch {
-    return url;
-  }
+  const objectPath = url.slice(`${CDN_SITE_ORIGIN}/`.length);
+  if (!objectPath) return url;
+  const qs = objectPath.includes('?') ? '' : '';
+  return `${STORAGE_PUBLIC_URL}/${objectPath}${qs}`;
+}
+
+/** Returns true for gradient-SVG data URLs emitted by the edge function as a "no image" placeholder. */
+function isGradientSvgDataUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  const t = url.trim();
+  return t.startsWith('data:image/svg');
 }
 
 /**
@@ -289,6 +294,12 @@ async function pickCardImage(article, index) {
     { raw: (article.heroImageUrl  || '').trim(), source: 'hero'      },
   ]) {
     if (!raw) continue;
+    // Gradient SVG placeholders from the edge function are not real cover images — skip immediately
+    // rather than uploading them to storage only to have classifyImageUrl reject the .svg URL.
+    if (isGradientSvgDataUrl(raw)) {
+      console.log(`  [img-skip] gradient SVG placeholder ignored for "${(article.title || article.id || '').slice(0,40)}" source=${source}`);
+      continue;
+    }
     const resolved = await resolveImageUrl(raw, id, `${index}-${source}`);
     const type = classifyImageUrl(resolved);
     if (!type) continue;
@@ -699,8 +710,12 @@ const PORTSIDE_THUMBNAIL_POST_BATCH = 50;
 async function mergePortsideThumbnailsIntoArticles(articles) {
   const key = process.env.SUPABASE_ANON_KEY;
   if (!key || !articles.length) return articles;
+  const hasRealImage = (url) => {
+    const s = String(url || '').trim();
+    return s.length > 0 && !isGradientSvgDataUrl(s);
+  };
   const idsNeeding = articles
-    .filter((a) => a && a.id && !(String(a.thumbnailUrl || '').trim()) && !(String(a.heroImageUrl || '').trim()))
+    .filter((a) => a && a.id && !hasRealImage(a.thumbnailUrl) && !hasRealImage(a.heroImageUrl))
     .map((a) => a.id);
   if (idsNeeding.length === 0) return articles;
 
@@ -1420,6 +1435,12 @@ async function main() {
     if (full) {
       article.content = full.content;
       article.structuredContent = full.structuredContent;
+      // Backfill thumbnail/hero from full article detail if the summary omitted them or
+      // only returned a gradient SVG placeholder.
+      if ((!article.thumbnailUrl || isGradientSvgDataUrl(article.thumbnailUrl)) && full.thumbnailUrl && !isGradientSvgDataUrl(full.thumbnailUrl))
+        article.thumbnailUrl = full.thumbnailUrl;
+      if ((!article.heroImageUrl || isGradientSvgDataUrl(article.heroImageUrl)) && full.heroImageUrl && !isGradientSvgDataUrl(full.heroImageUrl))
+        article.heroImageUrl = full.heroImageUrl;
     }
     let bodyHtml = await getArticleBodyHtml(article);
     // Store processed bodyHtml so pickCardImage/extractFirstRasterImageFromContent
