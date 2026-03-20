@@ -144,10 +144,21 @@ function isSvgUrl(url) {
 }
 
 /**
- * Extract the first raster image URL (jpg/png/webp/gif) from article structured
- * content or HTML body. Used as a fallback when the thumbnail/hero is an SVG.
+ * Extract the first raster image URL (jpg/png/webp/gif) from article content.
+ * Checks processed bodyHtml first (base64 already converted to storage URLs),
+ * then falls back to structuredContent and raw HTML. Used when thumbnail/hero is absent or SVG.
  */
 function extractFirstRasterImageFromContent(article) {
+  const rasterPattern = /src="(https?:\/\/[^"]+\.(?:jpg|jpeg|png|webp|gif)(?:[^"]*)?)"/i;
+
+  // Prefer the already-processed body HTML where base64 images have been uploaded
+  // to Supabase Storage and replaced with real URLs.
+  if (article._processedBodyHtml) {
+    const match = article._processedBodyHtml.match(rasterPattern);
+    if (match) return match[1];
+  }
+
+  // Fallback: scan structured content for non-base64, non-SVG image URLs.
   if (article.structuredContent) {
     try {
       const parsed = typeof article.structuredContent === 'string'
@@ -168,9 +179,11 @@ function extractFirstRasterImageFromContent(article) {
       }
     } catch { /* ignore parse errors */ }
   }
+
+  // Last resort: scan raw content HTML for any raster image src.
   const html = article.content || '';
   if (!html) return null;
-  const match = html.match(/src="(https?:\/\/[^"]+\.(?:jpg|jpeg|png|webp|gif)(?:[^"]*)?)"/i);
+  const match = html.match(rasterPattern);
   return match ? match[1] : null;
 }
 
@@ -1008,6 +1021,9 @@ async function main() {
       article.structuredContent = full.structuredContent;
     }
     let bodyHtml = await getArticleBodyHtml(article);
+    // Store processed bodyHtml so resolveBestThumbnailUrl can scan it for
+    // raster images when heroImageUrl/thumbnailUrl is absent or SVG-only.
+    article._processedBodyHtml = bodyHtml;
     const prev = i > 0 ? articles[i - 1] : null;
     const next = i < articles.length - 1 ? articles[i + 1] : null;
     const morePool = articles.filter((x) => x.id !== article.id);
