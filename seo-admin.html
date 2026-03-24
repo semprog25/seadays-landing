@@ -559,7 +559,7 @@
     var articlesCache = [];
 
     function loadArticlesForSeoAndBlog() {
-        api('/portside-articles?admin=1&limit=500').then(function (d) {
+        api('/portside-articles?admin=1&summary=1&limit=500').then(function (d) {
             articlesCache = d.articles || [];
             var sel = document.getElementById('seoArticlePick');
             sel.innerHTML = '<option value="">— Choose —</option>';
@@ -603,7 +603,7 @@
         if (cmsRole !== 'admin' && cmsRole !== 'moderator') return;
         var w = document.getElementById('blogTableWrap');
         w.innerHTML = '<p>Loading…</p>';
-        api('/portside-articles?admin=1&limit=500').then(function (d) {
+        api('/portside-articles?admin=1&summary=1&limit=500').then(function (d) {
             var rows = (d.articles || []).map(function (a) {
                 var live = a.showOnWebsite !== false;
                 var title = (a.title || a.id).replace(/</g, '&lt;');
