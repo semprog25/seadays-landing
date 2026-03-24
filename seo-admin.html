@@ -634,6 +634,7 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ showOnWebsite: false })
                     }).then(function () { toast('Hidden from site'); loadBlogTable(); }).catch(function (e) { toast(e.message, true); });
+                };
             });
         }).catch(function (e) {
             w.innerHTML = '<p style="color:var(--accent)">' + e.message + '</p>';
