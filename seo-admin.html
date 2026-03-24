@@ -188,7 +188,16 @@
                     <input type="text" id="artSeoCanon">
                     <label>og:image URL</label>
                     <input type="text" id="artSeoOg">
-                    <button type="button" class="btn btn-primary" id="btnSaveArtSeo">Save article SEO</button>
+                    <div class="row-actions" style="margin-top:16px;">
+                        <button type="button" class="btn btn-secondary" id="btnGenerateArtSeo">Generate from article</button>
+                        <button type="button" class="btn btn-secondary" id="btnPreviewArtSeo">Preview SEO tags</button>
+                        <button type="button" class="btn btn-secondary" id="btnCopyArtSeo">Copy meta tags</button>
+                        <button type="button" class="btn btn-primary" id="btnSaveArtSeo">Save article SEO</button>
+                    </div>
+                    <div id="articleSeoPreview" class="hidden" style="margin-top:16px;">
+                        <label>Generated meta tags (Article SEO)</label>
+                        <pre id="articleSeoPreviewContent" style="white-space:pre-wrap;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;overflow:auto;"></pre>
+                    </div>
                 </div>
                 </div>
             </section>
@@ -369,6 +378,31 @@
         document.querySelectorAll('.nav-btn[data-view]').forEach(function (b) {
             b.setAttribute('aria-current', b.getAttribute('data-view') === name ? 'true' : 'false');
         });
+    }
+
+    function stripHtml(html) {
+        return String(html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    function buildArticleCanonical(article, articleId) {
+        if (article && article.slug) return 'https://seadays.app/blog/' + encodeURIComponent(article.slug) + '/';
+        return 'https://seadays.app/blog-article.html?id=' + encodeURIComponent(articleId);
+    }
+
+    function getArticleSeoTagsHtml() {
+        var title = document.getElementById('artSeoTitle').value.trim();
+        var description = document.getElementById('artSeoDesc').value.trim();
+        var canonical = document.getElementById('artSeoCanon').value.trim();
+        var ogImage = document.getElementById('artSeoOg').value.trim();
+        var lines = [];
+        if (title) lines.push('<title>' + title + '</title>');
+        if (description) lines.push('<meta name="description" content="' + description + '">');
+        if (canonical) lines.push('<link rel="canonical" href="' + canonical + '">');
+        if (title) lines.push('<meta property="og:title" content="' + title + '">');
+        if (description) lines.push('<meta property="og:description" content="' + description + '">');
+        if (canonical) lines.push('<meta property="og:url" content="' + canonical + '">');
+        if (ogImage) lines.push('<meta property="og:image" content="' + ogImage + '">');
+        return lines.join('\n');
     }
 
     var cmsRole = null;
@@ -582,6 +616,50 @@
             document.getElementById('artSeoCanon').value = s.canonicalUrl || '';
             document.getElementById('artSeoOg').value = s.ogImage || '';
         }).catch(function () {});
+    };
+
+    document.getElementById('btnGenerateArtSeo').onclick = function () {
+        var id = document.getElementById('seoArticlePick').value;
+        if (!id) return toast('Pick an article first', true);
+        var article = articlesCache.find(function (entry) { return entry && entry.id === id; });
+        var fillFromArticle = function (fullArticle) {
+            var source = fullArticle || article || {};
+            var metaDescription = source.excerpt || stripHtml(source.content || '');
+            if (metaDescription.length > 155) metaDescription = metaDescription.slice(0, 152).trim() + '...';
+            document.getElementById('artSeoTitle').value = source.title || '';
+            document.getElementById('artSeoDesc').value = metaDescription || '';
+            document.getElementById('artSeoCanon').value = buildArticleCanonical(source, id);
+            document.getElementById('artSeoOg').value = source.heroImageUrl || source.thumbnailUrl || '';
+            toast('Article SEO fields generated');
+        };
+        if (article && (article.excerpt || article.title || article.slug || article.heroImageUrl || article.thumbnailUrl)) {
+            fillFromArticle(article);
+            return;
+        }
+        api('/portside-articles/' + encodeURIComponent(id)).then(function (d) {
+            fillFromArticle(d.article || d || {});
+        }).catch(function (e) {
+            toast(e.message || 'Could not load article', true);
+        });
+    };
+
+    document.getElementById('btnPreviewArtSeo').onclick = function () {
+        var preview = document.getElementById('articleSeoPreview');
+        var content = document.getElementById('articleSeoPreviewContent');
+        var tags = getArticleSeoTagsHtml();
+        if (!tags) return toast('Generate or enter SEO fields first', true);
+        content.textContent = tags;
+        preview.classList.toggle('hidden');
+    };
+
+    document.getElementById('btnCopyArtSeo').onclick = function () {
+        var tags = getArticleSeoTagsHtml();
+        if (!tags) return toast('Generate or enter SEO fields first', true);
+        navigator.clipboard.writeText(tags).then(function () {
+            toast('Article SEO tags copied');
+        }).catch(function () {
+            toast('Could not copy meta tags', true);
+        });
     };
 
     document.getElementById('btnSaveArtSeo').onclick = function () {
