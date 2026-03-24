@@ -52,6 +52,25 @@ const LOGO_URL = 'https://seadays.app/logo.png';
 const CDN_SITE_ORIGIN = 'https://cdn.seadays.app';
 /** Supabase bucket for portside images served outside the SeadaysPublic/portside/ path. */
 const PORTSIDE_IMAGES_BUCKET = 'make-51d3ca8d-portside-images';
+const SITEMAP_HTML_EXCLUDE = new Set([
+  'seo-admin.html',
+  'waitlist-admin.html',
+  'blog-article.html',
+]);
+const SITEMAP_PAGE_META = {
+  'index.html': { changefreq: 'weekly', priority: '1.0' },
+  'landing-page.html': { changefreq: 'weekly', priority: '0.8' },
+  'blog.html': { changefreq: 'daily', priority: '0.9' },
+  'about.html': { changefreq: 'monthly', priority: '0.6' },
+  'community.html': { changefreq: 'monthly', priority: '0.6' },
+  'contact.html': { changefreq: 'monthly', priority: '0.5' },
+  'faq.html': { changefreq: 'monthly', priority: '0.5' },
+  'help.html': { changefreq: 'monthly', priority: '0.5' },
+  'terms.html': { changefreq: 'yearly', priority: '0.3' },
+  'privacy.html': { changefreq: 'yearly', priority: '0.3' },
+  'cookies.html': { changefreq: 'yearly', priority: '0.3' },
+  'gdpr.html': { changefreq: 'yearly', priority: '0.3' },
+};
 
 // ---------------------------------------------------------------------------
 // Base64 image upload (optional; requires SUPABASE_SERVICE_ROLE_KEY)
@@ -412,6 +431,26 @@ function buildRedirectPage(slug) {
     '<script>window.location.replace("' + target.replace(/"/g, '\\"') + '");</script>' +
     '<p>Redirecting to <a href="' + escapeHtml(target) + '">article</a>...</p></body></html>'
   );
+}
+
+function listSitemapHtmlEntries(repoRoot) {
+  let files = [];
+  try {
+    files = fs.readdirSync(repoRoot).filter((name) => name.toLowerCase().endsWith('.html'));
+  } catch {
+    return [];
+  }
+  const entries = [];
+  for (const filename of files) {
+    if (SITEMAP_HTML_EXCLUDE.has(filename)) continue;
+    const pageMeta = SITEMAP_PAGE_META[filename] || { changefreq: 'monthly', priority: '0.4' };
+    entries.push({
+      loc: BASE_URL + '/' + filename,
+      changefreq: pageMeta.changefreq,
+      priority: pageMeta.priority,
+    });
+  }
+  return entries.sort((a, b) => a.loc.localeCompare(b.loc));
 }
 
 /**
@@ -1550,9 +1589,8 @@ async function main() {
 
   const staticUrls = [
     { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0' },
-    { loc: BASE_URL + '/index.html', changefreq: 'weekly', priority: '1.0' },
     { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9' },
-    { loc: BASE_URL + '/landing-page.html', changefreq: 'weekly', priority: '0.8' },
+    ...listSitemapHtmlEntries(repoRoot),
   ];
   let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   const seenUrls = new Set();
