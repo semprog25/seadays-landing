@@ -21,6 +21,12 @@ This document describes the static blog generation system that pre-renders blog 
 npm run generate-blogs
 ```
 
+If you use the **SeaDays app monorepo** (app + `seadays-landing/` subfolder), you can run from the **app repo root**:
+
+```bash
+npm run generate-blogs
+```
+
 Or directly:
 
 ```bash
@@ -77,6 +83,46 @@ Article images may be stored as base64 in Supabase. The generator:
 - **Fallback**: Upload failure → remove image (never breaks build)
 
 All images get `loading="lazy"` and `decoding="async"`. No base64 remains in final HTML.
+
+## Image pipeline and fixes (March 2026)
+
+This section records how **broken or wrong blog card / hero images** on `seadays.app` were fixed and how to avoid regressions. There is no separate database table for this — behavior lives in **`scripts/generateBlogs.js`** and the Portside edge function.
+
+### Symptoms
+
+- Thumbnails on `/blog/` or the home page showed the **wrong** image, a **generic** image, or **inconsistent** images vs the app.
+- **GitHub Actions** failed at **post-build validation** with `HTTP 400` when checking image URLs.
+
+### Root causes
+
+1. **CDN → Storage path without bucket segment**  
+   The API sometimes returns `https://cdn.seadays.app/portside/{file}.jpg` (folder `portside` under the CDN host) instead of `cdn.seadays.app/SeadaysPublic/portside/...`.  
+   Naïvely mapping to `https://auth.seadays.app/storage/v1/object/public/portside/...` makes **`portside` the Supabase bucket name**, which is invalid. Objects live under bucket **`SeadaysPublic`**, path `portside/...`.
+
+2. **Gradient SVG “placeholder” thumbnails**  
+   When an article had no real `thumbnailUrl` / `heroImageUrl`, the edge resolver could expose a **small SVG gradient** data URL as the summary thumbnail. The generator treated it as a real image; after SVG validation it fell back to the **first body image**, which is not always the intended cover.
+
+3. **POST `/portside-articles/thumbnails` not used for “SVG-only” summaries**  
+   Articles whose only summary thumbnail was that SVG needed to be included in the thumbnail merge batch so the real raster URL from KV could be applied.
+
+4. **CI HTTP checks**  
+   **HEAD** (and some **ranged GET**) requests to `auth.seadays.app` returned **400** even for valid public objects; **plain GET** succeeds.
+
+### Fixes implemented (in `generateBlogs.js`)
+
+| Area | What we did |
+|------|----------------|
+| **CDN / Storage URLs** | `ensureSeadaysPublicBucketInObjectPath`: if the path starts with `portside/` or `blog-images/` and not already `SeadaysPublic/`, prepend **`SeadaysPublic/`**. Applied in `cdnToDirectStorageUrl` and `normalizeAuthStoragePublicUrl`. |
+| **Resolution** | `resolveImageUrl` ends with `normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(...))` so emitted HTML uses correct public URLs. |
+| **Gradient SVG** | `isGradientSvgDataUrl` + skip in `pickCardImage`; merge thumbnails for articles whose only “image” was a gradient SVG; optional backfill from full article fetch. |
+| **Validation** | `httpCheck`: HEAD once, then **GET** (no `Range` by default). Normalize URLs before checking. |
+| **App repo** | Root `package.json` script `generate-blogs` → `npm run generate-blogs --prefix seadays-landing` so you can run from the monorepo root. |
+
+### Operational notes
+
+- **Run**: `npm run generate-blogs` from the **app** repo root, or `cd seadays-landing && npm run generate-blogs`.
+- **Secrets**: `SUPABASE_ANON_KEY` required; `SUPABASE_SERVICE_ROLE_KEY` optional (base64 → Storage upload).
+- **Landing repo**: Deploy only from **`seadays-landing`** (separate GitHub); do not push app code to the landing remote (see `.cursorrules`).
 
 ## Contextual Internal Links
 
