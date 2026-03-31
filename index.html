@@ -1090,6 +1090,38 @@
             line-height: 1.7;
             text-align: center;
         }
+        .passport-split {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+            gap: 64px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .passport-copy {
+            min-width: 0;
+            text-align: left;
+        }
+        .passport-copy .passport-explainer {
+            max-width: 620px;
+            margin: 0;
+            text-align: left;
+        }
+        .passport-cta-row {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .passport-secondary-note {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            margin-top: 14px;
+            max-width: 520px;
+        }
         .passport-stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -1289,7 +1321,166 @@
             background: #ff1a4d;
             transform: translateY(-1px);
         }
+        .passport-livecard-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .passport-preview-livecard {
+            width: 100%;
+            max-width: 420px;
+            margin: 0;
+            background: linear-gradient(180deg, #0b0f1a 0%, #020617 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.70);
+        }
+        .passport-livecard-inner {
+            padding: 28px;
+            padding-bottom: 92px;
+            min-width: 0;
+        }
+        .passport-livecard-appmark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            min-width: 0;
+        }
+        .passport-livecard-appicon {
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            display: block;
+            flex-shrink: 0;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+        }
+        .passport-livecard-appname {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: rgba(248, 250, 252, 0.98);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .passport-livecard-level {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(71, 85, 105, 1);
+            opacity: 0.95;
+            margin: 8px 0 0;
+        }
+        .passport-livecard-rank {
+            margin: 8px 0 0;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: rgba(248, 250, 252, 0.98);
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+        .passport-livecard-sub {
+            margin: 8px 0 0;
+            font-size: 12px;
+            color: rgba(148, 163, 184, 0.95);
+            line-height: 1.4;
+        }
+        .passport-livecard-stats {
+            margin-top: 22px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 8px;
+            text-align: center;
+        }
+        .passport-livecard-statValue {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(248, 250, 252, 0.98);
+            font-variant-numeric: tabular-nums;
+        }
+        .passport-livecard-statLabel {
+            margin-top: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(71, 85, 105, 1);
+        }
+        .passport-livecard-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .passport-livecard-sectionTitle {
+            margin: 0 0 10px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(71, 85, 105, 1);
+        }
+        .passport-livecard-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .passport-livecard-chip {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(203, 213, 225, 0.98);
+            line-height: 1.4;
+            white-space: nowrap;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .passport-livecard-footer {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+        }
+        .passport-livecard-seaDays {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(226, 232, 240, 0.98);
+            font-variant-numeric: tabular-nums;
+            line-height: 1.1;
+        }
+        .passport-livecard-shipLine {
+            margin: 6px 0 0;
+            font-size: 12px;
+            color: rgba(148, 163, 184, 0.95);
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+        .passport-livecard-watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 70px;
+            opacity: 0.90;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.30));
+            pointer-events: none;
+        }
         @media (max-width: 768px) {
+            .passport-split { grid-template-columns: 1fr; gap: 32px; }
+            .passport-copy { text-align: center; }
+            .passport-copy .passport-explainer { margin: 0 auto; text-align: center; }
+            .passport-cta-row { justify-content: center; }
+            .passport-livecard-right { justify-content: center; }
             .passport-stats-grid { grid-template-columns: repeat(2, 1fr); }
             .passport-hero-image { max-width: 100%; margin-bottom: 24px; border-radius: 16px; }
             .passport-preview-card { margin: 0 auto 20px; padding: 20px 16px; border-radius: 20px; }
@@ -1301,6 +1492,10 @@
         }
         @media (max-width: 480px) {
             .passport-preview-stats { grid-template-columns: 1fr; }
+            .passport-livecard-inner { padding: 22px; padding-bottom: 92px; }
+            .passport-livecard-rank { font-size: 28px; }
+            .passport-livecard-statValue { font-size: 22px; }
+            .passport-livecard-chip { font-size: 12px; padding: 6px 12px; }
         }
 
         /* Feature detail modal */
@@ -1861,48 +2056,88 @@
             <div class="container">
                 <h2 id="cruise-passport-title" class="section-title">Cruise Passport</h2>
                 <p class="section-subtitle">Your personal cruise history, built automatically.</p>
-                <div class="passport-explainer">
-                    <p>
-                        The SeaDays Cruise Passport automatically builds your personal cruising history.
-                        Every voyage you take, every ship you sail on, and every port you visit becomes part of your digital passport.
-                    </p>
-                    <p>
-                        Track your cruise stats, unlock achievements, and share your progress with the SeaDays community.
-                        Your Cruise Passport shows your voyages, ships sailed, ports visited, and cruise lines traveled — all in one place.
-                    </p>
+                <div class="passport-split">
+                    <div class="passport-copy">
+                        <div class="passport-explainer">
+                            <p>
+                                The SeaDays Cruise Passport automatically builds your personal cruising history.
+                                Every voyage you take, every ship you sail on, and every port you visit becomes part of your digital passport.
+                            </p>
+                            <p>
+                                Track your cruise stats, unlock achievements, and share your progress with the SeaDays community.
+                                Your Cruise Passport shows your voyages, ships sailed, ports visited, and cruise lines traveled — all in one place.
+                            </p>
+                        </div>
+                        <p class="passport-secondary-note">
+                            The card shown here is a preview of the shareable Cruise Passport you can export from the app.
+                        </p>
+                        <div class="passport-cta-row">
+                            <a href="#home" class="btn-primary" aria-label="Download SeaDays to share your Cruise Passport">Download SeaDays</a>
+                            <a href="#home" class="btn-secondary" aria-label="Share your Cruise Passport">Share your passport</a>
+                        </div>
+                    </div>
+
+                    <div class="passport-livecard-right">
+                        <div class="passport-preview-livecard" role="img" aria-label="Example Cruise Passport card – Cruise Level Able Seaman, 3 voyages, 6 ports, 2 ships, countries visited and ships list, 60 sea days">
+                            <div class="passport-livecard-inner">
+                                <div class="passport-livecard-appmark" aria-hidden="true">
+                                    <img class="passport-livecard-appicon" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png" alt="" loading="lazy" decoding="async">
+                                    <span class="passport-livecard-appname">Seadays</span>
+                                </div>
+
+                                <p class="passport-livecard-level">Cruise Level</p>
+                                <p class="passport-livecard-rank">Able Seaman</p>
+                                <p class="passport-livecard-sub">Your cruise journey at a glance</p>
+
+                                <div class="passport-livecard-stats" aria-label="Passport statistics">
+                                    <div>
+                                        <div class="passport-livecard-statValue">3</div>
+                                        <div class="passport-livecard-statLabel">Voyages</div>
+                                    </div>
+                                    <div>
+                                        <div class="passport-livecard-statValue">6</div>
+                                        <div class="passport-livecard-statLabel">Ports</div>
+                                    </div>
+                                    <div>
+                                        <div class="passport-livecard-statValue">2</div>
+                                        <div class="passport-livecard-statLabel">Ships</div>
+                                    </div>
+                                </div>
+
+                                <div class="passport-livecard-section">
+                                    <p class="passport-livecard-sectionTitle">Countries Visited</p>
+                                    <div class="passport-livecard-chips" aria-label="Countries visited">
+                                        <span class="passport-livecard-chip">Germany</span>
+                                        <span class="passport-livecard-chip">France</span>
+                                        <span class="passport-livecard-chip">Norway</span>
+                                        <span class="passport-livecard-chip">Netherlands</span>
+                                    </div>
+                                </div>
+
+                                <div class="passport-livecard-section">
+                                    <p class="passport-livecard-sectionTitle">Ships</p>
+                                    <div class="passport-livecard-chips" aria-label="Ships sailed">
+                                        <span class="passport-livecard-chip">AIDACosma</span>
+                                        <span class="passport-livecard-chip">AIDAPrima</span>
+                                    </div>
+                                </div>
+
+                                <div class="passport-livecard-footer">
+                                    <p class="passport-livecard-seaDays">60 Sea Days</p>
+                                    <p class="passport-livecard-shipLine">AIDACosma</p>
+                                </div>
+                            </div>
+
+                            <img
+                                class="passport-livecard-watermark"
+                                src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"
+                                alt=""
+                                loading="lazy"
+                                decoding="async"
+                            >
+                        </div>
+                    </div>
                 </div>
-                <div class="passport-preview-card" role="img" aria-label="Example Cruise Passport share card – Captain Alex, 12 voyages, 7 ships, 18 ports, 4 cruise lines, with achievement badges">
-                    <div class="passport-preview-header">
-                        <div class="passport-preview-avatar" aria-hidden="true"></div>
-                        <span class="passport-preview-username">Captain Alex</span>
-                        <span class="passport-preview-label">SeaDays Cruise Passport</span>
-                    </div>
-                    <div class="passport-preview-stats" aria-label="Passport statistics">
-                        <div class="stat-cell">
-                            <span class="stat-value">12</span>
-                            <span class="stat-label">Voyages</span>
-                        </div>
-                        <div class="stat-cell">
-                            <span class="stat-value">7</span>
-                            <span class="stat-label">Ships</span>
-                        </div>
-                        <div class="stat-cell">
-                            <span class="stat-value">18</span>
-                            <span class="stat-label">Ports</span>
-                        </div>
-                        <div class="stat-cell">
-                            <span class="stat-value">4</span>
-                            <span class="stat-label">Cruise Lines</span>
-                        </div>
-                    </div>
-                    <div class="passport-preview-badges" aria-label="Achievement badges">
-                        <span class="badge-pill">First Voyage</span>
-                        <span class="badge-pill">Port Explorer</span>
-                        <span class="badge-pill">Ship Collector</span>
-                        <span class="badge-pill">Sea Day Champion</span>
-                    </div>
-                </div>
-                <a href="#home" class="passport-preview-share" aria-label="Share your Cruise Passport">Share Passport</a>
             </div>
         </section>
 
