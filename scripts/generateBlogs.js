@@ -15,6 +15,19 @@
 'use strict';
 
 require('dotenv').config();
+const { injectKeywordLinksIntoBodyHtml } = require('./lib/seoKeywordLinks');
+const {
+  buildSeoShipRecords,
+  buildSeoPortRecords,
+  buildShipDetailHtml,
+  buildPortDetailHtml,
+  pickRelatedShips,
+  pickRelatedPorts,
+  pickPortsForShipPage,
+  pickShipsForPortPage,
+  pickBlogArticlesForEntity,
+} = require('./lib/seoShipPortPages');
+const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
@@ -26,6 +39,16 @@ const BLOG_IMAGES_BUCKET = 'SeadaysPublic';
 const BLOG_IMAGES_PREFIX = 'blog-images';
 const EDGE_BASE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
 const BASE_URL = 'https://seadays.app';
+
+/** Canonical blog article URL — always trailing slash */
+function blogCanonicalUrl(slug) {
+  return `${BASE_URL}/blog/${slug}/`;
+}
+
+/** Root-relative article path for internal links */
+function blogRelPath(slug) {
+  return `/blog/${slug}/`;
+}
 const DEFAULT_FAVICON = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
 /**
  * Ultimate fallback shown when every image resolution strategy fails.
@@ -139,9 +162,23 @@ function ensureSeadaysPublicBucketInObjectPath(objectPathNoQuery) {
  *   cdn.seadays.app/portside/...
  * which would wrongly map to .../public/portside/... (invalid bucket "portside").
  */
+/**
+ * Normalize image URLs from CMS/edge (protocol-relative, bare host, http) before CDN→storage rewrite.
+ */
+function normalizeUrlForCdnRewrite(url) {
+  if (!url || typeof url !== 'string') return url;
+  let t = url.trim();
+  if (t.startsWith('//')) return `https:${t}`;
+  if (t.startsWith('http://')) return `https://${t.slice(7)}`;
+  if (/^cdn\.seadays\.app\//i.test(t)) return `https://${t}`;
+  return t;
+}
+
 function cdnToDirectStorageUrl(url) {
-  if (!url || !url.startsWith(`${CDN_SITE_ORIGIN}/`)) return url;
-  const rest = url.slice(`${CDN_SITE_ORIGIN}/`.length);
+  const normalized = normalizeUrlForCdnRewrite(url);
+  const u = typeof normalized === 'string' ? normalized : url;
+  if (!u || !u.startsWith(`${CDN_SITE_ORIGIN}/`)) return u;
+  const rest = u.slice(`${CDN_SITE_ORIGIN}/`.length);
   const qIdx = rest.indexOf('?');
   const pathPart = (qIdx === -1 ? rest : rest.slice(0, qIdx)).replace(/^\/+/, '');
   const query = qIdx === -1 ? '' : rest.slice(qIdx);
@@ -180,7 +217,7 @@ async function resolveImageUrl(url, articleId, index = 0) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
   if (!trimmed.startsWith('data:image')) {
-    const httpsUrl = trimmed.startsWith('http://') ? trimmed.replace(/^http:\/\//, 'https://') : trimmed;
+    const httpsUrl = normalizeUrlForCdnRewrite(trimmed);
     return normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(httpsUrl));
   }
   const uploaded = await uploadBase64ToStorage(trimmed, articleId, index);
@@ -394,6 +431,24 @@ function escapeHtml(s) {
     .replace(/'/g, '&#39;');
 }
 
+/**
+ * Final pass: rewrite cdn.seadays.app in <img src> to direct Supabase storage URLs.
+ * Catches tags missed by replaceBase64ImagesInHtml (odd attribute spacing, protocol-relative src, etc.).
+ */
+function rewriteCdnImgSrcAttributes(html) {
+  if (!html || typeof html !== 'string' || !html.includes('cdn.seadays.app')) return html;
+  return html.replace(/<img\b[^>]*>/gi, (tag) => {
+    if (!tag.includes('cdn.seadays.app')) return tag;
+    return tag.replace(
+      /\bsrc\s*=\s*(["'])((?:https?:)?\/\/cdn\.seadays\.app\/[^"']+)\1/gi,
+      (_m, q, rawUrl) => {
+        const direct = normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(normalizeUrlForCdnRewrite(rawUrl)));
+        return `src=${q}${escapeHtml(direct)}${q}`;
+      }
+    );
+  });
+}
+
 function escapeXml(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -403,10 +458,20 @@ function escapeXml(s) {
     .replace(/'/g, '&apos;');
 }
 
+function sitemapUrlLine(loc, changefreq, priority, lastmod) {
+  let line = '  <url><loc>' + escapeXml(loc) + '</loc>';
+  if (lastmod) line += '<lastmod>' + escapeXml(lastmod) + '</lastmod>';
+  line += '<changefreq>' + changefreq + '</changefreq><priority>' + priority + '</priority></url>\n';
+  return line;
+}
+
 function buildRedirectPage(slug) {
   const target = '/blog/' + encodeURI(slug) + '/';
+  const canonical = blogCanonicalUrl(slug);
   return (
     '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<meta name="robots" content="noindex, nofollow, noarchive">' +
+    '<link rel="canonical" href="' + escapeHtml(canonical) + '">' +
     '<meta http-equiv="refresh" content="0;url=' + escapeHtml(target) + '">' +
     '<title>Redirect</title></head><body>' +
     '<script>window.location.replace("' + target.replace(/"/g, '\\"') + '");</script>' +
@@ -512,16 +577,11 @@ async function structuredContentToHtml(article) {
       } else if (block.type === 'image' && block.images?.length) {
         for (const img of block.images) {
           if (img?.url) {
-            let src = img.url;
-            if (src.startsWith('data:image')) {
-              const uploaded = await uploadBase64ToStorage(src, articleId, imgIndex++);
-              if (uploaded) src = uploaded;
-              else continue;
-            }
+            const src = await resolveImageUrl(img.url, articleId, imgIndex++);
+            if (!src || isSvgUrl(src)) continue;
             const alt = escapeHtml(img.alt || img.caption || section.heading || 'Article image');
             const cap = img.caption ? `<figcaption>${escapeHtml(img.caption)}</figcaption>` : '';
-            const safeSrc = src.startsWith('http://') ? src.replace(/^http:\/\//, 'https://') : src;
-            parts.push(`<figure><img src="${escapeHtml(safeSrc)}" alt="${alt}" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:12px;">${cap}</figure>`);
+            parts.push(`<figure><img src="${escapeHtml(src)}" alt="${alt}" loading="lazy" decoding="async" style="max-width:100%;height:auto;border-radius:12px;">${cap}</figure>`);
           }
         }
       } else if (block.type === 'table' && block.headers?.length) {
@@ -548,21 +608,18 @@ async function structuredContentToHtml(article) {
  * Ensures loading="lazy" on all img tags.
  */
 async function replaceBase64ImagesInHtml(html, articleId) {
-  const regex = /<img([^>]*)\ssrc=["'](data:image\/[^"']+)["']([^>]*)>/gi;
+  const regex = /<img([^>]*)\ssrc\s*=\s*["']([^"']+)["']([^>]*)>/gi;
   let match;
   const replacements = [];
   while ((match = regex.exec(html)) !== null) {
-    const [full, before, dataUrl, after] = match;
-    const uploaded = await uploadBase64ToStorage(dataUrl, articleId, replacements.length);
-    if (uploaded) imageStats.uploaded++;
-    else imageStats.removed++;
+    const [full, before, rawSrc, after] = match;
+    const resolved = await resolveImageUrl(rawSrc, articleId, replacements.length);
     const hasLazy = /loading\s*=\s*["']lazy["']/i.test(before + after);
     const hasDecoding = /decoding\s*=\s*["']async["']/i.test(before + after);
     const lazyAttr = hasLazy ? '' : ' loading="lazy"';
     const decodingAttr = hasDecoding ? '' : ' decoding="async"';
-    if (uploaded) {
-      const safeUrl = uploaded.startsWith('http://') ? uploaded.replace(/^http:\/\//, 'https://') : uploaded;
-      replacements.push({ full, replacement: `<img${before} src="${escapeHtml(safeUrl)}"${lazyAttr}${decodingAttr}${after}>` });
+    if (resolved && !isSvgUrl(resolved)) {
+      replacements.push({ full, replacement: `<img${before} src="${escapeHtml(resolved)}"${lazyAttr}${decodingAttr}${after}>` });
     } else {
       replacements.push({ full, replacement: '' });
     }
@@ -574,7 +631,7 @@ async function replaceBase64ImagesInHtml(html, articleId) {
   result = result.replace(/<img(?![^>]*\bloading\s*=)([^>]*)>/gi, '<img$1 loading="lazy">');
   result = result.replace(/<img(?![^>]*\bdecoding\s*=)([^>]*)>/gi, '<img$1 decoding="async">');
   result = stripBase64FromHtml(result);
-  return result;
+  return rewriteCdnImgSrcAttributes(result);
 }
 
 function stripBase64FromHtml(html) {
@@ -597,7 +654,7 @@ async function getArticleBodyHtml(article) {
     if (content.trim().startsWith('<')) {
       return await replaceBase64ImagesInHtml(content, article.id || 'unknown');
     }
-    return formatContentToHtml(content);
+    return rewriteCdnImgSrcAttributes(formatContentToHtml(content));
   }
   return '<p>No content available.</p>';
 }
@@ -655,10 +712,67 @@ function findRelatedArticles(article, allArticles, excludeIds, maxCount = 4) {
   return scored;
 }
 
+function findSameTagArticles(article, allArticles, maxCount = 5) {
+  const tags = (article.tags || [])
+    .map((t) => (typeof t === 'string' ? t.toLowerCase() : String(t?.name || '').toLowerCase()))
+    .filter(Boolean);
+  if (!tags.length) return [];
+  return allArticles
+    .filter((a) => {
+      if (a.id === article.id) return false;
+      const atags = (a.tags || []).map((t) => (typeof t === 'string' ? t.toLowerCase() : String(t?.name || '').toLowerCase()));
+      return atags.some((t) => tags.includes(t));
+    })
+    .slice(0, maxCount);
+}
+
+function buildExploreSeaDaysSection() {
+  return (
+    '<section class="explore-seadays" aria-labelledby="explore-seadays-h">' +
+    '<h2 id="explore-seadays-h">Explore more on SeaDays</h2>' +
+    '<ul class="explore-seadays-list">' +
+    '<li><a href="/blog/" class="explore-seadays-link">SeaDays blog — cruise tips &amp; guides</a></li>' +
+    '<li><a href="/ships/" class="explore-seadays-link">Cruise ships — browse lines &amp; classes</a></li>' +
+    '<li><a href="/ports/" class="explore-seadays-link">Ports &amp; destinations — plan your itinerary</a></li>' +
+    '</ul></section>'
+  );
+}
+
+function buildSameTopicSection(article, sameTagArticles) {
+  if (!sameTagArticles.length) return '';
+  const items = sameTagArticles
+    .map(
+      (a) =>
+        `<li><a href="${blogRelPath(a.slug)}" class="contextual-link">${escapeHtml(a.title || 'Article')}</a></li>`
+    )
+    .join('');
+  return (
+    '<section class="same-topic-section" aria-labelledby="same-topic-h">' +
+    '<h2 id="same-topic-h">More on this topic</h2>' +
+    '<ul class="same-topic-list">' +
+    items +
+    '</ul></section>'
+  );
+}
+
+function selectMoreToReadArticles(article, articles, maxCount = 12) {
+  const exclude = new Set([article.id]);
+  const scored = findRelatedArticles(article, articles, exclude, Math.max(8, maxCount));
+  scored.forEach((a) => exclude.add(a.id));
+  const merged = [...scored];
+  for (const a of articles) {
+    if (merged.length >= maxCount) break;
+    if (exclude.has(a.id)) continue;
+    merged.push(a);
+    exclude.add(a.id);
+  }
+  return merged.slice(0, maxCount);
+}
+
 function injectContextualLinks(bodyHtml, relatedArticles, maxLinks = 4) {
   if (!relatedArticles.length || !bodyHtml) return bodyHtml;
   const links = relatedArticles.slice(0, maxLinks).map(
-    (a) => `<a href="/blog/${a.slug}" class="contextual-link">${escapeHtml(a.title || 'Read more')}</a>`
+    (a) => `<a href="${blogRelPath(a.slug)}" class="contextual-link">${escapeHtml(a.title || 'Read more')}</a>`
   );
   const linkBlock = `<p class="related-inline">Related: ${links.join(' · ')}</p>`;
   const re = /(<\/p>\s*)/gi;
@@ -807,6 +921,222 @@ async function fetchFullArticle(articleId) {
   }
 }
 
+let reviewsShipsPortsCache = null;
+async function fetchReviewsShipsPorts() {
+  if (reviewsShipsPortsCache) return reviewsShipsPortsCache;
+  const key = process.env.SUPABASE_ANON_KEY;
+  if (!key) {
+    reviewsShipsPortsCache = { ships: [], ports: [] };
+    return reviewsShipsPortsCache;
+  }
+  try {
+    const [shipsRes, portsRes] = await Promise.all([
+      httpsGet(EDGE_BASE + '/reviews/ships', { Authorization: 'Bearer ' + key, apikey: key }),
+      httpsGet(EDGE_BASE + '/reviews/ports', { Authorization: 'Bearer ' + key, apikey: key }),
+    ]);
+    reviewsShipsPortsCache = {
+      ships: Array.isArray(shipsRes.ships) ? shipsRes.ships : [],
+      ports: Array.isArray(portsRes.ports) ? portsRes.ports : [],
+    };
+    return reviewsShipsPortsCache;
+  } catch (e) {
+    console.warn('[generateBlogs] ships/ports API:', e?.message || e);
+    reviewsShipsPortsCache = { ships: [], ports: [] };
+    return reviewsShipsPortsCache;
+  }
+}
+
+function buildDirectoryHeaderNav() {
+  return `<nav class="header-nav">
+        <a href="/index.html">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/ships/">Ships</a>
+        <a href="/ports/">Ports</a>
+        <a href="https://seadays.app/privacy.html">Privacy</a>
+        <a href="https://seadays.app/terms.html">Terms</a>
+      </nav>`;
+}
+
+function buildShipsIndexHtml(items) {
+  const canonical = `${BASE_URL}/ships/`;
+  const title = 'Cruise Ships Directory | SeaDays';
+  const desc =
+    'Browse major cruise ships and lines featured in SeaDays. Compare classes, plan sailings, and jump into the mobile app for live ship data, reviews, and itineraries.';
+  const grid = items
+    .map(
+      (it) =>
+        `<a href="/ships/${escapeHtml(it.slug)}/" class="seo-grid-card"><span class="seo-grid-card-title">${escapeHtml(it.name)}</span><span class="seo-grid-card-hint">Read ship guide</span></a>`
+    )
+    .join('\n');
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="${escapeHtml(desc)}">
+  <title>${escapeHtml(title)}</title>
+  <link rel="canonical" href="${canonical}">
+  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(desc)}">
+  <meta property="og:image" content="${DEFAULT_FAVICON}">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="${canonical}">
+  <meta property="twitter:title" content="${escapeHtml(title)}">
+  <meta property="twitter:description" content="${escapeHtml(desc)}">
+  <meta property="twitter:image" content="${DEFAULT_FAVICON}">
+  <script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Cruise ships',
+    description: desc,
+    url: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'SeaDays', url: BASE_URL + '/' },
+  })}</script>
+  <style>${INDEX_STYLES}
+.seo-prose { max-width: 800px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
+.seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
+.seo-prose p { margin-bottom: 18px; }
+.seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
+.seo-prose a:hover { text-decoration: underline; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
+.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
+.seo-grid-card-title { font-weight: 700; font-size: 16px; }
+.seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.45); }
+.header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+  <div class="starfield" id="starfield"></div>
+  <div class="grid-overlay"></div>
+  <div class="content-layer">
+    <header class="header">${buildDirectoryHeaderNav()}</header>
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Cruise ships</h1>
+        <p>Lines, classes, and vessels cruisers care about—curated for discovery.</p>
+      </div>
+    </section>
+    <article class="seo-prose">
+      <h2>Why a ships hub matters for cruise planning</h2>
+      <p>Choosing a cruise is rarely only about price. The ship shapes daily life at sea: dining venues, cabin categories, entertainment, kids clubs, and how crowded common spaces feel. SeaDays brings structured ship and line information together so you can compare options without losing the story of what makes each vessel different.</p>
+      <p>Whether you are evaluating <a href="/blog/">Royal Caribbean versus MSC</a> for a family sailing, or researching <a href="/ports/">Mediterranean embarkation ports</a> before you lock flights, starting from the ship helps you align nights at sea with the regions you want to explore.</p>
+      <h2>How to use this directory</h2>
+      <p>Each card links to a static ship guide you can bookmark or share. For deck plans, live ship data, and community reviews, open the SeaDays app—download from the homepage and sign in to sync your preferences across devices.</p>
+      <p>For itinerary inspiration, pair this list with our <a href="/blog/">cruise blog</a> and the <a href="/ports/">ports directory</a> to sketch sea days, port days, and pre- or post-cruise stays.</p>
+    </article>
+    <div class="seo-directory-grid">${grid}</div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ports/">Ports</a></li></ul></div>
+          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p></div>
+      </div>
+    </footer>
+  </div>
+  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
+  ${RUNTIME_GUARD_SCRIPT}
+</body>
+</html>`;
+}
+
+function buildPortsIndexHtml(items) {
+  const canonical = `${BASE_URL}/ports/`;
+  const title = 'Cruise Ports & Destinations | SeaDays';
+  const desc =
+    'Explore cruise ports and regions: embarkation cities, popular islands, and signature itineraries. Plan shore days and pair them with SeaDays ship tools in the app.';
+  const grid = items
+    .map(
+      (it) =>
+        `<a href="/ports/${escapeHtml(it.slug)}/" class="seo-grid-card"><span class="seo-grid-card-title">${escapeHtml(it.name)}${it.country ? `, ${escapeHtml(it.country)}` : ''}</span><span class="seo-grid-card-hint">Read port guide</span></a>`
+    )
+    .join('\n');
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="${escapeHtml(desc)}">
+  <title>${escapeHtml(title)}</title>
+  <link rel="canonical" href="${canonical}">
+  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(desc)}">
+  <meta property="og:image" content="${DEFAULT_FAVICON}">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="${canonical}">
+  <meta property="twitter:title" content="${escapeHtml(title)}">
+  <meta property="twitter:description" content="${escapeHtml(desc)}">
+  <meta property="twitter:image" content="${DEFAULT_FAVICON}">
+  <script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Cruise ports and destinations',
+    description: desc,
+    url: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'SeaDays', url: BASE_URL + '/' },
+  })}</script>
+  <style>${INDEX_STYLES}
+.seo-prose { max-width: 800px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
+.seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
+.seo-prose p { margin-bottom: 18px; }
+.seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
+.seo-prose a:hover { text-decoration: underline; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
+.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
+.seo-grid-card-title { font-weight: 700; font-size: 16px; }
+.seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.45); }
+.header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+  <div class="starfield" id="starfield"></div>
+  <div class="grid-overlay"></div>
+  <div class="content-layer">
+    <header class="header">${buildDirectoryHeaderNav()}</header>
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Cruise ports &amp; destinations</h1>
+        <p>Islands, embarkation cities, and signature regions—start here before you sail.</p>
+      </div>
+    </section>
+    <article class="seo-prose">
+      <h2>Plan smarter shore days</h2>
+      <p>Ports are where itineraries become real: timing, walk-off convenience, excursion windows, and how far you can roam before all-aboard. A strong plan balances must-see sights with buffer for weather, traffic, and the simple joy of wandering.</p>
+      <p>SeaDays connects <a href="/ships/">ship choice</a> with <a href="/blog/">destination guides from our blog</a> so you can line up sea days, overnight stays, and back-to-back sea-and-port rhythms that match your travel style.</p>
+      <h2>Regions and gateway cities</h2>
+      <p>Use the grid below as a lightweight map of places SeaDays users explore often. Each link opens a static port guide; terminals, safety notes, and fresher crowd patterns load in the SeaDays app.</p>
+      <p>When you are ready to compare vessels for these regions, return to the <a href="/ships/">ships directory</a> and cross-check cabins, dining, and entertainment before you commit.</p>
+    </article>
+    <div class="seo-directory-grid">${grid}</div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ships/">Ships</a></li></ul></div>
+          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p></div>
+      </div>
+    </footer>
+  </div>
+  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
+  ${RUNTIME_GUARD_SCRIPT}
+</body>
+</html>`;
+}
+
 // ---------------------------------------------------------------------------
 // Templates (inline to avoid extra files; matches blog-article.html design)
 // ---------------------------------------------------------------------------
@@ -846,6 +1176,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
 .article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
 .article-body .contextual-link:hover { text-decoration: underline; }
+.explore-seadays { margin: 40px 0; padding: 28px 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 0, 51, 0.06); }
+.explore-seadays h2 { font-size: 22px; margin-bottom: 16px; font-weight: 800; }
+.explore-seadays-list { list-style: none; margin: 0; padding: 0; }
+.explore-seadays-list li { margin: 12px 0; }
+.explore-seadays-link { color: var(--neon-red); text-decoration: none; font-weight: 600; font-size: 16px; }
+.explore-seadays-link:hover { text-decoration: underline; }
+.same-topic-section { margin: 36px 0; padding: 24px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.same-topic-section h2 { font-size: 20px; margin-bottom: 12px; font-weight: 700; }
+.same-topic-list { margin: 0; padding-left: 20px; color: rgba(255, 255, 255, 0.85); }
+.same-topic-list li { margin: 8px 0; }
 .article-nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 32px 0; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08); margin-bottom: 48px; }
 .article-nav a { display: inline-flex; align-items: center; gap: 8px; color: var(--neon-red); text-decoration: none; font-weight: 600; font-size: 15px; max-width: 45%; }
 .article-nav a:hover { text-decoration: underline; }
@@ -912,6 +1252,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 @media (max-width: 768px) { .blog-hero h1 { font-size: 32px; } .blog-grid { grid-template-columns: 1fr; } }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
+.blog-seo-intro { max-width: 900px; margin: 0 auto 40px; padding: 0 24px; }
+.blog-seo-intro h2 { font-size: 26px; margin: 28px 0 14px; font-weight: 800; text-align: left; color: #fff; }
+.blog-seo-intro p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.78); margin-bottom: 16px; }
+.blog-seo-intro a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+.blog-seo-intro a:hover { text-decoration: underline; }
 `;
 
 // ---------------------------------------------------------------------------
@@ -987,7 +1332,7 @@ const RUNTIME_GUARD_SCRIPT = `<script>
 })();
 </script>`;
 
-async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, moreArticles) {
+async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, moreArticles, sameTagArticles = []) {
   const title = escapeHtml(article.seoTitle || article.title || 'Article');
   const description = escapeHtml(
     (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
@@ -998,14 +1343,14 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   // og:image: prefer Supabase storage URL for og:image; external is also accepted
   const ogImage = validateImageUrl(pickedHeroUrl) || DEFAULT_FAVICON;
   const heroImg = pickedHeroUrl || null;
-  const canonicalUrl = BASE_URL + '/blog/' + article.slug;
+  const canonicalUrl = blogCanonicalUrl(article.slug);
 
   let navHtml = '';
   if (prevArticle) {
-    navHtml += `<a href="/blog/${prevArticle.slug}" class="article-nav-prev"><span class="article-nav-label">Previous</span><span>${escapeHtml(prevArticle.title || 'Previous')}</span></a>`;
+    navHtml += `<a href="${blogRelPath(prevArticle.slug)}" class="article-nav-prev"><span class="article-nav-label">Previous</span><span>${escapeHtml(prevArticle.title || 'Previous')}</span></a>`;
   }
   if (nextArticle) {
-    navHtml += `<a href="/blog/${nextArticle.slug}" class="article-nav-next"><span class="article-nav-label">Next</span><span>${escapeHtml(nextArticle.title || 'Next')}</span></a>`;
+    navHtml += `<a href="${blogRelPath(nextArticle.slug)}" class="article-nav-next"><span class="article-nav-label">Next</span><span>${escapeHtml(nextArticle.title || 'Next')}</span></a>`;
   }
 
   let moreHtml = '';
@@ -1015,27 +1360,33 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
       const a = moreArticles[i];
       const { url: moreImgUrl, source: moreSource, type: moreType } = await pickCardImage(a, 'more-' + i);
       const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, '', 'more-card-image', { width: 400, height: 160 });
-      moreCards.push(`<a href="/blog/${a.slug}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
+      moreCards.push(`<a href="${blogRelPath(a.slug)}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
   }
 
   const navSection = navHtml ? `<nav class="article-nav" aria-label="Article navigation">${navHtml}</nav>` : '';
+  const sameTopicHtml = buildSameTopicSection(article, sameTagArticles);
+  const exploreHtml = buildExploreSeaDaysSection();
 
   const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
   const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
-  const authorName = escapeHtml(article.author || 'Anonymous');
+  const authorNamePlain = article.author || 'Anonymous';
   const articleBodyText = stripHtmlToPlainText(bodyHtml, 5000);
   const keywords = Array.isArray(article.tags) && article.tags.length
     ? article.tags.map((t) => (typeof t === 'string' ? t : t?.name)).filter(Boolean)
     : (article.keywords && Array.isArray(article.keywords) ? article.keywords : []);
+  const rawMetaDescription = (
+    (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
+    stripHtmlToPlainText(article.content || bodyHtml, 160)
+  );
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: escapeHtml(article.title || 'Article'),
-    description: description || articleBodyText.slice(0, 160) || undefined,
+    headline: article.title || 'Article',
+    description: rawMetaDescription || articleBodyText.slice(0, 160) || undefined,
     image: [ogImage],
-    author: { '@type': 'Person', name: authorName },
+    author: { '@type': 'Person', name: authorNamePlain },
     publisher: {
       '@type': 'Organization',
       name: 'SeaDays',
@@ -1081,6 +1432,8 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
       <nav class="header-nav">
         <a href="/index.html">Home</a>
         <a href="/blog/">Blog</a>
+        <a href="/ships/">Ships</a>
+        <a href="/ports/">Ports</a>
         <a href="https://seadays.app/privacy.html">Privacy</a>
         <a href="https://seadays.app/terms.html">Terms</a>
       </nav>
@@ -1091,13 +1444,15 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
         <div class="article-hero">
           <h1>${escapeHtml(article.title || 'Untitled')}</h1>
           <div class="article-meta">
-            <span class="author">${escapeHtml(article.author || 'Anonymous')}</span>
+            <span class="author">${escapeHtml(authorNamePlain)}</span>
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
           ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
         </div>
         <div class="article-body">${bodyHtml}</div>
+        ${sameTopicHtml}
+        ${exploreHtml}
         ${navSection}
         ${moreHtml}
       </article>
@@ -1115,7 +1470,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
-    (function(){var g=document.querySelector('.more-to-read-grid[data-shuffle-more]');if(!g)return;var cards=[].slice.call(g.querySelectorAll('.more-card'));if(cards.length<=4)return;for(var i=cards.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cards[i];cards[i]=cards[j];cards[j]=t;}g.innerHTML='';cards.forEach(function(c,i){g.appendChild(c);if(i>=4)c.style.display='none';});})();
+    (function(){var g=document.querySelector('.more-to-read-grid[data-shuffle-more]');if(!g)return;var cards=[].slice.call(g.querySelectorAll('.more-card'));if(cards.length<=6)return;for(var i=cards.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cards[i];cards[i]=cards[j];cards[j]=t;}g.innerHTML='';cards.forEach(function(c,i){g.appendChild(c);if(i>=6)c.style.display='none';});})();
   </script>
   ${RUNTIME_GUARD_SCRIPT}
 </body>
@@ -1190,7 +1545,7 @@ async function buildIndexHtml(articles) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <meta name="description" content="SeaDays Blog - Cruise tips, guides & stories from the community. Plan smarter, pack lighter, and cruise better with expert advice and real experiences.">
+  <meta name="description" content="SeaDays cruise blog: planning guides, ship and port explainers, packing tips, and sea-day ideas. Read free articles and explore ships and destinations before you book.">
   <title>SeaDays Blog | Cruise Tips, Guides &amp; Stories</title>
   <link rel="canonical" href="${BASE_URL}/blog/">
   <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
@@ -1215,17 +1570,29 @@ ${preloadLinks}
       <nav class="header-nav">
         <a href="/index.html">Home</a>
         <a href="/blog/">Blog</a>
+        <a href="/ships/">Ships</a>
+        <a href="/ports/">Ports</a>
         <a href="https://seadays.app/privacy.html">Privacy</a>
         <a href="https://seadays.app/terms.html">Terms</a>
       </nav>
     </header>
     <section class="blog-hero">
       <div class="container">
-        <h1>Blog</h1>
+        <h1>SeaDays cruise blog</h1>
         <p>Stories, tips, and experiences shared by the SeaDays community.</p>
       </div>
     </section>
     <div class="container">
+      <article class="blog-seo-intro">
+        <h2>Plan smarter cruises with expert guides</h2>
+        <p>This blog is written for people who want more than a brochure: honest trade-offs between cabin types, realistic sea-day routines, drink-package math, and what actually happens if you miss the ship in port. Every article is designed to be useful before you book, while you pack, and on embarkation day when small decisions compound.</p>
+        <p>We connect ideas across topics. When you read about <a href="/ships/">cruise ships and major lines</a>, you can cross-check itineraries against our <a href="/ports/">ports and destinations hub</a> to see whether your sailing favors short port calls or overnight stays. That pairing—ship plus geography—is how experienced cruisers avoid feeling rushed on land or bored at sea.</p>
+        <h2>SeaDays tools behind the articles</h2>
+        <p>SeaDays is a cruise companion app with live-friendly features for tracking trips, exploring ships, and browsing ports. The blog highlights concepts you will also find inside the product, but nothing here sits behind a paywall: the goal is search-quality guidance that stands alone in your browser.</p>
+        <p>If you are new to cruising, start with first-timer explainers and packing lists in the grid below. If you are comparing lines for a family, filter mentally by the ship articles that mention kids clubs, balcony value, and dining flexibility—then validate against your target region on the <a href="/ports/">ports</a> page.</p>
+        <h2>Keep exploring</h2>
+        <p>Browse all posts below, jump to the <a href="/ships/">ships directory</a> for line and vessel context, or open the <a href="/ports/">ports directory</a> when you want destination-first planning. When you are ready, download SeaDays from the homepage and save your next itinerary in one place.</p>
+      </article>
       <div class="blog-grid">${cards.join('\n')}</div>
     </div>
     <footer class="footer">
@@ -1312,7 +1679,7 @@ async function httpCheck(url, maxRetries = 2) {
  *   - Card count diverges from article count (dedup/slug reasons)
  *   - Cards with no thumbnail (article has truly no image at all)
  */
-async function runPostBuildValidation(blogDir, repoRoot, articles) {
+async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = [], seoPorts = []) {
   console.log('\n[validate] Running post-build validation...');
 
   const violations = [];
@@ -1321,9 +1688,17 @@ async function runPostBuildValidation(blogDir, repoRoot, articles) {
   const filesToScan = [
     path.join(blogDir, 'index.html'),
     path.join(repoRoot, 'index.html'),
+    path.join(repoRoot, 'ships', 'index.html'),
+    path.join(repoRoot, 'ports', 'index.html'),
   ];
   for (const a of articles) {
     filesToScan.push(path.join(blogDir, a.slug, 'index.html'));
+  }
+  if (seoShips.length) {
+    filesToScan.push(path.join(repoRoot, 'ships', seoShips[0].slug, 'index.html'));
+  }
+  if (seoPorts.length) {
+    filesToScan.push(path.join(repoRoot, 'ports', seoPorts[0].slug, 'index.html'));
   }
 
   const allStorageUrls = new Set();
@@ -1470,7 +1845,51 @@ async function main() {
   console.log('Merging thumbnail payloads for articles missing hero/thumbnail...');
   await mergePortsideThumbnailsIntoArticles(articles);
 
+  console.log('Fetching ships & ports for programmatic SEO pages...');
+  const { ships: rawShips, ports: rawPorts } = await fetchReviewsShipsPorts();
+  const seoShips = buildSeoShipRecords(rawShips.length ? rawShips : FALLBACK_SHIP_GRID);
+  const seoPorts = buildSeoPortRecords(rawPorts.length ? rawPorts : FALLBACK_PORT_GRID);
+  const spOpts = {
+    baseUrl: BASE_URL,
+    defaultImage: DEFAULT_FAVICON,
+    indexStyles: INDEX_STYLES,
+    runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
+  };
+
   fs.mkdirSync(blogDir, { recursive: true });
+  fs.mkdirSync(path.join(repoRoot, 'ships'), { recursive: true });
+  fs.mkdirSync(path.join(repoRoot, 'ports'), { recursive: true });
+
+  for (const ship of seoShips) {
+    const dir = path.join(repoRoot, 'ships', ship.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    const relShips = pickRelatedShips(seoShips, ship, 5);
+    const destPorts = pickPortsForShipPage(seoPorts, ship, 2);
+    const tokens = [ship.name, ship.cruise_line, ...ship.name.split(/\s+/).filter((w) => w.length > 3)];
+    const blogs = pickBlogArticlesForEntity(articles, tokens, 2);
+    fs.writeFileSync(path.join(dir, 'index.html'), buildShipDetailHtml(ship, relShips, destPorts, blogs, spOpts), 'utf8');
+  }
+  for (const port of seoPorts) {
+    const dir = path.join(repoRoot, 'ports', port.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    const relPorts = pickRelatedPorts(seoPorts, port, 5);
+    const destShips = pickShipsForPortPage(seoShips, port, 4);
+    const tokens = [port.name, port.country, ...port.name.split(/\s+/).filter((w) => w.length > 2)];
+    const blogs = pickBlogArticlesForEntity(articles, tokens, 2);
+    fs.writeFileSync(path.join(dir, 'index.html'), buildPortDetailHtml(port, relPorts, destShips, blogs, spOpts), 'utf8');
+  }
+
+  fs.writeFileSync(
+    path.join(repoRoot, 'ships', 'index.html'),
+    buildShipsIndexHtml(seoShips.map((s) => ({ name: s.name, slug: s.slug }))),
+    'utf8'
+  );
+  fs.writeFileSync(
+    path.join(repoRoot, 'ports', 'index.html'),
+    buildPortsIndexHtml(seoPorts.map((p) => ({ name: p.name, slug: p.slug, country: p.country }))),
+    'utf8'
+  );
+  console.log(`  wrote ${seoShips.length} ship + ${seoPorts.length} port detail pages + indexes`);
 
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
@@ -1491,12 +1910,14 @@ async function main() {
     article._processedBodyHtml = bodyHtml;
     const prev = i > 0 ? articles[i - 1] : null;
     const next = i < articles.length - 1 ? articles[i + 1] : null;
-    const morePool = articles.filter((x) => x.id !== article.id);
-    const more = morePool.slice(0, 12);
+    const more = selectMoreToReadArticles(article, articles, 12);
     const excludeIds = new Set([article.id, ...more.map((a) => a.id)]);
+    bodyHtml = injectKeywordLinksIntoBodyHtml(bodyHtml, { maxShipLinks: 2, maxPortLinks: 2 });
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
-    const html = await buildArticleHtml(article, bodyHtml, prev, next, more);
+    bodyHtml = rewriteCdnImgSrcAttributes(bodyHtml);
+    const sameTagArticles = findSameTagArticles(article, articles, 6);
+    const html = await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles);
     const articleDir = path.join(blogDir, article.slug);
     const indexPath = path.join(articleDir, 'index.html');
     const redirectPath = path.join(blogDir, article.slug + '.html');
@@ -1548,24 +1969,40 @@ async function main() {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
 
+  const todayIso = new Date().toISOString().split('T')[0];
   const staticUrls = [
-    { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0' },
-    { loc: BASE_URL + '/index.html', changefreq: 'weekly', priority: '1.0' },
-    { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9' },
-    { loc: BASE_URL + '/landing-page.html', changefreq: 'weekly', priority: '0.8' },
+    { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: todayIso },
+    { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
+    { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
+    { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
+    { loc: BASE_URL + '/landing-page.html', changefreq: 'weekly', priority: '0.8', lastmod: todayIso },
   ];
   let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   const seenUrls = new Set();
   for (const u of staticUrls) {
     if (seenUrls.has(u.loc)) continue;
     seenUrls.add(u.loc);
-    sitemap += '  <url><loc>' + escapeXml(u.loc) + '</loc><changefreq>' + u.changefreq + '</changefreq><priority>' + u.priority + '</priority></url>\n';
+    sitemap += sitemapUrlLine(u.loc, u.changefreq, u.priority, u.lastmod);
   }
   for (const a of articles) {
-    const url = BASE_URL + '/blog/' + a.slug;
+    const url = blogCanonicalUrl(a.slug);
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
-    sitemap += '  <url><loc>' + escapeXml(url) + '</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>\n';
+    const lastmod =
+      formatIsoDate(a.updatedAt || a.publishedAt || a.timestamp || a.createdAt) || todayIso;
+    sitemap += sitemapUrlLine(url, 'monthly', '0.7', lastmod);
+  }
+  for (const s of seoShips) {
+    const url = `${BASE_URL}/ships/${s.slug}/`;
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
+  }
+  for (const p of seoPorts) {
+    const url = `${BASE_URL}/ports/${p.slug}/`;
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
   }
   sitemap += '</urlset>';
   fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
@@ -1575,7 +2012,7 @@ async function main() {
 
   // Scan every generated file for CDN URLs, SVG thumbnails, nested anchors,
   // and HTTP reachability. Throws on any violation — build fails loudly.
-  await runPostBuildValidation(blogDir, repoRoot, articles);
+  await runPostBuildValidation(blogDir, repoRoot, articles, seoShips, seoPorts);
 
   console.log('Done.');
 }
