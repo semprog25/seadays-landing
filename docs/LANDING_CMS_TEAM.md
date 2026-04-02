@@ -83,7 +83,7 @@ Toggling **Show on site** updates the API immediately. To update the static site
 
 ## Publish to GitHub (from CMS)
 
-Admins see **Run publish workflow** on the **Blog** tab. It calls GitHub’s API to start `generate-blogs.yml` on the landing repository (regenerate pages + commit/push).
+Admins see **Run publish workflow** on the **SEO** and **Blog** tabs (plus **Open GitHub Actions** to run the workflow manually if API dispatch is not configured). It calls GitHub’s API to start `generate-blogs.yml` on the landing repository (regenerate pages + commit/push).
 
 ### One-time setup (Supabase Edge Function secrets)
 

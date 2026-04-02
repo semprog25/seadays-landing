@@ -153,6 +153,15 @@
                     <p style="color:var(--muted)">Your role is <strong>moderator</strong>. Use <strong>Blog</strong> and <strong>Comments</strong>. SEO settings require an admin.</p>
                 </div>
                 <div id="adminSeoPanels">
+                <div class="panel hidden" id="publishGitPanelSeo">
+                    <h2>Publish to GitHub</h2>
+                    <p style="color:var(--muted);font-size:14px;">Regenerate static <code>/blog/*.html</code>, <code>index.html</code>, and <code>sitemap.xml</code> on the landing repo. Requires Edge secrets <code>GITHUB_LANDING_DISPATCH_TOKEN</code> and <code>GITHUB_LANDING_DISPATCH_REPO</code> (e.g. <code>semprog25/seadays-landing</code>).</p>
+                    <div class="row-actions" style="margin-top:12px;align-items:center;">
+                        <button type="button" class="btn btn-primary" id="btnTriggerGitPublishSeo">Run publish workflow</button>
+                        <a class="btn btn-secondary" id="linkOpenGitHubActionsSeo" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;margin-top:0;">Open GitHub Actions</a>
+                    </div>
+                    <p id="publishGitStatusSeo" style="margin-top:12px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
+                </div>
                 <div class="panel">
                     <h2>Site SEO</h2>
                     <label>Meta title</label>
@@ -206,7 +215,10 @@
                 <div class="panel" id="publishGitPanel" style="display:none;">
                     <h2>Publish to GitHub</h2>
                     <p style="color:var(--muted);font-size:14px;">After you save SEO and set which posts are live, run this to regenerate static <code>/blog/*.html</code> and <code>sitemap.xml</code> on the landing repo. GitHub Actions will commit and push if anything changed.</p>
-                    <button type="button" class="btn btn-primary" id="btnTriggerGitPublish">Run publish workflow</button>
+                    <div class="row-actions" style="margin-top:12px;align-items:center;">
+                        <button type="button" class="btn btn-primary" id="btnTriggerGitPublish">Run publish workflow</button>
+                        <a class="btn btn-secondary" id="linkOpenGitHubActionsBlog" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;margin-top:0;">Open GitHub Actions</a>
+                    </div>
                     <p id="publishGitStatus" style="margin-top:12px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
                 </div>
                 <div class="panel">
@@ -251,6 +263,8 @@
     var SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
     var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
     var EDGE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
+    /** Manual fallback: GitHub UI “Run workflow” (same file the API dispatches). */
+    var LANDING_WORKFLOW_ACTIONS_URL = 'https://github.com/semprog25/seadays-landing/actions/workflows/generate-blogs.yml';
     var SUPABASE_SCRIPT_FALLBACKS = [
         'https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js',
         'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js'
@@ -364,6 +378,12 @@
                 if (!r.ok) {
                     var serverMsg = (j && (j.error || j.message)) || '';
                     if (typeof serverMsg === 'object') serverMsg = JSON.stringify(serverMsg);
+                    if (j && j.detail && typeof j.detail === 'string') {
+                        serverMsg = (serverMsg ? serverMsg + ' — ' : '') + j.detail.slice(0, 400);
+                    }
+                    if (j && j.status && typeof j.status === 'number') {
+                        serverMsg = (serverMsg ? serverMsg + ' ' : '') + '(HTTP ' + j.status + ')';
+                    }
                     throw new Error(serverMsg || r.statusText || ('HTTP ' + r.status));
                 }
                 return j;
@@ -447,6 +467,12 @@
             }
             var pg = document.getElementById('publishGitPanel');
             if (pg) pg.style.display = (me.role === 'admin') ? 'block' : 'none';
+            var pgSeo = document.getElementById('publishGitPanelSeo');
+            if (pgSeo) pgSeo.classList.toggle('hidden', me.role !== 'admin');
+            var linkSeo = document.getElementById('linkOpenGitHubActionsSeo');
+            var linkBlog = document.getElementById('linkOpenGitHubActionsBlog');
+            if (linkSeo) linkSeo.href = LANDING_WORKFLOW_ACTIONS_URL;
+            if (linkBlog) linkBlog.href = LANDING_WORKFLOW_ACTIONS_URL;
             loadSeo();
             loadArticlesForSeoAndBlog();
             loadPending();
@@ -798,9 +824,9 @@
         }).then(function () { toast('Member saved'); document.getElementById('teamEmail').value = ''; loadTeam(); }).catch(function (e) { toast(e.message, true); });
     };
 
-    document.getElementById('btnTriggerGitPublish').onclick = function () {
+    function runPublishWorkflow(statusElId) {
         if (cmsRole !== 'admin') return;
-        var st = document.getElementById('publishGitStatus');
+        var st = statusElId ? document.getElementById(statusElId) : null;
         if (st) st.textContent = 'Requesting workflow…';
         api('/landing-cms/trigger-github-publish', {
             method: 'POST',
@@ -808,12 +834,26 @@
             body: '{}'
         }).then(function (d) {
             var msg = (d && d.message) ? d.message : 'Workflow started.';
-            if (st) st.textContent = msg + ' Check GitHub → Actions on the landing repo.';
+            var tail = ' Track: ' + LANDING_WORKFLOW_ACTIONS_URL;
+            if (st) st.textContent = msg + tail;
             toast(msg);
         }).catch(function (e) {
-            if (st) st.textContent = e.message || 'Failed';
-            toast(e.message, true);
+            var m = e.message || 'Failed';
+            if (st) {
+                st.textContent = m;
+                if (/not configured|GITHUB_LANDING_DISPATCH/i.test(m)) {
+                    st.textContent += ' Set Supabase Edge secrets (see panel above), redeploy make-server-51d3ca8d, or use “Open GitHub Actions” and Run workflow manually.';
+                }
+            }
+            toast(m, true, 12000);
         });
+    }
+
+    document.getElementById('btnTriggerGitPublish').onclick = function () {
+        runPublishWorkflow('publishGitStatus');
+    };
+    document.getElementById('btnTriggerGitPublishSeo').onclick = function () {
+        runPublishWorkflow('publishGitStatusSeo');
     };
 
     if (supa) {
