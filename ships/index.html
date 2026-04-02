@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Browse major cruise ships and lines featured in SeaDays. Compare classes, plan sailings, and jump into the mobile app for live ship data, reviews, and itineraries.">
+  <title>Cruise Ships Directory | SeaDays</title>
+  <link rel="canonical" href="https://seadays.app/ships/">
+  <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seadays.app/ships/">
+  <meta property="og:title" content="Cruise Ships Directory | SeaDays">
+  <meta property="og:description" content="Browse major cruise ships and lines featured in SeaDays. Compare classes, plan sailings, and jump into the mobile app for live ship data, reviews, and itineraries.">
+  <meta property="og:image" content="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://seadays.app/ships/">
+  <meta property="twitter:title" content="Cruise Ships Directory | SeaDays">
+  <meta property="twitter:description" content="Browse major cruise ships and lines featured in SeaDays. Compare classes, plan sailings, and jump into the mobile app for live ship data, reviews, and itineraries.">
+  <meta property="twitter:image" content="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Cruise ships","description":"Browse major cruise ships and lines featured in SeaDays. Compare classes, plan sailings, and jump into the mobile app for live ship data, reviews, and itineraries.","url":"https://seadays.app/ships/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}}</script>
+  <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --dark-bg: #0a0a0a; --neon-red: #FF0033; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark-bg); color: white; line-height: 1.6; overflow-x: hidden; }
+.starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); overflow: hidden; }
+.star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.5); border-radius: 50%; animation: twinkle 3s infinite ease-in-out; }
+@keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+.grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-image: linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px); background-size: 100px 100px; opacity: 0.4; pointer-events: none; }
+.content-layer { position: relative; z-index: 10; }
+.header { position: absolute; top: 0; left: 0; right: 0; padding: 20px 40px; display: flex; justify-content: flex-end; align-items: center; z-index: 100; }
+.header-nav { display: flex; gap: 30px; align-items: center; }
+.header-nav a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500; font-size: 15px; }
+.header-nav a:hover { color: white; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.blog-hero { padding: 140px 20px 80px; text-align: center; }
+.blog-hero h1 { font-size: 56px; font-weight: 900; margin-bottom: 16px; letter-spacing: -1px; }
+.blog-hero p { font-size: 20px; color: rgba(255, 255, 255, 0.6); }
+.blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 20px 120px; }
+.article-card { background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(255, 255, 255, 0.05); border-radius: 24px; overflow: hidden; transition: all 0.3s ease; text-decoration: none; color: #fff; display: block; }
+.article-card:hover { border-color: var(--neon-red); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2); }
+.article-card-image { width: 100%; height: 230px; object-fit: cover; object-position: top center; background: rgba(255, 255, 255, 0.05); }
+.article-card-body { padding: 24px; }
+.article-card-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; line-height: 1.3; color: #fff; }
+.article-card-excerpt { font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.article-card-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.5); }
+.footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
+.footer-section h4 { margin-bottom: 20px; font-size: 18px; }
+.footer-section ul { list-style: none; }
+.footer-section li { margin-bottom: 12px; }
+.footer-section a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
+.footer-section a:hover { color: var(--neon-red); }
+.footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
+@media (max-width: 768px) { .blog-hero h1 { font-size: 32px; } .blog-grid { grid-template-columns: 1fr; } }
+img { transition: filter 0.35s ease, transform 0.35s ease; }
+img.img-loading { filter: blur(8px); transform: scale(1.03); }
+.blog-seo-intro { max-width: 900px; margin: 0 auto 40px; padding: 0 24px; }
+.blog-seo-intro h2 { font-size: 26px; margin: 28px 0 14px; font-weight: 800; text-align: left; color: #fff; }
+.blog-seo-intro p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.78); margin-bottom: 16px; }
+.blog-seo-intro a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+.blog-seo-intro a:hover { text-decoration: underline; }
+
+.seo-prose { max-width: 800px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
+.seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
+.seo-prose p { margin-bottom: 18px; }
+.seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
+.seo-prose a:hover { text-decoration: underline; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
+.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
+.seo-grid-card-title { font-weight: 700; font-size: 16px; }
+.seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.45); }
+.header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
+</style>
+</head>
+<body>
+  <div class="starfield" id="starfield"></div>
+  <div class="grid-overlay"></div>
+  <div class="content-layer">
+    <header class="header"><nav class="header-nav">
+        <a href="/index.html">Home</a>
+        <a href="/blog/">Blog</a>
+        <a href="/ships/">Ships</a>
+        <a href="/ports/">Ports</a>
+        <a href="https://seadays.app/privacy.html">Privacy</a>
+        <a href="https://seadays.app/terms.html">Terms</a>
+      </nav></header>
+    <section class="blog-hero">
+      <div class="container">
+        <h1>Cruise ships</h1>
+        <p>Lines, classes, and vessels cruisers care about—curated for discovery.</p>
+      </div>
+    </section>
+    <article class="seo-prose">
+      <h2>Why a ships hub matters for cruise planning</h2>
+      <p>Choosing a cruise is rarely only about price. The ship shapes daily life at sea: dining venues, cabin categories, entertainment, kids clubs, and how crowded common spaces feel. SeaDays brings structured ship and line information together so you can compare options without losing the story of what makes each vessel different.</p>
+      <p>Whether you are evaluating <a href="/blog/">Royal Caribbean versus MSC</a> for a family sailing, or researching <a href="/ports/">Mediterranean embarkation ports</a> before you lock flights, starting from the ship helps you align nights at sea with the regions you want to explore.</p>
+      <h2>How to use this directory</h2>
+      <p>Each card links to a static ship guide you can bookmark or share. For deck plans, live ship data, and community reviews, open the SeaDays app—download from the homepage and sign in to sync your preferences across devices.</p>
+      <p>For itinerary inspiration, pair this list with our <a href="/blog/">cruise blog</a> and the <a href="/ports/">ports directory</a> to sketch sea days, port days, and pre- or post-cruise stays.</p>
+    </article>
+    <div class="seo-directory-grid"><a href="/ships/symphony-of-the-seas/" class="seo-grid-card"><span class="seo-grid-card-title">Symphony of the Seas</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/harmony-of-the-seas/" class="seo-grid-card"><span class="seo-grid-card-title">Harmony of the Seas</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/oasis-of-the-seas/" class="seo-grid-card"><span class="seo-grid-card-title">Oasis of the Seas</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/allure-of-the-seas/" class="seo-grid-card"><span class="seo-grid-card-title">Allure of the Seas</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/wonder-of-the-seas/" class="seo-grid-card"><span class="seo-grid-card-title">Wonder of the Seas</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/mardi-gras/" class="seo-grid-card"><span class="seo-grid-card-title">Mardi Gras</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/celebration/" class="seo-grid-card"><span class="seo-grid-card-title">Celebration</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/panorama/" class="seo-grid-card"><span class="seo-grid-card-title">Panorama</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/horizon/" class="seo-grid-card"><span class="seo-grid-card-title">Horizon</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/norwegian-encore/" class="seo-grid-card"><span class="seo-grid-card-title">Norwegian Encore</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/norwegian-bliss/" class="seo-grid-card"><span class="seo-grid-card-title">Norwegian Bliss</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/norwegian-escape/" class="seo-grid-card"><span class="seo-grid-card-title">Norwegian Escape</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/msc-world-europa/" class="seo-grid-card"><span class="seo-grid-card-title">MSC World Europa</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/msc-meraviglia/" class="seo-grid-card"><span class="seo-grid-card-title">MSC Meraviglia</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/msc-seaside/" class="seo-grid-card"><span class="seo-grid-card-title">MSC Seaside</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/discovery-princess/" class="seo-grid-card"><span class="seo-grid-card-title">Discovery Princess</span><span class="seo-grid-card-hint">Read ship guide</span></a>
+<a href="/ships/sky-princess/" class="seo-grid-card"><span class="seo-grid-card-title">Sky Princess</span><span class="seo-grid-card-hint">Read ship guide</span></a></div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ports/">Ports</a></li></ul></div>
+          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p></div>
+      </div>
+    </footer>
+  </div>
+  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
+  <script>
+(function(){
+  var FB='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
+  // Mirrors classifyImageUrl() in the generator: blocks CDN proxy and SVGs only.
+  // External HTTPS images are allowed (same policy as server-side validation).
+  function safeImage(src){
+    if(!src||!src.startsWith('https://'))return FB;
+    if(src.includes('cdn.seadays.app'))return FB;
+    if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
+    return src;
+  }
+  function applyGuard(){
+    document.querySelectorAll('img[data-img-source]').forEach(function(el){
+      var orig=el.getAttribute('src')||'';
+      var safe=safeImage(orig);
+      if(safe!==orig){el.dataset.originalSrc=orig;el.src=safe;}
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyGuard);}
+  else{applyGuard();}
+})();
+</script>
+</body>
+</html>
