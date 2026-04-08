@@ -38,6 +38,37 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .blog-hero { padding: 140px 20px 80px; text-align: center; }
 .blog-hero h1 { font-size: 56px; font-weight: 900; margin-bottom: 16px; letter-spacing: -1px; }
 .blog-hero p { font-size: 20px; color: rgba(255, 255, 255, 0.6); }
+.blog-hero .hero-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.hero-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 800; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
+.hero-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
+.hero-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
+.blog-toolbar { max-width: 1200px; margin: -34px auto 22px; padding: 0 20px; }
+.blog-toolbar-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); }
+.blog-search { display: flex; gap: 10px; align-items: center; }
+.blog-search input { width: 100%; padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); font-weight: 700; outline: none; }
+.blog-search input::placeholder { color: rgba(255,255,255,0.45); font-weight: 600; }
+.blog-search .search-hint { font-size: 12px; color: rgba(255,255,255,0.55); }
+.blog-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; }
+.topic-pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; cursor: pointer; }
+.topic-pill:hover { border-color: rgba(255,0,51,0.55); }
+.topic-pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.16); }
+.featured-row { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
+.featured-row h2 { font-size: 20px; font-weight: 900; letter-spacing: -0.3px; margin: 12px 0 14px; text-align: left; }
+.featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.featured-grid .article-card { border-radius: 20px; }
+.featured-grid .article-card-image { height: 180px; }
+.featured-grid .article-card-title { font-size: 18px; }
+.featured-grid .article-card-excerpt { -webkit-line-clamp: 2; }
+.seo-details { max-width: 900px; margin: 0 auto 28px; padding: 0 24px; }
+.seo-details details { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; background: rgba(255,255,255,0.03); overflow: hidden; }
+.seo-details summary { cursor: pointer; padding: 16px 18px; font-weight: 900; font-size: 16px; list-style: none; }
+.seo-details summary::-webkit-details-marker { display:none; }
+.seo-details summary span { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 4px; }
+.seo-details .seo-details-body { padding: 0 18px 18px; color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75; }
+.seo-details .seo-details-body h3 { font-size: 18px; font-weight: 900; margin: 18px 0 8px; color: #fff; }
+.seo-details .seo-details-body p { margin-bottom: 14px; }
+.seo-details .seo-details-body a { color: var(--neon-red); font-weight: 800; text-decoration: none; }
+.seo-details .seo-details-body a:hover { text-decoration: underline; }
 .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 20px 120px; }
 .article-card { background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(255, 255, 255, 0.05); border-radius: 24px; overflow: hidden; transition: all 0.3s ease; text-decoration: none; color: #fff; display: block; }
 .article-card:hover { border-color: var(--neon-red); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2); }
@@ -57,11 +88,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 @media (max-width: 768px) { .blog-hero h1 { font-size: 32px; } .blog-grid { grid-template-columns: 1fr; } }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
-.blog-seo-intro { max-width: 900px; margin: 0 auto 40px; padding: 0 24px; }
-.blog-seo-intro h2 { font-size: 26px; margin: 28px 0 14px; font-weight: 800; text-align: left; color: #fff; }
-.blog-seo-intro p { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.78); margin-bottom: 16px; }
-.blog-seo-intro a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
-.blog-seo-intro a:hover { text-decoration: underline; }
+@media (max-width: 900px) { .blog-toolbar-inner { grid-template-columns: 1fr; } .blog-filters { justify-content: flex-start; } .featured-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -82,20 +109,56 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       <div class="container">
         <h1>SeaDays cruise blog</h1>
         <p>Stories, tips, and experiences shared by the SeaDays community.</p>
+        <div class="hero-actions">
+          <a class="hero-btn hero-btn-primary" href="/index.html#download">Download SeaDays</a>
+          <a class="hero-btn" href="/ships/">Explore ships</a>
+          <a class="hero-btn" href="/ports/">Explore ports</a>
+        </div>
       </div>
     </section>
+    <section class="blog-toolbar" aria-label="Search and filters">
+      <div class="blog-toolbar-inner">
+        <div class="blog-search">
+          <input id="blogSearch" type="search" placeholder="Search cruise tips, ports, ships, packing…" aria-label="Search blog posts">
+          <div class="search-hint" id="resultsHint" aria-live="polite"></div>
+        </div>
+        <div class="blog-filters" id="topicFilters" aria-label="Topic filters">
+          <button type="button" class="topic-pill" data-topic="__all__" aria-pressed="true">All</button>
+          <button type="button" class="topic-pill" data-topic="firstTimers" aria-pressed="false">First-timers</button>
+          <button type="button" class="topic-pill" data-topic="budget" aria-pressed="false">Budget</button>
+          <button type="button" class="topic-pill" data-topic="luxury" aria-pressed="false">Luxury</button>
+          <button type="button" class="topic-pill" data-topic="packing" aria-pressed="false">Packing</button>
+          <button type="button" class="topic-pill" data-topic="cabins" aria-pressed="false">Cabins</button>
+          <button type="button" class="topic-pill" data-topic="ports" aria-pressed="false">Ports</button>
+          <button type="button" class="topic-pill" data-topic="seaDays" aria-pressed="false">Sea days</button>
+          <button type="button" class="topic-pill" data-topic="wifi" aria-pressed="false">Internet</button>
+          <button type="button" class="topic-pill" data-topic="families" aria-pressed="false">Families</button>
+          <button type="button" class="topic-pill" data-topic="drinkPackages" aria-pressed="false">Drink packages</button>
+        </div>
+      </div>
+    </section>
+    <section class="featured-row" aria-label="Featured posts">
+      <h2>Featured</h2>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+    <section class="seo-details" aria-label="About this blog">
+      <details>
+        <summary>
+          Why SeaDays blog is different
+          <span>Short, practical guidance—plus deeper guides when you want them.</span>
+        </summary>
+        <div class="seo-details-body">
+          <h3>Plan smarter cruises with expert guides</h3>
+          <p>This blog is written for people who want more than a brochure: honest trade-offs between cabin types, realistic sea-day routines, drink-package math, and what actually happens if you miss the ship in port. Every article is designed to be useful before you book, while you pack, and on embarkation day when small decisions compound.</p>
+          <p>We connect ideas across topics. When you read about <a href="/ships/">cruise ships and major lines</a>, you can cross-check itineraries against our <a href="/ports/">ports and destinations hub</a> to see whether your sailing favors short port calls or overnight stays. That pairing—ship plus geography—is how experienced cruisers avoid feeling rushed on land or bored at sea.</p>
+          <h3>SeaDays tools behind the articles</h3>
+          <p>SeaDays is a cruise companion app with live-friendly features for tracking trips, exploring ships, and browsing ports. The blog highlights concepts you will also find inside the product, but nothing here sits behind a paywall: the goal is search-quality guidance that stands alone in your browser.</p>
+          <p>If you are new to cruising, start with first-timer explainers and packing lists below. If you are comparing lines for a family, filter by cabins, dining, and kid-friendly tips—then validate against your target region on the <a href="/ports/">ports</a> page.</p>
+        </div>
+      </details>
+    </section>
     <div class="container">
-      <article class="blog-seo-intro">
-        <h2>Plan smarter cruises with expert guides</h2>
-        <p>This blog is written for people who want more than a brochure: honest trade-offs between cabin types, realistic sea-day routines, drink-package math, and what actually happens if you miss the ship in port. Every article is designed to be useful before you book, while you pack, and on embarkation day when small decisions compound.</p>
-        <p>We connect ideas across topics. When you read about <a href="/ships/">cruise ships and major lines</a>, you can cross-check itineraries against our <a href="/ports/">ports and destinations hub</a> to see whether your sailing favors short port calls or overnight stays. That pairing—ship plus geography—is how experienced cruisers avoid feeling rushed on land or bored at sea.</p>
-        <h2>SeaDays tools behind the articles</h2>
-        <p>SeaDays is a cruise companion app with live-friendly features for tracking trips, exploring ships, and browsing ports. The blog highlights concepts you will also find inside the product, but nothing here sits behind a paywall: the goal is search-quality guidance that stands alone in your browser.</p>
-        <p>If you are new to cruising, start with first-timer explainers and packing lists in the grid below. If you are comparing lines for a family, filter mentally by the ship articles that mention kids clubs, balcony value, and dining flexibility—then validate against your target region on the <a href="/ports/">ports</a> page.</p>
-        <h2>Keep exploring</h2>
-        <p>Browse all posts below, jump to the <a href="/ships/">ships directory</a> for line and vessel context, or open the <a href="/ports/">ports directory</a> when you want destination-first planning. When you are ready, download SeaDays from the homepage and save your next itinerary in one place.</p>
-      </article>
-      <div class="blog-grid"><a href="https://seadays.app/blog/port-days-vs-sea-days-how-to-balance-exploration-rest-and-onboard-fun/" class="article-card">
+      <div class="blog-grid" id="blogGrid"><a href="https://seadays.app/blog/port-days-vs-sea-days-how-to-balance-exploration-rest-and-onboard-fun/" class="article-card">
       <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_ac8d5798-ac5c-4524-8d7c-af9c1806ad5f-thumbnail-1775636871961.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfYWM4ZDU3OTgtYWM1Yy00NTI0LThkN2MtYWY5YzE4MDZhZDVmLXRodW1ibmFpbC0xNzc1NjM2ODcxOTYxLmpwZyIsImlhdCI6MTc3NTYzNjg3MywiZXhwIjoxODA3MTcyODczfQ.z2JhT-XnQcEOvNqSLHEgzwlkfel5O7JWGwxb3GEPCxI" alt="" width="400" height="230" class="article-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
       <div class="article-card-body">
         <h3 class="article-card-title">Port Days vs Sea Days: How to Balance Exploration, Rest, and Onboard Fun</h3>
@@ -529,6 +592,80 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
+  </script>
+  <script>
+  (function(){
+    var grid = document.getElementById('blogGrid')
+    var featured = document.getElementById('featuredGrid')
+    var search = document.getElementById('blogSearch')
+    var hint = document.getElementById('resultsHint')
+    var filters = document.getElementById('topicFilters')
+    if(!grid || !featured || !search || !filters) return
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.article-card'))
+    var featuredCards = cards.slice(0, 3).map(function(c){ return c.cloneNode(true) })
+    featuredCards.forEach(function(c){ featured.appendChild(c) })
+
+    var activeTopic = '__all__'
+    var topicRules = {
+      __all__: [],
+      firstTimers: ['first time', 'beginner', 'new cruise', 'first-timer'],
+      budget: ['budget', 'cheap', 'save', 'money', 'worth it'],
+      luxury: ['luxury', 'suite', '$', 'premium'],
+      packing: ['pack', 'packing', 'luggage', 'checklist'],
+      cabins: ['cabin', 'stateroom', 'balcony', 'inside', 'suite'],
+      ports: ['port', 'shore', 'excursion', 'destination', 'embarkation'],
+      seaDays: ['sea day', 'at sea'],
+      wifi: ['wifi', 'internet', 'remote work', 'work remotely'],
+      families: ['family', 'kids', 'teen', 'infant', 'multi-generational'],
+      drinkPackages: ['drink package', 'beverage', 'cocktail', 'alcohol']
+    }
+
+    function setPressed(active){
+      Array.prototype.slice.call(filters.querySelectorAll('button.topic-pill')).forEach(function(b){
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-topic') === active))
+      })
+    }
+
+    function cardText(card){
+      var t = ''
+      var title = card.querySelector('.article-card-title')
+      var ex = card.querySelector('.article-card-excerpt')
+      if(title && title.textContent) t += title.textContent + ' '
+      if(ex && ex.textContent) t += ex.textContent
+      return t.toLowerCase()
+    }
+
+    function matchesTopic(text, topic){
+      var rules = topicRules[topic] || []
+      if(topic === '__all__' || rules.length === 0) return true
+      return rules.some(function(k){ return text.includes(k) })
+    }
+
+    function apply(){
+      var q = (search.value || '').trim().toLowerCase()
+      var visible = 0
+      cards.forEach(function(card){
+        var text = cardText(card)
+        var ok = true
+        if(q) ok = ok && text.includes(q)
+        ok = ok && matchesTopic(text, activeTopic)
+        card.style.display = ok ? '' : 'none'
+        if(ok) visible++
+      })
+      if(hint) hint.textContent = visible ? (visible + ' posts') : 'No matches'
+    }
+
+    filters.addEventListener('click', function(e){
+      var btn = e.target && e.target.closest && e.target.closest('button[data-topic]')
+      if(!btn) return
+      activeTopic = btn.getAttribute('data-topic') || '__all__'
+      setPressed(activeTopic)
+      apply()
+    })
+    search.addEventListener('input', apply)
+    apply()
+  })();
   </script>
   <script>
 (function(){
