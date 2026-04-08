@@ -15,6 +15,11 @@
 'use strict';
 
 require('dotenv').config();
+require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') });
+require('dotenv').config({ path: require('path').join(__dirname, '..', '..', '.env') });
+if (!process.env.SUPABASE_ANON_KEY && process.env.VITE_SUPABASE_ANON_KEY) {
+  process.env.SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
+}
 const { injectKeywordLinksIntoBodyHtml } = require('./lib/seoKeywordLinks');
 const {
   buildSeoShipRecords,
@@ -29,6 +34,12 @@ const {
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
+const {
+  getAppRepoRoot,
+  buildShipSlugToReviewKeyMap,
+  buildPortSlugToReviewKeyMap,
+  buildReviewAggregateByIdMap,
+} = require('./lib/reviewAggregateMerge');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
@@ -1004,6 +1015,30 @@ function buildDirectoryHeaderNav() {
       </nav>`;
 }
 
+function formatDirectoryRating(rating) {
+  const n = typeof rating === 'number' ? rating : Number(String(rating || '').trim());
+  if (!Number.isFinite(n) || n <= 0) return { display: null, numeric: null };
+  return { display: (Math.round(n * 10) / 10).toFixed(1), numeric: n };
+}
+
+function buildStarGlyphsFromRating(numeric) {
+  const n = Number(numeric);
+  const rounded = !Number.isFinite(n) ? 0 : Math.min(5, Math.max(0, Math.round(n)));
+  let s = '';
+  for (let i = 1; i <= 5; i++) s += i <= rounded ? '★' : '☆';
+  return s;
+}
+
+function buildDirectoryRatingVisualHtml(displayStr, numeric) {
+  const stars = buildStarGlyphsFromRating(numeric);
+  return (
+    `<span class="rating-visual" role="img" aria-label="Average rating ${escapeHtml(displayStr)} out of 5 stars">` +
+    `<span class="rating-stars" aria-hidden="true">${stars}</span>` +
+    `<span class="rating-num">${escapeHtml(displayStr)} / 5</span>` +
+    `</span>`
+  );
+}
+
 function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
   const canonical = `${BASE_URL}/ships/`;
   const title = 'Cruise Ships Directory | SeaDays';
@@ -1012,12 +1047,6 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
 
   const safeShips = Array.isArray(ships) ? ships : [];
   const safeArticles = Array.isArray(articles) ? articles : [];
-
-  const formatRating = (rating) => {
-    const n = typeof rating === 'number' ? rating : Number(String(rating || '').trim());
-    if (!Number.isFinite(n) || n <= 0) return null;
-    return (Math.round(n * 10) / 10).toFixed(1);
-  };
 
   const normalizeKey = (value) => String(value || '').trim();
 
@@ -1048,9 +1077,9 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
     })
     .map((ship) => {
       const line = normalizeKey(ship.cruise_line);
-      const rating = formatRating(ship.rating);
-      const ratingHtml = rating
-        ? `<span class="rating-pill" aria-label="Rating ${rating} out of 5">${rating} <span aria-hidden="true">★</span></span>`
+      const fr = formatDirectoryRating(ship.rating);
+      const ratingHtml = fr.display
+        ? buildDirectoryRatingVisualHtml(fr.display, fr.numeric)
         : `<span class="rating-pill rating-pill-muted">In-app rating</span>`;
       return (
         `<a href="/ships/${escapeHtml(ship.slug)}/" class="seo-grid-card directory-card" ` +
@@ -1126,6 +1155,9 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
 .seo-grid-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
 .rating-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); }
 .rating-pill-muted { color: rgba(255,255,255,0.6); font-weight: 700; }
+.rating-visual { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 10px; border-radius: 12px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.95); min-width: 0; }
+.rating-stars { letter-spacing: 2px; color: #fbbf24; font-size: 15px; line-height: 1; }
+.rating-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); }
 .directory-card.is-hidden { display: none; }
 .featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
@@ -1312,12 +1344,6 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
   const safePorts = Array.isArray(ports) ? ports : [];
   const safeArticles = Array.isArray(articles) ? articles : [];
 
-  const formatRating = (rating) => {
-    const n = typeof rating === 'number' ? rating : Number(String(rating || '').trim());
-    if (!Number.isFinite(n) || n <= 0) return null;
-    return (Math.round(n * 10) / 10).toFixed(1);
-  };
-
   const normalizeKey = (value) => String(value || '').trim();
 
   const regionGroups = new Map();
@@ -1347,9 +1373,9 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
     .map((port) => {
       const region = normalizeKey(port.region) || 'Other';
       const label = port.country ? `${port.name}, ${port.country}` : port.name;
-      const rating = formatRating(port.rating);
-      const ratingHtml = rating
-        ? `<span class="rating-pill" aria-label="Rating ${rating} out of 5">${rating} <span aria-hidden="true">★</span></span>`
+      const fr = formatDirectoryRating(port.rating);
+      const ratingHtml = fr.display
+        ? buildDirectoryRatingVisualHtml(fr.display, fr.numeric)
         : `<span class="rating-pill rating-pill-muted">In-app rating</span>`;
       return (
         `<a href="/ports/${escapeHtml(port.slug)}/" class="seo-grid-card directory-card" ` +
@@ -1425,6 +1451,9 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
 .seo-grid-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
 .rating-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); }
 .rating-pill-muted { color: rgba(255,255,255,0.6); font-weight: 700; }
+.rating-visual { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 10px; border-radius: 12px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.95); min-width: 0; }
+.rating-stars { letter-spacing: 2px; color: #fbbf24; font-size: 15px; line-height: 1; }
+.rating-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); }
 .directory-card.is-hidden { display: none; }
 .featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
@@ -2532,45 +2561,67 @@ async function main() {
 
   console.log('Fetching ships & ports for programmatic SEO pages...');
   const { ships: rawShips, ports: rawPorts } = await fetchReviewsShipsPorts();
-  const apiSeoShips = buildSeoShipRecords(Array.isArray(rawShips) ? rawShips : []);
-  const apiSeoPorts = buildSeoPortRecords(Array.isArray(rawPorts) ? rawPorts : []);
+  const reviewByShipId = buildReviewAggregateByIdMap(Array.isArray(rawShips) ? rawShips : []);
+  const reviewByPortId = buildReviewAggregateByIdMap(Array.isArray(rawPorts) ? rawPorts : []);
+  const appRoot = getAppRepoRoot();
+  const shipSlugToReviewKey = buildShipSlugToReviewKeyMap(
+    appRoot,
+    Array.isArray(APP_ALL_SHIPS) && APP_ALL_SHIPS.length ? APP_ALL_SHIPS : FALLBACK_SHIP_GRID,
+  );
+  const portSlugToReviewKey = buildPortSlugToReviewKeyMap(
+    appRoot,
+    Array.isArray(APP_ALL_PORTS) && APP_ALL_PORTS.length ? APP_ALL_PORTS : FALLBACK_PORT_GRID,
+  );
 
-  const apiShipBySlug = new Map(apiSeoShips.map((s) => [String(s.slug || '').trim(), s]).filter((x) => x[0]));
-  const apiPortBySlug = new Map(apiSeoPorts.map((p) => [String(p.slug || '').trim(), p]).filter((x) => x[0]));
+  function pickShipReviewAggregate(slug) {
+    const s = String(slug || '').trim();
+    return reviewByShipId.get(s) || reviewByShipId.get(shipSlugToReviewKey.get(s) || '') || null;
+  }
+
+  function pickPortReviewAggregate(slug) {
+    const s = String(slug || '').trim();
+    return reviewByPortId.get(s) || reviewByPortId.get(portSlugToReviewKey.get(s) || '') || null;
+  }
 
   const fullShipRawList = (Array.isArray(APP_ALL_SHIPS) && APP_ALL_SHIPS.length ? APP_ALL_SHIPS : FALLBACK_SHIP_GRID).map((s) => {
     const slug = String(s.slug || '').trim() || slugify(s.name || 'ship');
-    const api = apiShipBySlug.get(slug);
+    const agg = pickShipReviewAggregate(slug);
+    const ratingVal = agg?.rating;
+    const rating = typeof ratingVal === 'number' && ratingVal > 0 ? ratingVal : null;
+    const reviewCount = typeof agg?.reviewCount === 'number' ? agg.reviewCount : null;
     return {
       id: slug,
       slug,
-      name: s.name || api?.name || slug,
-      cruise_line: s.cruiseLine || api?.cruise_line || api?.cruiseLine || 'Major cruise line',
-      description: api?.description || '',
-      highlights: api?.highlights || [],
-      rating: api?.rating ?? null,
-      reviewCount: api?.reviewCount ?? null,
+      name: s.name || slug,
+      cruise_line: s.cruiseLine || 'Major cruise line',
+      description: '',
+      highlights: [],
+      rating,
+      reviewCount,
     };
   });
 
   const fullPortRawList = (Array.isArray(APP_ALL_PORTS) && APP_ALL_PORTS.length ? APP_ALL_PORTS : FALLBACK_PORT_GRID).map((p) => {
     const slug = String(p.slug || '').trim() || slugify(p.name || 'port');
-    const api = apiPortBySlug.get(slug);
-    const country = p.country || api?.country || api?.countryName || '';
-    const label = String(p.name || api?.name || '').trim();
+    const country = p.country || '';
+    const label = String(p.name || '').trim();
     const portName = country && label.toLowerCase().endsWith(`, ${String(country).toLowerCase()}`)
       ? label.slice(0, -2 - String(country).length).trim()
       : label || slug;
+    const agg = pickPortReviewAggregate(slug);
+    const ratingVal = agg?.rating;
+    const rating = typeof ratingVal === 'number' && ratingVal > 0 ? ratingVal : null;
+    const reviewCount = typeof agg?.reviewCount === 'number' ? agg.reviewCount : null;
     return {
       id: slug,
       slug,
       portName,
       country,
-      region: p.region || api?.region || '',
-      description: api?.description || '',
-      highlights: api?.highlights || [],
-      rating: api?.rating ?? null,
-      reviewCount: api?.reviewCount ?? null,
+      region: p.region || '',
+      description: '',
+      highlights: [],
+      rating,
+      reviewCount,
     };
   });
 
