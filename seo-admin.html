@@ -282,6 +282,7 @@
                     <h2>Featured on blog index</h2>
                     <p style="color:var(--muted);font-size:14px;">Choose up to <strong>three</strong> posts for the Featured row on <code>/blog/</code> (order is left → right). Save here, then run <strong>Publish to GitHub</strong> so static HTML picks them up.</p>
                     <p id="blogFeaturedSummary" style="margin-top:8px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
+                    <p id="blogFeaturedSlugStats" style="margin-top:6px;font-size:13px;color:var(--muted);" role="status" aria-live="polite"></p>
                     <label for="featSlot1">Featured slot 1 (left)</label>
                     <select id="featSlot1" class="feat-slot-select" aria-label="Featured slot 1"></select>
                     <label for="featSlot2">Featured slot 2 (center)</label>
@@ -709,6 +710,50 @@
     var blogFeaturedOrder = [];
     var blogListCache = [];
 
+    /** Same bucket fix as landing `generateBlogs.js` — `cdn.seadays.app` paths can 404 in the browser. */
+    var CMS_DIRECT_STORAGE_PREFIX = 'https://auth.seadays.app/storage/v1/object/public';
+    var CMS_CDN_ORIGIN = 'https://cdn.seadays.app';
+    var CMS_SEADAYS_PUBLIC = 'SeadaysPublic';
+    var CMS_THUMB_FALLBACK = CMS_DIRECT_STORAGE_PREFIX + '/' + CMS_SEADAYS_PUBLIC + '/seadaysfav.png';
+
+    function ensureSeadaysPublicBucketInObjectPathCms(p) {
+        p = String(p || '').replace(/^\/+/, '');
+        if (!p) return p;
+        if (p.indexOf(CMS_SEADAYS_PUBLIC + '/') === 0) return p;
+        if (p.indexOf('portside/') === 0 || p.indexOf('blog-images/') === 0) return CMS_SEADAYS_PUBLIC + '/' + p;
+        return p;
+    }
+
+    /**
+     * Rewrites CDN / normalizes auth public URLs so `<img src>` matches static site behavior.
+     * @param {string} url
+     * @returns {string}
+     */
+    function resolveCmsImageUrl(url) {
+        var s = String(url || '').trim();
+        if (!s || s.indexOf('data:') === 0) return s;
+        if (s.indexOf('//') === 0) s = 'https:' + s;
+        if (s.indexOf('http://') === 0) s = 'https://' + s.slice(7);
+        if (s.indexOf(CMS_CDN_ORIGIN + '/') === 0) {
+            var rest = s.slice(CMS_CDN_ORIGIN.length + 1);
+            var qIdx = rest.indexOf('?');
+            var pathPart = (qIdx === -1 ? rest : rest.slice(0, qIdx)).replace(/^\/+/, '');
+            var query = qIdx === -1 ? '' : rest.slice(qIdx);
+            if (!pathPart) return s;
+            return CMS_DIRECT_STORAGE_PREFIX + '/' + ensureSeadaysPublicBucketInObjectPathCms(pathPart) + query;
+        }
+        if (s.indexOf(CMS_DIRECT_STORAGE_PREFIX + '/') === 0) {
+            var prefix = CMS_DIRECT_STORAGE_PREFIX + '/';
+            var qI = s.indexOf('?', prefix.length);
+            var pathP = qI === -1 ? s.slice(prefix.length) : s.slice(prefix.length, qI);
+            var qy = qI === -1 ? '' : s.slice(qI);
+            var fixed = ensureSeadaysPublicBucketInObjectPathCms(pathP);
+            if (fixed === pathP) return s;
+            return prefix + fixed + qy;
+        }
+        return s;
+    }
+
     function updateBlogFeaturedSummary() {
         var el = document.getElementById('blogFeaturedSummary');
         if (!el) return;
@@ -717,6 +762,21 @@
             return;
         }
         el.textContent = 'Order: ' + blogFeaturedOrder.map(function (s, i) { return (i + 1) + '. ' + s; }).join(' · ');
+    }
+
+    function updateFeaturedSlugStats() {
+        var el = document.getElementById('blogFeaturedSlugStats');
+        if (!el || cmsRole !== 'admin') return;
+        var src = blogListCache.length ? blogListCache : articlesCache;
+        var list = src || [];
+        if (!list.length) {
+            el.textContent = '';
+            return;
+        }
+        var withSlug = list.filter(function (a) { return String(a.slug || '').trim(); }).length;
+        var missing = list.length - withSlug;
+        el.textContent = withSlug + ' article(s) with a slug can be featured.' +
+            (missing ? ' ' + missing + ' skipped (no slug — set slug in the app editor so /blog/<slug>/ exists).' : '');
     }
 
     function getArticlesWithSlugForFeatured() {
@@ -747,6 +807,7 @@
                 sel.value = want;
             }
         });
+        updateFeaturedSlugStats();
     }
 
     function syncFeaturedFromSelects() {
@@ -783,8 +844,9 @@
                 ? '<span class="seo-thumb-badge seo-thumb-badge-ok" title="Meta title and description saved">✓</span>'
                 : '<span class="seo-thumb-badge seo-thumb-badge-warn" title="Missing meta title or description">!</span>';
             var url = String((a && (a.thumbnailUrl || a.heroImageUrl)) || '').trim();
-            var img = url
-                ? '<img src="' + escBlogAttr(url) + '" alt="" loading="lazy" decoding="async">'
+            var resolved = url ? resolveCmsImageUrl(url) : '';
+            var img = resolved
+                ? '<img src="' + escBlogAttr(resolved) + '" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'' + CMS_THUMB_FALLBACK + '\';this.style.objectFit=\'contain\'">'
                 : '<span class="seo-thumb-placeholder" role="img" aria-label="No thumbnail"></span>';
             var safeId = escBlogAttr(String(a.id || ''));
             return '<button type="button" class="seo-thumb-card" role="listitem" data-seo-thumb-id="' + safeId + '" title="' + escBlogAttr(String(a.title || '').slice(0, 200)) + '">' +
@@ -813,7 +875,8 @@
     function blogThumbCellHtml(a) {
         var url = String((a && (a.thumbnailUrl || a.heroImageUrl)) || '').trim();
         if (url) {
-            return '<td class="blog-thumb-cell"><img src="' + escBlogAttr(url) + '" alt="" width="56" height="56" loading="lazy" decoding="async" style="width:56px;height:56px;object-fit:cover;"></td>';
+            var resolved = resolveCmsImageUrl(url);
+            return '<td class="blog-thumb-cell"><img src="' + escBlogAttr(resolved) + '" alt="" width="56" height="56" loading="lazy" decoding="async" style="width:56px;height:56px;object-fit:cover;" onerror="this.onerror=null;this.src=\'' + CMS_THUMB_FALLBACK + '\';this.style.objectFit=\'contain\'"></td>';
         }
         return '<td class="blog-thumb-cell"><span style="display:block;width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px dashed var(--border);" title="No thumbnail"></span></td>';
     }
