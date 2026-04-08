@@ -182,7 +182,8 @@ function buildSeoShipRecords(rawList) {
     const raw = rawList[i] || {};
     const name = raw.name || raw.shipName || raw.itemName || `Cruise ship ${i + 1}`;
     const id = String(raw.id ?? raw.shipId ?? slugify(name)).replace(/[^a-zA-Z0-9_-]/g, '-');
-    let slug = slugify(name);
+    let slug = raw.slug ? String(raw.slug).trim() : slugify(name);
+    if (!slug) slug = slugify(name);
     if (usedSlugs.has(slug)) slug = slugify(`${name}-${id}`);
     if (usedSlugs.has(slug)) slug = slugify(id);
     usedSlugs.add(slug);
@@ -218,7 +219,8 @@ function buildSeoPortRecords(rawList) {
     const country = raw.country || raw.countryName || '';
     const id = String(raw.id ?? raw.portId ?? slugify(name)).replace(/[^a-zA-Z0-9_-]/g, '-');
     const baseLabel = country ? `${name} ${country}` : name;
-    let slug = slugify(baseLabel);
+    let slug = raw.slug ? String(raw.slug).trim() : slugify(baseLabel);
+    if (!slug) slug = slugify(baseLabel);
     if (usedSlugs.has(slug)) slug = slugify(`${name}-${id}`);
     if (usedSlugs.has(slug)) slug = slugify(id);
     usedSlugs.add(slug);

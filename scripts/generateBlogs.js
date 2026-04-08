@@ -27,6 +27,7 @@ const {
   pickShipsForPortPage,
   pickBlogArticlesForEntity,
 } = require('./lib/seoShipPortPages');
+const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const https = require('https');
 const fs = require('fs');
@@ -957,7 +958,7 @@ function buildDirectoryHeaderNav() {
       </nav>`;
 }
 
-function buildShipsIndexHtml({ ships, articles }) {
+function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
   const canonical = `${BASE_URL}/ships/`;
   const title = 'Cruise Ships Directory | SeaDays';
   const desc =
@@ -989,12 +990,7 @@ function buildShipsIndexHtml({ ships, articles }) {
     })
     .sort((a, b) => (b.score - a.score) || (b.count - a.count) || a.line.localeCompare(b.line));
 
-  const topLineTokens = linePills.slice(0, 6).map((x) => x.line);
-  const featured = pickBlogArticlesForEntity(safeArticles, ['cruise ships', 'cruise lines', ...topLineTokens], 6);
-  const featuredLinks = featured
-    .slice(0, 6)
-    .map((a) => `<li><a href="/blog/${escapeHtml(a.slug)}/">${escapeHtml(a.title || 'SeaDays guide')}</a></li>`)
-    .join('');
+  const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
 
   const cards = safeShips
     .slice()
@@ -1087,9 +1083,13 @@ function buildShipsIndexHtml({ ships, articles }) {
 .directory-card.is-hidden { display: none; }
 .featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
-.featured-guides ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; list-style: none; padding: 0; margin: 0; }
-.featured-guides a { color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 600; }
-.featured-guides a:hover { color: #fff; text-decoration: underline; }
+.featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
+.guide-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
+.guide-card-image { width: 100%; height: 150px; object-fit: cover; object-position: center; background: rgba(255,255,255,0.05); display: block; }
+.guide-card-body { padding: 12px 14px 14px; }
+.guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
+.guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .app-cta { max-width: 1200px; margin: 0 auto 26px; padding: 0 20px; }
 .app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,0,51,0.06); }
 .app-cta strong { display: block; font-size: 15px; }
@@ -1099,7 +1099,7 @@ function buildShipsIndexHtml({ ships, articles }) {
 @media (max-width: 900px) {
   .directory-hero { grid-template-columns: 1fr; padding-top: 120px; }
   .directory-hero h1 { font-size: 38px; }
-  .featured-guides ul { grid-template-columns: 1fr; }
+  .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 </style>
@@ -1146,7 +1146,7 @@ function buildShipsIndexHtml({ ships, articles }) {
     </section>
     <section class="featured-guides" aria-label="Popular cruise guides">
       <h2>Popular comparisons &amp; guides</h2>
-      <ul>${featuredLinks || '<li><a href="/blog/">SeaDays cruise blog</a></li>'}</ul>
+      <div class="featured-guides-grid">${safeFeaturedGuideCardsHtml || `<a class="guide-card" href="/blog/"><div class="guide-card-body"><p class="guide-card-title">SeaDays cruise blog</p><p class="guide-card-meta">Browse comparisons, tips, and planning guides</p></div></a>`}</div>
     </section>
     <article class="seo-prose">
       <h2>Why a ships hub matters for cruise planning</h2>
@@ -1250,7 +1250,7 @@ function buildShipsIndexHtml({ ships, articles }) {
 </html>`;
 }
 
-function buildPortsIndexHtml({ ports, articles }) {
+function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
   const canonical = `${BASE_URL}/ports/`;
   const title = 'Cruise Ports & Destinations | SeaDays';
   const desc =
@@ -1278,12 +1278,7 @@ function buildPortsIndexHtml({ ports, articles }) {
     .map(([region, list]) => ({ region, count: list.length }))
     .sort((a, b) => (b.count - a.count) || a.region.localeCompare(b.region));
 
-  const topRegionTokens = regionPills.slice(0, 8).map((x) => x.region);
-  const featured = pickBlogArticlesForEntity(safeArticles, ['cruise ports', 'shore days', ...topRegionTokens], 6);
-  const featuredLinks = featured
-    .slice(0, 6)
-    .map((a) => `<li><a href="/blog/${escapeHtml(a.slug)}/">${escapeHtml(a.title || 'SeaDays guide')}</a></li>`)
-    .join('');
+  const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
 
   const cards = safePorts
     .slice()
@@ -1380,9 +1375,13 @@ function buildPortsIndexHtml({ ports, articles }) {
 .directory-card.is-hidden { display: none; }
 .featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
-.featured-guides ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; list-style: none; padding: 0; margin: 0; }
-.featured-guides a { color: rgba(255,255,255,0.82); text-decoration: none; font-weight: 600; }
-.featured-guides a:hover { color: #fff; text-decoration: underline; }
+.featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
+.guide-card:hover { border-color: rgba(6,182,212,0.85); transform: translateY(-2px); }
+.guide-card-image { width: 100%; height: 150px; object-fit: cover; object-position: center; background: rgba(255,255,255,0.05); display: block; }
+.guide-card-body { padding: 12px 14px 14px; }
+.guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
+.guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .app-cta { max-width: 1200px; margin: 0 auto 26px; padding: 0 20px; }
 .app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(6,182,212,0.06); }
 .app-cta strong { display: block; font-size: 15px; }
@@ -1392,7 +1391,7 @@ function buildPortsIndexHtml({ ports, articles }) {
 @media (max-width: 900px) {
   .directory-hero { grid-template-columns: 1fr; padding-top: 120px; }
   .directory-hero h1 { font-size: 38px; }
-  .featured-guides ul { grid-template-columns: 1fr; }
+  .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 </style>
@@ -1439,7 +1438,7 @@ function buildPortsIndexHtml({ ports, articles }) {
     </section>
     <section class="featured-guides" aria-label="Popular destination guides">
       <h2>Popular destination guides</h2>
-      <ul>${featuredLinks || '<li><a href="/blog/">SeaDays cruise blog</a></li>'}</ul>
+      <div class="featured-guides-grid">${safeFeaturedGuideCardsHtml || `<a class="guide-card" href="/blog/"><div class="guide-card-body"><p class="guide-card-title">SeaDays cruise blog</p><p class="guide-card-meta">Browse destination guides and shore-day tips</p></div></a>`}</div>
     </section>
     <article class="seo-prose">
       <h2>Plan smarter shore days</h2>
@@ -2348,8 +2347,7 @@ async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = []
 
 async function main() {
   if (!process.env.SUPABASE_ANON_KEY) {
-    console.error('SUPABASE_ANON_KEY is required. Set it in environment or .env.');
-    process.exit(1);
+    console.warn('[generateBlogs] SUPABASE_ANON_KEY not set. Skipping blog fetch; ships/ports SEO will be generated from the local dataset only.');
   }
 
   const repoRoot = path.join(__dirname, '..');
@@ -2397,8 +2395,50 @@ async function main() {
 
   console.log('Fetching ships & ports for programmatic SEO pages...');
   const { ships: rawShips, ports: rawPorts } = await fetchReviewsShipsPorts();
-  const seoShips = buildSeoShipRecords(rawShips.length ? rawShips : FALLBACK_SHIP_GRID);
-  const seoPorts = buildSeoPortRecords(rawPorts.length ? rawPorts : FALLBACK_PORT_GRID);
+  const apiSeoShips = buildSeoShipRecords(Array.isArray(rawShips) ? rawShips : []);
+  const apiSeoPorts = buildSeoPortRecords(Array.isArray(rawPorts) ? rawPorts : []);
+
+  const apiShipBySlug = new Map(apiSeoShips.map((s) => [String(s.slug || '').trim(), s]).filter((x) => x[0]));
+  const apiPortBySlug = new Map(apiSeoPorts.map((p) => [String(p.slug || '').trim(), p]).filter((x) => x[0]));
+
+  const fullShipRawList = (Array.isArray(APP_ALL_SHIPS) && APP_ALL_SHIPS.length ? APP_ALL_SHIPS : FALLBACK_SHIP_GRID).map((s) => {
+    const slug = String(s.slug || '').trim() || slugify(s.name || 'ship');
+    const api = apiShipBySlug.get(slug);
+    return {
+      id: slug,
+      slug,
+      name: s.name || api?.name || slug,
+      cruise_line: s.cruiseLine || api?.cruise_line || api?.cruiseLine || 'Major cruise line',
+      description: api?.description || '',
+      highlights: api?.highlights || [],
+      rating: api?.rating ?? null,
+      reviewCount: api?.reviewCount ?? null,
+    };
+  });
+
+  const fullPortRawList = (Array.isArray(APP_ALL_PORTS) && APP_ALL_PORTS.length ? APP_ALL_PORTS : FALLBACK_PORT_GRID).map((p) => {
+    const slug = String(p.slug || '').trim() || slugify(p.name || 'port');
+    const api = apiPortBySlug.get(slug);
+    const country = p.country || api?.country || api?.countryName || '';
+    const label = String(p.name || api?.name || '').trim();
+    const portName = country && label.toLowerCase().endsWith(`, ${String(country).toLowerCase()}`)
+      ? label.slice(0, -2 - String(country).length).trim()
+      : label || slug;
+    return {
+      id: slug,
+      slug,
+      portName,
+      country,
+      region: p.region || api?.region || '',
+      description: api?.description || '',
+      highlights: api?.highlights || [],
+      rating: api?.rating ?? null,
+      reviewCount: api?.reviewCount ?? null,
+    };
+  });
+
+  const seoShips = buildSeoShipRecords(fullShipRawList);
+  const seoPorts = buildSeoPortRecords(fullPortRawList);
   const spOpts = {
     baseUrl: BASE_URL,
     defaultImage: DEFAULT_FAVICON,
@@ -2429,14 +2469,71 @@ async function main() {
     fs.writeFileSync(path.join(dir, 'index.html'), buildPortDetailHtml(port, relPorts, destShips, blogs, spOpts), 'utf8');
   }
 
+  async function buildFeaturedGuideCardsHtml(featuredArticles, keyPrefix) {
+    const safe = Array.isArray(featuredArticles) ? featuredArticles : [];
+    const out = [];
+    for (let i = 0; i < safe.length; i++) {
+      const a = safe[i];
+      if (!a || !a.slug) continue;
+      const { url: imgUrl, source, type } = await pickCardImage(a, `${keyPrefix}-${i}`);
+      logImageResolution(a, source, type, imgUrl);
+      const imgTag = buildImgTag(imgUrl, source, type, a.title || 'SeaDays guide', 'guide-card-image', { width: 420, height: 240 });
+      out.push(
+        `<a class="guide-card" href="${blogRelPath(escapeHtml(a.slug))}">` +
+          `${imgTag}` +
+          `<div class="guide-card-body">` +
+            `<p class="guide-card-title">${escapeHtml(a.title || 'SeaDays guide')}</p>` +
+            `<p class="guide-card-meta">Read in the SeaDays blog</p>` +
+          `</div>` +
+        `</a>`
+      );
+    }
+    return out.join('\n');
+  }
+
+  function pickShipGuideArticles() {
+    const lineGroups = new Map();
+    for (const ship of seoShips) {
+      const line = String(ship.cruise_line || '').trim();
+      if (!line) continue;
+      if (!lineGroups.has(line)) lineGroups.set(line, []);
+      lineGroups.get(line).push(ship);
+    }
+    const linePills = [...lineGroups.entries()]
+      .map(([line, list]) => {
+        const score = list.reduce((sum, s) => sum + (Number.isFinite(s.reviewCount) ? s.reviewCount : 0), 0);
+        return { line, score, count: list.length };
+      })
+      .sort((a, b) => (b.score - a.score) || (b.count - a.count) || a.line.localeCompare(b.line));
+    const topLineTokens = linePills.slice(0, 6).map((x) => x.line);
+    return pickBlogArticlesForEntity(articles, ['cruise ships', 'cruise lines', ...topLineTokens], 6).slice(0, 6);
+  }
+
+  function pickPortGuideArticles() {
+    const regionGroups = new Map();
+    for (const port of seoPorts) {
+      const region = String(port.region || '').trim() || 'Other';
+      if (!regionGroups.has(region)) regionGroups.set(region, []);
+      regionGroups.get(region).push(port);
+    }
+    const regionPills = [...regionGroups.entries()]
+      .map(([region, list]) => ({ region, count: list.length }))
+      .sort((a, b) => (b.count - a.count) || a.region.localeCompare(b.region));
+    const topRegionTokens = regionPills.slice(0, 8).map((x) => x.region);
+    return pickBlogArticlesForEntity(articles, ['cruise ports', 'shore days', ...topRegionTokens], 6).slice(0, 6);
+  }
+
+  const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
+  const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
+
   fs.writeFileSync(
     path.join(repoRoot, 'ships', 'index.html'),
-    buildShipsIndexHtml({ ships: seoShips, articles }),
+    buildShipsIndexHtml({ ships: seoShips, articles, featuredGuideCardsHtml: shipGuideCardsHtml }),
     'utf8'
   );
   fs.writeFileSync(
     path.join(repoRoot, 'ports', 'index.html'),
-    buildPortsIndexHtml({ ports: seoPorts, articles }),
+    buildPortsIndexHtml({ ports: seoPorts, articles, featuredGuideCardsHtml: portGuideCardsHtml }),
     'utf8'
   );
   console.log(`  wrote ${seoShips.length} ship + ${seoPorts.length} port detail pages + indexes`);
