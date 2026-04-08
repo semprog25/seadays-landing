@@ -1744,8 +1744,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .hero-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
 .hero-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
 .blog-toolbar { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
-.blog-toolbar-inner { display: flex; flex-direction: column; gap: 16px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); }
-.blog-search { display: flex; flex-direction: column; gap: 8px; align-items: stretch; width: 100%; }
+.blog-toolbar-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); }
+.blog-search { display: flex; flex-direction: column; gap: 8px; align-items: center; width: 100%; }
 .blog-search-row { display: flex; align-items: stretch; gap: 10px; max-width: 520px; width: 100%; margin: 0 auto; }
 .blog-search input.blog-search-neon { flex: 1; min-width: 0; width: auto; padding: 10px 12px; border-radius: 14px; font-size: 15px; border: 1px solid rgba(255,0,51,0.45); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); font-weight: 700; outline: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.25), 0 0 18px rgba(255,0,51,0.35); animation: blogSearchNeonPulse 2.8s ease-in-out infinite; }
 .blog-search-submit { flex-shrink: 0; width: 48px; min-height: 44px; padding: 0; border-radius: 14px; border: 1px solid rgba(255,0,51,0.55); background: rgba(255,0,51,0.18); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s ease, box-shadow 0.2s ease; }
@@ -1756,13 +1756,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
   .blog-search input.blog-search-neon { animation: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.4), 0 0 12px rgba(255,0,51,0.28); }
 }
 .blog-search input.blog-search-neon::placeholder { color: rgba(255,255,255,0.45); font-weight: 600; }
-.blog-search .search-hint { font-size: 12px; color: rgba(255,255,255,0.55); }
-.blog-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-start; }
+.blog-search .search-hint { font-size: 12px; color: rgba(255,255,255,0.55); text-align: center; width: 100%; }
+.blog-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; width: 100%; }
 .topic-pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; cursor: pointer; }
 .topic-pill:hover { border-color: rgba(255,0,51,0.55); }
 .topic-pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.16); }
-.featured-row { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; }
-.featured-row h2 { font-size: 20px; font-weight: 900; letter-spacing: -0.3px; margin: 12px 0 14px; text-align: left; }
+.featured-row { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; text-align: center; }
+.featured-row h2 { font-size: 20px; font-weight: 900; letter-spacing: -0.3px; margin: 12px 0 14px; text-align: center; }
 .featured-row .featured-grid:empty { display: none; min-height: 0; }
 .featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .featured-grid .article-card { border-radius: 20px; }
@@ -1809,7 +1809,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
 @media (max-width: 900px) {
-  .blog-filters { justify-content: flex-start; }
+  .blog-filters { justify-content: center; }
   .featured-grid { grid-template-columns: 1fr; }
 }
 `;
