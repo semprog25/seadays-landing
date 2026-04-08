@@ -54,6 +54,37 @@ const https = require('https');
 const fs = require('fs');
 const crypto = require('crypto');
 
+/**
+ * Remove ships/<slug> and ports/<slug> directories not present in the current build.
+ * Prevents stale programmatic SEO pages from older dataset snapshots (disk vs sitemap drift).
+ */
+function removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts) {
+  const shipSlugs = new Set(seoShips.map((s) => String(s.slug || '').trim()).filter(Boolean));
+  const portSlugs = new Set(seoPorts.map((p) => String(p.slug || '').trim()).filter(Boolean));
+  for (const kind of ['ships', 'ports']) {
+    const base = path.join(repoRoot, kind);
+    if (!fs.existsSync(base)) continue;
+    const allowed = kind === 'ships' ? shipSlugs : portSlugs;
+    let removed = 0;
+    for (const name of fs.readdirSync(base)) {
+      const full = path.join(base, name);
+      let isDir = false;
+      try {
+        isDir = fs.statSync(full).isDirectory();
+      } catch (e) {
+        continue;
+      }
+      if (!isDir) continue;
+      if (!allowed.has(name)) {
+        fs.rmSync(full, { recursive: true, force: true });
+        removed++;
+        console.log(`[generateBlogs] removed orphan ${kind}/${name}/`);
+      }
+    }
+    if (removed) console.log(`[generateBlogs] cleanup ${kind}: removed ${removed} orphan folders`);
+  }
+}
+
 const SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
 const STORAGE_PUBLIC_URL = 'https://auth.seadays.app/storage/v1/object/public';
 const BLOG_IMAGES_BUCKET = 'SeadaysPublic';
@@ -2674,6 +2705,8 @@ async function main() {
     const blogs = pickBlogArticlesForEntity(articles, tokens, 2);
     fs.writeFileSync(path.join(dir, 'index.html'), buildPortDetailHtml(port, relPorts, destShips, blogs, spOpts), 'utf8');
   }
+
+  removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts);
 
   async function buildFeaturedGuideCardsHtml(featuredArticles, keyPrefix) {
     const safe = Array.isArray(featuredArticles) ? featuredArticles : [];

@@ -92,8 +92,12 @@ Canonical policy for static pages is defined in `scripts/generateBlogs.js` (`blo
 
 ## Sitemap Coverage
 
-- **Static deploy (e.g. GitHub Pages):** Run `node scripts/generate-sitemap.js` before deploy to regenerate `sitemap.xml` with all blog articles. Requires `SUPABASE_ANON_KEY` in `.env`.
-- **Server deploy:** If the landing server runs (e.g. Node host), `/sitemap.xml` is dynamic and includes all blog articles from Supabase.
+- **Static deploy (e.g. GitHub Pages):** Run `npm run generate-blogs` in the landing repo before deploy. That is the **authoritative** generator: it writes `sitemap.xml` with the home page, `/blog/`, `/ships/`, `/ports/`, every published article, and every ship/port guide URL. The standalone `scripts/generate-sitemap.js` helper does **not** include ships/ports; use it only for quick blog-only experiments.
+- **Server deploy:** If the landing server runs (e.g. Node host), `/sitemap.xml` may be dynamic; GitHub Pages should rely on the committed static `sitemap.xml`.
+
+## After ships or ports dataset changes
+
+When `scripts/lib/appCruiseDataset.js` is refreshed or `npm run generate-blogs` removes stale slugs, use **URL Inspection** in Search Console on a sample of `/ships/<slug>/` and `/ports/<slug>/` URLs after GitHub Pages finishes deploying. Request indexing only when you need faster discovery; otherwise Google will recrawl from the updated sitemap.
 
 ## Checklist
 
@@ -102,6 +106,7 @@ Canonical policy for static pages is defined in `scripts/generateBlogs.js` (`blo
 - [ ] Verify `https://seadays.app/robots.txt` loads
 - [ ] Verify `https://seadays.app/sitemap.xml` loads
 - [ ] Use URL Inspection on a few blog URLs to confirm indexing
+- [ ] Optionally inspect a few `/ships/<slug>/` and `/ports/<slug>/` URLs after regenerating programmatic pages
 - [ ] If you see **Duplicate, Google chose different canonical than user**, follow the section above and capture example URLs + Google-selected canonical
 - [ ] Confirm **one** preferred host (`https://seadays.app`) with redirects for `www` / `http` if applicable
 - [ ] Monitor Performance and Pages reports over time
