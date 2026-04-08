@@ -118,6 +118,69 @@
         .blog-thumb-cell { width: 68px; vertical-align: middle; }
         .blog-thumb-cell img { display: block; border-radius: 10px; border: 1px solid var(--border); }
         .row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .seo-thumb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+            gap: 12px;
+            max-width: 100%;
+        }
+        .seo-thumb-card {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg);
+            cursor: pointer;
+            text-align: left;
+            color: var(--text);
+            overflow: hidden;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+        .seo-thumb-card:hover { border-color: rgba(230, 57, 70, 0.45); }
+        .seo-thumb-card.seo-thumb-active {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px rgba(230, 57, 70, 0.35);
+        }
+        .seo-thumb-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+        .seo-thumb-placeholder {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1;
+            background: rgba(255,255,255,0.06);
+            border-bottom: 1px solid var(--border);
+        }
+        .seo-thumb-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 22px;
+            text-align: center;
+            z-index: 1;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+        }
+        .seo-thumb-badge-ok { background: #1e6f4a; color: #fff; }
+        .seo-thumb-badge-warn { background: #c9a227; color: #111; }
+        .seo-thumb-title {
+            display: block;
+            font-size: 11px;
+            line-height: 1.25;
+            padding: 6px 8px 8px;
+            color: var(--muted);
+            max-height: 3.75em;
+            overflow: hidden;
+        }
+        .feat-slot-select { max-width: 520px; }
         @media (max-width: 768px) {
             .layout { flex-direction: column; }
             .sidebar { width: 100%; display: flex; flex-wrap: wrap; gap: 4px; padding: 12px; }
@@ -209,6 +272,25 @@
                         <label>Generated meta tags (Article SEO)</label>
                         <pre id="articleSeoPreviewContent" style="white-space:pre-wrap;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;overflow:auto;"></pre>
                     </div>
+                    <div id="articleSeoStatusSection" class="hidden" style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+                        <h3 style="font-size:16px;margin:0 0 8px;">Article SEO status</h3>
+                        <p style="color:var(--muted);font-size:13px;margin:0 0 12px;">Thumbnails for all posts. <strong style="color:#2a9d6e">✓</strong> = meta title and description saved. <strong style="color:#c9a227">!</strong> = incomplete. Click a card to edit that article.</p>
+                        <div id="articleSeoThumbGrid" class="seo-thumb-grid" role="list" aria-label="Article SEO completion"></div>
+                    </div>
+                </div>
+                <div class="panel hidden" id="blogFeaturedPanel">
+                    <h2>Featured on blog index</h2>
+                    <p style="color:var(--muted);font-size:14px;">Choose up to <strong>three</strong> posts for the Featured row on <code>/blog/</code> (order is left → right). Save here, then run <strong>Publish to GitHub</strong> so static HTML picks them up.</p>
+                    <p id="blogFeaturedSummary" style="margin-top:8px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
+                    <label for="featSlot1">Featured slot 1 (left)</label>
+                    <select id="featSlot1" class="feat-slot-select" aria-label="Featured slot 1"></select>
+                    <label for="featSlot2">Featured slot 2 (center)</label>
+                    <select id="featSlot2" class="feat-slot-select" aria-label="Featured slot 2"></select>
+                    <label for="featSlot3">Featured slot 3 (right)</label>
+                    <select id="featSlot3" class="feat-slot-select" aria-label="Featured slot 3"></select>
+                    <div class="row-actions" style="margin-top:12px;">
+                        <button type="button" class="btn btn-primary" id="btnSaveBlogFeatured">Save featured posts</button>
+                    </div>
                 </div>
                 </div>
             </section>
@@ -222,14 +304,6 @@
                         <a class="btn btn-secondary" id="linkOpenGitHubActionsBlog" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-block;text-decoration:none;margin-top:0;">Open GitHub Actions</a>
                     </div>
                     <p id="publishGitStatus" style="margin-top:12px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
-                </div>
-                <div class="panel" id="blogFeaturedPanel" style="display:none;">
-                    <h2>Featured on blog index</h2>
-                    <p style="color:var(--muted);font-size:14px;">Choose up to <strong>three</strong> posts for the Featured row on <code>/blog/</code> (order is left → right). Save here, then run <strong>Publish to GitHub</strong> so static HTML picks them up.</p>
-                    <p id="blogFeaturedSummary" style="margin-top:8px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
-                    <div class="row-actions" style="margin-top:12px;">
-                        <button type="button" class="btn btn-primary" id="btnSaveBlogFeatured">Save featured posts</button>
-                    </div>
                 </div>
                 <div class="panel">
                     <h2>Blog on website</h2>
@@ -478,7 +552,9 @@
             var pg = document.getElementById('publishGitPanel');
             if (pg) pg.style.display = (me.role === 'admin') ? 'block' : 'none';
             var bfPanel = document.getElementById('blogFeaturedPanel');
-            if (bfPanel) bfPanel.style.display = (me.role === 'admin') ? 'block' : 'none';
+            if (bfPanel) bfPanel.classList.toggle('hidden', me.role !== 'admin');
+            var seoStatusSec = document.getElementById('articleSeoStatusSection');
+            if (seoStatusSec) seoStatusSec.classList.toggle('hidden', me.role !== 'admin');
             var pgSeo = document.getElementById('publishGitPanelSeo');
             if (pgSeo) pgSeo.classList.toggle('hidden', me.role !== 'admin');
             var linkSeo = document.getElementById('linkOpenGitHubActionsSeo');
@@ -643,6 +719,93 @@
         el.textContent = 'Order: ' + blogFeaturedOrder.map(function (s, i) { return (i + 1) + '. ' + s; }).join(' · ');
     }
 
+    function getArticlesWithSlugForFeatured() {
+        var src = blogListCache.length ? blogListCache : articlesCache;
+        return (src || []).filter(function (a) { return String(a.slug || '').trim(); }).slice();
+    }
+
+    function fillFeaturedSelects() {
+        if (cmsRole !== 'admin') return;
+        var withSlug = getArticlesWithSlugForFeatured();
+        withSlug.sort(function (x, y) {
+            return String(x.title || '').localeCompare(String(y.title || ''), undefined, { sensitivity: 'base' });
+        });
+        var baseOpts = '<option value="">— None —</option>' + withSlug.map(function (a) {
+            return '<option value="' + escBlogAttr(String(a.slug).trim()) + '">' + String(a.title || a.slug).replace(/</g, '&lt;').slice(0, 90) + '</option>';
+        }).join('');
+        ['featSlot1', 'featSlot2', 'featSlot3'].forEach(function (id, idx) {
+            var sel = document.getElementById(id);
+            if (!sel) return;
+            var want = blogFeaturedOrder[idx] || '';
+            sel.innerHTML = baseOpts;
+            sel.value = want;
+            if (want && sel.value !== want) {
+                var o = document.createElement('option');
+                o.value = want;
+                o.textContent = want;
+                sel.appendChild(o);
+                sel.value = want;
+            }
+        });
+    }
+
+    function syncFeaturedFromSelects() {
+        var next = [];
+        ['featSlot1', 'featSlot2', 'featSlot3'].forEach(function (id) {
+            var sel = document.getElementById(id);
+            var v = sel && sel.value ? String(sel.value).trim() : '';
+            if (v && next.indexOf(v) < 0) next.push(v);
+        });
+        blogFeaturedOrder = next.slice(0, 3);
+        updateBlogFeaturedSummary();
+    }
+
+    function onFeaturedSlotChange() {
+        syncFeaturedFromSelects();
+        var vb = document.getElementById('viewBlog');
+        if (vb && !vb.classList.contains('hidden')) renderBlogTableInner();
+    }
+
+    function renderArticleSeoThumbGrid() {
+        var grid = document.getElementById('articleSeoThumbGrid');
+        if (!grid || cmsRole !== 'admin') return;
+        var list = articlesCache || [];
+        if (!list.length) {
+            grid.innerHTML = '<p style="color:var(--muted);font-size:14px;">No articles loaded yet.</p>';
+            return;
+        }
+        var sorted = list.slice().sort(function (a, b) {
+            return String(a.title || a.id || '').localeCompare(String(b.title || b.id || ''), undefined, { sensitivity: 'base' });
+        });
+        grid.innerHTML = sorted.map(function (a) {
+            var complete = a.seoComplete === true;
+            var badge = complete
+                ? '<span class="seo-thumb-badge seo-thumb-badge-ok" title="Meta title and description saved">✓</span>'
+                : '<span class="seo-thumb-badge seo-thumb-badge-warn" title="Missing meta title or description">!</span>';
+            var url = String((a && (a.thumbnailUrl || a.heroImageUrl)) || '').trim();
+            var img = url
+                ? '<img src="' + escBlogAttr(url) + '" alt="" loading="lazy" decoding="async">'
+                : '<span class="seo-thumb-placeholder" role="img" aria-label="No thumbnail"></span>';
+            var safeId = escBlogAttr(String(a.id || ''));
+            return '<button type="button" class="seo-thumb-card" role="listitem" data-seo-thumb-id="' + safeId + '" title="' + escBlogAttr(String(a.title || '').slice(0, 200)) + '">' +
+                badge + img + '<span class="seo-thumb-title">' + String(a.title || a.id).replace(/</g, '&lt;').slice(0, 56) + (String(a.title || '').length > 56 ? '…' : '') + '</span></button>';
+        }).join('');
+        var sel = document.getElementById('seoArticlePick');
+        var cur = sel ? sel.value : '';
+        grid.querySelectorAll('.seo-thumb-card').forEach(function (btn) {
+            if (btn.getAttribute('data-seo-thumb-id') === cur) btn.classList.add('seo-thumb-active');
+            btn.onclick = function () {
+                var id = btn.getAttribute('data-seo-thumb-id');
+                if (sel && id) {
+                    sel.value = id;
+                    sel.dispatchEvent(new Event('change'));
+                }
+                grid.querySelectorAll('.seo-thumb-card').forEach(function (x) { x.classList.remove('seo-thumb-active'); });
+                btn.classList.add('seo-thumb-active');
+            };
+        });
+    }
+
     function escBlogAttr(s) {
         return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
     }
@@ -668,6 +831,7 @@
             return;
         }
         updateBlogFeaturedSummary();
+        fillFeaturedSelects();
         renderBlogTableInner();
     }
 
@@ -736,8 +900,17 @@
     }
 
     function loadArticlesForSeoAndBlog() {
-        api('/portside-articles?admin=1&summary=1&limit=500').then(function (d) {
+        var artPromise = api('/portside-articles?admin=1&summary=1&limit=500');
+        var featPromise = cmsRole === 'admin'
+            ? api('/landing-cms/blog-featured').catch(function () { return { slugs: [] }; })
+            : Promise.resolve({ slugs: [] });
+        Promise.all([artPromise, featPromise]).then(function (pair) {
+            var d = pair[0];
+            var feat = pair[1];
             articlesCache = d.articles || [];
+            if (cmsRole === 'admin' && Array.isArray(feat.slugs)) {
+                blogFeaturedOrder = feat.slugs.map(function (s) { return String(s || '').trim(); }).filter(Boolean).slice(0, 3);
+            }
             var sel = document.getElementById('seoArticlePick');
             sel.innerHTML = '<option value="">— Choose —</option>';
             articlesCache.forEach(function (a) {
@@ -746,12 +919,20 @@
                 o.textContent = (a.title || a.id).slice(0, 80);
                 sel.appendChild(o);
             });
+            updateBlogFeaturedSummary();
+            fillFeaturedSelects();
+            renderArticleSeoThumbGrid();
         }).catch(function () {});
     }
 
     document.getElementById('seoArticlePick').onchange = function () {
         var id = this.value;
-        if (!id) return;
+        if (!id) {
+            document.querySelectorAll('#articleSeoThumbGrid .seo-thumb-card').forEach(function (btn) {
+                btn.classList.remove('seo-thumb-active');
+            });
+            return;
+        }
         api('/portside-articles/' + encodeURIComponent(id) + '/seo').then(function (d) {
             var s = d.seo || {};
             document.getElementById('artSeoTitle').value = s.metaTitle || '';
@@ -759,6 +940,9 @@
             document.getElementById('artSeoCanon').value = s.canonicalUrl || '';
             document.getElementById('artSeoOg').value = s.ogImage || '';
         }).catch(function () {});
+        document.querySelectorAll('#articleSeoThumbGrid .seo-thumb-card').forEach(function (btn) {
+            btn.classList.toggle('seo-thumb-active', btn.getAttribute('data-seo-thumb-id') === id);
+        });
     };
 
     document.getElementById('btnGenerateArtSeo').onclick = function () {
@@ -817,7 +1001,10 @@
                 canonicalUrl: document.getElementById('artSeoCanon').value,
                 ogImage: document.getElementById('artSeoOg').value
             })
-        }).then(function () { toast('Article SEO saved'); }).catch(function (e) { toast(e.message, true); });
+        }).then(function () {
+            toast('Article SEO saved');
+            loadArticlesForSeoAndBlog();
+        }).catch(function (e) { toast(e.message, true); });
     };
 
     function loadBlogTable() {
@@ -832,20 +1019,29 @@
             var d = pair[0];
             var feat = pair[1];
             blogListCache = d.articles || [];
+            articlesCache = blogListCache.slice();
             if (cmsRole === 'admin' && Array.isArray(feat.slugs)) {
                 blogFeaturedOrder = feat.slugs.map(function (s) { return String(s || '').trim(); }).filter(Boolean).slice(0, 3);
             } else {
                 blogFeaturedOrder = [];
             }
             updateBlogFeaturedSummary();
+            fillFeaturedSelects();
+            renderArticleSeoThumbGrid();
             renderBlogTableInner();
         }).catch(function (e) {
             w.innerHTML = '<p style="color:var(--accent)">' + e.message + '</p>';
         });
     }
 
+    ['featSlot1', 'featSlot2', 'featSlot3'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('change', onFeaturedSlotChange);
+    });
+
     document.getElementById('btnSaveBlogFeatured').onclick = function () {
         if (cmsRole !== 'admin') return toast('Admins only', true);
+        syncFeaturedFromSelects();
         api('/landing-cms/blog-featured', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
