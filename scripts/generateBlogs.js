@@ -988,7 +988,7 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
       const score = list.reduce((sum, s) => sum + (Number.isFinite(s.reviewCount) ? s.reviewCount : 0), 0);
       return { line, score, count: list.length };
     })
-    .sort((a, b) => (b.score - a.score) || (b.count - a.count) || a.line.localeCompare(b.line));
+    .sort((a, b) => a.line.localeCompare(b.line));
 
   const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
 
@@ -1124,9 +1124,8 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
     </section>
     <section class="directory-controls" aria-label="Filters">
       <div class="pill-row" id="primaryPills" role="tablist" aria-label="Cruise lines">
-        <button type="button" class="pill" data-primary="__all__" aria-pressed="true">All lines</button>
         ${linePills
-          .map((x) => `<button type="button" class="pill" data-primary="${escapeHtml(x.line)}" aria-pressed="false">${escapeHtml(x.line)}</button>`)
+          .map((x, idx) => `<button type="button" class="pill" data-primary="${escapeHtml(x.line)}" aria-pressed="${idx === 0 ? 'true' : 'false'}">${escapeHtml(x.line)}</button>`)
           .join('')}
       </div>
       <div class="subpill-wrap" id="subpillWrap" style="display:none;">
@@ -1243,6 +1242,14 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
       setPressed(secondary, item)
       applyFilter(group, item)
     })
+
+    var initialBtn = primary.querySelector('button[data-primary]')
+    var initialGroup = initialBtn ? initialBtn.getAttribute('data-primary') : ''
+    if(initialGroup){
+      setPressed(primary, initialGroup)
+      buildSecondaryForGroup(initialGroup)
+      applyFilter(initialGroup, '__all__')
+    }
   })();
   </script>
   ${RUNTIME_GUARD_SCRIPT}
@@ -1276,7 +1283,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
 
   const regionPills = [...regionGroups.entries()]
     .map(([region, list]) => ({ region, count: list.length }))
-    .sort((a, b) => (b.count - a.count) || a.region.localeCompare(b.region));
+    .sort((a, b) => a.region.localeCompare(b.region));
 
   const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
 
@@ -1416,9 +1423,8 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
     </section>
     <section class="directory-controls" aria-label="Filters">
       <div class="pill-row" id="primaryPills" role="tablist" aria-label="Regions">
-        <button type="button" class="pill" data-primary="__all__" aria-pressed="true">All regions</button>
         ${regionPills
-          .map((x) => `<button type="button" class="pill" data-primary="${escapeHtml(x.region)}" aria-pressed="false">${escapeHtml(x.region)}</button>`)
+          .map((x, idx) => `<button type="button" class="pill" data-primary="${escapeHtml(x.region)}" aria-pressed="${idx === 0 ? 'true' : 'false'}">${escapeHtml(x.region)}</button>`)
           .join('')}
       </div>
       <div class="subpill-wrap" id="subpillWrap" style="display:none;">
@@ -1538,6 +1544,14 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
       setPressed(secondary, item)
       applyFilter(group, item)
     })
+
+    var initialBtn = primary.querySelector('button[data-primary]')
+    var initialGroup = initialBtn ? initialBtn.getAttribute('data-primary') : ''
+    if(initialGroup){
+      setPressed(primary, initialGroup)
+      buildSecondaryForGroup(initialGroup)
+      applyFilter(initialGroup, '__all__')
+    }
   })();
   </script>
   ${RUNTIME_GUARD_SCRIPT}
