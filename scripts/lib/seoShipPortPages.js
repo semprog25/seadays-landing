@@ -32,6 +32,28 @@ function normalizeHighlights(h) {
   return [];
 }
 
+function parseOptionalNumber(value) {
+  if (value == null) return null;
+  const n = typeof value === 'number' ? value : Number(String(value).trim());
+  if (!Number.isFinite(n)) return null;
+  return n;
+}
+
+function parseOptionalInt(value) {
+  const n = parseOptionalNumber(value);
+  if (n == null) return null;
+  return Math.max(0, Math.round(n));
+}
+
+function pickFirstFiniteNumber(...values) {
+  for (const v of values) {
+    const n = parseOptionalNumber(v);
+    if (n == null) continue;
+    return n;
+  }
+  return null;
+}
+
 function wordCount(text) {
   if (!text || typeof text !== 'string') return 0;
   return text.split(/\s+/).filter(Boolean).length;
@@ -168,6 +190,8 @@ function buildSeoShipRecords(rawList) {
     const description = raw.description || raw.about || raw.summary || '';
     const highlights = normalizeHighlights(raw.highlights || raw.categories);
     const image_url = raw.image_url || raw.imageUrl || raw.thumbnailUrl || raw.photoUrl || '';
+    const rating = pickFirstFiniteNumber(raw.rating, raw.avgRating, raw.averageRating, raw.stars);
+    const reviewCount = parseOptionalInt(raw.reviewCount ?? raw.reviewsCount ?? raw.totalReviews ?? raw.count);
     out.push({
       id,
       slug,
@@ -178,6 +202,8 @@ function buildSeoShipRecords(rawList) {
       image_url: String(image_url).trim(),
       shipClass: raw.shipClass || raw.class || raw.type || '',
       experience: raw.experience || raw.vibe || '',
+      rating,
+      reviewCount,
     });
   }
   return out;
@@ -201,6 +227,8 @@ function buildSeoPortRecords(rawList) {
     const image_url = raw.image_url || raw.imageUrl || raw.thumbnailUrl || '';
     const region = raw.region || '';
     const popularMonths = Array.isArray(raw.popularMonths) ? raw.popularMonths : [];
+    const rating = pickFirstFiniteNumber(raw.rating, raw.avgRating, raw.averageRating, raw.stars);
+    const reviewCount = parseOptionalInt(raw.reviewCount ?? raw.reviewsCount ?? raw.totalReviews ?? raw.count);
     out.push({
       id,
       slug,
@@ -211,6 +239,8 @@ function buildSeoPortRecords(rawList) {
       image_url: String(image_url).trim(),
       region,
       popularMonths,
+      rating,
+      reviewCount,
     });
   }
   return out;
