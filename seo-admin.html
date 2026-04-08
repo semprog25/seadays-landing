@@ -221,6 +221,14 @@
                     </div>
                     <p id="publishGitStatus" style="margin-top:12px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
                 </div>
+                <div class="panel" id="blogFeaturedPanel" style="display:none;">
+                    <h2>Featured on blog index</h2>
+                    <p style="color:var(--muted);font-size:14px;">Choose up to <strong>three</strong> posts for the Featured row on <code>/blog/</code> (order is left → right). Save here, then run <strong>Publish to GitHub</strong> so static HTML picks them up.</p>
+                    <p id="blogFeaturedSummary" style="margin-top:8px;font-size:14px;color:var(--muted);" role="status" aria-live="polite"></p>
+                    <div class="row-actions" style="margin-top:12px;">
+                        <button type="button" class="btn btn-primary" id="btnSaveBlogFeatured">Save featured posts</button>
+                    </div>
+                </div>
                 <div class="panel">
                     <h2>Blog on website</h2>
                     <p style="color:var(--muted);font-size:14px;">Toggle visibility. Static pages update after you run <strong>Publish to GitHub</strong> above (or the scheduled workflow).</p>
@@ -467,6 +475,8 @@
             }
             var pg = document.getElementById('publishGitPanel');
             if (pg) pg.style.display = (me.role === 'admin') ? 'block' : 'none';
+            var bfPanel = document.getElementById('blogFeaturedPanel');
+            if (bfPanel) bfPanel.style.display = (me.role === 'admin') ? 'block' : 'none';
             var pgSeo = document.getElementById('publishGitPanelSeo');
             if (pgSeo) pgSeo.classList.toggle('hidden', me.role !== 'admin');
             var linkSeo = document.getElementById('linkOpenGitHubActionsSeo');
@@ -617,6 +627,98 @@
     };
 
     var articlesCache = [];
+    /** Ordered slugs (max 3) for /blog/ Featured row; admin-only. */
+    var blogFeaturedOrder = [];
+    var blogListCache = [];
+
+    function updateBlogFeaturedSummary() {
+        var el = document.getElementById('blogFeaturedSummary');
+        if (!el) return;
+        if (!blogFeaturedOrder.length) {
+            el.textContent = 'None selected — the static site will use the three newest posts until you pick some.';
+            return;
+        }
+        el.textContent = 'Order: ' + blogFeaturedOrder.map(function (s, i) { return (i + 1) + '. ' + s; }).join(' · ');
+    }
+
+    function toggleBlogFeaturedSlug(slug) {
+        var s = String(slug || '').trim();
+        if (!s) return;
+        var i = blogFeaturedOrder.indexOf(s);
+        if (i >= 0) {
+            blogFeaturedOrder.splice(i, 1);
+        } else if (blogFeaturedOrder.length < 3) {
+            blogFeaturedOrder.push(s);
+        } else {
+            toast('Featured is limited to three posts. Remove a star first.', true);
+            return;
+        }
+        updateBlogFeaturedSummary();
+        renderBlogTableInner();
+    }
+
+    function renderBlogTableInner() {
+        var w = document.getElementById('blogTableWrap');
+        if (!w) return;
+        var articles = blogListCache;
+        var rows = (articles || []).map(function (a) {
+            var slug = String(a.slug || '').trim();
+            var live = a.showOnWebsite !== false;
+            var title = (a.title || a.id).replace(/</g, '&lt;');
+            var feat = '';
+            if (cmsRole === 'admin' && slug) {
+                var rank = blogFeaturedOrder.indexOf(slug);
+                var label = rank >= 0 ? ('★ ' + (rank + 1)) : '☆ Pick';
+                feat = '<td><button type="button" class="btn btn-secondary btn-small" data-star-slug="' + encodeURIComponent(slug) + '" title="Featured on /blog/">' + label + '</button></td>';
+            } else if (cmsRole === 'admin') {
+                feat = '<td>—</td>';
+            }
+            if (cmsRole !== 'admin') {
+                return '<tr><td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td><td></td></tr>';
+            }
+            return '<tr><td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td>' + feat + '<td><div class="row-actions">' +
+                (live ? '<button type="button" class="btn btn-secondary btn-small" data-hide="' + a.id + '">Hide</button>' :
+                    '<button type="button" class="btn btn-primary btn-small" data-show="' + a.id + '">Show on site</button>') +
+                '</div></td></tr>';
+        }).join('');
+        var head = cmsRole === 'admin'
+            ? '<thead><tr><th>Article</th><th>Status</th><th>Featured</th><th>Action</th></tr></thead>'
+            : '<thead><tr><th>Article</th><th>Status</th><th></th></tr></thead>';
+        w.innerHTML = '<table>' + head + '<tbody>' + rows + '</tbody></table>';
+        wireBlogTableActions(w);
+    }
+
+    function wireBlogTableActions(wrap) {
+        wrap.querySelectorAll('[data-show]').forEach(function (btn) {
+            btn.onclick = function () {
+                var aid = btn.getAttribute('data-show');
+                api('/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ showOnWebsite: true })
+                }).then(function () { toast('Now visible (regenerate static blog when ready)'); loadBlogTable(); }).catch(function (e) { toast(e.message, true); });
+            };
+        });
+        wrap.querySelectorAll('[data-hide]').forEach(function (btn) {
+            btn.onclick = function () {
+                var aid = btn.getAttribute('data-hide');
+                api('/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ showOnWebsite: false })
+                }).then(function () { toast('Hidden from site'); loadBlogTable(); }).catch(function (e) { toast(e.message, true); });
+            };
+        });
+        wrap.querySelectorAll('[data-star-slug]').forEach(function (btn) {
+            btn.onclick = function () {
+                var raw = btn.getAttribute('data-star-slug') || '';
+                try {
+                    raw = decodeURIComponent(raw);
+                } catch (e) { /* keep raw */ }
+                toggleBlogFeaturedSlug(raw);
+            };
+        });
+    }
 
     function loadArticlesForSeoAndBlog() {
         api('/portside-articles?admin=1&summary=1&limit=500').then(function (d) {
@@ -707,43 +809,36 @@
         if (cmsRole !== 'admin' && cmsRole !== 'moderator') return;
         var w = document.getElementById('blogTableWrap');
         w.innerHTML = '<p>Loading…</p>';
-        api('/portside-articles?admin=1&summary=1&limit=500').then(function (d) {
-            var rows = (d.articles || []).map(function (a) {
-                var live = a.showOnWebsite !== false;
-                var title = (a.title || a.id).replace(/</g, '&lt;');
-                if (cmsRole !== 'admin') {
-                    return '<tr><td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td><td></td></tr>';
-                }
-                return '<tr><td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td><td><div class="row-actions">' +
-                    (live ? '<button type="button" class="btn btn-secondary btn-small" data-hide="' + a.id + '">Hide</button>' :
-                        '<button type="button" class="btn btn-primary btn-small" data-show="' + a.id + '">Show on site</button>') +
-                    '</div></td></tr>';
-            }).join('');
-            w.innerHTML = '<table><thead><tr><th>Article</th><th>Status</th><th>Action</th></tr></thead><tbody>' + rows + '</tbody></table>';
-            w.querySelectorAll('[data-show]').forEach(function (btn) {
-                btn.onclick = function () {
-                    var aid = btn.getAttribute('data-show');
-                    api('/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ showOnWebsite: true })
-                    }).then(function () { toast('Now visible (regenerate static blog when ready)'); loadBlogTable(); }).catch(function (e) { toast(e.message, true); });
-                };
-            });
-            w.querySelectorAll('[data-hide]').forEach(function (btn) {
-                btn.onclick = function () {
-                    var aid = btn.getAttribute('data-hide');
-                    api('/portside-articles/' + encodeURIComponent(aid) + '/visibility', {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ showOnWebsite: false })
-                    }).then(function () { toast('Hidden from site'); loadBlogTable(); }).catch(function (e) { toast(e.message, true); });
-                };
-            });
+        var articlesPromise = api('/portside-articles?admin=1&summary=1&limit=500');
+        var featuredPromise = cmsRole === 'admin'
+            ? api('/landing-cms/blog-featured').catch(function () { return { slugs: [] }; })
+            : Promise.resolve({ slugs: [] });
+        Promise.all([articlesPromise, featuredPromise]).then(function (pair) {
+            var d = pair[0];
+            var feat = pair[1];
+            blogListCache = d.articles || [];
+            if (cmsRole === 'admin' && Array.isArray(feat.slugs)) {
+                blogFeaturedOrder = feat.slugs.map(function (s) { return String(s || '').trim(); }).filter(Boolean).slice(0, 3);
+            } else {
+                blogFeaturedOrder = [];
+            }
+            updateBlogFeaturedSummary();
+            renderBlogTableInner();
         }).catch(function (e) {
             w.innerHTML = '<p style="color:var(--accent)">' + e.message + '</p>';
         });
     }
+
+    document.getElementById('btnSaveBlogFeatured').onclick = function () {
+        if (cmsRole !== 'admin') return toast('Admins only', true);
+        api('/landing-cms/blog-featured', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slugs: blogFeaturedOrder })
+        }).then(function () {
+            toast('Featured posts saved. Run Publish to GitHub to refresh /blog/.');
+        }).catch(function (e) { toast(e.message, true); });
+    };
 
     function loadPending() {
         if (cmsRole !== 'admin' && cmsRole !== 'moderator') return;

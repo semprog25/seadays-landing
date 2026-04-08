@@ -907,6 +907,52 @@ async function fetchArticles() {
   return data;
 }
 
+/** Curated featured slugs from edge KV (public GET). Non-fatal on failure. */
+async function fetchBlogFeaturedSlugs() {
+  const key = process.env.SUPABASE_ANON_KEY;
+  if (!key) return [];
+  const url = EDGE_BASE + '/landing-cms/blog-featured';
+  try {
+    const data = await httpsGet(url, {
+      Authorization: 'Bearer ' + key,
+      apikey: key,
+    });
+    const slugs = Array.isArray(data?.slugs) ? data.slugs : [];
+    return slugs.map((s) => String(s || '').trim()).filter(Boolean).slice(0, 3);
+  } catch (e) {
+    console.warn('[generateBlogs] fetchBlogFeaturedSlugs:', e?.message || e);
+    return [];
+  }
+}
+
+/**
+ * Up to three articles for the Featured row: requested slugs in order, then
+ * backfill from newest-first `articles` for missing or invalid slugs.
+ */
+function resolveFeaturedArticles(articles, requestedSlugs) {
+  if (!articles.length) return [];
+  const bySlug = new Map(articles.map((a) => [String(a.slug || '').trim(), a]));
+  const used = new Set();
+  const out = [];
+  for (const raw of requestedSlugs) {
+    const s = String(raw || '').trim();
+    if (!s) continue;
+    const a = bySlug.get(s);
+    if (a && !used.has(a.id)) {
+      out.push(a);
+      used.add(a.id);
+    }
+    if (out.length >= 3) return out;
+  }
+  for (const a of articles) {
+    if (used.has(a.id)) continue;
+    out.push(a);
+    used.add(a.id);
+    if (out.length >= 3) break;
+  }
+  return out;
+}
+
 async function fetchFullArticle(articleId) {
   const key = process.env.SUPABASE_ANON_KEY;
   if (!key) return null;
@@ -1660,25 +1706,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .hero-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
 .hero-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
 .blog-toolbar { max-width: 1200px; margin: -34px auto 22px; padding: 0 20px; }
-.blog-toolbar-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); }
-.blog-search { display: flex; gap: 10px; align-items: center; }
-.blog-search input { width: 100%; padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); font-weight: 700; outline: none; }
-.blog-search input::placeholder { color: rgba(255,255,255,0.45); font-weight: 600; }
+.blog-toolbar-inner { display: flex; flex-direction: column; gap: 16px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); }
+.blog-search { display: flex; flex-direction: column; gap: 8px; align-items: stretch; width: 100%; }
+.blog-search input.blog-search-neon { width: 100%; padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,0,51,0.45); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); font-weight: 700; outline: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.25), 0 0 18px rgba(255,0,51,0.35); animation: blogSearchNeonPulse 2.8s ease-in-out infinite; }
+@keyframes blogSearchNeonPulse { 0%, 100% { box-shadow: 0 0 0 1px rgba(255,0,51,0.35), 0 0 14px rgba(255,0,51,0.25); border-color: rgba(255,0,51,0.5); } 50% { box-shadow: 0 0 0 2px rgba(255,0,51,0.55), 0 0 26px rgba(255,0,51,0.45); border-color: rgba(255,0,51,0.78); } }
+@media (prefers-reduced-motion: reduce) {
+  .blog-search input.blog-search-neon { animation: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.4), 0 0 12px rgba(255,0,51,0.28); }
+}
+.blog-search input.blog-search-neon::placeholder { color: rgba(255,255,255,0.45); font-weight: 600; }
 .blog-search .search-hint { font-size: 12px; color: rgba(255,255,255,0.55); }
-.blog-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-end; }
+.blog-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: flex-start; }
 .topic-pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; cursor: pointer; }
 .topic-pill:hover { border-color: rgba(255,0,51,0.55); }
 .topic-pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.16); }
 .featured-row { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
 .featured-row h2 { font-size: 20px; font-weight: 900; letter-spacing: -0.3px; margin: 12px 0 14px; text-align: left; }
+.featured-row .featured-grid:empty { display: none; min-height: 0; }
 .featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .featured-grid .article-card { border-radius: 20px; }
 .featured-grid .article-card-image { height: 180px; }
 .featured-grid .article-card-title { font-size: 18px; }
 .featured-grid .article-card-excerpt { -webkit-line-clamp: 2; }
-.seo-details { max-width: 900px; margin: 0 auto 28px; padding: 0 24px; }
-.seo-details details { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; background: rgba(255,255,255,0.03); overflow: hidden; }
-.seo-details summary { cursor: pointer; padding: 16px 18px; font-weight: 900; font-size: 16px; list-style: none; }
+.seo-details { max-width: 48rem; margin: 0 auto 28px; padding: 0 24px; text-align: center; }
+.seo-details details { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; background: rgba(255,255,255,0.03); overflow: hidden; text-align: left; }
+.seo-details summary { cursor: pointer; padding: 16px 18px; font-weight: 900; font-size: 16px; list-style: none; text-align: center; }
 .seo-details summary::-webkit-details-marker { display:none; }
 .seo-details summary span { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 4px; }
 .seo-details .seo-details-body { padding: 0 18px 18px; color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75; }
@@ -1706,7 +1757,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
 @media (max-width: 900px) {
-  .blog-toolbar-inner { grid-template-columns: 1fr; }
   .blog-filters { justify-content: flex-start; }
   .featured-grid { grid-template-columns: 1fr; }
 }
@@ -1951,34 +2001,11 @@ async function buildHomePageBlogCards(articles) {
   return '<div id="blogGrid" class="blog-section-grid">' + cards.join('\n                ') + '</div>';
 }
 
-async function buildIndexHtml(articles) {
-  // Phase 1: resolve images for ALL cards before touching the HTML template.
-  // This lets us (a) compute <link rel="preload"> URLs for above-the-fold cards,
-  // and (b) avoid calling pickCardImage a second time when building card HTML.
-  const imageResults = [];
-  for (let i = 0; i < articles.length; i++) {
-    const result = await pickCardImage(articles[i], 'index-' + i);
-    logImageResolution(articles[i], result.source, result.type, result.url);
-    imageResults.push(result);
-  }
-
-  // First 3 non-null images get <link rel="preload"> — they appear above the fold
-  // on most viewports and should start loading before the browser parses <body>.
-  const preloadLinks = imageResults
-    .slice(0, 3)
-    .filter(r => r.url)
-    .map(r => `  <link rel="preload" as="image" href="${escapeHtml(r.url)}">`)
-    .join('\n');
-
-  // Phase 2: build card HTML using cached image results
-  const cards = [];
-  for (let i = 0; i < articles.length; i++) {
-    const a = articles[i];
-    const { url: imgUrl, source, type } = imageResults[i];
-    const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
-    // First 3 cards are above the fold → eager-load; rest lazy-load
-    const imgTag = buildImgTag(imgUrl, source, type, '', 'article-card-image', { eager: i < 3, width: 400, height: 230 });
-    cards.push(`<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
+function buildIndexArticleCardHtml(a, imageBundle, eager) {
+  const { url: imgUrl, source, type } = imageBundle;
+  const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
+  const imgTag = buildImgTag(imgUrl, source, type, '', 'article-card-image', { eager, width: 400, height: 230 });
+  return `<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
         <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
@@ -1989,7 +2016,56 @@ async function buildIndexHtml(articles) {
           ${a.readTime ? '<span>' + escapeHtml(String(a.readTime)) + ' min read</span>' : ''}
         </div>
       </div>
-    </a>`);
+    </a>`;
+}
+
+async function buildIndexHtml(articles, featuredSlugList = []) {
+  // Phase 1: resolve images for ALL cards before touching the HTML template.
+  // This lets us (a) compute <link rel="preload"> URLs for above-the-fold cards,
+  // and (b) avoid calling pickCardImage a second time when building card HTML.
+  const imageResults = [];
+  for (let i = 0; i < articles.length; i++) {
+    const result = await pickCardImage(articles[i], 'index-' + i);
+    logImageResolution(articles[i], result.source, result.type, result.url);
+    imageResults.push(result);
+  }
+
+  const requestedSlugs = Array.isArray(featuredSlugList) ? featuredSlugList : [];
+  const featuredArticles = resolveFeaturedArticles(articles, requestedSlugs);
+
+  const preloadUrls = [];
+  const seenPreload = new Set();
+  for (const fa of featuredArticles) {
+    const idx = articles.indexOf(fa);
+    const u = idx >= 0 && imageResults[idx]?.url;
+    if (u && !seenPreload.has(u)) {
+      seenPreload.add(u);
+      preloadUrls.push(u);
+    }
+    if (preloadUrls.length >= 3) break;
+  }
+  for (let i = 0; i < imageResults.length && preloadUrls.length < 3; i++) {
+    const u = imageResults[i]?.url;
+    if (u && !seenPreload.has(u)) {
+      seenPreload.add(u);
+      preloadUrls.push(u);
+    }
+  }
+  const preloadLinks = preloadUrls
+    .map((u) => `  <link rel="preload" as="image" href="${escapeHtml(u)}">`)
+    .join('\n');
+
+  const featuredCardsHtml = featuredArticles
+    .map((fa) => {
+      const idx = articles.indexOf(fa);
+      const bundle = idx >= 0 ? imageResults[idx] : imageResults[0];
+      return buildIndexArticleCardHtml(fa, bundle, true);
+    })
+    .join('\n');
+
+  const cards = [];
+  for (let i = 0; i < articles.length; i++) {
+    cards.push(buildIndexArticleCardHtml(articles[i], imageResults[i], i < 3));
   }
 
   return `<!DOCTYPE html>
@@ -2040,10 +2116,14 @@ ${preloadLinks}
         </div>
       </div>
     </section>
+    <section class="featured-row" aria-label="Featured posts">
+      <h2>Featured</h2>
+      <div class="featured-grid" id="featuredGrid">${featuredCardsHtml}</div>
+    </section>
     <section class="blog-toolbar" aria-label="Search and filters">
       <div class="blog-toolbar-inner">
         <div class="blog-search">
-          <input id="blogSearch" type="search" placeholder="Search cruise tips, ports, ships, packing…" aria-label="Search blog posts">
+          <input id="blogSearch" class="blog-search-neon" type="search" placeholder="Search cruise tips, ports, ships, packing…" aria-label="Search blog posts">
           <div class="search-hint" id="resultsHint" aria-live="polite"></div>
         </div>
         <div class="blog-filters" id="topicFilters" aria-label="Topic filters">
@@ -2060,10 +2140,6 @@ ${preloadLinks}
           <button type="button" class="topic-pill" data-topic="drinkPackages" aria-pressed="false">Drink packages</button>
         </div>
       </div>
-    </section>
-    <section class="featured-row" aria-label="Featured posts">
-      <h2>Featured</h2>
-      <div class="featured-grid" id="featuredGrid"></div>
     </section>
     <section class="seo-details" aria-label="About this blog">
       <details>
@@ -2101,15 +2177,12 @@ ${preloadLinks}
   <script>
   (function(){
     var grid = document.getElementById('blogGrid')
-    var featured = document.getElementById('featuredGrid')
     var search = document.getElementById('blogSearch')
     var hint = document.getElementById('resultsHint')
     var filters = document.getElementById('topicFilters')
-    if(!grid || !featured || !search || !filters) return
+    if(!grid || !search || !filters) return
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.article-card'))
-    var featuredCards = cards.slice(0, 3).map(function(c){ return c.cloneNode(true) })
-    featuredCards.forEach(function(c){ featured.appendChild(c) })
 
     var activeTopic = '__all__'
     var topicRules = {
@@ -2376,7 +2449,10 @@ async function main() {
   externalCheckCache.clear();
   base64UrlCache.clear();
   console.log('Fetching articles from Supabase...');
-  const data = await fetchArticles();
+  const [data, featuredSlugs] = await Promise.all([
+    fetchArticles(),
+    fetchBlogFeaturedSlugs(),
+  ]);
   const rawArticles = (data?.articles || []).filter(a => a && a.isDraft !== true && a.showOnWebsite !== false);
   if (rawArticles.length === 0) {
     console.log('No published articles found. Creating empty blog structure.');
@@ -2594,7 +2670,10 @@ async function main() {
     console.log(`  wrote blog/${article.slug}.html (redirect)`);
   }
 
-  const indexHtml = await buildIndexHtml(articles);
+  if (featuredSlugs.length) {
+    console.log('[generateBlogs] featured slugs from CMS:', featuredSlugs.join(', '));
+  }
+  const indexHtml = await buildIndexHtml(articles, featuredSlugs);
   fs.writeFileSync(path.join(blogDir, 'index.html'), indexHtml, 'utf8');
   const indexSizeKb = Math.round(Buffer.byteLength(indexHtml, 'utf8') / 1024);
   console.log(`  wrote blog/index.html (${indexSizeKb}KB)`);
