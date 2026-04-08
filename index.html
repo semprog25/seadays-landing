@@ -2425,7 +2425,76 @@
             document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
         })();
 
-        /* Blog section: static cards injected by generateBlogs.js - no fetch needed */
+    </script>
+    <script>
+        (function () {
+            var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
+            var EDGE = 'https://soqkgrfzluewpuiguypm.supabase.co/functions/v1/make-server-51d3ca8d';
+            var FB = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
+            function run() {
+                var grid = document.getElementById('blogGrid');
+                var empty = document.getElementById('blogEmpty');
+                if (!grid) return;
+                if (grid.querySelector('a.blog-card')) {
+                    grid.style.display = '';
+                    if (empty) empty.style.display = 'none';
+                    return;
+                }
+                fetch(EDGE + '/portside-articles?limit=8&forWebsite=1', {
+                    headers: { apikey: ANON, Authorization: 'Bearer ' + ANON }
+                })
+                    .then(function (r) {
+                        return r.json();
+                    })
+                    .then(function (d) {
+                        var raw = (d && d.articles) ? d.articles : [];
+                        var articles = raw.filter(function (a) {
+                            return a && a.isDraft !== true && a.showOnWebsite !== false;
+                        });
+                        articles = articles.slice(0, 4);
+                        if (!articles.length) return;
+                        grid.innerHTML = articles
+                            .map(function (a) {
+                                var slug = String(a.slug || '').trim() || 'post';
+                                var img = String(a.thumbnailUrl || a.heroImageUrl || '').trim() || FB;
+                                var title = String(a.title || 'Article').replace(/</g, '&lt;');
+                                var ex = String(a.excerpt || '')
+                                    .replace(/<[^>]+>/g, ' ')
+                                    .replace(/\s+/g, ' ')
+                                    .trim()
+                                    .slice(0, 140);
+                                if (ex) ex += '…';
+                                return (
+                                    '<a href="https://seadays.app/blog/' +
+                                    encodeURIComponent(slug) +
+                                    '/" class="blog-card">' +
+                                    '<img class="blog-card-image" src="' +
+                                    img.replace(/"/g, '&quot;') +
+                                    '" alt="" loading="lazy" decoding="async" width="400" height="230" onerror="this.onerror=null;this.src=\'' +
+                                    FB +
+                                    '\'">' +
+                                    '<div class="blog-card-body">' +
+                                    '<h3 class="blog-card-title">' +
+                                    title +
+                                    '</h3>' +
+                                    '<p class="blog-card-excerpt">' +
+                                    ex +
+                                    '</p>' +
+                                    '</div></a>'
+                                );
+                            })
+                            .join('');
+                        grid.style.display = 'grid';
+                        if (empty) empty.style.display = 'none';
+                    })
+                    .catch(function () {});
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', run);
+            } else {
+                run();
+            }
+        })();
     </script>
     <script src="https://unpkg.com/lucide@0.487.0/dist/umd/lucide.min.js" defer></script>
     <script>window.addEventListener('load', function(){ if(typeof lucide!=='undefined') lucide.createIcons(); });</script>

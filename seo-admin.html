@@ -115,6 +115,8 @@
         table { width: 100%; border-collapse: collapse; font-size: 14px; }
         th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
         th { color: var(--muted); font-weight: 600; }
+        .blog-thumb-cell { width: 68px; vertical-align: middle; }
+        .blog-thumb-cell img { display: block; border-radius: 10px; border: 1px solid var(--border); }
         .row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
         @media (max-width: 768px) {
             .layout { flex-direction: column; }
@@ -641,6 +643,18 @@
         el.textContent = 'Order: ' + blogFeaturedOrder.map(function (s, i) { return (i + 1) + '. ' + s; }).join(' · ');
     }
 
+    function escBlogAttr(s) {
+        return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    }
+
+    function blogThumbCellHtml(a) {
+        var url = String((a && (a.thumbnailUrl || a.heroImageUrl)) || '').trim();
+        if (url) {
+            return '<td class="blog-thumb-cell"><img src="' + escBlogAttr(url) + '" alt="" width="56" height="56" loading="lazy" decoding="async" style="width:56px;height:56px;object-fit:cover;"></td>';
+        }
+        return '<td class="blog-thumb-cell"><span style="display:block;width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px dashed var(--border);" title="No thumbnail"></span></td>';
+    }
+
     function toggleBlogFeaturedSlug(slug) {
         var s = String(slug || '').trim();
         if (!s) return;
@@ -665,6 +679,7 @@
             var slug = String(a.slug || '').trim();
             var live = a.showOnWebsite !== false;
             var title = (a.title || a.id).replace(/</g, '&lt;');
+            var thumb = blogThumbCellHtml(a);
             var feat = '';
             if (cmsRole === 'admin' && slug) {
                 var rank = blogFeaturedOrder.indexOf(slug);
@@ -674,16 +689,16 @@
                 feat = '<td>—</td>';
             }
             if (cmsRole !== 'admin') {
-                return '<tr><td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td><td></td></tr>';
+                return '<tr>' + thumb + '<td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td><td></td></tr>';
             }
-            return '<tr><td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td>' + feat + '<td><div class="row-actions">' +
+            return '<tr>' + thumb + '<td>' + title + '</td><td>' + (live ? 'Live' : 'Hidden') + '</td>' + feat + '<td><div class="row-actions">' +
                 (live ? '<button type="button" class="btn btn-secondary btn-small" data-hide="' + a.id + '">Hide</button>' :
                     '<button type="button" class="btn btn-primary btn-small" data-show="' + a.id + '">Show on site</button>') +
                 '</div></td></tr>';
         }).join('');
         var head = cmsRole === 'admin'
-            ? '<thead><tr><th>Article</th><th>Status</th><th>Featured</th><th>Action</th></tr></thead>'
-            : '<thead><tr><th>Article</th><th>Status</th><th></th></tr></thead>';
+            ? '<thead><tr><th>Preview</th><th>Article</th><th>Status</th><th>Featured</th><th>Action</th></tr></thead>'
+            : '<thead><tr><th>Preview</th><th>Article</th><th>Status</th><th></th></tr></thead>';
         w.innerHTML = '<table>' + head + '<tbody>' + rows + '</tbody></table>';
         wireBlogTableActions(w);
     }

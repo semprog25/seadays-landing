@@ -42,10 +42,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .hero-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 800; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
 .hero-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
 .hero-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
-.blog-toolbar { max-width: 1200px; margin: -34px auto 22px; padding: 0 20px; }
+.blog-toolbar { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
 .blog-toolbar-inner { display: flex; flex-direction: column; gap: 16px; padding: 14px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); }
 .blog-search { display: flex; flex-direction: column; gap: 8px; align-items: stretch; width: 100%; }
-.blog-search input.blog-search-neon { width: 100%; padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,0,51,0.45); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); font-weight: 700; outline: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.25), 0 0 18px rgba(255,0,51,0.35); animation: blogSearchNeonPulse 2.8s ease-in-out infinite; }
+.blog-search-row { display: flex; align-items: stretch; gap: 10px; max-width: 520px; width: 100%; margin: 0 auto; }
+.blog-search input.blog-search-neon { flex: 1; min-width: 0; width: auto; padding: 10px 12px; border-radius: 14px; font-size: 15px; border: 1px solid rgba(255,0,51,0.45); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.92); font-weight: 700; outline: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.25), 0 0 18px rgba(255,0,51,0.35); animation: blogSearchNeonPulse 2.8s ease-in-out infinite; }
+.blog-search-submit { flex-shrink: 0; width: 48px; min-height: 44px; padding: 0; border-radius: 14px; border: 1px solid rgba(255,0,51,0.55); background: rgba(255,0,51,0.18); color: #fff; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s ease, box-shadow 0.2s ease; }
+.blog-search-submit:hover { background: rgba(255,0,51,0.28); box-shadow: 0 0 16px rgba(255,0,51,0.35); }
+.blog-search-submit:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 @keyframes blogSearchNeonPulse { 0%, 100% { box-shadow: 0 0 0 1px rgba(255,0,51,0.35), 0 0 14px rgba(255,0,51,0.25); border-color: rgba(255,0,51,0.5); } 50% { box-shadow: 0 0 0 2px rgba(255,0,51,0.55), 0 0 26px rgba(255,0,51,0.45); border-color: rgba(255,0,51,0.78); } }
 @media (prefers-reduced-motion: reduce) {
   .blog-search input.blog-search-neon { animation: none; box-shadow: 0 0 0 1px rgba(255,0,51,0.4), 0 0 12px rgba(255,0,51,0.28); }
@@ -56,7 +60,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .topic-pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 12px; border-radius: 999px; font-weight: 800; font-size: 13px; cursor: pointer; }
 .topic-pill:hover { border-color: rgba(255,0,51,0.55); }
 .topic-pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.16); }
-.featured-row { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
+.featured-row { max-width: 1200px; margin: 0 auto 40px; padding: 0 20px; }
 .featured-row h2 { font-size: 20px; font-weight: 900; letter-spacing: -0.3px; margin: 12px 0 14px; text-align: left; }
 .featured-row .featured-grid:empty { display: none; min-height: 0; }
 .featured-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
@@ -66,9 +70,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .featured-grid .article-card-excerpt { -webkit-line-clamp: 2; }
 .seo-details { max-width: 48rem; margin: 0 auto 28px; padding: 0 24px; text-align: center; }
 .seo-details details { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; background: rgba(255,255,255,0.03); overflow: hidden; text-align: left; }
-.seo-details summary { cursor: pointer; padding: 16px 18px; font-weight: 900; font-size: 16px; list-style: none; text-align: center; }
+.seo-details summary { cursor: pointer; padding: 16px 18px 12px; font-weight: 900; font-size: 16px; list-style: none; text-align: center; }
 .seo-details summary::-webkit-details-marker { display:none; }
-.seo-details summary span { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 4px; }
+.seo-details summary .seo-details-tagline { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 4px; }
+.seo-details-expand-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: -6px auto 0; padding-bottom: 14px; max-width: 48rem; }
+.seo-details details[open] + .seo-details-expand-wrap { display: none; }
+.seo-details-round-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,0,51,0.45); background: rgba(255,0,51,0.12); color: rgba(255,255,255,0.95); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; box-shadow: 0 0 14px rgba(255,0,51,0.2); }
+.seo-details-round-btn:hover { background: rgba(255,0,51,0.22); box-shadow: 0 0 20px rgba(255,0,51,0.35); }
+.seo-details-round-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 3px; }
+.seo-details-round-btn .seo-chevron { transition: transform 0.25s ease; }
+.seo-details-expand-hint { font-size: 12px; color: rgba(255,255,255,0.45); font-weight: 600; letter-spacing: 0.02em; }
 .seo-details .seo-details-body { padding: 0 18px 18px; color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75; }
 .seo-details .seo-details-body h3 { font-size: 18px; font-weight: 900; margin: 18px 0 8px; color: #fff; }
 .seo-details .seo-details-body p { margin-bottom: 14px; }
@@ -166,7 +177,12 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
     <section class="blog-toolbar" aria-label="Search and filters">
       <div class="blog-toolbar-inner">
         <div class="blog-search">
-          <input id="blogSearch" class="blog-search-neon" type="search" placeholder="Search cruise tips, ports, ships, packing…" aria-label="Search blog posts">
+          <div class="blog-search-row">
+            <input id="blogSearch" class="blog-search-neon" type="search" placeholder="Search cruise tips, ports, ships, packing…" aria-label="Search blog posts" autocomplete="off">
+            <button type="button" class="blog-search-submit" id="blogSearchBtn" aria-label="Search" title="Search">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg>
+            </button>
+          </div>
           <div class="search-hint" id="resultsHint" aria-live="polite"></div>
         </div>
         <div class="blog-filters" id="topicFilters" aria-label="Topic filters">
@@ -185,10 +201,10 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       </div>
     </section>
     <section class="seo-details" aria-label="About this blog">
-      <details>
+      <details id="blogSeoDetails">
         <summary>
           Why SeaDays blog is different
-          <span>Short, practical guidance—plus deeper guides when you want them.</span>
+          <span class="seo-details-tagline">Short, practical guidance—plus deeper guides when you want them.</span>
         </summary>
         <div class="seo-details-body">
           <h3>Plan smarter cruises with expert guides</h3>
@@ -199,6 +215,12 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
           <p>If you are new to cruising, start with first-timer explainers and packing lists below. If you are comparing lines for a family, filter by cabins, dining, and kid-friendly tips—then validate against your target region on the <a href="/ports/">ports</a> page.</p>
         </div>
       </details>
+      <div class="seo-details-expand-wrap">
+        <button type="button" class="seo-details-round-btn" id="blogSeoExpandBtn" aria-expanded="false" aria-controls="blogSeoDetails">
+          <svg class="seo-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <span class="seo-details-expand-hint">Tap to read more</span>
+      </div>
     </section>
     <div class="container">
       <div class="blog-grid" id="blogGrid"><a href="https://seadays.app/blog/port-days-vs-sea-days-how-to-balance-exploration-rest-and-onboard-fun/" class="article-card">
@@ -640,11 +662,30 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   (function(){
     var grid = document.getElementById('blogGrid')
     var search = document.getElementById('blogSearch')
+    var searchBtn = document.getElementById('blogSearchBtn')
     var hint = document.getElementById('resultsHint')
     var filters = document.getElementById('topicFilters')
     if(!grid || !search || !filters) return
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.article-card'))
+
+    var seoD = document.getElementById('blogSeoDetails')
+    var seoB = document.getElementById('blogSeoExpandBtn')
+    if(seoD && seoB){
+      function syncSeoBtn(){
+        var open = seoD.open
+        seoB.setAttribute('aria-expanded', open ? 'true' : 'false')
+        seoB.setAttribute('aria-label', open ? 'Section expanded' : 'Read more about this blog')
+      }
+      seoB.addEventListener('click', function(e){
+        e.preventDefault()
+        seoD.open = true
+        syncSeoBtn()
+        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'smooth', block: 'nearest' }) } catch(x) {}
+      })
+      seoD.addEventListener('toggle', syncSeoBtn)
+      syncSeoBtn()
+    }
 
     var activeTopic = '__all__'
     var topicRules = {
@@ -704,6 +745,8 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       apply()
     })
     search.addEventListener('input', apply)
+    search.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); apply() } })
+    if(searchBtn) searchBtn.addEventListener('click', apply)
     apply()
   })();
   </script>
