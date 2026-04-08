@@ -1769,22 +1769,23 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .featured-grid .article-card-image { height: 180px; }
 .featured-grid .article-card-title { font-size: 18px; }
 .featured-grid .article-card-excerpt { -webkit-line-clamp: 2; }
-.seo-details { max-width: 48rem; margin: 0 auto 28px; padding: 0 24px; text-align: center; }
-.seo-details details { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; background: rgba(255,255,255,0.03); overflow: hidden; text-align: left; }
-.seo-details summary { cursor: pointer; padding: 16px 18px 18px; list-style: none; text-align: center; }
+.seo-details { max-width: 1200px; margin: 0 auto 36px; padding: 0 20px; text-align: center; box-sizing: border-box; }
+.seo-details details { border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; background: rgba(255,255,255,0.04); overflow: hidden; text-align: left; }
+.seo-details summary { cursor: pointer; padding: 28px 24px 22px; list-style: none; text-align: center; }
 .seo-details summary::-webkit-details-marker { display:none; }
-.seo-details-summary-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 36rem; margin: 0 auto; }
-.seo-details-summary-text { font-weight: 900; font-size: 16px; color: #fff; }
-.seo-details summary .seo-details-tagline { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 0; }
-.seo-details-expand-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 6px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; }
+.seo-details-summary-inner { display: flex; flex-direction: column; align-items: stretch; gap: 14px; width: 100%; margin: 0; max-width: none; text-align: center; }
+.seo-details-summary-heading { font-weight: 900; font-size: clamp(1.65rem, 4.2vw, 2.65rem); line-height: 1.12; color: #fff; margin: 0; letter-spacing: -0.03em; }
+.seo-details-summary-tagline { color: rgba(255,255,255,0.82); font-weight: 700; font-size: clamp(1.05rem, 2.1vw, 1.35rem); line-height: 1.35; margin: 0; }
+.seo-details-summary-lede { color: rgba(255,255,255,0.72); font-size: clamp(0.95rem, 1.65vw, 1.12rem); line-height: 1.65; margin: 0 auto; max-width: 52em; text-align: center; }
+.seo-details-expand-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 4px; padding: 20px 8px 10px; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; box-sizing: border-box; }
 .seo-details details[open] .seo-details-expand-wrap { display: none; }
 .seo-details-round-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,0,51,0.45); background: rgba(255,0,51,0.12); color: rgba(255,255,255,0.95); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; box-shadow: 0 0 14px rgba(255,0,51,0.2); }
 .seo-details-round-btn:hover { background: rgba(255,0,51,0.22); box-shadow: 0 0 20px rgba(255,0,51,0.35); }
 .seo-details-round-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 3px; }
 .seo-details-round-btn .seo-chevron { transition: transform 0.25s ease; }
 .seo-details-expand-hint { font-size: 12px; color: rgba(255,255,255,0.45); font-weight: 600; letter-spacing: 0.02em; }
-.seo-details .seo-details-body { padding: 0 18px 18px; color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75; }
-.seo-details .seo-details-body h3 { font-size: 18px; font-weight: 900; margin: 18px 0 8px; color: #fff; }
+.seo-details .seo-details-body { padding: 0 24px 26px; color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.75; max-width: 52em; margin: 0 auto; }
+.seo-details .seo-details-body h3 { font-size: 18px; font-weight: 900; margin: 22px 0 10px; color: #fff; }
 .seo-details .seo-details-body p { margin-bottom: 14px; }
 .seo-details .seo-details-body a { color: var(--neon-red); font-weight: 800; text-decoration: none; }
 .seo-details .seo-details-body a:hover { text-decoration: underline; }
@@ -2129,7 +2130,7 @@ async function buildIndexHtml(articles, featuredSlugList = []) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <meta name="description" content="SeaDays cruise blog: planning guides, ship and port explainers, packing tips, and sea-day ideas. Read free articles and explore ships and destinations before you book.">
+  <meta name="description" content="SeaDays cruise blog: independent cruise tips, first-time cruise help, ship and port guides, cabin and drink-package advice, Mediterranean and Caribbean ideas. Free articles—plan before you book.">
   <title>SeaDays Blog | Cruise Tips, Guides &amp; Stories</title>
   <link rel="canonical" href="${BASE_URL}/blog/">
   <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
@@ -2137,12 +2138,12 @@ ${preloadLinks}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/blog/">
   <meta property="og:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
-  <meta property="og:description" content="Cruise tips, guides &amp; stories from the SeaDays community. Plan smarter, pack lighter, and cruise better.">
+  <meta property="og:description" content="Cruise tips, ship and port guides, packing and sea-day ideas from SeaDays. Plan smarter before you book.">
   <meta property="og:image" content="${DEFAULT_FAVICON}">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="${BASE_URL}/blog/">
   <meta property="twitter:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
-  <meta property="twitter:description" content="Cruise tips, guides &amp; stories from the SeaDays community. Plan smarter, pack lighter, and cruise better.">
+  <meta property="twitter:description" content="Cruise tips, ship and port guides, packing and sea-day ideas from SeaDays. Plan smarter before you book.">
   <meta property="twitter:image" content="${DEFAULT_FAVICON}">
   <style>${INDEX_STYLES}</style>
 </head>
@@ -2201,12 +2202,13 @@ ${preloadLinks}
         </div>
       </div>
     </section>
-    <section class="seo-details" aria-label="About this blog">
+    <section class="seo-details" id="why-seadays-cruise-blog" aria-labelledby="seo-blog-heading">
       <details id="blogSeoDetails">
         <summary>
           <div class="seo-details-summary-inner">
-            <span class="seo-details-summary-text">Why SeaDays blog is different</span>
-            <span class="seo-details-tagline">Short, practical guidance—plus deeper guides when you want them.</span>
+            <h2 class="seo-details-summary-heading" id="seo-blog-heading">Why the SeaDays cruise blog is different</h2>
+            <p class="seo-details-summary-tagline">Independent cruise tips, ship guides, and port planning—written for real itineraries, not brochures.</p>
+            <p class="seo-details-summary-lede">Looking for trustworthy <strong>cruise tips</strong>, <strong>first-time cruise</strong> help, <strong>Mediterranean cruise</strong> and <strong>Caribbean cruise</strong> ideas, or honest answers on <strong>cruise cabins</strong>, <strong>drink packages</strong>, and <strong>sea days</strong>? This hub connects planning advice with our <a href="/ships/">cruise ships directory</a> and <a href="/ports/">cruise ports</a> guides so you can compare lines, shore time, and onboard rhythm before you book.</p>
             <div class="seo-details-expand-wrap">
               <button type="button" class="seo-details-round-btn" id="blogSeoExpandBtn" aria-expanded="false" aria-controls="blogSeoDetails">
                 <svg class="seo-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
@@ -2217,11 +2219,13 @@ ${preloadLinks}
         </summary>
         <div class="seo-details-body">
           <h3>Plan smarter cruises with expert guides</h3>
-          <p>This blog is written for people who want more than a brochure: honest trade-offs between cabin types, realistic sea-day routines, drink-package math, and what actually happens if you miss the ship in port. Every article is designed to be useful before you book, while you pack, and on embarkation day when small decisions compound.</p>
-          <p>We connect ideas across topics. When you read about <a href="/ships/">cruise ships and major lines</a>, you can cross-check itineraries against our <a href="/ports/">ports and destinations hub</a> to see whether your sailing favors short port calls or overnight stays. That pairing—ship plus geography—is how experienced cruisers avoid feeling rushed on land or bored at sea.</p>
+          <p>This blog is written for people who want more than a brochure: honest trade-offs between cabin types, realistic sea-day routines, drink-package math, embarkation-day pacing, and what actually happens if you miss the ship in port. Every article is designed to be useful before you book, while you pack, and on the morning of sailing when small decisions compound.</p>
+          <p>We connect ideas across topics. When you read about <a href="/ships/">cruise ships and major lines</a>, you can cross-check itineraries against our <a href="/ports/">ports and destinations hub</a> to see whether your sailing favors short port calls, overnight stays, or scenic sea days. That pairing—ship plus geography—is how experienced cruisers avoid feeling rushed on land or bored at sea.</p>
+          <h3>Topics we cover (and how to use the filters)</h3>
+          <p>Use the topic pills above the article grid to narrow <strong>first-time cruise</strong> basics, <strong>budget cruise</strong> trade-offs, <strong>luxury cruise</strong> value questions, <strong>cruise packing</strong> lists, <strong>balcony vs inside cabins</strong>, <strong>shore excursions</strong> and port days, <strong>Wi‑Fi and remote work at sea</strong>, <strong>family cruises</strong>, and <strong>beverage package</strong> math. Posts mix short explainers with deeper guides so you can skim for decisions or read end-to-end.</p>
           <h3>SeaDays tools behind the articles</h3>
           <p>SeaDays is a cruise companion app with live-friendly features for tracking trips, exploring ships, and browsing ports. The blog highlights concepts you will also find inside the product, but nothing here sits behind a paywall: the goal is search-quality guidance that stands alone in your browser.</p>
-          <p>If you are new to cruising, start with first-timer explainers and packing lists below. If you are comparing lines for a family, filter by cabins, dining, and kid-friendly tips—then validate against your target region on the <a href="/ports/">ports</a> page.</p>
+          <p>If you are new to cruising, start with first-timer explainers and packing lists below. If you are comparing lines for a family, filter by cabins, dining, and kid-friendly tips—then validate against your target region on the <a href="/ports/">ports</a> page. Cruisers comparing <strong>European cruises</strong>, <strong>Alaska cruises</strong>, or <strong>river vs ocean</strong> routes can use the same hub to stress-test marketing claims against itinerary shape and time ashore.</p>
         </div>
       </details>
     </section>
