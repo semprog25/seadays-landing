@@ -1134,6 +1134,7 @@ function buildShipsIndexHtml({ ships, articles }) {
         <div class="pill-row" id="secondaryPills" role="tablist" aria-label="Ships"></div>
       </div>
     </section>
+    <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
     <section class="app-cta" aria-label="App call to action">
       <div class="app-cta-inner">
         <div>
@@ -1143,6 +1144,10 @@ function buildShipsIndexHtml({ ships, articles }) {
         <a class="directory-btn directory-btn-primary" href="/index.html#download">Get the app</a>
       </div>
     </section>
+    <section class="featured-guides" aria-label="Popular cruise guides">
+      <h2>Popular comparisons &amp; guides</h2>
+      <ul>${featuredLinks || '<li><a href="/blog/">SeaDays cruise blog</a></li>'}</ul>
+    </section>
     <article class="seo-prose">
       <h2>Why a ships hub matters for cruise planning</h2>
       <p>Choosing a cruise is rarely only about price. The ship shapes daily life at sea: dining venues, cabin categories, entertainment, kids clubs, and how crowded common spaces feel. SeaDays brings structured ship and line information together so you can compare options without losing the story of what makes each vessel different.</p>
@@ -1151,11 +1156,6 @@ function buildShipsIndexHtml({ ships, articles }) {
       <p>Each card links to a static ship guide you can bookmark or share. For deck plans, live ship data, and community reviews, open the SeaDays app—download from the homepage and sign in to sync your preferences across devices.</p>
       <p>For itinerary inspiration, pair this list with our <a href="/blog/">cruise blog</a> and the <a href="/ports/">ports directory</a> to sketch sea days, port days, and pre- or post-cruise stays.</p>
     </article>
-    <section class="featured-guides" aria-label="Popular cruise guides">
-      <h2>Popular comparisons &amp; guides</h2>
-      <ul>${featuredLinks || '<li><a href="/blog/">SeaDays cruise blog</a></li>'}</ul>
-    </section>
-    <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -1242,7 +1242,7 @@ function buildShipsIndexHtml({ ships, articles }) {
       var item = btn.getAttribute('data-secondary')
       setPressed(secondary, item)
       applyFilter(group, item)
-      if(item && item !== '__all__'){\n        var target = grid.querySelector('.directory-card[data-item=\"'+CSS.escape(item)+'\"]')\n        if(target && target.scrollIntoView) target.scrollIntoView({ behavior: 'smooth', block: 'center' })\n      }\n    })
+    })
   })();
   </script>
   ${RUNTIME_GUARD_SCRIPT}
@@ -1427,6 +1427,7 @@ function buildPortsIndexHtml({ ports, articles }) {
         <div class="pill-row" id="secondaryPills" role="tablist" aria-label="Ports"></div>
       </div>
     </section>
+    <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
     <section class="app-cta" aria-label="App call to action">
       <div class="app-cta-inner">
         <div>
@@ -1436,6 +1437,10 @@ function buildPortsIndexHtml({ ports, articles }) {
         <a class="directory-btn directory-btn-primary" href="/index.html#download">Get the app</a>
       </div>
     </section>
+    <section class="featured-guides" aria-label="Popular destination guides">
+      <h2>Popular destination guides</h2>
+      <ul>${featuredLinks || '<li><a href="/blog/">SeaDays cruise blog</a></li>'}</ul>
+    </section>
     <article class="seo-prose">
       <h2>Plan smarter shore days</h2>
       <p>Ports are where itineraries become real: timing, walk-off convenience, excursion windows, and how far you can roam before all-aboard. A strong plan balances must-see sights with buffer for weather, traffic, and the simple joy of wandering.</p>
@@ -1444,11 +1449,6 @@ function buildPortsIndexHtml({ ports, articles }) {
       <p>Use the grid below as a lightweight map of places SeaDays users explore often. Each link opens a static port guide; terminals, safety notes, and fresher crowd patterns load in the SeaDays app.</p>
       <p>When you are ready to compare vessels for these regions, return to the <a href="/ships/">ships directory</a> and cross-check cabins, dining, and entertainment before you commit.</p>
     </article>
-    <section class="featured-guides" aria-label="Popular destination guides">
-      <h2>Popular destination guides</h2>
-      <ul>${featuredLinks || '<li><a href="/blog/">SeaDays cruise blog</a></li>'}</ul>
-    </section>
-    <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -1538,7 +1538,7 @@ function buildPortsIndexHtml({ ports, articles }) {
       var item = btn.getAttribute('data-secondary')
       setPressed(secondary, item)
       applyFilter(group, item)
-      if(item && item !== '__all__'){\n        var target = grid.querySelector('.directory-card[data-item=\"'+cssEscape(item)+'\"]')\n        if(target && target.scrollIntoView) target.scrollIntoView({ behavior: 'smooth', block: 'center' })\n      }\n    })
+    })
   })();
   </script>
   ${RUNTIME_GUARD_SCRIPT}
