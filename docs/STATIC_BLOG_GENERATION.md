@@ -5,8 +5,9 @@ This document describes the static blog generation system that pre-renders blog 
 ## Overview
 
 - **Source**: Supabase Edge Function (`portside-articles`)
-- **Output**: Static HTML in `/blog/{slug}/index.html` (clean URL `/blog/{slug}`). Redirect pages at `/blog/{slug}.html` for backward compatibility.
-- **Sitemap**: Auto-updated `sitemap.xml` with clean article URLs (`/blog/{slug}`)
+- **Output**: Static HTML in `/blog/{slug}/index.html` (canonical URL `https://seadays.app/blog/{slug}/` with trailing slash). Redirect pages at `/blog/{slug}.html` for backward compatibility.
+- **Sitemap**: Auto-updated `sitemap.xml` with the same article URLs (trailing slash). Home is only `https://seadays.app/` (not a separate `landing-page.html` entry).
+- **Legacy**: `scripts/generate-blog-pages.js` is not the production pipeline; use `npm run generate-blogs` so canonicals stay aligned.
 
 ## Prerequisites
 
@@ -39,9 +40,9 @@ node scripts/generateBlogs.js
 2. **Fetches full content** for each article (including `structuredContent` / `content`)
 3. **Generates slug** from title if missing (e.g. "10 Cruise Packing Mistakes" → `10-cruise-packing-mistakes`)
 4. **Converts** `structuredContent` (contentVersion 2) to HTML (headings, paragraphs, images, tables, tips, etc.)
-5. **Writes** one folder per article: `blog/{slug}/index.html` (full content). Also writes `blog/{slug}.html` as a redirect to `/blog/{slug}` for old URLs.
+5. **Writes** one folder per article: `blog/{slug}/index.html` (full content). Also writes `blog/{slug}.html` as a redirect to `/blog/{slug}/` for old URLs.
 6. **Writes** `blog/index.html` with article cards and links
-7. **Updates** `sitemap.xml` with homepage, blog index, and all article URLs (clean URLs only)
+7. **Updates** `sitemap.xml` with homepage, blog index, ships/ports hubs, and all article URLs (canonical trailing-slash URLs only)
 
 ## Output Structure
 
@@ -49,8 +50,8 @@ node scripts/generateBlogs.js
 /blog/
   index.html                    # Blog index with all articles
   cruise-packing-mistakes/
-    index.html                  # Full article (URL: /blog/cruise-packing-mistakes)
-  cruise-packing-mistakes.html  # Redirect page (old URL → /blog/cruise-packing-mistakes)
+    index.html                  # Full article (canonical: /blog/cruise-packing-mistakes/)
+  cruise-packing-mistakes.html  # Redirect stub (old URL → /blog/cruise-packing-mistakes/)
   cruise-wifi-guide/
     index.html
   cruise-wifi-guide.html       # Redirect

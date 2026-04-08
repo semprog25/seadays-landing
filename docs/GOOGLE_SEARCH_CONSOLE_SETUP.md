@@ -9,8 +9,8 @@ This guide covers how to fill in the information Google Search Console asks for 
    - Points to your sitemap
 
 2. **sitemap.xml** – At `https://seadays.app/sitemap.xml`
-   - Static sitemap with core pages (home, blog, landing)
-   - When the landing server runs, `/sitemap.xml` is dynamic and includes all blog articles from Supabase
+   - Static sitemap from `npm run generate-blogs`: home, blog index, ships/ports hubs, every article (`/blog/<slug>/`), and all ship/port guides
+   - When the landing **Node server** runs, `/sitemap.xml` is still dynamic (legacy `blog-article.html?id=` entries may appear there); GitHub Pages uses the committed static `sitemap.xml`
 
 ## How to Submit in Google Search Console
 
@@ -60,6 +60,26 @@ Ensure `robots.txt` and `sitemap.xml` are served at the root of seadays.app (e.g
 - **Pages** → See indexed vs. excluded pages.
 - Fix “Discovered – currently not indexed” by improving internal links and sitemap coverage.
 
+### “Duplicate, Google chose different canonical than user”
+
+Use this when Search Console groups URLs under that reason (often a small count):
+
+1. Open **Indexing** → **Pages** → click **Duplicate, Google chose different canonical than user**.
+2. Open the **Examples** list and copy each affected URL (often 1–3).
+3. For each URL, open **URL Inspection**, run **Test live URL** (or view last crawl), and note:
+   - **User-declared canonical** (from your `link rel="canonical"` or HTTP header)
+   - **Google-selected canonical**
+4. Compare them: trailing slash vs none, `www` vs apex, `http` vs `https`, or a different path (e.g. `blog/slug.html` vs `blog/slug/`).
+5. After you change HTML or redirects on the site, use **Request indexing** for the affected URLs and recheck the **Pages** report after one to two weeks.
+
+Canonical policy for static pages is defined in `scripts/generateBlogs.js` (`blogCanonicalUrl`: always `https://seadays.app/blog/<slug>/` with a trailing slash).
+
+### Host and duplicate URLs (www / http / GitHub Pages)
+
+- Prefer a **single crawlable host**: `https://seadays.app` (no `www` unless you standardize on it everywhere).
+- Ensure **HTTP → HTTPS** and **www ↔ apex** redirects at DNS or CDN so crawlers never see two 200-OK copies of the same HTML with different URLs.
+- If an old **`*.github.io`** site still mirrors marketing content, **301 redirect** it to `https://seadays.app` or remove public duplicate content so Google does not pick a different canonical than your tags.
+
 ### Core Web Vitals
 
 - **Experience** → **Core Web Vitals** → Monitor LCP, FID, CLS.
@@ -82,4 +102,6 @@ Ensure `robots.txt` and `sitemap.xml` are served at the root of seadays.app (e.g
 - [ ] Verify `https://seadays.app/robots.txt` loads
 - [ ] Verify `https://seadays.app/sitemap.xml` loads
 - [ ] Use URL Inspection on a few blog URLs to confirm indexing
+- [ ] If you see **Duplicate, Google chose different canonical than user**, follow the section above and capture example URLs + Google-selected canonical
+- [ ] Confirm **one** preferred host (`https://seadays.app`) with redirects for `www` / `http` if applicable
 - [ ] Monitor Performance and Pages reports over time

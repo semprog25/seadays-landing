@@ -18,9 +18,7 @@ const BASE = 'https://seadays.app';
 
 const staticUrls = [
   { loc: BASE + '/', changefreq: 'weekly', priority: '1.0' },
-  { loc: BASE + '/index.html', changefreq: 'weekly', priority: '1.0' },
   { loc: BASE + '/blog/', changefreq: 'daily', priority: '0.9' },
-  { loc: BASE + '/landing-page.html', changefreq: 'weekly', priority: '0.8' },
 ];
 
 function slugify(title) {

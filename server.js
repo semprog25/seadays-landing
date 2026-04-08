@@ -147,9 +147,7 @@ app.get('/sitemap.xml', function (req, res) {
   const base = 'https://seadays.app';
   const staticUrls = [
     { loc: base + '/', changefreq: 'weekly', priority: '1.0' },
-    { loc: base + '/index.html', changefreq: 'weekly', priority: '1.0' },
     { loc: base + '/blog/', changefreq: 'daily', priority: '0.9' },
-    { loc: base + '/landing-page.html', changefreq: 'weekly', priority: '0.8' },
   ];
   fetchBlogFromSupabase()
     .then(function (data) {
