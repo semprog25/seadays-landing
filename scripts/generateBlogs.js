@@ -14,11 +14,21 @@
  */
 'use strict';
 
+const path = require('path');
 require('dotenv').config();
-require('dotenv').config({ path: require('path').join(__dirname, '..', '.env') });
-require('dotenv').config({ path: require('path').join(__dirname, '..', '..', '.env') });
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
+require('dotenv').config({ path: path.join(__dirname, '..', '.env.local'), override: true });
+require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env.local'), override: true });
 if (!process.env.SUPABASE_ANON_KEY && process.env.VITE_SUPABASE_ANON_KEY) {
   process.env.SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
+}
+if (!process.env.SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  process.env.SUPABASE_ANON_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  console.warn(
+    '[generateBlogs] SUPABASE_ANON_KEY not set; using SUPABASE_SERVICE_ROLE_KEY for Edge fetches. ' +
+      'Prefer adding SUPABASE_ANON_KEY (matches CI / minimal scope).'
+  );
 }
 const { injectKeywordLinksIntoBodyHtml } = require('./lib/seoKeywordLinks');
 const {
@@ -42,7 +52,6 @@ const {
 } = require('./lib/reviewAggregateMerge');
 const https = require('https');
 const fs = require('fs');
-const path = require('path');
 const crypto = require('crypto');
 
 const SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co';
@@ -1762,11 +1771,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .featured-grid .article-card-excerpt { -webkit-line-clamp: 2; }
 .seo-details { max-width: 48rem; margin: 0 auto 28px; padding: 0 24px; text-align: center; }
 .seo-details details { border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; background: rgba(255,255,255,0.03); overflow: hidden; text-align: left; }
-.seo-details summary { cursor: pointer; padding: 16px 18px 12px; font-weight: 900; font-size: 16px; list-style: none; text-align: center; }
+.seo-details summary { cursor: pointer; padding: 16px 18px 18px; list-style: none; text-align: center; }
 .seo-details summary::-webkit-details-marker { display:none; }
-.seo-details summary .seo-details-tagline { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 4px; }
-.seo-details-expand-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: -6px auto 0; padding-bottom: 14px; max-width: 48rem; }
-.seo-details details[open] + .seo-details-expand-wrap { display: none; }
+.seo-details-summary-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; max-width: 36rem; margin: 0 auto; }
+.seo-details-summary-text { font-weight: 900; font-size: 16px; color: #fff; }
+.seo-details summary .seo-details-tagline { color: rgba(255,255,255,0.7); font-weight: 700; font-size: 13px; display: block; margin-top: 0; }
+.seo-details-expand-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 6px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); width: 100%; }
+.seo-details details[open] .seo-details-expand-wrap { display: none; }
 .seo-details-round-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,0,51,0.45); background: rgba(255,0,51,0.12); color: rgba(255,255,255,0.95); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; box-shadow: 0 0 14px rgba(255,0,51,0.2); }
 .seo-details-round-btn:hover { background: rgba(255,0,51,0.22); box-shadow: 0 0 20px rgba(255,0,51,0.35); }
 .seo-details-round-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 3px; }
@@ -2193,8 +2204,16 @@ ${preloadLinks}
     <section class="seo-details" aria-label="About this blog">
       <details id="blogSeoDetails">
         <summary>
-          Why SeaDays blog is different
-          <span class="seo-details-tagline">Short, practical guidance—plus deeper guides when you want them.</span>
+          <div class="seo-details-summary-inner">
+            <span class="seo-details-summary-text">Why SeaDays blog is different</span>
+            <span class="seo-details-tagline">Short, practical guidance—plus deeper guides when you want them.</span>
+            <div class="seo-details-expand-wrap">
+              <button type="button" class="seo-details-round-btn" id="blogSeoExpandBtn" aria-expanded="false" aria-controls="blogSeoDetails">
+                <svg class="seo-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <span class="seo-details-expand-hint">Tap to read more</span>
+            </div>
+          </div>
         </summary>
         <div class="seo-details-body">
           <h3>Plan smarter cruises with expert guides</h3>
@@ -2205,12 +2224,6 @@ ${preloadLinks}
           <p>If you are new to cruising, start with first-timer explainers and packing lists below. If you are comparing lines for a family, filter by cabins, dining, and kid-friendly tips—then validate against your target region on the <a href="/ports/">ports</a> page.</p>
         </div>
       </details>
-      <div class="seo-details-expand-wrap">
-        <button type="button" class="seo-details-round-btn" id="blogSeoExpandBtn" aria-expanded="false" aria-controls="blogSeoDetails">
-          <svg class="seo-chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <span class="seo-details-expand-hint">Tap to read more</span>
-      </div>
     </section>
     <div class="container">
       <div class="blog-grid" id="blogGrid">${cards.join('\n')}</div>
@@ -2250,6 +2263,7 @@ ${preloadLinks}
       }
       seoB.addEventListener('click', function(e){
         e.preventDefault()
+        e.stopPropagation()
         seoD.open = true
         syncSeoBtn()
         try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'smooth', block: 'nearest' }) } catch(x) {}
