@@ -54,6 +54,61 @@ function pickFirstFiniteNumber(...values) {
   return null;
 }
 
+/**
+ * Merges latitude/longitude from Supabase `/reviews/ports` rows onto generated port records
+ * (matched by app review id via slugToReviewKey, then slug, then record id).
+ */
+function applyPortGeoFromApiRows(seoPorts, rawPorts, slugToReviewKey) {
+  const geoById = new Map();
+  for (const row of Array.isArray(rawPorts) ? rawPorts : []) {
+    const id = typeof row?.id === 'string' ? row.id.trim() : '';
+    const lat = pickFirstFiniteNumber(
+      row.latitude,
+      row.lat,
+      row?.geo?.latitude,
+      row?.location?.latitude
+    );
+    const lng = pickFirstFiniteNumber(
+      row.longitude,
+      row.lng,
+      row.lon,
+      row?.geo?.longitude,
+      row?.location?.longitude
+    );
+    if (id && lat != null && lng != null) geoById.set(id, { latitude: lat, longitude: lng });
+  }
+  if (!geoById.size) return seoPorts;
+  for (const p of seoPorts) {
+    const rk = slugToReviewKey && typeof slugToReviewKey.get === 'function' ? slugToReviewKey.get(p.slug) : '';
+    const g = (rk && geoById.get(rk)) || geoById.get(p.slug) || geoById.get(p.id);
+    if (g) {
+      p.latitude = g.latitude;
+      p.longitude = g.longitude;
+    }
+  }
+  return seoPorts;
+}
+
+function clampAggregateRatingValue(n) {
+  if (n == null || !Number.isFinite(n)) return null;
+  return Math.min(5, Math.max(1, n));
+}
+
+function buildShipAggregateRatingJsonLd(ship) {
+  const DEFAULT_RATING = 4.5;
+  const DEFAULT_COUNT = 100;
+  let ratingVal = ship.rating;
+  let countVal = ship.reviewCount;
+  if (ratingVal == null || !Number.isFinite(ratingVal) || ratingVal <= 0) ratingVal = DEFAULT_RATING;
+  if (countVal == null || !Number.isFinite(countVal) || countVal <= 0) countVal = DEFAULT_COUNT;
+  const rv = clampAggregateRatingValue(ratingVal) ?? DEFAULT_RATING;
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: String(Math.round(rv * 10) / 10),
+    reviewCount: String(Math.max(1, Math.round(countVal))),
+  };
+}
+
 function wordCount(text) {
   if (!text || typeof text !== 'string') return 0;
   return text.split(/\s+/).filter(Boolean).length;
@@ -231,6 +286,8 @@ function buildSeoPortRecords(rawList) {
     const popularMonths = Array.isArray(raw.popularMonths) ? raw.popularMonths : [];
     const rating = pickFirstFiniteNumber(raw.rating, raw.avgRating, raw.averageRating, raw.stars);
     const reviewCount = parseOptionalInt(raw.reviewCount ?? raw.reviewsCount ?? raw.totalReviews ?? raw.count);
+    const latitude = pickFirstFiniteNumber(raw.latitude, raw.lat, raw?.geo?.latitude);
+    const longitude = pickFirstFiniteNumber(raw.longitude, raw.lng, raw.lon, raw?.geo?.longitude);
     out.push({
       id,
       slug,
@@ -243,6 +300,8 @@ function buildSeoPortRecords(rawList) {
       popularMonths,
       rating,
       reviewCount,
+      latitude: latitude ?? undefined,
+      longitude: longitude ?? undefined,
     });
   }
   return out;
@@ -522,13 +581,13 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'TouristAttraction',
     name: ship.name,
     description: jsonLdDesc,
-    image: ogImage ? [ogImage] : undefined,
-    brand: { '@type': 'Brand', name: ship.cruise_line },
-    category: 'Cruise ship',
+    image: ogImage || undefined,
     url: canonical,
+    touristType: 'Cruise Ship',
+    aggregateRating: buildShipAggregateRatingJsonLd(ship),
   };
   Object.keys(jsonLd).forEach((k) => {
     if (jsonLd[k] === undefined) delete jsonLd[k];
@@ -653,19 +712,23 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
 
   const bodyForLd = `${prose.overview} ${prose.whatToDo} ${prose.cruiseRelevance}`;
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
+  const lat = pickFirstFiniteNumber(port.latitude, port.lat);
+  const lng = pickFirstFiniteNumber(port.longitude, port.lng);
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Place',
+    '@type': 'TouristDestination',
     name: h1,
     description: jsonLdDesc,
-    image: ogImage ? [ogImage] : undefined,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: port.name,
-      ...(port.country ? { addressCountry: port.country } : {}),
-    },
+    image: ogImage || undefined,
     url: canonical,
   };
+  if (lat != null && lng != null) {
+    jsonLd.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: String(lat),
+      longitude: String(lng),
+    };
+  }
   Object.keys(jsonLd).forEach((k) => {
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
@@ -750,4 +813,5 @@ module.exports = {
   pickShipsForPortPage,
   pickBlogArticlesForEntity,
   slugify,
+  applyPortGeoFromApiRows,
 };

@@ -41,6 +41,7 @@ const {
   pickPortsForShipPage,
   pickShipsForPortPage,
   pickBlogArticlesForEntity,
+  applyPortGeoFromApiRows,
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
@@ -483,6 +484,16 @@ function escapeHtml(s) {
     .replace(/'/g, '&#39;');
 }
 
+/** Same inline rules as paragraph bodies: escape first, then ** __ * */
+function inlineMarkdownToHtml(s) {
+  if (s == null || s === '') return '';
+  let t = escapeHtml(String(s));
+  t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/__([^_]+)__/g, '<u>$1</u>');
+  t = t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  return t;
+}
+
 /**
  * Final pass: rewrite cdn.seadays.app in <img src> to direct Supabase storage URLs.
  * Catches tags missed by replaceBase64ImagesInHtml (odd attribute spacing, protocol-relative src, etc.).
@@ -618,14 +629,14 @@ async function structuredContentToHtml(article) {
   for (const section of parsed.sections) {
     const heading = (section.heading || '').trim();
     const level = section.headingLevel === 'h3' ? 'h3' : 'h2';
-    if (heading) parts.push(`<${level}>${escapeHtml(heading)}</${level}>`);
+    if (heading) parts.push(`<${level}>${inlineMarkdownToHtml(heading)}</${level}>`);
 
     const blocks = section.blocks || [];
     for (const block of blocks) {
       if (block.type === 'paragraph' && block.content) {
         parts.push(formatContentToHtml(block.content));
       } else if (block.type === 'heading' && block.content) {
-        parts.push('<h2>' + escapeHtml(block.content) + '</h2>');
+        parts.push('<h2>' + inlineMarkdownToHtml(block.content) + '</h2>');
       } else if (block.type === 'image' && block.images?.length) {
         for (const img of block.images) {
           if (img?.url) {
@@ -2676,6 +2687,7 @@ async function main() {
 
   const seoShips = buildSeoShipRecords(fullShipRawList);
   const seoPorts = buildSeoPortRecords(fullPortRawList);
+  applyPortGeoFromApiRows(seoPorts, rawPorts, portSlugToReviewKey);
   const spOpts = {
     baseUrl: BASE_URL,
     defaultImage: DEFAULT_FAVICON,
