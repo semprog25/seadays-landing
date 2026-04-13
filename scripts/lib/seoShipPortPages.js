@@ -94,9 +94,15 @@ function clampAggregateRatingValue(n) {
   return Math.min(5, Math.max(1, n));
 }
 
+/**
+ * Product + AggregateRating for Google Rich Results: use numeric fields and a clear scale
+ * (see Google Product snippet / aggregateRating guidelines).
+ */
 function buildShipAggregateRatingJsonLd(ship) {
   const DEFAULT_RATING = 4.5;
   const DEFAULT_COUNT = 100;
+  const bestRating = 5;
+  const worstRating = 1;
   let ratingVal = ship.rating;
   let countVal = ship.reviewCount;
   if (ratingVal == null || !Number.isFinite(ratingVal) || ratingVal <= 0) ratingVal = DEFAULT_RATING;
@@ -104,8 +110,10 @@ function buildShipAggregateRatingJsonLd(ship) {
   const rv = clampAggregateRatingValue(ratingVal) ?? DEFAULT_RATING;
   return {
     '@type': 'AggregateRating',
-    ratingValue: String(Math.round(rv * 10) / 10),
-    reviewCount: String(Math.max(1, Math.round(countVal))),
+    ratingValue: Math.round(rv * 10) / 10,
+    reviewCount: Math.max(1, Math.round(countVal)),
+    bestRating,
+    worstRating,
   };
 }
 
@@ -581,12 +589,13 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'TouristAttraction',
+    '@type': 'Product',
     name: ship.name,
     description: jsonLdDesc,
-    image: ogImage || undefined,
+    image: ogImage ? [ogImage] : undefined,
     url: canonical,
-    touristType: 'Cruise Ship',
+    brand: { '@type': 'Brand', name: ship.cruise_line },
+    category: 'Cruise ship',
     aggregateRating: buildShipAggregateRatingJsonLd(ship),
   };
   Object.keys(jsonLd).forEach((k) => {
@@ -725,8 +734,8 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   if (lat != null && lng != null) {
     jsonLd.geo = {
       '@type': 'GeoCoordinates',
-      latitude: String(lat),
-      longitude: String(lng),
+      latitude: lat,
+      longitude: lng,
     };
   }
   Object.keys(jsonLd).forEach((k) => {
