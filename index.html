@@ -3,45 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seadays.app/">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://seadays.app/" />
+    <script>
+        (function () {
+            var canonicalHost = "seadays.app";
+            var canonicalOrigin = "https://seadays.app";
+            if (window.location.hostname !== canonicalHost || window.location.protocol !== "https:") {
+                window.location.replace(canonicalOrigin + window.location.pathname + window.location.search + window.location.hash);
+            }
+        })();
+    </script>
     <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
 
-    <title>SeaDays – Cruise Planning App | Plan Voyages, Track Expenses, Connect With Cruisers</title>
-    <meta name="description" content="SeaDays is the cruise planning app for smarter voyages. Plan trips, track expenses, explore ships and ports, and connect with fellow cruisers. Available on Android, iOS coming soon.">
+    <title>SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships</title>
+    <meta name="description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
     <meta name="keywords" content="cruise planning, cruise app, travel, vacation, cruise tracker, maritime, sailing, voyage, ships, ports">
     <meta name="author" content="SeaDays">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://seadays.app/">
-    <meta property="og:title" content="SeaDays – Cruise Planning App | Plan Voyages, Track Expenses, Connect With Cruisers">
-    <meta property="og:description" content="SeaDays is the cruise planning app for smarter voyages. Plan trips, track expenses, explore ships and ports, and connect with fellow cruisers. Available on Android, iOS coming soon.">
+    <meta property="og:title" content="SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships">
+    <meta property="og:description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
     <meta property="og:image" content="https://seadays.app/og-image.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://seadays.app/">
-    <meta name="twitter:title" content="SeaDays – Cruise Planning App | Plan Voyages, Track Expenses, Connect With Cruisers">
-    <meta name="twitter:description" content="SeaDays is the cruise planning app for smarter voyages. Plan trips, track expenses, explore ships and ports, and connect with fellow cruisers. Available on Android, iOS coming soon.">
+    <meta name="twitter:title" content="SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships">
+    <meta name="twitter:description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
     <meta name="twitter:image" content="https://seadays.app/og-image.png">
 
     <!-- Structured data for AI / search (SoftwareApplication) -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "SeaDays",
-        "applicationCategory": "TravelApplication",
-        "operatingSystem": "Android",
-        "url": "https://seadays.app/",
-        "downloadUrl": "https://play.google.com/store/apps/details?id=com.seadays.app",
-        "description": "SeaDays is a cruise planning app that helps cruisers plan voyages, track cruise expenses, explore ships and ports, and connect with fellow travelers.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-        }
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SeaDays",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "iOS, Android",
+      "url": "https://seadays.app"
     }
     </script>
 
@@ -1860,9 +1862,15 @@
         <!-- Fullscreen Hero Section -->
         <section class="hero fullpage-section" id="home">
             <div class="hero-content">
+                <h1 style="position:absolute; left:-9999px;">
+SeaDays Cruise Planner App
+</h1>
+                <p style="position:absolute; left:-9999px;">
+SeaDays is a cruise planner app to plan voyages, track ships, and organize itineraries.
+</p>
                 <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays – Cruise Planning App" class="hero-logo" width="360" height="auto" decoding="async" fetchpriority="high">
                 
-                <h1 class="tagline">Plan Smarter Cruises</h1>
+                <h1 class="tagline">SeaDays Cruise Planner App</h1>
                 <p class="subtitle">SeaDays helps cruisers plan voyages, track cruise expenses, explore ships and ports, and connect with fellow travelers before and during their cruise.</p>
 
                 <div class="store-badges hero-store-badges">
@@ -1947,32 +1955,32 @@
                 <h2 class="section-title">Latest from the Community</h2>
                 <p class="section-subtitle">Portside Stories, cruise tips, and experiences shared by fellow SeaDays travelers.</p>
                 <!-- INJECT_BLOG_CARDS_START -->
-                <div id="blogGrid" class="blog-section-grid"><a href="https://seadays.app/blog/why-cruisers-love-sea-days-more-than-port-days/" class="blog-card">
-                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_21e956aa-c47c-4037-9a3b-45e3de457925-thumbnail-1776096926886.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfMjFlOTU2YWEtYzQ3Yy00MDM3LTlhM2ItNDVlM2RlNDU3OTI1LXRodW1ibmFpbC0xNzc2MDk2OTI2ODg2LmpwZyIsImlhdCI6MTc3NjA5NjkyOCwiZXhwIjoxODA3NjMyOTI4fQ.6a1LuYiopNctuKAPqywI_gRbXWX6YdMMzmsUTFUi0jM" alt="Why Cruisers Love Sea Days More Than Port Days" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                <div id="blogGrid" class="blog-section-grid"><a href="https://seadays.app/blog/top-10-cruise-ships-for-2026-features-reviews-and-experiences/" class="blog-card">
+                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_4d945469-a644-49a3-b56d-0d058f451471-thumbnail-1776629630472.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfNGQ5NDU0NjktYTY0NC00OWEzLWI1NmQtMGQwNThmNDUxNDcxLXRodW1ibmFpbC0xNzc2NjI5NjMwNDcyLmpwZyIsImlhdCI6MTc3NjYyOTYzMSwiZXhwIjoxODA4MTY1NjMxfQ.F6OJ-SmTFbBw3gY3q8TnaZyUWruDFtEP6CCneSM0ATU" alt="Top 10 Cruise Ships for 2026: Features, Reviews, and Experiences" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
                     <div class="blog-card-body">
-                        <h3 class="blog-card-title">Why Cruisers Love Sea Days More Than Port Days</h3>
-                        <p class="blog-card-excerpt">It sounds counterintuitive: why would you pay for a vacation and then prefer the days you don&#39;t leave the ship? For many cruisers, sea days are the highlight. Here&#39;s why....</p>
+                        <h3 class="blog-card-title">Top 10 Cruise Ships for 2026: Features, Reviews, and Experiences</h3>
+                        <p class="blog-card-excerpt">Choosing a cruise ship in 2026 is less about “biggest” and more about fit: dining style, cabin comfort, entertainment, and how each vessel handles crowds. This guide ranks ten standout ships worth considering—what makes each special, who they suit best, and how to match them to your itinerary....</p>
                     </div>
                 </a>
-                <a href="https://seadays.app/blog/aidacosma-vs-msc-seashore-ship-comparison-guide/" class="blog-card">
-                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_c5e64ecb-8283-462c-b006-701905d837b9-thumbnail-1776096291338.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfYzVlNjRlY2ItODI4My00NjJjLWIwMDYtNzAxOTA1ZDgzN2I5LXRodW1ibmFpbC0xNzc2MDk2MjkxMzM4LmpwZyIsImlhdCI6MTc3NjA5NjI5MiwiZXhwIjoxODA3NjMyMjkyfQ.nEj88-3RJ2HSTtXYILXh-lXWKYE8H3q4jeltvfdGLfI" alt="AIDAcosma vs. MSC Seashore: Ship Comparison Guide" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                <a href="https://seadays.app/blog/how-to-avoid-getting-sick-on-a-cruise-ship/" class="blog-card">
+                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_774fb168-dc98-4cbc-85ea-9e0eaa87ce2b-thumbnail-1776374317040.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfNzc0ZmIxNjgtZGM5OC00Y2JjLTg1ZWEtOWUwZWFhODdjZTJiLXRodW1ibmFpbC0xNzc2Mzc0MzE3MDQwLmpwZyIsImlhdCI6MTc3NjM3NDMxNywiZXhwIjoxODA3OTEwMzE3fQ.rvT1_a_XDt3rN8lSZztPyoXg8cs939njZbySexSTeo0" alt="How to Avoid Getting Sick on a Cruise Ship" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
                     <div class="blog-card-body">
-                        <h3 class="blog-card-title">AIDAcosma vs. MSC Seashore: Ship Comparison Guide</h3>
-                        <p class="blog-card-excerpt">AIDAcosma and MSC Seashore both target families and international guests, but their brands, languages onboard, and venue philosophies differ. This side-by-side comparison helps you pick the right hull for your budget, dining style, and cabin priorities....</p>
+                        <h3 class="blog-card-title">How to Avoid Getting Sick on a Cruise Ship</h3>
+                        <p class="blog-card-excerpt">How to Avoid Getting Sick on a Cruise Ship: practical cruise advice covering Quebec City, the Norwegian fjords, and real scenarios. Written for travelers who want useful details, not generic tips....</p>
                     </div>
                 </a>
-                <a href="https://seadays.app/blog/cruise-vs-flying-hotels-which-is-actually-better-in-2026/" class="blog-card">
-                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_b2e8ae97-7a22-4696-ba3f-40f353e52321-thumbnail-1776095797765.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfYjJlOGFlOTctN2EyMi00Njk2LWJhM2YtNDBmMzUzZTUyMzIxLXRodW1ibmFpbC0xNzc2MDk1Nzk3NzY1LmpwZyIsImlhdCI6MTc3NjA5NTc5OCwiZXhwIjoxODA3NjMxNzk4fQ.RprheLkr2NU841SUuNzgES5sDKQJwWHJ_DTG6I27N2s" alt="Cruise vs Flying + Hotels: Which Is Actually Better in 2026?" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                <a href="https://seadays.app/blog/best-adults-only-cruise-lines-and-ships-in-2026/" class="blog-card">
+                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_880b00c4-f2a8-4d5e-8f61-8577677c324a-thumbnail-1776370242883.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfODgwYjAwYzQtZjJhOC00ZDVlLThmNjEtODU3NzY3N2MzMjRhLXRodW1ibmFpbC0xNzc2MzcwMjQyODgzLmpwZyIsImlhdCI6MTc3NjM3MDI0NCwiZXhwIjoxODA3OTA2MjQ0fQ.6XSA0BmB2M2QOBbBls_gl2EwCVz1lB_Sgn7SjchA2YU" alt="Best Adults-Only Cruise Lines and Ships in 2026" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
                     <div class="blog-card-body">
-                        <h3 class="blog-card-title">Cruise vs Flying + Hotels: Which Is Actually Better in 2026?</h3>
-                        <p class="blog-card-excerpt">“Better” depends on what you optimize—total cost, time stress, scenery, or flexibility. In 2026, airfare volatility, hotel resort fees, and cruise packaging all shifted the math again. This guide compares cruise vacations against the classic fly-plus-hotel trip with honest trade-offs, hidden costs, and decision frameworks you can reuse for every booking....</p>
+                        <h3 class="blog-card-title">Best Adults-Only Cruise Lines and Ships in 2026</h3>
+                        <p class="blog-card-excerpt">Best Adults-Only Cruise Lines and Ships in 2026: practical cruise advice covering real scenarios, ship differences, and what actually matters once you’re onboard....</p>
                     </div>
                 </a>
-                <a href="https://seadays.app/blog/from-party-ships-to-zen-cruises-finding-your-vibe/" class="blog-card">
-                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_5b9ab9e5-9146-452e-8ac5-a7cc9b1799c9-thumbnail-1776094818635.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfNWI5YWI5ZTUtOTE0Ni00NTJlLThhYzUtYTdjYzliMTc5OWM5LXRodW1ibmFpbC0xNzc2MDk0ODE4NjM1LmpwZyIsImlhdCI6MTc3NjA5NDgyMCwiZXhwIjoxODA3NjMwODIwfQ.1bCS4B9CJDQd_QWFscfCtLDlv6fpyy8I_G4evi6fUf4" alt="From Party Ships to Zen Cruises: Finding Your Vibe" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                <a href="https://seadays.app/blog/cruise-ship-entertainment-shows-activities-and-nightlife/" class="blog-card">
+                    <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/make-51d3ca8d-note-images/2467d3a1-ff2f-4773-88a9-20b2d0027b0d/portside-blog_post_6ffaacc6-a0bc-4fca-8381-2dd6d477e411-thumbnail-1776369840697.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJtYWtlLTUxZDNjYThkLW5vdGUtaW1hZ2VzLzI0NjdkM2ExLWZmMmYtNDc3My04OGE5LTIwYjJkMDAyN2IwZC9wb3J0c2lkZS1ibG9nX3Bvc3RfNmZmYWFjYzYtYTBiYy00ZmNhLTgzODEtMmRkNmQ0NzdlNDExLXRodW1ibmFpbC0xNzc2MzY5ODQwNjk3LmpwZyIsImlhdCI6MTc3NjM2OTg0MSwiZXhwIjoxODA3OTA1ODQxfQ.6BZ2tI25OMSqdbaPchmT645RwatKKDJuWKXzwNPrNSs" alt="Cruise Ship Entertainment: Shows, Activities, and Nightlife" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="external" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
                     <div class="blog-card-body">
-                        <h3 class="blog-card-title">From Party Ships to Zen Cruises: Finding Your Vibe</h3>
-                        <p class="blog-card-excerpt">The worst cruise mistake is not picking the “wrong” ocean—it is picking the wrong energy. Some travelers want DJ pools and late-night decks; others want quiet lounges, spa mornings, and bedtime before midnight. This guide maps the spectrum from party ships to zen cruises, shows how brands and ship classes express vibe in concrete ways, and gives you a decision framework so your vacation feels like *your* vacation—not a stranger’s bachelor party or a library you cannot escape....</p>
+                        <h3 class="blog-card-title">Cruise Ship Entertainment: Shows, Activities, and Nightlife</h3>
+                        <p class="blog-card-excerpt">Cruise ships are floating entertainment complexes. From Broadway-style shows to silent discos, there&#39;s something for everyone. Here&#39;s what to expect—and how to get the most out of shipboard entertainment....</p>
                     </div>
                 </a></div>
                 <div id="blogEmpty" class="blog-empty" style="display:none;">No posts yet. Check back soon for stories and tips.</div>
@@ -2231,6 +2239,7 @@
                 <div class="footer-bottom">
                     <p>made with love from the port city of Hamburg <span aria-hidden="true">⚓</span></p>
                     <p style="margin-top: 12px;">© 2026 SeaDays. All rights reserved.</p>
+                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
                 </div>
             </div>
         </footer>
