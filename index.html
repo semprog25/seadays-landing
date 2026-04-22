@@ -3,45 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://seadays.app/">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://seadays.app/" />
+    <script>
+        (function () {
+            var canonicalHost = "seadays.app";
+            var canonicalOrigin = "https://seadays.app";
+            if (window.location.hostname !== canonicalHost || window.location.protocol !== "https:") {
+                window.location.replace(canonicalOrigin + window.location.pathname + window.location.search + window.location.hash);
+            }
+        })();
+    </script>
     <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
 
-    <title>SeaDays – Cruise Planning App | Plan Voyages, Track Expenses, Connect With Cruisers</title>
-    <meta name="description" content="SeaDays is the cruise planning app for smarter voyages. Plan trips, track expenses, explore ships and ports, and connect with fellow cruisers. Available on Android, iOS coming soon.">
+    <title>SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships</title>
+    <meta name="description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
     <meta name="keywords" content="cruise planning, cruise app, travel, vacation, cruise tracker, maritime, sailing, voyage, ships, ports">
     <meta name="author" content="SeaDays">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://seadays.app/">
-    <meta property="og:title" content="SeaDays – Cruise Planning App | Plan Voyages, Track Expenses, Connect With Cruisers">
-    <meta property="og:description" content="SeaDays is the cruise planning app for smarter voyages. Plan trips, track expenses, explore ships and ports, and connect with fellow cruisers. Available on Android, iOS coming soon.">
+    <meta property="og:title" content="SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships">
+    <meta property="og:description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
     <meta property="og:image" content="https://seadays.app/og-image.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://seadays.app/">
-    <meta name="twitter:title" content="SeaDays – Cruise Planning App | Plan Voyages, Track Expenses, Connect With Cruisers">
-    <meta name="twitter:description" content="SeaDays is the cruise planning app for smarter voyages. Plan trips, track expenses, explore ships and ports, and connect with fellow cruisers. Available on Android, iOS coming soon.">
+    <meta name="twitter:title" content="SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships">
+    <meta name="twitter:description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
     <meta name="twitter:image" content="https://seadays.app/og-image.png">
 
     <!-- Structured data for AI / search (SoftwareApplication) -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "SeaDays",
-        "applicationCategory": "TravelApplication",
-        "operatingSystem": "Android",
-        "url": "https://seadays.app/",
-        "downloadUrl": "https://play.google.com/store/apps/details?id=com.seadays.app",
-        "description": "SeaDays is a cruise planning app that helps cruisers plan voyages, track cruise expenses, explore ships and ports, and connect with fellow travelers.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "EUR"
-        }
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SeaDays",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "iOS, Android",
+      "url": "https://seadays.app"
     }
     </script>
 
@@ -1860,9 +1862,15 @@
         <!-- Fullscreen Hero Section -->
         <section class="hero fullpage-section" id="home">
             <div class="hero-content">
+                <h1 style="position:absolute; left:-9999px;">
+SeaDays Cruise Planner App
+</h1>
+                <p style="position:absolute; left:-9999px;">
+SeaDays is a cruise planner app to plan voyages, track ships, and organize itineraries.
+</p>
                 <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays – Cruise Planning App" class="hero-logo" width="360" height="auto" decoding="async" fetchpriority="high">
                 
-                <h1 class="tagline">Plan Smarter Cruises</h1>
+                <h1 class="tagline">SeaDays Cruise Planner App</h1>
                 <p class="subtitle">SeaDays helps cruisers plan voyages, track cruise expenses, explore ships and ports, and connect with fellow travelers before and during their cruise.</p>
 
                 <div class="store-badges hero-store-badges">
@@ -2231,6 +2239,7 @@
                 <div class="footer-bottom">
                     <p>made with love from the port city of Hamburg <span aria-hidden="true">⚓</span></p>
                     <p style="margin-top: 12px;">© 2026 SeaDays. All rights reserved.</p>
+                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
                 </div>
             </div>
         </footer>
