@@ -145,6 +145,16 @@
         .article-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 20px 0; }
         .article-body a { color: var(--neon-red); text-decoration: none; }
         .article-body a:hover { text-decoration: underline; }
+        .seadays-cta-box, .affiliate-box, .email-capture { border: 1px solid #eee; padding: 16px; margin: 24px 0; border-radius: 12px; background: #fafafa; color: #111827; }
+        .seadays-cta-box h3, .affiliate-box h3, .email-capture h3 { color: #111827 !important; margin: 0 0 8px; }
+        .seadays-cta-box p, .affiliate-box p, .email-capture p { color: #374151; margin-bottom: 12px; }
+        .affiliate-box ul { margin: 0 0 0 24px; color: #111827; }
+        .affiliate-box a { color: #c81e3a; text-decoration: none; }
+        .affiliate-box a:hover { text-decoration: underline; }
+        .cta-btn { display: inline-block; padding: 10px 16px; background: #ff4d4f; color: white !important; border-radius: 8px; text-decoration: none; }
+        .cta-btn:hover { text-decoration: none; }
+        .email-capture input { width: 100%; max-width: 100%; margin: 0 0 12px; padding: 10px 12px; border-radius: 8px; border: 1px solid #d1d5db; background: white; color: #111827; }
+        .email-capture button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: none; border-radius: 8px; background: #ff4d4f; color: white; font: inherit; cursor: pointer; }
         .article-nav {
             display: flex;
             justify-content: space-between;
@@ -341,6 +351,7 @@
             .article-nav a { max-width: 100%; }
             .article-nav a.article-nav-next { text-align: left; flex-direction: row; }
             .more-to-read-grid { grid-template-columns: 1fr; }
+            .cta-btn, .email-capture button { width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -350,7 +361,7 @@
     <div class="content-layer">
         <header class="header">
             <nav class="header-nav">
-                <a href="index.html">Home</a>
+                <a href="https://seadays.app/">SeaDays Cruise Planner</a>
                 <a href="/blog/">Blog</a>
                 <a href="https://seadays.app/privacy.html">Privacy</a>
                 <a href="https://seadays.app/terms.html">Terms</a>
@@ -560,6 +571,53 @@
                 return res.json();
             }
 
+            function buildPlannerCtaNode() {
+                var wrapper = document.createElement('div');
+                wrapper.className = 'seadays-cta-box';
+                wrapper.innerHTML = '<h3>Plan this cruise in seconds</h3><p>Save itineraries, track ports, and organize your trip.</p><a href="https://seadays.app" class="cta-btn">Open SeaDays Planner</a>';
+                return wrapper;
+            }
+
+            function buildAffiliateNode() {
+                var wrapper = document.createElement('div');
+                wrapper.className = 'affiliate-box';
+                wrapper.innerHTML = '<h3>Recommended for this cruise</h3><ul><li><a href="#" target="_blank" rel="nofollow sponsored">Best cruise deals</a></li><li><a href="#" target="_blank" rel="nofollow sponsored">Travel insurance</a></li><li><a href="#" target="_blank" rel="nofollow sponsored">Cruise packing essentials</a></li></ul>';
+                return wrapper;
+            }
+
+            function buildEmailCaptureNode() {
+                var wrapper = document.createElement('div');
+                wrapper.className = 'email-capture';
+                wrapper.innerHTML = '<h3>Get cruise tips &amp; deals</h3><p>Join SeaDays and never miss a perfect itinerary.</p><input type="email" placeholder="Enter your email" /><button>Subscribe</button>';
+                return wrapper;
+            }
+
+            function insertAfterNode(targetNode, newNode) {
+                if (!targetNode || !targetNode.parentNode || !newNode) return;
+                targetNode.parentNode.insertBefore(newNode, targetNode.nextSibling);
+            }
+
+            function injectMonetizationBlocks(bodyEl) {
+                if (!bodyEl) return;
+
+                if (!bodyEl.querySelector('.seadays-cta-box')) {
+                    var paragraphs = bodyEl.querySelectorAll('p');
+                    if (paragraphs.length > 0) insertAfterNode(paragraphs[0], buildPlannerCtaNode());
+                    else bodyEl.insertBefore(buildPlannerCtaNode(), bodyEl.firstChild);
+                }
+
+                if (!bodyEl.querySelector('.affiliate-box')) {
+                    var updatedParagraphs = bodyEl.querySelectorAll('p');
+                    if (updatedParagraphs.length > 0) {
+                        var middleIndex = Math.min(updatedParagraphs.length - 1, Math.max(1, Math.floor(updatedParagraphs.length * 0.45)));
+                        insertAfterNode(updatedParagraphs[middleIndex], buildAffiliateNode());
+                    } else bodyEl.appendChild(buildAffiliateNode());
+                }
+
+                if (!bodyEl.querySelector('.email-capture'))
+                    bodyEl.appendChild(buildEmailCaptureNode());
+            }
+
             async function loadArticle() {
                 const articleId = getArticleId();
                 const loading = document.getElementById('articleLoading');
@@ -642,6 +700,7 @@
                         } catch (e) { /* ignore */ }
                     }
                     bodyEl.innerHTML = (bodyHtml && bodyHtml.trim()) ? bodyHtml : '<p>No content available.</p>';
+                    injectMonetizationBlocks(bodyEl);
 
                     var idx = allArticles.findIndex(function(a) { return a.id === article.id || a.slug === article.slug; });
                     var prevArticle = idx > 0 ? allArticles[idx - 1] : null;

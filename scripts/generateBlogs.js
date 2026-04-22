@@ -818,6 +818,184 @@ function buildSameTopicSection(article, sameTagArticles) {
   );
 }
 
+function hasMarkupClass(html, className) {
+  if (!html || !className) return false;
+  const classPattern = new RegExp(`class=["'][^"']*\\b${className}\\b[^"']*["']`, 'i');
+  return classPattern.test(html);
+}
+
+function buildPlannerCtaBox() {
+  return (
+    '<div class="seadays-cta-box">' +
+    '<h3>Plan this cruise in seconds</h3>' +
+    '<p>Save itineraries, track ports, and organize your trip.</p>' +
+    '<a href="https://seadays.app" class="cta-btn">Open SeaDays Planner</a>' +
+    '</div>'
+  );
+}
+
+function buildAffiliateBox() {
+  return (
+    '<div class="affiliate-box">' +
+    '<h3>Recommended for this cruise</h3>' +
+    '<ul>' +
+    '<li><a href="#" target="_blank" rel="nofollow sponsored">Best cruise deals</a></li>' +
+    '<li><a href="#" target="_blank" rel="nofollow sponsored">Travel insurance</a></li>' +
+    '<li><a href="#" target="_blank" rel="nofollow sponsored">Cruise packing essentials</a></li>' +
+    '</ul>' +
+    '</div>'
+  );
+}
+
+function buildEmailCaptureBox() {
+  return (
+    '<div class="email-capture">' +
+    '<h3>Get cruise tips &amp; deals</h3>' +
+    '<p>Join SeaDays and never miss a perfect itinerary.</p>' +
+    '<input type="email" placeholder="Enter your email" />' +
+    '<button>Subscribe</button>' +
+    '</div>'
+  );
+}
+
+function insertAfterParagraph(html, paragraphNumber, injectedHtml) {
+  if (!html || !injectedHtml) return html;
+  const paragraphMatches = [...html.matchAll(/<\/p>/gi)];
+  if (paragraphMatches.length >= paragraphNumber) {
+    const match = paragraphMatches[paragraphNumber - 1];
+    const insertAt = match.index + match[0].length;
+    return html.slice(0, insertAt) + injectedHtml + html.slice(insertAt);
+  }
+  const firstBlockMatch = html.match(/<\/(figure|h2|h3|ul|ol|table|aside)>/i);
+  if (!firstBlockMatch || firstBlockMatch.index == null) return injectedHtml + html;
+  const insertAt = firstBlockMatch.index + firstBlockMatch[0].length;
+  return html.slice(0, insertAt) + injectedHtml + html.slice(insertAt);
+}
+
+function insertMidArticle(html, injectedHtml) {
+  if (!html || !injectedHtml) return html;
+  const paragraphMatches = [...html.matchAll(/<\/p>/gi)];
+  if (paragraphMatches.length >= 4) {
+    const targetIndex = Math.min(
+      paragraphMatches.length - 1,
+      Math.max(1, Math.floor(paragraphMatches.length * 0.45))
+    );
+    const match = paragraphMatches[targetIndex];
+    const insertAt = match.index + match[0].length;
+    return html.slice(0, insertAt) + injectedHtml + html.slice(insertAt);
+  }
+  const blockMatches = [...html.matchAll(/<\/(p|figure|h2|h3|ul|ol|table|aside)>/gi)];
+  if (!blockMatches.length) return html + injectedHtml;
+  const targetIndex = Math.min(
+    blockMatches.length - 1,
+    Math.max(0, Math.floor(blockMatches.length * 0.5) - 1)
+  );
+  const match = blockMatches[targetIndex];
+  const insertAt = match.index + match[0].length;
+  return html.slice(0, insertAt) + injectedHtml + html.slice(insertAt);
+}
+
+function appendBeforeArticleEnd(html, injectedHtml) {
+  if (!html || !injectedHtml) return html;
+  const trailingWhitespace = html.match(/\s*$/);
+  const suffix = trailingWhitespace ? trailingWhitespace[0] : '';
+  const endIndex = html.length - suffix.length;
+  return html.slice(0, endIndex) + injectedHtml + suffix;
+}
+
+function injectArticleMonetizationBlocks(bodyHtml) {
+  if (!bodyHtml || typeof bodyHtml !== 'string') return bodyHtml;
+  let nextHtml = bodyHtml;
+
+  if (!hasMarkupClass(nextHtml, 'seadays-cta-box'))
+    nextHtml = insertAfterParagraph(nextHtml, 1, buildPlannerCtaBox());
+
+  if (!hasMarkupClass(nextHtml, 'affiliate-box'))
+    nextHtml = insertMidArticle(nextHtml, buildAffiliateBox());
+
+  if (!hasMarkupClass(nextHtml, 'email-capture'))
+    nextHtml = appendBeforeArticleEnd(nextHtml, buildEmailCaptureBox());
+
+  return nextHtml;
+}
+
+const ARTICLE_MONETIZATION_STYLES = `
+.seadays-cta-box, .affiliate-box, .email-capture { border: 1px solid #eee; padding: 16px; margin: 24px 0; border-radius: 12px; background: #fafafa; color: #111827; }
+.seadays-cta-box h3, .affiliate-box h3, .email-capture h3 { color: #111827; margin: 0 0 8px; }
+.seadays-cta-box p, .affiliate-box p, .email-capture p { color: #374151; margin-bottom: 12px; }
+.affiliate-box ul { margin: 0 0 0 24px; color: #111827; }
+.affiliate-box a { color: #c81e3a; text-decoration: none; }
+.affiliate-box a:hover { text-decoration: underline; }
+.cta-btn { display: inline-block; padding: 10px 16px; background: #ff4d4f; color: white; border-radius: 8px; text-decoration: none; }
+.cta-btn:hover { color: white; text-decoration: none; }
+.email-capture input { width: 100%; max-width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px; background: white; color: #111827; margin: 0 0 12px; }
+.email-capture button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: 0; border-radius: 8px; background: #ff4d4f; color: white; font: inherit; cursor: pointer; }
+`;
+
+function ensureArticlePageHasMonetizationStyles(pageHtml) {
+  if (!pageHtml || pageHtml.includes('.seadays-cta-box')) return pageHtml;
+  return pageHtml.replace('</style>', `${ARTICLE_MONETIZATION_STYLES}\n</style>`);
+}
+
+function injectMonetizationIntoArticlePageHtml(pageHtml) {
+  if (!pageHtml || !pageHtml.includes('<div class="article-body">')) return pageHtml;
+
+  const bodyStartToken = '<div class="article-body">';
+  const bodyStart = pageHtml.indexOf(bodyStartToken);
+  if (bodyStart === -1) return pageHtml;
+
+  const bodyContentStart = bodyStart + bodyStartToken.length;
+  const markerCandidates = [
+    '\n        <section class="same-topic-section"',
+    '\n        <section class="explore-seadays"',
+    '\n        <section id="blogEngagement"',
+    '\n        <nav class="article-nav"',
+    '\n        <section class="more-to-read"',
+    '\n      </article>',
+    '</article>',
+  ];
+
+  let markerIndex = -1;
+  for (const candidate of markerCandidates) {
+    const foundIndex = pageHtml.indexOf(candidate, bodyContentStart);
+    if (foundIndex !== -1 && (markerIndex === -1 || foundIndex < markerIndex))
+      markerIndex = foundIndex;
+  }
+  if (markerIndex === -1) return pageHtml;
+
+  const bodyCloseIndex = pageHtml.lastIndexOf('</div>', markerIndex);
+  if (bodyCloseIndex === -1 || bodyCloseIndex < bodyContentStart) return pageHtml;
+
+  const originalBody = pageHtml.slice(bodyContentStart, bodyCloseIndex);
+  const updatedBody = injectArticleMonetizationBlocks(originalBody);
+  if (updatedBody === originalBody)
+    return ensureArticlePageHasMonetizationStyles(pageHtml);
+
+  const updatedPage =
+    pageHtml.slice(0, bodyContentStart) +
+    updatedBody +
+    pageHtml.slice(bodyCloseIndex);
+
+  return ensureArticlePageHasMonetizationStyles(updatedPage);
+}
+
+function retrofitExistingStaticBlogPages(blogDir) {
+  if (!fs.existsSync(blogDir)) return 0;
+  let updatedCount = 0;
+  const entries = fs.readdirSync(blogDir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const indexPath = path.join(blogDir, entry.name, 'index.html');
+    if (!fs.existsSync(indexPath)) continue;
+    const originalHtml = fs.readFileSync(indexPath, 'utf8');
+    const updatedHtml = injectMonetizationIntoArticlePageHtml(originalHtml);
+    if (updatedHtml === originalHtml) continue;
+    fs.writeFileSync(indexPath, updatedHtml, 'utf8');
+    updatedCount += 1;
+  }
+  return updatedCount;
+}
+
 function selectMoreToReadArticles(article, articles, maxCount = 12) {
   const exclude = new Set([article.id]);
   const scored = findRelatedArticles(article, articles, exclude, Math.max(8, maxCount));
@@ -1057,7 +1235,7 @@ async function fetchReviewsShipsPorts() {
 
 function buildDirectoryHeaderNav() {
   return `<nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="https://seadays.app/">SeaDays Cruise Planner</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -1724,6 +1902,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
 .article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
 .article-body .contextual-link:hover { text-decoration: underline; }
+${ARTICLE_MONETIZATION_STYLES}
 .explore-seadays { margin: 40px 0; padding: 28px 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 0, 51, 0.06); }
 .explore-seadays h2 { font-size: 22px; margin-bottom: 16px; font-weight: 800; }
 .explore-seadays-list { list-style: none; margin: 0; padding: 0; }
@@ -1759,7 +1938,7 @@ footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); 
 .footer-section a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
 .footer-section a:hover { color: var(--neon-red); }
 .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
-@media (max-width: 768px) { .article-hero h1 { font-size: 28px; } }
+@media (max-width: 768px) { .article-hero h1 { font-size: 28px; } .cta-btn, .email-capture button { width: 100%; text-align: center; } }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
 `;
@@ -1908,6 +2087,12 @@ function buildImgTag(url, source, type, alt, className, { eager = false, width =
  */
 const RUNTIME_GUARD_SCRIPT = `<script>
 (function(){
+  var canonicalHost='seadays.app';
+  var canonicalOrigin='https://seadays.app';
+  if(window.location.hostname!==canonicalHost||window.location.protocol!=='https:'){
+    window.location.replace(canonicalOrigin+window.location.pathname+window.location.search+window.location.hash);
+    return;
+  }
   var FB='${FALLBACK_IMAGE_URL}';
   // Mirrors classifyImageUrl() in the generator: blocks CDN proxy and SVGs only.
   // External HTTPS images are allowed (same policy as server-side validation).
@@ -2027,7 +2212,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   <div class="content-layer">
     <header class="header">
       <nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="https://seadays.app/">SeaDays Cruise Planner</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -2195,7 +2380,7 @@ ${preloadLinks}
   <div class="content-layer">
     <header class="header">
       <nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="https://seadays.app/">SeaDays Cruise Planner</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -2208,7 +2393,7 @@ ${preloadLinks}
         <h1>SeaDays cruise blog</h1>
         <p>Stories, tips, and experiences shared by the SeaDays community.</p>
         <div class="hero-actions">
-          <a class="hero-btn hero-btn-primary" href="/index.html#download">Download SeaDays</a>
+          <a class="hero-btn hero-btn-primary" href="https://seadays.app/#download">Download SeaDays</a>
           <a class="hero-btn" href="/ships/">Explore ships</a>
           <a class="hero-btn" href="/ports/">Explore ports</a>
         </div>
@@ -2813,6 +2998,7 @@ async function main() {
     bodyHtml = injectKeywordLinksIntoBodyHtml(bodyHtml, { maxShipLinks: 2, maxPortLinks: 2 });
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
+    bodyHtml = injectArticleMonetizationBlocks(bodyHtml);
     bodyHtml = rewriteCdnImgSrcAttributes(bodyHtml);
     const sameTagArticles = findSameTagArticles(article, articles, 6);
     const html = await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles);
@@ -2838,6 +3024,11 @@ async function main() {
   fs.writeFileSync(path.join(blogDir, 'index.html'), indexHtml, 'utf8');
   const indexSizeKb = Math.round(Buffer.byteLength(indexHtml, 'utf8') / 1024);
   console.log(`  wrote blog/index.html (${indexSizeKb}KB)`);
+
+  const retrofittedBlogPages = retrofitExistingStaticBlogPages(blogDir);
+  if (retrofittedBlogPages > 0) {
+    console.log(`  retrofitted monetization blocks in ${retrofittedBlogPages} existing blog article page(s)`);
+  }
 
   const indexPath = path.join(repoRoot, 'index.html');
   if (fs.existsSync(indexPath)) {
