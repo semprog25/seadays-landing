@@ -136,7 +136,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   <div class="grid-overlay"></div>
   <div class="content-layer">
     <header class="header"><nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="https://seadays.app/">SeaDays Cruise Planner</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -168,7 +168,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       <ul class="seo-cross-list"><li><a href="/ships/carnival-spirit/">Carnival Spirit</a> <span style="color:rgba(255,255,255,0.45)">(Carnival Cruise Line)</span></li><li><a href="/ships/viking-neptune/">Viking Neptune</a> <span style="color:rgba(255,255,255,0.45)">(Viking River Cruises)</span></li><li><a href="/ships/celebrity-apex/">Celebrity Apex</a> <span style="color:rgba(255,255,255,0.45)">(Celebrity Cruises)</span></li><li><a href="/ships/britannia/">Britannia</a> <span style="color:rgba(255,255,255,0.45)">(P&amp;O Cruises)</span></li></ul>
       <p class="seo-body seo-inline-more"><a href="/blog/">Cruise guides on the blog</a> · <a href="/ports/">Ports directory</a></p>
       <h2>More reading</h2>
-      <ul class="seo-cross-list"><li><a href="/blog/why-cruisers-love-sea-days-more-than-port-days/">Why Cruisers Love Sea Days More Than Port Days</a></li><li><a href="/blog/cruise-vs-flying-hotels-which-is-actually-better-in-2026/">Cruise vs Flying + Hotels: Which Is Actually Better in 2026?</a></li></ul>
+      <ul class="seo-cross-list"><li><a href="/blog/the-hidden-costs-of-not-using-a-cruise-planning-app/">The Hidden Costs of Not Using a Cruise Planning App</a></li><li><a href="/blog/how-better-planning-reduces-cruise-expenses-instantly/">How Better Planning Reduces Cruise Expenses Instantly</a></li></ul>
     </main>
     <footer class="footer">
       <div class="container">
@@ -179,6 +179,12 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<100;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   <script>
 (function(){
+  var canonicalHost='seadays.app';
+  var canonicalOrigin='https://seadays.app';
+  if(window.location.hostname!==canonicalHost||window.location.protocol!=='https:'){
+    window.location.replace(canonicalOrigin+window.location.pathname+window.location.search+window.location.hash);
+    return;
+  }
   var FB='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
   // Mirrors classifyImageUrl() in the generator: blocks CDN proxy and SVGs only.
   // External HTTPS images are allowed (same policy as server-side validation).

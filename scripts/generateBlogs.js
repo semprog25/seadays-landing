@@ -1010,19 +1010,17 @@ function selectMoreToReadArticles(article, articles, maxCount = 12) {
   return merged.slice(0, maxCount);
 }
 
-function injectContextualLinks(bodyHtml, relatedArticles, maxLinks = 4) {
-  if (!relatedArticles.length || !bodyHtml) return bodyHtml;
+function buildContextualRelatedBlock(relatedArticles, maxLinks = 4) {
+  if (!relatedArticles || !relatedArticles.length) return '';
   const links = relatedArticles.slice(0, maxLinks).map(
     (a) => `<a href="${blogRelPath(a.slug)}" class="contextual-link">${escapeHtml(a.title || 'Read more')}</a>`
   );
-  const linkBlock = `<p class="related-inline">Related: ${links.join(' · ')}</p>`;
-  const re = /(<\/p>\s*)/gi;
-  let count = 0;
-  const newBody = bodyHtml.replace(re, (match) => {
-    count++;
-    return count === 2 ? match + linkBlock : match;
-  });
-  return newBody !== bodyHtml ? newBody : bodyHtml + linkBlock;
+  return (
+    '<section class="related-contextual-section" aria-label="Related articles">' +
+    '<p class="related-inline">Related: ' +
+    links.join(' · ') +
+    '</p></section>'
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -1899,9 +1897,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body table { width: 100%; border-collapse: collapse; margin: 20px 0; }
 .article-body th, .article-body td { padding: 12px; text-align: left; border: 1px solid rgba(255,255,255,0.2); }
 .article-body aside { margin: 24px 0; padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-.article-body .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
-.article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
-.article-body .contextual-link:hover { text-decoration: underline; }
+.article-body .related-inline, .related-contextual-section .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
+.related-contextual-section { margin: 0; padding: 24px 0 0; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.article-body .contextual-link, .related-contextual-section .contextual-link, .same-topic-section .contextual-link { color: var(--neon-red); text-decoration: none; }
+.article-body .contextual-link:hover, .related-contextual-section .contextual-link:hover, .same-topic-section .contextual-link:hover { text-decoration: underline; }
 ${ARTICLE_MONETIZATION_STYLES}
 .explore-seadays { margin: 40px 0; padding: 28px 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 0, 51, 0.06); }
 .explore-seadays h2 { font-size: 22px; margin-bottom: 16px; font-weight: 800; }
@@ -2114,7 +2113,7 @@ const RUNTIME_GUARD_SCRIPT = `<script>
 })();
 </script>`;
 
-async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, moreArticles, sameTagArticles = []) {
+async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, moreArticles, sameTagArticles = [], contextualRelatedHtml = '') {
   const title = escapeHtml(article.seoTitle || article.title || 'Article');
   const description = escapeHtml(
     (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
@@ -2233,10 +2232,11 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
           ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
         </div>
         <div class="article-body">${bodyHtml}</div>
-        ${sameTopicHtml}
         ${exploreHtml}
         ${navSection}
         ${moreHtml}
+        ${contextualRelatedHtml}
+        ${sameTopicHtml}
       </article>
     </main>
     <footer>
@@ -2997,11 +2997,11 @@ async function main() {
     const excludeIds = new Set([article.id, ...more.map((a) => a.id)]);
     bodyHtml = injectKeywordLinksIntoBodyHtml(bodyHtml, { maxShipLinks: 2, maxPortLinks: 2 });
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
-    bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
+    const contextualRelatedHtml = buildContextualRelatedBlock(relatedForInjection, 4);
     bodyHtml = injectArticleMonetizationBlocks(bodyHtml);
     bodyHtml = rewriteCdnImgSrcAttributes(bodyHtml);
     const sameTagArticles = findSameTagArticles(article, articles, 6);
-    const html = await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles);
+    const html = await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles, contextualRelatedHtml);
     const articleDir = path.join(blogDir, article.slug);
     const indexPath = path.join(articleDir, 'index.html');
     const redirectPath = path.join(blogDir, article.slug + '.html');
