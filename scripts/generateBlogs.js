@@ -1057,7 +1057,7 @@ async function fetchReviewsShipsPorts() {
 
 function buildDirectoryHeaderNav() {
   return `<nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -1243,7 +1243,7 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
         <h1 id="ships-title">Cruise ships</h1>
         <p>Pick a cruise line, then narrow down to the ships cruisers care about. Ratings are visible here—full reviews live in the SeaDays app.</p>
         <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/index.html#download">Download SeaDays</a>
+          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
           <a class="directory-btn" href="/blog/">Read cruise guides</a>
         </div>
       </div>
@@ -1269,7 +1269,7 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
           <strong>Want the full reviews?</strong>
           <span>Download SeaDays to read and leave reviews for ships and ports.</span>
         </div>
-        <a class="directory-btn directory-btn-primary" href="/index.html#download">Get the app</a>
+        <a class="directory-btn directory-btn-primary" href="/#download">Get the app</a>
       </div>
     </section>
     <section class="featured-guides" aria-label="Popular cruise guides">
@@ -1287,7 +1287,7 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
           <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ports/">Ports</a></li></ul></div>
           <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
         </div>
@@ -1539,7 +1539,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
         <h1 id="ports-title">Cruise ports &amp; destinations</h1>
         <p>Choose a region first, then jump into port guides you can bookmark. Ratings are visible here—full reviews live in the SeaDays app.</p>
         <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/index.html#download">Download SeaDays</a>
+          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
           <a class="directory-btn" href="/blog/">Read destination guides</a>
         </div>
       </div>
@@ -1565,7 +1565,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
           <strong>Want the full reviews?</strong>
           <span>Download SeaDays to read and leave reviews for ports and ships.</span>
         </div>
-        <a class="directory-btn directory-btn-primary" href="/index.html#download">Get the app</a>
+        <a class="directory-btn directory-btn-primary" href="/#download">Get the app</a>
       </div>
     </section>
     <section class="featured-guides" aria-label="Popular destination guides">
@@ -1583,7 +1583,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
           <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ships/">Ships</a></li></ul></div>
           <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
         </div>
@@ -2027,7 +2027,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   <div class="content-layer">
     <header class="header">
       <nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -2057,7 +2057,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     <footer>
       <div class="container">
         <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
           <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
           <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
         </div>
@@ -2195,7 +2195,7 @@ ${preloadLinks}
   <div class="content-layer">
     <header class="header">
       <nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
@@ -2208,7 +2208,7 @@ ${preloadLinks}
         <h1>SeaDays cruise blog</h1>
         <p>Stories, tips, and experiences shared by the SeaDays community.</p>
         <div class="hero-actions">
-          <a class="hero-btn hero-btn-primary" href="/index.html#download">Download SeaDays</a>
+          <a class="hero-btn hero-btn-primary" href="/#download">Download SeaDays</a>
           <a class="hero-btn" href="/ships/">Explore ships</a>
           <a class="hero-btn" href="/ports/">Explore ports</a>
         </div>
@@ -2277,7 +2277,7 @@ ${preloadLinks}
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/index.html#download">Download</a></li></ul></div>
+          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
           <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
           <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
         </div>

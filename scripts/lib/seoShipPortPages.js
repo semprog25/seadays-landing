@@ -548,7 +548,7 @@ const PAGE_STYLES = `
 
 function buildDirectoryHeaderNav() {
   return `<nav class="header-nav">
-        <a href="/index.html">Home</a>
+        <a href="/">Home</a>
         <a href="/blog/">Blog</a>
         <a href="/ships/">Ships</a>
         <a href="/ports/">Ports</a>
