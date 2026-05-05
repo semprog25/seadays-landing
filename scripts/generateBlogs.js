@@ -10,6 +10,7 @@
  * - Ensures SEO meta tags, canonical, robots, loading="lazy" on images
  *
  * Usage: node scripts/generateBlogs.js
+ *        node scripts/generateBlogs.js --sitemap-only   (rebuild sitemap from disk; no Supabase write)
  * Requires: SUPABASE_ANON_KEY (fetch), SUPABASE_SERVICE_ROLE_KEY (upload base64 images)
  */
 'use strict';
@@ -528,12 +529,90 @@ function sitemapUrlLine(loc, changefreq, priority, lastmod) {
   return line;
 }
 
+/**
+ * Slugs under repoRoot/{segment}/ that have index.html (directory guides only).
+ */
+function listDirectoryIndexSlugs(repoRoot, segment) {
+  const base = path.join(repoRoot, segment);
+  if (!fs.existsSync(base)) return [];
+  const slugs = [];
+  for (const name of fs.readdirSync(base)) {
+    const full = path.join(base, name);
+    let isDir = false;
+    try {
+      isDir = fs.statSync(full).isDirectory();
+    } catch (e) {
+      continue;
+    }
+    if (!isDir) continue;
+    if (!fs.existsSync(path.join(full, 'index.html'))) continue;
+    slugs.push(name);
+  }
+  return slugs.sort();
+}
+
+/**
+ * Blog folder slugs for sitemap: includes on-disk posts not necessarily returned by CMS fetch.
+ * Omits `*-1` duplicates when the primary slug folder exists (canonical consolidation).
+ */
+function listPublishedBlogSlugsForSitemap(repoRoot) {
+  const slugs = listDirectoryIndexSlugs(repoRoot, 'blog');
+  const blogBase = path.join(repoRoot, 'blog');
+  const out = [];
+  for (const slug of slugs) {
+    if (/-1$/.test(slug)) {
+      const primary = slug.replace(/-1$/, '');
+      if (primary && fs.existsSync(path.join(blogBase, primary, 'index.html'))) continue;
+    }
+    out.push(slug);
+  }
+  return out;
+}
+
+function writeSitemapSnapshotFromDisk(repoRoot) {
+  const todayIso = new Date().toISOString().split('T')[0];
+  const staticUrls = [
+    { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: todayIso },
+    { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
+    { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
+    { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
+  ];
+  let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  const seenUrls = new Set();
+  for (const u of staticUrls) {
+    if (seenUrls.has(u.loc)) continue;
+    seenUrls.add(u.loc);
+    sitemap += sitemapUrlLine(u.loc, u.changefreq, u.priority, u.lastmod);
+  }
+  for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
+    const url = blogCanonicalUrl(slug);
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.7', todayIso);
+  }
+  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ships')) {
+    const url = `${BASE_URL}/ships/${slug}/`;
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
+  }
+  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ports')) {
+    const url = `${BASE_URL}/ports/${slug}/`;
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
+  }
+  sitemap += '</urlset>';
+  fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
+  console.log('[sitemap-only] Wrote sitemap.xml with', seenUrls.size, 'URLs');
+}
+
 function buildRedirectPage(slug) {
   const target = '/blog/' + encodeURI(slug) + '/';
   const canonical = blogCanonicalUrl(slug);
   return (
     '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
-    '<meta name="robots" content="index, follow">' +
+    '<meta name="robots" content="noindex,follow">' +
     '<link rel="canonical" href="' + escapeHtml(canonical) + '">' +
     '<meta http-equiv="refresh" content="0;url=' + escapeHtml(target) + '">' +
     '<title>Redirect</title></head><body>' +
@@ -2569,11 +2648,17 @@ async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = []
 // ---------------------------------------------------------------------------
 
 async function main() {
+  const repoRoot = path.join(__dirname, '..');
+  if (process.argv.includes('--sitemap-only')) {
+    writeSitemapSnapshotFromDisk(repoRoot);
+    console.log('Done.');
+    return;
+  }
+
   if (!process.env.SUPABASE_ANON_KEY) {
     console.warn('[generateBlogs] SUPABASE_ANON_KEY not set. Skipping blog fetch; ships/ports SEO will be generated from the local dataset only.');
   }
 
-  const repoRoot = path.join(__dirname, '..');
   const blogDir = path.join(repoRoot, 'blog');
 
   imageStats.uploaded = 0;
@@ -2891,6 +2976,12 @@ async function main() {
     const lastmod =
       formatIsoDate(a.updatedAt || a.publishedAt || a.timestamp || a.createdAt) || todayIso;
     sitemap += sitemapUrlLine(url, 'monthly', '0.7', lastmod);
+  }
+  for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
+    const url = blogCanonicalUrl(slug);
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.7', todayIso);
   }
   for (const s of seoShips) {
     const url = `${BASE_URL}/ships/${s.slug}/`;
