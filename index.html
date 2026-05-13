@@ -138,7 +138,7 @@
             box-sizing: border-box;
         }
 
-        /* Starfield Background */
+        /* Starfield — stars use --sf-r/g/b + --star-a; bloom + tint from hover zones (:has) */
         .starfield {
             position: fixed;
             top: 0;
@@ -148,17 +148,101 @@
             z-index: 0;
             background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
             overflow: hidden;
+            --sf-r: 255;
+            --sf-g: 255;
+            --sf-b: 255;
+            --star-bloom: 0;
         }
 
         .star {
             position: absolute;
             font-size: 16px;
-            animation: twinkle 3s infinite ease-in-out;
+            animation: twinkle 3.2s infinite ease-in-out;
+            background-color: rgba(var(--sf-r), var(--sf-g), var(--sf-b), var(--star-a, 0.5)) !important;
+            box-shadow: 0 0 calc(1px + 8px * var(--star-bloom, 0)) rgba(var(--sf-r), var(--sf-g), var(--sf-b), calc(0.2 + 0.5 * var(--star-bloom, 0)));
+            transition: background-color 0.55s ease, box-shadow 0.55s ease;
+            will-change: background-color, box-shadow;
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
+            0%, 100% { opacity: 0.22; }
             50% { opacity: 1; }
+        }
+
+        body:has(.store-badge--google:hover) .starfield {
+            --sf-r: 32; --sf-g: 235; --sf-b: 175; --star-bloom: 1;
+        }
+        body:has(.store-badge--apple:hover) .starfield {
+            --sf-r: 125; --sf-g: 155; --sf-b: 255; --star-bloom: 1;
+        }
+        body:has(.hero-logo:hover) .starfield {
+            --sf-r: 255; --sf-g: 75; --sf-b: 125; --star-bloom: 0.9;
+        }
+        body:has(.header-nav a:hover) .starfield {
+            --sf-r: 255; --sf-g: 130; --sf-b: 175; --star-bloom: 0.8;
+        }
+        body:has(.scroll-indicator:hover) .starfield {
+            --sf-r: 255; --sf-g: 0; --sf-b: 51; --star-bloom: 0.95;
+        }
+        body:has(.feature-card:nth-child(1):hover) .starfield {
+            --sf-r: 236; --sf-g: 72; --sf-b: 200; --star-bloom: 1;
+        }
+        body:has(.feature-card:nth-child(2):hover) .starfield {
+            --sf-r: 56; --sf-g: 205; --sf-b: 245; --star-bloom: 1;
+        }
+        body:has(.feature-card:nth-child(3):hover) .starfield {
+            --sf-r: 251; --sf-g: 165; --sf-b: 55; --star-bloom: 1;
+        }
+        body:has(.feature-card:nth-child(4):hover) .starfield {
+            --sf-r: 55; --sf-g: 225; --sf-b: 155; --star-bloom: 1;
+        }
+        body:has(.feature-card:nth-child(5):hover) .starfield {
+            --sf-r: 165; --sf-g: 125; --sf-b: 255; --star-bloom: 1;
+        }
+        body:has(.feature-card:nth-child(6):hover) .starfield {
+            --sf-r: 255; --sf-g: 105; --sf-b: 75; --star-bloom: 1;
+        }
+        body:has(.flip-card-wrap.theme-1:hover) .starfield {
+            --sf-r: 255; --sf-g: 35; --sf-b: 85; --star-bloom: 0.95;
+        }
+        body:has(.flip-card-wrap.theme-2:hover) .starfield {
+            --sf-r: 35; --sf-g: 215; --sf-b: 235; --star-bloom: 0.95;
+        }
+        body:has(.flip-card-wrap.theme-3:hover) .starfield {
+            --sf-r: 250; --sf-g: 175; --sf-b: 55; --star-bloom: 0.95;
+        }
+        body:has(.flip-card-wrap.theme-4:hover) .starfield {
+            --sf-r: 85; --sf-g: 225; --sf-b: 145; --star-bloom: 0.95;
+        }
+        body:has(.flip-card-wrap.theme-5:hover) .starfield {
+            --sf-r: 175; --sf-g: 125; --sf-b: 255; --star-bloom: 0.95;
+        }
+        body:has(.flip-card-wrap.theme-6:hover) .starfield {
+            --sf-r: 255; --sf-g: 95; --sf-b: 185; --star-bloom: 0.95;
+        }
+        body:has(.blog-card:hover) .starfield {
+            --sf-r: 255; --sf-g: 25; --sf-b: 70; --star-bloom: 0.85;
+        }
+        body:has(.btn-primary:hover) .starfield,
+        body:has(.btn-secondary:hover) .starfield {
+            --sf-r: 255; --sf-g: 45; --sf-b: 95; --star-bloom: 0.85;
+        }
+        body:has(.carousel-dot:hover) .starfield,
+        body:has(.carousel-dot:focus-visible) .starfield {
+            --sf-r: 115; --sf-g: 200; --sf-b: 255; --star-bloom: 0.75;
+        }
+        body:has(.featured-carousel-wrap:hover) .starfield {
+            --sf-r: 200; --sf-g: 210; --sf-b: 255; --star-bloom: 0.55;
+        }
+        body:has(.passport-livecard-appicon:hover) .starfield,
+        body:has(.passport-livecard-appmark:hover) .starfield {
+            --sf-r: 255; --sf-g: 55; --sf-b: 130; --star-bloom: 0.85;
+        }
+        body:has(.community-card:hover) .starfield {
+            --sf-r: 255; --sf-g: 110; --sf-b: 160; --star-bloom: 0.8;
+        }
+        body:has(.carousel-visual img:hover) .starfield {
+            --sf-r: 90; --sf-g: 200; --sf-b: 255; --star-bloom: 0.65;
         }
 
         /* Animated particles */
@@ -200,6 +284,26 @@
             background-size: 100px 100px;
             opacity: 0.4;
             pointer-events: none;
+            transition: opacity 0.5s ease, filter 0.5s ease;
+        }
+
+        body:has(.store-badge--google:hover) .grid-overlay,
+        body:has(.store-badge--apple:hover) .grid-overlay,
+        body:has(.hero-logo:hover) .grid-overlay,
+        body:has(.header-nav a:hover) .grid-overlay,
+        body:has(.scroll-indicator:hover) .grid-overlay,
+        body:has(.feature-card:hover) .grid-overlay,
+        body:has(.flip-card-wrap:hover) .grid-overlay,
+        body:has(.blog-card:hover) .grid-overlay,
+        body:has(.btn-primary:hover) .grid-overlay,
+        body:has(.btn-secondary:hover) .grid-overlay,
+        body:has(.featured-carousel-wrap:hover) .grid-overlay,
+        body:has(.passport-livecard-appicon:hover) .grid-overlay,
+        body:has(.passport-livecard-appmark:hover) .grid-overlay,
+        body:has(.community-card:hover) .grid-overlay,
+        body:has(.carousel-visual img:hover) .grid-overlay {
+            opacity: 0.52;
+            filter: saturate(1.35) brightness(1.08);
         }
 
         /* All content needs higher z-index */
@@ -269,6 +373,12 @@
             display: block;
             filter: drop-shadow(0 0 30px rgba(255, 0, 51, 0.4)) drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
             animation: float-logo 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: filter 0.5s ease;
+        }
+
+        .hero-logo:hover {
+            filter: drop-shadow(0 0 48px rgba(255, 60, 110, 0.9)) drop-shadow(0 0 96px rgba(255, 0, 51, 0.5)) drop-shadow(0 6px 28px rgba(0, 0, 0, 0.35));
         }
 
         @keyframes float-logo {
@@ -309,6 +419,7 @@
 
         .header-nav a:hover {
             color: white;
+            text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
         }
 
         .tagline {
@@ -424,16 +535,22 @@
         }
 
         .scroll-indicator:hover {
-            border-color: var(--neon-red);
+            border-color: rgba(255, 80, 110, 0.95);
+            box-shadow: 0 0 32px rgba(255, 0, 51, 0.55), inset 0 0 20px rgba(255, 0, 51, 0.12);
         }
 
         .scroll-indicator::before {
             content: '';
             width: 4px;
             height: 8px;
-            background: white;
+            background: linear-gradient(180deg, #ffffff, rgba(255, 160, 180, 0.95));
             border-radius: 2px;
             animation: scroll-down 2s infinite;
+            transition: box-shadow 0.35s ease, background 0.35s ease;
+        }
+
+        .scroll-indicator:hover::before {
+            box-shadow: 0 0 14px rgba(255, 0, 51, 0.85);
         }
 
         @keyframes scroll-down {
@@ -631,6 +748,7 @@
             font-size: 32px;
             margin: 0 auto 24px auto;
             box-shadow: 0 4px 20px rgba(255, 0, 51, 0.3);
+            transition: box-shadow 0.45s ease, transform 0.4s ease, filter 0.45s ease;
         }
 
         .feature-icon svg {
@@ -638,6 +756,18 @@
             height: 32px;
             stroke: white;
             stroke-width: 2;
+            transition: filter 0.45s ease, transform 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.08) translateY(-3px);
+            box-shadow: 0 0 36px rgba(255, 0, 51, 0.45), 0 0 72px rgba(255, 0, 51, 0.18);
+            filter: saturate(1.2) brightness(1.12);
+        }
+
+        .feature-card:hover .feature-icon svg {
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.55)) drop-shadow(0 0 22px rgba(255, 120, 160, 0.45));
+            transform: scale(1.05);
         }
 
         .feature-card:nth-child(1) .feature-icon {
@@ -719,19 +849,23 @@
         }
 
         .store-badge--google:hover {
-            border-color: rgba(61, 220, 132, 0.85);
+            border-color: rgba(72, 255, 175, 0.95);
             box-shadow:
-                0 0 0 1px rgba(61, 220, 132, 0.2),
-                0 0 28px rgba(0, 196, 140, 0.45),
-                0 0 52px rgba(6, 182, 212, 0.22);
+                0 0 0 1px rgba(72, 255, 175, 0.35),
+                0 0 36px rgba(0, 230, 160, 0.65),
+                0 0 72px rgba(0, 210, 200, 0.45),
+                0 0 110px rgba(6, 182, 212, 0.28),
+                inset 0 0 28px rgba(0, 255, 200, 0.08);
         }
 
         .store-badge--apple:hover {
-            border-color: rgba(120, 160, 255, 0.85);
+            border-color: rgba(160, 185, 255, 0.95);
             box-shadow:
-                0 0 0 1px rgba(147, 112, 219, 0.25),
-                0 0 30px rgba(99, 102, 241, 0.5),
-                0 0 56px rgba(56, 189, 248, 0.22);
+                0 0 0 1px rgba(160, 185, 255, 0.4),
+                0 0 40px rgba(120, 140, 255, 0.7),
+                0 0 80px rgba(99, 102, 241, 0.55),
+                0 0 120px rgba(56, 189, 248, 0.35),
+                inset 0 0 32px rgba(140, 160, 255, 0.1);
         }
 
         .store-badge--apple .badge-subtext {
@@ -748,7 +882,18 @@
             width: 30px;
             height: 30px;
             color: white;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+            transition: filter 0.45s ease, transform 0.35s ease, color 0.35s ease;
+        }
+
+        .store-badge--google:hover svg {
+            filter: drop-shadow(0 0 10px rgba(0, 255, 190, 0.95)) drop-shadow(0 0 22px rgba(0, 200, 255, 0.55));
+            transform: scale(1.06);
+        }
+
+        .store-badge--apple:hover svg {
+            filter: drop-shadow(0 0 10px rgba(160, 190, 255, 0.95)) drop-shadow(0 0 24px rgba(130, 110, 255, 0.65));
+            transform: scale(1.06);
         }
 
         .store-badge-content {
@@ -923,12 +1068,19 @@
             border: none;
             cursor: pointer;
             padding: 0;
-            transition: all 0.3s ease;
+            transition: background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
         }
-        .carousel-dot:hover { background: rgba(255, 255, 255, 0.5); }
+        .carousel-dot:hover {
+            background: rgba(180, 220, 255, 0.85);
+            transform: scale(1.25);
+            box-shadow: 0 0 18px rgba(120, 200, 255, 0.65), 0 0 36px rgba(99, 102, 241, 0.35);
+        }
         .carousel-dot.active {
             background: var(--neon-red);
-            box-shadow: 0 0 12px rgba(255, 0, 51, 0.5);
+            box-shadow: 0 0 16px rgba(255, 0, 51, 0.65), 0 0 36px rgba(255, 0, 51, 0.35);
+        }
+        .carousel-dot.active:hover {
+            box-shadow: 0 0 22px rgba(255, 80, 120, 0.75), 0 0 48px rgba(255, 0, 51, 0.4);
         }
 
         .hero-store-badges { margin-top: 40px; }
@@ -1385,7 +1537,14 @@
             display: block;
             flex-shrink: 0;
             box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+            transition: filter 0.45s ease, transform 0.4s ease;
         }
+        .passport-livecard-appmark:hover .passport-livecard-appicon,
+        .passport-livecard-appicon:hover {
+            filter: drop-shadow(0 0 14px rgba(255, 60, 100, 0.85)) drop-shadow(0 0 32px rgba(255, 0, 51, 0.45));
+            transform: scale(1.08);
+        }
+
         .passport-livecard-appname {
             font-size: 18px;
             font-weight: 700;
@@ -2287,7 +2446,8 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                 star.style.width = size + 'px';
                 star.style.height = size + 'px';
                 star.style.borderRadius = '50%';
-                star.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.7 + 0.2})`;
+                const a = Math.random() * 0.62 + 0.14;
+                star.style.setProperty('--star-a', a.toFixed(3));
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
                 star.style.animationDelay = Math.random() * 3 + 's';
