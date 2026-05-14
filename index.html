@@ -426,13 +426,53 @@
             font-size: 56px;
             font-weight: 900;
             margin-bottom: 28px;
-            background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 50%, #b0b0b0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ff1a3d;
+            -webkit-text-fill-color: #ff1a3d;
             line-height: 1.15;
             letter-spacing: -2px;
-            text-shadow: 0 0 60px rgba(255, 255, 255, 0.08);
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.5),
+                0 0 18px rgba(255, 60, 100, 0.95),
+                0 0 40px rgba(255, 0, 51, 0.9),
+                0 0 72px rgba(255, 0, 51, 0.65),
+                0 0 110px rgba(255, 0, 40, 0.4);
+            filter: drop-shadow(0 0 14px rgba(255, 0, 51, 0.75));
+        }
+
+        .cursor-fairy-layer {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 4;
+            overflow: hidden;
+        }
+
+        .cursor-fairy-particle {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--fp-size, 4px);
+            height: var(--fp-size, 4px);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--fp-core, #fffef5) 0%, var(--fp-edge, rgba(255, 120, 160, 0.45)) 65%, transparent 100%);
+            box-shadow: 0 0 calc(2px + var(--fp-size, 4px) * 0.8) var(--fp-glow, rgba(255, 200, 220, 0.9));
+            animation: cursor-fairy-drift var(--fp-dur, 0.85s) ease-out forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes cursor-fairy-drift {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% + var(--fp-dx, 0px)), calc(-50% + var(--fp-dy, 0px))) scale(0.12);
+            }
         }
 
         .subtitle {
@@ -2031,6 +2071,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Starfield Background -->
     <div class="starfield" id="starfield"></div>
+    <div class="cursor-fairy-layer" id="cursorFairyLayer" aria-hidden="true"></div>
 
     <!-- Grid Overlay -->
     <div class="grid-overlay"></div>
@@ -2457,6 +2498,47 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
 
         // Initialize starfield on page load
         createStarfield();
+
+        (function initCursorFairyDust() {
+            if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+            var layer = document.getElementById('cursorFairyLayer');
+            if (!layer) return;
+            var lastEmit = 0;
+            var minGapMs = 20;
+            var maxNodes = 96;
+            function spawnAt(x, y) {
+                var el = document.createElement('span');
+                el.className = 'cursor-fairy-particle';
+                el.style.left = x + 'px';
+                el.style.top = y + 'px';
+                var size = 2 + Math.random() * 5;
+                el.style.setProperty('--fp-size', size + 'px');
+                el.style.setProperty('--fp-dx', ((Math.random() - 0.5) * 52) + 'px');
+                el.style.setProperty('--fp-dy', ((Math.random() - 0.5) * 52 - 14) + 'px');
+                el.style.setProperty('--fp-dur', (0.5 + Math.random() * 0.55) + 's');
+                if (Math.random() > 0.5) {
+                    el.style.setProperty('--fp-core', '#fffef2');
+                    el.style.setProperty('--fp-edge', 'rgba(255, 215, 150, 0.55)');
+                    el.style.setProperty('--fp-glow', 'rgba(255, 235, 180, 0.95)');
+                } else {
+                    el.style.setProperty('--fp-core', '#ffe8f4');
+                    el.style.setProperty('--fp-edge', 'rgba(255, 90, 150, 0.5)');
+                    el.style.setProperty('--fp-glow', 'rgba(255, 140, 200, 0.95)');
+                }
+                layer.appendChild(el);
+                while (layer.childNodes.length > maxNodes) layer.removeChild(layer.firstChild);
+                el.addEventListener('animationend', function () {
+                    if (el.parentNode) el.parentNode.removeChild(el);
+                }, { once: true });
+            }
+            window.addEventListener('mousemove', function (e) {
+                var now = performance.now();
+                if (now - lastEmit < minGapMs) return;
+                lastEmit = now;
+                spawnAt(e.clientX, e.clientY);
+                if (Math.random() < 0.4) spawnAt(e.clientX + (Math.random() - 0.5) * 14, e.clientY + (Math.random() - 0.5) * 14);
+            }, { passive: true });
+        })();
 
         // Keyboard scroll: one section per key (Arrow Up/Down, Page Up/Down, Space) for reliable snapping
         (function() {
