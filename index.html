@@ -1169,19 +1169,21 @@
 
         .hero-store-badges { margin-top: 40px; }
 
-        /* Flip cards – Cruise Planning Tools */
-        .flip-cards-sections {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
+        /* Flip cards – Cruise Planning Tools (single 3×3 grid) */
         .flip-cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 28px;
+            width: 100%;
+        }
+        .flip-cards-grid .flip-card-wrap {
+            min-width: 0;
         }
         @media (max-width: 1024px) {
-            .flip-cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .flip-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 640px) {
+            .flip-cards-grid { grid-template-columns: 1fr; }
         }
         .flip-card-wrap {
             --card-accent: var(--neon-red);
@@ -2037,7 +2039,6 @@
             .blog-section-grid { grid-template-columns: 1fr; }
             .blog-card-image { height: 240px; }
             .blog-card-image-placeholder { height: 240px; }
-            .flip-cards-sections { gap: 32px; }
             .flip-cards-grid { grid-template-columns: 1fr; gap: 20px; }
             .flip-card-wrap { min-height: 280px; }
             .flip-card-inner { min-height: 280px; }
@@ -2140,12 +2141,7 @@
                 <h1 class="tagline">Your All-in-One Cruise Planner &amp; Roll Call App</h1>
                 <p class="subtitle">Plan voyages, organize itineraries, meet cruisers, track budgets, and manage every cruise in one place.</p>
 
-                <div class="cta-buttons" id="download">
-                    <a href="https://play.google.com/store/apps/details?id=com.seadays.app" class="btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Download SeaDays on Google Play">Download SeaDays</a>
-                    <a href="#cruise-planning-tools" class="btn-secondary" aria-label="Explore SeaDays features">Explore Features</a>
-                </div>
-
-                <div class="store-badges hero-store-badges">
+                <div class="store-badges hero-store-badges" id="download">
                     <a href="https://play.google.com/store/apps/details?id=com.seadays.app" class="store-badge store-badge--google" target="_blank" rel="noopener noreferrer" aria-label="Download SeaDays on Google Play">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M3,20.5V3.5C3,2.91,3.34,2.39,3.84,2.14L13.65,12L3.84,21.86C3.34,21.61,3,21.09,3,20.5z M16.95,15.31L15.41,13.77 L5.48,23.7L16.95,15.31z M5.48,0.3L15.41,10.23L16.95,8.69L5.48,0.3z M18.65,10.4L22.09,12.22c0.78,0.41,0.78,1.15,0,1.57l-3.44,1.82 L16.9,12L18.65,10.4z" fill="currentColor"/>
@@ -2176,47 +2172,70 @@
             <div class="container">
                 <h2 class="section-title">Cruise Planning Tools<br>for Smarter Voyages</h2>
                 <p class="section-subtitle">Roll calls, cruise planning, budget tracking, community, and ship discovery—prioritized for cruise passengers in one app.</p>
-                <div class="flip-cards-sections" id="flipCardsGrid">
-                    <div class="flip-cards-grid">
+                <div class="flip-cards-grid" id="flipCardsGrid">
+
                         <div class="flip-card-wrap theme-5" tabindex="0" role="button" aria-label="Cruise Roll Calls – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-5"><h3 class="flip-card-title">Cruise Roll Calls</h3></div><div class="flip-card-body"><p class="flip-card-desc">Join roll calls for your ship and sailing date. Meet fellow cruisers, coordinate excursions, and introduce yourself before embarkation.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-6"><h3 class="flip-card-title">Crew Chat</h3></div><div class="flip-card-body"><p class="flip-card-desc">Chat with travelers on your sailing to plan meetups, port days, and onboard activities in real time.</p></div></div>
                             </div>
                         </div>
+
                         <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Cruise Planner – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-1"><h3 class="flip-card-title">Cruise Planner</h3></div><div class="flip-card-body"><p class="flip-card-desc">Plan every moment of your cruise. Organize excursions, shows, reservations, and sea days so you always know what's next.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-5"><h3 class="flip-card-title">Itinerary Tools</h3></div><div class="flip-card-body"><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
                             </div>
                         </div>
+
                         <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Cruise budget tracking – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-2"><h3 class="flip-card-title">Cruise Budget Tracking</h3></div><div class="flip-card-body"><p class="flip-card-desc">Understand the real cost of your cruise. Track trip expenses, onboard spending, and extras with clear financial insights.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-2"><h3 class="flip-card-title">Rate Ships</h3></div><div class="flip-card-body"><p class="flip-card-desc">Share your experience and rate cruise ships based on cabins, dining, entertainment, and overall atmosphere.</p></div></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flip-cards-grid">
+
                         <div class="flip-card-wrap theme-3" tabindex="0" role="button" aria-label="Cruise Community – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-3"><h3 class="flip-card-title">Cruise Community</h3></div><div class="flip-card-body"><p class="flip-card-desc">Connect with fellow cruisers on the same sailing. Share tips, experiences, and recommendations with the SeaDays community.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-3"><h3 class="flip-card-title">SeaStories</h3></div><div class="flip-card-body"><p class="flip-card-desc">Read and share cruise tips, photos, and port-day stories from passengers who have sailed before you.</p></div></div>
                             </div>
                         </div>
+
                         <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Ship and port discovery – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-4"><h3 class="flip-card-title">Ship &amp; Port Discovery</h3></div><div class="flip-card-body"><p class="flip-card-desc">Explore cruise ships and ports. Read reviews, compare destinations, and plan what to do on every day ashore.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Port Guides</h3></div><div class="flip-card-body"><p class="flip-card-desc">Discover beaches, excursions, and local tips from cruisers who have visited each port on your itinerary.</p></div></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Port Guides</h3></div><div class="flip-card-body"><p class="flip-card-desc">Discover beaches, excursions, and local tips from cruisers who have visited each port on your itinerary.</p></div></div>
                             </div>
                         </div>
+
                         <div class="flip-card-wrap theme-6" tabindex="0" role="button" aria-label="Cruise Passport – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-6"><h3 class="flip-card-title">Cruise Passport</h3></div><div class="flip-card-body"><p class="flip-card-desc">Your personal cruise history in one place—voyages, ships sailed, ports visited, and achievements unlocked.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Share Progress</h3></div><div class="flip-card-body"><p class="flip-card-desc">Export and share your Cruise Passport card with friends and the SeaDays community after each voyage.</p></div></div>
                             </div>
                         </div>
-                    </div>
+
+                        <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Drink package calculator – click to flip">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-face front"><div class="flip-card-image color-3"><h3 class="flip-card-title">Drink Package Calculator</h3></div><div class="flip-card-body"><p class="flip-card-desc">See if the drink package is worth it. Enter your cruise line and habits to calculate your break-even point before you buy.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-3"><h3 class="flip-card-title">Rate Drinks</h3></div><div class="flip-card-body"><p class="flip-card-desc">Log and rate cocktails, wines, and specialty drinks so you and other cruisers know what is worth ordering.</p></div></div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Port safety – click to flip">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-face front"><div class="flip-card-image color-4"><h3 class="flip-card-title">Port Safety</h3></div><div class="flip-card-body"><p class="flip-card-desc">Stay informed before arriving. Check safety insights, travel tips, and important local guidance for every cruise port.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Travel Tips</h3></div><div class="flip-card-body"><p class="flip-card-desc">Save port-day reminders, meeting points, and return-to-ship times so nothing catches you off guard ashore.</p></div></div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Packing and pre-cruise – click to flip">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-face front"><div class="flip-card-image color-1"><h3 class="flip-card-title">Packing Lists</h3></div><div class="flip-card-body"><p class="flip-card-desc">Build shared packing lists for your group so nobody buys duplicate gear and formal-night outfits are covered.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Pre-Cruise Checklist</h3></div><div class="flip-card-body"><p class="flip-card-desc">Track online check-in, travel documents, and countdown tasks in one place before embarkation day.</p></div></div>
+                            </div>
+                        </div>
                 </div>
             </div>
         </section>
