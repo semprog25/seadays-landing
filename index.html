@@ -31,36 +31,87 @@
     </script>
     <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
 
-    <title>SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships</title>
-    <meta name="description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
-    <meta name="keywords" content="cruise planning, cruise app, travel, vacation, cruise tracker, maritime, sailing, voyage, ships, ports">
+    <title>SeaDays – Cruise Planner &amp; Roll Call App</title>
+    <meta name="description" content="Plan cruises, join roll calls, organize itineraries, manage cruise budgets, explore ports, and connect with other cruisers using SeaDays.">
+    <meta name="keywords" content="cruise planner app, cruise roll call app, cruise planning app, cruise community app, cruise budget planner, cruise vacation planner, cruise roll calls, meet people on cruises">
     <meta name="author" content="SeaDays">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://seadays.app/">
-    <meta property="og:title" content="SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships">
-    <meta property="og:description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
+    <meta property="og:title" content="SeaDays – Cruise Planner &amp; Roll Call App">
+    <meta property="og:description" content="Plan cruises, join roll calls, organize itineraries, manage cruise budgets, explore ports, and connect with other cruisers using SeaDays.">
     <meta property="og:image" content="https://seadays.app/og-image.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://seadays.app/">
-    <meta name="twitter:title" content="SeaDays – Cruise Planner App | Plan Cruises, Track Trips & Ships">
-    <meta name="twitter:description" content="SeaDays is an all-in-one cruise planner app to plan voyages, track ships, manage itineraries and explore ports.">
+    <meta name="twitter:title" content="SeaDays – Cruise Planner &amp; Roll Call App">
+    <meta name="twitter:description" content="Plan cruises, join roll calls, organize itineraries, manage cruise budgets, explore ports, and connect with other cruisers using SeaDays.">
     <meta name="twitter:image" content="https://seadays.app/og-image.png">
 
-    <!-- Structured data for AI / search (SoftwareApplication) -->
+    <!-- Structured data: Organization, WebSite, MobileApplication, FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "SeaDays",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "iOS, Android",
-      "url": "https://seadays.app",
-      "installUrl": "https://apps.apple.com/de/app/seadays/id6759758357?l=en-GB",
-      "downloadUrl": "https://play.google.com/store/apps/details?id=com.seadays.app"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "SeaDays",
+          "url": "https://seadays.app/",
+          "logo": "https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png",
+          "sameAs": [
+            "https://www.instagram.com/seadaysapp/",
+            "https://www.tiktok.com/@seadaysapp"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "name": "SeaDays",
+          "url": "https://seadays.app/",
+          "description": "The modern all-in-one cruise planner and roll call app for cruise passengers.",
+          "publisher": { "@id": "https://seadays.app/#organization" }
+        },
+        {
+          "@type": "MobileApplication",
+          "name": "SeaDays",
+          "applicationCategory": "TravelApplication",
+          "operatingSystem": "iOS, Android",
+          "url": "https://seadays.app/",
+          "downloadUrl": "https://play.google.com/store/apps/details?id=com.seadays.app",
+          "installUrl": "https://apps.apple.com/de/app/seadays/id6759758357?l=en-GB",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is SeaDays?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SeaDays is an all-in-one cruise planner and roll call app. Plan itineraries, join roll calls for your sailing, track cruise budgets, explore ships and ports, and connect with fellow cruisers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do cruise roll calls work on SeaDays?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Find your ship and sailing date, join the roll call for your voyage, introduce yourself, and chat with other guests before and during the cruise."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is SeaDays free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SeaDays is free to download on iOS and Android with core cruise planning, roll call, and community features."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -2075,6 +2126,7 @@
         <header class="header">
             <nav class="header-nav" aria-label="Main navigation">
                 <a href="#cruise-planning-tools">Features</a>
+                <a href="/cruise-roll-calls/">Roll Calls</a>
                 <a href="#community">Community</a>
                 <a href="/blog/">Blog</a>
             </nav>
@@ -2083,16 +2135,15 @@
         <!-- Fullscreen Hero Section -->
         <section class="hero fullpage-section" id="home">
             <div class="hero-content">
-                <h1 style="position:absolute; left:-9999px;">
-SeaDays Cruise Planner App
-</h1>
-                <p style="position:absolute; left:-9999px;">
-SeaDays is a cruise planner app to plan voyages, track ships, and organize itineraries.
-</p>
-                <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays – Cruise Planning App" class="hero-logo" width="360" height="auto" decoding="async" fetchpriority="high">
+                <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays – Cruise Planner and Roll Call App" class="hero-logo" width="360" height="auto" decoding="async" fetchpriority="high">
                 
-                <h1 class="tagline">SeaDays Cruise Planner App</h1>
-                <p class="subtitle">SeaDays helps cruisers plan voyages, track cruise expenses, explore ships and ports, and connect with fellow travelers before and during their cruise.</p>
+                <h1 class="tagline">Your All-in-One Cruise Planner &amp; Roll Call App</h1>
+                <p class="subtitle">Plan voyages, organize itineraries, meet cruisers, track budgets, and manage every cruise in one place.</p>
+
+                <div class="cta-buttons" id="download">
+                    <a href="https://play.google.com/store/apps/details?id=com.seadays.app" class="btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Download SeaDays on Google Play">Download SeaDays</a>
+                    <a href="#cruise-planning-tools" class="btn-secondary" aria-label="Explore SeaDays features">Explore Features</a>
+                </div>
 
                 <div class="store-badges hero-store-badges">
                     <a href="https://play.google.com/store/apps/details?id=com.seadays.app" class="store-badge store-badge--google" target="_blank" rel="noopener noreferrer" aria-label="Download SeaDays on Google Play">
@@ -2124,45 +2175,45 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
         <section id="cruise-planning-tools" class="fullpage-section">
             <div class="container">
                 <h2 class="section-title">Cruise Planning Tools<br>for Smarter Voyages</h2>
-                <p class="section-subtitle">SeaDays brings cruise planning, ship discovery, community discussions, and voyage analytics into one powerful platform.</p>
+                <p class="section-subtitle">Roll calls, cruise planning, budget tracking, community, and ship discovery—prioritized for cruise passengers in one app.</p>
                 <div class="flip-cards-sections" id="flipCardsGrid">
                     <div class="flip-cards-grid">
+                        <div class="flip-card-wrap theme-5" tabindex="0" role="button" aria-label="Cruise Roll Calls – click to flip">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-face front"><div class="flip-card-image color-5"><h3 class="flip-card-title">Cruise Roll Calls</h3></div><div class="flip-card-body"><p class="flip-card-desc">Join roll calls for your ship and sailing date. Meet fellow cruisers, coordinate excursions, and introduce yourself before embarkation.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-6"><h3 class="flip-card-title">Crew Chat</h3></div><div class="flip-card-body"><p class="flip-card-desc">Chat with travelers on your sailing to plan meetups, port days, and onboard activities in real time.</p></div></div>
+                            </div>
+                        </div>
                         <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Cruise Planner – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-1"><h3 class="flip-card-title">Cruise Planner</h3></div><div class="flip-card-body"><p class="flip-card-desc">Plan every moment of your cruise. Organize excursions, shows, reservations, and sea days so you always know what's next.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Maritime Profile</h3></div><div class="flip-card-body"><p class="flip-card-desc">Build your personal cruising profile. Track voyages, achievements, and cruising history in one place.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-5"><h3 class="flip-card-title">Itinerary Tools</h3></div><div class="flip-card-body"><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Voyage Analytics – click to flip">
+                        <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Cruise budget tracking – click to flip">
                             <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-2"><h3 class="flip-card-title">Voyage Analytics</h3></div><div class="flip-card-body"><p class="flip-card-desc">Understand the real cost of your cruise. Track trip expenses, onboard spending, and extras with clear financial insights.</p></div></div>
+                                <div class="flip-card-face front"><div class="flip-card-image color-2"><h3 class="flip-card-title">Cruise Budget Tracking</h3></div><div class="flip-card-body"><p class="flip-card-desc">Understand the real cost of your cruise. Track trip expenses, onboard spending, and extras with clear financial insights.</p></div></div>
                                 <div class="flip-card-face back"><div class="flip-card-image back-color-2"><h3 class="flip-card-title">Rate Ships</h3></div><div class="flip-card-body"><p class="flip-card-desc">Share your experience and rate cruise ships based on cabins, dining, entertainment, and overall atmosphere.</p></div></div>
-                            </div>
-                        </div>
-                        <div class="flip-card-wrap theme-3" tabindex="0" role="button" aria-label="Drink Package Calculator – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-3"><h3 class="flip-card-title">Drink Package Calculator</h3></div><div class="flip-card-body"><p class="flip-card-desc">See if the drink package is worth it. Enter your cruise line and habits to calculate your break-even point.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-3"><h3 class="flip-card-title">Rate Ports</h3></div><div class="flip-card-body"><p class="flip-card-desc">Review cruise destinations and help other travelers discover the best beaches, excursions, and local attractions.</p></div></div>
                             </div>
                         </div>
                     </div>
                     <div class="flip-cards-grid">
-                        <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Port Safety – click to flip">
+                        <div class="flip-card-wrap theme-3" tabindex="0" role="button" aria-label="Cruise Community – click to flip">
                             <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-4"><h3 class="flip-card-title">Port Safety</h3></div><div class="flip-card-body"><p class="flip-card-desc">Stay informed before arriving. Check safety insights, travel tips, and important local guidance for every cruise port.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Rate Drinks</h3></div><div class="flip-card-body"><p class="flip-card-desc">Log and rate cocktails, wines, and specialty drinks you try onboard so others know what's worth ordering.</p></div></div>
+                                <div class="flip-card-face front"><div class="flip-card-image color-3"><h3 class="flip-card-title">Cruise Community</h3></div><div class="flip-card-body"><p class="flip-card-desc">Connect with fellow cruisers on the same sailing. Share tips, experiences, and recommendations with the SeaDays community.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-3"><h3 class="flip-card-title">SeaStories</h3></div><div class="flip-card-body"><p class="flip-card-desc">Read and share cruise tips, photos, and port-day stories from passengers who have sailed before you.</p></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap theme-5" tabindex="0" role="button" aria-label="Cruise Community – click to flip">
+                        <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Ship and port discovery – click to flip">
                             <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-5"><h3 class="flip-card-title">Cruise Community</h3></div><div class="flip-card-body"><p class="flip-card-desc">Connect with fellow cruisers on the same sailing. Share tips, experiences, and recommendations with the SeaDays community.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-5"><h3 class="flip-card-title">Voyage Planning Tools</h3></div><div class="flip-card-body"><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
+                                <div class="flip-card-face front"><div class="flip-card-image color-4"><h3 class="flip-card-title">Ship &amp; Port Discovery</h3></div><div class="flip-card-body"><p class="flip-card-desc">Explore cruise ships and ports. Read reviews, compare destinations, and plan what to do on every day ashore.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Port Guides</h3></div><div class="flip-card-body"><p class="flip-card-desc">Discover beaches, excursions, and local tips from cruisers who have visited each port on your itinerary.</p></div></div></div>
                             </div>
                         </div>
-                        <div class="flip-card-wrap theme-6" tabindex="0" role="button" aria-label="Carbon Footprint – click to flip">
+                        <div class="flip-card-wrap theme-6" tabindex="0" role="button" aria-label="Cruise Passport – click to flip">
                             <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-6"><h3 class="flip-card-title">Carbon Footprint</h3></div><div class="flip-card-body"><p class="flip-card-desc">See the environmental impact of your voyage. Understand estimated emissions and how your cruise contributes to travel footprints.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-6"><h3 class="flip-card-title">Crew Chat</h3></div><div class="flip-card-body"><p class="flip-card-desc">Chat with fellow cruisers before and during your voyage to plan meetups, excursions, and onboard activities.</p></div></div>
+                                <div class="flip-card-face front"><div class="flip-card-image color-6"><h3 class="flip-card-title">Cruise Passport</h3></div><div class="flip-card-body"><p class="flip-card-desc">Your personal cruise history in one place—voyages, ships sailed, ports visited, and achievements unlocked.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Share Progress</h3></div><div class="flip-card-body"><p class="flip-card-desc">Export and share your Cruise Passport card with friends and the SeaDays community after each voyage.</p></div></div>
                             </div>
                         </div>
                     </div>
@@ -2219,20 +2270,20 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                     <div class="featured-carousel-track" id="featuredCarouselTrack">
                         <div class="featured-carousel-slide">
                             <div class="carousel-visual" aria-hidden="true">
-                                <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Voyage%20Analytics.jpg" alt="Voyage Analytics – track cruise expenses and trip costs" loading="lazy" decoding="async">
+                                <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20Community.jpg" alt="Cruise roll calls – meet travelers on your sailing" loading="lazy" decoding="async">
                             </div>
                             <div class="featured-tool-content">
-                                <h2>Voyage Analytics</h2>
-                                <p class="featured-tool-desc">Understand the real cost of your cruise. Track excursions, onboard spending, and trip expenses with clear financial insights.</p>
+                                <h2>Cruise Roll Calls</h2>
+                                <p class="featured-tool-desc">Find and join roll calls for your exact ship and sailing date. Meet fellow cruisers before embarkation and coordinate port-day plans together.</p>
                                 <ul class="featured-tool-bullets">
-                                    <li>Track cruise expenses in one place</li>
-                                    <li>Monitor onboard and excursion spending</li>
-                                    <li>Understand the real cost of your voyage</li>
+                                    <li>Join roll calls matched to your voyage</li>
+                                    <li>Introduce yourself before you board</li>
+                                    <li>Plan meetups and shared excursions</li>
                                 </ul>
-                                <button type="button" class="btn-primary btn-learn-more" data-modal="modal-voyage-analytics" aria-label="Learn more about Voyage Analytics">Learn More</button>
+                                <a href="/cruise-roll-calls/" class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">Join Your Sailing Roll Call</a>
                             </div>
                         </div>
-                        <div class="featured-carousel-slide">
+<div class="featured-carousel-slide">
                             <div class="carousel-visual" aria-hidden="true">
                                 <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg" alt="Cruise Planner – organize itineraries and reservations" loading="lazy" decoding="async">
                             </div>
@@ -2244,10 +2295,40 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                                     <li>Keep reservations and bookings in one place</li>
                                     <li>Never miss a show or excursion</li>
                                 </ul>
-                                <button type="button" class="btn-primary btn-learn-more" data-modal="modal-cruise-planner" aria-label="Learn more about Cruise Planner">Learn More</button>
+                                <button type="button" class="btn-primary btn-learn-more" data-modal="modal-cruise-planner" aria-label="Learn more about Cruise Planner">Start Planning Your Cruise</button>
                             </div>
                         </div>
-                        <div class="featured-carousel-slide">
+<div class="featured-carousel-slide">
+                            <div class="carousel-visual" aria-hidden="true">
+                                <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Voyage%20Analytics.jpg" alt="Voyage Analytics – track cruise expenses and trip costs" loading="lazy" decoding="async">
+                            </div>
+                            <div class="featured-tool-content">
+                                <h2>Cruise Budget Tracking</h2>
+                                <p class="featured-tool-desc">Understand the real cost of your cruise. Track excursions, onboard spending, and trip expenses with clear financial insights.</p>
+                                <ul class="featured-tool-bullets">
+                                    <li>Track cruise expenses in one place</li>
+                                    <li>Monitor onboard and excursion spending</li>
+                                    <li>Understand the real cost of your voyage</li>
+                                </ul>
+                                <button type="button" class="btn-primary btn-learn-more" data-modal="modal-voyage-analytics" aria-label="Learn more about Voyage Analytics">Track Your Cruise Budget</button>
+                            </div>
+                        </div>
+<div class="featured-carousel-slide">
+                            <div class="carousel-visual" aria-hidden="true">
+                                <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20Community.jpg" alt="Cruise Community – connect with fellow cruisers" loading="lazy" decoding="async">
+                            </div>
+                            <div class="featured-tool-content">
+                                <h2>Cruise Community</h2>
+                                <p class="featured-tool-desc">Connect with fellow cruisers on the same sailing. Share tips, join roll calls, and discover experiences from the SeaDays community.</p>
+                                <ul class="featured-tool-bullets">
+                                    <li>Join roll calls for your sailing</li>
+                                    <li>Share and read ship and port reviews</li>
+                                    <li>Chat and plan meetups with other travelers</li>
+                                </ul>
+                                <button type="button" class="btn-primary btn-learn-more" data-modal="modal-community" aria-label="Learn more about Cruise Community">Download SeaDays Free</button>
+                            </div>
+                        </div>
+<div class="featured-carousel-slide">
                             <div class="carousel-visual" aria-hidden="true">
                                 <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Discover%20Ships%20%20Ports.jpg" alt="Discover Ships and Ports – explore ships, ports, and reviews" loading="lazy" decoding="async">
                             </div>
@@ -2260,21 +2341,6 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                                     <li>Discover things to do at every port</li>
                                 </ul>
                                 <button type="button" class="btn-primary btn-learn-more" data-modal="modal-ships-ports" aria-label="Learn more about Discover Ships and Ports">Learn More</button>
-                            </div>
-                        </div>
-                        <div class="featured-carousel-slide">
-                            <div class="carousel-visual" aria-hidden="true">
-                                <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20Community.jpg" alt="Cruise Community – connect with fellow cruisers" loading="lazy" decoding="async">
-                            </div>
-                            <div class="featured-tool-content">
-                                <h2>Cruise Community</h2>
-                                <p class="featured-tool-desc">Connect with fellow cruisers on the same sailing. Share tips, join roll calls, and discover experiences from the SeaDays community.</p>
-                                <ul class="featured-tool-bullets">
-                                    <li>Join roll calls for your sailing</li>
-                                    <li>Share and read ship and port reviews</li>
-                                    <li>Chat and plan meetups with other travelers</li>
-                                </ul>
-                                <button type="button" class="btn-primary btn-learn-more" data-modal="modal-community" aria-label="Learn more about Cruise Community">Learn More</button>
                             </div>
                         </div>
                     </div>
@@ -2304,7 +2370,7 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                             The card shown here is a preview of the shareable Cruise Passport you can export from the app.
                         </p>
                         <div class="passport-cta-row">
-                            <a href="#home" class="btn-primary" aria-label="Download SeaDays to share your Cruise Passport">Download SeaDays</a>
+                            <a href="#home" class="btn-primary" aria-label="Download SeaDays to share your Cruise Passport">Download SeaDays Free</a>
                             <a href="#home" class="btn-secondary" aria-label="Share your Cruise Passport">Share your passport</a>
                         </div>
                     </div>
@@ -2398,7 +2464,7 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                     </div>
                 </div>
                 <div class="community-cta-wrap">
-                    <a href="#home" class="btn-primary" aria-label="Download SeaDays – scroll to download section">Download SeaDays</a>
+                    <a href="#home" class="btn-primary" aria-label="Download SeaDays free">Download SeaDays Free</a>
                 </div>
             </div>
         </section>
@@ -2418,10 +2484,12 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
                     <div class="footer-section">
                         <h4>Product</h4>
                         <ul>
-                            <li><a href="#cruise-planning-tools">Features</a></li>
-                            <li><a href="#community">Community</a></li>
+                            <li><a href="/cruise-roll-calls/">Cruise roll calls</a></li>
+                            <li><a href="/cruise-planner/">Cruise planner</a></li>
+                            <li><a href="/cruise-budget-planner/">Budget planner</a></li>
+                            <li><a href="/cruise-community/">Community</a></li>
                             <li><a href="/blog/">Blog</a></li>
-                            <li><a href="#home">Download</a></li>
+                            <li><a href="#download">Download SeaDays Free</a></li>
                         </ul>
                     </div>
                     
@@ -2675,7 +2743,7 @@ SeaDays is a cruise planner app to plan voyages, track ships, and organize itine
             var body = document.getElementById('featureModalBody');
             var closeBtn = document.getElementById('featureModalClose');
             var content = {
-                'modal-voyage-analytics': '<h3>Voyage Analytics</h3><p>Voyage Analytics helps you understand the full cost of your cruise. Track base fare, excursions, onboard spending, drinks, and extras in one place. See where your money goes and plan future voyages with confidence.</p><p>All data stays in your SeaDays account and syncs across devices. Use it before, during, and after your cruise.</p>',
+                'modal-voyage-analytics': '<h3>Voyage Analytics</h3><p>Voyage Analytics helps you understand the full cost of your cruise. Track base fare, excursions, onboard spending, drinks, and extras in one place. See where your money goes and plan future voyages with confidence.</p><p>All data stays in your SeaDays account and syncs across devices. Use it before, during, and after your cruise.</p><p><strong>Tip:</strong> Before boarding, download offline data in <strong>Profile → Settings → Offline &amp; Performance</strong> so key summaries remain available with weak internet.</p>',
                 'modal-cruise-planner': '<h3>Cruise Planner</h3><p>The Cruise Planner keeps your entire voyage organized. Add excursions, show times, dinner reservations, and sea day activities so you always know what’s next. Set reminders and share plans with travel companions.</p><p>Available in the SeaDays app so you can update your itinerary on the go.</p>',
                 'modal-ships-ports': '<h3>Discover Ships &amp; Ports</h3><p>Explore cruise ships and destinations with reviews and guides from real travelers. Compare ships, read port guides, and discover things to do at every stop. Rate ships and ports after your voyage to help others plan.</p><p>Ship and port content is maintained by the SeaDays community and the SeaDays team.</p>',
                 'modal-community': '<h3>Cruise Community</h3><p>Connect with fellow cruisers on your sailing through roll calls, ship and port reviews, and in-app chat. Share tips, arrange meetups, and discover experiences from the SeaDays community before and during your cruise.</p><p>Join the community in the SeaDays app to get the most out of every voyage.</p>'

@@ -94,6 +94,24 @@ const BLOG_IMAGES_PREFIX = 'blog-images';
 const EDGE_BASE = SUPABASE_URL + '/functions/v1/make-server-51d3ca8d';
 const BASE_URL = 'https://seadays.app';
 
+/** SEO feature landing pages (repoRoot/{slug}/index.html) */
+const FEATURE_LANDING_SLUGS = [
+  'cruise-roll-calls',
+  'cruise-planner',
+  'cruise-budget-planner',
+  'cruise-drink-calculator',
+  'cruise-community',
+];
+
+function featureLandingUrls(todayIso) {
+  return FEATURE_LANDING_SLUGS.map((slug) => ({
+    loc: `${BASE_URL}/${slug}/`,
+    changefreq: 'monthly',
+    priority: '0.88',
+    lastmod: todayIso,
+  }));
+}
+
 /** Canonical blog article URL — always trailing slash */
 function blogCanonicalUrl(slug) {
   return `${BASE_URL}/blog/${slug}/`;
@@ -573,6 +591,7 @@ function writeSitemapSnapshotFromDisk(repoRoot) {
   const todayIso = new Date().toISOString().split('T')[0];
   const staticUrls = [
     { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: todayIso },
+    ...featureLandingUrls(todayIso),
     { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
     { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
     { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
@@ -868,11 +887,28 @@ function findSameTagArticles(article, allArticles, maxCount = 5) {
     .slice(0, maxCount);
 }
 
+function buildAppDownloadCtaSection() {
+  return (
+    '<section class="app-download-cta" aria-label="Download SeaDays">' +
+    '<div class="app-download-cta-inner">' +
+    '<div><strong>Plan smarter. Meet your roll call. Track your budget.</strong>' +
+    '<span>Download SeaDays free on iOS and Android.</span></div>' +
+    '<a href="/#download" class="explore-seadays-link">Download SeaDays Free</a>' +
+    '</div></section>'
+  );
+}
+
 function buildExploreSeaDaysSection() {
   return (
+    buildAppDownloadCtaSection() +
     '<section class="explore-seadays" aria-labelledby="explore-seadays-h">' +
     '<h2 id="explore-seadays-h">Explore more on SeaDays</h2>' +
     '<ul class="explore-seadays-list">' +
+    '<li><a href="/cruise-roll-calls/" class="explore-seadays-link">Cruise roll call app</a></li>' +
+    '<li><a href="/cruise-planner/" class="explore-seadays-link">Cruise planner app</a></li>' +
+    '<li><a href="/cruise-budget-planner/" class="explore-seadays-link">Cruise budget planner</a></li>' +
+    '<li><a href="/cruise-drink-calculator/" class="explore-seadays-link">Drink package calculator</a></li>' +
+    '<li><a href="/cruise-community/" class="explore-seadays-link">Cruise community</a></li>' +
     '<li><a href="/blog/" class="explore-seadays-link">SeaDays blog — cruise tips &amp; guides</a></li>' +
     '<li><a href="/ships/" class="explore-seadays-link">Cruise ships — browse lines &amp; classes</a></li>' +
     '<li><a href="/ports/" class="explore-seadays-link">Ports &amp; destinations — plan your itinerary</a></li>' +
@@ -1803,6 +1839,10 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
 .article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
 .article-body .contextual-link:hover { text-decoration: underline; }
+.app-download-cta { margin: 36px 0 28px; padding: 20px 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,0,51,0.08); }
+.app-download-cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.app-download-cta strong { display: block; font-size: 16px; margin-bottom: 4px; }
+.app-download-cta span { display: block; font-size: 14px; color: rgba(255,255,255,0.68); }
 .explore-seadays { margin: 40px 0; padding: 28px 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 0, 51, 0.06); }
 .explore-seadays h2 { font-size: 22px; margin-bottom: 16px; font-weight: 800; }
 .explore-seadays-list { list-style: none; margin: 0; padding: 0; }
@@ -2958,6 +2998,7 @@ async function main() {
   const todayIso = new Date().toISOString().split('T')[0];
   const staticUrls = [
     { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: todayIso },
+    ...featureLandingUrls(todayIso),
     { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
     { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
     { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },

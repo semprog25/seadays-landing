@@ -1,6 +1,9 @@
 # SeaDays - https://seadays.app
 User-agent: *
 Allow: /
+Disallow: /seo-admin.html
+Disallow: /waitlist-admin.html
+Disallow: /landing-page.html
 
 # Sitemap location (submit this in Google Search Console)
 Sitemap: https://seadays.app/sitemap.xml

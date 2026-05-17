@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WSQDQ33QZD');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://seadays.app/cruise-drink-calculator/">
+  <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <title>SeaDays – Cruise Drink Package Calculator</title>
+  <meta name="description" content="Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.">
+  <meta name="keywords" content="cruise drink calculator, cruise planning app, cruise vacation planner, SeaDays">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seadays.app/cruise-drink-calculator/">
+  <meta property="og:title" content="SeaDays – Cruise Drink Package Calculator">
+  <meta property="og:description" content="Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.">
+  <meta property="og:image" content="https://seadays.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://seadays.app/cruise-drink-calculator/">
+  <meta name="twitter:title" content="SeaDays – Cruise Drink Package Calculator">
+  <meta name="twitter:description" content="Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.">
+  <meta name="twitter:image" content="https://seadays.app/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Drink Package Calculator","description":"Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.","url":"https://seadays.app/cruise-drink-calculator/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-drink-calculator/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/de/app/seadays/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a cruise drink package calculator work?","acceptedAnswer":{"@type":"Answer","text":"You enter sailing length, typical drinks per day, and package price. The calculator estimates break-even servings and whether the package beats buying drinks individually."}},{"@type":"Question","name":"Do all cruise lines price packages the same?","acceptedAnswer":{"@type":"Answer","text":"No. Lines and regions price packages differently. SeaDays models common package tiers so you can sanity-check the upsell at booking or embarkation."}},{"@type":"Question","name":"Where do drink costs fit in my overall budget?","acceptedAnswer":{"@type":"Answer","text":"Add calculator results to Voyage Analytics in SeaDays to see drinks alongside excursions, dining, and onboard spending."}}],"url":"https://seadays.app/cruise-drink-calculator/"}]}</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; --text-light: #fff; --text-gray: rgba(255,255,255,0.72); }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark-bg); color: var(--text-light); line-height: 1.6; min-height: 100vh; }
+    .container { max-width: 960px; margin: 0 auto; padding: 40px 20px 80px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--neon-red); text-decoration: none; font-weight: 600; margin-bottom: 28px; }
+    .back-link:hover { color: #ff3366; }
+    .header { text-align: center; margin-bottom: 40px; }
+    h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
+    .subtitle { font-size: 18px; color: var(--text-gray); max-width: 720px; margin: 0 auto 28px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 36px 0; }
+    .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,0,51,0.2); border-radius: 16px; padding: 28px; }
+    .feature-card ul { margin: 0; padding-left: 20px; color: var(--text-gray); }
+    .feature-card li { margin-bottom: 10px; }
+    .faq-section { margin: 48px 0; }
+    .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
+    .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
+    .faq-item h3 { font-size: 18px; margin-bottom: 8px; }
+    .faq-item p { color: var(--text-gray); }
+    .related-links { margin: 32px 0; }
+    .related-links h2 { font-size: 22px; margin-bottom: 12px; }
+    .related-links ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 20px; }
+    .related-links a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+    .related-links a:hover { text-decoration: underline; }
+    .cta-section { background: rgba(255,0,51,0.12); border: 1px solid rgba(255,0,51,0.35); border-radius: 16px; padding: 44px 32px; text-align: center; margin-top: 40px; }
+    .cta-section h2 { font-size: 30px; margin-bottom: 12px; }
+    .cta-section p { color: var(--text-gray); margin-bottom: 24px; font-size: 17px; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .cta-button { display: inline-block; padding: 16px 36px; background: var(--neon-red); color: #fff; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 17px; min-height: 44px; }
+    .cta-button:hover { background: #cc0029; transform: translateY(-2px); }
+    .cta-button-secondary { background: transparent; border: 2px solid rgba(255,255,255,0.25); }
+    .store-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 18px; }
+    .store-row a { color: rgba(255,255,255,0.85); font-size: 14px; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link" aria-label="Back to SeaDays home">← Back to Home</a>
+    <header class="header">
+      <h1>See If Your Cruise Drink Package Is Worth It</h1>
+      <p class="subtitle">Run real break-even math for your cruise line, sailing length, and drinking habits—so you skip the package when pay-as-you-go wins.</p>
+    </header>
+    <section class="features-grid" aria-label="Key features">
+      <article class="feature-card">
+        <h2 class="visually-hidden">Features</h2>
+        <ul>
+              <li>Line-specific package assumptions</li>
+              <li>Break-even drinks per day</li>
+              <li>Compare package vs. à la carte estimates</li>
+              <li>Pair results with full voyage budgeting</li>
+        </ul>
+      </article>
+    </section>
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently asked questions</h2>
+          <div class="faq-item"><h3>How does a cruise drink package calculator work?</h3><p>You enter sailing length, typical drinks per day, and package price. The calculator estimates break-even servings and whether the package beats buying drinks individually.</p></div>
+          <div class="faq-item"><h3>Do all cruise lines price packages the same?</h3><p>No. Lines and regions price packages differently. SeaDays models common package tiers so you can sanity-check the upsell at booking or embarkation.</p></div>
+          <div class="faq-item"><h3>Where do drink costs fit in my overall budget?</h3><p>Add calculator results to Voyage Analytics in SeaDays to see drinks alongside excursions, dining, and onboard spending.</p></div>
+    </section>
+    <section class="related-links" aria-labelledby="related-heading">
+      <h2 id="related-heading">Explore more</h2>
+      <ul>
+              <li><a href="/cruise-budget-planner/">Cruise budget planner</a></li>
+              <li><a href="/cruise-planner/">Cruise planner</a></li>
+              <li><a href="/blog/">Drink package guides</a></li>
+      </ul>
+    </section>
+    <section class="cta-section" aria-label="Download SeaDays">
+      <h2>Calculate Drink Package Value</h2>
+      <p>Download SeaDays free on iOS and Android—the modern all-in-one cruise planner and roll call app.</p>
+      <div class="cta-row">
+        <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Download SeaDays Free</a>
+        <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
+      </div>
+      <div class="store-row">
+        <a href="https://apps.apple.com/de/app/seadays/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Google Play</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
