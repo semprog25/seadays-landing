@@ -1169,21 +1169,20 @@
 
         .hero-store-badges { margin-top: 40px; }
 
-        /* Flip cards – Cruise Planning Tools (single 3×3 grid) */
+        /* Flip cards – Cruise Planning Tools (2×3 grid) */
         .flip-cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 28px;
             width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
         }
         .flip-cards-grid .flip-card-wrap {
             min-width: 0;
         }
-        @media (max-width: 1024px) {
-            .flip-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
         @media (max-width: 640px) {
-            .flip-cards-grid { grid-template-columns: 1fr; }
+            .flip-cards-grid { grid-template-columns: 1fr; max-width: 440px; }
         }
         .flip-card-wrap {
             --card-accent: var(--neon-red);
@@ -1207,6 +1206,8 @@
         }
         .flip-card-wrap.flipped .flip-card-inner { transform: rotateY(180deg); }
         .flip-card-face {
+            --face-accent: var(--card-accent);
+            --face-glow: var(--card-glow);
             position: absolute;
             width: 100%;
             height: 100%;
@@ -1215,18 +1216,29 @@
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             border-radius: 24px;
-            border: 2px solid var(--card-accent);
+            border: 2px solid var(--face-accent);
             background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 12px rgba(var(--card-glow), 0.25), 0 0 24px rgba(var(--card-glow), 0.12), 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 12px rgba(var(--face-glow), 0.28), 0 0 24px rgba(var(--face-glow), 0.14), 0 4px 15px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             overflow: hidden;
             cursor: pointer;
         }
+        .flip-card-face:has(.color-1),
+        .flip-card-face:has(.back-color-1) { --face-accent: #ff0033; --face-glow: 255, 0, 51; }
+        .flip-card-face:has(.color-2),
+        .flip-card-face:has(.back-color-2) { --face-accent: #06b6d4; --face-glow: 6, 182, 212; }
+        .flip-card-face:has(.color-3),
+        .flip-card-face:has(.back-color-3) { --face-accent: #f59e0b; --face-glow: 245, 158, 11; }
+        .flip-card-face:has(.color-4),
+        .flip-card-face:has(.back-color-4) { --face-accent: #48bb78; --face-glow: 72, 187, 120; }
+        .flip-card-face:has(.color-5),
+        .flip-card-face:has(.back-color-5) { --face-accent: #9370db; --face-glow: 147, 112, 219; }
+        .flip-card-face:has(.color-6),
+        .flip-card-face:has(.back-color-6) { --face-accent: #ec4899; --face-glow: 236, 72, 153; }
         .flip-card-face.back { transform: rotateY(180deg); }
         .flip-card-wrap:hover .flip-card-face {
-            border-color: var(--card-accent);
-            box-shadow: 0 0 20px rgba(var(--card-glow), 0.5), 0 0 40px rgba(var(--card-glow), 0.25), 0 10px 40px rgba(var(--card-glow), 0.2);
+            box-shadow: 0 0 20px rgba(var(--face-glow), 0.5), 0 0 40px rgba(var(--face-glow), 0.28), 0 10px 40px rgba(var(--face-glow), 0.2);
         }
         .flip-card-image {
             width: 100%;
@@ -1249,7 +1261,7 @@
         }
         .flip-card-image.color-1 { background: linear-gradient(135deg, rgba(255, 0, 51, 0.35), rgba(255, 0, 51, 0.15)); }
         .flip-card-image.color-2 { background: linear-gradient(135deg, rgba(6, 182, 212, 0.35), rgba(6, 182, 212, 0.15)); }
-        .flip-card-image.color-3 { background: linear-gradient(135deg, rgba(255, 165, 0, 0.35), rgba(255, 165, 0, 0.15)); }
+        .flip-card-image.color-3 { background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(245, 158, 11, 0.15)); }
         .flip-card-image.color-4 { background: linear-gradient(135deg, rgba(72, 187, 120, 0.35), rgba(72, 187, 120, 0.15)); }
         .flip-card-image.color-5 { background: linear-gradient(135deg, rgba(147, 112, 219, 0.35), rgba(147, 112, 219, 0.15)); }
         .flip-card-image.color-6 { background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(236, 72, 153, 0.15)); }
@@ -2177,14 +2189,14 @@
                         <div class="flip-card-wrap theme-5" tabindex="0" role="button" aria-label="Cruise Roll Calls – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-5"><h3 class="flip-card-title">Cruise Roll Calls</h3></div><div class="flip-card-body"><p class="flip-card-desc">Join roll calls for your ship and sailing date. Meet fellow cruisers, coordinate excursions, and introduce yourself before embarkation.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-6"><h3 class="flip-card-title">Crew Chat</h3></div><div class="flip-card-body"><p class="flip-card-desc">Chat with travelers on your sailing to plan meetups, port days, and onboard activities in real time.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-5"><h3 class="flip-card-title">Crew Chat</h3></div><div class="flip-card-body"><p class="flip-card-desc">Chat with travelers on your sailing to plan meetups, port days, and onboard activities in real time.</p></div></div>
                             </div>
                         </div>
 
                         <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Cruise Planner – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-1"><h3 class="flip-card-title">Cruise Planner</h3></div><div class="flip-card-body"><p class="flip-card-desc">Plan every moment of your cruise. Organize excursions, shows, reservations, and sea days so you always know what's next.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-5"><h3 class="flip-card-title">Itinerary Tools</h3></div><div class="flip-card-body"><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Itinerary Tools</h3></div><div class="flip-card-body"><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
                             </div>
                         </div>
 
@@ -2212,28 +2224,7 @@
                         <div class="flip-card-wrap theme-6" tabindex="0" role="button" aria-label="Cruise Passport – click to flip">
                             <div class="flip-card-inner">
                                 <div class="flip-card-face front"><div class="flip-card-image color-6"><h3 class="flip-card-title">Cruise Passport</h3></div><div class="flip-card-body"><p class="flip-card-desc">Your personal cruise history in one place—voyages, ships sailed, ports visited, and achievements unlocked.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Share Progress</h3></div><div class="flip-card-body"><p class="flip-card-desc">Export and share your Cruise Passport card with friends and the SeaDays community after each voyage.</p></div></div>
-                            </div>
-                        </div>
-
-                        <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Drink package calculator – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-3"><h3 class="flip-card-title">Drink Package Calculator</h3></div><div class="flip-card-body"><p class="flip-card-desc">See if the drink package is worth it. Enter your cruise line and habits to calculate your break-even point before you buy.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-3"><h3 class="flip-card-title">Rate Drinks</h3></div><div class="flip-card-body"><p class="flip-card-desc">Log and rate cocktails, wines, and specialty drinks so you and other cruisers know what is worth ordering.</p></div></div>
-                            </div>
-                        </div>
-
-                        <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Port safety – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-4"><h3 class="flip-card-title">Port Safety</h3></div><div class="flip-card-body"><p class="flip-card-desc">Stay informed before arriving. Check safety insights, travel tips, and important local guidance for every cruise port.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Travel Tips</h3></div><div class="flip-card-body"><p class="flip-card-desc">Save port-day reminders, meeting points, and return-to-ship times so nothing catches you off guard ashore.</p></div></div>
-                            </div>
-                        </div>
-
-                        <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Packing and pre-cruise – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-1"><h3 class="flip-card-title">Packing Lists</h3></div><div class="flip-card-body"><p class="flip-card-desc">Build shared packing lists for your group so nobody buys duplicate gear and formal-night outfits are covered.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Pre-Cruise Checklist</h3></div><div class="flip-card-body"><p class="flip-card-desc">Track online check-in, travel documents, and countdown tasks in one place before embarkation day.</p></div></div>
+                                <div class="flip-card-face back"><div class="flip-card-image back-color-6"><h3 class="flip-card-title">Share Progress</h3></div><div class="flip-card-body"><p class="flip-card-desc">Export and share your Cruise Passport card with friends and the SeaDays community after each voyage.</p></div></div>
                             </div>
                         </div>
                 </div>
