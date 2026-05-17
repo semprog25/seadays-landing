@@ -2786,12 +2786,21 @@
                 var grid = document.getElementById('blogGrid');
                 var empty = document.getElementById('blogEmpty');
                 if (!grid) return;
-                if (grid.querySelector('a.blog-card')) {
-                    grid.style.display = '';
-                    if (empty) empty.style.display = 'none';
-                    return;
+                function articleSortMs(a) {
+                    var t = a.publishedAt || a.timestamp || a.updatedAt || 0;
+                    if (typeof t === 'number') return t < 10000000000 ? t * 1000 : t;
+                    return Date.parse(t) || 0;
                 }
-                fetch(EDGE + '/portside-articles?limit=8&forWebsite=1', {
+                function showStaticOrEmpty() {
+                    if (grid.querySelector('a.blog-card')) {
+                        grid.style.display = '';
+                        if (empty) empty.style.display = 'none';
+                        return;
+                    }
+                    grid.style.display = 'none';
+                    if (empty) empty.style.display = 'block';
+                }
+                fetch(EDGE + '/portside-articles?limit=100&forWebsite=1', {
                     headers: { apikey: ANON, Authorization: 'Bearer ' + ANON }
                 })
                     .then(function (r) {
@@ -2802,8 +2811,14 @@
                         var articles = raw.filter(function (a) {
                             return a && a.isDraft !== true && a.showOnWebsite !== false;
                         });
+                        articles.sort(function (a, b) {
+                            return articleSortMs(b) - articleSortMs(a);
+                        });
                         articles = articles.slice(0, 4);
-                        if (!articles.length) return;
+                        if (!articles.length) {
+                            showStaticOrEmpty();
+                            return;
+                        }
                         grid.innerHTML = articles
                             .map(function (a) {
                                 var slug = String(a.slug || '').trim() || 'post';
@@ -2838,7 +2853,9 @@
                         grid.style.display = 'grid';
                         if (empty) empty.style.display = 'none';
                     })
-                    .catch(function () {});
+                    .catch(function () {
+                        showStaticOrEmpty();
+                    });
             }
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', run);
