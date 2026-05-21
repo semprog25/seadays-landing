@@ -1,0 +1,41 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "new-york-ny-united-states",
+    "name": "New York, NY, United States",
+    "country": "United States",
+    "region": "Northeast"
+  },
+  "fetchedAt": "2026-05-21T21:59:34.659Z",
+  "facts": [
+    {
+      "claim": "New York, often called New York City (NYC), is the most populous city in the United States.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/New_York_City",
+      "confidence": 0.72
+    },
+    {
+      "claim": "It is the geographical and demographic center of both the Northeast megalopolis and the New York metropolitan area, the largest metropolitan area in the United States by both population and urban area.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/New_York_City",
+      "confidence": 0.72
+    },
+    {
+      "claim": "New York is a global center of finance and commerce, culture, technology, entertainment and media, academics and scientific output, the arts and fashion, and, as home to the headquarters of the United Nations, international diplomacy.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/New_York_City",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Buy now for $5,295 or pay $220.63 per month for 24 months",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitunitedstates.com/en/places-to-go/new-york,-ny,-united-states",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

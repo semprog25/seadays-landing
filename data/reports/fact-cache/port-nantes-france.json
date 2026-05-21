@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "nantes-france",
+    "name": "Nantes, France",
+    "country": "France",
+    "region": "Atlantic"
+  },
+  "fetchedAt": "2026-05-21T21:59:23.157Z",
+  "facts": [
+    {
+      "claim": "Nantes is a city in the Loire-Atlantique department of France on the Loire, 50 km (31 mi) from the Atlantic coast.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nantes",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The city is the sixth largest in France, with a population of 327,734 in Nantes proper (2023) and a metropolitan area of over 1 million inhabitants (2022).",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nantes",
+      "confidence": 0.72
+    },
+    {
+      "claim": "France's metropolitan area stretches from the Pyrenees and Mediterranean coast to the English Channel and the Rhine River. Paris, with its 13.2 million metro residents, sits on the Seine’s flat arc, framed by hills like Montmartre at 130 meters elevation.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitfrance.com/en/places-to-go/nantes,-france",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

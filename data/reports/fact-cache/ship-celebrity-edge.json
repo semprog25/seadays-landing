@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-edge",
+    "name": "Celebrity Edge",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:20.571Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Edge. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-edge",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Celebrity Edge is an Edge-class cruise ship operated by Celebrity Cruises, a subsidiary of Royal Caribbean Group.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Edge",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Upon delivery in October 2018, at 130,818 GT, she became the lead ship of the Edge class and the largest ship by gross tonnage to have joined the Celebrity fleet.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Edge",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,4599 @@
+{
+  "generatedAt": "2026-05-21T22:06:12.524Z",
+  "shipPages": {
+    "routePattern": "/ships/<slug>/",
+    "count": 285,
+    "slugsSample": [
+      "a-rosa-flora",
+      "a-rosa-river-fleet",
+      "a-rosa-sena",
+      "adventure-of-the-seas",
+      "aidabella",
+      "aidablu",
+      "aidacosma",
+      "aidadiva",
+      "aidaluna",
+      "aidamar"
+    ]
+  },
+  "portPages": {
+    "routePattern": "/ports/<slug>/",
+    "count": 323,
+    "slugsSample": [
+      "aalborg-denmark",
+      "aarhus-denmark",
+      "aberdeen-united-kingdom",
+      "abu-dhabi-united-arab-emirates",
+      "acapulco-mexico",
+      "adabya-egypt",
+      "ajaccio-corsica-france",
+      "akureyri-iceland",
+      "alanya-turkey",
+      "alesund-norway"
+    ]
+  },
+  "contentBlocks": 4548,
+  "blocksBySource": {
+    "ts-ship-data": 87,
+    "landing-html": 4461
+  },
+  "exactDuplicatePairs": 500,
+  "nearDuplicatePairs": 500,
+  "fillerHits": 3103,
+  "fillerByKind": {
+    "ship": 2609,
+    "port": 494
+  },
+  "lowQualityBlocks": [
+    {
+      "blockId": "ts-ship-data:aidacosma:aida.ts",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "One of the newest Helios-class ships, fully powered by LNG. Features the Ocean Deck with infinity pool and the Fun Park with a rope garden."
+    },
+    {
+      "blockId": "ts-ship-data:aidanova:aida.ts",
+      "entitySlug": "aidanova",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The world"
+    },
+    {
+      "blockId": "ts-ship-data:aidaperla:aida.ts",
+      "entitySlug": "aidaperla",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Twin sister to AIDAprima, featuring the covered Beach Club for year-round summer vibes and the Four Elements activity deck."
+    },
+    {
+      "blockId": "ts-ship-data:aidaprima:aida.ts",
+      "entitySlug": "aidaprima",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first Hyperion-class ship, known for its foil-roofed Beach Club, Racer water slide, and extensive organic dining options."
+    },
+    {
+      "blockId": "ts-ship-data:aidastella:aida.ts",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The final Sphinx-class ship, featuring a Nordic-inspired spa design and the popular Brauhaus (brewery) at sea."
+    },
+    {
+      "blockId": "ts-ship-data:aidamar:aida.ts",
+      "entitySlug": "aidamar",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Sphinx-class favorite with the onboard brewery, floating restaurant"
+    },
+    {
+      "blockId": "ts-ship-data:aidasol:aida.ts",
+      "entitySlug": "aidasol",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Features a massive Wellness Oasis and distinct Mediterranean design elements throughout the ship."
+    },
+    {
+      "blockId": "ts-ship-data:aidablu:aida.ts",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first AIDA ship to introduce the onboard brewery, serving fresh beer brewed right on the ocean."
+    },
+    {
+      "blockId": "ts-ship-data:aidaluna:aida.ts",
+      "entitySlug": "aidaluna",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Offers the unique Moonlight Bar and a giant LED screen on the pool deck for open-air movie nights."
+    },
+    {
+      "blockId": "ts-ship-data:aidabella:aida.ts",
+      "entitySlug": "aidabella",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Known for its bell-shaped Theatrium glass walls and the 4D Cinemare experience."
+    },
+    {
+      "blockId": "ts-ship-data:aidadiva:aida.ts",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first of the Sphinx class, revolutionizing the fleet with the open Theatrium concept instead of a traditional theater. Refreshed in 2025"
+    },
+    {
+      "blockId": "ts-ship-data:a-rosa-river-fleet:arosa.ts",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Fleet of modern river cruise ships operating on European rivers including Rhine, Danube, and Douro."
+    },
+    {
+      "blockId": "ts-ship-data:a-rosa-flora:arosa.ts",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Modern river cruise ship with eco-friendly technology."
+    },
+    {
+      "blockId": "ts-ship-data:a-rosa-sena:arosa.ts",
+      "entitySlug": "a-rosa-sena",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Largest ship in the A-ROSA river fleet, featuring hybrid propulsion."
+    },
+    {
+      "blockId": "ts-ship-data:aroya:aroya.ts",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "First cruise line dedicated to the Arabian market. Formerly World Dream, fully refurbished before entering service in December 2024."
+    },
+    {
+      "blockId": "ts-ship-data:mardi-gras:carnival.ts",
+      "entitySlug": "mardi-gras",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first ship in the fleet powered by LNG and featuring a roller coaster attraction at sea. This vessel introduces multiple themed zones an"
+    },
+    {
+      "blockId": "ts-ship-data:carnival-celebration:carnival.ts",
+      "entitySlug": "carnival-celebration",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Sister ship to Mardi Gras, introduced in 2022. Features multiple themed zones and entertainment areas similar to the Excel class design."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-jubilee:carnival.ts",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The third Excel-class ship, launched in 2023. Features multiple themed zones and entertainment areas, homeported in Galveston."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-venezia:carnival.ts",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Originally built for Costa, now part of the Carnival fleet. Features Italian-themed decor and dining options."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-firenze:carnival.ts",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Joining the fleet in 2024 after a 42-day refit and rebranding at Navantia shipyard in Cádiz, Spain. Brings Italian style to the West Coast w"
+    },
+    {
+      "blockId": "ts-ship-data:carnival-vista:carnival.ts",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Introduced an elevated track ride attraction at sea and features an IMAX theater for movies."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-horizon:carnival.ts",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Features a large water park, family-friendly venues, and multiple entertainment zones."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-panorama:carnival.ts",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Features an indoor trampoline park and extensive water park areas for guests."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-spirit:carnival.ts",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Completed a month-long dry dock in March 2025, introducing various upgrades and enhancements to public spaces and amenities."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-radiance:carnival.ts",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Extensively renovated in 2021. Previously operated under a different name. Features updated dining and entertainment venues."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-sunshine:carnival.ts",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Extensively renovated in 2013. Previously operated under a different name. Features an adults-only relaxation area spanning multiple decks."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-sunrise:carnival.ts",
+      "entitySlug": "carnival-sunrise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Transformed in 2019 from Carnival Triumph."
+    },
+    {
+      "blockId": "ts-ship-data:carnival-luminosa:carnival.ts",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Joined the fleet in 2022. Features Italian-themed decor and design elements."
+    },
+    {
+      "blockId": "ts-ship-data:celebrity-edge:celebrity.ts",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Introduced the revolutionary Magic Carpet and Infinite Verandas."
+    },
+    {
+      "blockId": "ts-ship-data:celebrity-solstice:celebrity.ts",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Scheduled for extensive dry dock renovation in early 2026, introducing new amenities, reinvented outdoor spaces, and ship-wide stateroom and"
+    },
+    {
+      "blockId": "ts-ship-data:celebrity-flora:celebrity.ts",
+      "entitySlug": "celebrity-flora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Purpose-built for the Galapagos Islands."
+    },
+    {
+      "blockId": "ts-ship-data:celestyal-olympia:celestyal.ts",
+      "entitySlug": "celestyal-olympia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Mid-sized ship specializing in Greek Islands and Eastern Mediterranean cruises."
+    },
+    {
+      "blockId": "ts-ship-data:celestyal-journey:celestyal.ts",
+      "entitySlug": "celestyal-journey",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly AIDAaura, now sailing Greek Islands and Mediterranean routes."
+    },
+    {
+      "blockId": "ts-ship-data:queen-mary-2:cunard.ts",
+      "entitySlug": "queen-mary-2",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The only true ocean liner currently in service."
+    },
+    {
+      "blockId": "ts-ship-data:disney-wish:disney.ts",
+      "entitySlug": "disney-wish",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first Triton Class ship, featuring the AquaMouse and Frozen dining."
+    },
+    {
+      "blockId": "ts-ship-data:disney-treasure:disney.ts",
+      "entitySlug": "disney-treasure",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Adventure-themed sister to the Wish, debuting late 2024."
+    },
+    {
+      "blockId": "ts-ship-data:disney-adventure:disney.ts",
+      "entitySlug": "disney-adventure",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Acquired from Genting, to be based in Singapore."
+    },
+    {
+      "blockId": "ts-ship-data:explora-i:explora.ts",
+      "entitySlug": "explora-i",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "First ship in the Explora Journeys fleet, offering luxury ocean travel with sustainable technology."
+    },
+    {
+      "blockId": "ts-ship-data:explora-ii:explora.ts",
+      "entitySlug": "explora-ii",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Second ship in the Explora Journeys fleet, featuring innovative design and luxury amenities."
+    },
+    {
+      "blockId": "ts-ship-data:borealis:fred.ts",
+      "entitySlug": "borealis",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Amsterdam, now sailing for Fred. Olsen with traditional British style."
+    },
+    {
+      "blockId": "ts-ship-data:bolette:fred.ts",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Rotterdam, offering intimate cruising with British hospitality."
+    },
+    {
+      "blockId": "ts-ship-data:balmoral:fred.ts",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Smaller ship offering traditional British cruising experience."
+    },
+    {
+      "blockId": "ts-ship-data:havila-polaris:havila.ts",
+      "entitySlug": "havila-polaris",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Plug-in hybrid cruise ship with advanced battery systems, allowing up to four hours of emissions-free cruising."
+    },
+    {
+      "blockId": "ts-ship-data:havila-pollux:havila.ts",
+      "entitySlug": "havila-pollux",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Sister ship to Havila Polaris, featuring sustainable technology for Norwegian coastal voyages."
+    },
+    {
+      "blockId": "ts-ship-data:marella-explorer:marella.ts",
+      "entitySlug": "marella-explorer",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Celebrity Galaxy, extensively refurbished for the UK market."
+    },
+    {
+      "blockId": "ts-ship-data:marella-discovery:marella.ts",
+      "entitySlug": "marella-discovery",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Splendour of the Seas, now sailing for TUI UK."
+    },
+    {
+      "blockId": "ts-ship-data:marella-explorer-2:marella.ts",
+      "entitySlug": "marella-explorer-2",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Celebrity Century, refurbished for Marella Cruises."
+    },
+    {
+      "blockId": "ts-ship-data:marella-voyager:marella.ts",
+      "entitySlug": "marella-voyager",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Grandeur of the Seas, now part of the Marella fleet."
+    },
+    {
+      "blockId": "ts-ship-data:msc-world-europa:msc.ts",
+      "entitySlug": "msc-world-europa",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first LNG-powered ship in the MSC fleet."
+    },
+    {
+      "blockId": "ts-ship-data:msc-magnifica:msc.ts",
+      "entitySlug": "msc-magnifica",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Scheduled for substantial dry dock refurbishment before summer 2026, including retrofitting the Yacht Club suite enclave."
+    },
+    {
+      "blockId": "ts-ship-data:nicko-river-fleet:nicko.ts",
+      "entitySlug": "nicko-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Fleet of river cruise ships operating on European rivers with German-speaking service."
+    },
+    {
+      "blockId": "ts-ship-data:world-voyager:nicko.ts",
+      "entitySlug": "world-voyager",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Small expedition ship for adventure cruises."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-prima:norwegian.ts",
+      "entitySlug": "norwegian-prima",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "First of the Prima Class, offering the most outdoor deck space of any new cruise ship."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-viva:norwegian.ts",
+      "entitySlug": "norwegian-viva",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Sister to Prima, featuring the Indulge Food Hall and The Drop slide."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-aqua:norwegian.ts",
+      "entitySlug": "norwegian-aqua",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Debuting in 2025 as a next-generation Prima Class ship, introducing new outdoor attractions and expanded public spaces."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-encore:norwegian.ts",
+      "entitySlug": "norwegian-encore",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Features the largest race track at sea and the Galaxy Pavilion."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-bliss:norwegian.ts",
+      "entitySlug": "norwegian-bliss",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Designed for Alaska cruising with a massive observation lounge. Underwent significant refurbishment in early 2025 with upgrades to public ar"
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-joy:norwegian.ts",
+      "entitySlug": "norwegian-joy",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Originally built for China, renovated in 2019 and again in 2024."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-epic:norwegian.ts",
+      "entitySlug": "norwegian-epic",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Revolutionary design with curved staterooms and The Haven."
+    },
+    {
+      "blockId": "ts-ship-data:pride-of-america:norwegian.ts",
+      "entitySlug": "pride-of-america",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The only major US-flagged cruise ship, sailing exclusively in Hawaii."
+    },
+    {
+      "blockId": "ts-ship-data:norwegian-spirit:norwegian.ts",
+      "entitySlug": "norwegian-spirit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Completely modernized in a $100 million renovation in 2020."
+    },
+    {
+      "blockId": "ts-ship-data:oceania-allura:oceania.ts",
+      "entitySlug": "oceania-allura",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formally named in Miami on November 13, 2025, launched its inaugural season in the Caribbean."
+    },
+    {
+      "blockId": "ts-ship-data:artania:phoenix.ts",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Royal Princess, now offering German-language cruises."
+    },
+    {
+      "blockId": "ts-ship-data:albatros:phoenix.ts",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Classic ship offering traditional German cruising experience."
+    },
+    {
+      "blockId": "ts-ship-data:plantours-river-fleet:plantours.ts",
+      "entitySlug": "plantours-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "German river cruise operator with ships on Rhine, Danube, and Elbe rivers."
+    },
+    {
+      "blockId": "ts-ship-data:pacific-adventure:pocruises.ts",
+      "entitySlug": "pacific-adventure",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Golden Princess, now sailing Australian and South Pacific routes."
+    },
+    {
+      "blockId": "ts-ship-data:pacific-encounter:pocruises.ts",
+      "entitySlug": "pacific-encounter",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Formerly Star Princess, offering cruises from Australia and New Zealand."
+    },
+    {
+      "blockId": "ts-ship-data:sun-princess:princess.ts",
+      "entitySlug": "sun-princess",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first Sphere Class ship, featuring the Dome and powered by LNG."
+    },
+    {
+      "blockId": "ts-ship-data:icon-of-the-seas:royal.ts",
+      "entitySlug": "icon-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship launched in 2024. Features multiple pools, water park areas, and an entertainment dome."
+    },
+    {
+      "blockId": "ts-ship-data:star-of-the-seas:royal.ts",
+      "entitySlug": "star-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship scheduled to launch in 2025, similar in design to Icon of the Seas."
+    },
+    {
+      "blockId": "ts-ship-data:utopia-of-the-seas:royal.ts",
+      "entitySlug": "utopia-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Entered service in 2024, offering short cruises from Florida to destinations like Perfect Day at CocoCay and Nassau, Bahamas."
+    },
+    {
+      "blockId": "ts-ship-data:wonder-of-the-seas:royal.ts",
+      "entitySlug": "wonder-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship launched in 2022. Features multiple themed neighborhoods including dedicated suite areas."
+    },
+    {
+      "blockId": "ts-ship-data:symphony-of-the-seas:royal.ts",
+      "entitySlug": "symphony-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Features a multi-deck slide, laser tag arena, and Broadway-style musical entertainment."
+    },
+    {
+      "blockId": "ts-ship-data:harmony-of-the-seas:royal.ts",
+      "entitySlug": "harmony-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship that introduced water slides to this ship class and features a robotic bar."
+    },
+    {
+      "blockId": "ts-ship-data:allure-of-the-seas:royal.ts",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship, originally launched in 2010 and significantly renovated in 2025. Features new dining venues, updated staterooms, and en"
+    },
+    {
+      "blockId": "ts-ship-data:oasis-of-the-seas:royal.ts",
+      "entitySlug": "oasis-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship, originally launched in 2009 and extensively renovated in 2024."
+    },
+    {
+      "blockId": "ts-ship-data:odyssey-of-the-seas:royal.ts",
+      "entitySlug": "odyssey-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A large cruise ship featuring an indoor sports complex and an elevated observation capsule."
+    },
+    {
+      "blockId": "ts-ship-data:spectrum-of-the-seas:royal.ts",
+      "entitySlug": "spectrum-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Designed for the Asian market with enhanced suite accommodations and dedicated areas for suite guests."
+    },
+    {
+      "blockId": "ts-ship-data:navigator-of-the-seas:royal.ts",
+      "entitySlug": "navigator-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Renovated in 2019 with new water slide attractions."
+    },
+    {
+      "blockId": "ts-ship-data:spirit-of-discovery:saga.ts",
+      "entitySlug": "spirit-of-discovery",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "All-balcony ship designed for the over-50s market, featuring single cabins and traditional British style."
+    },
+    {
+      "blockId": "ts-ship-data:spirit-of-adventure:saga.ts",
+      "entitySlug": "spirit-of-adventure",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Sister ship to Spirit of Discovery, offering all-balcony accommodations and British-inspired dining."
+    },
+    {
+      "blockId": "ts-ship-data:sea-cloud-ii:seacloud.ts",
+      "entitySlug": "sea-cloud-ii",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A modern interpretation of the classic tall ship design, combining traditional sailing with contemporary luxury and comfort."
+    },
+    {
+      "blockId": "ts-ship-data:sea-cloud-spirit:seacloud.ts",
+      "entitySlug": "sea-cloud-spirit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The newest addition to the fleet, featuring state-of-the-art technology while maintaining the tradition of authentic tall ship sailing. Eco-"
+    },
+    {
+      "blockId": "ts-ship-data:sea-cloud-cruises-ii:seacloud.ts",
+      "entitySlug": "sea-cloud-cruises-ii",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Sister ship to Sea Cloud Spirit, continuing the legacy of luxury tall ship cruising with modern amenities and sustainable technology."
+    },
+    {
+      "blockId": "ts-ship-data:snav-ferry-fleet:snav.ts",
+      "entitySlug": "snav-ferry-fleet",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Italian ferry operator offering Mediterranean crossings and short cruises between Italy and surrounding islands."
+    },
+    {
+      "blockId": "ts-ship-data:scarlet-lady:virgin.ts",
+      "entitySlug": "scarlet-lady",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The first Virgin Voyages ship, focused on adults-only sailings with modern design and nightlife-forward entertainment."
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-flora:p0",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A-ROSA Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-flora:p1",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "A-ROSA Flora represents A-ROSA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that ch"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-flora:p2",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on A-ROSA Flora affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake "
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-flora:p3",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on A-ROSA Flora (when offered) can free adults for specialty dining—confirm age bands and signup windows on embark"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-flora:p5",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Families evaluate A-ROSA Flora for cabin interconnect options, splash areas, and whether daily schedules match younger travelers’ energy. Fi"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-flora:p6",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-river-fleet:p0",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A-ROSA Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-river-fleet:p1",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "A-ROSA River Fleet represents A-ROSA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming t"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-river-fleet:p2",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on A-ROSA River Fleet (when offered) can free adults for specialty dining—confirm age bands and signup windows on "
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-river-fleet:p4",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "A-ROSA Cruises positions A-ROSA River Fleet with entertainment that may include production shows, live music, comedy, and family-friendly ac"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-river-fleet:p5",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on A-ROSA River Fleet benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repe"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-river-fleet:p6",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-sena:p0",
+      "entitySlug": "a-rosa-sena",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "A-ROSA Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-sena:p1",
+      "entitySlug": "a-rosa-sena",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "A-ROSA Sena represents A-ROSA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that cha"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-sena:p2",
+      "entitySlug": "a-rosa-sena",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on A-ROSA Sena affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake v"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-sena:p3",
+      "entitySlug": "a-rosa-sena",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on A-ROSA Sena (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarka"
+    },
+    {
+      "blockId": "landing-html:ship:a-rosa-sena:p6",
+      "entitySlug": "a-rosa-sena",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:adventure-of-the-seas:p0",
+      "entitySlug": "adventure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Royal Caribbean · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:adventure-of-the-seas:p1",
+      "entitySlug": "adventure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Adventure of the Seas with realistic port expectations so sea days feel restorative instead of repetitive. If you are"
+    },
+    {
+      "blockId": "landing-html:ship:adventure-of-the-seas:p2",
+      "entitySlug": "adventure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Royal Caribbean positions Adventure of the Seas with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:adventure-of-the-seas:p3",
+      "entitySlug": "adventure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Adventure of the Seas affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal "
+    },
+    {
+      "blockId": "landing-html:ship:adventure-of-the-seas:p5",
+      "entitySlug": "adventure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "First-time cruisers on Adventure of the Seas benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. F"
+    },
+    {
+      "blockId": "landing-html:ship:adventure-of-the-seas:p6",
+      "entitySlug": "adventure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidabella:p0",
+      "entitySlug": "aidabella",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, AIDAbella rewards guests who map must-do venues against realistic walking and queue t"
+    },
+    {
+      "blockId": "landing-html:ship:aidabella:p2",
+      "entitySlug": "aidabella",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAbella affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake vie"
+    },
+    {
+      "blockId": "landing-html:ship:aidabella:p4",
+      "entitySlug": "aidabella",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Repeat AIDA Cruises guests compare AIDAbella to other fleet mates—loyalty perks and cabin upgrades may influence the final choice. First-tim"
+    },
+    {
+      "blockId": "landing-html:ship:aidabella:p5",
+      "entitySlug": "aidabella",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidablu:p0",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "AIDAblu represents AIDA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes b"
+    },
+    {
+      "blockId": "landing-html:ship:aidablu:p1",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on AIDAblu (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:aidablu:p2",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "AIDA Cruises positions AIDAblu with entertainment that may include production shows, live music, comedy, and family-friendly activities on s"
+    },
+    {
+      "blockId": "landing-html:ship:aidablu:p3",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAblu affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake views"
+    },
+    {
+      "blockId": "landing-html:ship:aidablu:p4",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Kids and teen programming on AIDAblu (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:aidablu:p6",
+      "entitySlug": "aidablu",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidacosma:p0",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "AIDACosma represents AIDA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes"
+    },
+    {
+      "blockId": "landing-html:ship:aidacosma:p1",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDACosma affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake vie"
+    },
+    {
+      "blockId": "landing-html:ship:aidacosma:p2",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDACosma affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake vie"
+    },
+    {
+      "blockId": "landing-html:ship:aidacosma:p4",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "filler:1",
+        "too-short"
+      ],
+      "excerpt": "AIDA Cruises positions AIDACosma with entertainment that may include production shows, live music, comedy, and family-friendly activities on"
+    },
+    {
+      "blockId": "landing-html:ship:aidacosma:p5",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "First-time cruisers on AIDACosma benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Families eval"
+    },
+    {
+      "blockId": "landing-html:ship:aidacosma:p6",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidadiva:p0",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "AIDAdiva represents AIDA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes "
+    },
+    {
+      "blockId": "landing-html:ship:aidadiva:p1",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAdiva affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake view"
+    },
+    {
+      "blockId": "landing-html:ship:aidadiva:p2",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAdiva affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake view"
+    },
+    {
+      "blockId": "landing-html:ship:aidadiva:p5",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidaluna:p0",
+      "entitySlug": "aidaluna",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, AIDAluna rewards guests who map must-do venues against realistic walking and queue ti"
+    },
+    {
+      "blockId": "landing-html:ship:aidaluna:p2",
+      "entitySlug": "aidaluna",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAluna affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake view"
+    },
+    {
+      "blockId": "landing-html:ship:aidaluna:p5",
+      "entitySlug": "aidaluna",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidamar:p0",
+      "entitySlug": "aidamar",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "AIDAmar represents AIDA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes b"
+    },
+    {
+      "blockId": "landing-html:ship:aidamar:p1",
+      "entitySlug": "aidamar",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAmar affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake views"
+    },
+    {
+      "blockId": "landing-html:ship:aidamar:p3",
+      "entitySlug": "aidamar",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "AIDA Cruises positions AIDAmar with entertainment that may include production shows, live music, comedy, and family-friendly activities on s"
+    },
+    {
+      "blockId": "landing-html:ship:aidamar:p4",
+      "entitySlug": "aidamar",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on AIDAmar benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat AIDA Cru"
+    },
+    {
+      "blockId": "landing-html:ship:aidamar:p5",
+      "entitySlug": "aidamar",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidanova:p0",
+      "entitySlug": "aidanova",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, AIDANova rewards guests who map must-do venues against realistic walking and queue ti"
+    },
+    {
+      "blockId": "landing-html:ship:aidanova:p2",
+      "entitySlug": "aidanova",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDANova affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake view"
+    },
+    {
+      "blockId": "landing-html:ship:aidanova:p4",
+      "entitySlug": "aidanova",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with AIDANova, especially on port-light itineraries. AIDANova suits tr"
+    },
+    {
+      "blockId": "landing-html:ship:aidanova:p5",
+      "entitySlug": "aidanova",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidaperla:p0",
+      "entitySlug": "aidaperla",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, AIDAPerla rewards guests who map must-do venues against realistic walking and queue t"
+    },
+    {
+      "blockId": "landing-html:ship:aidaperla:p2",
+      "entitySlug": "aidaperla",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on AIDAPerla (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkati"
+    },
+    {
+      "blockId": "landing-html:ship:aidaperla:p4",
+      "entitySlug": "aidaperla",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat AIDA Cruises guests compare AIDAPerla to other fleet mates—loyalty perks and cabin upgrades may influence the final choice. AIDAPerla"
+    },
+    {
+      "blockId": "landing-html:ship:aidaperla:p5",
+      "entitySlug": "aidaperla",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidaprima:p0",
+      "entitySlug": "aidaprima",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, AIDAPrima rewards guests who map must-do venues against realistic walking and queue t"
+    },
+    {
+      "blockId": "landing-html:ship:aidaprima:p2",
+      "entitySlug": "aidaprima",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAPrima affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake vie"
+    },
+    {
+      "blockId": "landing-html:ship:aidaprima:p4",
+      "entitySlug": "aidaprima",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with AIDAPrima, especially on port-light itineraries. AIDAPrima suits "
+    },
+    {
+      "blockId": "landing-html:ship:aidaprima:p5",
+      "entitySlug": "aidaprima",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidasol:p0",
+      "entitySlug": "aidasol",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair AIDAsol with realistic port expectations so sea days feel restorative instead of repetitive. If you are price-shoppin"
+    },
+    {
+      "blockId": "landing-html:ship:aidasol:p1",
+      "entitySlug": "aidasol",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "AIDA Cruises positions AIDAsol with entertainment that may include production shows, live music, comedy, and family-friendly activities on s"
+    },
+    {
+      "blockId": "landing-html:ship:aidasol:p3",
+      "entitySlug": "aidasol",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "AIDA Cruises positions AIDAsol with entertainment that may include production shows, live music, comedy, and family-friendly activities on s"
+    },
+    {
+      "blockId": "landing-html:ship:aidasol:p4",
+      "entitySlug": "aidasol",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "AIDAsol suits travelers who want a recognizable AIDA Cruises experience with clear dining and entertainment options across a typical week. R"
+    },
+    {
+      "blockId": "landing-html:ship:aidasol:p5",
+      "entitySlug": "aidasol",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p0",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "AIDAstella represents AIDA Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that change"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p1",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on AIDAstella (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkat"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p2",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "AIDA Cruises positions AIDAstella with entertainment that may include production shows, live music, comedy, and family-friendly activities o"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p3",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on AIDAstella affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake vi"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p4",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Kids and teen programming on AIDAstella (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkat"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p5",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with AIDAstella, especially on port-light itineraries. AIDAstella suit"
+    },
+    {
+      "blockId": "landing-html:ship:aidastella:p6",
+      "entitySlug": "aidastella",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p0",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Phoenix Reisen · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p1",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Albatros represents Phoenix Reisen’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that change"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p2",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Albatros affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake view"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p3",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Phoenix Reisen positions Albatros with entertainment that may include production shows, live music, comedy, and family-friendly activities o"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p4",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Albatros (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkatio"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p5",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Albatros benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat Phoenix"
+    },
+    {
+      "blockId": "landing-html:ship:albatros:p6",
+      "entitySlug": "albatros",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:allure-of-the-seas:p0",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Royal Caribbean · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:allure-of-the-seas:p1",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Allure of the Seas with realistic port expectations so sea days feel restorative instead of repetitive. If you are pr"
+    },
+    {
+      "blockId": "landing-html:ship:allure-of-the-seas:p2",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Royal Caribbean positions Allure of the Seas with entertainment that may include production shows, live music, comedy, and family-friendly a"
+    },
+    {
+      "blockId": "landing-html:ship:allure-of-the-seas:p4",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Royal Caribbean positions Allure of the Seas with entertainment that may include production shows, live music, comedy, and family-friendly a"
+    },
+    {
+      "blockId": "landing-html:ship:allure-of-the-seas:p5",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Families evaluate Allure of the Seas for cabin interconnect options, splash areas, and whether daily schedules match younger travelers’ ener"
+    },
+    {
+      "blockId": "landing-html:ship:allure-of-the-seas:p6",
+      "entitySlug": "allure-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:anthem-of-the-seas:p0",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Royal Caribbean · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:anthem-of-the-seas:p1",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Anthem of the Seas with realistic port expectations so sea days feel restorative instead of repetitive. If you are pr"
+    },
+    {
+      "blockId": "landing-html:ship:anthem-of-the-seas:p2",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Royal Caribbean positions Anthem of the Seas with entertainment that may include production shows, live music, comedy, and family-friendly a"
+    },
+    {
+      "blockId": "landing-html:ship:anthem-of-the-seas:p3",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Anthem of the Seas (when offered) can free adults for specialty dining—confirm age bands and signup windows on "
+    },
+    {
+      "blockId": "landing-html:ship:anthem-of-the-seas:p5",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Anthem of the Seas, especially on port-light itineraries. Familie"
+    },
+    {
+      "blockId": "landing-html:ship:anthem-of-the-seas:p6",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:arcadia:p0",
+      "entitySlug": "arcadia",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Arcadia represents P&O Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes by"
+    },
+    {
+      "blockId": "landing-html:ship:arcadia:p1",
+      "entitySlug": "arcadia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Arcadia (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:arcadia:p2",
+      "entitySlug": "arcadia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "P&O Cruises positions Arcadia with entertainment that may include production shows, live music, comedy, and family-friendly activities on se"
+    },
+    {
+      "blockId": "landing-html:ship:arcadia:p3",
+      "entitySlug": "arcadia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Arcadia (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:arcadia:p4",
+      "entitySlug": "arcadia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat P&O Cruises guests compare Arcadia to other fleet mates—loyalty perks and cabin upgrades may influence the final choice. Arcadia suit"
+    },
+    {
+      "blockId": "landing-html:ship:arcadia:p5",
+      "entitySlug": "arcadia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aroya:p0",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Aroya with realistic port expectations so sea days feel restorative instead of repetitive. If you are price-shopping,"
+    },
+    {
+      "blockId": "landing-html:ship:aroya:p1",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Aroya Cruises positions Aroya with entertainment that may include production shows, live music, comedy, and family-friendly activities on se"
+    },
+    {
+      "blockId": "landing-html:ship:aroya:p3",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Aroya Cruises positions Aroya with entertainment that may include production shows, live music, comedy, and family-friendly activities on se"
+    },
+    {
+      "blockId": "landing-html:ship:aroya:p4",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cabin location on Aroya affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake views o"
+    },
+    {
+      "blockId": "landing-html:ship:aroya:p5",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "First-time cruisers on Aroya benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Families evaluate"
+    },
+    {
+      "blockId": "landing-html:ship:aroya:p6",
+      "entitySlug": "aroya",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:artania:p0",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Phoenix Reisen · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:artania:p1",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Artania represents Phoenix Reisen’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes"
+    },
+    {
+      "blockId": "landing-html:ship:artania:p2",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Artania (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:artania:p3",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Artania (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:artania:p5",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Artania benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat Phoenix "
+    },
+    {
+      "blockId": "landing-html:ship:artania:p6",
+      "entitySlug": "artania",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:arvia:p0",
+      "entitySlug": "arvia",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Arvia with realistic port expectations so sea days feel restorative instead of repetitive. If you are price-shopping,"
+    },
+    {
+      "blockId": "landing-html:ship:arvia:p1",
+      "entitySlug": "arvia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "P&O Cruises positions Arvia with entertainment that may include production shows, live music, comedy, and family-friendly activities on sele"
+    },
+    {
+      "blockId": "landing-html:ship:arvia:p3",
+      "entitySlug": "arvia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "P&O Cruises positions Arvia with entertainment that may include production shows, live music, comedy, and family-friendly activities on sele"
+    },
+    {
+      "blockId": "landing-html:ship:arvia:p4",
+      "entitySlug": "arvia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Kids and teen programming on Arvia (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation d"
+    },
+    {
+      "blockId": "landing-html:ship:arvia:p6",
+      "entitySlug": "arvia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:aurora:p0",
+      "entitySlug": "aurora",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Aurora represents P&O Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes by "
+    },
+    {
+      "blockId": "landing-html:ship:aurora:p1",
+      "entitySlug": "aurora",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Aurora affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake views "
+    },
+    {
+      "blockId": "landing-html:ship:aurora:p2",
+      "entitySlug": "aurora",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Aurora (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation "
+    },
+    {
+      "blockId": "landing-html:ship:aurora:p4",
+      "entitySlug": "aurora",
+      "kind": "ship",
+      "issues": [
+        "filler:1",
+        "too-short"
+      ],
+      "excerpt": "P&O Cruises positions Aurora with entertainment that may include production shows, live music, comedy, and family-friendly activities on sel"
+    },
+    {
+      "blockId": "landing-html:ship:aurora:p6",
+      "entitySlug": "aurora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-journey:p0",
+      "entitySlug": "azamara-journey",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Azamara Journey rewards guests who map must-do venues against realistic walking and q"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-journey:p3",
+      "entitySlug": "azamara-journey",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Azamara positions Azamara Journey with entertainment that may include production shows, live music, comedy, and family-friendly activities o"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-journey:p4",
+      "entitySlug": "azamara-journey",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Repeat Azamara guests compare Azamara Journey to other fleet mates—loyalty perks and cabin upgrades may influence the final choice. First-ti"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-journey:p5",
+      "entitySlug": "azamara-journey",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-onward:p0",
+      "entitySlug": "azamara-onward",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Azamara Onward rewards guests who map must-do venues against realistic walking and qu"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-onward:p2",
+      "entitySlug": "azamara-onward",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Azamara positions Azamara Onward with entertainment that may include production shows, live music, comedy, and family-friendly activities on"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-onward:p3",
+      "entitySlug": "azamara-onward",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Azamara Onward affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wak"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-onward:p4",
+      "entitySlug": "azamara-onward",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Azamara Onward suits travelers who want a recognizable Azamara experience with clear dining and entertainment options across a typical week."
+    },
+    {
+      "blockId": "landing-html:ship:azamara-onward:p5",
+      "entitySlug": "azamara-onward",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-pursuit:p0",
+      "entitySlug": "azamara-pursuit",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Azamara Pursuit with realistic port expectations so sea days feel restorative instead of repetitive. If you are price"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-pursuit:p1",
+      "entitySlug": "azamara-pursuit",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Azamara positions Azamara Pursuit with entertainment that may include production shows, live music, comedy, and family-friendly activities o"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-pursuit:p2",
+      "entitySlug": "azamara-pursuit",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Azamara Pursuit affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wa"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-pursuit:p4",
+      "entitySlug": "azamara-pursuit",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Azamara Pursuit suits travelers who want a recognizable Azamara experience with clear dining and entertainment options across a typical week"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-pursuit:p5",
+      "entitySlug": "azamara-pursuit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-quest:p0",
+      "entitySlug": "azamara-quest",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Azamara Quest represents Azamara’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that changes "
+    },
+    {
+      "blockId": "landing-html:ship:azamara-quest:p1",
+      "entitySlug": "azamara-quest",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Azamara Quest affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake"
+    },
+    {
+      "blockId": "landing-html:ship:azamara-quest:p3",
+      "entitySlug": "azamara-quest",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Azamara positions Azamara Quest with entertainment that may include production shows, live music, comedy, and family-friendly activities on "
+    },
+    {
+      "blockId": "landing-html:ship:azamara-quest:p5",
+      "entitySlug": "azamara-quest",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:azura:p0",
+      "entitySlug": "azura",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Azura rewards guests who map must-do venues against realistic walking and queue times"
+    },
+    {
+      "blockId": "landing-html:ship:azura:p3",
+      "entitySlug": "azura",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "P&O Cruises positions Azura with entertainment that may include production shows, live music, comedy, and family-friendly activities on sele"
+    },
+    {
+      "blockId": "landing-html:ship:azura:p5",
+      "entitySlug": "azura",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p0",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Fred. Olsen Cruise Lines · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p1",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Balmoral with realistic port expectations so sea days feel restorative instead of repetitive. If you are price-shoppi"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p2",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Fred. Olsen Cruise Lines positions Balmoral with entertainment that may include production shows, live music, comedy, and family-friendly ac"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p3",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Fred. Olsen Cruise Lines positions Balmoral with entertainment that may include production shows, live music, comedy, and family-friendly ac"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p4",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Balmoral (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkatio"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p5",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Families evaluate Balmoral for cabin interconnect options, splash areas, and whether daily schedules match younger travelers’ energy. First-"
+    },
+    {
+      "blockId": "landing-html:ship:balmoral:p6",
+      "entitySlug": "balmoral",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:bolette:p0",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Fred. Olsen Cruise Lines · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:bolette:p1",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Bolette represents Fred. Olsen Cruise Lines’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming th"
+    },
+    {
+      "blockId": "landing-html:ship:bolette:p2",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Bolette affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wake views"
+    },
+    {
+      "blockId": "landing-html:ship:bolette:p3",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Fred. Olsen Cruise Lines positions Bolette with entertainment that may include production shows, live music, comedy, and family-friendly act"
+    },
+    {
+      "blockId": "landing-html:ship:bolette:p4",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Bolette (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkation"
+    },
+    {
+      "blockId": "landing-html:ship:bolette:p6",
+      "entitySlug": "bolette",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:borealis:p0",
+      "entitySlug": "borealis",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Fred. Olsen Cruise Lines · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:borealis:p1",
+      "entitySlug": "borealis",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Borealis rewards guests who map must-do venues against realistic walking and queue ti"
+    },
+    {
+      "blockId": "landing-html:ship:borealis:p3",
+      "entitySlug": "borealis",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Borealis (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkatio"
+    },
+    {
+      "blockId": "landing-html:ship:borealis:p6",
+      "entitySlug": "borealis",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:brilliance-of-the-seas:p0",
+      "entitySlug": "brilliance-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Royal Caribbean · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:brilliance-of-the-seas:p1",
+      "entitySlug": "brilliance-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Brilliance of the Seas rewards guests who map must-do venues against realistic walkin"
+    },
+    {
+      "blockId": "landing-html:ship:brilliance-of-the-seas:p3",
+      "entitySlug": "brilliance-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Brilliance of the Seas (when offered) can free adults for specialty dining—confirm age bands and signup windows"
+    },
+    {
+      "blockId": "landing-html:ship:brilliance-of-the-seas:p5",
+      "entitySlug": "brilliance-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Brilliance of the Seas benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. "
+    },
+    {
+      "blockId": "landing-html:ship:brilliance-of-the-seas:p6",
+      "entitySlug": "brilliance-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:brilliant-lady:p0",
+      "entitySlug": "brilliant-lady",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Virgin Voyages · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:brilliant-lady:p1",
+      "entitySlug": "brilliant-lady",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Brilliant Lady represents Virgin Voyages’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming that "
+    },
+    {
+      "blockId": "landing-html:ship:brilliant-lady:p2",
+      "entitySlug": "brilliant-lady",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Brilliant Lady (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:brilliant-lady:p3",
+      "entitySlug": "brilliant-lady",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Brilliant Lady affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wak"
+    },
+    {
+      "blockId": "landing-html:ship:brilliant-lady:p5",
+      "entitySlug": "brilliant-lady",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Brilliant Lady suits travelers who want a recognizable Virgin Voyages experience with clear dining and entertainment options across a typica"
+    },
+    {
+      "blockId": "landing-html:ship:brilliant-lady:p6",
+      "entitySlug": "brilliant-lady",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:britannia:p0",
+      "entitySlug": "britannia",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Britannia rewards guests who map must-do venues against realistic walking and queue t"
+    },
+    {
+      "blockId": "landing-html:ship:britannia:p2",
+      "entitySlug": "britannia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Britannia (when offered) can free adults for specialty dining—confirm age bands and signup windows on embarkati"
+    },
+    {
+      "blockId": "landing-html:ship:britannia:p4",
+      "entitySlug": "britannia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Britannia, especially on port-light itineraries. Families evaluat"
+    },
+    {
+      "blockId": "landing-html:ship:britannia:p5",
+      "entitySlug": "britannia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:caribbean-princess:p0",
+      "entitySlug": "caribbean-princess",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Princess Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:caribbean-princess:p1",
+      "entitySlug": "caribbean-princess",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Caribbean Princess with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Pr"
+    },
+    {
+      "blockId": "landing-html:ship:caribbean-princess:p3",
+      "entitySlug": "caribbean-princess",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Princess Cruises positions Caribbean Princess with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:caribbean-princess:p4",
+      "entitySlug": "caribbean-princess",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Caribbean Princess affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for"
+    },
+    {
+      "blockId": "landing-html:ship:caribbean-princess:p5",
+      "entitySlug": "caribbean-princess",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Caribbean Princess, especially on port-light itineraries. Caribbe"
+    },
+    {
+      "blockId": "landing-html:ship:caribbean-princess:p6",
+      "entitySlug": "caribbean-princess",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p0",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p1",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Breeze with realistic port expectations so sea days feel restorative instead of repetitive. If you are price"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p2",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Breeze with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p3",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Breeze with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p4",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Breeze (when offered) can free adults for specialty dining—confirm age bands and signup windows on emb"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p5",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Carnival Breeze benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-breeze:p6",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-celebration:p0",
+      "entitySlug": "carnival-celebration",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-celebration:p1",
+      "entitySlug": "carnival-celebration",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Celebration with realistic port expectations so sea days feel restorative instead of repetitive. Planning a "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-celebration:p4",
+      "entitySlug": "carnival-celebration",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Celebration with entertainment that may include production shows, live music, comedy, and family-fri"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-celebration:p5",
+      "entitySlug": "carnival-celebration",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Carnival Celebration benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Re"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-celebration:p6",
+      "entitySlug": "carnival-celebration",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p0",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p1",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Carnival Conquest represents Carnival Cruise Line’s take on modern cruising: multiple dining concepts, varied cabin categories, and programm"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p2",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Conquest affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p3",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Conquest with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p4",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Conquest affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p5",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Carnival Conquest suits travelers who want a recognizable Carnival Cruise Line experience with clear dining and entertainment options across"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-conquest:p6",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-dream:p0",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-dream:p1",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Dream with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Carniv"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-dream:p4",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Dream with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-dream:p5",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Dream to other fleet mates—loyalty perks and cabin upgrades may influence the final choi"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-dream:p6",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-elation:p0",
+      "entitySlug": "carnival-elation",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-elation:p1",
+      "entitySlug": "carnival-elation",
+      "kind": "ship",
+      "issues": [
+        "filler:7",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Elation rewards guests who map must-do venues against realistic walking and "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-elation:p2",
+      "entitySlug": "carnival-elation",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Elation with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-elation:p3",
+      "entitySlug": "carnival-elation",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Elation with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-elation:p4",
+      "entitySlug": "carnival-elation",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Elation affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-elation:p6",
+      "entitySlug": "carnival-elation",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-firenze:p0",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-firenze:p1",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Carnival Firenze represents Carnival Cruise Line’s take on modern cruising: multiple dining concepts, varied cabin categories, and programmi"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-firenze:p2",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Firenze (when offered) can free adults for specialty dining—confirm age bands and signup windows on em"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-firenze:p3",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Firenze (when offered) can free adults for specialty dining—confirm age bands and signup windows on em"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-firenze:p5",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Firenze to other fleet mates—loyalty perks and cabin upgrades may influence the final ch"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-firenze:p6",
+      "entitySlug": "carnival-firenze",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-freedom:p0",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-freedom:p1",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Freedom with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Carn"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-freedom:p3",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Freedom (when offered) can free adults for specialty dining—confirm age bands and signup windows on em"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-freedom:p5",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Carnival Freedom, especially on port-light itineraries. Families "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-freedom:p6",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-glory:p0",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-glory:p1",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Glory with realistic port expectations so sea days feel restorative instead of repetitive. If you are price-"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-glory:p2",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Glory with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-glory:p3",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Glory (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-glory:p5",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Carnival Glory, especially on port-light itineraries. Families ev"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-glory:p6",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-horizon:p0",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-horizon:p1",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Horizon with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Carn"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-horizon:p4",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Horizon with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-horizon:p6",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-jubilee:p0",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-jubilee:p1",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Carnival Jubilee represents Carnival Cruise Line’s take on modern cruising: multiple dining concepts, varied cabin categories, and programmi"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-jubilee:p2",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Jubilee affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-jubilee:p4",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Jubilee with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-jubilee:p5",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Carnival Jubilee benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-jubilee:p6",
+      "entitySlug": "carnival-jubilee",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-legend:p0",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-legend:p1",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "filler:7",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Legend rewards guests who map must-do venues against realistic walking and q"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-legend:p2",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Legend with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-legend:p3",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Legend affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wa"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-legend:p5",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Carnival Legend, especially on port-light itineraries. Carnival L"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-legend:p6",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-liberty:p0",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-liberty:p1",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Liberty rewards guests who map must-do venues against realistic walking and "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-liberty:p3",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Liberty with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-liberty:p4",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Liberty (when offered) can free adults for specialty dining—confirm age bands and signup windows on em"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-liberty:p5",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Carnival Liberty benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-liberty:p6",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-luminosa:p0",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-luminosa:p1",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Luminosa with realistic port expectations so sea days feel restorative instead of repetitive. If you are pri"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-luminosa:p2",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Luminosa with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-luminosa:p4",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Luminosa with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-luminosa:p5",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Carnival Luminosa, especially on port-light itineraries. Carnival"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-luminosa:p6",
+      "entitySlug": "carnival-luminosa",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-magic:p0",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-magic:p1",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Magic with realistic port expectations so sea days feel restorative instead of repetitive. If you are price-"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-magic:p2",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Magic with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-magic:p3",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Magic affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wak"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-magic:p5",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Magic to other fleet mates—loyalty perks and cabin upgrades may influence the final choi"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-magic:p6",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p0",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p1",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "filler:7",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Miracle rewards guests who map must-do venues against realistic walking and "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p2",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Miracle with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p3",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Miracle with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p4",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Miracle affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p5",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Miracle to other fleet mates—loyalty perks and cabin upgrades may influence the final ch"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-miracle:p6",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-panorama:p0",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-panorama:p1",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Carnival Panorama represents Carnival Cruise Line’s take on modern cruising: multiple dining concepts, varied cabin categories, and programm"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-panorama:p2",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Panorama (when offered) can free adults for specialty dining—confirm age bands and signup windows on e"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-panorama:p4",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Panorama with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-panorama:p5",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Carnival Panorama, especially on port-light itineraries. Families"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-panorama:p6",
+      "entitySlug": "carnival-panorama",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p0",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p1",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "filler:7",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Paradise rewards guests who map must-do venues against realistic walking and"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p2",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Paradise with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p3",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Paradise with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p4",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Paradise affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p5",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "filler:3"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Paradise to other fleet mates—loyalty perks and cabin upgrades may influence the final c"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-paradise:p6",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-pride:p0",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-pride:p1",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Pride with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Carniv"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-pride:p4",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Pride with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-pride:p5",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Families evaluate Carnival Pride for cabin interconnect options, splash areas, and whether daily schedules match younger travelers’ energy. "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-pride:p6",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p0",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p1",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Carnival Radiance represents Carnival Cruise Line’s take on modern cruising: multiple dining concepts, varied cabin categories, and programm"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p2",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Radiance (when offered) can free adults for specialty dining—confirm age bands and signup windows on e"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p3",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Radiance with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p4",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Radiance (when offered) can free adults for specialty dining—confirm age bands and signup windows on e"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p5",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Radiance to other fleet mates—loyalty perks and cabin upgrades may influence the final c"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-radiance:p6",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-spirit:p0",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-spirit:p1",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "filler:7",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Spirit rewards guests who map must-do venues against realistic walking and q"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-spirit:p2",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Spirit with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-spirit:p3",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Spirit affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wa"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-spirit:p5",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Spirit to other fleet mates—loyalty perks and cabin upgrades may influence the final cho"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-spirit:p6",
+      "entitySlug": "carnival-spirit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-splendor:p0",
+      "entitySlug": "carnival-splendor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-splendor:p1",
+      "entitySlug": "carnival-splendor",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Splendor rewards guests who map must-do venues against realistic walking and"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-splendor:p3",
+      "entitySlug": "carnival-splendor",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Splendor (when offered) can free adults for specialty dining—confirm age bands and signup windows on e"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-splendor:p5",
+      "entitySlug": "carnival-splendor",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat Carnival Cruise Line guests compare Carnival Splendor to other fleet mates—loyalty perks and cabin upgrades may influence the final c"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-splendor:p6",
+      "entitySlug": "carnival-splendor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunrise:p0",
+      "entitySlug": "carnival-sunrise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunrise:p1",
+      "entitySlug": "carnival-sunrise",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Sunrise with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Carn"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunrise:p3",
+      "entitySlug": "carnival-sunrise",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Sunrise affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunrise:p6",
+      "entitySlug": "carnival-sunrise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunshine:p0",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunshine:p1",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Sunshine with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Car"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunshine:p3",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Sunshine (when offered) can free adults for specialty dining—confirm age bands and signup windows on e"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunshine:p5",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Carnival Sunshine, especially on port-light itineraries. Families"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-sunshine:p6",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p0",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p1",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Carnival Valor represents Carnival Cruise Line’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p2",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Carnival Valor affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wak"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p3",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Valor with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p4",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Valor (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p5",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Carnival Valor benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat C"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-valor:p6",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-venezia:p0",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-venezia:p1",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Carnival Venezia with realistic port expectations so sea days feel restorative instead of repetitive. If you are pric"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-venezia:p2",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Venezia with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-venezia:p4",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Venezia with entertainment that may include production shows, live music, comedy, and family-friendl"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-venezia:p5",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "First-time cruisers on Carnival Venezia benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Famili"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-venezia:p6",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-vista:p0",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Cruise Line · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-vista:p1",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Carnival Vista rewards guests who map must-do venues against realistic walking and qu"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-vista:p3",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Carnival Cruise Line positions Carnival Vista with entertainment that may include production shows, live music, comedy, and family-friendly "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-vista:p4",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Carnival Vista (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:carnival-vista:p5",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Families evaluate Carnival Vista for cabin interconnect options, splash areas, and whether daily schedules match younger travelers’ energy. "
+    },
+    {
+      "blockId": "landing-html:ship:carnival-vista:p6",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p0",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p1",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Celebrity Apex represents Celebrity Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming th"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p2",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Apex (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p3",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Apex with entertainment that may include production shows, live music, comedy, and family-friendly act"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p4",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Apex (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p5",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Celebrity Apex benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Repeat C"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-apex:p6",
+      "entitySlug": "celebrity-apex",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-ascent:p0",
+      "entitySlug": "celebrity-ascent",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-ascent:p1",
+      "entitySlug": "celebrity-ascent",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Celebrity Ascent represents Celebrity Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-ascent:p2",
+      "entitySlug": "celebrity-ascent",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Ascent affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-ascent:p3",
+      "entitySlug": "celebrity-ascent",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Ascent affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-ascent:p5",
+      "entitySlug": "celebrity-ascent",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Celebrity Ascent, especially on port-light itineraries. Celebrity"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-ascent:p6",
+      "entitySlug": "celebrity-ascent",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-beyond:p0",
+      "entitySlug": "celebrity-beyond",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-beyond:p1",
+      "entitySlug": "celebrity-beyond",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Celebrity Beyond with realistic port expectations so sea days feel restorative instead of repetitive. If you are pric"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-beyond:p2",
+      "entitySlug": "celebrity-beyond",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Beyond with entertainment that may include production shows, live music, comedy, and family-friendly a"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-beyond:p3",
+      "entitySlug": "celebrity-beyond",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Beyond affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-beyond:p6",
+      "entitySlug": "celebrity-beyond",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-constellation:p0",
+      "entitySlug": "celebrity-constellation",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-constellation:p1",
+      "entitySlug": "celebrity-constellation",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Celebrity Constellation with realistic port expectations so sea days feel restorative instead of repetitive. Planning"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-constellation:p3",
+      "entitySlug": "celebrity-constellation",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Constellation with entertainment that may include production shows, live music, comedy, and family-fri"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-constellation:p4",
+      "entitySlug": "celebrity-constellation",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Constellation affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appea"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-constellation:p5",
+      "entitySlug": "celebrity-constellation",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "First-time cruisers on Celebrity Constellation benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion."
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-constellation:p6",
+      "entitySlug": "celebrity-constellation",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-eclipse:p0",
+      "entitySlug": "celebrity-eclipse",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-eclipse:p1",
+      "entitySlug": "celebrity-eclipse",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Celebrity Eclipse rewards guests who map must-do venues against realistic walking and"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-eclipse:p3",
+      "entitySlug": "celebrity-eclipse",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Eclipse affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-eclipse:p5",
+      "entitySlug": "celebrity-eclipse",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Celebrity Eclipse suits travelers who want a recognizable Celebrity Cruises experience with clear dining and entertainment options across a "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-eclipse:p6",
+      "entitySlug": "celebrity-eclipse",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p0",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p1",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Celebrity Edge represents Celebrity Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming th"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p2",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Edge (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p3",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Edge with entertainment that may include production shows, live music, comedy, and family-friendly act"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p4",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Edge (when offered) can free adults for specialty dining—confirm age bands and signup windows on emba"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p5",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat Celebrity Cruises guests compare Celebrity Edge to other fleet mates—loyalty perks and cabin upgrades may influence the final choice."
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-edge:p6",
+      "entitySlug": "celebrity-edge",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-equinox:p0",
+      "entitySlug": "celebrity-equinox",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-equinox:p1",
+      "entitySlug": "celebrity-equinox",
+      "kind": "ship",
+      "issues": [
+        "filler:4",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Celebrity Equinox with realistic port expectations so sea days feel restorative instead of repetitive. Planning a Cel"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-equinox:p3",
+      "entitySlug": "celebrity-equinox",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Equinox (when offered) can free adults for specialty dining—confirm age bands and signup windows on e"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-equinox:p5",
+      "entitySlug": "celebrity-equinox",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Repeat Celebrity Cruises guests compare Celebrity Equinox to other fleet mates—loyalty perks and cabin upgrades may influence the final choi"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-equinox:p6",
+      "entitySlug": "celebrity-equinox",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-flora:p0",
+      "entitySlug": "celebrity-flora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-flora:p1",
+      "entitySlug": "celebrity-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "Celebrity Flora represents Celebrity Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programming t"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-flora:p2",
+      "entitySlug": "celebrity-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Flora (when offered) can free adults for specialty dining—confirm age bands and signup windows on emb"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-flora:p3",
+      "entitySlug": "celebrity-flora",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Flora affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for wa"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-flora:p6",
+      "entitySlug": "celebrity-flora",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-infinity:p0",
+      "entitySlug": "celebrity-infinity",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-infinity:p1",
+      "entitySlug": "celebrity-infinity",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Celebrity Infinity with realistic port expectations so sea days feel restorative instead of repetitive. If you are pr"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-infinity:p2",
+      "entitySlug": "celebrity-infinity",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Infinity with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-infinity:p4",
+      "entitySlug": "celebrity-infinity",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Infinity with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-infinity:p6",
+      "entitySlug": "celebrity-infinity",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p0",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p1",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "filler:3",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "Celebrity Millennium represents Celebrity Cruises’s take on modern cruising: multiple dining concepts, varied cabin categories, and programm"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p2",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Millennium affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal f"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p3",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Millennium with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p4",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Millennium (when offered) can free adults for specialty dining—confirm age bands and signup windows o"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p5",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Couples prioritizing dining variety and evening shows often mesh well with Celebrity Millennium, especially on port-light itineraries. Famil"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-millennium:p6",
+      "entitySlug": "celebrity-millennium",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-reflection:p0",
+      "entitySlug": "celebrity-reflection",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-reflection:p1",
+      "entitySlug": "celebrity-reflection",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Celebrity Reflection with realistic port expectations so sea days feel restorative instead of repetitive. If you are "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-reflection:p2",
+      "entitySlug": "celebrity-reflection",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Reflection with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-reflection:p3",
+      "entitySlug": "celebrity-reflection",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Reflection with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-reflection:p4",
+      "entitySlug": "celebrity-reflection",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Reflection affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal f"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-reflection:p6",
+      "entitySlug": "celebrity-reflection",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-silhouette:p0",
+      "entitySlug": "celebrity-silhouette",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-silhouette:p1",
+      "entitySlug": "celebrity-silhouette",
+      "kind": "ship",
+      "issues": [
+        "filler:7",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Celebrity Silhouette rewards guests who map must-do venues against realistic walking "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-silhouette:p2",
+      "entitySlug": "celebrity-silhouette",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Silhouette with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-silhouette:p4",
+      "entitySlug": "celebrity-silhouette",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Silhouette with entertainment that may include production shows, live music, comedy, and family-friend"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-silhouette:p5",
+      "entitySlug": "celebrity-silhouette",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "First-time cruisers on Celebrity Silhouette benefit from learning one deck plan corridor and one stair tower to reduce day-one confusion. Re"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-silhouette:p6",
+      "entitySlug": "celebrity-silhouette",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-solstice:p0",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-solstice:p1",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "filler:8",
+        "ai-filler-phrase"
+      ],
+      "excerpt": "SeaDays helps you pair Celebrity Solstice with realistic port expectations so sea days feel restorative instead of repetitive. If you are pr"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-solstice:p2",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Solstice with entertainment that may include production shows, live music, comedy, and family-friendly"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-solstice:p3",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Kids and teen programming on Celebrity Solstice (when offered) can free adults for specialty dining—confirm age bands and signup windows on "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-solstice:p5",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Families evaluate Celebrity Solstice for cabin interconnect options, splash areas, and whether daily schedules match younger travelers’ ener"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-solstice:p6",
+      "entitySlug": "celebrity-solstice",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Cruise guides on the blog · Ports directory"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-summit:p0",
+      "entitySlug": "celebrity-summit",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Celebrity Cruises · Contemporary cruise ship"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-summit:p1",
+      "entitySlug": "celebrity-summit",
+      "kind": "ship",
+      "issues": [
+        "filler:7"
+      ],
+      "excerpt": "From embarkation flow to final morning disembarkation, Celebrity Summit rewards guests who map must-do venues against realistic walking and "
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-summit:p3",
+      "entitySlug": "celebrity-summit",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Celebrity Cruises positions Celebrity Summit with entertainment that may include production shows, live music, comedy, and family-friendly a"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-summit:p4",
+      "entitySlug": "celebrity-summit",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Cabin location on Celebrity Summit affects noise and walking distance—midship lowers motion for sensitive guests; aft balconies appeal for w"
+    },
+    {
+      "blockId": "landing-html:ship:celebrity-summit:p5",
+      "entitySlug": "celebrity-summit",
+      "kind": "ship",
+      "issues": [
+        "filler:2"
+      ],
+      "excerpt": "Celebrity Summit suits travelers who want a recognizable Celebrity Cruises experience with clear dining and entertainment options across a t"
+    }
+  ],
+  "repeatedParagraphKeys": 1135
+}

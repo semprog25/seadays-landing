@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "nice-france",
+    "name": "Nice, France",
+    "country": "France",
+    "region": "Riviera"
+  },
+  "fetchedAt": "2026-05-21T21:59:36.222Z",
+  "facts": [
+    {
+      "claim": "Nice is a city located in the prefecture of the Alpes-Maritimes department in France.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nice",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Located on the French Riviera, the southeastern coast of France on the Mediterranean Sea, at the foot of the French Alps, Nice is the second-largest French city on the Mediterranean coast and second-largest city in the Provence-Alpes-Côte d'Azur region after Marseille.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nice",
+      "confidence": 0.72
+    },
+    {
+      "claim": "France's metropolitan area stretches from the Pyrenees and Mediterranean coast to the English Channel and the Rhine River. Paris, with its 13.2 million metro residents, sits on the Seine’s flat arc, framed by hills like Montmartre at 130 meters elevation.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitfrance.com/en/places-to-go/nice,-france",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

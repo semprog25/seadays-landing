@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "wonder-of-the-seas",
+    "name": "Wonder of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:50:18.620Z",
+  "facts": [
+    {
+      "claim": "Introducing the new Oasis Class Cruise Ship, Wonder of the Seas. Register to get updates on future sailings in China and the Asia region.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/wonder-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Wonder of the Seas is a cruise ship operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Wonder_of_the_Seas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "At 235,600 GT, she was the largest cruise ship by gross tonnage, until she was surpassed in 2024 by the Icon-class cruise ship, Icon of the Seas, also owned by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Wonder_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

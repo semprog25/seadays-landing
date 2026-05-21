@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "odyssey-of-the-seas",
+    "name": "Odyssey of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:46:55.372Z",
+  "facts": [
+    {
+      "claim": "Odyssey of the Seas offers unforgettable onboard activities and delicious dining from around the world. Soak up the sun at the resort-style pool deck on the First Quantum Ultra Class cruise ship.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/odyssey-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Odyssey of the Seas is the second Quantum Ultra-class cruise ship and the last of the class operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Odyssey_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

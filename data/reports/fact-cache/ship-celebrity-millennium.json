@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-millennium",
+    "name": "Celebrity Millennium",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:26.399Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Millennium. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-millennium",
+      "confidence": 0.85
+    },
+    {
+      "claim": "GTS Celebrity Millennium is a Millennium-class cruise ship operated by Celebrity Cruises, a subsidiary of Royal Caribbean Group.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Millennium",
+      "confidence": 0.72
+    },
+    {
+      "claim": "As the lead ship of her namesake class, all of whom are powered by gas turbines, she was delivered in 2000 and is the oldest operating ship in Celebrity's fleet.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Millennium",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

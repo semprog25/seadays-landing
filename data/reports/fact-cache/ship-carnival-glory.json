@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-glory",
+    "name": "Carnival Glory",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:35.115Z",
+  "facts": [
+    {
+      "claim": "Onboard Carnival Glory, an entire palette of fun activities and hot spots awaits those looking for a vacation at sea that’s as colorful as the décor of the cruise ship taking you there. See photos, onboard activities, staterooms, deck plans, and itinerary options. Book your Carnival Glory cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-glory",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-glory",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Glory is a Conquest-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Glory",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

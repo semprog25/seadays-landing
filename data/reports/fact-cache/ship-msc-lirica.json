@@ -1,0 +1,27 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "msc-lirica",
+    "name": "MSC Lirica",
+    "cruiseLine": "MSC Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:42:16.066Z",
+  "facts": [
+    {
+      "claim": "MSC Lirica is the lead ship in her class of cruise ship, owned and operated by MSC Cruises.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Lirica",
+      "confidence": 0.72
+    },
+    {
+      "claim": "MSC Opera is an identical sister ship to the MSC Lirica.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Lirica",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia"
+  ]
+}

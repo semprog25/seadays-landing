@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "adventure-of-the-seas",
+    "name": "Adventure of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:35:20.294Z",
+  "facts": [
+    {
+      "claim": "Adventure of the Seas offers more to do onboard, with fewer days between some of the world’s most incredible destinations. An all-out vacation adventure that’s sure to put a dent in your bucket list.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/adventure-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Adventure of the Seas is a Voyager-class cruise ship operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Adventure_of_the_Seas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Registered in the Bahamas, Adventure of the Seas has cruised from ports in the United States and Europe to sites in the Caribbean Sea, Baltic Sea, Mediterranean Sea, Canada and Europe.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Adventure_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

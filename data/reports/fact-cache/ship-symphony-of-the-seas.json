@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "symphony-of-the-seas",
+    "name": "Symphony of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:49:38.830Z",
+  "facts": [
+    {
+      "claim": "Symphony of the Seas, a perception remixing, memory maxing mic drop. Our biggest cruise ship with all the greatest hits, plus revolutionary new firsts. Start your next vacation adventure here.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/symphony-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Symphony of the Seas is an Oasis-class cruise ship owned and operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Symphony_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

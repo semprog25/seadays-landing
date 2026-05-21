@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "barcelona-spain",
+    "name": "Barcelona, Spain",
+    "country": "Spain",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T21:52:09.709Z",
+  "facts": [
+    {
+      "claim": "Barcelona is a city on the northeastern coast of Spain.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Barcelona",
+      "confidence": 0.72
+    },
+    {
+      "claim": "It is the capital and largest city of the autonomous community of Catalonia, as well as the second-most populous municipality of Spain.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Barcelona",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia"
+  ]
+}

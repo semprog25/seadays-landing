@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-valor",
+    "name": "Carnival Valor",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:37:03.793Z",
+  "facts": [
+    {
+      "claim": "Your high seas hero, Carnival Valor is here to rescue you from ordinary cruise vacations and whisk you away with the best dining and entertainment a cruise ship has to offer. See photos, onboard activities, deck plans, staterooms and itinerary options. Book your Carnival Valor cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-valor",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-valor",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Valor is a post-Panamax Conquest-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Valor",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

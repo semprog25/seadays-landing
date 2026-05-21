@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-constellation",
+    "name": "Celebrity Constellation",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:15.098Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Constellation. View the award-winning cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-constellation",
+      "confidence": 0.85
+    },
+    {
+      "claim": "GTS Celebrity Constellation is the fourth and final Millennium-class cruise ship built for Celebrity Cruises, a subsidiary of Royal Caribbean Group.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Constellation",
+      "confidence": 0.72
+    },
+    {
+      "claim": "She was renamed in May 2007 to add the \"Celebrity\" prefix, joining her three sister ships: Celebrity Infinity, Celebrity Summit, and Celebrity Millennium.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Constellation",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "mariner-of-the-seas",
+    "name": "Mariner of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:39:43.769Z",
+  "facts": [
+    {
+      "claim": "Mariner of the Seas has more ways to play on the most maxed-out short getaway ever. Ditch the weekend road trip for an action-packed cruise ship.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/mariner-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Mariner of the Seas is one of five Voyager-class cruise ships of Royal Caribbean International and can accommodate 4,252 passengers.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mariner_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "tarragona-spain",
+    "name": "Tarragona, Spain",
+    "country": "Spain",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T22:02:45.797Z",
+  "facts": [
+    {
+      "claim": "Tarragona is a city and municipality in Catalonia, Spain.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tarragona",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Tarragona[a] is a city and municipality in Catalonia, Spain. It is the capital and largest town of Tarragonès county, the Camp de Tarragona region and the province of Tarragona. Geographically, it is located on the Costa Daurada area on the Mediterranean shore, around the mouth of the Francolí.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Tarragona%2C_Spain",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

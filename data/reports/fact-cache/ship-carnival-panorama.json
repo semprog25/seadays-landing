@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-panorama",
+    "name": "Carnival Panorama",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:46.651Z",
+  "facts": [
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-panorama",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Panorama is a Vista-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Panorama",
+      "confidence": 0.72
+    },
+    {
+      "claim": "After Carnival finalized the ship's order with Italian shipbuilder Fincantieri in December 2016, the vessel had her keel laid in January 2018.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Panorama",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Measuring 133,868 GT and 323 m long, she is the largest of Carnival's original three Vista-class vessels.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Panorama",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "kalamata-greece",
+    "name": "Kalamata, Greece",
+    "country": "Greece",
+    "region": "Greek Isles"
+  },
+  "fetchedAt": "2026-05-21T21:55:58.667Z",
+  "facts": [
+    {
+      "claim": "Kalamata is the second most populous city of the Peloponnese peninsula in southern Greece after Patras, and the largest city of the homonymous administrative region.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kalamata",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Kalamata (Greek: Καλαμάτα [kalaˈmata]) is the second most populous city of the Peloponnese peninsula in southern Greece after Patras, and the largest city of the homonymous administrative region. As the capital and chief port of the Messenia regional unit, it lies along the Nedon River at the head of the Messenian Gulf.[3]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kalamata%2C_Greece",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

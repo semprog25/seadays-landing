@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "klaipeda-lithuania",
+    "name": "Klaipeda, Lithuania",
+    "country": "Lithuania",
+    "region": "Baltic"
+  },
+  "fetchedAt": "2026-05-21T21:56:07.446Z",
+  "facts": [
+    {
+      "claim": "Klaipėda is a city in Lithuania on the Baltic Sea coast.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Klaip%C4%97da",
+      "confidence": 0.72
+    },
+    {
+      "claim": "It is the third-largest city in Lithuania, the fifth-largest city in the Baltic states, the capital of Klaipėda County, the only major seaport in the country and the busiest port in the Baltic states.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Klaip%C4%97da",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Lithuania is marked by low hills and the Aukštojas Hill peak at 294 meters, without mountains or fjords. Vilnius, the capital, features a UNESCO-listed Old Town with Gediminas Castle ruins and St. Anne’s Gothic Church near the rivers Neris and Vilnia.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitlithuania.com/en/places-to-go/klaipeda,-lithuania",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

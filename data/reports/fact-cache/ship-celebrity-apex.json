@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-apex",
+    "name": "Celebrity Apex",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:09.391Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Apex. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-apex",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Celebrity Apex is an Edge-class cruise ship operated by Celebrity Cruises, a subsidiary of Royal Caribbean Cruises Ltd.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Apex",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Constructed at Chantiers de l'Atlantique in Saint-Nazaire, France, she is the second vessel in the company's Edge class of ships, following the delivery of her sister ship, Celebrity Edge, in 2018.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Apex",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

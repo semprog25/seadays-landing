@@ -1,0 +1,41 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "puerto-vallarta-mexico",
+    "name": "Puerto Vallarta, Mexico",
+    "country": "Mexico",
+    "region": "Mexican Riviera"
+  },
+  "fetchedAt": "2026-05-21T22:00:52.098Z",
+  "facts": [
+    {
+      "claim": "Puerto Vallarta is a Mexican resort city near the Bahía de Banderas on the Pacific coast of the Mexican state of Jalisco.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Puerto_Vallarta",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Puerto Vallarta is the second largest urban agglomeration in the state after the Guadalajara metropolitan area.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Puerto_Vallarta",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The city of Puerto Vallarta is the government seat of the municipality of Puerto Vallarta, which comprises the city as well as population centers outside of the city, extending from Boca de Tomatlán to the Nayarit border.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Puerto_Vallarta",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Puerto Vallarta is named after Ignacio Vallarta, a former governor of Jalisco. In Spanish, Puerto Vallarta is frequently shortened to \"Vallarta\", while English speakers call the city P.V. for short. In Internet shorthand, the city is often referred to as PVR, after the International Air Transport Association airport code for its Gustavo Diaz Ordaz International Airport.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Puerto_Vallarta%2C_Mexico",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

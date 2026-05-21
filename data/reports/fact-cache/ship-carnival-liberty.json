@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-liberty",
+    "name": "Carnival Liberty",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:40.882Z",
+  "facts": [
+    {
+      "claim": "Carnival Liberty is one cruise ship that’s ready to put the fun back into your vacation with plenty of ways to enjoy your time away. See photos, deck plans, staterooms, onboard activities, and itinerary options. Book your Carnival Liberty cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-liberty",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-liberty",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Liberty is a Conquest-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Liberty",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Carnival Liberty was the first ship to feature Carnival's Seaside Theater—a 12-foot (3.7 m) high by 22-foot (6.7 m) wide LED screen.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Liberty",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

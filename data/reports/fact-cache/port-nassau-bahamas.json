@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "nassau-bahamas",
+    "name": "Nassau, Bahamas",
+    "country": "Bahamas",
+    "region": "Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:59:29.309Z",
+  "facts": [
+    {
+      "claim": "Nassau is the capital and largest city of The Bahamas.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nassau%2C_Bahamas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Nassau (/ˈnæsɔː/ NASS-aw) is the capital and largest city of The Bahamas. It is on the island of New Providence, which has a population of 296,522, 74.26% of the country's total population.[3] Nassau is commonly defined as a primate city, dwarfing all other towns in the country.[4] It is the centre of commerce, education, law, administration, and media of the country.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nassau%2C_Bahamas",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

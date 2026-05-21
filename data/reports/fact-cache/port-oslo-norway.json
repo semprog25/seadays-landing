@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "oslo-norway",
+    "name": "Oslo, Norway",
+    "country": "Norway",
+    "region": "Scandinavia"
+  },
+  "fetchedAt": "2026-05-21T21:59:49.846Z",
+  "facts": [
+    {
+      "claim": "Oslo is the capital and most populous city of Norway.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oslo",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Oslo[12][13][14] is the capital and most populous city of Norway. It constitutes both a county and a municipality. The municipality of Oslo had a population of 724,290 in 2025, while the city's greater urban area had a population of 1,110,887 in 2025,[15] and the metropolitan area had an estimated population of 1,546,706 in 2021.[16]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oslo%2C_Norway",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

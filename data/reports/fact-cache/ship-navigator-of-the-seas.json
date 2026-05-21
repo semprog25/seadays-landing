@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "navigator-of-the-seas",
+    "name": "Navigator of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:45:41.048Z",
+  "facts": [
+    {
+      "claim": "Navigator of the Seas is an amplified weekend cruise ship delivering a maxed out adventure in just a few short days. Take on record-breaking thrills, like the longest waterslide at sea. Soak up bigger, bolder, splashier pool days.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/navigator-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Navigator of the Seas is a cruise ship operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Navigator_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "quantum-of-the-seas",
+    "name": "Quantum of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:47:07.548Z",
+  "facts": [
+    {
+      "claim": "Designed with our Chinese guests in mind, Quantum of the Seas is a fully immersive ship, complete with Mandarin speaking crew and local cuisines served onboard. Travel to the most sought-after cities to explore the cutting-edge architecture, stylish shops, and ancient temples.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/quantum-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Quantum of the Seas is a Quantum-class cruise ship currently operated by Royal Caribbean International and is the lead ship of her class.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Quantum_of_the_Seas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "At her time of delivery in 2014, Quantum of the Seas was the third largest cruise ship in the world by gross tonnage.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Quantum_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

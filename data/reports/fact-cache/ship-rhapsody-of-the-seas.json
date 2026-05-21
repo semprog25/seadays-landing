@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "rhapsody-of-the-seas",
+    "name": "Rhapsody of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:48:10.853Z",
+  "facts": [
+    {
+      "claim": "Maximize your family vacation on Rhapsody of the Seas with the perfect blend of the most exotic cruise destinations, award-winning onboard entertainment and romantic world-class dining venues.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/rhapsody-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Rhapsody of the Seas is a Vision-class cruise ship operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rhapsody_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

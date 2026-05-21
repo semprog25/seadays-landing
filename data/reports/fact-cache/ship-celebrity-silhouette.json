@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-silhouette",
+    "name": "Celebrity Silhouette",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:32.121Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Silhouette. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-silhouette",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Celebrity Silhouette is a Solstice-class cruise ship operated by Celebrity Cruises, a subsidiary of Royal Caribbean Group.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Silhouette",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

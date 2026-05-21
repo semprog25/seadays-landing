@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "vision-of-the-seas",
+    "name": "Vision of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:50:04.762Z",
+  "facts": [
+    {
+      "claim": "Award Winning family cruise ship Vision of the Seas provides the perfect blend of the most beautiful family friendly cultural destinations, world-class dining and epic activities.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/vision-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Vision of the Seas is a Vision-class cruise ship operated by Royal Caribbean International, the last of her class.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Vision_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

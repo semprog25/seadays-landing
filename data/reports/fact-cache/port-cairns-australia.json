@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "cairns-australia",
+    "name": "Cairns, Australia",
+    "country": "Australia",
+    "region": "Australia"
+  },
+  "fetchedAt": "2026-05-21T21:52:14.491Z",
+  "facts": [
+    {
+      "claim": "Cairns is a city in the Cairns Region, Queensland, Australia, on the tropical northeast coast of Far North Queensland.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cairns",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Cairns (/ˈkɛərnz/ ⓘ KAIRNZ; Yidiny: Gimuy) is a city in the Cairns Region, Queensland, Australia,[3] on the tropical northeast coast of Far North Queensland. In the 2021 census, Cairns had a population of 169,312.[2]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cairns%2C_Australia",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

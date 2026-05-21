@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-magic",
+    "name": "Carnival Magic",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:46.333Z",
+  "facts": [
+    {
+      "claim": "Carnival Magic is packed with cruise ship fun including delicious food and overthe-top entertainment which you will agree, earns its namesake. See photos, deck plans, staterooms, onboard activities, and itinerary options. Book your Carnival Magic cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-magic",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-magic",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Magic is a Dream-class cruise ship which entered service on 1 May 2011.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Magic",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

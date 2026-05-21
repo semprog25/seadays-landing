@@ -1,0 +1,27 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "queen-elizabeth",
+    "name": "Queen Elizabeth",
+    "cruiseLine": "Cunard Line"
+  },
+  "fetchedAt": "2026-05-21T21:47:53.655Z",
+  "facts": [
+    {
+      "claim": "MS Queen Elizabeth (QE) is a cruise ship of the Vista class operated by the Cunard Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/MS_Queen_Elizabeth",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The design is modified compared to earlier ships of the same class, and slightly larger than Queen Victoria, at 92,000 GT.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/MS_Queen_Elizabeth",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia"
+  ]
+}

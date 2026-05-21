@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-summit",
+    "name": "Celebrity Summit",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:32.276Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Summit. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-summit",
+      "confidence": 0.85
+    },
+    {
+      "claim": "GTS Celebrity Summit is a Millennium-class cruise ship owned and operated by Celebrity Cruises and as such one of the first cruise ships to be powered by more environmentally friendly gas turbines.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Summit",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Originally named Summit, she was renamed with the \"Celebrity\" prefix in 2008.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Summit",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "la-rochelle-france",
+    "name": "La Rochelle, France",
+    "country": "France",
+    "region": "Atlantic"
+  },
+  "fetchedAt": "2026-05-21T21:56:56.127Z",
+  "facts": [
+    {
+      "claim": "La Rochelle is a city on the west coast of France and a seaport on the Bay of Biscay, a part of the Atlantic Ocean.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/La_Rochelle",
+      "confidence": 0.72
+    },
+    {
+      "claim": "France's metropolitan area stretches from the Pyrenees and Mediterranean coast to the English Channel and the Rhine River. Paris, with its 13.2 million metro residents, sits on the Seine’s flat arc, framed by hills like Montmartre at 130 meters elevation.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitfrance.com/en/places-to-go/la-rochelle,-france",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

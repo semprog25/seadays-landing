@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-freedom",
+    "name": "Carnival Freedom",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:29.352Z",
+  "facts": [
+    {
+      "claim": "Carnival Freedom offers some of the latest and greatest features across our fleet. Explore the cruise ship and you'll find a wide range of fun options to make the most of your time at sea. See photos, onboard activities, staterooms, deck plans, and itineraries. Book your Carnival Freedom cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-freedom",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-freedom",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Freedom is a Conquest-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Freedom",
+      "confidence": 0.72
+    },
+    {
+      "claim": "She was delivered to Carnival on 28 February 2007.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Freedom",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "a-rosa-sena",
+    "name": "A-ROSA Sena",
+    "cruiseLine": "A-ROSA Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:35:14.555Z",
+  "facts": [
+    {
+      "claim": "A-Rosa Luna is a German river cruise ship, cruising in the Rhone – Saône basin.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/A-Rosa_Luna",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Her sister ship is A-Rosa Stella.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/A-Rosa_Luna",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia"
+  ]
+}

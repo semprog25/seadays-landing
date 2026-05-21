@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "freeport-bahamas",
+    "name": "Freeport, Bahamas",
+    "country": "Bahamas",
+    "region": "Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:54:26.212Z",
+  "facts": [
+    {
+      "claim": "Freeport is a city, district and free trade zone on the island of Grand Bahama in the northwest part of The Bahamas.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Freeport%2C_Bahamas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Freeport has grown to become the second most populous city in The Bahamas.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Freeport%2C_Bahamas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The main airport serving the city is the Grand Bahama International Airport, which receives domestic flights from various islands of The Bahamas as well as several international flights from the United States, Italy, and Canada. Freeport is also served by domestic Bahamian ferry services to other islands, and an international ferry connection to Miami.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Freeport%2C_Bahamas",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

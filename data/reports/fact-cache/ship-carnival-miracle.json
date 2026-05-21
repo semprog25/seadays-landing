@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-miracle",
+    "name": "Carnival Miracle",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:46.649Z",
+  "facts": [
+    {
+      "claim": "When we say that Carnival Miracle takes you to another world, we mean that in every sense. This cruise ship features incredibly fun onboard spaces inspired by elements of fantasy. See photos, onboard activities, staterooms, deck plans, and itinerary options. Book your Carnival Miracle cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-miracle",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-miracle",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Miracle is a Spirit-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Miracle",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

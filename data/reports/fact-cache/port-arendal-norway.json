@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "arendal-norway",
+    "name": "Arendal, Norway",
+    "country": "Norway",
+    "region": "Southern Norway"
+  },
+  "fetchedAt": "2026-05-21T21:51:01.250Z",
+  "facts": [
+    {
+      "claim": "Arendal is a municipality in Agder county in southeastern Norway.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Arendal",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The 270-square-kilometre (100 sq mi) municipality is the 273rd largest by area out of the 356 municipalities in Norway. Arendal is the 24th most populous municipality in Norway with a population of 45,891. The municipality's population density is 179.9 inhabitants per square kilometre (466/sq mi) and its population has increased by 5.9% over the previous 10-year period.[5][6]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Arendal%2C_Norway",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

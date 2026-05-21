@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "ushuaia-argentina",
+    "name": "Ushuaia, Argentina",
+    "country": "Argentina",
+    "region": "South America"
+  },
+  "fetchedAt": "2026-05-21T22:02:21.606Z",
+  "facts": [
+    {
+      "claim": "Ushuaia is the capital of Tierra del Fuego, Antártida e Islas del Atlántico Sur Province, Argentina.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Ushuaia",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Argentina stretches some 3,800 km north to south and is shaped like an inverted triangle. Its main regions include the Andes, Pampas, Patagonia, and the northern provinces where Iguazú Falls and Quebrada de Humahuaca are found. Spanish is the official language.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitargentina.com/en/places-to-go/ushuaia,-argentina",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

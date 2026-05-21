@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-venezia",
+    "name": "Carnival Venezia",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:37:03.795Z",
+  "facts": [
+    {
+      "claim": "Carnival Venezia offers the ultimate Fun Italian Style experience sailing from New York. Explore deck plans, staterooms, and more. Book your cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-venezia",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-venezia",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Venezia is a Venice-class cruise ship operated by Carnival Cruise Line, a subsidiary of Carnival Corporation & plc.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Venezia",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Originally intended to serve the Chinese market, she debuted as Costa Venezia for sister brand Costa Cruises in Shanghai on 18 May 2019.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Venezia",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

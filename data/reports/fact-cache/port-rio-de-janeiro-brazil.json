@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "rio-de-janeiro-brazil",
+    "name": "Rio de Janeiro, Brazil",
+    "country": "Brazil",
+    "region": "South America"
+  },
+  "fetchedAt": "2026-05-21T22:01:05.497Z",
+  "facts": [
+    {
+      "claim": "Rio de Janeiro, also known simply as Rio, is the capital of the state of Rio de Janeiro.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rio_de_Janeiro",
+      "confidence": 0.72
+    },
+    {
+      "claim": "It is the second-most-populous city in Brazil after São Paulo and the sixth-most-populous city in the Americas.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rio_de_Janeiro",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Rio de Janeiro,[a] also known simply as Rio,[8] is the capital of the state of Rio de Janeiro. It is the second-most-populous city in Brazil after São Paulo and the sixth-most-populous city in the Americas.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Rio_de_Janeiro%2C_Brazil",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "brilliant-lady",
+    "name": "Brilliant Lady",
+    "cruiseLine": "Virgin Voyages"
+  },
+  "fetchedAt": "2026-05-21T21:36:12.188Z",
+  "facts": [
+    {
+      "claim": "Meet Brilliant Lady—the most anticipated new adults-only cruise ship. Dive into the smart cabins, restaurants, and exclusive new vibrant shows.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.virginvoyages.com/ships/brilliant-lady",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Our brand new ship will be making her inaugural voyage across North America starting Fall 2025.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.virginvoyages.com/ships/brilliant-lady",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Explore North America’s four corners from the charming Northeast, wild West Coast, Panama, and Alaska on our newest lady ship. Enjoy new eateries, new ship spaces, and new iconic itineraries.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.virginvoyages.com/ships/brilliant-lady",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Briiliant Lady is a cruise ship operated by Virgin Voyages.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Brilliant_Lady",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

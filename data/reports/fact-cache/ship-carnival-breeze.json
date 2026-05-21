@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-breeze",
+    "name": "Carnival Breeze",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:17.920Z",
+  "facts": [
+    {
+      "claim": "Carnival Breeze keeps the cruise ship fun blazing with fan favorites, mouthwatering dining, and tropical atmosphere. See photos, staterooms, deck plans, onboard activities, and itinerary options. Book your Carnival Breeze cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-breeze",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-breeze",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Breeze is a Dream-class cruise ship of Carnival Cruise Line which was laid down on 20 November 2008, launched on 16 September 2011 and completed on 3 June 2012.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Breeze",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

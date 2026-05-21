@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-beyond",
+    "name": "Celebrity Beyond",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:14.862Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Beyond. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-beyond",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Celebrity Beyond is a cruise ship owned by Celebrity Cruises, taking its name from the company's slogan.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Beyond",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

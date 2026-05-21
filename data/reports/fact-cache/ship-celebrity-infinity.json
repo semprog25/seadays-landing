@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-infinity",
+    "name": "Celebrity Infinity",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:26.337Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Infinity. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-infinity",
+      "confidence": 0.85
+    },
+    {
+      "claim": "GTS Celebrity Infinity is a Millennium-class cruise ship operated by Celebrity Cruises, a subsidiary of Royal Caribbean Group.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Infinity",
+      "confidence": 0.72
+    },
+    {
+      "claim": "After Royal Caribbean signed a letter of intent with French shipbuilder Chantiers de l'Atlantique in February 1998, she was floated out in June 2000 and delivered in February 2001, making her the second Millennium-class ship to join the fleet following Celebrity Millennium.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Infinity",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

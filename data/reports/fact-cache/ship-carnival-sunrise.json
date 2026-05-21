@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-sunrise",
+    "name": "Carnival Sunrise",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:58.089Z",
+  "facts": [
+    {
+      "claim": "Sunrise isn’t just for early-risers. Carnival Sunrise is now sailing and will radiate enough fun for everybody! Book your Carnival Sunrise cruise today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-sunrise",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-sunrise",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Sunrise is a Destiny-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Sunrise",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Carnival Sunrise is homeported at Miami, Florida.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Sunrise",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

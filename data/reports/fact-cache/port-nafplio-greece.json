@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "nafplio-greece",
+    "name": "Nafplio, Greece",
+    "country": "Greece",
+    "region": "Greek Isles"
+  },
+  "fetchedAt": "2026-05-21T21:59:21.245Z",
+  "facts": [
+    {
+      "claim": "Nafplio or Nauplio is a coastal city located in the Peloponnese in Greece.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nafplio",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The city was the second capital of the First Hellenic Republic and of the Kingdom of Greece, from 1827 until 1834.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nafplio",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The name of the town changed several times over the centuries. The modern Greek name of the town is Nafplio (Ναύπλιο).[3] In modern English, the most frequently used forms are Nauplia and Navplion.[4]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nafplio%2C_Greece",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "los-angeles-ca-united-states",
+    "name": "Los Angeles, CA, United States",
+    "country": "United States",
+    "region": "California"
+  },
+  "fetchedAt": "2026-05-21T21:57:50.088Z",
+  "facts": [
+    {
+      "claim": "With an estimated 3.88 million residents within the city limits as of 2024, it is the second-most populous city in the United States, behind New York City, and the largest city in the Western United States.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Greater Los Angeles, a combined statistical area that includes the Los Angeles and Riverside–San Bernardino metropolitan areas, is a sprawling metropolis of over 18 million residents.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Buy now for $5,295 or pay $220.63 per month for 24 months",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitunitedstates.com/en/places-to-go/los-angeles,-ca,-united-states",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

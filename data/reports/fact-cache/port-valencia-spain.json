@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "valencia-spain",
+    "name": "Valencia, Spain",
+    "country": "Spain",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T22:03:08.638Z",
+  "facts": [
+    {
+      "claim": "Valencia, officially València, is the capital of the Valencian Community and the province of the same name in Spain.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Valencia",
+      "confidence": 0.72
+    },
+    {
+      "claim": "With a population of 824,340, it is the third-largest city in Spain.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Valencia",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Valencia,[a] officially València,[b] is the capital of the Valencian Community and the province of the same name in Spain. It is located on the banks of the Turia, on the east coast of the Iberian Peninsula on the Mediterranean Sea. With a population of 824,340, it is the third-largest city in Spain. The urban area of Valencia has 1.6 million people while the metropolitan region has 2.5 million.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Valencia%2C_Spain",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

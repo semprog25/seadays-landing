@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "seattle-wa-united-states",
+    "name": "Seattle, WA, United States",
+    "country": "United States",
+    "region": "Pacific Northwest"
+  },
+  "fetchedAt": "2026-05-21T22:01:26.304Z",
+  "facts": [
+    {
+      "claim": "It is the 18th-most populous city in the United States with a population of 784,777 in 2025, while the Seattle metropolitan area at over 4.15 million residents is the 15th-most populous metropolitan area in the nation.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Buy now for $5,295 or pay $220.63 per month for 24 months",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitunitedstates.com/en/places-to-go/seattle,-wa,-united-states",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-firenze",
+    "name": "Carnival Firenze",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:29.351Z",
+  "facts": [
+    {
+      "claim": "Set sail on the Fun Italian Style Carnival Firenze from Long Beach and Miami. Enjoy fun experiences on board, delicious food, and beautiful decor.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-firenze",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-firenze",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Firenze is a Vista-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Firenze",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Originally debuting as Costa Firenze for sister brand Costa Cruises, she was initially commissioned for the Chinese market but was never deployed to Asia following the impact of the COVID-19 pandemic on cruise travel in China.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Firenze",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

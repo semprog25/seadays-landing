@@ -1,0 +1,27 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "viking-mars",
+    "name": "Viking Mars",
+    "cruiseLine": "Viking River Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:49:48.574Z",
+  "facts": [
+    {
+      "claim": "The Viking program consisted of a pair of identical American space probes, Viking 1 and Viking 2 both launched in 1975, and landed on Mars in 1976.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Viking_program",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Each spacecraft was composed of two main parts: an orbiter spacecraft which photographed the surface of Mars from orbit, and a lander which studied the planet from the surface.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Viking_program",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia"
+  ]
+}

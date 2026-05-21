@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "isafjordur-iceland",
+    "name": "Isafjordur, Iceland",
+    "country": "Iceland",
+    "region": "Northern Europe"
+  },
+  "fetchedAt": "2026-05-21T21:55:44.193Z",
+  "facts": [
+    {
+      "claim": "Ísafjörður is a town in the northwest of Iceland.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/%C3%8Dsafj%C3%B6r%C3%B0ur",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Ísafjörður (pronounced [ˈiːsaˌfjœrðʏr̥] ⓘ, meaning ice fjord, literally fjord of ices) is a town in the northwest of Iceland.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Isafjordur%2C_Iceland",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

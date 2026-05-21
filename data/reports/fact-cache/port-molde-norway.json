@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "molde-norway",
+    "name": "Molde, Norway",
+    "country": "Norway",
+    "region": "Fjords"
+  },
+  "fetchedAt": "2026-05-21T21:58:18.708Z",
+  "facts": [
+    {
+      "claim": "Molde Municipality is a municipality in Møre og Romsdal county, Norway.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Molde_Municipality",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The 1,503-square-kilometre (580 sq mi) municipality is the 56th largest by area out of the 357 municipalities in Norway. Molde is the 32nd most populous municipality in Norway with a population of 32,816. The municipality's population density is 21.8 inhabitants per square kilometre (56/sq mi) and its population has increased by 5.6% over the previous 10-year period.[5][6]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Molde%2C_Norway",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "toulon-france",
+    "name": "Toulon, France",
+    "country": "France",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T22:02:10.425Z",
+  "facts": [
+    {
+      "claim": "Toulon is a city in the Provence-Alpes-Côte d'Azur region of southeastern France.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Toulon",
+      "confidence": 0.72
+    },
+    {
+      "claim": "France's metropolitan area stretches from the Pyrenees and Mediterranean coast to the English Channel and the Rhine River. Paris, with its 13.2 million metro residents, sits on the Seine’s flat arc, framed by hills like Montmartre at 130 meters elevation.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitfrance.com/en/places-to-go/toulon,-france",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

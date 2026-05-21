@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "galveston-tx-united-states",
+    "name": "Galveston, TX, United States",
+    "country": "United States",
+    "region": "Texas"
+  },
+  "fetchedAt": "2026-05-21T21:54:29.118Z",
+  "facts": [
+    {
+      "claim": "Post Office and Courthouse, also known as the Galveston Federal Building, is a post office and courthouse located in Galveston, Texas, United States.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Galveston_United_States_Post_Office_and_Courthouse",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The building serves as the federal court for the Galveston Division of the United States District Court for the Southern District of Texas.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Galveston_United_States_Post_Office_and_Courthouse",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Buy now for $5,295 or pay $220.63 per month for 24 months",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitunitedstates.com/en/places-to-go/galveston,-tx,-united-states",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

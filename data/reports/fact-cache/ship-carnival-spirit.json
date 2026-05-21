@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-spirit",
+    "name": "Carnival Spirit",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:57.794Z",
+  "facts": [
+    {
+      "claim": "Get ready for an unforgettable cruise adventure full of fun and activities onboard Carnival Spirit. Book your cruise vacation today!",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-spirit",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-spirit",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Spirit is a Spirit-class cruise ship operated by Carnival Cruise Line, a subsidiary of Carnival Corporation & plc.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Spirit",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Built in Helsinki by Kværner Masa-Yards, she was the first Spirit-class cruise ship to join Carnival's fleet after she was delivered in 2001.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Spirit",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

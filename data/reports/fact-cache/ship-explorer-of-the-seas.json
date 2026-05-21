@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "explorer-of-the-seas",
+    "name": "Explorer of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:38:35.024Z",
+  "facts": [
+    {
+      "claim": "Explorer of the Seas is filled with unforgettable activities and features from bow to stern. Explorer of the Seas is one of the coolest culture-cruising ships out there.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/explorer-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Explorer of the Seas is a Voyager-class cruise ship owned and operated by Royal Caribbean International, completed in 2000.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Explorer_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "kavala-greece",
+    "name": "Kavala, Greece",
+    "country": "Greece",
+    "region": "Greek Isles"
+  },
+  "fetchedAt": "2026-05-21T21:55:59.392Z",
+  "facts": [
+    {
+      "claim": "Kavala is a city in northern Greece, the principal seaport of eastern Macedonia and the capital of Kavala regional unit.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kavala",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Kavala (Greek: Καβάλα, Kavála [kaˈvala]) is a city in northern Greece, the principal seaport of eastern Macedonia and the capital of Kavala regional unit.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kavala%2C_Greece",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

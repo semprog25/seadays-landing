@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-vista",
+    "name": "Carnival Vista",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:37:09.194Z",
+  "facts": [
+    {
+      "claim": "Carnival Vista takes you on a truly unique experience as you cruise the Caribbean with all-new views. Add more onboard places than ever before, and you’ll enjoy the best kind of Caribbean comfort on Carnival Vista. Explore photos, deck plans, staterooms, itinerary options, and more.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-vista",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-vista",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Vista is a cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Vista",
+      "confidence": 0.72
+    },
+    {
+      "claim": "She is the lead ship of her namesake class, which includes two additional Carnival ships, Carnival Horizon and Carnival Panorama, as well as two Costa ships, Costa Venezia and Costa Firenze.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Vista",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

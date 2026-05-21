@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "honolulu-hi-united-states",
+    "name": "Honolulu, HI, United States",
+    "country": "United States",
+    "region": "Hawaii"
+  },
+  "fetchedAt": "2026-05-21T21:55:34.336Z",
+  "facts": [
+    {
+      "claim": "It is the county seat of the consolidated City and County of Honolulu, situated along the southeast coast of the island of Oʻahu.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Honolulu",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Buy now for $5,295 or pay $220.63 per month for 24 months",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitunitedstates.com/en/places-to-go/honolulu,-hi,-united-states",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "tourism-board",
+    "wikipedia"
+  ]
+}

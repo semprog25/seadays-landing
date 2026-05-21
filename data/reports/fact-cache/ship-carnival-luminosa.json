@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-luminosa",
+    "name": "Carnival Luminosa",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:40.883Z",
+  "facts": [
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-luminosa",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Luminosa is a cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Luminosa",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Originally built as Costa Luminosa, the ship entered service on 5 May 2009.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Luminosa",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Costa Luminosa departed Civitavecchia, Italy, on 3 June 2009, on her 13-night maiden voyage, with ports of call in Savona, Saint-Tropez, Barcelona, Lisbon, Le Havre and Amsterdam.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Luminosa",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

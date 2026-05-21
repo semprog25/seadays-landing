@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "suez-egypt",
+    "name": "Suez, Egypt",
+    "country": "Egypt",
+    "region": "Middle East"
+  },
+  "fetchedAt": "2026-05-21T22:01:53.419Z",
+  "facts": [
+    {
+      "claim": "Suez is a seaport city in north-eastern Egypt, located on the north coast of the Gulf of Suez on the Red Sea, near the southern terminus of the Suez Canal.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Suez",
+      "confidence": 0.72
+    },
+    {
+      "claim": "The modern city of Suez is a successor of the ancient Egyptian city of Clysma, a major Red Sea port and a center of monasticism.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Suez",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

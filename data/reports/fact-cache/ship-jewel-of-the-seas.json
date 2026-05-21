@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "jewel-of-the-seas",
+    "name": "Jewel of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:39:09.099Z",
+  "facts": [
+    {
+      "claim": "Jewel of the Seas delivers some of the world’s most desired destinations.  This cruise ship is packed with vibrant onboard experiences and dining venues. Discover new shores and countless adventures in between.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/jewel-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "GTS Jewel of the Seas is a Radiance-class cruise ship operated by Royal Caribbean.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Jewel_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "carnival-horizon",
+    "name": "Carnival Horizon",
+    "cruiseLine": "Carnival Cruise Line"
+  },
+  "fetchedAt": "2026-05-21T21:36:35.117Z",
+  "facts": [
+    {
+      "claim": "Say hello to Carnival Horizon! The same way the sea and the sky are united by one perfect line, Carnival Horizon brings you together with great fun, comfort, dining, and exotic destinations. Explore photos, deck plans, staterooms, itinerary options, and more.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-horizon",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Just like a delicious cake, your ship is made of layers. Find out which fun ingredients — staterooms, dining, activities — go into each deck.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-horizon",
+      "confidence": 0.82
+    },
+    {
+      "claim": "Carnival Horizon is a Vista-class cruise ship operated by Carnival Cruise Line.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Horizon",
+      "confidence": 0.72
+    },
+    {
+      "claim": "She is the 26th vessel in the Carnival fleet and is the second of Carnival's Vista class, which includes Carnival Vista and Carnival Panorama.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Carnival_Horizon",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

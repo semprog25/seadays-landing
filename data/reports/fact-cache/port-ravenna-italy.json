@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "ravenna-italy",
+    "name": "Ravenna, Italy",
+    "country": "Italy",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T22:01:01.034Z",
+  "facts": [
+    {
+      "claim": "Ravenna is the capital city of the Province of Ravenna, in the Emilia-Romagna region of Northern Italy.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Ravenna",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Initially settled by the Umbri people, Ravenna came under Roman Republic control in 89 BC. Octavian built the military harbor of Classis at Ravenna, and the city remained an important seaport on the Adriatic until the early Middle Ages. The city prospered under imperial rule. In 401, Western Roman emperor Honorius moved his court from Mediolanum to Ravenna; it then served as capital of the empire for most of the 5th century.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Ravenna%2C_Italy",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

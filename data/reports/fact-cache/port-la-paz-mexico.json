@@ -1,0 +1,41 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "la-paz-mexico",
+    "name": "La Paz, Mexico",
+    "country": "Mexico",
+    "region": "Baja Mexico"
+  },
+  "fetchedAt": "2026-05-21T21:56:57.193Z",
+  "facts": [
+    {
+      "claim": "La Paz is a municipality in the State of Mexico, Mexico, with its municipal seat in the town of Los Reyes Acaquilpan.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/La_Paz%2C_State_of_Mexico",
+      "confidence": 0.72
+    },
+    {
+      "claim": "It is located on the dividing line between Mexico State and the eastern edge of the Federal District and is part of the Greater Mexico City area.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/La_Paz%2C_State_of_Mexico",
+      "confidence": 0.72
+    },
+    {
+      "claim": "La Paz is the administrative and legislative capital of Bolivia.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/La_Paz%2C_Mexico",
+      "confidence": 0.62
+    },
+    {
+      "claim": "Ciudad de la Paz is the capital of Equatorial Guinea.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/La_Paz%2C_Mexico",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

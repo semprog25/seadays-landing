@@ -1,0 +1,29 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "genoa-italy",
+    "name": "Genoa, Italy",
+    "country": "Italy",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T21:54:33.663Z",
+  "facts": [
+    {
+      "claim": "Genoa is the sixth-largest city in Italy and the capital of the Italian region of Liguria.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Genoa",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Genoa[a] is the sixth-largest city in Italy and the capital of the Italian region of Liguria. As of 2025, 565,301 people live within the city's administrative limits.[4] While its metropolitan city has 818,629 inhabitants,[3] more than 1.5 million people live in the wider metropolitan area stretching along the Italian Riviera.[5]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Genoa%2C_Italy",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

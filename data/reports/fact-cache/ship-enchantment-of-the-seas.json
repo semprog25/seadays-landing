@@ -1,0 +1,28 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "enchantment-of-the-seas",
+    "name": "Enchantment of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:38:23.486Z",
+  "facts": [
+    {
+      "claim": "Enchantment of the Seas is the best way to take a few days to relax or play and hit some islands along the way. Book your next cruise on Enchantment of the Seas with Royal Caribbean Cruises.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/enchantment-of-the-seas",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Enchantment of the Seas is a Vision-class cruise ship operated by Royal Caribbean International.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Enchantment_of_the_Seas",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

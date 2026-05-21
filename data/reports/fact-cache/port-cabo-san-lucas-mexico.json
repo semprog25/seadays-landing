@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "cabo-san-lucas-mexico",
+    "name": "Cabo San Lucas, Mexico",
+    "country": "Mexico",
+    "region": "Mexican Riviera"
+  },
+  "fetchedAt": "2026-05-21T21:51:55.341Z",
+  "facts": [
+    {
+      "claim": "Cabo San Lucas, also known simply as Cabo, is a resort city at the southern tip of the Baja California peninsula, in the Mexican state of Baja California Sur.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cabo_San_Lucas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Cabo San Lucas and the neighboring San José del Cabo are collectively known as Los Cabos.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cabo_San_Lucas",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Rated as one of Mexico's top tourist destinations,[6] Cabo San Lucas is known for its beaches, scuba diving locations, Balnearios, the sea arch El Arco de Cabo San Lucas, and marine life. The Los Cabos Corridor has become a heavily trafficked vacation destination for tourists, with numerous resorts and timeshares along the coast between Cabo San Lucas and San José del Cabo.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Cabo_San_Lucas%2C_Mexico",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

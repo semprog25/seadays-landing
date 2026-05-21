@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "celebrity-flora",
+    "name": "Celebrity Flora",
+    "cruiseLine": "Celebrity Cruises"
+  },
+  "fetchedAt": "2026-05-21T21:37:20.956Z",
+  "facts": [
+    {
+      "claim": "Discover Celebrity Flora. View the award-winning cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
+      "source": "official-cruise-line",
+      "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-flora",
+      "confidence": 0.85
+    },
+    {
+      "claim": "Celebrity Flora is an expedition cruise ship operated by Islas Galápagos Turismo y Vapores C.A., a subsidiary of Royal Caribbean Group, and exclusively sails along the Galápagos Islands.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Flora",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Built by Shipyard De Hoop of the Netherlands and delivered in 2019, she is the first new expedition ship built for Celebrity Cruises and is the largest vessel by gross tonnage to operate in the region.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Celebrity_Flora",
+      "confidence": 0.72
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "official-cruise-line"
+  ]
+}

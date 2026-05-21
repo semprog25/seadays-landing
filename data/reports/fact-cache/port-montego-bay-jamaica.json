@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "montego-bay-jamaica",
+    "name": "Montego Bay, Jamaica",
+    "country": "Jamaica",
+    "region": "Caribbean"
+  },
+  "fetchedAt": "2026-05-21T21:58:21.759Z",
+  "facts": [
+    {
+      "claim": "Montego Bay is the capital of the parish of St.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Montego_Bay",
+      "confidence": 0.72
+    },
+    {
+      "claim": "As a result, Montego Bay is the second-largest anglophone city in the Caribbean, after Kingston.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Montego_Bay",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Montego Bay (Jamaican Patois: Mobay or Muhbay) is the capital of the parish of St. James in Jamaica. The city is the fourth most populous urban area in the country, after Kingston, Spanish Town, and Portmore, all of which form the Greater Kingston Metropolitan Area, home to more than half a million people.[1] As a result, Montego Bay is the second-largest anglophone city in the Caribbean, after Kingston.",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Montego_Bay%2C_Jamaica",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}

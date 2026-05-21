@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "kind": "port",
+    "slug": "antalya-turkey",
+    "name": "Antalya, Turkey",
+    "country": "Turkey",
+    "region": "Mediterranean"
+  },
+  "fetchedAt": "2026-05-21T21:50:51.385Z",
+  "facts": [
+    {
+      "claim": "Antalya is one of the largest cities in Turkey and the capital of Antalya Province, the fifth-most populous province.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Antalya",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Recognized as the \"capital of tourism\" in Turkey and a pivotal part of the Turkish Riviera, Antalya sits on Anatolia's southwest coast, flanked by the Taurus Mountains.",
+      "source": "wikipedia",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Antalya",
+      "confidence": 0.72
+    },
+    {
+      "claim": "Antalya[a] is one of the largest cities in Turkey and the capital of Antalya Province, the fifth-most populous province. Recognized as the \"capital of tourism\" in Turkey and a pivotal part of the Turkish Riviera,[4] Antalya sits on Anatolia's southwest coast, flanked by the Taurus Mountains. The urban[b] population of the city is around 1.5 million, with a provincial population of 2,722,103.[5][6]",
+      "source": "tourism-board",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Antalya%2C_Turkey",
+      "confidence": 0.62
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "wikipedia",
+    "tourism-board"
+  ]
+}
