@@ -148,14 +148,88 @@ function pickManyUnique(arr, seed, count, saltPrefix) {
   return out;
 }
 
+function normalizeSentenceKey(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^\w\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function splitSentences(text) {
+  return String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function uniqueSentences(parts, max = 8) {
+  const out = [];
+  const seen = new Set();
+  for (const part of parts) {
+    for (const sentence of splitSentences(part)) {
+      const key = normalizeSentenceKey(sentence);
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      out.push(sentence);
+      if (out.length >= max) return out;
+    }
+  }
+  return out;
+}
+
 function trimWords(text, maxWords) {
   const w = text.split(/\s+/).filter(Boolean);
   if (w.length <= maxWords) return text.trim();
   return w.slice(0, maxWords).join(' ').replace(/\s+[.,;:!?]?$/, '') + (text.match(/[.!?]$/) ? '' : '.');
 }
 
+function indefiniteArticleFor(text) {
+  const first = String(text || '').trim().charAt(0).toLowerCase();
+  return /^[aeiou]/.test(first) ? 'an' : 'a';
+}
+
+function firstSentence(text, fallback) {
+  const sentence = splitSentences(text)[0];
+  return sentence || fallback;
+}
+
+function buildOverrideShipTriple(ship, seed) {
+  const overviewSentences = uniqueSentences([ship.description], 5);
+  const overview =
+    overviewSentences.length > 0
+      ? overviewSentences.join(' ')
+      : `${ship.name} is a ${ship.shipClass || 'cruise ship'} operated by ${ship.cruise_line}.`;
+  const experienceSource = ship.experience || '';
+  const experienceSentences = uniqueSentences(
+    [
+      experienceSource,
+      `${ship.name} is best planned by matching the itinerary with the ship's dining rhythm, cabin choices, and sea-day pace.`,
+      `Before booking ${ship.name}, compare what ${ship.cruise_line} includes in the fare with the extras you actually expect to use on board.`,
+      `SeaDays helps travelers organize notes for ${ship.name}, from cabin preferences and port plans to reminders for embarkation day.`,
+    ],
+    3
+  );
+  const audienceSentences = uniqueSentences(
+    [
+      `${ship.name} suits travelers who want ${indefiniteArticleFor(ship.cruise_line)} ${ship.cruise_line} sailing with enough structure to compare cabins, onboard rhythm, and itinerary fit before booking.`,
+      `It is also useful for cruisers who prefer to plan port days and ship days together instead of treating the vessel as only transportation.`,
+      ...pickManyUnique(SHIP_AUDIENCE, seed, 2, 'aud').map((x) => fillShipVars(x, ship)),
+    ],
+    3
+  );
+  return {
+    overview: trimWords(overview, 140),
+    experience: trimWords(experienceSentences.join(' '), 120),
+    audience: trimWords(audienceSentences.join(' '), 110),
+  };
+}
+
 function budgetShipTriple(ship) {
   const seed = ship.id + '|' + ship.slug;
+  if (ship.hasContentOverride && ship.description) return buildOverrideShipTriple(ship, seed);
   const base = ship.description ? `${ship.description.trim()} ` : '';
   let overview =
     base +
@@ -169,13 +243,6 @@ function budgetShipTriple(ship) {
     .map((x) => fillShipVars(x, ship))
     .join(' ');
   let total = wordCount(overview) + wordCount(experience) + wordCount(audience);
-  let pad = 0;
-  while (total < 400 && pad < 25) {
-    const add = fillShipVars(pickAt(SHIP_EXPERIENCE, seed + pad, 'pad'), ship);
-    experience += ` ${add}`;
-    total = wordCount(overview) + wordCount(experience) + wordCount(audience);
-    pad++;
-  }
   let safety = 0;
   while (total > 800 && safety++ < 80) {
     if (wordCount(overview) > 120) overview = trimWords(overview, Math.floor(wordCount(overview) * 0.92));
@@ -187,8 +254,46 @@ function budgetShipTriple(ship) {
   return { overview: overview.trim(), experience: experience.trim(), audience: audience.trim() };
 }
 
+function buildOverridePortProse(port, seed) {
+  const overviewSentences = uniqueSentences([port.description], 5);
+  const place = port.country ? `${port.name}, ${port.country}` : port.name;
+  const overview =
+    overviewSentences.length > 0
+      ? overviewSentences.join(' ')
+      : `${place} is a cruise port in ${port.region || port.country || 'this region'}.`;
+  const whatToDo = uniqueSentences(
+    [
+      ...(port.highlights || []),
+      `For a shore day in ${port.name}, choose one main activity first, then keep time for meals, walking, and the return to the pier.`,
+      `SeaDays helps travelers compare ${port.name} with nearby ports so the itinerary feels organized before the ship arrives.`,
+    ],
+    4
+  ).join(' ');
+  const cruiseRelevance = uniqueSentences(
+    [
+      `${port.name} matters to cruise planning because port time, transport distance, and all-aboard timing shape how much of the destination you can realistically enjoy.`,
+      fillPortVars(pickAt(PORT_CRUISE_RELEVANCE, seed, 'cru'), port),
+    ],
+    3
+  ).join(' ');
+  const tips = uniqueSentences(
+    [
+      `Before leaving the ship in ${port.name}, save the pier location, ship time, and any shuttle details offline.`,
+      fillPortVars(pickAt(PORT_TIPS, seed, 'tip'), port),
+    ],
+    3
+  ).join(' ');
+  return {
+    overview: trimWords(overview, 140),
+    whatToDo: trimWords(whatToDo, 110),
+    cruiseRelevance: trimWords(cruiseRelevance, 100),
+    tips: trimWords(tips, 90),
+  };
+}
+
 function budgetPortProse(port) {
   const seed = port.id + '|' + port.slug;
+  if (port.hasContentOverride && port.description) return buildOverridePortProse(port, seed);
   const base = port.description ? `${port.description.trim()} ` : '';
   let overview =
     base +
@@ -199,12 +304,6 @@ function budgetPortProse(port) {
   let cruiseRel = pickManyUnique(PORT_CRUISE_RELEVANCE, seed, 3, 'cru').map((x) => fillPortVars(x, port)).join(' ');
   let tips = pickManyUnique(PORT_TIPS, seed, 4, 'tip').map((x) => fillPortVars(x, port)).join(' ');
   let total = wordCount(overview) + wordCount(whatToDo) + wordCount(cruiseRel) + wordCount(tips);
-  let pad = 0;
-  while (total < 400 && pad < 30) {
-    whatToDo += ` ${fillPortVars(pickAt(PORT_WHAT_TO_DO, seed + pad, 'pp'), port)}`;
-    total = wordCount(overview) + wordCount(whatToDo) + wordCount(cruiseRel) + wordCount(tips);
-    pad++;
-  }
   let safety = 0;
   while (total > 800 && safety++ < 80) {
     if (wordCount(overview) > 100) overview = trimWords(overview, Math.floor(wordCount(overview) * 0.9));
@@ -268,6 +367,7 @@ function buildSeoShipRecords(rawList) {
       shipClass: raw.shipClass || raw.class || raw.type || '',
       experience: raw.experience || raw.vibe || '',
       metaDescription: String(metaDescription).trim(),
+      hasContentOverride: Boolean(raw.hasContentOverride),
       rating,
       reviewCount,
     });
@@ -310,6 +410,7 @@ function buildSeoPortRecords(rawList) {
       region,
       popularMonths,
       metaDescription: String(metaDescription).trim(),
+      hasContentOverride: Boolean(raw.hasContentOverride),
       rating,
       reviewCount,
       latitude: latitude ?? undefined,
@@ -572,7 +673,9 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const overviewParas = splitIntoParagraphs(triple.overview);
   const experienceParas = splitIntoParagraphs(triple.experience);
   const audienceParas = splitIntoParagraphs(triple.audience);
-  const experienceShort = ship.experience || trimWords(triple.experience, 40);
+  const experienceShort = ship.hasContentOverride
+    ? `${ship.cruise_line} ship profile for itinerary, cabin, and shore-day planning.`
+    : firstSentence(ship.experience || triple.experience, `${ship.cruise_line} cruise ship profile.`);
   const shipClass = ship.shipClass || 'Contemporary cruise ship';
   const title = `${ship.name} Review, Features & Cruise Experience (2026)`;
   const metaDesc = buildShipMetaDescription(ship);

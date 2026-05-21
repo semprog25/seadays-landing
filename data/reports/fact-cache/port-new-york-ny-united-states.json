@@ -6,7 +6,7 @@
     "country": "United States",
     "region": "Northeast"
   },
-  "fetchedAt": "2026-05-21T21:59:34.659Z",
+  "fetchedAt": "2026-05-21T23:32:34.184Z",
   "facts": [
     {
       "claim": "New York, often called New York City (NYC), is the most populous city in the United States.",
@@ -25,17 +25,10 @@
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_City",
       "confidence": 0.72
-    },
-    {
-      "claim": "Buy now for $5,295 or pay $220.63 per month for 24 months",
-      "source": "tourism-board",
-      "sourceUrl": "https://www.visitunitedstates.com/en/places-to-go/new-york,-ny,-united-states",
-      "confidence": 0.62
     }
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia",
-    "tourism-board"
+    "wikipedia"
   ]
 }

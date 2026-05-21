@@ -43,6 +43,7 @@ function applyShipContentOverride(record, override) {
   const highlights = pickStringArray(override.highlights);
   return {
     ...record,
+    hasContentOverride: true,
     ...(description ? { description } : {}),
     ...(experience ? { experience } : {}),
     ...(shipClass ? { shipClass } : {}),
@@ -58,6 +59,7 @@ function applyPortContentOverride(record, override) {
   const highlights = pickStringArray(override.highlights);
   return {
     ...record,
+    hasContentOverride: true,
     ...(description ? { description } : {}),
     ...(metaDescription ? { metaDescription } : {}),
     ...(highlights.length ? { highlights } : {}),

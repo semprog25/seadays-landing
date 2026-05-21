@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T22:56:40.850Z",
+  "generatedAt": "2026-05-21T23:35:44.642Z",
   "shipPages": {
     "routePattern": "/ships/<slug>/",
     "count": 285,
@@ -32,16 +32,16 @@
       "alesund-norway"
     ]
   },
-  "contentBlocks": 920,
+  "contentBlocks": 2384,
   "blocksBySource": {
     "ts-ship-data": 87,
-    "landing-overrides": 833
+    "landing-overrides": 2297
   },
-  "exactDuplicatePairs": 285,
-  "nearDuplicatePairs": 6,
-  "fillerHits": 0,
+  "exactDuplicatePairs": 500,
+  "nearDuplicatePairs": 176,
+  "fillerHits": 4,
   "fillerByKind": {
-    "ship": 0,
+    "ship": 4,
     "port": 0
   },
   "lowQualityBlocks": [
@@ -1045,6 +1045,15 @@
       "excerpt": "The keel of Allure of the Seas was laid on 2 December 2008, shortly after the shipyard had been acquired by STX."
     },
     {
+      "blockId": "landing-overrides:ship:anthem-of-the-seas:experience",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Anthem of the Seas is a Quantum-class cruise ship owned by Royal Caribbean International (RCI) and the second ship of her class."
+    },
+    {
       "blockId": "landing-overrides:ship:anthem-of-the-seas:highlight:0",
       "entitySlug": "anthem-of-the-seas",
       "kind": "ship",
@@ -1055,6 +1064,15 @@
     },
     {
       "blockId": "landing-overrides:ship:anthem-of-the-seas:highlight:1",
+      "entitySlug": "anthem-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Fill your days with non-stop thrills onboard the adventure-packed Anthem of the Seas®."
+    },
+    {
+      "blockId": "landing-overrides:ship:anthem-of-the-seas:highlight:2",
       "entitySlug": "anthem-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -1204,6 +1222,15 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "On Carnival Breeze, fun-fan faves like SportSquare™, and mouth-watering dining spots like Cucina del Capitano®, are just the beginning of ho"
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-breeze:highlight:2",
+      "entitySlug": "carnival-breeze",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Breeze is a Dream-class cruise ship of Carnival Cruise Line which was laid down on 20 November 2008, launched on 16."
     },
     {
@@ -1249,7 +1276,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Conquest was renovated in 2009."
+      "excerpt": "Carnival Conquest is a cruise ship owned and operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-conquest:highlight:0",
@@ -1267,10 +1294,19 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Conquest is a cruise ship owned and operated by Carnival Cruise Line."
+      "excerpt": "Cruising aboard Carnival Conquest elevates fun at sea to an art form — the ship demonstrates a true mastery of the craft."
     },
     {
       "blockId": "landing-overrides:ship:carnival-conquest:highlight:2",
+      "entitySlug": "carnival-conquest",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Conquest is a cruise ship owned and operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-conquest:highlight:3",
       "entitySlug": "carnival-conquest",
       "kind": "ship",
       "issues": [
@@ -1289,6 +1325,24 @@
     },
     {
       "blockId": "landing-overrides:ship:carnival-dream:highlight:1",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "It's one thing to be fun, but it's another thing to be first. Carnival Dream was at the forefront of a recent."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-dream:highlight:2",
+      "entitySlug": "carnival-dream",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Dream also features the borderline-magical Alchemy Bar® and Ocean Plaza, which combines tasty treats with perhaps even tastier ente"
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-dream:highlight:3",
       "entitySlug": "carnival-dream",
       "kind": "ship",
       "issues": [
@@ -1369,6 +1423,15 @@
       "excerpt": "Originally debuting as Costa Firenze for sister brand Costa Cruises, she was initially commissioned for the Chinese market but was never dep"
     },
     {
+      "blockId": "landing-overrides:ship:carnival-freedom:description",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "verbose-paragraph"
+      ],
+      "excerpt": "Carnival Freedom offers some of the latest and greatest features across our fleet. Explore the cruise ship and you'll find a wide range of f"
+    },
+    {
       "blockId": "landing-overrides:ship:carnival-freedom:highlight:0",
       "entitySlug": "carnival-freedom",
       "kind": "ship",
@@ -1384,7 +1447,34 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Carnival Freedom has a message for you, and its \"feel free to have fun!\" Explore the ship and you'll find food options."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-freedom:highlight:2",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "If you're a kid, Carnival Freedom means you're in for a treat. Not only will you find new friends at one of."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-freedom:highlight:3",
+      "entitySlug": "carnival-freedom",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Freedom is a Conquest-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-glory:experience",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Glory is a Conquest-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-glory:highlight:0",
@@ -1397,6 +1487,15 @@
     },
     {
       "blockId": "landing-overrides:ship:carnival-glory:highlight:1",
+      "entitySlug": "carnival-glory",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "If you're looking for a vacation at sea that's as colorful as the décor of the cruise ship taking you there, an."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-glory:highlight:2",
       "entitySlug": "carnival-glory",
       "kind": "ship",
       "issues": [
@@ -1415,6 +1514,24 @@
     },
     {
       "blockId": "landing-overrides:ship:carnival-horizon:highlight:1",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The line that brings the sea and the sky together inspired us... to build a ship that unites you with great fun,."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-horizon:highlight:2",
+      "entitySlug": "carnival-horizon",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "For relaxation, get to Serenity Adult-Only Retreat™, or step up to max relaxation at Cloud 9 Spa™ featuring great massages, thermal suites."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-horizon:highlight:3",
       "entitySlug": "carnival-horizon",
       "kind": "ship",
       "issues": [
@@ -1468,6 +1585,15 @@
       "excerpt": "At 182,015 gross tonnage (GT), Carnival Jubilee is one of the largest cruise ships in the world."
     },
     {
+      "blockId": "landing-overrides:ship:carnival-legend:experience",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Legend is a Spirit-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
       "blockId": "landing-overrides:ship:carnival-legend:highlight:0",
       "entitySlug": "carnival-legend",
       "kind": "ship",
@@ -1483,6 +1609,15 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Legends are made, not born... and over time, this ship has become even more deserving of its nameplate. Let’s discover some of."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-legend:highlight:2",
+      "entitySlug": "carnival-legend",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Legend is a Spirit-class cruise ship operated by Carnival Cruise Line."
     },
     {
@@ -1492,7 +1627,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Liberty was the first ship to feature Carnival's Seaside Theater—a 12-foot (3.7 m) high by 22-foot (6.7 m) wide LED screen."
+      "excerpt": "Carnival Liberty is a Conquest-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-liberty:highlight:0",
@@ -1510,10 +1645,19 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Liberty is a Conquest-class cruise ship operated by Carnival Cruise Line."
+      "excerpt": "We think you should have a great time at sea. Carnival Liberty feels the same way! This is one ship that’s ready."
     },
     {
       "blockId": "landing-overrides:ship:carnival-liberty:highlight:2",
+      "entitySlug": "carnival-liberty",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Liberty is a Conquest-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-liberty:highlight:3",
       "entitySlug": "carnival-liberty",
       "kind": "ship",
       "issues": [
@@ -1582,7 +1726,34 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "We knew exactly what we were doing when we named this ship Carnival Magic... and we're sure you'll agree."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-magic:highlight:2",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "At 1,004 feet, this one continued the Dream class tradition of large-scale, bow-to-stern cruise ship fun including the food-and-entertainmen"
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-magic:highlight:3",
+      "entitySlug": "carnival-magic",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Magic is a Dream-class cruise ship which entered service on 1 May 2011."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-miracle:experience",
+      "entitySlug": "carnival-miracle",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Miracle is a Spirit-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-miracle:highlight:0",
@@ -1600,16 +1771,16 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Miracle is a Spirit-class cruise ship operated by Carnival Cruise Line."
+      "excerpt": "Carnival Miracle is a ship you may not believe when you see... but definitely don't miss seeing it!"
     },
     {
-      "blockId": "landing-overrides:ship:carnival-paradise:experience",
-      "entitySlug": "carnival-paradise",
+      "blockId": "landing-overrides:ship:carnival-miracle:highlight:2",
+      "entitySlug": "carnival-miracle",
       "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Built by Kværner Masa-Yards at its Helsinki New Shipyard in Helsinki, Finland, she was floated out on 29 January 1998, and christened as Par"
+      "excerpt": "Carnival Miracle is a Spirit-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-paradise:highlight:0",
@@ -1627,10 +1798,28 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Paradise is a Fantasy-class cruise ship operated by Carnival Cruise Line."
+      "excerpt": "We broke the mold after we made this one. The final Fantasy class cruise ship ever created, Carnival Paradise is proof that."
     },
     {
       "blockId": "landing-overrides:ship:carnival-paradise:highlight:2",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "By the way, on Carnival Paradise you'll find great times in and near the H2O courtesy of pools, hot tubs and even."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-paradise:highlight:3",
+      "entitySlug": "carnival-paradise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Paradise is a Fantasy-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-paradise:highlight:4",
       "entitySlug": "carnival-paradise",
       "kind": "ship",
       "issues": [
@@ -1654,6 +1843,24 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Carnival Pride charms, alright — it's a treat for your eyes, your taste buds... and of course, your fun buds. Invite them."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-pride:highlight:2",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "You'll find yourself with room to move at the Beauties Dance Club, and a hard time sitting still at Playlist Productions™. All."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-pride:highlight:3",
+      "entitySlug": "carnival-pride",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Pride is a Spirit-class cruise ship operated by Carnival Cruise Line, a subsidiary of Carnival Corporation & plc."
     },
     {
@@ -1663,7 +1870,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "In 2021, she was renamed Carnival Radiance after a US$200 million refit was completed in October and she commenced service under her new nam"
+      "excerpt": "Carnival Radiance is a Destiny-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-radiance:highlight:0",
@@ -1681,10 +1888,19 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Radiance is a Destiny-class cruise ship operated by Carnival Cruise Line."
+      "excerpt": "The warmth of being together — it's just so nice, right? It fact, it inspired us to create Carnival Radiance, to delight."
     },
     {
       "blockId": "landing-overrides:ship:carnival-radiance:highlight:2",
+      "entitySlug": "carnival-radiance",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Radiance is a Destiny-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-radiance:highlight:3",
       "entitySlug": "carnival-radiance",
       "kind": "ship",
       "issues": [
@@ -1717,7 +1933,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "As she is the only Concordia-class ship in the Carnival fleet, she is also referred to as a Splendor-class ship."
+      "excerpt": "Carnival Splendor is a Concordia-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-splendor:highlight:0",
@@ -1735,10 +1951,19 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Splendor is a Concordia-class cruise ship operated by Carnival Cruise Line."
+      "excerpt": "If you like your fun to flow, there are options aplenty. If you list “splishing” and “splashing” among your favorite things to."
     },
     {
       "blockId": "landing-overrides:ship:carnival-splendor:highlight:2",
+      "entitySlug": "carnival-splendor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Splendor is a Concordia-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-splendor:highlight:3",
       "entitySlug": "carnival-splendor",
       "kind": "ship",
       "issues": [
@@ -1753,7 +1978,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Sunrise is homeported at Miami, Florida."
+      "excerpt": "Carnival Sunrise is a Destiny-class cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-sunrise:highlight:0",
@@ -1771,7 +1996,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Sunrise is a Destiny-class cruise ship operated by Carnival Cruise Line."
+      "excerpt": "Catching a great sunrise isn't just for early-risers. Carnival Sunrise has enough warm fun for everybody to bask in."
     },
     {
       "blockId": "landing-overrides:ship:carnival-sunrise:highlight:2",
@@ -1780,7 +2005,25 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Carnival Sunrise is a Destiny-class cruise ship operated by Carnival Cruise Line."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-sunrise:highlight:3",
+      "entitySlug": "carnival-sunrise",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Sunrise is homeported at Miami, Florida."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-sunshine:experience",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Sunshine is a cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-sunshine:highlight:0",
@@ -1793,6 +2036,15 @@
     },
     {
       "blockId": "landing-overrides:ship:carnival-sunshine:highlight:1",
+      "entitySlug": "carnival-sunshine",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "When you find yourself between the Carnival Sunshine and some actual sunshine, fun at sea is guaranteed."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-sunshine:highlight:2",
       "entitySlug": "carnival-sunshine",
       "kind": "ship",
       "issues": [
@@ -1816,6 +2068,24 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Your high seas hero Carnival Valor is here to rescue you from ordinary vacations and whisk you away to leisure, fun... and."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-valor:highlight:2",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Kids can get caught up in all the excitement of being kids, hanging with others their age at Carnival Valor's three supervised."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-valor:highlight:3",
+      "entitySlug": "carnival-valor",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Carnival Valor is a post-Panamax Conquest-class cruise ship operated by Carnival Cruise Line."
     },
     {
@@ -1825,7 +2095,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Originally intended to serve the Chinese market, she debuted as Costa Venezia for sister brand Costa Cruises in Shanghai on 18 May 2019."
+      "excerpt": "Carnival Venezia is a Venice-class cruise ship operated by Carnival Cruise Line, a subsidiary of Carnival Corporation & plc."
     },
     {
       "blockId": "landing-overrides:ship:carnival-venezia:highlight:0",
@@ -1843,7 +2113,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Carnival Venezia is a Venice-class cruise ship operated by Carnival Cruise Line, a subsidiary of Carnival Corporation & plc."
+      "excerpt": "It's a long way from Venice to the U.S., but Carnival Venezia makes it feel like the two are next-door neighbors. You're."
     },
     {
       "blockId": "landing-overrides:ship:carnival-venezia:highlight:2",
@@ -1852,7 +2122,25 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Carnival Venezia is a Venice-class cruise ship operated by Carnival Cruise Line, a subsidiary of Carnival Corporation & plc."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-venezia:highlight:3",
+      "entitySlug": "carnival-venezia",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Originally intended to serve the Chinese market, she debuted as Costa Venezia for sister brand Costa Cruises in Shanghai on 18 May."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-vista:experience",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Carnival Vista is a cruise ship operated by Carnival Cruise Line."
     },
     {
       "blockId": "landing-overrides:ship:carnival-vista:highlight:0",
@@ -1865,6 +2153,15 @@
     },
     {
       "blockId": "landing-overrides:ship:carnival-vista:highlight:1",
+      "entitySlug": "carnival-vista",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "We've built a lot of ships over the years, but for a truly unique experience at sea, you've gotta see Carnival Vista.."
+    },
+    {
+      "blockId": "landing-overrides:ship:carnival-vista:highlight:2",
       "entitySlug": "carnival-vista",
       "kind": "ship",
       "issues": [
@@ -2365,7 +2662,25 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "The Amplified Freedom of the Seas® is as wow-worthy as the destinations it sails to."
+    },
+    {
+      "blockId": "landing-overrides:ship:freedom-of-the-seas:highlight:2",
+      "entitySlug": "freedom-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "Freedom of the Seas may refer to:Freedom of the seas, a legal concept Mare Liberum, a book in Latin on international law."
+    },
+    {
+      "blockId": "landing-overrides:ship:grandeur-of-the-seas:experience",
+      "entitySlug": "grandeur-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Grandeur of the Seas is a Vision-class cruise ship owned and operated by Royal Caribbean International."
     },
     {
       "blockId": "landing-overrides:ship:grandeur-of-the-seas:highlight:0",
@@ -2383,7 +2698,7 @@
       "issues": [
         "too-short"
       ],
-      "excerpt": "Grandeur of the Seas is a Vision-class cruise ship owned and operated by Royal Caribbean International."
+      "excerpt": "Whether you choose to wander the tropical shores of the Eastern, Western or Southern Caribbean, adventure is always guaranteed on Grandeur o"
     },
     {
       "blockId": "landing-overrides:ship:grandeur-of-the-seas:highlight:2",
@@ -2392,7 +2707,25 @@
       "issues": [
         "too-short"
       ],
+      "excerpt": "Grandeur of the Seas is a Vision-class cruise ship owned and operated by Royal Caribbean International."
+    },
+    {
+      "blockId": "landing-overrides:ship:grandeur-of-the-seas:highlight:3",
+      "entitySlug": "grandeur-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
       "excerpt": "It was announced on 16 October 2019 that Grandeur of the Seas would be transferred in the second quarter of 2021 to."
+    },
+    {
+      "blockId": "landing-overrides:ship:harmony-of-the-seas:experience",
+      "entitySlug": "harmony-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Harmony of the Seas is an Oasis-class cruise ship built by STX France at the Chantiers de l'Atlantique shipyard in Saint-Nazaire, France, fo"
     },
     {
       "blockId": "landing-overrides:ship:harmony-of-the-seas:highlight:0",
@@ -2405,6 +2738,15 @@
     },
     {
       "blockId": "landing-overrides:ship:harmony-of-the-seas:highlight:1",
+      "entitySlug": "harmony-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The newly Amplified Harmony of the Seas® is geared up for maxed-out vacations."
+    },
+    {
+      "blockId": "landing-overrides:ship:harmony-of-the-seas:highlight:2",
       "entitySlug": "harmony-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -2530,6 +2872,15 @@
       "excerpt": "The Island Princess (film), a 1954 Italian-Spanish comedy film directed by Paolo Moffa"
     },
     {
+      "blockId": "landing-overrides:ship:jewel-of-the-seas:experience",
+      "entitySlug": "jewel-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "GTS Jewel of the Seas is a Radiance-class cruise ship operated by Royal Caribbean."
+    },
+    {
       "blockId": "landing-overrides:ship:jewel-of-the-seas:highlight:0",
       "entitySlug": "jewel-of-the-seas",
       "kind": "ship",
@@ -2540,6 +2891,15 @@
     },
     {
       "blockId": "landing-overrides:ship:jewel-of-the-seas:highlight:1",
+      "entitySlug": "jewel-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Wander to the world’s most captivating destinations onboard Jewel of the Seas®."
+    },
+    {
+      "blockId": "landing-overrides:ship:jewel-of-the-seas:highlight:2",
       "entitySlug": "jewel-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -2674,6 +3034,15 @@
       "excerpt": "Each member of the class has been allocated the name of a famous French explorer, and Le Lapérouse is named after naval."
     },
     {
+      "blockId": "landing-overrides:ship:liberty-of-the-seas:experience",
+      "entitySlug": "liberty-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Liberty of the Seas is a Royal Caribbean International Freedom-class cruise ship which entered regular service in May 2007."
+    },
+    {
       "blockId": "landing-overrides:ship:liberty-of-the-seas:highlight:0",
       "entitySlug": "liberty-of-the-seas",
       "kind": "ship",
@@ -2684,6 +3053,15 @@
     },
     {
       "blockId": "landing-overrides:ship:liberty-of-the-seas:highlight:1",
+      "entitySlug": "liberty-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Go even bolder on the newly Amplified Liberty of the Seas®."
+    },
+    {
+      "blockId": "landing-overrides:ship:liberty-of-the-seas:highlight:2",
       "entitySlug": "liberty-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -2953,6 +3331,15 @@
       "excerpt": "As part of their Regatta Class, Nautica is now owned and operated by Oceania Cruises."
     },
     {
+      "blockId": "landing-overrides:ship:navigator-of-the-seas:experience",
+      "entitySlug": "navigator-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Navigator of the Seas is a cruise ship operated by Royal Caribbean International."
+    },
+    {
       "blockId": "landing-overrides:ship:navigator-of-the-seas:highlight:0",
       "entitySlug": "navigator-of-the-seas",
       "kind": "ship",
@@ -2963,6 +3350,15 @@
     },
     {
       "blockId": "landing-overrides:ship:navigator-of-the-seas:highlight:1",
+      "entitySlug": "navigator-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Don’t just get away. Get more from your cruise on the amped Navigator of the Seas®."
+    },
+    {
+      "blockId": "landing-overrides:ship:navigator-of-the-seas:highlight:2",
       "entitySlug": "navigator-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -3214,6 +3610,15 @@
       "excerpt": "Launched in 2002 as the line's second Vista, Oosterdam is sister to MS Noordam, MS Westerdam, and MS Zuiderdam."
     },
     {
+      "blockId": "landing-overrides:ship:ovation-of-the-seas:experience",
+      "entitySlug": "ovation-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Ovation of the Seas is a Quantum-class cruise ship owned by Royal Caribbean International (RCI) and the third ship of her class."
+    },
+    {
       "blockId": "landing-overrides:ship:ovation-of-the-seas:highlight:0",
       "entitySlug": "ovation-of-the-seas",
       "kind": "ship",
@@ -3224,6 +3629,15 @@
     },
     {
       "blockId": "landing-overrides:ship:ovation-of-the-seas:highlight:1",
+      "entitySlug": "ovation-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Alaska adventures on the newly Amplified Ovation of the Seas® go all out with upgraded experiences."
+    },
+    {
+      "blockId": "landing-overrides:ship:ovation-of-the-seas:highlight:2",
       "entitySlug": "ovation-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -3484,6 +3898,24 @@
       "excerpt": "In accordance with Virgin Voyages's business model, Scarlet Lady operates exclusively as an \"adults-only\" ship for guests aged 18 and over."
     },
     {
+      "blockId": "landing-overrides:ship:serenade-of-the-seas:description",
+      "entitySlug": "serenade-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1"
+      ],
+      "excerpt": "Serenade of the Seas offers you to take in the wild views from the top of the rock climbing wall or dig into delicious dining from around th"
+    },
+    {
+      "blockId": "landing-overrides:ship:serenade-of-the-seas:experience",
+      "entitySlug": "serenade-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "GTS Serenade of the Seas is a Radiance-class cruise ship operated by Royal Caribbean International."
+    },
+    {
       "blockId": "landing-overrides:ship:serenade-of-the-seas:highlight:0",
       "entitySlug": "serenade-of-the-seas",
       "kind": "ship",
@@ -3494,6 +3926,16 @@
     },
     {
       "blockId": "landing-overrides:ship:serenade-of-the-seas:highlight:1",
+      "entitySlug": "serenade-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "filler:1",
+        "too-short"
+      ],
+      "excerpt": "Dive into new discoveries as you sail onboard Serenade of the Seas®."
+    },
+    {
+      "blockId": "landing-overrides:ship:serenade-of-the-seas:highlight:2",
       "entitySlug": "serenade-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -3799,6 +4241,15 @@
       "excerpt": "The women's costume of Volendam, with its high, pointed bonnet, is one of the most recognizable of the Dutch traditional costumes, and."
     },
     {
+      "blockId": "landing-overrides:ship:voyager-of-the-seas:experience",
+      "entitySlug": "voyager-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "Voyager of the Seas is the lead ship of the Voyager class of cruise ships operated by Royal Caribbean International (RCI)."
+    },
+    {
       "blockId": "landing-overrides:ship:voyager-of-the-seas:highlight:0",
       "entitySlug": "voyager-of-the-seas",
       "kind": "ship",
@@ -3809,6 +4260,15 @@
     },
     {
       "blockId": "landing-overrides:ship:voyager-of-the-seas:highlight:1",
+      "entitySlug": "voyager-of-the-seas",
+      "kind": "ship",
+      "issues": [
+        "too-short"
+      ],
+      "excerpt": "The amped up Voyager of the Seas® is packed with more ways to play."
+    },
+    {
+      "blockId": "landing-overrides:ship:voyager-of-the-seas:highlight:2",
       "entitySlug": "voyager-of-the-seas",
       "kind": "ship",
       "issues": [
@@ -3907,644 +4367,185 @@
       "excerpt": "Wonder of the Seas is a cruise ship operated by Royal Caribbean International."
     },
     {
-      "blockId": "landing-overrides:port:aalborg-denmark:highlight:0",
-      "entitySlug": "aalborg-denmark",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-flora:description",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Aalborg or Ålborg is Denmark's fourth largest city with a population of 119,862 in the town proper and an urban population of."
+      "excerpt": "A-Rosa Flora is a German river cruise ship, cruising in the Rhine – Main – Danube basin.\n\nA-ROSA Flora is operated by A-ROSA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:aalborg-denmark:highlight:1",
-      "entitySlug": "aalborg-denmark",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-flora:experience",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Eurostat and OECD have used a definition for the metropolitan area of Aalborg, which includes all municipalities in the province of North."
+      "excerpt": "A-ROSA Flora is a A-ROSA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:abu-dhabi-united-arab-emirates:highlight:0",
-      "entitySlug": "abu-dhabi-united-arab-emirates",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-flora:highlight:0",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Abu Dhabi is the capital city of the United Arab Emirates (UAE)."
+      "excerpt": "A-Rosa Flora is a German river cruise ship, cruising in the Rhine – Main – Danube basin."
     },
     {
-      "blockId": "landing-overrides:port:abu-dhabi-united-arab-emirates:highlight:1",
-      "entitySlug": "abu-dhabi-united-arab-emirates",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-flora:highlight:1",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "The city is the seat of the Abu Dhabi Central Capital District, the capital city of the Emirate of Abu Dhabi, and."
+      "excerpt": "A-ROSA Flora is operated by A-ROSA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:abu-dhabi-united-arab-emirates:highlight:2",
-      "entitySlug": "abu-dhabi-united-arab-emirates",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-flora:highlight:2",
+      "entitySlug": "a-rosa-flora",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Abu Dhabi[a] is the capital city of the United Arab Emirates (UAE). The city is the seat of the Abu Dhabi Central."
+      "excerpt": "A-ROSA Flora is a A-ROSA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:acapulco-mexico:highlight:0",
-      "entitySlug": "acapulco-mexico",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-river-fleet:description",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Acapulco de Juárez, commonly called Acapulco, is a city and major seaport in the state of Guerrero on the Pacific Coast of."
+      "excerpt": "Fleet of modern river cruise ships operating on European rivers including Rhine, Danube, and Douro.\n\nA-ROSA River Fleet is operated by A-ROS"
     },
     {
-      "blockId": "landing-overrides:port:acapulco-mexico:highlight:1",
-      "entitySlug": "acapulco-mexico",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-river-fleet:experience",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Located on a deep, semicircular bay, Acapulco has been a port since the early colonial period of Mexico's history."
+      "excerpt": "A-ROSA River Fleet is a A-ROSA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:acapulco-mexico:highlight:2",
-      "entitySlug": "acapulco-mexico",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-river-fleet:highlight:0",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Acapulco is also Mexico's largest beach and balneario resort city."
+      "excerpt": "Fleet of modern river cruise ships operating on European rivers including Rhine, Danube, and Douro."
     },
     {
-      "blockId": "landing-overrides:port:acapulco-mexico:highlight:3",
-      "entitySlug": "acapulco-mexico",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-river-fleet:highlight:1",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Acapulco de Juárez, Guerrero is the municipal seat of the municipality of Acapulco, Guerrero."
+      "excerpt": "A-ROSA River Fleet is operated by A-ROSA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:alicante-spain:highlight:0",
-      "entitySlug": "alicante-spain",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:a-rosa-river-fleet:highlight:2",
+      "entitySlug": "a-rosa-river-fleet",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Alicante or Alacant is a city and municipality in the Valencian Community, Spain."
+      "excerpt": "A-ROSA River Fleet is a A-ROSA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:alicante-spain:highlight:1",
-      "entitySlug": "alicante-spain",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidacosma:experience",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Alicante[a] or Alacant[b] (officially: Alacant / Alicante) is a city and municipality in the Valencian Community, Spain. It is the capital o"
+      "excerpt": "AIDACosma is a AIDA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:antalya-turkey:highlight:0",
-      "entitySlug": "antalya-turkey",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidacosma:highlight:0",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Antalya is one of the largest cities in Turkey and the capital of Antalya Province, the fifth-most populous province."
+      "excerpt": "AIDAcosma is the second and final Helios-class cruise ship built by Meyer Werft GmbH at Papenburg, Germany under contract from Carnival Corp"
     },
     {
-      "blockId": "landing-overrides:port:antalya-turkey:highlight:1",
-      "entitySlug": "antalya-turkey",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidacosma:highlight:1",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Recognized as the \"capital of tourism\" in Turkey and a pivotal part of the Turkish Riviera, Antalya sits on Anatolia's southwest coast,."
+      "excerpt": "AIDACosma is operated by AIDA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:antalya-turkey:highlight:2",
-      "entitySlug": "antalya-turkey",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidacosma:highlight:2",
+      "entitySlug": "aidacosma",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Antalya[a] is one of the largest cities in Turkey and the capital of Antalya Province, the fifth-most populous province. Recognized as the."
+      "excerpt": "AIDACosma is a AIDA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:aqaba-jordan:highlight:0",
-      "entitySlug": "aqaba-jordan",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidadiva:description",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Aqābaʾ is the only coastal city in Jordan and the largest and most populous city on the Gulf of Aqaba."
+      "excerpt": "AIDAdiva is a Sphinx-class cruise ship operated by the German cruise line AIDA Cruises.\n\nAIDAdiva is operated by AIDA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:aqaba-jordan:highlight:1",
-      "entitySlug": "aqaba-jordan",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidadiva:experience",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Situated in southernmost Jordan, Aqaba is the administrative center of the Aqaba Governorate."
+      "excerpt": "AIDAdiva is a AIDA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:arendal-norway:highlight:0",
-      "entitySlug": "arendal-norway",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidadiva:highlight:0",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Arendal is a municipality in Agder county in southeastern Norway."
+      "excerpt": "AIDAdiva is a Sphinx-class cruise ship operated by the German cruise line AIDA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:arendal-norway:highlight:1",
-      "entitySlug": "arendal-norway",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidadiva:highlight:1",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "The 270-square-kilometre (100 sq mi) municipality is the 273rd largest by area out of the 356 municipalities in Norway. Arendal is the."
+      "excerpt": "AIDAdiva is operated by AIDA Cruises."
     },
     {
-      "blockId": "landing-overrides:port:argostoli-greece:highlight:0",
-      "entitySlug": "argostoli-greece",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidadiva:highlight:2",
+      "entitySlug": "aidadiva",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Argostoli is a town and a municipality on the island of Kefalonia, Ionian Islands, Greece."
+      "excerpt": "AIDAdiva is a AIDA Cruises ship profile in the SeaDays cruise directory."
     },
     {
-      "blockId": "landing-overrides:port:argostoli-greece:highlight:1",
-      "entitySlug": "argostoli-greece",
-      "kind": "port",
+      "blockId": "landing-overrides:ship:aidanova:description",
+      "entitySlug": "aidanova",
+      "kind": "ship",
       "issues": [
         "too-short"
       ],
-      "excerpt": "Argostoli developed into one of the busiest ports in Greece, leading to prosperity and growth. The municipality has an area of 377.0."
-    },
-    {
-      "blockId": "landing-overrides:port:ashdod-israel:description",
-      "entitySlug": "ashdod-israel",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Ashdod is the sixth-largest city in Israel.\n\nAshdod's port is the largest in Israel, handling 60% of the country's imported goods."
-    },
-    {
-      "blockId": "landing-overrides:port:ashdod-israel:highlight:0",
-      "entitySlug": "ashdod-israel",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Ashdod is the sixth-largest city in Israel."
-    },
-    {
-      "blockId": "landing-overrides:port:ashdod-israel:highlight:1",
-      "entitySlug": "ashdod-israel",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Ashdod's port is the largest in Israel, handling 60% of the country's imported goods."
-    },
-    {
-      "blockId": "landing-overrides:port:beirut-lebanon:highlight:0",
-      "entitySlug": "beirut-lebanon",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Beirut is the capital and largest city of Lebanon."
-    },
-    {
-      "blockId": "landing-overrides:port:beirut-lebanon:highlight:1",
-      "entitySlug": "beirut-lebanon",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "As of 2025, Greater Beirut has a population of 2.4 million, just under half of Lebanon's population, which makes it the twelfth-largest."
-    },
-    {
-      "blockId": "landing-overrides:port:bergen-norway:description",
-      "entitySlug": "bergen-norway",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bergen is a city and municipality in the Vestland county on the west coast of Norway.\n\nBergen is the second-largest city in Norway after the"
-    },
-    {
-      "blockId": "landing-overrides:port:bergen-norway:highlight:0",
-      "entitySlug": "bergen-norway",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bergen is a city and municipality in the Vestland county on the west coast of Norway."
-    },
-    {
-      "blockId": "landing-overrides:port:bergen-norway:highlight:1",
-      "entitySlug": "bergen-norway",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bergen is the second-largest city in Norway after the capital, Oslo."
-    },
-    {
-      "blockId": "landing-overrides:port:bergen-norway:highlight:2",
-      "entitySlug": "bergen-norway",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bergen (.mw-parser-output .IPA-label-small{font-size:85%}.mw-parser-output .references .IPA-label-small,.mw-parser-output .infobox .IPA-labe"
-    },
-    {
-      "blockId": "landing-overrides:port:bilbao-spain:highlight:0",
-      "entitySlug": "bilbao-spain",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bilbao or Bilbo is a city in northern Spain, the largest city in the province of Biscay and in the autonomous community."
-    },
-    {
-      "blockId": "landing-overrides:port:bilbao-spain:highlight:1",
-      "entitySlug": "bilbao-spain",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "The Bilbao metropolitan area has 1,037,847 inhabitants, making it the most populous metropolitan area in northern Spain."
-    },
-    {
-      "blockId": "landing-overrides:port:bilbao-spain:highlight:2",
-      "entitySlug": "bilbao-spain",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "The comarca of Greater Bilbao is the fifth-largest urban area in Spain."
-    },
-    {
-      "blockId": "landing-overrides:port:bimini-bahamas:highlight:0",
-      "entitySlug": "bimini-bahamas",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bimini is the westernmost district of the Bahamas and comprises a chain of islands located about 80 kilometres (50 mi) due east."
-    },
-    {
-      "blockId": "landing-overrides:port:bimini-bahamas:highlight:1",
-      "entitySlug": "bimini-bahamas",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bimini is the closest point in the Bahamas to the mainland United States and approximately 210 km (130 mi) west-northwest of Nassau."
-    },
-    {
-      "blockId": "landing-overrides:port:bimini-bahamas:highlight:2",
-      "entitySlug": "bimini-bahamas",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Bimini /ˈbɪmɪniː/ is the westernmost district of the Bahamas and comprises a chain of islands located about 80 kilometres (50 mi) due."
-    },
-    {
-      "blockId": "landing-overrides:port:boston-ma-united-states:highlight:0",
-      "entitySlug": "boston-ma-united-states",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Boston has an area of 48.4 sq mi (125 km2) and a population of 675,647 as of the 2020 census, making it."
-    },
-    {
-      "blockId": "landing-overrides:port:boston-ma-united-states:highlight:1",
-      "entitySlug": "boston-ma-united-states",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "The larger Greater Boston metropolitan statistical area had a population of 4.9 million in 2023, making it the largest metropolitan area in."
-    },
-    {
-      "blockId": "landing-overrides:port:brisbane-australia:highlight:0",
-      "entitySlug": "brisbane-australia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Brisbane is the capital and largest city of the Australian state of Queensland and the third-most populous city in Australia, with a."
-    },
-    {
-      "blockId": "landing-overrides:port:brisbane-australia:highlight:1",
-      "entitySlug": "brisbane-australia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "The City of Brisbane LGA forms the inner area of Greater Brisbane, and is the most populous local government area in Australia."
-    },
-    {
-      "blockId": "landing-overrides:port:buenos-aires-argentina:highlight:0",
-      "entitySlug": "buenos-aires-argentina",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Buenos Aires, officially the Autonomous City of Buenos Aires, is the capital and largest city of Argentina."
-    },
-    {
-      "blockId": "landing-overrides:port:buenos-aires-argentina:highlight:1",
-      "entitySlug": "buenos-aires-argentina",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Buenos Aires is classified as an Alpha− global city, according to the GaWC 2024 ranking."
-    },
-    {
-      "blockId": "landing-overrides:port:buenos-aires-argentina:highlight:2",
-      "entitySlug": "buenos-aires-argentina",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Buenos Aires,[c] officially the Autonomous City of Buenos Aires,[d] is the capital and largest city of Argentina. It is located on the."
-    },
-    {
-      "blockId": "landing-overrides:port:cabo-san-lucas-mexico:highlight:0",
-      "entitySlug": "cabo-san-lucas-mexico",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Cabo San Lucas, also known simply as Cabo, is a resort city at the southern tip of the Baja California peninsula, in."
-    },
-    {
-      "blockId": "landing-overrides:port:cabo-san-lucas-mexico:highlight:1",
-      "entitySlug": "cabo-san-lucas-mexico",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Cabo San Lucas and the neighboring San José del Cabo are collectively known as Los Cabos."
-    },
-    {
-      "blockId": "landing-overrides:port:cabo-san-lucas-mexico:highlight:2",
-      "entitySlug": "cabo-san-lucas-mexico",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Rated as one of Mexico's top tourist destinations,[6] Cabo San Lucas is known for its beaches, scuba diving locations, Balnearios, the sea."
-    },
-    {
-      "blockId": "landing-overrides:port:cagliari-italy:highlight:0",
-      "entitySlug": "cagliari-italy",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Cagliari is a municipality and the capital and largest city of the island of Sardinia, an autonomous region of Italy."
-    },
-    {
-      "blockId": "landing-overrides:port:cagliari-italy:highlight:1",
-      "entitySlug": "cagliari-italy",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "According to Eurostat, the population of the functional urban area, the commuting zone of Cagliari, rises to 476,975."
-    },
-    {
-      "blockId": "landing-overrides:port:cagliari-italy:highlight:2",
-      "entitySlug": "cagliari-italy",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Cagliari is the 27th largest city in Italy."
-    },
-    {
-      "blockId": "landing-overrides:port:cairns-australia:highlight:0",
-      "entitySlug": "cairns-australia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Cairns is a city in the Cairns Region, Queensland, Australia, on the tropical northeast coast of Far North Queensland."
-    },
-    {
-      "blockId": "landing-overrides:port:cairns-australia:highlight:1",
-      "entitySlug": "cairns-australia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Cairns (/ˈkɛərnz/ ⓘ KAIRNZ; Yidiny: Gimuy) is a city in the Cairns Region, Queensland, Australia,[3] on the tropical northeast coast of Far."
-    },
-    {
-      "blockId": "landing-overrides:port:chennai-india:highlight:0",
-      "entitySlug": "chennai-india",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Chennai, also known as Madras, is the capital and largest city of Tamil Nadu, the southernmost state of India."
-    },
-    {
-      "blockId": "landing-overrides:port:chennai-india:highlight:1",
-      "entitySlug": "chennai-india",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "As per the 2011 Indian census, Chennai is the sixth-most-populous city in India and forms the fourth-most-populous urban agglomeration."
-    },
-    {
-      "blockId": "landing-overrides:port:chennai-india:highlight:2",
-      "entitySlug": "chennai-india",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "The city is coterminous with Chennai district, which together with the adjoining suburbs constitutes the Chennai Metropolitan Area, one of t"
-    },
-    {
-      "blockId": "landing-overrides:port:cochin-india:highlight:0",
-      "entitySlug": "cochin-india",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Kochi, formerly known as Cochin, is a major port city along the Malabar Coast of India bordering the Laccadive Sea."
-    },
-    {
-      "blockId": "landing-overrides:port:cochin-india:highlight:1",
-      "entitySlug": "cochin-india",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Kochi city is also part of the Greater Cochin development region and is classified as a Tier-II city by the Government of."
-    },
-    {
-      "blockId": "landing-overrides:port:crotone-italy:highlight:0",
-      "entitySlug": "crotone-italy",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Crotone is a city and comune in Calabria, Italy."
-    },
-    {
-      "blockId": "landing-overrides:port:crotone-italy:highlight:1",
-      "entitySlug": "crotone-italy",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Crotone (/kroʊˈtoʊneɪ, krəˈ-/; .mw-parser-output .IPA-label-small{font-size:85%}.mw-parser-output .references .IPA-label-small,.mw-parser-ou"
-    },
-    {
-      "blockId": "landing-overrides:port:dammam-saudi-arabia:highlight:0",
-      "entitySlug": "dammam-saudi-arabia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dammam is an industrial port city and the seat of the Eastern Province of Saudi Arabia."
-    },
-    {
-      "blockId": "landing-overrides:port:dammam-saudi-arabia:highlight:1",
-      "entitySlug": "dammam-saudi-arabia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dammam forms the core of the Dammam metropolitan area, also known as Greater Dammam, which includes the neighboring governorates of Khobar a"
-    },
-    {
-      "blockId": "landing-overrides:port:doha-qatar:highlight:0",
-      "entitySlug": "doha-qatar",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Doha is the capital city and main financial hub of Qatar."
-    },
-    {
-      "blockId": "landing-overrides:port:doha-qatar:highlight:1",
-      "entitySlug": "doha-qatar",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "It is also Qatar's fastest growing city and over 80% of the nation's population live in Doha or its surrounding suburbs, which."
-    },
-    {
-      "blockId": "landing-overrides:port:dubai-united-arab-emirates:highlight:0",
-      "entitySlug": "dubai-united-arab-emirates",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dubai is the most populous city in the United Arab Emirates and the capital of the Emirate of Dubai."
-    },
-    {
-      "blockId": "landing-overrides:port:dubai-united-arab-emirates:highlight:1",
-      "entitySlug": "dubai-united-arab-emirates",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dubai[a] is the most populous city in the United Arab Emirates and the capital of the Emirate of Dubai.[10] It is on."
-    },
-    {
-      "blockId": "landing-overrides:port:dubrovnik-croatia:highlight:0",
-      "entitySlug": "dubrovnik-croatia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dubrovnik, historically also known as Ragusa, is a city in southern Dalmatia, Croatia, by the Adriatic Sea."
-    },
-    {
-      "blockId": "landing-overrides:port:dubrovnik-croatia:highlight:1",
-      "entitySlug": "dubrovnik-croatia",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dubrovnik,[a] historically also known as Ragusa,[b] is a city in southern Dalmatia, Croatia, by the Adriatic Sea. It is one of the."
-    },
-    {
-      "blockId": "landing-overrides:port:dunedin-new-zealand:highlight:0",
-      "entitySlug": "dunedin-new-zealand",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dunedin is the second-most populous city in the South Island of New Zealand, and the principal city of the Otago region."
-    },
-    {
-      "blockId": "landing-overrides:port:dunedin-new-zealand:highlight:1",
-      "entitySlug": "dunedin-new-zealand",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Dunedin (/dʌˈniːdɪn/ ⓘ dun-EE-din;[10][a] Māori: Ōtepoti) is the second-most populous city in the South Island of New Zealand (after Christc"
-    },
-    {
-      "blockId": "landing-overrides:port:ensenada-mexico:highlight:0",
-      "entitySlug": "ensenada-mexico",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Ensenada is a city in Ensenada Municipality, Baja California, situated on the Pacific Coast of Mexico."
-    },
-    {
-      "blockId": "landing-overrides:port:ensenada-mexico:highlight:1",
-      "entitySlug": "ensenada-mexico",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "The city is an important international trade center and home to the Port of Ensenada, the second-busiest port in Mexico."
-    },
-    {
-      "blockId": "landing-overrides:port:falmouth-jamaica:highlight:0",
-      "entitySlug": "falmouth-jamaica",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Falmouth is the chief town and capital of the parish of Trelawny in Jamaica."
-    },
-    {
-      "blockId": "landing-overrides:port:falmouth-jamaica:highlight:1",
-      "entitySlug": "falmouth-jamaica",
-      "kind": "port",
-      "issues": [
-        "too-short"
-      ],
-      "excerpt": "Falmouth (Jamaican Patois: Falmot) is the chief town and capital of the parish of Trelawny in Jamaica. It is situated on Jamaica's."
+      "excerpt": "AIDAnova is a cruise ship built by Meyer Werft GmbH in Papenburg, Germany under contract from Carnival Corporation for AIDA Cruises.\n\nAIDANo"
     }
   ],
-  "repeatedParagraphKeys": 20
+  "repeatedParagraphKeys": 162
 }
