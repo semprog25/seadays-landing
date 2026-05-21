@@ -256,6 +256,7 @@ function buildSeoShipRecords(rawList) {
     const image_url = raw.image_url || raw.imageUrl || raw.thumbnailUrl || raw.photoUrl || '';
     const rating = pickFirstFiniteNumber(raw.rating, raw.avgRating, raw.averageRating, raw.stars);
     const reviewCount = parseOptionalInt(raw.reviewCount ?? raw.reviewsCount ?? raw.totalReviews ?? raw.count);
+    const metaDescription = raw.metaDescription || raw.meta_description || '';
     out.push({
       id,
       slug,
@@ -266,6 +267,7 @@ function buildSeoShipRecords(rawList) {
       image_url: String(image_url).trim(),
       shipClass: raw.shipClass || raw.class || raw.type || '',
       experience: raw.experience || raw.vibe || '',
+      metaDescription: String(metaDescription).trim(),
       rating,
       reviewCount,
     });
@@ -296,6 +298,7 @@ function buildSeoPortRecords(rawList) {
     const reviewCount = parseOptionalInt(raw.reviewCount ?? raw.reviewsCount ?? raw.totalReviews ?? raw.count);
     const latitude = pickFirstFiniteNumber(raw.latitude, raw.lat, raw?.geo?.latitude);
     const longitude = pickFirstFiniteNumber(raw.longitude, raw.lng, raw.lon, raw?.geo?.longitude);
+    const metaDescription = raw.metaDescription || raw.meta_description || '';
     out.push({
       id,
       slug,
@@ -306,6 +309,7 @@ function buildSeoPortRecords(rawList) {
       image_url: String(image_url).trim(),
       region,
       popularMonths,
+      metaDescription: String(metaDescription).trim(),
       rating,
       reviewCount,
       latitude: latitude ?? undefined,
@@ -474,6 +478,8 @@ function pickBlogArticlesForEntity(articles, entityTokens, max = 2) {
 }
 
 function buildShipMetaDescription(ship) {
+  const custom = ship.metaDescription && String(ship.metaDescription).trim();
+  if (custom) return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
   const line = ship.cruise_line;
   const cls = ship.shipClass || 'cruise ship';
   const raw = `${ship.name} (${line}): ${cls} review for 2026—onboard experience, who it fits, highlights & SeaDays planning links.`;
@@ -481,6 +487,8 @@ function buildShipMetaDescription(ship) {
 }
 
 function buildPortMetaDescription(port, h1) {
+  const custom = port.metaDescription && String(port.metaDescription).trim();
+  if (custom) return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
   const c = port.country ? `${port.name} (${port.country})` : port.name;
   const raw = `${c} cruise port: shore tips, best time to visit, cruise relevance & things to do—SeaDays guide.`;
   return raw.length <= 160 ? raw : raw.slice(0, 157) + '…';

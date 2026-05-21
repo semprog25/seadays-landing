@@ -47,6 +47,11 @@ const {
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const {
+  loadLandingCruiseContentOverrides,
+  applyShipContentOverride,
+  applyPortContentOverride,
+} = require('./lib/landingCruiseContentOverrides');
+const {
   getAppRepoRoot,
   buildShipSlugToReviewKeyMap,
   buildPortSlugToReviewKeyMap,
@@ -2768,13 +2773,22 @@ async function main() {
     return reviewByPortId.get(s) || reviewByPortId.get(portSlugToReviewKey.get(s) || '') || null;
   }
 
+  const cruiseContentOverrides = loadLandingCruiseContentOverrides();
+  const overrideShipCount = Object.keys(cruiseContentOverrides.ships || {}).length;
+  const overridePortCount = Object.keys(cruiseContentOverrides.ports || {}).length;
+  if (overrideShipCount || overridePortCount) {
+    console.log(
+      `[generateBlogs] landing cruise content overrides: ${overrideShipCount} ships, ${overridePortCount} ports`
+    );
+  }
+
   const fullShipRawList = (Array.isArray(APP_ALL_SHIPS) && APP_ALL_SHIPS.length ? APP_ALL_SHIPS : FALLBACK_SHIP_GRID).map((s) => {
     const slug = String(s.slug || '').trim() || slugify(s.name || 'ship');
     const agg = pickShipReviewAggregate(slug);
     const ratingVal = agg?.rating;
     const rating = typeof ratingVal === 'number' && ratingVal > 0 ? ratingVal : null;
     const reviewCount = typeof agg?.reviewCount === 'number' ? agg.reviewCount : null;
-    return {
+    const base = {
       id: slug,
       slug,
       name: s.name || slug,
@@ -2784,6 +2798,7 @@ async function main() {
       rating,
       reviewCount,
     };
+    return applyShipContentOverride(base, cruiseContentOverrides.ships[slug]);
   });
 
   const fullPortRawList = (Array.isArray(APP_ALL_PORTS) && APP_ALL_PORTS.length ? APP_ALL_PORTS : FALLBACK_PORT_GRID).map((p) => {
@@ -2797,7 +2812,7 @@ async function main() {
     const ratingVal = agg?.rating;
     const rating = typeof ratingVal === 'number' && ratingVal > 0 ? ratingVal : null;
     const reviewCount = typeof agg?.reviewCount === 'number' ? agg.reviewCount : null;
-    return {
+    const base = {
       id: slug,
       slug,
       portName,
@@ -2808,6 +2823,7 @@ async function main() {
       rating,
       reviewCount,
     };
+    return applyPortContentOverride(base, cruiseContentOverrides.ports[slug]);
   });
 
   const seoShips = buildSeoShipRecords(fullShipRawList);
