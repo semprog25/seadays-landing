@@ -2845,8 +2845,15 @@ async function main() {
     fs.mkdirSync(dir, { recursive: true });
     const relShips = pickRelatedShips(seoShips, ship, 5);
     const destPorts = pickPortsForShipPage(seoPorts, ship, 2);
-    const tokens = [ship.name, ship.cruise_line, ...ship.name.split(/\s+/).filter((w) => w.length > 3)];
-    const blogs = pickBlogArticlesForEntity(articles, tokens, 2);
+    const tokens = [
+      ship.name,
+      ship.slug,
+      ship.cruise_line,
+      ship.shipClass,
+      'cruise ship',
+      ...ship.name.split(/\s+/).filter((w) => w.length > 3),
+    ];
+    const blogs = pickBlogArticlesForEntity(articles, tokens, 6);
     fs.writeFileSync(path.join(dir, 'index.html'), buildShipDetailHtml(ship, relShips, destPorts, blogs, spOpts), 'utf8');
   }
   for (const port of seoPorts) {
@@ -2854,8 +2861,16 @@ async function main() {
     fs.mkdirSync(dir, { recursive: true });
     const relPorts = pickRelatedPorts(seoPorts, port, 5);
     const destShips = pickShipsForPortPage(seoShips, port, 4);
-    const tokens = [port.name, port.country, ...port.name.split(/\s+/).filter((w) => w.length > 2)];
-    const blogs = pickBlogArticlesForEntity(articles, tokens, 2);
+    const tokens = [
+      port.name,
+      port.slug,
+      port.country,
+      port.region,
+      'cruise port',
+      'shore day',
+      ...port.name.split(/\s+/).filter((w) => w.length > 2),
+    ];
+    const blogs = pickBlogArticlesForEntity(articles, tokens, 6);
     fs.writeFileSync(path.join(dir, 'index.html'), buildPortDetailHtml(port, relPorts, destShips, blogs, spOpts), 'utf8');
   }
 

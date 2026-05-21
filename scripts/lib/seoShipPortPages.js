@@ -548,13 +548,50 @@ function pickShipsForPortPage(allShips, port, max = 4) {
 }
 
 function pickBlogArticlesForEntity(articles, entityTokens, max = 2) {
-  const tokens = entityTokens.filter((t) => t && t.length > 2).slice(0, 8);
+  const rawTokens = entityTokens
+    .map((t) => String(t || '').trim())
+    .filter(Boolean);
+  const priorityTokens = rawTokens.slice(0, 4)
+    .map((t) => t.toLowerCase().replace(/[^\w\s-]/g, '').trim())
+    .filter((t) => t && t.length > 2);
+  const genericTokens = new Set(['cruise', 'cruises', 'ship', 'ships', 'port', 'ports', 'shore', 'day', 'days', 'guide']);
+  const tokens = rawTokens
+    .flatMap((t) => [t, ...t.split(/\s+/)])
+    .map((t) => String(t || '').toLowerCase().replace(/[^\w\s-]/g, '').trim())
+    .filter((t) => t && t.length > 2)
+    .slice(0, 18);
   const scored = articles
     .map((a) => {
-      const blob = `${a.title || ''} ${a.excerpt || ''}`.toLowerCase();
+      const tags = (a.tags || [])
+        .map((t) => (typeof t === 'string' ? t : String(t?.name || '')))
+        .join(' ');
+      const keywords = Array.isArray(a.keywords) ? a.keywords.join(' ') : '';
+      const blob = [
+        a.title,
+        a.slug,
+        a.excerpt,
+        a.seoTitle,
+        a.seoDescription,
+        a.metaDescription,
+        tags,
+        keywords,
+      ].join(' ').toLowerCase();
       let score = 0;
-      for (const t of tokens) if (blob.includes(t.toLowerCase())) score += 2;
-      if (blob.includes('cruise')) score += 1;
+      for (const token of priorityTokens) {
+        if (!token || genericTokens.has(token)) continue;
+        if (blob.includes(token)) score += token.includes(' ') || token.includes('-') ? 60 : 45;
+        if ((a.slug || '').toLowerCase().includes(token.replace(/\s+/g, '-'))) score += 35;
+      }
+      for (const t of tokens) {
+        if (!t) continue;
+        const token = t.toLowerCase();
+        if (genericTokens.has(token)) {
+          if (blob.includes(token)) score += 1;
+          continue;
+        }
+        if (blob.includes(token)) score += token.includes(' ') ? 8 : 3;
+        if ((a.slug || '').toLowerCase().includes(token.replace(/\s+/g, '-'))) score += 5;
+      }
       return { a, score };
     })
     .filter((x) => x.score > 0)
@@ -576,6 +613,58 @@ function pickBlogArticlesForEntity(articles, entityTokens, max = 2) {
     }
   }
   return out.slice(0, max);
+}
+
+function isUsableArticleImage(url) {
+  const s = String(url || '').trim();
+  if (!s) return false;
+  if (/data:image\/svg/i.test(s)) return false;
+  if (/\.svg(?:[?#]|$)/i.test(s)) return false;
+  return /^https?:\/\//i.test(s);
+}
+
+function pickArticleImage(article) {
+  if (isUsableArticleImage(article.thumbnailUrl)) return article.thumbnailUrl;
+  if (isUsableArticleImage(article.heroImageUrl)) return article.heroImageUrl;
+  return '';
+}
+
+function buildArticleCards(articles, label = 'Read more') {
+  const cards = articles
+    .filter((a) => a && a.slug)
+    .slice(0, 6)
+    .map((a, i) => {
+      const img = pickArticleImage(a);
+      const visual = img
+        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" loading="lazy" decoding="async">`
+        : `<div class="seo-article-fallback seo-article-fallback-${(i % 4) + 1}"><span>${escapeHtml(label)}</span></div>`;
+      const excerpt = trimWords(String(a.excerpt || a.seoDescription || a.metaDescription || 'Cruise planning guide from SeaDays.').replace(/\s+/g, ' ').trim(), 20);
+      return `<a class="seo-article-card" href="/blog/${escapeHtml(a.slug)}/">${visual}<span class="seo-article-kicker">${escapeHtml(label)}</span><strong>${escapeHtml(a.title || 'SeaDays guide')}</strong><small>${escapeHtml(excerpt)}</small></a>`;
+    })
+    .join('');
+  return cards ? `<div class="seo-article-grid">${cards}</div>` : '';
+}
+
+function buildFunVisualPanel(kind, entity, relatedArticles) {
+  const firstArticle = relatedArticles.find((a) => pickArticleImage(a));
+  const articleImg = firstArticle ? pickArticleImage(firstArticle) : '';
+  const label = kind === 'ship' ? 'Ship planning snapshot' : 'Port day snapshot';
+  const title = kind === 'ship'
+    ? `${entity.name} at a glance`
+    : `${entity.name} shore-day mood`;
+  const statOne = kind === 'ship' ? entity.cruise_line : (entity.country || entity.region || 'Cruise port');
+  const statTwo = kind === 'ship' ? (entity.shipClass || 'Cruise ship') : (entity.region || 'Shore day');
+  const visual = articleImg
+    ? `<img class="seo-visual-img" src="${escapeHtml(articleImg)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async">`
+    : `<div class="seo-visual-art"><span></span><span></span><span></span></div>`;
+  return `<section class="seo-visual-panel" aria-label="${escapeHtml(label)}">
+    ${visual}
+    <div class="seo-visual-copy">
+      <p>${escapeHtml(label)}</p>
+      <strong>${escapeHtml(title)}</strong>
+      <div class="seo-visual-pills"><span>${escapeHtml(statOne)}</span><span>${escapeHtml(statTwo)}</span><span>SeaDays guide</span></div>
+    </div>
+  </section>`;
 }
 
 function buildShipMetaDescription(ship) {
@@ -650,9 +739,34 @@ const PAGE_STYLES = `
 .seo-cross-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .seo-cross-list a:hover { text-decoration: underline; }
 .seo-hero-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 16px; margin: 0 0 28px; background: rgba(255,255,255,0.06); }
+.seo-visual-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 0.8fr); gap: 18px; align-items: stretch; margin: 22px 0 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; background: radial-gradient(circle at top left, rgba(255,0,51,0.22), transparent 42%), linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
+.seo-visual-img { width: 100%; height: 230px; object-fit: cover; min-height: 100%; }
+.seo-visual-art { position: relative; min-height: 230px; background: linear-gradient(135deg, rgba(255,0,51,0.35), rgba(0,194,255,0.2)), radial-gradient(circle at 72% 30%, rgba(255,255,255,0.45), transparent 9%), radial-gradient(circle at 18% 76%, rgba(255,255,255,0.22), transparent 12%); overflow: hidden; }
+.seo-visual-art span { position: absolute; display: block; border-radius: 999px; border: 1px solid rgba(255,255,255,0.28); }
+.seo-visual-art span:nth-child(1) { width: 170px; height: 170px; left: -42px; bottom: -60px; }
+.seo-visual-art span:nth-child(2) { width: 110px; height: 110px; right: 24px; top: 28px; }
+.seo-visual-art span:nth-child(3) { width: 260px; height: 70px; right: -70px; bottom: 34px; transform: rotate(-12deg); }
+.seo-visual-copy { padding: 24px 24px 24px 0; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.seo-visual-copy p { margin: 0; color: var(--neon-red); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+.seo-visual-copy strong { color: #fff; font-size: 26px; line-height: 1.12; }
+.seo-visual-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.seo-visual-pills span { display: inline-flex; border-radius: 999px; padding: 7px 10px; color: rgba(255,255,255,0.82); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); font-size: 12px; }
+.seo-article-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 14px 0 30px; }
+.seo-article-card { display: grid; gap: 9px; min-height: 100%; overflow: hidden; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.055); text-decoration: none; color: #fff; box-shadow: 0 14px 35px rgba(0,0,0,0.2); transition: transform 0.18s ease, border-color 0.18s ease; }
+.seo-article-card:hover { transform: translateY(-2px); border-color: rgba(255,0,51,0.48); }
+.seo-article-img, .seo-article-fallback { width: 100%; height: 150px; object-fit: cover; background: rgba(255,255,255,0.08); }
+.seo-article-fallback { display: flex; align-items: end; padding: 14px; background: linear-gradient(135deg, rgba(255,0,51,0.42), rgba(0,194,255,0.24)); }
+.seo-article-fallback-2 { background: linear-gradient(135deg, rgba(0,194,255,0.34), rgba(255,184,0,0.26)); }
+.seo-article-fallback-3 { background: linear-gradient(135deg, rgba(126,87,194,0.42), rgba(255,0,51,0.28)); }
+.seo-article-fallback-4 { background: linear-gradient(135deg, rgba(0,184,148,0.34), rgba(255,0,51,0.3)); }
+.seo-article-fallback span, .seo-article-kicker { color: var(--neon-red); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.seo-article-kicker, .seo-article-card strong, .seo-article-card small { margin-left: 14px; margin-right: 14px; }
+.seo-article-card strong { font-size: 15px; line-height: 1.25; }
+.seo-article-card small { color: rgba(255,255,255,0.66); line-height: 1.45; padding-bottom: 16px; }
 .seo-inline-more a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .seo-inline-more a:hover { text-decoration: underline; }
 .header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
+@media (max-width: 720px) { .seo-visual-panel, .seo-article-grid { grid-template-columns: 1fr; } .seo-visual-copy { padding: 0 20px 22px; } .seo-visual-img, .seo-visual-art { min-height: 190px; height: 190px; } }
 `;
 
 function buildDirectoryHeaderNav() {
@@ -684,7 +798,8 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
 
   const shipPick = relatedShips.slice(0, 4);
   const portPick = relatedPorts.slice(0, 2);
-  const blogPick = blogArticles.slice(0, 2);
+  const blogPick = blogArticles.slice(0, 6);
+  const visualPanel = buildFunVisualPanel('ship', ship, blogPick);
 
   const relatedShipLinks = shipPick
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a></li>`)
@@ -692,9 +807,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const relatedPortLinks = portPick
     .map((p) => `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(p.name)}${p.country ? `, ${escapeHtml(p.country)}` : ''}</a></li>`)
     .join('');
-  const blogLinks = blogPick
-    .map((a) => `<li><a href="/blog/${escapeHtml(a.slug)}/">${escapeHtml(a.title || 'Article')}</a></li>`)
-    .join('');
+  const blogCards = buildArticleCards(blogPick, 'Ship guide');
 
   const bodyForLd = `${triple.overview} ${triple.experience} ${triple.audience}`;
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
@@ -749,6 +862,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
       ${heroImg}
       <h1>${escapeHtml(ship.name)}</h1>
       <p class="lead">${escapeHtml(ship.cruise_line)} · ${escapeHtml(shipClass)}</p>
+      ${visualPanel}
       <h2>Overview</h2>
       <article class="seo-body">
         ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
@@ -773,7 +887,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
       </ul>
       ${moreOnSeaDaysInline()}
       <h2>More reading</h2>
-      <ul class="seo-cross-list">${blogLinks || '<li><a href="/blog/">SeaDays blog</a></li>'}</ul>
+      ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
     </main>
     <footer class="footer">
       <div class="container">
@@ -818,7 +932,8 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
 
   const portPick = relatedPorts.slice(0, 2);
   const shipPick = relatedShips.slice(0, 4);
-  const blogPick = blogArticles.slice(0, 2);
+  const blogPick = blogArticles.slice(0, 6);
+  const visualPanel = buildFunVisualPanel('port', port, blogPick);
 
   const relatedPortLinks = portPick
     .map((p) => `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(p.name)}${p.country ? `, ${escapeHtml(p.country)}` : ''}</a></li>`)
@@ -826,9 +941,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const relatedShipLinks = shipPick
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a> <span style="color:rgba(255,255,255,0.45)">(${escapeHtml(s.cruise_line)})</span></li>`)
     .join('');
-  const blogLinks = blogPick
-    .map((a) => `<li><a href="/blog/${escapeHtml(a.slug)}/">${escapeHtml(a.title || 'Article')}</a></li>`)
-    .join('');
+  const blogCards = buildArticleCards(blogPick, 'Port guide');
 
   const bodyForLd = `${prose.overview} ${prose.whatToDo} ${prose.cruiseRelevance}`;
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
@@ -889,6 +1002,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       ${heroImg}
       <h1>${escapeHtml(h1)}</h1>
       <p class="lead">${escapeHtml(port.region || 'Cruise destination')}</p>
+      ${visualPanel}
       <h2>Overview</h2>
       <article class="seo-body">
         ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
@@ -908,7 +1022,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       <ul class="seo-cross-list">${relatedShipLinks || '<li><a href="/ships/">Browse ships</a></li>'}</ul>
       ${moreOnSeaDaysInline()}
       <h2>More reading</h2>
-      <ul class="seo-cross-list">${blogLinks || '<li><a href="/blog/">SeaDays blog</a></li>'}</ul>
+      ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
     </main>
     <footer class="footer">
       <div class="container">
