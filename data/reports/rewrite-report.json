@@ -1,29 +1,33 @@
 {
-  "generatedAt": "2026-05-21T22:13:27.379Z",
+  "generatedAt": "2026-05-21T22:56:41.320Z",
   "dryRun": false,
   "model": "available-agent-facts-only",
-  "processed": 608,
-  "succeeded": 237,
+  "processed": 371,
+  "succeeded": 33,
   "failed": 0,
-  "skipped": 371,
+  "skipped": 338,
   "entries": [
     {
       "kind": "ship",
       "slug": "a-rosa-flora",
       "name": "A-ROSA Flora",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.703,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
       "slug": "a-rosa-river-fleet",
       "name": "A-ROSA River Fleet",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.298,
+      "sourcesUsed": [],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -32,69 +36,14 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "adventure-of-the-seas",
-      "name": "Adventure of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.801,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "aidabella",
-      "name": "AIDAbella",
-      "status": "ok",
-      "confidenceScore": 0.776,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "aidablu",
-      "name": "AIDAblu",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
       "slug": "aidacosma",
       "name": "AIDACosma",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "aidadiva",
-      "name": "AIDAdiva",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "aidaluna",
-      "name": "AIDAluna",
       "status": "ok",
-      "confidenceScore": 0.798,
+      "confidenceScore": 0.694,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -103,10 +52,10 @@
     },
     {
       "kind": "ship",
-      "slug": "aidamar",
-      "name": "AIDAmar",
+      "slug": "aidadiva",
+      "name": "AIDAdiva",
       "status": "ok",
-      "confidenceScore": 0.769,
+      "confidenceScore": 0.725,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -117,35 +66,8 @@
       "kind": "ship",
       "slug": "aidanova",
       "name": "AIDANova",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "aidaperla",
-      "name": "AIDAPerla",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "aidaprima",
-      "name": "AIDAPrima",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "aidasol",
-      "name": "AIDAsol",
       "status": "ok",
-      "confidenceScore": 0.786,
+      "confidenceScore": 0.704,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -154,10 +76,22 @@
     },
     {
       "kind": "ship",
-      "slug": "aidastella",
-      "name": "AIDAstella",
+      "slug": "aidaperla",
+      "name": "AIDAPerla",
       "status": "ok",
-      "confidenceScore": 0.769,
+      "confidenceScore": 0.703,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
+      "fillerHitsBefore": 0,
+      "duplicateRefsBefore": 0
+    },
+    {
+      "kind": "ship",
+      "slug": "aidaprima",
+      "name": "AIDAPrima",
+      "status": "ok",
+      "confidenceScore": 0.705,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -168,33 +102,10 @@
       "kind": "ship",
       "slug": "albatros",
       "name": "Albatros",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "allure-of-the-seas",
-      "name": "Allure of the Seas",
       "status": "ok",
-      "confidenceScore": 0.83,
+      "confidenceScore": 0.681,
       "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "anthem-of-the-seas",
-      "name": "Anthem of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.792,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
+        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
@@ -224,7 +135,7 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -234,18 +145,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "aurora",
-      "name": "Aurora",
-      "status": "ok",
-      "confidenceScore": 0.8,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -296,17 +195,8 @@
       "kind": "ship",
       "slug": "balmoral",
       "name": "Balmoral",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "bolette",
-      "name": "Bolette",
       "status": "ok",
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.744,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -317,20 +207,10 @@
       "kind": "ship",
       "slug": "borealis",
       "name": "Borealis",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "brilliance-of-the-seas",
-      "name": "Brilliance of the Seas",
       "status": "ok",
-      "confidenceScore": 0.805,
+      "confidenceScore": 0.677,
       "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
+        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
@@ -346,18 +226,6 @@
     },
     {
       "kind": "ship",
-      "slug": "britannia",
-      "name": "Britannia",
-      "status": "ok",
-      "confidenceScore": 0.772,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "caribbean-princess",
       "name": "Caribbean Princess",
       "status": "skipped",
@@ -367,331 +235,10 @@
     },
     {
       "kind": "ship",
-      "slug": "carnival-breeze",
-      "name": "Carnival Breeze",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-celebration",
-      "name": "Carnival Celebration",
-      "status": "ok",
-      "confidenceScore": 0.851,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-conquest",
-      "name": "Carnival Conquest",
-      "status": "ok",
-      "confidenceScore": 0.825,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-dream",
-      "name": "Carnival Dream",
-      "status": "ok",
-      "confidenceScore": 0.813,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-elation",
-      "name": "Carnival Elation",
-      "status": "ok",
-      "confidenceScore": 0.825,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-firenze",
-      "name": "Carnival Firenze",
-      "status": "ok",
-      "confidenceScore": 0.828,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-freedom",
-      "name": "Carnival Freedom",
-      "status": "ok",
-      "confidenceScore": 0.797,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-glory",
-      "name": "Carnival Glory",
-      "status": "ok",
-      "confidenceScore": 0.798,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-horizon",
-      "name": "Carnival Horizon",
-      "status": "ok",
-      "confidenceScore": 0.799,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-jubilee",
-      "name": "Carnival Jubilee",
-      "status": "ok",
-      "confidenceScore": 0.848,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-legend",
-      "name": "Carnival Legend",
-      "status": "ok",
-      "confidenceScore": 0.79,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-liberty",
-      "name": "Carnival Liberty",
-      "status": "ok",
-      "confidenceScore": 0.826,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-luminosa",
-      "name": "Carnival Luminosa",
-      "status": "ok",
-      "confidenceScore": 0.823,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-magic",
-      "name": "Carnival Magic",
-      "status": "ok",
-      "confidenceScore": 0.814,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-miracle",
-      "name": "Carnival Miracle",
-      "status": "ok",
-      "confidenceScore": 0.798,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "carnival-panorama",
       "name": "Carnival Panorama",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-paradise",
-      "name": "Carnival Paradise",
       "status": "ok",
-      "confidenceScore": 0.821,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-pride",
-      "name": "Carnival Pride",
-      "status": "ok",
-      "confidenceScore": 0.78,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-radiance",
-      "name": "Carnival Radiance",
-      "status": "ok",
-      "confidenceScore": 0.842,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-spirit",
-      "name": "Carnival Spirit",
-      "status": "ok",
-      "confidenceScore": 0.823,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-splendor",
-      "name": "Carnival Splendor",
-      "status": "ok",
-      "confidenceScore": 0.841,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-sunrise",
-      "name": "Carnival Sunrise",
-      "status": "ok",
-      "confidenceScore": 0.848,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-sunshine",
-      "name": "Carnival Sunshine",
-      "status": "ok",
-      "confidenceScore": 0.798,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-valor",
-      "name": "Carnival Valor",
-      "status": "ok",
-      "confidenceScore": 0.794,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-venezia",
-      "name": "Carnival Venezia",
-      "status": "ok",
-      "confidenceScore": 0.841,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "carnival-vista",
-      "name": "Carnival Vista",
-      "status": "ok",
-      "confidenceScore": 0.804,
+      "confidenceScore": 0.795,
       "sourcesUsed": [
         "wikipedia",
         "official-cruise-line"
@@ -746,38 +293,16 @@
     },
     {
       "kind": "ship",
-      "slug": "celebrity-edge",
-      "name": "Celebrity Edge",
-      "status": "ok",
-      "confidenceScore": 0.797,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "celebrity-equinox",
-      "name": "Celebrity Equinox",
-      "status": "ok",
-      "confidenceScore": 0.839,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "celebrity-flora",
       "name": "Celebrity Flora",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.734,
+      "sourcesUsed": [
+        "wikipedia",
+        "official-cruise-line"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -799,19 +324,6 @@
     },
     {
       "kind": "ship",
-      "slug": "celebrity-reflection",
-      "name": "Celebrity Reflection",
-      "status": "ok",
-      "confidenceScore": 0.842,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "celebrity-silhouette",
       "name": "Celebrity Silhouette",
       "status": "skipped",
@@ -823,70 +335,11 @@
       "kind": "ship",
       "slug": "celebrity-solstice",
       "name": "Celebrity Solstice",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "celebrity-summit",
-      "name": "Celebrity Summit",
       "status": "ok",
-      "confidenceScore": 0.809,
+      "confidenceScore": 0.773,
       "sourcesUsed": [
         "wikipedia",
         "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "celebrity-xcel",
-      "name": "Celebrity Xcel",
-      "status": "ok",
-      "confidenceScore": 0.823,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "celebrity-xpedition",
-      "name": "Celebrity Xpedition",
-      "status": "ok",
-      "confidenceScore": 0.793,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "celestyal-journey",
-      "name": "Celestyal Journey",
-      "status": "ok",
-      "confidenceScore": 0.797,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "celestyal-olympia",
-      "name": "Celestyal Olympia",
-      "status": "ok",
-      "confidenceScore": 0.792,
-      "sourcesUsed": [
-        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
@@ -902,66 +355,6 @@
     },
     {
       "kind": "ship",
-      "slug": "costa-deliziosa",
-      "name": "Costa Deliziosa",
-      "status": "ok",
-      "confidenceScore": 0.762,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "costa-diadema",
-      "name": "Costa Diadema",
-      "status": "ok",
-      "confidenceScore": 0.751,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "costa-fascinosa",
-      "name": "Costa Fascinosa",
-      "status": "ok",
-      "confidenceScore": 0.785,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "costa-favolosa",
-      "name": "Costa Favolosa",
-      "status": "ok",
-      "confidenceScore": 0.777,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "costa-fortuna",
-      "name": "Costa Fortuna",
-      "status": "ok",
-      "confidenceScore": 0.735,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "costa-pacifica",
       "name": "Costa Pacifica",
       "status": "skipped",
@@ -971,48 +364,12 @@
     },
     {
       "kind": "ship",
-      "slug": "costa-serena",
-      "name": "Costa Serena",
-      "status": "ok",
-      "confidenceScore": 0.777,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "costa-smeralda",
       "name": "Costa Smeralda",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "costa-toscana",
-      "name": "Costa Toscana",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "crown-princess",
-      "name": "Crown Princess",
-      "status": "ok",
-      "confidenceScore": 0.763,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1034,30 +391,6 @@
     },
     {
       "kind": "ship",
-      "slug": "disney-adventure",
-      "name": "Disney Adventure",
-      "status": "ok",
-      "confidenceScore": 0.767,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "disney-dream",
-      "name": "Disney Dream",
-      "status": "ok",
-      "confidenceScore": 0.778,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "disney-fantasy",
       "name": "Disney Fantasy",
       "status": "skipped",
@@ -1067,31 +400,10 @@
     },
     {
       "kind": "ship",
-      "slug": "disney-magic",
-      "name": "Disney Magic",
-      "status": "ok",
-      "confidenceScore": 0.778,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "disney-treasure",
       "name": "Disney Treasure",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "disney-wish",
-      "name": "Disney Wish",
       "status": "ok",
-      "confidenceScore": 0.779,
+      "confidenceScore": 0.735,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -1124,31 +436,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "enchantment-of-the-seas",
-      "name": "Enchantment of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.791,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "eurodam",
-      "name": "Eurodam",
-      "status": "ok",
-      "confidenceScore": 0.757,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1197,38 +484,12 @@
     },
     {
       "kind": "ship",
-      "slug": "freedom-of-the-seas",
-      "name": "Freedom of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.714,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "grand-princess",
       "name": "Grand Princess",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "grandeur-of-the-seas",
-      "name": "Grandeur of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.809,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1259,19 +520,6 @@
     },
     {
       "kind": "ship",
-      "slug": "harmony-of-the-seas",
-      "name": "Harmony of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.768,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "havila-capella",
       "name": "Havila Capella",
       "status": "skipped",
@@ -1295,7 +543,7 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -1304,33 +552,7 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "icon-of-the-seas",
-      "name": "Icon of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.826,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "independence-of-the-seas",
-      "name": "Independence of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.809,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -1343,146 +565,12 @@
     },
     {
       "kind": "ship",
-      "slug": "iona",
-      "name": "Iona",
-      "status": "ok",
-      "confidenceScore": 0.801,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "island-princess",
-      "name": "Island Princess",
-      "status": "ok",
-      "confidenceScore": 0.744,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "jewel-of-the-seas",
-      "name": "Jewel of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.811,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "koningsdam",
-      "name": "Koningsdam",
-      "status": "ok",
-      "confidenceScore": 0.738,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "le-bellot",
-      "name": "Le Bellot",
-      "status": "ok",
-      "confidenceScore": 0.758,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "le-bougainville",
-      "name": "Le Bougainville",
-      "status": "ok",
-      "confidenceScore": 0.758,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "le-champlain",
-      "name": "Le Champlain",
-      "status": "ok",
-      "confidenceScore": 0.763,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "le-commandant-charcot",
       "name": "Le Commandant Charcot",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "le-dumont-d-urville",
-      "name": "Le Dumont-d'Urville",
-      "status": "ok",
-      "confidenceScore": 0.776,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "le-jacques-cartier",
-      "name": "Le Jacques Cartier",
-      "status": "ok",
-      "confidenceScore": 0.772,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "le-laperouse",
-      "name": "Le Lapérouse",
-      "status": "ok",
-      "confidenceScore": 0.76,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "liberty-of-the-seas",
-      "name": "Liberty of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.808,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1495,41 +583,22 @@
     },
     {
       "kind": "ship",
-      "slug": "mardi-gras",
-      "name": "Mardi Gras",
+      "slug": "marella-discovery",
+      "name": "Marella Discovery",
       "status": "ok",
-      "confidenceScore": 0.799,
+      "confidenceScore": 0.714,
       "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
+        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
-      "slug": "marella-discovery",
-      "name": "Marella Discovery",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
       "slug": "marella-explorer",
       "name": "Marella Explorer",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "marella-explorer-2",
-      "name": "Marella Explorer 2",
       "status": "ok",
-      "confidenceScore": 0.74,
+      "confidenceScore": 0.739,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -1540,32 +609,10 @@
       "kind": "ship",
       "slug": "marella-voyager",
       "name": "Marella Voyager",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "marina",
-      "name": "Marina",
       "status": "ok",
-      "confidenceScore": 0.79,
+      "confidenceScore": 0.723,
       "sourcesUsed": [
         "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "mariner-of-the-seas",
-      "name": "Mariner of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.802,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
@@ -1587,18 +634,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "mein-schiff-3",
-      "name": "Mein Schiff 3",
-      "status": "ok",
-      "confidenceScore": 0.786,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1635,18 +670,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "ms-fridtjof-nansen",
-      "name": "MS Fridtjof Nansen",
-      "status": "ok",
-      "confidenceScore": 0.789,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1722,31 +745,10 @@
     },
     {
       "kind": "ship",
-      "slug": "msc-lirica",
-      "name": "MSC Lirica",
-      "status": "ok",
-      "confidenceScore": 0.781,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "msc-magnifica",
       "name": "MSC Magnifica",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "msc-meraviglia",
-      "name": "MSC Meraviglia",
       "status": "ok",
-      "confidenceScore": 0.792,
+      "confidenceScore": 0.74,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -1818,18 +820,6 @@
     },
     {
       "kind": "ship",
-      "slug": "msc-seaside",
-      "name": "MSC Seaside",
-      "status": "ok",
-      "confidenceScore": 0.768,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "msc-seaview",
       "name": "MSC Seaview",
       "status": "skipped",
@@ -1877,17 +867,8 @@
       "kind": "ship",
       "slug": "msc-world-europa",
       "name": "MSC World Europa",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "nautica",
-      "name": "Nautica",
       "status": "ok",
-      "confidenceScore": 0.778,
+      "confidenceScore": 0.732,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -1896,25 +877,13 @@
     },
     {
       "kind": "ship",
-      "slug": "navigator-of-the-seas",
-      "name": "Navigator of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.799,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "nicko-river-fleet",
       "name": "nicko river fleet",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.298,
+      "sourcesUsed": [],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -1936,10 +905,10 @@
     },
     {
       "kind": "ship",
-      "slug": "noordam",
-      "name": "Noordam",
+      "slug": "norwegian-aqua",
+      "name": "Norwegian Aqua",
       "status": "ok",
-      "confidenceScore": 0.784,
+      "confidenceScore": 0.73,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -1948,28 +917,10 @@
     },
     {
       "kind": "ship",
-      "slug": "norwegian-aqua",
-      "name": "Norwegian Aqua",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
       "slug": "norwegian-bliss",
       "name": "Norwegian Bliss",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "norwegian-breakaway",
-      "name": "Norwegian Breakaway",
       "status": "ok",
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.732,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -1989,19 +940,25 @@
       "kind": "ship",
       "slug": "norwegian-encore",
       "name": "Norwegian Encore",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.745,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
       "slug": "norwegian-epic",
       "name": "Norwegian Epic",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.691,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2041,24 +998,15 @@
     },
     {
       "kind": "ship",
-      "slug": "norwegian-jewel",
-      "name": "Norwegian Jewel",
+      "slug": "norwegian-joy",
+      "name": "Norwegian Joy",
       "status": "ok",
-      "confidenceScore": 0.772,
+      "confidenceScore": 0.705,
       "sourcesUsed": [
         "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "norwegian-joy",
-      "name": "Norwegian Joy",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -2073,41 +1021,8 @@
       "kind": "ship",
       "slug": "norwegian-prima",
       "name": "Norwegian Prima",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "norwegian-sky",
-      "name": "Norwegian Sky",
       "status": "ok",
-      "confidenceScore": 0.752,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "norwegian-spirit",
-      "name": "Norwegian Spirit",
-      "status": "ok",
-      "confidenceScore": 0.775,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "norwegian-star",
-      "name": "Norwegian Star",
-      "status": "ok",
-      "confidenceScore": 0.789,
+      "confidenceScore": 0.694,
       "sourcesUsed": [
         "wikipedia"
       ],
@@ -2127,20 +1042,10 @@
       "kind": "ship",
       "slug": "norwegian-viva",
       "name": "Norwegian Viva",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "oasis-of-the-seas",
-      "name": "Oasis of the Seas",
       "status": "ok",
-      "confidenceScore": 0.818,
+      "confidenceScore": 0.733,
       "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
+        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
@@ -2152,35 +1057,14 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
       "slug": "odyssey-of-the-seas",
       "name": "Odyssey of the Seas",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "oosterdam",
-      "name": "Oosterdam",
       "status": "ok",
-      "confidenceScore": 0.769,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "ovation-of-the-seas",
-      "name": "Ovation of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.808,
+      "confidenceScore": 0.778,
       "sourcesUsed": [
         "wikipedia",
         "official-cruise-line"
@@ -2192,19 +1076,25 @@
       "kind": "ship",
       "slug": "pacific-adventure",
       "name": "Pacific Adventure",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.719,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
       "slug": "pacific-encounter",
       "name": "Pacific Encounter",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.732,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2213,33 +1103,7 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "pride-of-america",
-      "name": "Pride of America",
-      "status": "ok",
-      "confidenceScore": 0.804,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "quantum-of-the-seas",
-      "name": "Quantum of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.808,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -2261,37 +1125,12 @@
     },
     {
       "kind": "ship",
-      "slug": "queen-mary-2",
-      "name": "Queen Mary 2",
-      "status": "ok",
-      "confidenceScore": 0.792,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "queen-victoria",
       "name": "Queen Victoria",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "radiance-of-the-seas",
-      "name": "Radiance of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.816,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2313,19 +1152,6 @@
     },
     {
       "kind": "ship",
-      "slug": "resilient-lady",
-      "name": "Resilient Lady",
-      "status": "ok",
-      "confidenceScore": 0.85,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "rhapsody-of-the-seas",
       "name": "Rhapsody of the Seas",
       "status": "skipped",
@@ -2335,73 +1161,12 @@
     },
     {
       "kind": "ship",
-      "slug": "riviera",
-      "name": "Riviera",
-      "status": "ok",
-      "confidenceScore": 0.764,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "rotterdam",
       "name": "Rotterdam",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "royal-princess",
-      "name": "Royal Princess",
-      "status": "ok",
-      "confidenceScore": 0.735,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "ruby-princess",
-      "name": "Ruby Princess",
-      "status": "ok",
-      "confidenceScore": 0.774,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "sapphire-princess",
-      "name": "Sapphire Princess",
-      "status": "ok",
-      "confidenceScore": 0.776,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "scarlet-lady",
-      "name": "Scarlet Lady",
-      "status": "ok",
-      "confidenceScore": 0.842,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2437,7 +1202,7 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -2504,19 +1269,6 @@
     },
     {
       "kind": "ship",
-      "slug": "serenade-of-the-seas",
-      "name": "Serenade of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "seven-seas-explorer",
       "name": "Seven Seas Explorer",
       "status": "skipped",
@@ -2562,18 +1314,6 @@
     },
     {
       "kind": "ship",
-      "slug": "seven-seas-voyager",
-      "name": "Seven Seas Voyager",
-      "status": "ok",
-      "confidenceScore": 0.77,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "silver-dawn",
       "name": "Silver Dawn",
       "status": "skipped",
@@ -2592,36 +1332,12 @@
     },
     {
       "kind": "ship",
-      "slug": "silver-muse",
-      "name": "Silver Muse",
-      "status": "ok",
-      "confidenceScore": 0.777,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "silver-nova",
       "name": "Silver Nova",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "silver-spirit",
-      "name": "Silver Spirit",
-      "status": "ok",
-      "confidenceScore": 0.78,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2648,38 +1364,31 @@
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
-      "slug": "spectrum-of-the-seas",
-      "name": "Spectrum of the Seas",
+      "slug": "spirit-of-adventure",
+      "name": "Spirit of Adventure",
       "status": "ok",
-      "confidenceScore": 0.754,
+      "confidenceScore": 0.602,
       "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
+        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
-      "slug": "spirit-of-adventure",
-      "name": "Spirit of Adventure",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
       "slug": "spirit-of-discovery",
       "name": "Spirit of Discovery",
-      "status": "skipped",
+      "status": "ok",
+      "confidenceScore": 0.654,
+      "sourcesUsed": [
+        "wikipedia"
+      ],
       "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
+      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2701,31 +1410,6 @@
     },
     {
       "kind": "ship",
-      "slug": "star-of-the-seas",
-      "name": "Star of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.825,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "star-pride",
-      "name": "Star Pride",
-      "status": "ok",
-      "confidenceScore": 0.772,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "star-princess",
       "name": "Star Princess",
       "status": "skipped",
@@ -2737,46 +1421,10 @@
       "kind": "ship",
       "slug": "sun-princess",
       "name": "Sun Princess",
-      "status": "skipped",
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0,
-      "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "symphony-of-the-seas",
-      "name": "Symphony of the Seas",
       "status": "ok",
-      "confidenceScore": 0.81,
+      "confidenceScore": 0.669,
       "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "utopia-of-the-seas",
-      "name": "Utopia of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.823,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "valiant-lady",
-      "name": "Valiant Lady",
-      "status": "ok",
-      "confidenceScore": 0.837,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
+        "wikipedia"
       ],
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0
@@ -2801,36 +1449,12 @@
     },
     {
       "kind": "ship",
-      "slug": "viking-mars",
-      "name": "Viking Mars",
-      "status": "ok",
-      "confidenceScore": 0.744,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "viking-neptune",
       "name": "Viking Neptune",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "viking-orion",
-      "name": "Viking Orion",
-      "status": "ok",
-      "confidenceScore": 0.785,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2843,36 +1467,12 @@
     },
     {
       "kind": "ship",
-      "slug": "viking-sea",
-      "name": "Viking Sea",
-      "status": "ok",
-      "confidenceScore": 0.773,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "viking-sky",
       "name": "Viking Sky",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "ship",
-      "slug": "viking-star",
-      "name": "Viking Star",
-      "status": "ok",
-      "confidenceScore": 0.751,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "ship",
@@ -2894,55 +1494,6 @@
     },
     {
       "kind": "ship",
-      "slug": "vista",
-      "name": "Vista",
-      "status": "ok",
-      "confidenceScore": 0.767,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "volendam",
-      "name": "Volendam",
-      "status": "ok",
-      "confidenceScore": 0.727,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "voyager-of-the-seas",
-      "name": "Voyager of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "westerdam",
-      "name": "Westerdam",
-      "status": "ok",
-      "confidenceScore": 0.765,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "wind-spirit",
       "name": "Wind Spirit",
       "status": "skipped",
@@ -2952,49 +1503,12 @@
     },
     {
       "kind": "ship",
-      "slug": "wind-star",
-      "name": "Wind Star",
-      "status": "ok",
-      "confidenceScore": 0.786,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "wind-surf",
-      "name": "Wind Surf",
-      "status": "ok",
-      "confidenceScore": 0.741,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
-      "slug": "wonder-of-the-seas",
-      "name": "Wonder of the Seas",
-      "status": "ok",
-      "confidenceScore": 0.821,
-      "sourcesUsed": [
-        "wikipedia",
-        "official-cruise-line"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "ship",
       "slug": "world-voyager",
       "name": "World Voyager",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
-      "error": "no entity-matching facts"
+      "error": "not enough entity-matching facts"
     },
     {
       "kind": "ship",
@@ -3016,18 +1530,6 @@
     },
     {
       "kind": "port",
-      "slug": "aalborg-denmark",
-      "name": "Aalborg, Denmark",
-      "status": "ok",
-      "confidenceScore": 0.753,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "aarhus-denmark",
       "name": "Aarhus, Denmark",
       "status": "skipped",
@@ -3043,31 +1545,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "abu-dhabi-united-arab-emirates",
-      "name": "Abu Dhabi, United Arab Emirates",
-      "status": "ok",
-      "confidenceScore": 0.771,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "acapulco-mexico",
-      "name": "Acapulco, Mexico",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3125,19 +1602,6 @@
     },
     {
       "kind": "port",
-      "slug": "alicante-spain",
-      "name": "Alicante, Spain",
-      "status": "ok",
-      "confidenceScore": 0.785,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "almeria-spain",
       "name": "Almeria, Spain",
       "status": "skipped",
@@ -3174,19 +1638,6 @@
     },
     {
       "kind": "port",
-      "slug": "antalya-turkey",
-      "name": "Antalya, Turkey",
-      "status": "ok",
-      "confidenceScore": 0.8,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "antigua-st-john-s-antigua",
       "name": "Antigua (St. John's), Antigua",
       "status": "skipped",
@@ -3196,63 +1647,12 @@
     },
     {
       "kind": "port",
-      "slug": "aqaba-jordan",
-      "name": "Aqaba, Jordan",
-      "status": "ok",
-      "confidenceScore": 0.768,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "arendal-norway",
-      "name": "Arendal, Norway",
-      "status": "ok",
-      "confidenceScore": 0.749,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "argostoli-greece",
-      "name": "Argostoli, Greece",
-      "status": "ok",
-      "confidenceScore": 0.748,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "aruba-oranjestad-aruba",
       "name": "Aruba (Oranjestad), Aruba",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "ashdod-israel",
-      "name": "Ashdod, Israel",
-      "status": "ok",
-      "confidenceScore": 0.806,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3346,62 +1746,12 @@
     },
     {
       "kind": "port",
-      "slug": "beirut-lebanon",
-      "name": "Beirut, Lebanon",
-      "status": "ok",
-      "confidenceScore": 0.774,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "belfast-united-kingdom",
       "name": "Belfast, United Kingdom",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "bergen-norway",
-      "name": "Bergen, Norway",
-      "status": "ok",
-      "confidenceScore": 0.79,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "bilbao-spain",
-      "name": "Bilbao, Spain",
-      "status": "ok",
-      "confidenceScore": 0.783,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "bimini-bahamas",
-      "name": "Bimini, Bahamas",
-      "status": "ok",
-      "confidenceScore": 0.815,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3432,19 +1782,6 @@
     },
     {
       "kind": "port",
-      "slug": "boston-ma-united-states",
-      "name": "Boston, MA, United States",
-      "status": "ok",
-      "confidenceScore": 0.726,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "bremen-germany",
       "name": "Bremen, Germany",
       "status": "skipped",
@@ -3472,75 +1809,12 @@
     },
     {
       "kind": "port",
-      "slug": "brisbane-australia",
-      "name": "Brisbane, Australia",
-      "status": "ok",
-      "confidenceScore": 0.759,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "buenos-aires-argentina",
-      "name": "Buenos Aires, Argentina",
-      "status": "ok",
-      "confidenceScore": 0.793,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "cabo-san-lucas-mexico",
-      "name": "Cabo San Lucas, Mexico",
-      "status": "ok",
-      "confidenceScore": 0.749,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "cadiz-seville-spain",
       "name": "Cadiz (Seville), Spain",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "cagliari-italy",
-      "name": "Cagliari, Italy",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "cairns-australia",
-      "name": "Cairns, Australia",
-      "status": "ok",
-      "confidenceScore": 0.767,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3607,18 +1881,6 @@
     },
     {
       "kind": "port",
-      "slug": "chennai-india",
-      "name": "Chennai, India",
-      "status": "ok",
-      "confidenceScore": 0.78,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "cherbourg-france",
       "name": "Cherbourg, France",
       "status": "skipped",
@@ -3634,18 +1896,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "cochin-india",
-      "name": "Cochin, India",
-      "status": "ok",
-      "confidenceScore": 0.768,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3685,19 +1935,6 @@
     },
     {
       "kind": "port",
-      "slug": "crotone-italy",
-      "name": "Crotone, Italy",
-      "status": "ok",
-      "confidenceScore": 0.809,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "curacao-willemstad-curacao",
       "name": "Curacao (Willemstad), Curacao",
       "status": "skipped",
@@ -3725,18 +1962,6 @@
     },
     {
       "kind": "port",
-      "slug": "dammam-saudi-arabia",
-      "name": "Dammam, Saudi Arabia",
-      "status": "ok",
-      "confidenceScore": 0.78,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "doha-cruise-terminal-qatar",
       "name": "Doha Cruise Terminal, Qatar",
       "status": "skipped",
@@ -3755,18 +1980,6 @@
     },
     {
       "kind": "port",
-      "slug": "doha-qatar",
-      "name": "Doha, Qatar",
-      "status": "ok",
-      "confidenceScore": 0.77,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "dover-united-kingdom",
       "name": "Dover, United Kingdom",
       "status": "skipped",
@@ -3782,45 +1995,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "dubai-united-arab-emirates",
-      "name": "Dubai, United Arab Emirates",
-      "status": "ok",
-      "confidenceScore": 0.801,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "dubrovnik-croatia",
-      "name": "Dubrovnik, Croatia",
-      "status": "ok",
-      "confidenceScore": 0.798,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "dunedin-new-zealand",
-      "name": "Dunedin, New Zealand",
-      "status": "ok",
-      "confidenceScore": 0.763,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3869,37 +2043,12 @@
     },
     {
       "kind": "port",
-      "slug": "ensenada-mexico",
-      "name": "Ensenada, Mexico",
-      "status": "ok",
-      "confidenceScore": 0.773,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "ephesus-kusadasi-turkey",
       "name": "Ephesus (Kusadasi), Turkey",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "falmouth-jamaica",
-      "name": "Falmouth, Jamaica",
-      "status": "ok",
-      "confidenceScore": 0.78,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -3921,19 +2070,6 @@
     },
     {
       "kind": "port",
-      "slug": "flekkefjord-norway",
-      "name": "Flekkefjord, Norway",
-      "status": "ok",
-      "confidenceScore": 0.771,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "florence-pisa-livorno-italy",
       "name": "Florence/Pisa (Livorno), Italy",
       "status": "skipped",
@@ -3952,45 +2088,6 @@
     },
     {
       "kind": "port",
-      "slug": "freeport-bahamas",
-      "name": "Freeport, Bahamas",
-      "status": "ok",
-      "confidenceScore": 0.767,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "fujairah-united-arab-emirates",
-      "name": "Fujairah, United Arab Emirates",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "galveston-tx-united-states",
-      "name": "Galveston, TX, United States",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "gdansk-poland",
       "name": "Gdansk, Poland",
       "status": "skipped",
@@ -4000,50 +2097,12 @@
     },
     {
       "kind": "port",
-      "slug": "gdynia-poland",
-      "name": "Gdynia, Poland",
-      "status": "ok",
-      "confidenceScore": 0.774,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "geiranger-norway",
       "name": "Geiranger, Norway",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "genoa-italy",
-      "name": "Genoa, Italy",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "george-town-cayman-islands",
-      "name": "George Town, Cayman Islands",
-      "status": "ok",
-      "confidenceScore": 0.803,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4062,31 +2121,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "gothenburg-sweden",
-      "name": "Gothenburg, Sweden",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "gran-canaria-spain",
-      "name": "Gran Canaria, Spain",
-      "status": "ok",
-      "confidenceScore": 0.762,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4126,37 +2160,12 @@
     },
     {
       "kind": "port",
-      "slug": "haifa-israel",
-      "name": "Haifa, Israel",
-      "status": "ok",
-      "confidenceScore": 0.77,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "half-moon-cay-bahamas",
       "name": "Half Moon Cay, Bahamas",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "halifax-ns-canada",
-      "name": "Halifax, NS, Canada",
-      "status": "ok",
-      "confidenceScore": 0.789,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4169,18 +2178,6 @@
     },
     {
       "kind": "port",
-      "slug": "hamburg-germany",
-      "name": "Hamburg, Germany",
-      "status": "ok",
-      "confidenceScore": 0.769,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "hammerfest-norway",
       "name": "Hammerfest, Norway",
       "status": "skipped",
@@ -4190,38 +2187,12 @@
     },
     {
       "kind": "port",
-      "slug": "harstad-norway",
-      "name": "Harstad, Norway",
-      "status": "ok",
-      "confidenceScore": 0.796,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "harwich-united-kingdom",
       "name": "Harwich, United Kingdom",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "haugesund-norway",
-      "name": "Haugesund, Norway",
-      "status": "ok",
-      "confidenceScore": 0.78,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4279,19 +2250,6 @@
     },
     {
       "kind": "port",
-      "slug": "honningsvag-norway",
-      "name": "Honningsvåg, Norway",
-      "status": "ok",
-      "confidenceScore": 0.759,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "honolulu-hi-united-states",
       "name": "Honolulu, HI, United States",
       "status": "skipped",
@@ -4307,18 +2265,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "huatulco-mexico",
-      "name": "Huatulco, Mexico",
-      "status": "ok",
-      "confidenceScore": 0.775,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4376,19 +2322,6 @@
     },
     {
       "kind": "port",
-      "slug": "istanbul-turkey",
-      "name": "Istanbul, Turkey",
-      "status": "ok",
-      "confidenceScore": 0.798,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "izmir-turkey",
       "name": "Izmir, Turkey",
       "status": "skipped",
@@ -4434,38 +2367,12 @@
     },
     {
       "kind": "port",
-      "slug": "kalamata-greece",
-      "name": "Kalamata, Greece",
-      "status": "ok",
-      "confidenceScore": 0.753,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "katakolon-olympia-greece",
       "name": "Katakolon (Olympia), Greece",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "kavala-greece",
-      "name": "Kavala, Greece",
-      "status": "ok",
-      "confidenceScore": 0.776,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4514,49 +2421,12 @@
     },
     {
       "kind": "port",
-      "slug": "kirkenes-norway",
-      "name": "Kirkenes, Norway",
-      "status": "ok",
-      "confidenceScore": 0.741,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "klaipeda-lithuania",
       "name": "Klaipeda, Lithuania",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "kochi-india",
-      "name": "Kochi, India",
-      "status": "ok",
-      "confidenceScore": 0.768,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "kolkata-india",
-      "name": "Kolkata, India",
-      "status": "ok",
-      "confidenceScore": 0.769,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4578,87 +2448,12 @@
     },
     {
       "kind": "port",
-      "slug": "kos-greece",
-      "name": "Kos, Greece",
-      "status": "ok",
-      "confidenceScore": 0.735,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "kristiansand-norway",
-      "name": "Kristiansand, Norway",
-      "status": "ok",
-      "confidenceScore": 0.758,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "kuwait-city-kuwait",
-      "name": "Kuwait City, Kuwait",
-      "status": "ok",
-      "confidenceScore": 0.753,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "la-coruna-spain",
-      "name": "La Coruña, Spain",
-      "status": "ok",
-      "confidenceScore": 0.758,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "la-paz-mexico",
-      "name": "La Paz, Mexico",
-      "status": "ok",
-      "confidenceScore": 0.81,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "la-rochelle-france",
       "name": "La Rochelle, France",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "la-romana-dominican-republic",
-      "name": "La Romana, Dominican Republic",
-      "status": "ok",
-      "confidenceScore": 0.639,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -4833,18 +2628,6 @@
     },
     {
       "kind": "port",
-      "slug": "melbourne-australia",
-      "name": "Melbourne, Australia",
-      "status": "ok",
-      "confidenceScore": 0.748,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "menorca-mahon-spain",
       "name": "Menorca (Mahon), Spain",
       "status": "skipped",
@@ -4890,32 +2673,6 @@
     },
     {
       "kind": "port",
-      "slug": "molde-norway",
-      "name": "Molde, Norway",
-      "status": "ok",
-      "confidenceScore": 0.749,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "montego-bay-jamaica",
-      "name": "Montego Bay, Jamaica",
-      "status": "ok",
-      "confidenceScore": 0.772,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "montreal-qc-canada",
       "name": "Montreal, QC, Canada",
       "status": "skipped",
@@ -4943,31 +2700,6 @@
     },
     {
       "kind": "port",
-      "slug": "mumbai-india",
-      "name": "Mumbai, India",
-      "status": "ok",
-      "confidenceScore": 0.793,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "muscat-oman",
-      "name": "Muscat, Oman",
-      "status": "ok",
-      "confidenceScore": 0.75,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "mykonos-greece",
       "name": "Mykonos, Greece",
       "status": "skipped",
@@ -4977,77 +2709,12 @@
     },
     {
       "kind": "port",
-      "slug": "nafplio-greece",
-      "name": "Nafplio, Greece",
-      "status": "ok",
-      "confidenceScore": 0.777,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "nagasaki-japan",
-      "name": "Nagasaki, Japan",
-      "status": "ok",
-      "confidenceScore": 0.742,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "nantes-france",
-      "name": "Nantes, France",
-      "status": "ok",
-      "confidenceScore": 0.781,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "naples-italy",
       "name": "Naples, Italy",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "narvik-norway",
-      "name": "Narvik, Norway",
-      "status": "ok",
-      "confidenceScore": 0.797,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "nassau-bahamas",
-      "name": "Nassau, Bahamas",
-      "status": "ok",
-      "confidenceScore": 0.766,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5078,58 +2745,6 @@
     },
     {
       "kind": "port",
-      "slug": "new-york-ny-united-states",
-      "name": "New York, NY, United States",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "newcastle-united-kingdom",
-      "name": "Newcastle, United Kingdom",
-      "status": "ok",
-      "confidenceScore": 0.769,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "nice-france",
-      "name": "Nice, France",
-      "status": "ok",
-      "confidenceScore": 0.766,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "nordfjordeid-norway",
-      "name": "Nordfjordeid, Norway",
-      "status": "ok",
-      "confidenceScore": 0.771,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "nordkapp-norway",
       "name": "Nordkapp, Norway",
       "status": "skipped",
@@ -5148,76 +2763,12 @@
     },
     {
       "kind": "port",
-      "slug": "ocho-rios-jamaica",
-      "name": "Ocho Rios, Jamaica",
-      "status": "ok",
-      "confidenceScore": 0.74,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "olbia-italy",
-      "name": "Olbia, Italy",
-      "status": "ok",
-      "confidenceScore": 0.726,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "olden-norway",
-      "name": "Olden, Norway",
-      "status": "ok",
-      "confidenceScore": 0.772,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "osaka-kyoto-kobe-japan",
       "name": "Osaka/Kyoto (Kobe), Japan",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "oslo-norway",
-      "name": "Oslo, Norway",
-      "status": "ok",
-      "confidenceScore": 0.759,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "palma-de-mallorca-spain",
-      "name": "Palma de Mallorca, Spain",
-      "status": "ok",
-      "confidenceScore": 0.787,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5254,18 +2805,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "phuket-thailand",
-      "name": "Phuket, Thailand",
-      "status": "ok",
-      "confidenceScore": 0.795,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5341,18 +2880,6 @@
     },
     {
       "kind": "port",
-      "slug": "port-said-egypt",
-      "name": "Port Said, Egypt",
-      "status": "ok",
-      "confidenceScore": 0.718,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "port-sultan-qaboos-muscat-oman",
       "name": "Port Sultan Qaboos (Muscat), Oman",
       "status": "skipped",
@@ -5425,74 +2952,12 @@
     },
     {
       "kind": "port",
-      "slug": "puerto-vallarta-mexico",
-      "name": "Puerto Vallarta, Mexico",
-      "status": "ok",
-      "confidenceScore": 0.759,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "pula-croatia",
       "name": "Pula, Croatia",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "punta-arenas-chile",
-      "name": "Punta Arenas, Chile",
-      "status": "ok",
-      "confidenceScore": 0.775,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "quebec-city-qc-canada",
-      "name": "Quebec City, QC, Canada",
-      "status": "ok",
-      "confidenceScore": 0.793,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "ras-al-khaimah-united-arab-emirates",
-      "name": "Ras Al Khaimah, United Arab Emirates",
-      "status": "ok",
-      "confidenceScore": 0.761,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "ravenna-italy",
-      "name": "Ravenna, Italy",
-      "status": "ok",
-      "confidenceScore": 0.741,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5514,38 +2979,12 @@
     },
     {
       "kind": "port",
-      "slug": "rhodes-greece",
-      "name": "Rhodes, Greece",
-      "status": "ok",
-      "confidenceScore": 0.825,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "riga-latvia",
       "name": "Riga, Latvia",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "rio-de-janeiro-brazil",
-      "name": "Rio de Janeiro, Brazil",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5564,18 +3003,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "rostock-germany",
-      "name": "Rostock, Germany",
-      "status": "ok",
-      "confidenceScore": 0.771,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5606,55 +3033,6 @@
     },
     {
       "kind": "port",
-      "slug": "saint-john-nb-canada",
-      "name": "Saint John, NB, Canada",
-      "status": "ok",
-      "confidenceScore": 0.782,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "salalah-oman",
-      "name": "Salalah, Oman",
-      "status": "ok",
-      "confidenceScore": 0.785,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "salerno-italy",
-      "name": "Salerno, Italy",
-      "status": "ok",
-      "confidenceScore": 0.764,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "salvador-de-bahia-brazil",
-      "name": "Salvador de Bahia, Brazil",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "samos-greece",
       "name": "Samos, Greece",
       "status": "skipped",
@@ -5670,31 +3048,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "san-francisco-ca-united-states",
-      "name": "San Francisco, CA, United States",
-      "status": "ok",
-      "confidenceScore": 0.786,
-      "sourcesUsed": [
-        "tourism-board",
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "san-juan-puerto-rico",
-      "name": "San Juan, Puerto Rico",
-      "status": "ok",
-      "confidenceScore": 0.779,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5770,18 +3123,6 @@
     },
     {
       "kind": "port",
-      "slug": "sharm-el-sheikh-egypt",
-      "name": "Sharm El Sheikh, Egypt",
-      "status": "ok",
-      "confidenceScore": 0.723,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "sibenik-croatia",
       "name": "Sibenik, Croatia",
       "status": "skipped",
@@ -5818,18 +3159,6 @@
     },
     {
       "kind": "port",
-      "slug": "skagen-denmark",
-      "name": "Skagen, Denmark",
-      "status": "ok",
-      "confidenceScore": 0.766,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "skagway-ak-united-states",
       "name": "Skagway, AK, United States",
       "status": "skipped",
@@ -5854,18 +3183,6 @@
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "split-croatia",
-      "name": "Split, Croatia",
-      "status": "ok",
-      "confidenceScore": 0.743,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -5905,18 +3222,6 @@
     },
     {
       "kind": "port",
-      "slug": "stavanger-norway",
-      "name": "Stavanger, Norway",
-      "status": "ok",
-      "confidenceScore": 0.788,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "stockholm-sweden",
       "name": "Stockholm, Sweden",
       "status": "skipped",
@@ -5944,19 +3249,6 @@
     },
     {
       "kind": "port",
-      "slug": "suez-egypt",
-      "name": "Suez, Egypt",
-      "status": "ok",
-      "confidenceScore": 0.762,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "svolv-r-norway",
       "name": "Svolvær, Norway",
       "status": "skipped",
@@ -5966,49 +3258,12 @@
     },
     {
       "kind": "port",
-      "slug": "sydney-australia",
-      "name": "Sydney, Australia",
-      "status": "ok",
-      "confidenceScore": 0.737,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "sydney-ns-canada",
       "name": "Sydney, NS, Canada",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "syracuse-italy",
-      "name": "Syracuse, Italy",
-      "status": "ok",
-      "confidenceScore": 0.733,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "tallinn-estonia",
-      "name": "Tallinn, Estonia",
-      "status": "ok",
-      "confidenceScore": 0.784,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -6030,37 +3285,12 @@
     },
     {
       "kind": "port",
-      "slug": "tarragona-spain",
-      "name": "Tarragona, Spain",
-      "status": "ok",
-      "confidenceScore": 0.762,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "tauranga-new-zealand",
       "name": "Tauranga, New Zealand",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "tel-aviv-israel",
-      "name": "Tel Aviv, Israel",
-      "status": "ok",
-      "confidenceScore": 0.755,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -6118,18 +3348,6 @@
     },
     {
       "kind": "port",
-      "slug": "trondheim-norway",
-      "name": "Trondheim, Norway",
-      "status": "ok",
-      "confidenceScore": 0.77,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "ulvik-norway",
       "name": "Ulvik, Norway",
       "status": "skipped",
@@ -6148,19 +3366,6 @@
     },
     {
       "kind": "port",
-      "slug": "valencia-spain",
-      "name": "Valencia, Spain",
-      "status": "ok",
-      "confidenceScore": 0.806,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "valletta-malta",
       "name": "Valletta, Malta",
       "status": "skipped",
@@ -6170,49 +3375,12 @@
     },
     {
       "kind": "port",
-      "slug": "vancouver-bc-canada",
-      "name": "Vancouver, BC, Canada",
-      "status": "ok",
-      "confidenceScore": 0.794,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "venice-ravenna-trieste-italy",
       "name": "Venice (Ravenna/Trieste), Italy",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "no entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "victoria-bc-canada",
-      "name": "Victoria, BC, Canada",
-      "status": "ok",
-      "confidenceScore": 0.793,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
-      "slug": "vigo-spain",
-      "name": "Vigo, Spain",
-      "status": "ok",
-      "confidenceScore": 0.738,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     },
     {
       "kind": "port",
@@ -6261,18 +3429,6 @@
     },
     {
       "kind": "port",
-      "slug": "wellington-new-zealand",
-      "name": "Wellington, New Zealand",
-      "status": "ok",
-      "confidenceScore": 0.79,
-      "sourcesUsed": [
-        "wikipedia"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "wismar-germany",
       "name": "Wismar, Germany",
       "status": "skipped",
@@ -6282,38 +3438,12 @@
     },
     {
       "kind": "port",
-      "slug": "yanbu-saudi-arabia",
-      "name": "Yanbu, Saudi Arabia",
-      "status": "ok",
-      "confidenceScore": 0.752,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
-    },
-    {
-      "kind": "port",
       "slug": "zadar-croatia",
       "name": "Zadar, Croatia",
       "status": "skipped",
       "fillerHitsBefore": 0,
       "duplicateRefsBefore": 0,
       "error": "not enough entity-matching facts"
-    },
-    {
-      "kind": "port",
-      "slug": "zakynthos-greece",
-      "name": "Zakynthos, Greece",
-      "status": "ok",
-      "confidenceScore": 0.775,
-      "sourcesUsed": [
-        "wikipedia",
-        "tourism-board"
-      ],
-      "fillerHitsBefore": 0,
-      "duplicateRefsBefore": 0
     }
   ]
 }

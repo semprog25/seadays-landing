@@ -1,69 +1,48 @@
 {
-  "generatedAt": "2026-05-21T22:13:27.379Z",
-  "count": 383,
+  "generatedAt": "2026-05-21T22:56:41.322Z",
+  "count": 350,
   "items": [
-    {
-      "entityKind": "ship",
-      "slug": "a-rosa-flora",
-      "name": "A-ROSA Flora",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
     {
       "entityKind": "ship",
       "slug": "a-rosa-river-fleet",
       "name": "A-ROSA River Fleet",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "no-verified-facts-from-sources"
     },
     {
       "entityKind": "ship",
       "slug": "a-rosa-sena",
       "name": "A-ROSA Sena",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
       "slug": "aidacosma",
       "name": "AIDACosma",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "aidadiva",
-      "name": "AIDAdiva",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "AIDACosma is operated by AIDA Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
       "slug": "aidanova",
       "name": "AIDANova",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "AIDANova is operated by AIDA Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
       "slug": "aidaperla",
       "name": "AIDAPerla",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "aidaprima",
-      "name": "AIDAPrima",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "AIDAPerla is operated by AIDA Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
       "slug": "albatros",
       "name": "Albatros",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "Albatros is operated by Phoenix Reisen.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
@@ -84,7 +63,7 @@
       "slug": "artania",
       "name": "Artania",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
@@ -130,17 +109,10 @@
     },
     {
       "entityKind": "ship",
-      "slug": "balmoral",
-      "name": "Balmoral",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
       "slug": "borealis",
       "name": "Borealis",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "Borealis is operated by Fred. Olsen Cruise Lines.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
@@ -153,13 +125,6 @@
       "entityKind": "ship",
       "slug": "caribbean-princess",
       "name": "Caribbean Princess",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "carnival-panorama",
-      "name": "Carnival Panorama",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -202,8 +167,8 @@
       "entityKind": "ship",
       "slug": "celebrity-flora",
       "name": "Celebrity Flora",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "Celebrity Flora is operated by Celebrity Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
@@ -223,13 +188,6 @@
       "entityKind": "ship",
       "slug": "celebrity-silhouette",
       "name": "Celebrity Silhouette",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "celebrity-solstice",
-      "name": "Celebrity Solstice",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -272,13 +230,6 @@
       "entityKind": "ship",
       "slug": "disney-fantasy",
       "name": "Disney Fantasy",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "disney-treasure",
-      "name": "Disney Treasure",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -340,13 +291,6 @@
     },
     {
       "entityKind": "ship",
-      "slug": "freedom-of-the-seas",
-      "name": "Freedom of the Seas",
-      "claim": "Freedom of the Seas® is the ultimate adventure seeking, discover peaking expedition. This winner of the best cruise ship",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "ship",
       "slug": "grand-princess",
       "name": "Grand Princess",
       "claim": "",
@@ -392,14 +336,14 @@
       "slug": "havila-polaris",
       "name": "Havila Polaris",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
       "slug": "havila-pollux",
       "name": "Havila Pollux",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
@@ -419,27 +363,6 @@
       "entityKind": "ship",
       "slug": "majestic-princess",
       "name": "Majestic Princess",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "marella-discovery",
-      "name": "Marella Discovery",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "marella-explorer",
-      "name": "Marella Explorer",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "marella-voyager",
-      "name": "Marella Voyager",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -543,13 +466,6 @@
     },
     {
       "entityKind": "ship",
-      "slug": "msc-magnifica",
-      "name": "MSC Magnifica",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
       "slug": "msc-musica",
       "name": "MSC Musica",
       "claim": "",
@@ -634,17 +550,10 @@
     },
     {
       "entityKind": "ship",
-      "slug": "msc-world-europa",
-      "name": "MSC World Europa",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
       "slug": "nicko-river-fleet",
       "name": "nicko river fleet",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "no-verified-facts-from-sources"
     },
     {
       "entityKind": "ship",
@@ -662,36 +571,8 @@
     },
     {
       "entityKind": "ship",
-      "slug": "norwegian-aqua",
-      "name": "Norwegian Aqua",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "norwegian-bliss",
-      "name": "Norwegian Bliss",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
       "slug": "norwegian-dawn",
       "name": "Norwegian Dawn",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "norwegian-encore",
-      "name": "Norwegian Encore",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "norwegian-epic",
-      "name": "Norwegian Epic",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -725,22 +606,8 @@
     },
     {
       "entityKind": "ship",
-      "slug": "norwegian-joy",
-      "name": "Norwegian Joy",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
       "slug": "norwegian-pearl",
       "name": "Norwegian Pearl",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "norwegian-prima",
-      "name": "Norwegian Prima",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -753,36 +620,8 @@
     },
     {
       "entityKind": "ship",
-      "slug": "norwegian-viva",
-      "name": "Norwegian Viva",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
       "slug": "oceania-allura",
       "name": "Oceania Allura",
-      "claim": "",
-      "reason": "no entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "odyssey-of-the-seas",
-      "name": "Odyssey of the Seas",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "pacific-adventure",
-      "name": "Pacific Adventure",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "ship",
-      "slug": "pacific-encounter",
-      "name": "Pacific Encounter",
       "claim": "",
       "reason": "not enough entity-matching facts"
     },
@@ -791,7 +630,7 @@
       "slug": "plantours-river-fleet",
       "name": "PLANTOURS River Fleet",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
@@ -868,7 +707,7 @@
       "slug": "sea-cloud-spirit",
       "name": "Sea Cloud Spirit",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
@@ -994,21 +833,28 @@
       "slug": "snav-ferry-fleet",
       "name": "SNAV Ferry Fleet",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
       "slug": "spirit-of-adventure",
       "name": "Spirit of Adventure",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "Spirit of Adventure may refer to:Spirit of Adventure , a 1991 Attic Entertainment computer role-playing game The Spirit ",
+      "reason": "paragraph-exceeds-80-words"
+    },
+    {
+      "entityKind": "ship",
+      "slug": "spirit-of-adventure",
+      "name": "Spirit of Adventure",
+      "claim": "Spirit of Adventure is operated by Saga Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
       "slug": "spirit-of-discovery",
       "name": "Spirit of Discovery",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "Spirit of Discovery is operated by Saga Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
@@ -1035,8 +881,8 @@
       "entityKind": "ship",
       "slug": "sun-princess",
       "name": "Sun Princess",
-      "claim": "",
-      "reason": "not enough entity-matching facts"
+      "claim": "Sun Princess is operated by Princess Cruises.",
+      "reason": "low-alignment-with-retrieved-facts"
     },
     {
       "entityKind": "ship",
@@ -1099,7 +945,7 @@
       "slug": "world-voyager",
       "name": "World Voyager",
       "claim": "",
-      "reason": "no entity-matching facts"
+      "reason": "not enough entity-matching facts"
     },
     {
       "entityKind": "ship",
@@ -1481,20 +1327,6 @@
     },
     {
       "entityKind": "port",
-      "slug": "dubai-united-arab-emirates",
-      "name": "Dubai, United Arab Emirates",
-      "claim": "Dubai is the most populous city in the United Arab Emirates and the capital of the Emirate of Dubai.\n\nDubai[a] is the mo",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "port",
-      "slug": "dubrovnik-croatia",
-      "name": "Dubrovnik, Croatia",
-      "claim": "Dubrovnik, historically also known as Ragusa, is a city in southern Dalmatia, Croatia, by the Adriatic Sea.\n\nDubrovnik,[",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "port",
       "slug": "edinburgh-south-queensferry-united-kingdom",
       "name": "Edinburgh (South Queensferry), United Kingdom",
       "claim": "",
@@ -1565,13 +1397,6 @@
     },
     {
       "entityKind": "port",
-      "slug": "fujairah-united-arab-emirates",
-      "name": "Fujairah, United Arab Emirates",
-      "claim": "Fujairah City is the capital of the emirate of Fujairah in the United Arab Emirates.\n\nFujairah City (Arabic: الفجيرة) is",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "port",
       "slug": "gdansk-poland",
       "name": "Gdansk, Poland",
       "claim": "",
@@ -1597,13 +1422,6 @@
       "name": "Goa, India",
       "claim": "",
       "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "port",
-      "slug": "gothenburg-sweden",
-      "name": "Gothenburg, Sweden",
-      "claim": "Gothenburg is the second-largest city in Sweden, after the capital Stockholm, and the fifth-largest in the Nordic countr",
-      "reason": "paragraph-exceeds-80-words"
     },
     {
       "entityKind": "port",
@@ -1866,13 +1684,6 @@
     },
     {
       "entityKind": "port",
-      "slug": "la-romana-dominican-republic",
-      "name": "La Romana, Dominican Republic",
-      "claim": "La Romana is a municipality and capital of the southeastern La Romana Province, opposite Catalina Island. It is one of t",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "port",
       "slug": "la-spezia-cinque-terre-italy",
       "name": "La Spezia (Cinque Terre), Italy",
       "claim": "",
@@ -2069,24 +1880,10 @@
     },
     {
       "entityKind": "port",
-      "slug": "nagasaki-japan",
-      "name": "Nagasaki, Japan",
-      "claim": "Nagasaki Prefecture is a prefecture of Japan, mainly located on the island of Kyūshū, although it also includes a number",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "port",
       "slug": "naples-italy",
       "name": "Naples, Italy",
       "claim": "",
       "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "port",
-      "slug": "narvik-norway",
-      "name": "Narvik, Norway",
-      "claim": "(Norwegian) or Áhkánjárga (Northern Sami) is a town and the administrative centre of Narvik Municipality in Nordland cou",
-      "reason": "paragraph-exceeds-80-words"
     },
     {
       "entityKind": "port",
@@ -2276,13 +2073,6 @@
       "name": "Pula, Croatia",
       "claim": "",
       "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "port",
-      "slug": "ravenna-italy",
-      "name": "Ravenna, Italy",
-      "claim": "Ravenna is the capital city of the Province of Ravenna, in the Emilia-Romagna region of Northern Italy.\n\nInitially settl",
-      "reason": "paragraph-exceeds-80-words"
     },
     {
       "entityKind": "port",
@@ -2517,24 +2307,10 @@
     },
     {
       "entityKind": "port",
-      "slug": "sydney-australia",
-      "name": "Sydney, Australia",
-      "claim": "Sydney is the capital city of the state of New South Wales, and the most populous city in Australia.\n\nLocated on Austral",
-      "reason": "paragraph-exceeds-80-words"
-    },
-    {
-      "entityKind": "port",
       "slug": "sydney-ns-canada",
       "name": "Sydney, NS, Canada",
       "claim": "",
       "reason": "no entity-matching facts"
-    },
-    {
-      "entityKind": "port",
-      "slug": "syracuse-italy",
-      "name": "Syracuse, Italy",
-      "claim": "Syracuse is a city and municipality, capital of the free municipal consortium of the same name, located in the autonomou",
-      "reason": "paragraph-exceeds-80-words"
     },
     {
       "entityKind": "port",
@@ -2612,13 +2388,6 @@
       "name": "Ushuaia, Argentina",
       "claim": "",
       "reason": "not enough entity-matching facts"
-    },
-    {
-      "entityKind": "port",
-      "slug": "valencia-spain",
-      "name": "Valencia, Spain",
-      "claim": "Valencia, officially València, is the capital of the Valencian Community and the province of the same name in Spain.\n\nVa",
-      "reason": "paragraph-exceeds-80-words"
     },
     {
       "entityKind": "port",

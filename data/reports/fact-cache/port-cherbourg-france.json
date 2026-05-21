@@ -6,17 +6,24 @@
     "country": "France",
     "region": "Atlantic"
   },
-  "fetchedAt": "2026-05-21T21:53:12.332Z",
+  "fetchedAt": "2026-05-21T22:50:15.260Z",
   "facts": [
     {
       "claim": "Cherbourg-Octeville is a former commune in the Manche department in Normandy in north-western France.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Cherbourg-Octeville",
       "confidence": 0.72
+    },
+    {
+      "claim": "France's metropolitan area stretches from the Pyrenees and Mediterranean coast to the English Channel and the Rhine River. Paris, with its 13.2 million metro residents, sits on the Seine’s flat arc, framed by hills like Montmartre at 130 meters elevation.",
+      "source": "tourism-board",
+      "sourceUrl": "https://www.visitfrance.com/en/places-to-go/cherbourg,-france",
+      "confidence": 0.62
     }
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
+    "wikipedia",
+    "tourism-board"
   ]
 }

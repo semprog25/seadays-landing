@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-21T22:13:27.378Z",
+  "updatedAt": "2026-05-21T22:56:41.167Z",
   "ships": {
     "adventure-of-the-seas": {
       "description": "Adventure of the Seas is a Voyager-class cruise ship operated by Royal Caribbean International.\n\nRegistered in the Bahamas, Adventure of the Seas has cruised from ports in the United States and Europe to sites in the Caribbean Sea, Baltic Sea, Mediterranean Sea, Canada and Europe.",
@@ -1979,6 +1979,520 @@
       "sourcesUsed": [
         "wikipedia",
         "official-cruise-line"
+      ]
+    },
+    "a-rosa-flora": {
+      "description": "A-Rosa Flora is a German river cruise ship, cruising in the Rhine – Main – Danube basin.\n\nA-ROSA Flora is operated by A-ROSA Cruises.",
+      "highlights": [
+        "A-Rosa Flora is a German river cruise ship, cruising in the Rhine – Main – Danube basin.",
+        "A-ROSA Flora is operated by A-ROSA Cruises."
+      ],
+      "metaDescription": "A-ROSA Flora (A-ROSA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.857Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.703,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "River cruise ship"
+    },
+    "a-rosa-river-fleet": {
+      "description": "Fleet of modern river cruise ships operating on European rivers including Rhine, Danube, and Douro.\n\nA-ROSA River Fleet is operated by A-ROSA Cruises.",
+      "highlights": [
+        "Fleet of modern river cruise ships operating on European rivers including Rhine, Danube, and Douro.",
+        "A-ROSA River Fleet is operated by A-ROSA Cruises."
+      ],
+      "metaDescription": "A-ROSA River Fleet (A-ROSA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.866Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.298,
+      "sourcesUsed": [
+        "ts-ship-data"
+      ],
+      "shipClass": "River cruise ship"
+    },
+    "aidacosma": {
+      "description": "AIDAcosma is the second and final Helios-class cruise ship built by Meyer Werft GmbH at Papenburg, Germany under contract from Carnival Corporation for AIDA Cruises.\n\nAIDACosma is operated by AIDA Cruises.",
+      "highlights": [
+        "AIDAcosma is the second and final Helios-class cruise ship built by Meyer Werft GmbH at Papenburg, Germany under contract from Carnival Corporation.",
+        "AIDACosma is operated by AIDA Cruises."
+      ],
+      "metaDescription": "AIDACosma (AIDA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.873Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.694,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Helios-class cruise ship"
+    },
+    "aidadiva": {
+      "description": "AIDAdiva is a Sphinx-class cruise ship operated by the German cruise line AIDA Cruises.\n\nAIDAdiva is operated by AIDA Cruises.",
+      "highlights": [
+        "AIDAdiva is a Sphinx-class cruise ship operated by the German cruise line AIDA Cruises.",
+        "AIDAdiva is operated by AIDA Cruises."
+      ],
+      "metaDescription": "AIDAdiva (AIDA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.883Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.725,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Sphinx-class cruise ship"
+    },
+    "aidanova": {
+      "description": "AIDAnova is a cruise ship built by Meyer Werft GmbH in Papenburg, Germany under contract from Carnival Corporation for AIDA Cruises.\n\nAIDANova is operated by AIDA Cruises.",
+      "highlights": [
+        "AIDAnova is a cruise ship built by Meyer Werft GmbH in Papenburg, Germany under contract from Carnival Corporation for AIDA Cruises.",
+        "AIDANova is operated by AIDA Cruises."
+      ],
+      "metaDescription": "AIDANova (AIDA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.890Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.704,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "aidaperla": {
+      "description": "AIDAperla is a cruise ship of AIDA Cruises, which was built by Mitsubishi Shipbuilding at their shipyard in Nagasaki, Japan.\n\nAIDAPerla is operated by AIDA Cruises.",
+      "highlights": [
+        "AIDAperla is a cruise ship of AIDA Cruises, which was built by Mitsubishi Shipbuilding at their shipyard in Nagasaki, Japan.",
+        "AIDAPerla is operated by AIDA Cruises."
+      ],
+      "metaDescription": "AIDAPerla (AIDA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.897Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.703,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "aidaprima": {
+      "description": "AIDAprima is the flagship of AIDA Cruises, built by Mitsubishi Shipbuilding at their shipyard in Nagasaki, Japan.\n\nAIDAPrima is operated by AIDA Cruises.",
+      "highlights": [
+        "AIDAprima is the flagship of AIDA Cruises, built by Mitsubishi Shipbuilding at their shipyard in Nagasaki, Japan.",
+        "AIDAPrima is operated by AIDA Cruises."
+      ],
+      "metaDescription": "AIDAPrima (AIDA Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.905Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.705,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "albatros": {
+      "description": "An albatross is one of a family of large winged seabirds.\n\nAlbatros is operated by Phoenix Reisen.",
+      "highlights": [
+        "An albatross is one of a family of large winged seabirds.",
+        "Albatros is operated by Phoenix Reisen."
+      ],
+      "metaDescription": "Albatros (Phoenix Reisen): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.912Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.681,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "balmoral": {
+      "description": "Balmoral is a cruise ship owned and operated by Fred.\n\nBalmoral is operated by Fred. Olsen Cruise Lines.",
+      "highlights": [
+        "Balmoral is a cruise ship owned and operated by Fred.",
+        "Balmoral is operated by Fred. Olsen Cruise Lines."
+      ],
+      "metaDescription": "Balmoral (Fred. Olsen Cruise Lines): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.923Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.744,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "borealis": {
+      "description": "Borealis GmbH is an Austrian plastics manufacturer that is the second largest producer of polyolefins in Europe, as well as a leader in the petrochemicals industry.\n\nBorealis is operated by Fred. Olsen Cruise Lines.",
+      "highlights": [
+        "Borealis GmbH is an Austrian plastics manufacturer that is the second largest producer of polyolefins in Europe, as well as a leader.",
+        "Borealis is operated by Fred. Olsen Cruise Lines."
+      ],
+      "metaDescription": "Borealis (Fred. Olsen Cruise Lines): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.929Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.677,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "carnival-panorama": {
+      "description": "Carnival Panorama is a Vista-class cruise ship operated by Carnival Cruise Line.\n\nCarnival Panorama is operated by Carnival Cruise Line.",
+      "highlights": [
+        "Carnival Panorama is a Vista-class cruise ship operated by Carnival Cruise Line.",
+        "Carnival Panorama is operated by Carnival Cruise Line."
+      ],
+      "metaDescription": "Carnival Panorama (Carnival Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.939Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.795,
+      "sourcesUsed": [
+        "wikipedia",
+        "official-cruise-line",
+        "ts-ship-data"
+      ],
+      "shipClass": "Vista-class cruise ship"
+    },
+    "celebrity-flora": {
+      "description": "Celebrity Flora is an expedition cruise ship operated by Islas Galápagos Turismo y Vapores C.A., a subsidiary of Royal Caribbean Group, and exclusively sails along the Galápagos Islands.\n\nCelebrity Flora is operated by Celebrity Cruises.",
+      "highlights": [
+        "Celebrity Flora is an expedition cruise ship operated by Islas Galápagos Turismo y Vapores C.A., a subsidiary of Royal Caribbean Group, and.",
+        "Celebrity Flora is operated by Celebrity Cruises."
+      ],
+      "metaDescription": "Celebrity Flora (Celebrity Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.949Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.734,
+      "sourcesUsed": [
+        "wikipedia",
+        "official-cruise-line",
+        "ts-ship-data"
+      ],
+      "shipClass": "Expedition ship"
+    },
+    "celebrity-solstice": {
+      "description": "Celebrity Solstice is the lead ship of the Solstice class of cruise ships operated by Celebrity Cruises, a subsidiary of Royal Caribbean Group.\n\nCelebrity Solstice is operated by Celebrity Cruises.",
+      "highlights": [
+        "Celebrity Solstice is the lead ship of the Solstice class of cruise ships operated by Celebrity Cruises, a subsidiary of Royal Caribbean.",
+        "Celebrity Solstice is operated by Celebrity Cruises."
+      ],
+      "metaDescription": "Celebrity Solstice (Celebrity Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.959Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.773,
+      "sourcesUsed": [
+        "wikipedia",
+        "official-cruise-line",
+        "ts-ship-data"
+      ]
+    },
+    "disney-treasure": {
+      "description": "Disney Treasure is a cruise ship owned and operated by Disney Cruise Line, a subsidiary of the Walt Disney Company.\n\nDisney Treasure is operated by Disney Cruise Line.",
+      "highlights": [
+        "Disney Treasure is a cruise ship owned and operated by Disney Cruise Line, a subsidiary of the Walt Disney Company.",
+        "Disney Treasure is operated by Disney Cruise Line."
+      ],
+      "metaDescription": "Disney Treasure (Disney Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.970Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.735,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "marella-discovery": {
+      "description": "Marella Discovery is a former Royal Caribbean International Vision-class cruise ship now sailing for Marella Cruises.\n\nMarella Discovery is operated by Marella Cruises.",
+      "highlights": [
+        "Marella Discovery is a former Royal Caribbean International Vision-class cruise ship now sailing for Marella Cruises.",
+        "Marella Discovery is operated by Marella Cruises."
+      ],
+      "metaDescription": "Marella Discovery (Marella Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.987Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.714,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Caribbean International Vision-class cruise ship"
+    },
+    "marella-explorer": {
+      "description": "Marella Explorer is a Century-class cruise ship owned and operated by Marella Cruises.\n\nMarella Explorer is operated by Marella Cruises.",
+      "highlights": [
+        "Marella Explorer is a Century-class cruise ship owned and operated by Marella Cruises.",
+        "Marella Explorer is operated by Marella Cruises."
+      ],
+      "metaDescription": "Marella Explorer (Marella Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:40.994Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.739,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Century-class cruise ship"
+    },
+    "marella-voyager": {
+      "description": "Marella Voyager is the second of two Century-class cruise ships operated by TUI Cruises.\n\nMarella Voyager is operated by Marella Cruises.",
+      "highlights": [
+        "Marella Voyager is the second of two Century-class cruise ships operated by TUI Cruises.",
+        "Marella Voyager is operated by Marella Cruises."
+      ],
+      "metaDescription": "Marella Voyager (Marella Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.000Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.723,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "msc-magnifica": {
+      "description": "MSC Magnifica is a Musica-class cruise ship operated by MSC Cruises.\n\nMSC Magnifica is operated by MSC Cruises.",
+      "highlights": [
+        "MSC Magnifica is a Musica-class cruise ship operated by MSC Cruises.",
+        "MSC Magnifica is operated by MSC Cruises."
+      ],
+      "metaDescription": "MSC Magnifica (MSC Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.015Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.74,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Musica-class cruise ship"
+    },
+    "msc-world-europa": {
+      "description": "MSC World Europa began public operations from 20 December 2022 in a 9-day roundtrip from Qatar after serving as a hotel ship in Doha during the 2022 FIFA World Cup.\n\nMSC World Europa is operated by MSC Cruises.",
+      "highlights": [
+        "MSC World Europa began public operations from 20 December 2022 in a 9-day roundtrip from Qatar after serving as a hotel ship.",
+        "MSC World Europa is operated by MSC Cruises."
+      ],
+      "metaDescription": "MSC World Europa (MSC Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.027Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.732,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "nicko-river-fleet": {
+      "description": "Fleet of river cruise ships operating on European rivers with German-speaking service.\n\nnicko river fleet is operated by nicko cruises.",
+      "highlights": [
+        "Fleet of river cruise ships operating on European rivers with German-speaking service.",
+        "nicko river fleet is operated by nicko cruises."
+      ],
+      "metaDescription": "nicko river fleet (nicko cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.035Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.298,
+      "sourcesUsed": [
+        "ts-ship-data"
+      ],
+      "shipClass": "River cruise ship"
+    },
+    "norwegian-aqua": {
+      "description": "Norwegian Aqua is a cruise ship operated by Norwegian Cruise Line of the Prima Plus class, the debut ship of its subclass.\n\nNorwegian Aqua is operated by Norwegian Cruise Line.",
+      "highlights": [
+        "Norwegian Aqua is a cruise ship operated by Norwegian Cruise Line of the Prima Plus class, the debut ship of its subclass.",
+        "Norwegian Aqua is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Aqua (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.043Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.73,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "norwegian-bliss": {
+      "description": "Norwegian Bliss is a cruise ship for Norwegian Cruise Line, which entered service on 21 April 2018.\n\nNorwegian Bliss is operated by Norwegian Cruise Line.",
+      "highlights": [
+        "Norwegian Bliss is a cruise ship for Norwegian Cruise Line, which entered service on 21 April 2018.",
+        "Norwegian Bliss is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Bliss (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.050Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.732,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "norwegian-encore": {
+      "description": "Norwegian Encore is a Breakaway Plus-class cruise ship operated by Norwegian Cruise Line (NCL).\n\nNorwegian Encore is operated by Norwegian Cruise Line.",
+      "highlights": [
+        "Norwegian Encore is a Breakaway Plus-class cruise ship operated by Norwegian Cruise Line (NCL).",
+        "Norwegian Encore is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Encore (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.058Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.745,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Breakaway Plus-class cruise ship"
+    },
+    "norwegian-epic": {
+      "description": "Norwegian Epic is a cruise ship of the Norwegian Cruise Line built under NCL's F3 Project by the STX Europe Chantiers de l'Atlantique shipyard in Saint-Nazaire, France.\n\nNorwegian Epic is operated by Norwegian Cruise Line.",
+      "highlights": [
+        "Norwegian Epic is a cruise ship of the Norwegian Cruise Line built under NCL's F3 Project by the STX Europe Chantiers de.",
+        "Norwegian Epic is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Epic (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.064Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.691,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "norwegian-joy": {
+      "description": "Norwegian Joy is a Breakaway Plus-class cruise ship operated by Norwegian Cruise Line (NCL) and is the second of four Breakaway Plus-class vessels in the company's fleet.\n\nNorwegian Joy is operated by Norwegian Cruise Line.",
+      "highlights": [
+        "Norwegian Joy is a Breakaway Plus-class cruise ship operated by Norwegian Cruise Line (NCL) and is the second of four Breakaway Plus-class.",
+        "Norwegian Joy is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Joy (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.075Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.705,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Breakaway Plus-class cruise ship"
+    },
+    "norwegian-prima": {
+      "description": "Norwegian Prima is a Prima-class cruise ship operated by Norwegian Cruise Line (NCL).\n\nFirst of the Prima Class, offering the most outdoor deck space of any new cruise ship.",
+      "highlights": [
+        "Norwegian Prima is a Prima-class cruise ship operated by Norwegian Cruise Line (NCL).",
+        "First of the Prima Class, offering the most outdoor deck space of any new cruise ship.",
+        "Norwegian Prima is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Prima (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.084Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.694,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "experience": "Norwegian Prima is operated by Norwegian Cruise Line.",
+      "shipClass": "Prima-class cruise ship"
+    },
+    "norwegian-viva": {
+      "description": "Norwegian Viva is a Prima-class cruise ship of Norwegian Cruise Line.\n\nNorwegian Viva is operated by Norwegian Cruise Line.",
+      "highlights": [
+        "Norwegian Viva is a Prima-class cruise ship of Norwegian Cruise Line.",
+        "Norwegian Viva is operated by Norwegian Cruise Line."
+      ],
+      "metaDescription": "Norwegian Viva (Norwegian Cruise Line): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.091Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.733,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ],
+      "shipClass": "Prima-class cruise ship"
+    },
+    "odyssey-of-the-seas": {
+      "description": "Odyssey of the Seas is the second Quantum Ultra-class cruise ship and the last of the class operated by Royal Caribbean International.\n\nOdyssey of the Seas is operated by Royal Caribbean.",
+      "highlights": [
+        "Odyssey of the Seas is the second Quantum Ultra-class cruise ship and the last of the class operated by Royal Caribbean International.",
+        "Odyssey of the Seas is operated by Royal Caribbean."
+      ],
+      "metaDescription": "Odyssey of the Seas (Royal Caribbean): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.098Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.778,
+      "sourcesUsed": [
+        "wikipedia",
+        "official-cruise-line",
+        "ts-ship-data"
+      ],
+      "shipClass": "Quantum Ultra-class cruise ship"
+    },
+    "pacific-adventure": {
+      "description": "The ship was previously named Golden Princess and Pacific Adventure.\n\nPacific Adventure is operated by P&O Cruises Australia.",
+      "highlights": [
+        "The ship was previously named Golden Princess and Pacific Adventure.",
+        "Pacific Adventure is operated by P&O Cruises Australia."
+      ],
+      "metaDescription": "Pacific Adventure (P&O Cruises Australia): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.106Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.719,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "pacific-encounter": {
+      "description": "Following a renovation and a renaming to Pacific Encounter, she debuted in August 2022 upon P&O's staged resumption of operations.\n\nPacific Encounter is operated by P&O Cruises Australia.",
+      "highlights": [
+        "Following a renovation and a renaming to Pacific Encounter, she debuted in August 2022 upon P&O's staged resumption of operations.",
+        "Pacific Encounter is operated by P&O Cruises Australia."
+      ],
+      "metaDescription": "Pacific Encounter (P&O Cruises Australia): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.112Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.732,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "spirit-of-adventure": {
+      "description": "Spirit of Adventure may refer to:Spirit of Adventure , a 1991 Attic Entertainment computer role-playing game The Spirit of Adventure, a 1915 American short film MS Berlin (1981), a cruise ship that operated for Saga Cruises as Spirit of Adventure from 2006 to 2012; later operated for FTI Cruises from 2012 to 2020 as FTI Berlin and Berlin Spirit of Adventure , a cruise ship set to operate for Saga Cruises in 2020 Spirit of Adventure, an airship in Up.\n\nSpirit of Adventure is operated by Saga Cruises.",
+      "highlights": [
+        "Spirit of Adventure may refer to:Spirit of Adventure , a 1991 Attic Entertainment computer role-playing game The Spirit of Adventure, a 1915.",
+        "Spirit of Adventure is operated by Saga Cruises."
+      ],
+      "metaDescription": "Spirit of Adventure (Saga Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.136Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.602,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "spirit-of-discovery": {
+      "description": "Spirit of Discovery may refer toSpirit of Discovery (2001), a cruise ship of Cruise West Spirit of Discovery (2019), a cruise ship launched in 2019 for Saga Cruises Spirit of Discovery (sculpture), a 2005 sculpture by Veronica and Edwin Dam de Nogales\n\nSpirit of Discovery is operated by Saga Cruises.",
+      "highlights": [
+        "Spirit of Discovery may refer toSpirit of Discovery (2001), a cruise ship of Cruise West Spirit of Discovery (2019), a cruise ship.",
+        "Spirit of Discovery is operated by Saga Cruises."
+      ],
+      "metaDescription": "Spirit of Discovery (Saga Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.149Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.654,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
+      ]
+    },
+    "sun-princess": {
+      "description": "Sun Princess may refer to:Sun Princess (ship), various ships Sun Princess (horse), a Thoroughbred racehorse Sun Princess, the title given to the second place winner of the Sun and Salsa Festival pageant\n\nSun Princess is operated by Princess Cruises.",
+      "highlights": [
+        "Sun Princess may refer to:Sun Princess (ship), various ships Sun Princess (horse), a Thoroughbred racehorse Sun Princess, the title given to the.",
+        "Sun Princess is operated by Princess Cruises."
+      ],
+      "metaDescription": "Sun Princess (Princess Cruises): planning overview, highlights, and tips for passengers.",
+      "rewrittenAt": "2026-05-21T22:56:41.160Z",
+      "model": "deterministic-facts-only",
+      "confidenceScore": 0.669,
+      "sourcesUsed": [
+        "wikipedia",
+        "ts-ship-data"
       ]
     }
   },
