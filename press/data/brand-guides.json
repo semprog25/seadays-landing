@@ -1,0 +1,121 @@
+{
+  "items": [
+    {
+      "id": "brand-guidelines",
+      "title": "Brand Guidelines",
+      "description": "Official logo usage, asset rules, and trademark guidance for media and partners.",
+      "sections": [
+        {
+          "heading": "Logo clear space",
+          "paragraphs": [
+            "Maintain clear space around the SeaDays logo equal to at least the height of the anchor mark in the wordmark. Never crowd the logo with text, borders, or competing graphics."
+          ]
+        },
+        {
+          "heading": "Allowed logo versions",
+          "list": [
+            "Full-color logo on dark backgrounds",
+            "Full-color logo on light backgrounds",
+            "Transparent PNG for marketing compositions",
+            "App icon for store and product references",
+            "SVG for web and large-format print"
+          ]
+        },
+        {
+          "heading": "Logo misuse — do not",
+          "list": [
+            "Stretch, skew, or rotate the logo",
+            "Change logo colors outside the approved palette",
+            "Place the logo on busy backgrounds without sufficient contrast",
+            "Add effects such as shadows, outlines, or gradients",
+            "Use outdated or unofficial artwork"
+          ]
+        },
+        {
+          "heading": "Screenshots",
+          "paragraphs": [
+            "App screenshots may be used in editorial coverage and reviews with attribution to SeaDays. Do not crop screenshots in ways that misrepresent product functionality."
+          ]
+        },
+        {
+          "heading": "Marketing images",
+          "paragraphs": [
+            "Marketing images may be used when referencing or reporting on SeaDays. Do not imply endorsement, partnership, or sponsorship without written approval."
+          ]
+        },
+        {
+          "heading": "Trademark & copyright",
+          "paragraphs": [
+            "SeaDays® is a trademark of SeaDays. All brand assets remain the property of SeaDays.",
+            "© SeaDays. All rights reserved."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "color-palette",
+      "title": "Color Palette",
+      "description": "Approved SeaDays brand colors for digital press, social, and marketing references.",
+      "sections": [
+        {
+          "heading": "Primary colors",
+          "colors": [
+            { "name": "SeaDays Red", "hex": "#FF0033", "usage": "Primary brand accent, CTAs, highlights" },
+            { "name": "Deep Black", "hex": "#0A0A0A", "usage": "Primary backgrounds, premium dark UI" },
+            { "name": "White", "hex": "#FFFFFF", "usage": "Primary text on dark, light logo variants" }
+          ]
+        },
+        {
+          "heading": "Secondary colors",
+          "colors": [
+            { "name": "Cyan", "hex": "#06B6D4", "usage": "Feature accents, data visualization" },
+            { "name": "Purple", "hex": "#9333EA", "usage": "Gamification, XP highlights" },
+            { "name": "Teal", "hex": "#4A6B7C", "usage": "Calm UI surfaces and supporting accents" }
+          ]
+        },
+        {
+          "heading": "Usage notes",
+          "paragraphs": [
+            "SeaDays Red is the primary accent and should lead calls to action, highlights, and brand moments.",
+            "Use Deep Black and White as the core contrast pair across the website, app marketing, and dark UI compositions.",
+            "Secondary colors support feature storytelling and data visualization. They should not replace SeaDays Red as the primary brand accent."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "typography-guide",
+      "title": "Typography Guide",
+      "description": "Type standards that match the SeaDays website and product marketing.",
+      "sections": [
+        {
+          "heading": "Primary typeface",
+          "paragraphs": [
+            "System UI stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+          ]
+        },
+        {
+          "heading": "Headings",
+          "paragraphs": [
+            "Use bold weights (700–900) with tight letter-spacing for hero headlines and section titles.",
+            "Homepage-style hero headlines use large, high-contrast white type on dark backgrounds."
+          ]
+        },
+        {
+          "heading": "Body text",
+          "paragraphs": [
+            "Use regular to medium weights at 16–18px base size with 1.6–1.8 line height.",
+            "Supporting copy should use softened white or gray tones on dark backgrounds for readability."
+          ]
+        },
+        {
+          "heading": "Usage notes",
+          "paragraphs": [
+            "Use the system UI stack for all web and marketing materials referencing SeaDays unless SeaDays provides a campaign-specific template.",
+            "Avoid decorative, script, or serif fonts when representing the app interface or official product marketing."
+          ]
+        }
+      ]
+    }
+  ]
+}

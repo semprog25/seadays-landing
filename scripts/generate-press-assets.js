@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * Downloads press kit assets, generates PDF guides, and builds ZIP packages.
+ * Downloads press kit assets and builds ZIP packages.
  * Run: npm run generate-press
  */
 
@@ -84,67 +84,6 @@ function downloadFile(url, dest) {
   });
 }
 
-function writeSimplePdf(outputPath, title, paragraphs) {
-  const text = [title, '', ...paragraphs].join('\\n');
-  const escaped = text.replace(/\\/g, '\\\\').replace(/\(/g, '\\(').replace(/\)/g, '\\)');
-  const content = `BT /F1 12 Tf 50 780 Td (${escaped}) Tj ET`;
-  const objects = [
-    '1 0 obj<< /Type /Catalog /Pages 2 0 R >>endobj',
-    '2 0 obj<< /Type /Pages /Kids [3 0 R] /Count 1 >>endobj',
-    '3 0 obj<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>endobj',
-    `4 0 obj<< /Length ${Buffer.byteLength(content, 'utf8')} >>stream\n${content}\nendstream endobj`,
-    '5 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>endobj',
-  ];
-  let pdf = '%PDF-1.4\n';
-  const offsets = [0];
-  objects.forEach((obj) => {
-    offsets.push(Buffer.byteLength(pdf, 'utf8'));
-    pdf += obj + '\n';
-  });
-  const xrefOffset = Buffer.byteLength(pdf, 'utf8');
-  pdf += `xref\n0 ${objects.length + 1}\n`;
-  pdf += '0000000000 65535 f \n';
-  for (let i = 1; i <= objects.length; i += 1) {
-    pdf += String(offsets[i]).padStart(10, '0') + ' 00000 n \n';
-  }
-  pdf += `trailer<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
-  ensureDir(outputPath);
-  fs.writeFileSync(outputPath, pdf);
-}
-
-function createPdfs() {
-  const press = JSON.parse(fs.readFileSync(path.join(PRESS, 'data', 'press.json'), 'utf8'));
-  const guide = press.brandGuidelines;
-
-  writeSimplePdf(path.join(PRESS, 'pdf', 'SeaDays-Brand-Guidelines.pdf'), 'SeaDays Brand Guidelines', [
-    guide.logoSpacing,
-    'Allowed versions:',
-    ...(guide.allowedVersions || []),
-    'Misuse:',
-    ...(guide.misuseExamples || []),
-    guide.trademark,
-    guide.copyright,
-  ]);
-
-  writeSimplePdf(path.join(PRESS, 'pdf', 'SeaDays-Color-Palette.pdf'), 'SeaDays Color Palette', [
-    ...(guide.primaryColors || []).map((color) => `${color.name}: ${color.hex} — ${color.usage}`),
-    ...(guide.secondaryColors || []).map((color) => `${color.name}: ${color.hex} — ${color.usage}`),
-  ]);
-
-  writeSimplePdf(path.join(PRESS, 'pdf', 'SeaDays-Typography-Guide.pdf'), 'SeaDays Typography Guide', [
-    `Primary: ${guide.typography.primary}`,
-    `Headings: ${guide.typography.headings}`,
-    `Body: ${guide.typography.body}`,
-  ]);
-
-  writeSimplePdf(path.join(PRESS, 'pdf', 'SeaDays-Press-Release-Launch.pdf'), 'SeaDays Press Release', [
-    'SeaDays Launches Next-Generation Cruise Planning App for Android and iOS',
-    'SeaDays, a Hamburg-based travel technology company, announced its cruise planning and travel companion app.',
-    'Media contact: press@seadays.app',
-    'https://seadays.app/press/',
-  ]);
-}
-
 function zipDirectory(name, files, outputZip) {
   const downloadsDir = path.join(PRESS, 'downloads');
   fs.mkdirSync(downloadsDir, { recursive: true });
@@ -172,9 +111,6 @@ function createZips() {
     path.join(PRESS, 'logos', 'seadays-logo-transparent.png'),
     path.join(PRESS, 'icons', 'seadays-app-icon-1024.png'),
     path.join(PRESS, 'icons', 'seadays-favicon.png'),
-    path.join(PRESS, 'pdf', 'SeaDays-Brand-Guidelines.pdf'),
-    path.join(PRESS, 'pdf', 'SeaDays-Color-Palette.pdf'),
-    path.join(PRESS, 'pdf', 'SeaDays-Typography-Guide.pdf'),
   ];
 
   const screenshots = fs
@@ -190,7 +126,7 @@ function createZips() {
   zipDirectory('SeaDays-Screenshots', screenshots, path.join(PRESS, 'downloads', 'SeaDays-Screenshots.zip'));
   zipDirectory('SeaDays-Marketing', marketing, path.join(PRESS, 'downloads', 'SeaDays-Marketing.zip'));
 
-  const complete = [...logos, ...screenshots, ...marketing, path.join(PRESS, 'pdf', 'SeaDays-Press-Release-Launch.pdf')];
+  const complete = [...logos, ...screenshots, ...marketing];
   zipDirectory('SeaDays-PressKit', complete, path.join(PRESS, 'downloads', 'SeaDays-PressKit.zip'));
 }
 
@@ -208,9 +144,6 @@ async function main() {
   if (!fs.existsSync(path.join(PRESS, 'logos', 'seadays-logo.svg'))) {
     fs.copyFileSync(path.join(ROOT, 'Seadays.svg'), path.join(PRESS, 'logos', 'seadays-logo.svg'));
   }
-
-  console.log('Creating PDF guides...');
-  createPdfs();
 
   console.log('Building ZIP packages...');
   createZips();

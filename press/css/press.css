@@ -704,6 +704,73 @@ body:has(.site-card:hover) .starfield {
   flex-wrap: wrap;
 }
 
+.copy-guide-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.copy-guide-card {
+  padding: 28px;
+}
+
+.copy-guide-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.copy-guide-description {
+  color: var(--text-muted);
+  margin-top: 8px;
+  max-width: 640px;
+}
+
+.copy-guide-body {
+  display: grid;
+  gap: 20px;
+}
+
+.copy-guide-section h4 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.copy-guide-section p,
+.copy-guide-section li {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.copy-guide-section ul {
+  padding-left: 18px;
+}
+
+.copy-guide-section li + li {
+  margin-top: 8px;
+}
+
+.guide-color-list {
+  display: grid;
+  gap: 14px;
+}
+
+.release-copy-source {
+  margin: 18px 0;
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-soft);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
 .faq-list {
   display: grid;
   gap: 16px;
@@ -942,6 +1009,11 @@ footer {
 
   .row-heading {
     align-items: start;
+  }
+
+  .copy-guide-header {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .footer-content {

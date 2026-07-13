@@ -72,6 +72,17 @@ export async function copyToClipboard(text, button) {
 }
 
 /**
+ * Copy text from a target element by id.
+ * @param {string} targetId
+ * @param {HTMLButtonElement} button
+ */
+export async function copyFromTarget(targetId, button) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  await copyToClipboard(target.innerText || target.textContent || '', button);
+}
+
+/**
  * Trigger immediate file download without opening a new tab.
  * @param {string} url
  * @param {string} filename

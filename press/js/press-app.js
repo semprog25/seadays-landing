@@ -1,6 +1,7 @@
 'use strict';
 
 import {
+  copyFromTarget,
   copyToClipboard,
   escapeHtml,
   fetchJson,
@@ -17,7 +18,7 @@ const HERO_LOGO = '/press/mockups/seadays-hero-logo.png';
 const state = {};
 
 async function loadData() {
-  const [press, logos, screenshots, marketing, videos, pressReleases, awards, media, faq] =
+  const [press, logos, screenshots, marketing, videos, pressReleases, awards, media, faq, brandGuides] =
     await Promise.all([
       fetchJson('press'),
       fetchJson('logos'),
@@ -28,6 +29,7 @@ async function loadData() {
       fetchJson('awards'),
       fetchJson('media'),
       fetchJson('faq'),
+      fetchJson('brand-guides'),
     ]);
   state.press = press;
   state.logos = logos;
@@ -38,6 +40,7 @@ async function loadData() {
   state.awards = awards;
   state.media = media;
   state.faq = faq;
+  state.brandGuides = brandGuides;
 
   const assetItems = [
     ...(logos.items || []),
@@ -185,9 +188,67 @@ function renderBrandAssets() {
     <section class="press-section reveal" id="brand-assets" aria-labelledby="assets-title">
       <div class="container">
         <h2 id="assets-title" class="section-title">Downloadable Brand Assets</h2>
-        <p class="section-subtitle">Official logos, icons, and brand documentation.</p>
+        <p class="section-subtitle">Official logos and app icons for press, partners, and editorial use.</p>
         <div class="asset-grid">
           ${items.map((item) => renderAssetCard(item)).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderGuideSection(section) {
+  const parts = [`<h4>${escapeHtml(section.heading)}</h4>`];
+  if (section.paragraphs?.length) {
+    parts.push(section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join(''));
+  }
+  if (section.list?.length) {
+    parts.push(`<ul>${section.list.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`);
+  }
+  if (section.colors?.length) {
+    parts.push(
+      `<div class="guide-color-list">${section.colors
+        .map(
+          (color) => `
+        <div class="color-chip">
+          <span class="color-swatch" style="background:${escapeHtml(color.hex)}"></span>
+          <div><strong>${escapeHtml(color.name)}</strong><span>${escapeHtml(color.hex)}</span><p>${escapeHtml(color.usage)}</p></div>
+        </div>
+      `
+        )
+        .join('')}</div>`
+    );
+  }
+  return `<div class="copy-guide-section">${parts.join('')}</div>`;
+}
+
+function renderBrandGuides() {
+  const items = state.brandGuides.items || [];
+  return `
+    <section class="press-section reveal" id="brand-guides" aria-labelledby="guides-title">
+      <div class="container">
+        <h2 id="guides-title" class="section-title">Brand Guides</h2>
+        <p class="section-subtitle">Copy official SeaDays brand guidance directly into articles, decks, and partner materials.</p>
+        <div class="copy-guide-grid">
+          ${items
+            .map((guide) => {
+              const targetId = `copy-guide-${guide.id}`;
+              return `
+            <article class="site-card copy-guide-card">
+              <div class="copy-guide-header">
+                <div>
+                  <h3>${escapeHtml(guide.title)}</h3>
+                  <p class="copy-guide-description">${escapeHtml(guide.description)}</p>
+                </div>
+                <button type="button" class="btn-ghost btn-copy" data-copy-target="${escapeHtml(targetId)}">Copy</button>
+              </div>
+              <div class="copy-guide-body" id="${escapeHtml(targetId)}">
+                ${(guide.sections || []).map((section) => renderGuideSection(section)).join('')}
+              </div>
+            </article>
+          `;
+            })
+            .join('')}
         </div>
       </div>
     </section>
@@ -307,9 +368,10 @@ function renderPressReleases() {
               <time datetime="${escapeHtml(release.date)}">${escapeHtml(new Date(release.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }))}</time>
               <h3>${escapeHtml(release.title)}</h3>
               <p>${escapeHtml(release.summary)}</p>
+              ${release.copyText ? `<pre class="release-copy-source" id="press-release-${escapeHtml(release.id)}">${escapeHtml(release.copyText)}</pre>` : ''}
               <div class="release-actions">
                 ${release.readOnlineUrl ? `<a class="btn-ghost" href="${escapeHtml(release.readOnlineUrl)}" target="_blank" rel="noopener noreferrer">Read online</a>` : ''}
-                ${release.pdfPath ? `<button type="button" class="btn-primary" data-download="${escapeHtml(release.pdfPath)}" data-filename="SeaDays-Press-Release.pdf">Download PDF</button>` : ''}
+                ${release.copyText ? `<button type="button" class="btn-ghost btn-copy" data-copy-target="press-release-${escapeHtml(release.id)}">Copy press release</button>` : ''}
               </div>
             </article>
           `
@@ -594,6 +656,13 @@ function bindInteractions() {
     if (copyBtn instanceof HTMLButtonElement) {
       const text = copyBtn.dataset.copy;
       if (text) copyToClipboard(text, copyBtn);
+      return;
+    }
+
+    const copyTargetBtn = target.closest('[data-copy-target]');
+    if (copyTargetBtn instanceof HTMLButtonElement) {
+      const targetId = copyTargetBtn.dataset.copyTarget;
+      if (targetId) copyFromTarget(targetId, copyTargetBtn);
     }
   });
 }
@@ -659,6 +728,7 @@ function renderPage() {
     renderAbout(),
     renderFactSheet(),
     renderBrandAssets(),
+    renderBrandGuides(),
     renderScreenshots(),
     renderMarketing(),
     renderVideos(),
