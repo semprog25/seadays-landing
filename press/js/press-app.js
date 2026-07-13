@@ -55,9 +55,9 @@ function renderHero() {
   const hero = press.hero;
   const completeKit = press.packages.complete.file;
   return `
-    <section class="press-hero reveal" id="top" aria-labelledby="hero-title">
+    <section class="press-hero press-snap-section reveal" id="top" aria-labelledby="hero-title">
       <div class="press-hero-inner container">
-        <img src="${HERO_LOGO}" alt="SeaDays – Cruise Planner App" class="hero-logo" width="360" height="auto" decoding="async" fetchpriority="high">
+        <img src="${HERO_LOGO}" alt="SeaDays – Cruise Planner App" class="hero-logo" width="320" height="auto" decoding="async" fetchpriority="high">
         <p class="eyebrow">Official Media Center</p>
         <h1 id="hero-title" class="tagline">${escapeHtml(hero.headline)}</h1>
         <p class="subtitle">${escapeHtml(hero.intro)}</p>
@@ -66,6 +66,7 @@ function renderHero() {
           <a class="btn-secondary" href="#media-contact">Contact Media</a>
         </div>
       </div>
+      <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to About SeaDays" data-scroll-target="#about"></div>
     </section>
   `;
 }
@@ -78,10 +79,10 @@ function renderAbout() {
     { key: 'long', label: 'Long (500 words)', text: about.long },
   ];
   return `
-    <section class="press-section reveal" id="about" aria-labelledby="about-title">
+    <section class="press-section press-snap-section press-snap-section--compact reveal" id="about" aria-labelledby="about-title">
       <div class="container">
         <h2 id="about-title" class="section-title">About SeaDays</h2>
-        <p class="section-subtitle">Official descriptions for press, partners, and media kits.</p>
+        <p class="section-subtitle">Official descriptions for press, partners, and media kits. Pick a length and copy.</p>
         <div class="about-grid">
           ${variants
             .map(
@@ -89,9 +90,11 @@ function renderAbout() {
             <article class="site-card about-card">
               <div class="about-card-header">
                 <h3>${escapeHtml(variant.label)}</h3>
-                <button type="button" class="btn-ghost btn-copy" data-copy="${escapeHtml(variant.text)}">Copy</button>
+                <button type="button" class="btn-ghost btn-copy about-copy-btn" data-copy="${escapeHtml(variant.text)}">Copy</button>
               </div>
-              <p class="about-text">${escapeHtml(variant.text)}</p>
+              <div class="about-card-body">
+                <p class="about-text">${escapeHtml(variant.text)}</p>
+              </div>
             </article>
           `
             )
@@ -130,7 +133,7 @@ function renderFactSheet() {
     { label: 'Industry', value: facts.industry },
   ];
   return `
-    <section class="press-section reveal" id="fact-sheet" aria-labelledby="facts-title">
+    <section class="press-section press-snap-section reveal" id="fact-sheet" aria-labelledby="facts-title">
       <div class="container">
         <h2 id="facts-title" class="section-title">Company Fact Sheet</h2>
         <p class="section-subtitle">Key facts at a glance for journalists and analysts.</p>
@@ -185,7 +188,7 @@ function renderAssetCard(item) {
 function renderBrandAssets() {
   const items = state.logos.items || [];
   return `
-    <section class="press-section reveal" id="brand-assets" aria-labelledby="assets-title">
+    <section class="press-section press-snap-section reveal" id="brand-assets" aria-labelledby="assets-title">
       <div class="container">
         <h2 id="assets-title" class="section-title">Downloadable Brand Assets</h2>
         <p class="section-subtitle">Official logos and app icons for press, partners, and editorial use.</p>
@@ -222,45 +225,78 @@ function renderGuideSection(section) {
   return `<div class="copy-guide-section">${parts.join('')}</div>`;
 }
 
+function renderGuideCard(guide) {
+  if (!guide) return '';
+  const targetId = `copy-guide-${guide.id}`;
+  return `
+    <article class="site-card copy-guide-card copy-guide-card--scroll">
+      <div class="copy-guide-header">
+        <div>
+          <h3>${escapeHtml(guide.title)}</h3>
+          <p class="copy-guide-description">${escapeHtml(guide.description)}</p>
+        </div>
+        <button type="button" class="btn-ghost btn-copy" data-copy-target="${escapeHtml(targetId)}">Copy</button>
+      </div>
+      <div class="copy-guide-body copy-guide-scroll" id="${escapeHtml(targetId)}">
+        ${(guide.sections || []).map((section) => renderGuideSection(section)).join('')}
+      </div>
+    </article>
+  `;
+}
+
 function renderBrandGuides() {
   const items = state.brandGuides.items || [];
+  const guidelines = items.find((guide) => guide.id === 'brand-guidelines');
+  const colors = items.find((guide) => guide.id === 'color-palette');
+  const typography = items.find((guide) => guide.id === 'typography-guide');
   return `
-    <section class="press-section reveal" id="brand-guides" aria-labelledby="guides-title">
+    <section class="press-section press-snap-section reveal" id="brand-guides" aria-labelledby="guides-title">
       <div class="container">
         <h2 id="guides-title" class="section-title">Brand Guides</h2>
         <p class="section-subtitle">Copy official SeaDays brand guidance directly into articles, decks, and partner materials.</p>
-        <div class="copy-guide-grid">
-          ${items
-            .map((guide) => {
-              const targetId = `copy-guide-${guide.id}`;
-              return `
-            <article class="site-card copy-guide-card">
-              <div class="copy-guide-header">
-                <div>
-                  <h3>${escapeHtml(guide.title)}</h3>
-                  <p class="copy-guide-description">${escapeHtml(guide.description)}</p>
-                </div>
-                <button type="button" class="btn-ghost btn-copy" data-copy-target="${escapeHtml(targetId)}">Copy</button>
-              </div>
-              <div class="copy-guide-body" id="${escapeHtml(targetId)}">
-                ${(guide.sections || []).map((section) => renderGuideSection(section)).join('')}
-              </div>
-            </article>
-          `;
-            })
-            .join('')}
+        <div class="copy-guide-duo">
+          ${renderGuideCard(guidelines)}
+          ${renderGuideCard(colors)}
+        </div>
+        <div class="copy-guide-single">
+          ${renderGuideCard(typography)}
         </div>
       </div>
     </section>
   `;
 }
 
+function galleryThumbClass(layout) {
+  if (layout === 'banner-wide' || layout === 'feature') return 'gallery-thumb--wide';
+  if (layout === 'banner-story') return 'gallery-thumb--story';
+  if (layout === 'logo') return 'gallery-thumb--logo';
+  return 'gallery-thumb--wide';
+}
+
+function galleryCardClass(layout) {
+  if (layout === 'banner-wide' || layout === 'logo') return 'gallery-card--wide';
+  if (layout === 'banner-story') return 'gallery-card--story';
+  return '';
+}
+
+function galleryBadgeLabel(item) {
+  const layout = item.layout || item.category || 'asset';
+  if (layout === 'banner-wide') return 'Wide banner';
+  if (layout === 'banner-story') return 'Story banner';
+  if (layout === 'feature') return 'Feature';
+  if (layout === 'logo') return 'Logo';
+  return layout;
+}
+
 function renderGalleryItem(item, zipPath) {
+  const layout = item.layout || item.category;
+  const thumbClass = galleryThumbClass(layout);
+  const cardClass = galleryCardClass(layout);
   return `
-    <article class="site-card gallery-card reveal">
-      <button type="button" class="gallery-thumb" data-lightbox data-lightbox-src="${escapeHtml(item.preview)}" data-lightbox-alt="${escapeHtml(item.alt || item.title)}" data-lightbox-download="${escapeHtml(item.path)}" data-lightbox-filename="${escapeHtml(item.filename)}" aria-label="Enlarge ${escapeHtml(item.title)}">
-        <img src="${escapeHtml(item.thumbnail || item.preview)}" alt="${escapeHtml(item.alt || item.title)}" loading="lazy" decoding="async" width="400" height="300">
-        <span class="gallery-badge">${escapeHtml(item.layout || item.category || 'asset')}</span>
+    <article class="site-card gallery-card reveal${cardClass ? ` ${cardClass}` : ''}">
+      <button type="button" class="gallery-thumb ${thumbClass}" data-lightbox data-lightbox-src="${escapeHtml(item.preview)}" data-lightbox-alt="${escapeHtml(item.alt || item.title)}" data-lightbox-download="${escapeHtml(item.path)}" data-lightbox-filename="${escapeHtml(item.filename)}" aria-label="Enlarge ${escapeHtml(item.title)}">
+        <img src="${escapeHtml(item.thumbnail || item.preview)}" alt="${escapeHtml(item.alt || item.title)}" loading="lazy" decoding="async">
+        <span class="gallery-badge">${escapeHtml(galleryBadgeLabel(item))}</span>
       </button>
       <div class="gallery-meta">
         <h3>${escapeHtml(item.title)}</h3>
@@ -275,7 +311,7 @@ function renderScreenshots() {
   const data = state.screenshots;
   const items = data.items || [];
   return `
-    <section class="press-section reveal" id="screenshots" aria-labelledby="screenshots-title">
+    <section class="press-section press-snap-section reveal" id="screenshots" aria-labelledby="screenshots-title">
       <div class="container">
         <div class="row-heading">
           <div>
@@ -296,7 +332,7 @@ function renderMarketing() {
   const data = state.marketing;
   const items = data.items || [];
   return `
-    <section class="press-section reveal" id="marketing" aria-labelledby="marketing-title">
+    <section class="press-section press-snap-section reveal" id="marketing" aria-labelledby="marketing-title">
       <div class="container">
         <div class="row-heading">
           <div>
@@ -305,7 +341,7 @@ function renderMarketing() {
           </div>
           <button type="button" class="btn-secondary" data-download="${escapeHtml(data.zip)}" data-filename="SeaDays-Marketing.zip">Download all ZIP</button>
         </div>
-        <div class="gallery-grid">
+        <div class="gallery-grid gallery-grid--marketing">
           ${items.map((item) => renderGalleryItem(item, data.zip)).join('')}
         </div>
       </div>
@@ -316,7 +352,7 @@ function renderMarketing() {
 function renderVideos() {
   const items = state.videos.items || [];
   return `
-    <section class="press-section reveal" id="videos" aria-labelledby="videos-title">
+    <section class="press-section press-snap-section reveal" id="videos" aria-labelledby="videos-title">
       <div class="container">
         <h2 id="videos-title" class="section-title">Videos</h2>
         <p class="section-subtitle">Promotional videos for editorial and social coverage.</p>
@@ -338,7 +374,7 @@ function renderVideos() {
               return `
                 <article class="site-card video-card">
                   <div class="video-poster">
-                    <img src="${escapeHtml(video.poster)}" alt="" loading="lazy" decoding="async">
+                    <img src="${escapeHtml(video.poster)}" alt="${escapeHtml(video.title)} preview" loading="lazy" decoding="async">
                     ${video.comingSoon ? '<span class="video-soon">Coming soon</span>' : ''}
                   </div>
                   <h3>${escapeHtml(video.title)}</h3>
@@ -356,7 +392,7 @@ function renderVideos() {
 function renderPressReleases() {
   const items = state.pressReleases.items || [];
   return `
-    <section class="press-section reveal" id="press-releases" aria-labelledby="releases-title">
+    <section class="press-section press-snap-section reveal" id="press-releases" aria-labelledby="releases-title">
       <div class="container">
         <h2 id="releases-title" class="section-title">Latest Press Releases</h2>
         <p class="section-subtitle">Official announcements from SeaDays.</p>
@@ -386,7 +422,7 @@ function renderPressReleases() {
 function renderContact() {
   const contact = state.press.contact;
   return `
-    <section class="press-section reveal" id="media-contact" aria-labelledby="contact-title">
+    <section class="press-section press-snap-section reveal" id="media-contact" aria-labelledby="contact-title">
       <div class="container">
         <h2 id="contact-title" class="section-title">Media Contact</h2>
         <p class="section-subtitle">Reach our team for interviews, assets, and partnership inquiries.</p>
@@ -421,7 +457,7 @@ function renderContact() {
 function renderAwards() {
   const items = state.awards.items || [];
   return `
-    <section class="press-section reveal" id="awards" aria-labelledby="awards-title">
+    <section class="press-section press-snap-section reveal" id="awards" aria-labelledby="awards-title">
       <div class="container">
         <h2 id="awards-title" class="section-title">Awards & Recognition</h2>
         ${
@@ -447,7 +483,7 @@ function renderAwards() {
 function renderMediaCoverage() {
   const items = state.media.items || [];
   return `
-    <section class="press-section reveal" id="media-coverage" aria-labelledby="coverage-title">
+    <section class="press-section press-snap-section reveal" id="media-coverage" aria-labelledby="coverage-title">
       <div class="container">
         <h2 id="coverage-title" class="section-title">Recent News & Media Coverage</h2>
         ${
@@ -475,7 +511,7 @@ function renderMediaCoverage() {
 function renderFaq() {
   const items = state.faq.items || [];
   return `
-    <section class="press-section reveal" id="faq" aria-labelledby="faq-title">
+    <section class="press-section press-snap-section reveal" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
         <div class="faq-list">
@@ -495,82 +531,10 @@ function renderFaq() {
   `;
 }
 
-function renderBrandGuidelines() {
-  const guide = state.press.brandGuidelines;
-  return `
-    <section class="press-section reveal" id="brand-guidelines" aria-labelledby="guidelines-title">
-      <div class="container">
-        <h2 id="guidelines-title" class="section-title">Brand Usage Guidelines</h2>
-        <p class="section-subtitle">Please follow these rules when using SeaDays brand assets.</p>
-        <div class="guidelines-grid">
-          <article class="site-card">
-            <h3>Minimum logo spacing</h3>
-            <p>${escapeHtml(guide.logoSpacing)}</p>
-          </article>
-          <article class="site-card">
-            <h3>Allowed logo versions</h3>
-            <ul>${(guide.allowedVersions || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-          </article>
-          <article class="site-card">
-            <h3>Logo misuse examples</h3>
-            <ul class="misuse-list">${(guide.misuseExamples || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-          </article>
-          <article class="site-card">
-            <h3>Primary colors</h3>
-            <div class="color-list">
-              ${(guide.primaryColors || [])
-                .map(
-                  (color) => `
-                <div class="color-chip">
-                  <span class="color-swatch" style="background:${escapeHtml(color.hex)}"></span>
-                  <div><strong>${escapeHtml(color.name)}</strong><span>${escapeHtml(color.hex)}</span><p>${escapeHtml(color.usage)}</p></div>
-                </div>
-              `
-                )
-                .join('')}
-            </div>
-          </article>
-          <article class="site-card">
-            <h3>Secondary colors</h3>
-            <div class="color-list">
-              ${(guide.secondaryColors || [])
-                .map(
-                  (color) => `
-                <div class="color-chip">
-                  <span class="color-swatch" style="background:${escapeHtml(color.hex)}"></span>
-                  <div><strong>${escapeHtml(color.name)}</strong><span>${escapeHtml(color.hex)}</span><p>${escapeHtml(color.usage)}</p></div>
-                </div>
-              `
-                )
-                .join('')}
-            </div>
-          </article>
-          <article class="site-card">
-            <h3>Typography</h3>
-            <p><strong>Primary:</strong> ${escapeHtml(guide.typography.primary)}</p>
-            <p><strong>Headings:</strong> ${escapeHtml(guide.typography.headings)}</p>
-            <p><strong>Body:</strong> ${escapeHtml(guide.typography.body)}</p>
-          </article>
-          <article class="site-card">
-            <h3>Screenshots & marketing images</h3>
-            <p>${escapeHtml(guide.screenshotRules)}</p>
-            <p>${escapeHtml(guide.marketingImageRules)}</p>
-          </article>
-          <article class="site-card legal-card">
-            <h3>Trademark & copyright</h3>
-            <p>${escapeHtml(guide.trademark)}</p>
-            <p>${escapeHtml(guide.copyright)}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  `;
-}
-
 function renderLegal() {
   const legal = state.press.legal;
   return `
-    <section class="press-section press-legal reveal" id="legal" aria-labelledby="legal-title">
+    <section class="press-section press-snap-section press-legal reveal" id="legal" aria-labelledby="legal-title">
       <div class="container">
         <h2 id="legal-title" class="visually-hidden">Legal</h2>
         <div class="site-card legal-banner">
@@ -636,6 +600,24 @@ function renderFooter() {
   `;
 }
 
+function bindScrollTargets() {
+  document.querySelectorAll('[data-scroll-target]').forEach((element) => {
+    if (!(element instanceof HTMLElement)) return;
+    const scrollToTarget = () => {
+      const selector = element.dataset.scrollTarget;
+      if (!selector) return;
+      document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+    };
+    element.addEventListener('click', scrollToTarget);
+    element.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        scrollToTarget();
+      }
+    });
+  });
+}
+
 function bindInteractions() {
   document.addEventListener('click', (event) => {
     const target = event.target;
@@ -647,13 +629,14 @@ function bindInteractions() {
       const filename = downloadBtn.dataset.filename || 'seadays-download';
       if (url) {
         event.preventDefault();
-        triggerDownload(url, filename);
+        void triggerDownload(url, filename);
       }
       return;
     }
 
     const copyBtn = target.closest('[data-copy]');
     if (copyBtn instanceof HTMLButtonElement) {
+      event.stopPropagation();
       const text = copyBtn.dataset.copy;
       if (text) copyToClipboard(text, copyBtn);
       return;
@@ -661,6 +644,7 @@ function bindInteractions() {
 
     const copyTargetBtn = target.closest('[data-copy-target]');
     if (copyTargetBtn instanceof HTMLButtonElement) {
+      event.stopPropagation();
       const targetId = copyTargetBtn.dataset.copyTarget;
       if (targetId) copyFromTarget(targetId, copyTargetBtn);
     }
@@ -737,7 +721,6 @@ function renderPage() {
     renderAwards(),
     renderMediaCoverage(),
     renderFaq(),
-    renderBrandGuidelines(),
     renderLegal(),
     renderFooter(),
     lightboxMarkup(),
@@ -757,6 +740,7 @@ async function init() {
     injectStructuredData();
     initLightbox();
     bindInteractions();
+    bindScrollTargets();
     observeReveal('.reveal');
   } catch (error) {
     showError(error instanceof Error ? error.message : 'Unknown error');

@@ -8,7 +8,9 @@
     "start": "node server.js",
     "generate-blogs": "node scripts/generateBlogs.js",
     "generate-blog-pages": "node scripts/generate-blog-pages.js",
-    "generate-press": "node scripts/generate-press-assets.js"
+    "generate-press": "node scripts/generate-press-assets.js",
+    "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
+    "upload-press-marketing": "node scripts/upload-press-marketing.js"
   },
   "engines": {
     "node": ">=18"

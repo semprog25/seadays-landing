@@ -83,18 +83,35 @@ export async function copyFromTarget(targetId, button) {
 }
 
 /**
- * Trigger immediate file download without opening a new tab.
+ * Trigger a lossless file download using the original bytes (no re-encoding).
  * @param {string} url
  * @param {string} filename
  */
-export function triggerDownload(url, filename) {
-  const anchor = document.createElement('a');
-  anchor.href = url;
-  anchor.download = filename || '';
-  anchor.rel = 'noopener';
-  document.body.appendChild(anchor);
-  anchor.click();
-  document.body.removeChild(anchor);
+export async function triggerDownload(url, filename) {
+  const safeName = filename || 'download';
+  try {
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Download failed (${response.status})`);
+    const blob = await response.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = objectUrl;
+    anchor.download = safeName;
+    anchor.rel = 'noopener';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(objectUrl);
+    return;
+  } catch {
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = safeName;
+    anchor.rel = 'noopener';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  }
 }
 
 /**

@@ -1,6 +1,6 @@
 'use strict';
 
-import { escapeHtml } from './utils.js';
+import { escapeHtml, triggerDownload } from './utils.js';
 
 let activeImage = null;
 
@@ -61,12 +61,7 @@ export function initLightbox() {
     const url = btn.dataset.url;
     const filename = btn.dataset.filename || 'seadays-asset';
     if (!url) return;
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = filename;
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
+    void triggerDownload(url, filename);
   });
 
   document.addEventListener('keydown', (event) => {
