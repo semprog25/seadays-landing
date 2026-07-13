@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WSQDQ33QZD');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://seadays.app/press/">
+  <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <link rel="preload" href="/press/mockups/seadays-hero-logo.png" as="image">
+  <link rel="preload" href="/press/css/press.css" as="style">
+  <link rel="stylesheet" href="/press/css/press.css">
+
+  <title>SeaDays Press Kit – Official Media Center & Brand Assets</title>
+  <meta name="description" content="Download official SeaDays logos, screenshots, brand guidelines, and company information. Media resources for journalists, bloggers, and travel technology press.">
+  <meta name="keywords" content="SeaDays, SeaDays Press Kit, SeaDays Media, SeaDays Logo, SeaDays Screenshots, SeaDays Brand Assets, Cruise Planner App, Cruise Planning, Travel Technology">
+  <meta name="author" content="SeaDays">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seadays.app/press/">
+  <meta property="og:title" content="SeaDays Press Kit – Official Media Center & Brand Assets">
+  <meta property="og:description" content="Download official SeaDays logos, screenshots, brand guidelines, and company information for media and partners.">
+  <meta property="og:image" content="https://seadays.app/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://seadays.app/press/">
+  <meta name="twitter:title" content="SeaDays Press Kit – Official Media Center & Brand Assets">
+  <meta name="twitter:description" content="Download official SeaDays logos, screenshots, brand guidelines, and company information for media and partners.">
+  <meta name="twitter:image" content="https://seadays.app/og-image.png">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <main class="content-layer" id="main-content">
+    <header class="header">
+      <a href="https://seadays.app/" class="header-brand">SeaDays</a>
+      <nav class="header-nav" aria-label="Press kit navigation">
+        <a href="https://seadays.app/#cruise-planning-tools">Features</a>
+        <a href="https://seadays.app/blog/">Blog</a>
+        <a href="#about">About</a>
+        <a href="#brand-assets">Assets</a>
+        <a href="#media-contact">Contact</a>
+      </nav>
+    </header>
+
+    <div id="press-app" aria-live="polite">
+      <div class="press-loading container">
+        <p>Loading press kit…</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function createStarfield() {
+      var starfield = document.getElementById('starfield');
+      if (!starfield) return;
+      for (var i = 0; i < 150; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var size = Math.random() * 3 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.borderRadius = '50%';
+        var a = Math.random() * 0.62 + 0.14;
+        star.style.setProperty('--star-a', a.toFixed(3));
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 3 + 's';
+        starfield.appendChild(star);
+      }
+    }
+    createStarfield();
+  </script>
+  <script type="module" src="/press/js/press-app.js"></script>
+</body>
+</html>

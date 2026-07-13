@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "generate-blogs": "node scripts/generateBlogs.js",
-    "generate-blog-pages": "node scripts/generate-blog-pages.js"
+    "generate-blog-pages": "node scripts/generate-blog-pages.js",
+    "generate-press": "node scripts/generate-press-assets.js"
   },
   "engines": {
     "node": ">=18"

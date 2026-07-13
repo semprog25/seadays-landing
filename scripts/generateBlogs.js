@@ -2182,7 +2182,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
       <div class="container">
         <div class="footer-content">
           <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
+          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/press/">Press</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
           <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
@@ -2402,7 +2402,7 @@ ${preloadLinks}
       <div class="container">
         <div class="footer-content">
           <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
+          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/press/">Press</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
           <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
