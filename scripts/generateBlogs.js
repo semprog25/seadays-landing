@@ -182,8 +182,8 @@ function getFallbackImage(indexKey) {
 }
 
 /**
- * Replace any remaining signed storage img src attributes with stable public fallbacks.
- * Defense in depth for indexes regenerated from older article payloads.
+ * Replace signed storage img src attributes with stable public fallbacks.
+ * ONLY for /ports/ and /ships/ INDEX pages — never for blog article HTML.
  */
 function replaceSignedStorageImgSrcInHtml(html) {
   let i = 0;
@@ -193,7 +193,7 @@ function replaceSignedStorageImgSrcInHtml(html) {
   );
 }
 
-/** True for Supabase Storage signed URLs (JWT query) — must never be baked into static HTML. */
+/** True for Supabase Storage signed URLs (JWT query). */
 function isSignedStorageUrl(url) {
   return typeof url === 'string' && /\/storage\/v1\/object\/sign\//i.test(url);
 }
@@ -436,25 +436,43 @@ function isGradientSvgDataUrl(url) {
 /**
  * Resolve a raw image URL: upload base64 to storage, convert CDN to direct, or return as-is.
  * Never returns a base64 data URL. Returns null when base64 upload fails.
+ *
+ * Signed CMS URLs (make-*-note-images):
+ *   1. Public rewrite only if that public object actually HEADs 200
+ *   2. Optional materialize when SEADAYS_MATERIALIZE_SIGNED=1 + service role
+ *   3. Keep the signed URL when it still HEADs 200 (blog/article/related cards)
+ *   4. null only when unreachable — callers may then fall back
+ *
+ * opts.stablePublicOnly: for /ports/ and /ships/ INDEX featured cards — never keep signed.
  */
-async function resolveImageUrl(url, articleId, index = 0) {
+async function resolveImageUrl(url, articleId, index = 0, opts = {}) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
+  const stablePublicOnly = Boolean(opts && opts.stablePublicOnly);
   if (!trimmed.startsWith('data:image')) {
     const httpsUrl = normalizeUrlForCdnRewrite(trimmed);
     const normalized = normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(httpsUrl));
     if (!normalized) return null;
-    // Signed URLs expire (or become invalid when the signing key rotates). Never bake them into static HTML.
     if (isSignedStorageUrl(normalized) || isSignedStorageUrl(httpsUrl)) {
-      const publicCandidate = signedStorageUrlToPublicCandidate(normalized) || signedStorageUrlToPublicCandidate(httpsUrl);
+      const signedSrc = isSignedStorageUrl(httpsUrl) ? httpsUrl : normalized;
+      const publicCandidate =
+        signedStorageUrlToPublicCandidate(normalized) || signedStorageUrlToPublicCandidate(httpsUrl);
+      // Only use public rewrite when the object is actually public (private buckets return 400).
       if (publicCandidate && (await headOk(publicCandidate))) return publicCandidate;
-      // Optional: re-host into SeadaysPublic during CI when explicitly enabled.
       if (String(process.env.SEADAYS_MATERIALIZE_SIGNED || '').trim() === '1') {
-        const materialized = await materializeSignedImageToPublic(httpsUrl, articleId);
+        const materialized = await materializeSignedImageToPublic(signedSrc, articleId);
         if (materialized) return materialized;
       }
+      if (stablePublicOnly) {
+        console.warn(
+          `  [img-sign] index/stable-only rejecting signed URL for "${String(articleId || '').slice(0, 40)}"`
+        );
+        return null;
+      }
+      // Blog/article pipeline: preserve still-valid signed CMS images.
+      if (await headOk(signedSrc)) return signedSrc;
       console.warn(
-        `  [img-sign] rejecting signed storage URL for "${String(articleId || '').slice(0, 40)}" — using next candidate/fallback`
+        `  [img-sign] signed URL unreachable for "${String(articleId || '').slice(0, 40)}" — skipping image`
       );
       return null;
     }
@@ -481,11 +499,18 @@ function classifyImageUrl(url) {
   const trimmed = url.trim();
   if (!trimmed.startsWith('https://')) return null;
   if (trimmed.includes('cdn.seadays.app')) return null;
-  if (isSignedStorageUrl(trimmed)) return null;
   const lower = trimmed.toLowerCase().split('?')[0];
   if (lower.endsWith('.svg') || lower.includes('svg+xml')) return null;
+  // Signed CMS URLs are valid for blog/article/related-card usage (same CMS origin).
+  if (isSignedStorageUrl(trimmed)) {
+    if (trimmed.includes('auth.seadays.app/storage') || trimmed.includes('.supabase.co/storage')) {
+      return 'supabase';
+    }
+    return 'external';
+  }
   if (trimmed.includes('auth.seadays.app/storage')) return 'supabase';
   if (trimmed.includes('.supabase.co/storage/v1/object/public/')) return 'supabase';
+  if (trimmed.includes('.supabase.co/storage/v1/object/sign/')) return 'supabase';
   return 'external';
 }
 
@@ -596,8 +621,9 @@ async function checkExternalUrl(url) {
  *
  * Returns { url: string, source: string, type: 'supabase'|'external'|'fallback' }
  */
-async function pickCardImage(article, index) {
+async function pickCardImage(article, index, opts = {}) {
   const id = article.id || 'unknown';
+  const resolveOpts = opts && opts.stablePublicOnly ? { stablePublicOnly: true } : {};
 
   // Collect all resolved candidates tagged with their source and quality tier
   const pool = [];
@@ -612,9 +638,10 @@ async function pickCardImage(article, index) {
       console.log(`  [img-skip] gradient SVG placeholder ignored for "${(article.title || article.id || '').slice(0,40)}" source=${source}`);
       continue;
     }
-    const resolved = await resolveImageUrl(raw, id, `${index}-${source}`);
+    const resolved = await resolveImageUrl(raw, id, `${index}-${source}`, resolveOpts);
     const type = classifyImageUrl(resolved);
     if (!type) continue;
+    if (resolveOpts.stablePublicOnly && isSignedStorageUrl(resolved)) continue;
     if (type === 'external') {
       // Validate external images at build time (first MAX_EXTERNAL_CHECKS only)
       const ok = await checkExternalUrl(resolved.trim());
@@ -626,9 +653,9 @@ async function pickCardImage(article, index) {
   // Body extraction as lower-priority fallback
   const bodyRaw = extractFirstRasterImageFromContent(article);
   if (bodyRaw) {
-    const resolved = await resolveImageUrl(bodyRaw, id, `${index}-body`);
+    const resolved = await resolveImageUrl(bodyRaw, id, `${index}-body`, resolveOpts);
     const type = classifyImageUrl(resolved);
-    if (type) {
+    if (type && !(resolveOpts.stablePublicOnly && isSignedStorageUrl(resolved))) {
       const ok = type === 'external' ? await checkExternalUrl(resolved.trim()) : true;
       if (ok) pool.push({ url: resolved.trim(), source: 'body', type });
     }
@@ -2237,12 +2264,11 @@ function buildImgTag(url, source, type, alt, className, { eager = false, width =
 const RUNTIME_GUARD_SCRIPT = `<script>
 (function(){
   var FB='${FALLBACK_IMAGE_URL}';
-  // Mirrors classifyImageUrl() in the generator: blocks CDN proxy, SVGs, and signed storage URLs.
-  // External HTTPS images are allowed (same policy as server-side validation).
+  // Blocks CDN proxy and SVGs. Signed CMS URLs are ALLOWED (blog/article images).
+  // Ports/ships INDEX pages strip signed URLs at build time separately.
   function safeImage(src){
     if(!src||!src.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
-    if(src.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
     return src;
   }
@@ -3141,7 +3167,10 @@ async function main() {
     for (let i = 0; i < safe.length; i++) {
       const a = safe[i];
       if (!a || !a.slug) continue;
-      const { url: imgUrl, source, type } = await pickCardImage(a, `${keyPrefix}-${i}`);
+      // Featured index cards must use stable public images (never expiring signed URLs).
+      const { url: imgUrl, source, type } = await pickCardImage(a, `${keyPrefix}-${i}`, {
+        stablePublicOnly: true,
+      });
       logImageResolution(a, source, type, imgUrl);
       const imgTag = buildImgTag(imgUrl, source, type, a.title || 'SeaDays guide', 'guide-card-image', { width: 420, height: 240 });
       out.push(
@@ -3368,7 +3397,19 @@ async function main() {
   console.log('Done.');
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
+
+module.exports = {
+  isSignedStorageUrl,
+  classifyImageUrl,
+  validateImageUrl,
+  resolveImageUrl,
+  replaceSignedStorageImgSrcInHtml,
+  getFallbackImage,
+  pickCardImage,
+};

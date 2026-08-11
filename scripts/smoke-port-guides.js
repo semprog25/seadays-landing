@@ -35,6 +35,9 @@ assert.ok(ham.includes('HafenCity') || ham.includes('Speicherstadt'), 'hamburg d
 assert.ok(!ham.includes('Photography, markets, and neighborhood walks near'), 'hamburg no SEO template');
 assert.ok(/working Elbe port/i.test(ham), 'hamburg cruise-specific overview');
 assert.ok(!/Free and Hanseatic City of Hamburg/i.test(ham), 'hamburg no wikipedia overview');
+assert.ok((ham.match(/class="seo-article-card"/g) || []).length >= 3, 'hamburg more-reading cards');
+assert.ok((ham.match(/<img\b[^>]*class="seo-article-img"/g) || []).length >= 1, 'hamburg related thumbnails');
+assert.ok(/href="\/blog\/[^"]+\//.test(ham), 'hamburg related blog links');
 
 const portsIndex = fs.readFileSync(path.join(root, 'ports', 'index.html'), 'utf8');
 const signedImgSrc = [...portsIndex.matchAll(/<img\b[^>]*?\bsrc=["']([^"']+)["']/gi)].filter((m) =>

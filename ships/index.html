@@ -632,12 +632,11 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   <script>
 (function(){
   var FB='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
-  // Mirrors classifyImageUrl() in the generator: blocks CDN proxy, SVGs, and signed storage URLs.
-  // External HTTPS images are allowed (same policy as server-side validation).
+  // Blocks CDN proxy and SVGs. Signed CMS URLs are ALLOWED (blog/article images).
+  // Ports/ships INDEX pages strip signed URLs at build time separately.
   function safeImage(src){
     if(!src||!src.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
-    if(src.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
     return src;
   }

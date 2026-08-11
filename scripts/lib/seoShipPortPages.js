@@ -633,8 +633,8 @@ function isUsableArticleImage(url) {
   if (!s) return false;
   if (/data:image\/svg/i.test(s)) return false;
   if (/\.svg(?:[?#]|$)/i.test(s)) return false;
-  // Signed Supabase URLs expire / break after signing-key rotation — never embed in static HTML.
-  if (/\/storage\/v1\/object\/sign\//i.test(s)) return false;
+  // Signed CMS thumbnails are allowed for related article cards on port/ship pages.
+  // Ports/ships INDEX featured cards strip signed URLs separately at build time.
   return /^https?:\/\//i.test(s);
 }
 
@@ -1111,4 +1111,5 @@ module.exports = {
   pickBlogArticlesForEntity,
   slugify,
   applyPortGeoFromApiRows,
+  isUsableArticleImage,
 };
