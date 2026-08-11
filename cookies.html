@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WSQDQ33QZD');
-    </script>
+    
     <meta charset="UTF-8">
+<!-- SeaDays analytics: GA4 G-WSQDQ33QZD + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-WSQDQ33QZD');
+window.__SEADAYS_GA_READY__ = true;
+</script>
+<script src="/assets/js/seadays-analytics.js" defer></script>
+
+
+
     <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Policy - SeaDays</title>
@@ -172,13 +187,25 @@
         <div class="header">
             <div class="icon-container">🍪</div>
             <h1>Cookie Policy</h1>
-            <p class="last-updated">Last Updated: November 9, 2025</p>
+            <p class="last-updated">Last Updated: August 11, 2026</p>
         </div>
 
         <div class="content">
             <div class="section">
                 <h2>What Are Cookies?</h2>
-                <p>Cookies are small text files that are stored on your device when you use SeaDays. They help us provide you with a better experience by remembering your preferences and analyzing how you use our app.</p>
+                <p>Cookies are small text files stored on your device. SeaDays uses cookies in the <strong>mobile app</strong> and on the <strong>website</strong> (seadays.app) for the purposes described below.</p>
+            </div>
+
+            <div class="section">
+                <h2>Website Analytics Cookies (seadays.app)</h2>
+                <p>On our website we use <strong>Google Analytics 4 (GA4)</strong> to understand how visitors use pages such as the homepage, blog, ship and port guides, and feature pages. We use Google Consent Mode v2 with analytics and advertising storage <strong>denied by default</strong>.</p>
+                <p>If you choose <strong>Accept</strong> on the cookie banner, we set <code>analytics_storage</code> to granted so GA4 can use analytics cookies. Advertising-related consent signals (<code>ad_storage</code>, <code>ad_user_data</code>, <code>ad_personalization</code>) remain denied for this website analytics setup. If you choose <strong>Decline</strong>, analytics storage stays denied.</p>
+                <p>
+                    <button type="button" id="seadaysCookieSettingsBtn" style="min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid rgba(255,0,51,0.45);background:rgba(255,0,51,0.15);color:#fff;font-weight:700;cursor:pointer;">
+                        Change website analytics preference
+                    </button>
+                </p>
+                <p style="margin-top:12px;font-size:14px;color:rgba(255,255,255,0.55);">This control only affects seadays.app analytics cookies. Mobile app ad consent is managed in the SeaDays app under Profile → Settings → Ad privacy options.</p>
             </div>
 
             <div class="section">
@@ -205,13 +232,13 @@
                         </tr>
                         <tr>
                             <td><strong>Preference Cookies</strong></td>
-                            <td>Remember your settings and customizations</td>
+                            <td>Remember your settings and customizations (including your website analytics Accept/Decline choice stored locally)</td>
                             <td>1 year</td>
                         </tr>
                         <tr>
                             <td><strong>Analytics Cookies</strong></td>
-                            <td>Collect data about app usage to improve our services</td>
-                            <td>2 years</td>
+                            <td>Website: GA4 measurement when you Accept. App: usage analytics to improve services</td>
+                            <td>Up to 2 years (provider-dependent)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -221,10 +248,10 @@
                 <h2>How We Use Cookies</h2>
                 <p>We use cookies to:</p>
                 <ul>
-                    <li>Keep you signed in to your account</li>
+                    <li>Keep you signed in to your account (app)</li>
                     <li>Remember your preferences (theme, language, settings)</li>
                     <li>Understand how you use SeaDays to improve features</li>
-                    <li>Provide personalized cruise recommendations</li>
+                    <li>Measure website page views and key actions on seadays.app when you consent</li>
                     <li>Analyze app performance and fix issues</li>
                     <li>Ensure security and prevent fraud</li>
                 </ul>
@@ -232,13 +259,14 @@
 
             <div class="section">
                 <h2>Managing Cookies</h2>
-                <p>You have control over cookies through your device settings:</p>
+                <p>You have control over cookies through:</p>
                 <ul>
+                    <li><strong>Website (seadays.app):</strong> Use the cookie banner, or the button above, to Accept or Decline analytics cookies</li>
                     <li><strong>Browser Settings:</strong> Most browsers allow you to block or delete cookies</li>
                     <li><strong>Mobile Settings:</strong> iOS and Android have privacy settings for app tracking</li>
-                    <li><strong>App Preferences:</strong> Adjust analytics preferences in SeaDays settings</li>
+                    <li><strong>App Preferences:</strong> Adjust ad privacy options in SeaDays settings</li>
                 </ul>
-                <p><strong>Note:</strong> Disabling essential cookies may affect app functionality.</p>
+                <p><strong>Note:</strong> Disabling essential cookies may affect app functionality. Declining website analytics does not block browsing seadays.app.</p>
             </div>
 
             <div class="section">
@@ -246,7 +274,8 @@
                 <p>We may use third-party services that set their own cookies:</p>
                 <ul>
                     <li>Authentication providers (Supabase)</li>
-                    <li>Analytics services</li>
+                    <li>Google Analytics 4 on the website (when you Accept)</li>
+                    <li>Analytics and advertising services in the mobile app</li>
                     <li>Payment processors</li>
                     <li>Map and location services</li>
                 </ul>
@@ -266,5 +295,11 @@
             </div>
         </div>
     </div>
+    <script>
+      document.getElementById('seadaysCookieSettingsBtn')?.addEventListener('click', function () {
+        if (typeof window.seadaysOpenCookieSettings === 'function') window.seadaysOpenCookieSettings();
+        else window.location.hash = 'cookie-settings';
+      });
+    </script>
 </body>
 </html>

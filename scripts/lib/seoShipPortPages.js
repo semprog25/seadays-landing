@@ -5,6 +5,8 @@
  * 400–800 words per page, unique template expansion, capped internal links (~8–10).
  */
 
+const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
+
 function escapeHtml(s) {
   if (s == null || s === '') return '';
   return String(s)
@@ -834,6 +836,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="description" content="${escapeHtml(metaDesc)}">
@@ -974,6 +977,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="description" content="${escapeHtml(metaDesc)}">

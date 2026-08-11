@@ -32,6 +32,7 @@ if (!process.env.SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) {
   );
 }
 const { injectKeywordLinksIntoBodyHtml } = require('./lib/seoKeywordLinks');
+const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
 const {
   buildSeoShipRecords,
   buildSeoPortRecords,
@@ -1270,6 +1271,7 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="description" content="${escapeHtml(desc)}">
@@ -1566,6 +1568,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="description" content="${escapeHtml(desc)}">
@@ -2126,6 +2129,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="description" content="${description}">
@@ -2294,6 +2298,7 @@ async function buildIndexHtml(articles, featuredSlugList = []) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <meta name="description" content="SeaDays cruise blog: independent cruise tips, first-time cruise help, ship and port guides, cabin and drink-package advice, Mediterranean and Caribbean ideas. Free articles—plan before you book.">

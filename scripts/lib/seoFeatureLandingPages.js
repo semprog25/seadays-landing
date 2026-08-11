@@ -1,5 +1,7 @@
 'use strict';
 
+const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
+
 const BASE_URL = 'https://seadays.app';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.seadays.app';
 const APP_STORE_URL = 'https://apps.apple.com/de/app/seadays/id6759758357';
@@ -265,14 +267,8 @@ function buildFeatureLandingPageHtml(page) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WSQDQ33QZD');
-  </script>
   <meta charset="UTF-8">
+${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${canonical}">
