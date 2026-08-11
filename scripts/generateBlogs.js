@@ -31,7 +31,7 @@ if (!process.env.SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) {
       'Prefer adding SUPABASE_ANON_KEY (matches CI / minimal scope).'
   );
 }
-const { injectKeywordLinksIntoBodyHtml } = require('./lib/seoKeywordLinks');
+const { injectKeywordLinksIntoBodyHtml, buildPortLinksFromSeoPorts } = require('./lib/seoKeywordLinks');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
 const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
@@ -60,9 +60,37 @@ const {
   buildPortSlugToReviewKeyMap,
   buildReviewAggregateByIdMap,
 } = require('./lib/reviewAggregateMerge');
+const {
+  loadPublicPortGuidesFile,
+  buildSlugToAppPortIdMap,
+  extractAllPublicPortGuides,
+  writePublicPortGuidesFile,
+} = require('./lib/publicPortGuideAdapter');
+const {
+  loadKnownAffiliatePortIds,
+  resolvePortAffiliateCta,
+  getViatorConfigFromEnv,
+} = require('./lib/viatorAffiliate');
 const https = require('https');
 const fs = require('fs');
 const crypto = require('crypto');
+
+function loadPublicPortTerminals(repoRoot) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(repoRoot, 'data', 'public-port-terminals.json'), 'utf8'));
+  } catch {
+    return { byPortId: {}, meta: { count: 0 } };
+  }
+}
+
+function ensurePublicPortGuides(repoRoot, appRoot) {
+  let payload = loadPublicPortGuidesFile(repoRoot);
+  if (payload?.byAppPortId && Object.keys(payload.byAppPortId).length) return payload;
+  console.log('[generateBlogs] public-port-guides.json missing/empty — extracting from app…');
+  payload = extractAllPublicPortGuides(appRoot);
+  writePublicPortGuidesFile(repoRoot, payload);
+  return payload;
+}
 
 /**
  * Remove ships/<slug> and ports/<slug> directories not present in the current build.
@@ -1552,11 +1580,25 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
       const ratingHtml = fr.display
         ? buildDirectoryRatingVisualHtml(fr.display, fr.numeric)
         : `<span class="rating-pill rating-pill-muted">In-app rating</span>`;
+      const blurb = String(port.description || '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 120);
+      const blurbHtml = blurb
+        ? `<span class="seo-grid-card-desc">${escapeHtml(blurb)}${blurb.length >= 120 ? '…' : ''}</span>`
+        : '';
+      const bookableHtml = port.hasBookableExperiences
+        ? `<span class="seo-grid-card-bookable">Bookable experiences available</span>`
+        : '';
       return (
         `<a href="/ports/${escapeHtml(port.slug)}/" class="seo-grid-card directory-card" ` +
-        `data-group="${escapeHtml(region)}" data-item="${escapeHtml(port.slug)}">` +
+        `data-group="${escapeHtml(region)}" data-item="${escapeHtml(port.slug)}" ` +
+        `data-name="${escapeHtml(String(port.name || '').toLowerCase())}" ` +
+        `data-country="${escapeHtml(String(port.country || '').toLowerCase())}">` +
         `<span class="seo-grid-card-title">${escapeHtml(label)}</span>` +
-        `<span class="seo-grid-card-meta">${escapeHtml(region)}</span>` +
+        `<span class="seo-grid-card-meta">${escapeHtml(region)}${port.country ? ` · ${escapeHtml(port.country)}` : ''}</span>` +
+        blurbHtml +
+        bookableHtml +
         `<span class="seo-grid-card-bottom">` +
         ratingHtml +
         `<span class="seo-grid-card-hint">Open guide</span>` +
@@ -1624,6 +1666,10 @@ ${getAnalyticsHeadHtml()}
 .seo-grid-card-title { font-weight: 700; font-size: 16px; }
 .seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.45); }
 .seo-grid-card-meta { font-size: 13px; color: rgba(255,255,255,0.55); }
+.seo-grid-card-desc { font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.68); }
+.seo-grid-card-bookable { display: inline-flex; width: fit-content; margin-top: 2px; padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; color: #042f2e; background: linear-gradient(90deg, rgba(52,211,153,0.95), rgba(34,211,238,0.9)); }
+.directory-search { width: 100%; max-width: 420px; margin: 0 0 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: #fff; font-size: 15px; }
+.directory-search::placeholder { color: rgba(255,255,255,0.45); }
 .seo-grid-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
 .rating-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); }
 .rating-pill-muted { color: rgba(255,255,255,0.6); font-weight: 700; }
@@ -1673,6 +1719,8 @@ ${getAnalyticsHeadHtml()}
       </div>
     </section>
     <section class="directory-controls" aria-label="Filters">
+      <label class="sr-only" for="portSearch">Search ports</label>
+      <input id="portSearch" class="directory-search" type="search" placeholder="Search ports by name or country" autocomplete="off">
       <div class="pill-row" id="primaryPills" role="tablist" aria-label="Regions">
         ${regionPills
           .map((x, idx) => `<button type="button" class="pill" data-primary="${escapeHtml(x.region)}" aria-pressed="${idx === 0 ? 'true' : 'false'}">${escapeHtml(x.region)}</button>`)
@@ -1723,9 +1771,12 @@ ${getAnalyticsHeadHtml()}
     var secondary = document.getElementById('secondaryPills')
     var subWrap = document.getElementById('subpillWrap')
     var grid = document.getElementById('directoryGrid')
+    var search = document.getElementById('portSearch')
     if(!primary || !secondary || !subWrap || !grid) return
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'))
+    var activePrimary = '__all__'
+    var activeSecondary = '__all__'
     function cssEscape(v){
       try { return (window.CSS && window.CSS.escape) ? window.CSS.escape(v) : v.replace(/[^a-zA-Z0-9_-]/g, '\\\\$&') } catch { return v }
     }
@@ -1740,12 +1791,19 @@ ${getAnalyticsHeadHtml()}
       subWrap.style.display = 'none'
     }
     function applyFilter(primaryValue, secondaryValue){
+      activePrimary = primaryValue || '__all__'
+      activeSecondary = secondaryValue || '__all__'
+      var q = (search && search.value ? search.value : '').toLowerCase().trim()
       cards.forEach(function(card){
         var group = card.getAttribute('data-group') || ''
         var item = card.getAttribute('data-item') || ''
+        var name = card.getAttribute('data-name') || ''
+        var country = card.getAttribute('data-country') || ''
+        var title = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase()
         var ok = true
-        if(primaryValue && primaryValue !== '__all__') ok = ok && group === primaryValue
-        if(secondaryValue && secondaryValue !== '__all__') ok = ok && item === secondaryValue
+        if(activePrimary && activePrimary !== '__all__') ok = ok && group === activePrimary
+        if(activeSecondary && activeSecondary !== '__all__') ok = ok && item === activeSecondary
+        if(q) ok = ok && (name.indexOf(q) !== -1 || country.indexOf(q) !== -1 || title.indexOf(q) !== -1 || item.indexOf(q) !== -1)
         if(ok) card.classList.remove('is-hidden')
         else card.classList.add('is-hidden')
       })
@@ -1795,6 +1853,12 @@ ${getAnalyticsHeadHtml()}
       setPressed(secondary, item)
       applyFilter(group, item)
     })
+
+    if(search){
+      search.addEventListener('input', function(){
+        applyFilter(activePrimary, activeSecondary)
+      })
+    }
 
     var initialBtn = primary.querySelector('button[data-primary]')
     var initialGroup = initialBtn ? initialBtn.getAttribute('data-primary') : ''
@@ -2838,11 +2902,33 @@ async function main() {
   const seoShips = buildSeoShipRecords(fullShipRawList);
   const seoPorts = buildSeoPortRecords(fullPortRawList);
   applyPortGeoFromApiRows(seoPorts, rawPorts, portSlugToReviewKey);
+
+  const publicGuides = ensurePublicPortGuides(repoRoot, appRoot);
+  const slugToAppPortId = buildSlugToAppPortIdMap(
+    seoPorts,
+    portSlugToReviewKey,
+    publicGuides.byAppPortId || {}
+  );
+  const terminalsPayload = loadPublicPortTerminals(repoRoot);
+  const knownAffiliatePortIds = loadKnownAffiliatePortIds(appRoot);
+  const viatorConfig = getViatorConfigFromEnv();
+  if (!viatorConfig.configured) {
+    console.warn(
+      '[generateBlogs] VIATOR_AFFILIATE_PID/MCID not set — Bookable Experiences CTA will deep-link to app download until configured.'
+    );
+  }
+  console.log(
+    `[generateBlogs] public port guides: ${Object.keys(publicGuides.byAppPortId || {}).length}; terminals ports: ${Object.keys(terminalsPayload.byPortId || {}).length}`
+  );
+
   const spOpts = {
     baseUrl: BASE_URL,
     defaultImage: DEFAULT_FAVICON,
     indexStyles: INDEX_STYLES,
     runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
+    appRoot,
+    slugToAppPortId,
+    knownAffiliatePortIds,
   };
 
   fs.mkdirSync(blogDir, { recursive: true });
@@ -2880,7 +2966,36 @@ async function main() {
       ...port.name.split(/\s+/).filter((w) => w.length > 2),
     ];
     const blogs = pickBlogArticlesForEntity(articles, tokens, 6);
-    fs.writeFileSync(path.join(dir, 'index.html'), buildPortDetailHtml(port, relPorts, destShips, blogs, spOpts), 'utf8');
+    const appPortId = slugToAppPortId[port.slug] || '';
+    const portGuide = (appPortId && publicGuides.byAppPortId[appPortId]) || null;
+    const portTerminals = (appPortId && terminalsPayload.byPortId[appPortId]) || [];
+    const affiliate = resolvePortAffiliateCta(
+      { ...port, appPortId },
+      {
+        appRoot,
+        slugToAppPortId,
+        knownPortIds: knownAffiliatePortIds,
+        destinationLabel: port.name,
+        config: viatorConfig,
+      }
+    );
+    if (portGuide && Array.isArray(portGuide.climate?.bestMonths) && portGuide.climate.bestMonths.length) {
+      port.popularMonths = portGuide.climate.bestMonths;
+    }
+    if (portGuide?.portInfo?.description && !port.description) {
+      port.description = portGuide.portInfo.description;
+    }
+    port.hasBookableExperiences = Boolean(affiliate.show);
+    fs.writeFileSync(
+      path.join(dir, 'index.html'),
+      buildPortDetailHtml(port, relPorts, destShips, blogs, {
+        ...spOpts,
+        portGuide,
+        portTerminals,
+        affiliate,
+      }),
+      'utf8'
+    );
   }
 
   removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts);
@@ -2975,7 +3090,12 @@ async function main() {
     const next = i < articles.length - 1 ? articles[i + 1] : null;
     const more = selectMoreToReadArticles(article, articles, 12);
     const excludeIds = new Set([article.id, ...more.map((a) => a.id)]);
-    bodyHtml = injectKeywordLinksIntoBodyHtml(bodyHtml, { maxShipLinks: 2, maxPortLinks: 2 });
+    bodyHtml = injectKeywordLinksIntoBodyHtml(bodyHtml, {
+      maxShipLinks: 2,
+      maxPortLinks: 2,
+      maxSpecificPortLinks: 3,
+      portLinks: buildPortLinksFromSeoPorts(seoPorts),
+    });
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
     bodyHtml = rewriteCdnImgSrcAttributes(bodyHtml);

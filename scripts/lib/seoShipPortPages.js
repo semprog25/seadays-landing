@@ -3,9 +3,18 @@
 /**
  * Static HTML builders for /ships/<slug>/ and /ports/<slug>/ (programmatic SEO).
  * 400–800 words per page, unique template expansion, capped internal links (~8–10).
+ * Port pages also merge PublicPortGuide + public terminals + Viator CTA when available.
  */
 
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
+const {
+  PORT_GUIDE_STYLES,
+  buildPortGuideEarlySectionsHtml,
+  buildPortGuideLateSectionsHtml,
+  buildBreadcrumbsHtml,
+  buildBreadcrumbJsonLd,
+} = require('./portGuideSections');
+const { resolvePortAffiliateCta } = require('./viatorAffiliate');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -769,7 +778,7 @@ const PAGE_STYLES = `
 .seo-inline-more a:hover { text-decoration: underline; }
 .header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
 @media (max-width: 720px) { .seo-visual-panel, .seo-article-grid { grid-template-columns: 1fr; } .seo-visual-copy { padding: 0 20px 22px; } .seo-visual-img, .seo-visual-art { min-height: 190px; height: 190px; } }
-`;
+` + PORT_GUIDE_STYLES;
 
 function buildDirectoryHeaderNav() {
   return `<nav class="header-nav">
@@ -908,17 +917,37 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const BASE_URL = opts.baseUrl;
   const canonical = `${BASE_URL}/ports/${port.slug}/`;
   const h1 = port.country ? `${port.name}, ${port.country}` : port.name;
-  const title = `${port.name} Cruise Port Guide: Tips, Things to Do & Info`;
+  const title = `${port.name} Cruise Port Guide: Terminals, Tips & Things to Do`;
   const prose = budgetPortProse(port);
   const overviewParas = splitIntoParagraphs(prose.overview);
   const whatParas = splitIntoParagraphs(prose.whatToDo);
   const cruiseParas = splitIntoParagraphs(prose.cruiseRelevance);
   const tipsParas = splitIntoParagraphs(prose.tips);
-  const metaDesc = buildPortMetaDescription(port, h1);
+  const guide = opts.portGuide || null;
+  const terminals = Array.isArray(opts.portTerminals) ? opts.portTerminals : [];
+  const affiliate =
+    opts.affiliate ||
+    resolvePortAffiliateCta(port, {
+      appRoot: opts.appRoot,
+      slugToAppPortId: opts.slugToAppPortId,
+      knownPortIds: opts.knownAffiliatePortIds,
+      destinationLabel: port.name,
+    });
+
+  let metaDesc = buildPortMetaDescription(port, h1);
+  if (guide?.portInfo?.description) {
+    const enriched = `${port.name} cruise port guide: terminals, getting there, climate, entry tips, and shore-day ideas. ${guide.portInfo.description}`;
+    metaDesc = enriched.length <= 160 ? enriched : enriched.slice(0, 157) + '…';
+  }
   const ogImage = port.image_url || opts.defaultImage;
   const things = buildPortThingsBullets(port);
+  const bestTimeFromGuide =
+    guide?.climate?.bestMonths && guide.climate.bestMonths.length
+      ? guide.climate.bestMonths.join(', ')
+      : '';
   const bestTime =
-    port.popularMonths && port.popularMonths.length
+    bestTimeFromGuide ||
+    (port.popularMonths && port.popularMonths.length
       ? port.popularMonths.join(', ')
       : fillPortVars(
           pickAt(
@@ -931,7 +960,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
             'bt'
           ),
           port
-        );
+        ));
 
   const portPick = relatedPorts.slice(0, 2);
   const shipPick = relatedShips.slice(0, 4);
@@ -945,8 +974,25 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a> <span style="color:rgba(255,255,255,0.45)">(${escapeHtml(s.cruise_line)})</span></li>`)
     .join('');
   const blogCards = buildArticleCards(blogPick, 'Port guide');
+  const earlyGuide = buildPortGuideEarlySectionsHtml({
+    port,
+    guide,
+    terminals,
+    affiliate,
+  });
+  const lateGuide = buildPortGuideLateSectionsHtml({
+    port,
+    guide,
+  });
 
-  const bodyForLd = `${prose.overview} ${prose.whatToDo} ${prose.cruiseRelevance}`;
+  const bodyForLd = [
+    guide?.portInfo?.description || '',
+    prose.overview,
+    prose.whatToDo,
+    prose.cruiseRelevance,
+  ]
+    .filter(Boolean)
+    .join(' ');
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
   const lat = pickFirstFiniteNumber(port.latitude, port.lat);
   const lng = pickFirstFiniteNumber(port.longitude, port.lng);
@@ -968,6 +1014,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   Object.keys(jsonLd).forEach((k) => {
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
+  const breadcrumbLd = buildBreadcrumbJsonLd(port, canonical);
 
   const heroImg = port.image_url
     ? `<img class="seo-hero-img" src="${escapeHtml(port.image_url)}" alt="${escapeHtml(h1)}" width="800" height="420" loading="eager" decoding="async">`
@@ -995,6 +1042,7 @@ ${getAnalyticsHeadHtml()}
   <meta property="twitter:description" content="${escapeHtml(metaDesc)}">
   <meta property="twitter:image" content="${escapeHtml(ogImage)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+  <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>
   <style>${opts.indexStyles}${PAGE_STYLES}</style>
 </head>
 <body>
@@ -1003,17 +1051,20 @@ ${getAnalyticsHeadHtml()}
   <div class="content-layer">
     <header class="header">${buildDirectoryHeaderNav()}</header>
     <main class="seo-detail container">
+      ${buildBreadcrumbsHtml(port)}
       ${heroImg}
-      <h1>${escapeHtml(h1)}</h1>
-      <p class="lead">${escapeHtml(port.region || 'Cruise destination')}</p>
+      <h1>${escapeHtml(h1)} Cruise Port Guide</h1>
+      <p class="lead">${escapeHtml(port.region || 'Cruise destination')}${port.country ? ` · ${escapeHtml(port.country)}` : ''}</p>
       ${visualPanel}
       <h2>Overview</h2>
       <article class="seo-body">
         ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
       </article>
-      <h2>What to do</h2>
+      ${earlyGuide}
+      <h2>Things to do</h2>
       <article class="seo-body">${whatParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
       <ul>${things}</ul>
+      ${lateGuide}
       <h2>Cruise relevance</h2>
       <article class="seo-body">${cruiseParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
       <h2>Best time to visit</h2>

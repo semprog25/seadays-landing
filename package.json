@@ -12,6 +12,11 @@
     "generate-press": "node scripts/generate-press-assets.js",
     "inject-analytics": "node scripts/inject-analytics-head.js",
     "inject-blog-ad-slots": "node scripts/inject-blog-ad-slots.js",
+    "extract-public-port-guides": "node scripts/extract-public-port-guides.js",
+    "extract-public-port-terminals": "node scripts/extract-public-port-terminals.js",
+    "regenerate-port-pages": "node scripts/regenerate-port-pages.js",
+    "inject-blog-port-links": "node scripts/inject-blog-port-links.js",
+    "smoke-port-guides": "node scripts/smoke-port-guides.js",
     "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
     "upload-press-marketing": "node scripts/upload-press-marketing.js"
   },

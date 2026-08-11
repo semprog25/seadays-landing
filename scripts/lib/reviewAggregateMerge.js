@@ -3,11 +3,14 @@
 const fs = require('fs');
 const path = require('path');
 
+const { resolveAppRepoRoot } = require('./resolveAppRepoRoot');
+
 /**
- * SeaDays app repo root (parent of `src/`), from `seadays-landing-repo/scripts/lib/`.
+ * SeaDays app repo root (parent of `src/`).
+ * Supports sibling `../Seadays-main` and nested landing layouts via resolveAppRepoRoot.
  */
 function getAppRepoRoot() {
-  return path.join(__dirname, '..', '..', '..');
+  return resolveAppRepoRoot(__dirname);
 }
 
 function readUtf8(filePath) {
