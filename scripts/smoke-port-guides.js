@@ -27,8 +27,35 @@ assert.ok(!bcn.includes('Photography, markets, and neighborhood walks near'), 'b
 assert.ok(bcn.includes('viator.com'), 'barcelona viator');
 
 const civ = fs.readFileSync(path.join(root, 'ports', 'rome-civitavecchia-italy', 'index.html'), 'utf8');
+assert.ok(civ.includes('https://seadays.app/ports/rome-civitavecchia-italy/'), 'civitavecchia canonical url');
+assert.ok(/Cruise terminals|id="cruise-terminals"/i.test(civ), 'civitavecchia terminals section');
 assert.ok(civ.includes('Terminal Donato Bramante'), 'civitavecchia canonical Bramante');
+assert.ok(civ.includes('Terminal 10'), 'civitavecchia Terminal 10');
+assert.ok(civ.includes('Terminal 25 South'), 'civitavecchia Terminal 25 South');
 assert.ok(!civ.includes('>Terminal Bramante (Pier 12)<'), 'civitavecchia removed short duplicate heading');
+assert.ok(civ.includes('id="things-to-do"'), 'civitavecchia things-to-do section');
+assert.ok(civ.includes('Standard call (about 6–8 hours ashore)'), 'civitavecchia 6-8h guidance');
+assert.ok(!civ.includes('Photography, markets, and neighborhood walks near'), 'civitavecchia no SEO template filler');
+assert.ok(civ.includes('Bookable Experiences'), 'civitavecchia bookable experiences');
+assert.ok(civ.includes('viator.com'), 'civitavecchia viator mapping');
+
+// CI regression: slug→guide ID must resolve without app review-key map
+const {
+  buildSlugToAppPortIdMap,
+} = require('./lib/publicPortGuideAdapter');
+const emptyReviewMap = new Map();
+const slugMap = buildSlugToAppPortIdMap(
+  [
+    { slug: 'rome-civitavecchia-italy', name: 'Rome (Civitavecchia)', country: 'Italy' },
+    { slug: 'barcelona-spain', name: 'Barcelona', country: 'Spain' },
+    { slug: 'athens-piraeus-greece', name: 'Athens (Piraeus)', country: 'Greece' },
+  ],
+  emptyReviewMap,
+  guides.byAppPortId || {}
+);
+assert.strictEqual(slugMap['rome-civitavecchia-italy'], 'civitavecchia', 'empty-map civitavecchia slug resolve');
+assert.strictEqual(slugMap['barcelona-spain'], 'barcelona', 'empty-map barcelona slug resolve');
+assert.strictEqual(slugMap['athens-piraeus-greece'], 'piraeus', 'empty-map piraeus slug resolve');
 
 const val = fs.readFileSync(path.join(root, 'ports', 'valencia-spain', 'index.html'), 'utf8');
 const berthsChunk = val.match(/Berths[\s\S]{0,120}/)?.[0] || '';

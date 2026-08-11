@@ -273,6 +273,52 @@ function resolveGuideId(candidate, guidesById) {
 }
 
 /**
+ * Name variants for matching when review keys are unavailable (CI has no app checkout).
+ * e.g. "Rome (Civitavecchia)" → also try "civitavecchia".
+ */
+function extractPortNameCandidates(name) {
+  const n = String(name || '')
+    .trim()
+    .toLowerCase();
+  if (!n) return [];
+  const out = [];
+  const push = (v) => {
+    const s = String(v || '').trim();
+    if (s && !out.includes(s)) out.push(s);
+  };
+  push(n);
+  const bare = n.replace(/,\s*[^,]+$/, '').trim();
+  push(bare);
+  const parenMatches = bare.matchAll(/\(([^)]+)\)/g);
+  for (const m of parenMatches) push(m[1]);
+  const withoutParen = bare.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+  push(withoutParen);
+  return out;
+}
+
+/**
+ * Prefer longer slug token spans so `palma-de-mallorca-spain` hits `palma-de-mallorca`
+ * before the thin stub `palma`, and `rome-civitavecchia-italy` hits `civitavecchia`
+ * (CI cannot use app review-key maps).
+ */
+function resolveGuideIdFromSlugTokens(slug, guidesById) {
+  const parts = String(slug || '')
+    .toLowerCase()
+    .split('-')
+    .map((p) => p.trim())
+    .filter(Boolean);
+  if (!parts.length) return '';
+  for (let len = parts.length; len >= 1; len--) {
+    for (let i = 0; i + len <= parts.length; i++) {
+      const candidate = parts.slice(i, i + len).join('-');
+      const hit = resolveGuideId(candidate, guidesById);
+      if (hit) return hit;
+    }
+  }
+  return '';
+}
+
+/**
  * Build website-slug → appPortId using review key map + name heuristics.
  */
 function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
@@ -311,20 +357,21 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
     }
     const name = String(port.name || '').trim().toLowerCase();
     const country = String(port.country || '').trim().toLowerCase();
-    // "Genoa, Italy" → try bare city name too
-    const bareName = name.replace(/,\s*[^,]+$/, '').trim();
-    const hit =
-      byName.get(`${name}|${country}`) ||
-      byName.get(`${bareName}|${country}`) ||
-      byName.get(name) ||
-      byName.get(bareName);
-    if (hit) out[slug] = hit;
-    else {
-      // hamburg-germany → hamburg; genoa-italy → genoa alias → genua
-      const first = slug.split('-')[0];
-      const fromFirst = resolveGuideId(first, guidesById);
-      if (fromFirst) out[slug] = fromFirst;
+    const nameCandidates = extractPortNameCandidates(name);
+    let hit = '';
+    for (const cand of nameCandidates) {
+      hit =
+        byName.get(`${cand}|${country}`) ||
+        byName.get(cand) ||
+        '';
+      if (hit) break;
     }
+    if (hit) {
+      out[slug] = hit;
+      continue;
+    }
+    const fromTokens = resolveGuideIdFromSlugTokens(slug, guidesById);
+    if (fromTokens) out[slug] = fromTokens;
   }
   return out;
 }
@@ -353,4 +400,6 @@ module.exports = {
   loadPublicPortGuidesFile,
   writePublicPortGuidesFile,
   toPublicGuide,
+  resolveGuideIdFromSlugTokens,
+  extractPortNameCandidates,
 };
