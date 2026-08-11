@@ -633,6 +633,8 @@ function isUsableArticleImage(url) {
   if (!s) return false;
   if (/data:image\/svg/i.test(s)) return false;
   if (/\.svg(?:[?#]|$)/i.test(s)) return false;
+  // Signed Supabase URLs expire / break after signing-key rotation — never embed in static HTML.
+  if (/\/storage\/v1\/object\/sign\//i.test(s)) return false;
   return /^https?:\/\//i.test(s);
 }
 
@@ -649,7 +651,7 @@ function buildArticleCards(articles, label = 'Read more') {
     .map((a, i) => {
       const img = pickArticleImage(a);
       const visual = img
-        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" loading="lazy" decoding="async">`
+        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'">`
         : `<div class="seo-article-fallback seo-article-fallback-${(i % 4) + 1}"><span>${escapeHtml(label)}</span></div>`;
       const excerpt = trimWords(String(a.excerpt || a.seoDescription || a.metaDescription || 'Cruise planning guide from SeaDays.').replace(/\s+/g, ' ').trim(), 20);
       return `<a class="seo-article-card" href="/blog/${escapeHtml(a.slug)}/">${visual}<span class="seo-article-kicker">${escapeHtml(label)}</span><strong>${escapeHtml(a.title || 'SeaDays guide')}</strong><small>${escapeHtml(excerpt)}</small></a>`;
@@ -668,7 +670,7 @@ function buildFunVisualPanel(kind, entity, relatedArticles) {
   const statOne = kind === 'ship' ? entity.cruise_line : (entity.country || entity.region || 'Cruise port');
   const statTwo = kind === 'ship' ? (entity.shipClass || 'Cruise ship') : (entity.region || 'Shore day');
   const visual = articleImg
-    ? `<img class="seo-visual-img" src="${escapeHtml(articleImg)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async">`
+    ? `<img class="seo-visual-img" src="${escapeHtml(articleImg)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg'">`
     : `<div class="seo-visual-art"><span></span><span></span><span></span></div>`;
   return `<section class="seo-visual-panel" aria-label="${escapeHtml(label)}">
     ${visual}

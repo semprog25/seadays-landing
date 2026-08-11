@@ -18,6 +18,7 @@ assert.ok(fs.existsSync(path.join(root, 'data', 'public-port-guides.json')));
 assert.ok(fs.existsSync(path.join(root, 'data', 'public-port-terminals.json')));
 const guides = JSON.parse(fs.readFileSync(path.join(root, 'data', 'public-port-guides.json'), 'utf8'));
 assert.ok(guides.byAppPortId.hamburg);
+assert.ok(guides.byAppPortId.hamburg.thingsToDo?.standardCall, 'hamburg thingsToDo.standardCall in data');
 
 // Phase 1 correction checks
 const bcn = fs.readFileSync(path.join(root, 'ports', 'barcelona-spain', 'index.html'), 'utf8');
@@ -25,6 +26,25 @@ assert.ok(bcn.includes('id="things-to-do"'), 'barcelona things-to-do section');
 assert.ok(bcn.includes('Standard call (about 6–8 hours ashore)'), 'barcelona 6-8h guidance');
 assert.ok(!bcn.includes('Photography, markets, and neighborhood walks near'), 'barcelona no SEO template');
 assert.ok(bcn.includes('viator.com'), 'barcelona viator');
+
+const ham = fs.readFileSync(path.join(root, 'ports', 'hamburg-germany', 'index.html'), 'utf8');
+assert.ok(ham.includes('id="things-to-do"'), 'hamburg things-to-do section');
+assert.ok(ham.includes('Standard call (about 6–8 hours ashore)'), 'hamburg 6-8h guidance');
+assert.ok(ham.includes('Short call (about 4–5 hours ashore)'), 'hamburg short call');
+assert.ok(ham.includes('HafenCity') || ham.includes('Speicherstadt'), 'hamburg destination-specific');
+assert.ok(!ham.includes('Photography, markets, and neighborhood walks near'), 'hamburg no SEO template');
+
+const portsIndex = fs.readFileSync(path.join(root, 'ports', 'index.html'), 'utf8');
+const signedImgSrc = [...portsIndex.matchAll(/<img\b[^>]*?\bsrc=["']([^"']+)["']/gi)].filter((m) =>
+  /\/storage\/v1\/object\/sign\//i.test(m[1] || '')
+);
+assert.strictEqual(signedImgSrc.length, 0, 'ports index has no signed storage img src URLs');
+assert.ok(portsIndex.includes('Popular destination guides'), 'ports index featured guides');
+assert.ok(portsIndex.includes('onerror='), 'ports index image fallback handlers');
+assert.ok(
+  /\/storage\/v1\/object\/public\//i.test(portsIndex) || /seadaysfav\.png/i.test(portsIndex),
+  'ports index uses stable public image URLs'
+);
 
 const civ = fs.readFileSync(path.join(root, 'ports', 'rome-civitavecchia-italy', 'index.html'), 'utf8');
 assert.ok(civ.includes('https://seadays.app/ports/rome-civitavecchia-italy/'), 'civitavecchia canonical url');
@@ -60,6 +80,8 @@ assert.strictEqual(slugMap['athens-piraeus-greece'], 'piraeus', 'empty-map pirae
 const val = fs.readFileSync(path.join(root, 'ports', 'valencia-spain', 'index.html'), 'utf8');
 const berthsChunk = val.match(/Berths[\s\S]{0,120}/)?.[0] || '';
 assert.ok(!/>\s*15\s*</.test(berthsChunk), 'valencia berths not 15');
+assert.ok(val.includes('id="things-to-do"'), 'valencia things-to-do');
+assert.ok(val.includes('Standard call (about 6–8 hours ashore)'), 'valencia 6-8h');
 
 assert.ok(!fs.existsSync(path.join(root, 'ports', 'amsterdam-netherlands')), 'amsterdam not invented');
 

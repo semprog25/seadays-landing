@@ -152,6 +152,18 @@ function patchPortsIndexCards(repoRoot, seoPorts) {
     );
   }
 
+  // Never leave expiring /object/sign/ URLs in the ports index (CI + local).
+  const publicFallbacks = [
+    'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg',
+    'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Discover%20Ships%20%20Ports.jpg',
+    'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png',
+  ];
+  let fb = 0;
+  html = html.replace(
+    /(<img\b[^>]*?\bsrc=")(https:\/\/[^"]+\/storage\/v1\/object\/sign\/[^"]+)(")/gi,
+    (_m, pre, _signed, post) => `${pre}${publicFallbacks[fb++ % publicFallbacks.length]}${post}`
+  );
+
   fs.writeFileSync(indexPath, html, 'utf8');
   return true;
 }

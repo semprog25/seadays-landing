@@ -19,8 +19,10 @@ const path = require('path');
 require('dotenv').config();
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
+require('dotenv').config({ path: path.join(__dirname, '..', '..', 'Seadays-main', '.env') });
 require('dotenv').config({ path: path.join(__dirname, '..', '.env.local'), override: true });
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env.local'), override: true });
+require('dotenv').config({ path: path.join(__dirname, '..', '..', 'Seadays-main', '.env.local'), override: true });
 if (!process.env.SUPABASE_ANON_KEY && process.env.VITE_SUPABASE_ANON_KEY) {
   process.env.SUPABASE_ANON_KEY = process.env.VITE_SUPABASE_ANON_KEY;
 }
@@ -170,12 +172,126 @@ const FALLBACK_IMAGE_URL = DEFAULT_FAVICON;
  * additional placeholder images are uploaded.
  */
 const FALLBACK_IMAGES = [
+  'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg',
+  'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Discover%20Ships%20%20Ports.jpg',
   DEFAULT_FAVICON,
-  // Additional fallback images can be added here as auth.seadays.app/storage URLs
 ];
 function getFallbackImage(indexKey) {
   const n = Math.abs(parseInt(String(indexKey).replace(/\D+/g, '') || '0', 10));
   return FALLBACK_IMAGES[n % FALLBACK_IMAGES.length];
+}
+
+/**
+ * Replace any remaining signed storage img src attributes with stable public fallbacks.
+ * Defense in depth for indexes regenerated from older article payloads.
+ */
+function replaceSignedStorageImgSrcInHtml(html) {
+  let i = 0;
+  return String(html || '').replace(
+    /(<img\b[^>]*?\bsrc=")(https:\/\/[^"]+\/storage\/v1\/object\/sign\/[^"]+)(")/gi,
+    (_m, pre, _signed, post) => `${pre}${getFallbackImage(i++)}${post}`
+  );
+}
+
+/** True for Supabase Storage signed URLs (JWT query) — must never be baked into static HTML. */
+function isSignedStorageUrl(url) {
+  return typeof url === 'string' && /\/storage\/v1\/object\/sign\//i.test(url);
+}
+
+/**
+ * Rewrite /object/sign/bucket/path?token=… → /object/public/bucket/path (auth host).
+ * Only useful when the bucket/object is actually public; otherwise callers must fall back.
+ */
+function signedStorageUrlToPublicCandidate(url) {
+  if (!isSignedStorageUrl(url)) return '';
+  try {
+    const u = new URL(url.trim());
+    const m = u.pathname.match(/\/storage\/v1\/object\/sign\/(.+)$/i);
+    if (!m) return '';
+    const objectPath = decodeURIComponent(m[1]);
+    return `${STORAGE_PUBLIC_URL}/${objectPath}`;
+  } catch {
+    return '';
+  }
+}
+
+async function headOk(url) {
+  if (!url) return false;
+  return await new Promise((resolve) => {
+    try {
+      const req = https.request(url, { method: 'HEAD', timeout: 5000 }, (res) => {
+        resolve(res.statusCode === 200);
+        res.resume();
+      });
+      req.on('error', () => resolve(false));
+      req.on('timeout', () => {
+        req.destroy();
+        resolve(false);
+      });
+      req.end();
+    } catch {
+      resolve(false);
+    }
+  });
+}
+
+/**
+ * Download a still-valid signed URL at build time and re-upload into the public
+ * SeadaysPublic/blog-images bucket so static pages never depend on expiring tokens.
+ * Requires SUPABASE_SERVICE_ROLE_KEY (CI). Never embeds the service key in HTML.
+ */
+async function materializeSignedImageToPublic(signedUrl, articleId) {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!serviceKey || !isSignedStorageUrl(signedUrl)) return null;
+  const cacheKey = String(signedUrl).split('?')[0];
+  if (base64UrlCache.has(`sign:${cacheKey}`)) return base64UrlCache.get(`sign:${cacheKey}`);
+  try {
+    const buf = await new Promise((resolve, reject) => {
+      https
+        .get(signedUrl, (res) => {
+          if (res.statusCode !== 200) {
+            res.resume();
+            reject(new Error(`signed fetch ${res.statusCode}`));
+            return;
+          }
+          const chunks = [];
+          res.on('data', (c) => chunks.push(c));
+          res.on('end', () => resolve(Buffer.concat(chunks)));
+        })
+        .on('error', reject);
+    });
+    if (!buf || !buf.length) return null;
+    const hash = crypto.createHash('md5').update(buf).digest('hex').slice(0, 16);
+    const extGuess = (String(signedUrl).split('?')[0].match(/\.(jpe?g|png|webp|gif)$/i) || [])[1] || 'jpg';
+    const ext = extGuess.toLowerCase() === 'jpeg' ? 'jpg' : extGuess.toLowerCase();
+    const contentType =
+      ext === 'png' ? 'image/png' : ext === 'webp' ? 'image/webp' : ext === 'gif' ? 'image/gif' : 'image/jpeg';
+    const safeArticle = String(articleId || 'article')
+      .replace(/[^a-zA-Z0-9_-]/g, '')
+      .slice(0, 40) || 'article';
+    const storagePath = `${BLOG_IMAGES_PREFIX}/materialized/${safeArticle}-${hash}.${ext}`;
+    const publicUrl = `${STORAGE_PUBLIC_URL}/${BLOG_IMAGES_BUCKET}/${storagePath}`;
+    if (await headOk(publicUrl)) {
+      base64UrlCache.set(`sign:${cacheKey}`, publicUrl);
+      return publicUrl;
+    }
+    const { createClient } = require('@supabase/supabase-js');
+    const supabase = createClient(SUPABASE_URL, serviceKey);
+    const { error } = await supabase.storage.from(BLOG_IMAGES_BUCKET).upload(storagePath, buf, {
+      contentType,
+      upsert: true,
+    });
+    if (error) {
+      console.warn(`  [img-sign] materialize upload failed: ${error.message || error}`);
+      return null;
+    }
+    console.log(`  [img-sign] materialized signed → public ${storagePath}`);
+    base64UrlCache.set(`sign:${cacheKey}`, publicUrl);
+    return publicUrl;
+  } catch (e) {
+    console.warn(`  [img-sign] materialize failed: ${e && e.message ? e.message : e}`);
+    return null;
+  }
 }
 
 const LOGO_URL = 'https://seadays.app/logo.png';
@@ -326,7 +442,23 @@ async function resolveImageUrl(url, articleId, index = 0) {
   const trimmed = url.trim();
   if (!trimmed.startsWith('data:image')) {
     const httpsUrl = normalizeUrlForCdnRewrite(trimmed);
-    return normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(httpsUrl));
+    const normalized = normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(httpsUrl));
+    if (!normalized) return null;
+    // Signed URLs expire (or become invalid when the signing key rotates). Never bake them into static HTML.
+    if (isSignedStorageUrl(normalized) || isSignedStorageUrl(httpsUrl)) {
+      const publicCandidate = signedStorageUrlToPublicCandidate(normalized) || signedStorageUrlToPublicCandidate(httpsUrl);
+      if (publicCandidate && (await headOk(publicCandidate))) return publicCandidate;
+      // Optional: re-host into SeadaysPublic during CI when explicitly enabled.
+      if (String(process.env.SEADAYS_MATERIALIZE_SIGNED || '').trim() === '1') {
+        const materialized = await materializeSignedImageToPublic(httpsUrl, articleId);
+        if (materialized) return materialized;
+      }
+      console.warn(
+        `  [img-sign] rejecting signed storage URL for "${String(articleId || '').slice(0, 40)}" — using next candidate/fallback`
+      );
+      return null;
+    }
+    return normalized;
   }
   const uploaded = await uploadBase64ToStorage(trimmed, articleId, index);
   if (uploaded) imageStats.uploaded++;
@@ -349,9 +481,11 @@ function classifyImageUrl(url) {
   const trimmed = url.trim();
   if (!trimmed.startsWith('https://')) return null;
   if (trimmed.includes('cdn.seadays.app')) return null;
+  if (isSignedStorageUrl(trimmed)) return null;
   const lower = trimmed.toLowerCase().split('?')[0];
   if (lower.endsWith('.svg') || lower.includes('svg+xml')) return null;
   if (trimmed.includes('auth.seadays.app/storage')) return 'supabase';
+  if (trimmed.includes('.supabase.co/storage/v1/object/public/')) return 'supabase';
   return 'external';
 }
 
@@ -1367,7 +1501,7 @@ ${getAnalyticsHeadHtml()}
 .featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
 .guide-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
-.guide-card-image { width: 100%; height: 150px; object-fit: cover; object-position: center; background: rgba(255,255,255,0.05); display: block; }
+.guide-card-image { width: 100%; height: 150px; min-height: 150px; object-fit: cover; object-position: center; background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(255,255,255,0.06)); display: block; }
 .guide-card-body { padding: 12px 14px 14px; }
 .guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
 .guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
@@ -1682,7 +1816,7 @@ ${getAnalyticsHeadHtml()}
 .featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
 .guide-card:hover { border-color: rgba(6,182,212,0.85); transform: translateY(-2px); }
-.guide-card-image { width: 100%; height: 150px; object-fit: cover; object-position: center; background: rgba(255,255,255,0.05); display: block; }
+.guide-card-image { width: 100%; height: 150px; min-height: 150px; object-fit: cover; object-position: center; background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(255,255,255,0.06)); display: block; }
 .guide-card-body { padding: 12px 14px 14px; }
 .guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
 .guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
@@ -2103,11 +2237,12 @@ function buildImgTag(url, source, type, alt, className, { eager = false, width =
 const RUNTIME_GUARD_SCRIPT = `<script>
 (function(){
   var FB='${FALLBACK_IMAGE_URL}';
-  // Mirrors classifyImageUrl() in the generator: blocks CDN proxy and SVGs only.
+  // Mirrors classifyImageUrl() in the generator: blocks CDN proxy, SVGs, and signed storage URLs.
   // External HTTPS images are allowed (same policy as server-side validation).
   function safeImage(src){
     if(!src||!src.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
+    if(src.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
     return src;
   }
@@ -3059,12 +3194,16 @@ async function main() {
 
   fs.writeFileSync(
     path.join(repoRoot, 'ships', 'index.html'),
-    buildShipsIndexHtml({ ships: seoShips, articles, featuredGuideCardsHtml: shipGuideCardsHtml }),
+    replaceSignedStorageImgSrcInHtml(
+      buildShipsIndexHtml({ ships: seoShips, articles, featuredGuideCardsHtml: shipGuideCardsHtml })
+    ),
     'utf8'
   );
   fs.writeFileSync(
     path.join(repoRoot, 'ports', 'index.html'),
-    buildPortsIndexHtml({ ports: seoPorts, articles, featuredGuideCardsHtml: portGuideCardsHtml }),
+    replaceSignedStorageImgSrcInHtml(
+      buildPortsIndexHtml({ ports: seoPorts, articles, featuredGuideCardsHtml: portGuideCardsHtml })
+    ),
     'utf8'
   );
   console.log(`  wrote ${seoShips.length} ship + ${seoPorts.length} port detail pages + indexes`);
