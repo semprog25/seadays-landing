@@ -33,6 +33,8 @@ assert.ok(ham.includes('Standard call (about 6–8 hours ashore)'), 'hamburg 6-8
 assert.ok(ham.includes('Short call (about 4–5 hours ashore)'), 'hamburg short call');
 assert.ok(ham.includes('HafenCity') || ham.includes('Speicherstadt'), 'hamburg destination-specific');
 assert.ok(!ham.includes('Photography, markets, and neighborhood walks near'), 'hamburg no SEO template');
+assert.ok(/working Elbe port/i.test(ham), 'hamburg cruise-specific overview');
+assert.ok(!/Free and Hanseatic City of Hamburg/i.test(ham), 'hamburg no wikipedia overview');
 
 const portsIndex = fs.readFileSync(path.join(root, 'ports', 'index.html'), 'utf8');
 const signedImgSrc = [...portsIndex.matchAll(/<img\b[^>]*?\bsrc=["']([^"']+)["']/gi)].filter((m) =>
