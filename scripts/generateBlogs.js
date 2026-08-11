@@ -33,6 +33,8 @@ if (!process.env.SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) {
 }
 const { injectKeywordLinksIntoBodyHtml } = require('./lib/seoKeywordLinks');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
+const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
+const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
 const {
   buildSeoShipRecords,
   buildSeoPortRecords,
@@ -1847,6 +1849,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
 .article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
 .article-body .contextual-link:hover { text-decoration: underline; }
+${getAdSlotCss()}
 .app-download-cta { margin: 36px 0 28px; padding: 20px 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,0,51,0.08); }
 .app-download-cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .app-download-cta strong { display: block; font-size: 16px; margin-bottom: 4px; }
@@ -2092,6 +2095,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   const navSection = navHtml ? `<nav class="article-nav" aria-label="Article navigation">${navHtml}</nav>` : '';
   const sameTopicHtml = buildSameTopicSection(article, sameTagArticles);
   const exploreHtml = buildExploreSeaDaysSection();
+  const bodyWithAdSlot = insertArticleMidAdSlot(bodyHtml);
 
   const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
   const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
@@ -2175,7 +2179,7 @@ ${getAnalyticsHeadHtml()}
           </div>
           ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
         </div>
-        <div class="article-body">${bodyHtml}</div>
+        <div class="article-body">${bodyWithAdSlot}</div>
         ${sameTopicHtml}
         ${exploreHtml}
         ${navSection}
@@ -3077,6 +3081,26 @@ async function main() {
   const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
   if (!sitemapValid) console.warn('[warn] sitemap.xml may be invalid');
   console.log('Wrote sitemap.xml with', seenUrls.size, 'URLs (no duplicates)');
+
+  const adsTxtBody = getAdsTxtFileContents();
+  const adsTxtPath = path.join(repoRoot, 'ads.txt');
+  if (adsTxtBody) {
+    fs.writeFileSync(adsTxtPath, adsTxtBody, 'utf8');
+    console.log('Wrote ads.txt (AdSense configured)');
+  } else if (fs.existsSync(adsTxtPath)) {
+    console.warn(
+      '[adsense] AdSense publisher/slot not configured — leaving existing ads.txt untouched. ' +
+        'Set SEADAYS_ADSENSE_CLIENT_ID + SEADAYS_ADSENSE_ARTICLE_MID_SLOT to generate ads.txt.'
+    );
+  } else {
+    console.warn(
+      '[adsense] AdSense not configured — skipped ads.txt and article ad slots. ' +
+        'Provide ca-pub-… client ID and ad unit slot ID before deploy.'
+    );
+  }
+  if (!isAdSenseConfigured()) {
+    console.warn('[adsense] Blog mid-article slots will not be emitted until AdSense is configured.');
+  }
 
   // Scan every generated file for CDN URLs, SVG thumbnails, nested anchors,
   // and HTTP reachability. Throws on any violation — build fails loudly.

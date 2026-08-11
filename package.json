@@ -11,6 +11,7 @@
     "generate-feature-landings": "node scripts/buildFeatureLandingPages.js",
     "generate-press": "node scripts/generate-press-assets.js",
     "inject-analytics": "node scripts/inject-analytics-head.js",
+    "inject-blog-ad-slots": "node scripts/inject-blog-ad-slots.js",
     "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
     "upload-press-marketing": "node scripts/upload-press-marketing.js"
   },
