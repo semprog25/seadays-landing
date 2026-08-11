@@ -31,12 +31,21 @@ function destinationLabelFromPortId(portId) {
 
 function loadKnownAffiliatePortIds(appRoot) {
   const root = appRoot || resolveAppRepoRoot();
-  const jsonPath = path.join(root, 'src/utils/affiliate/knownPortIds.json');
-  try {
-    const raw = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-    if (Array.isArray(raw)) return new Set(raw.map((x) => String(x).toLowerCase()));
-  } catch {
-    // fall through
+  const candidates = [
+    // Website-vendored copy — required for GitHub Actions (no mobile app checkout)
+    path.join(process.cwd(), 'data', 'known-affiliate-port-ids.json'),
+    path.join(__dirname, '..', '..', 'data', 'known-affiliate-port-ids.json'),
+    path.join(root, 'src', 'utils', 'affiliate', 'knownPortIds.json'),
+  ];
+  for (const jsonPath of candidates) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+      if (Array.isArray(raw) && raw.length) {
+        return new Set(raw.map((x) => String(x).toLowerCase()));
+      }
+    } catch {
+      // try next
+    }
   }
   return new Set();
 }

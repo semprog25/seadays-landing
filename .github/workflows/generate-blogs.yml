@@ -33,10 +33,22 @@ jobs:
             exit 1
           fi
 
+      # Fail closed: without Viator secrets, generate-blogs would rewrite port CTAs to /#download
+      # (or drop Bookable Experiences when known-port data is missing). Do not deploy that.
+      - name: Verify Viator affiliate secrets
+        run: |
+          if [ -z "${{ secrets.VIATOR_AFFILIATE_PID }}" ] || [ -z "${{ secrets.VIATOR_AFFILIATE_MCID }}" ]; then
+            echo "::error::VIATOR_AFFILIATE_PID and VIATOR_AFFILIATE_MCID are required repository secrets so port guide CTAs keep live affiliate URLs."
+            exit 1
+          fi
+
       - name: Generate static blogs
         env:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          VIATOR_AFFILIATE_PID: ${{ secrets.VIATOR_AFFILIATE_PID }}
+          VIATOR_AFFILIATE_MCID: ${{ secrets.VIATOR_AFFILIATE_MCID }}
+          VIATOR_AFFILIATE_MEDIUM: link
         run: npm run generate-blogs
 
       - name: Check for changes
