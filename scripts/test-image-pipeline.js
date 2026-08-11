@@ -128,6 +128,21 @@ async function main() {
   assert.strictEqual(portsSigned.length, 0, 'E ports index signed imgs = 0');
   assert.strictEqual(shipsSigned.length, 0, 'E ships index signed imgs = 0');
 
+  const marketingOrFav =
+    /Websitehomebucket\/Cruise%20planner\.jpg|Websitehomebucket\/Discover%20Ships%20%20Ports\.jpg|SeadaysPublic\/seadaysfav\.png/i;
+  for (const [label, html] of [
+    ['ports', portsIndex],
+    ['ships', shipsIndex],
+  ]) {
+    const badPrimary = [...html.matchAll(/<a class="guide-card"[^>]*>[\s\S]*?<img\b([^>]*)>/gi)].filter((m) => {
+      const attrs = m[1] || '';
+      const src = (attrs.match(/\bsrc="([^"]+)"/i) || [])[1] || '';
+      const type = (attrs.match(/data-img-type="([^"]+)"/i) || [])[1] || '';
+      return type === 'fallback' || marketingOrFav.test(src);
+    });
+    assert.strictEqual(badPrimary.length, 0, `${label} featured guide cards must not use marketing/favicon placeholders`);
+  }
+
   if (prevMat === undefined) delete process.env.SEADAYS_MATERIALIZE_SIGNED;
   else process.env.SEADAYS_MATERIALIZE_SIGNED = prevMat;
 

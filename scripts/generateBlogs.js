@@ -51,6 +51,7 @@ const {
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
+const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
 const {
   loadLandingCruiseContentOverrides,
   applyShipContentOverride,
@@ -439,8 +440,10 @@ function isGradientSvgDataUrl(url) {
  *
  * Signed CMS URLs (make-*-note-images):
  *   1. Public rewrite only if that public object actually HEADs 200
- *   2. Optional materialize when SEADAYS_MATERIALIZE_SIGNED=1 + service role
- *   3. Keep the signed URL when it still HEADs 200 (blog/article/related cards)
+ *   2. Materialize to SeadaysPublic when service role is available:
+ *        - always for stablePublicOnly (ports/ships index cards must never keep signed)
+ *        - or when SEADAYS_MATERIALIZE_SIGNED=1 for the blog/article path
+ *   3. Keep the signed URL when it still HEADs 200 (blog/article/related cards only)
  *   4. null only when unreachable — callers may then fall back
  *
  * opts.stablePublicOnly: for /ports/ and /ships/ INDEX featured cards — never keep signed.
@@ -459,7 +462,10 @@ async function resolveImageUrl(url, articleId, index = 0, opts = {}) {
         signedStorageUrlToPublicCandidate(normalized) || signedStorageUrlToPublicCandidate(httpsUrl);
       // Only use public rewrite when the object is actually public (private buckets return 400).
       if (publicCandidate && (await headOk(publicCandidate))) return publicCandidate;
-      if (String(process.env.SEADAYS_MATERIALIZE_SIGNED || '').trim() === '1') {
+      const shouldMaterialize =
+        Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY) &&
+        (stablePublicOnly || String(process.env.SEADAYS_MATERIALIZE_SIGNED || '').trim() === '1');
+      if (shouldMaterialize) {
         const materialized = await materializeSignedImageToPublic(signedSrc, articleId);
         if (materialized) return materialized;
       }
@@ -1700,339 +1706,15 @@ ${getAnalyticsHeadHtml()}
 }
 
 function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
-  const canonical = `${BASE_URL}/ports/`;
-  const title = 'Cruise Ports & Destinations | SeaDays';
-  const desc =
-    'Explore cruise ports and regions: embarkation cities, popular islands, and signature itineraries. Plan shore days and pair them with SeaDays ship tools in the app.';
-
-  const safePorts = Array.isArray(ports) ? ports : [];
-  const safeArticles = Array.isArray(articles) ? articles : [];
-
-  const normalizeKey = (value) => String(value || '').trim();
-
-  const regionGroups = new Map();
-  for (const port of safePorts) {
-    const region = normalizeKey(port.region) || 'Other';
-    if (!regionGroups.has(region)) regionGroups.set(region, []);
-    regionGroups.get(region).push(port);
-  }
-
-  const regionPills = [...regionGroups.entries()]
-    .map(([region, list]) => ({ region, count: list.length }))
-    .sort((a, b) => a.region.localeCompare(b.region));
-
-  const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
-
-  const cards = safePorts
-    .slice()
-    .sort((a, b) => {
-      const ra = normalizeKey(a.region).toLowerCase();
-      const rb = normalizeKey(b.region).toLowerCase();
-      if (ra !== rb) return ra.localeCompare(rb);
-      const ca = normalizeKey(a.country).toLowerCase();
-      const cb = normalizeKey(b.country).toLowerCase();
-      if (ca !== cb) return ca.localeCompare(cb);
-      return String(a.name || '').localeCompare(String(b.name || ''));
-    })
-    .map((port) => {
-      const region = normalizeKey(port.region) || 'Other';
-      const label = port.country ? `${port.name}, ${port.country}` : port.name;
-      const fr = formatDirectoryRating(port.rating);
-      const ratingHtml = fr.display
-        ? buildDirectoryRatingVisualHtml(fr.display, fr.numeric)
-        : `<span class="rating-pill rating-pill-muted">In-app rating</span>`;
-      const blurb = String(port.description || '')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .slice(0, 120);
-      const blurbHtml = blurb
-        ? `<span class="seo-grid-card-desc">${escapeHtml(blurb)}${blurb.length >= 120 ? '…' : ''}</span>`
-        : '';
-      const bookableHtml = port.hasBookableExperiences
-        ? `<span class="seo-grid-card-bookable">Bookable experiences available</span>`
-        : '';
-      return (
-        `<a href="/ports/${escapeHtml(port.slug)}/" class="seo-grid-card directory-card" ` +
-        `data-group="${escapeHtml(region)}" data-item="${escapeHtml(port.slug)}" ` +
-        `data-name="${escapeHtml(String(port.name || '').toLowerCase())}" ` +
-        `data-country="${escapeHtml(String(port.country || '').toLowerCase())}">` +
-        `<span class="seo-grid-card-title">${escapeHtml(label)}</span>` +
-        `<span class="seo-grid-card-meta">${escapeHtml(region)}${port.country ? ` · ${escapeHtml(port.country)}` : ''}</span>` +
-        blurbHtml +
-        bookableHtml +
-        `<span class="seo-grid-card-bottom">` +
-        ratingHtml +
-        `<span class="seo-grid-card-hint">Open guide</span>` +
-        `</span>` +
-        `</a>`
-      );
-    })
-    .join('\n');
-
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-${getAnalyticsHeadHtml()}
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <meta name="description" content="${escapeHtml(desc)}">
-  <title>${escapeHtml(title)}</title>
-  <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="${canonical}">
-  <meta property="og:title" content="${escapeHtml(title)}">
-  <meta property="og:description" content="${escapeHtml(desc)}">
-  <meta property="og:image" content="${DEFAULT_FAVICON}">
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="${canonical}">
-  <meta property="twitter:title" content="${escapeHtml(title)}">
-  <meta property="twitter:description" content="${escapeHtml(desc)}">
-  <meta property="twitter:image" content="${DEFAULT_FAVICON}">
-  <script type="application/ld+json">${JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: 'Cruise ports and destinations',
-    description: desc,
-    url: canonical,
-    isPartOf: { '@type': 'WebSite', name: 'SeaDays', url: BASE_URL + '/' },
-  })}</script>
-  <style>${INDEX_STYLES}
-.seo-prose { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
-.seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
-.seo-prose p { margin-bottom: 18px; }
-.seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
-.seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 1200px; margin: 0 auto; padding: 140px 20px 36px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
-.directory-hero h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.06; margin-bottom: 14px; }
-.directory-hero p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; }
-.directory-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
-.directory-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
-.directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
-.directory-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
-.directory-hero-art { border-radius: 22px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,0.4); position: relative; }
-.directory-hero-art::after { content: ''; position: absolute; inset: -80px -120px auto auto; width: 240px; height: 240px; background: radial-gradient(circle at center, rgba(6,182,212,0.32), rgba(6,182,212,0)); filter: blur(4px); pointer-events: none; }
-.directory-hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
-.directory-controls { max-width: 1200px; margin: 0 auto; padding: 0 20px 18px; }
-.pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; }
-.pill:hover { border-color: rgba(6,182,212,0.55); }
-.pill[aria-pressed=\"true\"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
-.subpill-wrap { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.07); }
-.subpill-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
-.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
-.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
-.seo-grid-card-title { font-weight: 700; font-size: 16px; }
-.seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.45); }
-.seo-grid-card-meta { font-size: 13px; color: rgba(255,255,255,0.55); }
-.seo-grid-card-desc { font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.68); }
-.seo-grid-card-bookable { display: inline-flex; width: fit-content; margin-top: 2px; padding: 5px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; color: #042f2e; background: linear-gradient(90deg, rgba(52,211,153,0.95), rgba(34,211,238,0.9)); }
-.directory-search { width: 100%; max-width: 420px; margin: 0 0 14px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: #fff; font-size: 15px; }
-.directory-search::placeholder { color: rgba(255,255,255,0.45); }
-.seo-grid-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
-.rating-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); }
-.rating-pill-muted { color: rgba(255,255,255,0.6); font-weight: 700; }
-.rating-visual { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 10px; border-radius: 12px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.95); min-width: 0; }
-.rating-stars { letter-spacing: 2px; color: #fbbf24; font-size: 15px; line-height: 1; }
-.rating-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); }
-.directory-card.is-hidden { display: none; }
-.featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
-.featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
-.featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.guide-card:hover { border-color: rgba(6,182,212,0.85); transform: translateY(-2px); }
-.guide-card-image { width: 100%; height: 150px; min-height: 150px; object-fit: cover; object-position: center; background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(255,255,255,0.06)); display: block; }
-.guide-card-body { padding: 12px 14px 14px; }
-.guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
-.guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
-.app-cta { max-width: 1200px; margin: 0 auto 26px; padding: 0 20px; }
-.app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(6,182,212,0.06); }
-.app-cta strong { display: block; font-size: 15px; }
-.app-cta span { display: block; font-size: 13px; color: rgba(255,255,255,0.68); margin-top: 2px; }
-.app-cta a { flex: 0 0 auto; }
-.header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
-@media (max-width: 900px) {
-  .directory-hero { grid-template-columns: 1fr; padding-top: 120px; }
-  .directory-hero h1 { font-size: 38px; }
-  .featured-guides-grid { grid-template-columns: 1fr; }
-  .app-cta-inner { flex-direction: column; align-items: flex-start; }
-}
-</style>
-</head>
-<body>
-  <div class="starfield" id="starfield"></div>
-  <div class="grid-overlay"></div>
-  <div class="content-layer">
-    <header class="header">${buildDirectoryHeaderNav()}</header>
-    <section class="directory-hero" aria-labelledby="ports-title">
-      <div class="directory-hero-copy">
-        <h1 id="ports-title">Cruise ports &amp; destinations</h1>
-        <p>Choose a region first, then jump into port guides you can bookmark. Ratings are visible here—full reviews live in the SeaDays app.</p>
-        <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
-          <a class="directory-btn" href="/blog/">Read destination guides</a>
-        </div>
-      </div>
-      <div class="directory-hero-art" aria-hidden="true">
-        <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg" alt="" loading="lazy" decoding="async">
-      </div>
-    </section>
-    <section class="directory-controls" aria-label="Filters">
-      <label class="sr-only" for="portSearch">Search ports</label>
-      <input id="portSearch" class="directory-search" type="search" placeholder="Search ports by name or country" autocomplete="off">
-      <div class="pill-row" id="primaryPills" role="tablist" aria-label="Regions">
-        ${regionPills
-          .map((x, idx) => `<button type="button" class="pill" data-primary="${escapeHtml(x.region)}" aria-pressed="${idx === 0 ? 'true' : 'false'}">${escapeHtml(x.region)}</button>`)
-          .join('')}
-      </div>
-      <div class="subpill-wrap" id="subpillWrap" style="display:none;">
-        <div class="subpill-label" id="subpillLabel">Ports in this region</div>
-        <div class="pill-row" id="secondaryPills" role="tablist" aria-label="Ports"></div>
-      </div>
-    </section>
-    <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
-    <section class="app-cta" aria-label="App call to action">
-      <div class="app-cta-inner">
-        <div>
-          <strong>Want the full reviews?</strong>
-          <span>Download SeaDays to read and leave reviews for ports and ships.</span>
-        </div>
-        <a class="directory-btn directory-btn-primary" href="/#download">Get the app</a>
-      </div>
-    </section>
-    <section class="featured-guides" aria-label="Popular destination guides">
-      <h2>Popular destination guides</h2>
-      <div class="featured-guides-grid">${safeFeaturedGuideCardsHtml || `<a class="guide-card" href="/blog/"><div class="guide-card-body"><p class="guide-card-title">SeaDays cruise blog</p><p class="guide-card-meta">Browse destination guides and shore-day tips</p></div></a>`}</div>
-    </section>
-    <article class="seo-prose">
-      <h2>Plan smarter shore days</h2>
-      <p>Ports are where itineraries become real: timing, walk-off convenience, excursion windows, and how far you can roam before all-aboard. A strong plan balances must-see sights with buffer for weather, traffic, and the simple joy of wandering.</p>
-      <p>SeaDays connects <a href="/ships/">ship choice</a> with <a href="/blog/">destination guides from our blog</a> so you can line up sea days, overnight stays, and back-to-back sea-and-port rhythms that match your travel style.</p>
-      <h2>Regions and gateway cities</h2>
-      <p>Use the grid below as a lightweight map of places SeaDays users explore often. Each link opens a static port guide; terminals, safety notes, and fresher crowd patterns load in the SeaDays app.</p>
-      <p>When you are ready to compare vessels for these regions, return to the <a href="/ships/">ships directory</a> and cross-check cabins, dining, and entertainment before you commit.</p>
-    </article>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ships/">Ships</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p></div>
-      </div>
-    </footer>
-  </div>
-  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
-  <script>
-  (function(){
-    var primary = document.getElementById('primaryPills')
-    var secondary = document.getElementById('secondaryPills')
-    var subWrap = document.getElementById('subpillWrap')
-    var grid = document.getElementById('directoryGrid')
-    var search = document.getElementById('portSearch')
-    if(!primary || !secondary || !subWrap || !grid) return
-
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'))
-    var activePrimary = '__all__'
-    var activeSecondary = '__all__'
-    function cssEscape(v){
-      try { return (window.CSS && window.CSS.escape) ? window.CSS.escape(v) : v.replace(/[^a-zA-Z0-9_-]/g, '\\\\$&') } catch { return v }
-    }
-    function setPressed(container, activeValue){
-      Array.prototype.slice.call(container.querySelectorAll('button.pill')).forEach(function(btn){
-        var v = btn.getAttribute('data-primary') || btn.getAttribute('data-secondary')
-        btn.setAttribute('aria-pressed', String(v === activeValue))
-      })
-    }
-    function clearSecondary(){
-      secondary.innerHTML = ''
-      subWrap.style.display = 'none'
-    }
-    function applyFilter(primaryValue, secondaryValue){
-      activePrimary = primaryValue || '__all__'
-      activeSecondary = secondaryValue || '__all__'
-      var q = (search && search.value ? search.value : '').toLowerCase().trim()
-      cards.forEach(function(card){
-        var group = card.getAttribute('data-group') || ''
-        var item = card.getAttribute('data-item') || ''
-        var name = card.getAttribute('data-name') || ''
-        var country = card.getAttribute('data-country') || ''
-        var title = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase()
-        var ok = true
-        if(activePrimary && activePrimary !== '__all__') ok = ok && group === activePrimary
-        if(activeSecondary && activeSecondary !== '__all__') ok = ok && item === activeSecondary
-        if(q) ok = ok && (name.indexOf(q) !== -1 || country.indexOf(q) !== -1 || title.indexOf(q) !== -1 || item.indexOf(q) !== -1)
-        if(ok) card.classList.remove('is-hidden')
-        else card.classList.add('is-hidden')
-      })
-    }
-    function buildSecondaryForGroup(group){
-      clearSecondary()
-      if(!group || group === '__all__') return
-      var groupCards = cards.filter(function(c){ return (c.getAttribute('data-group')||'') === group })
-      if(groupCards.length <= 1) return
-      subWrap.style.display = 'block'
-      var btnAll = document.createElement('button')
-      btnAll.type = 'button'
-      btnAll.className = 'pill'
-      btnAll.setAttribute('data-secondary','__all__')
-      btnAll.setAttribute('aria-pressed','true')
-      btnAll.textContent = 'All ports'
-      secondary.appendChild(btnAll)
-      groupCards.forEach(function(c){
-        var slug = c.getAttribute('data-item')
-        var titleEl = c.querySelector('.seo-grid-card-title')
-        var label = titleEl ? titleEl.textContent.trim() : slug
-        var b = document.createElement('button')
-        b.type = 'button'
-        b.className = 'pill'
-        b.setAttribute('data-secondary', slug)
-        b.setAttribute('aria-pressed', 'false')
-        b.textContent = label
-        secondary.appendChild(b)
-      })
-    }
-
-    primary.addEventListener('click', function(e){
-      var btn = e.target && e.target.closest && e.target.closest('button[data-primary]')
-      if(!btn) return
-      var group = btn.getAttribute('data-primary')
-      setPressed(primary, group)
-      buildSecondaryForGroup(group)
-      applyFilter(group, '__all__')
-    })
-
-    secondary.addEventListener('click', function(e){
-      var btn = e.target && e.target.closest && e.target.closest('button[data-secondary]')
-      if(!btn) return
-      var groupBtn = primary.querySelector('button[aria-pressed=\"true\"]')
-      var group = groupBtn ? groupBtn.getAttribute('data-primary') : '__all__'
-      var item = btn.getAttribute('data-secondary')
-      setPressed(secondary, item)
-      applyFilter(group, item)
-    })
-
-    if(search){
-      search.addEventListener('input', function(){
-        applyFilter(activePrimary, activeSecondary)
-      })
-    }
-
-    var initialBtn = primary.querySelector('button[data-primary]')
-    var initialGroup = initialBtn ? initialBtn.getAttribute('data-primary') : ''
-    if(initialGroup){
-      setPressed(primary, initialGroup)
-      buildSecondaryForGroup(initialGroup)
-      applyFilter(initialGroup, '__all__')
-    }
-  })();
-  </script>
-  ${RUNTIME_GUARD_SCRIPT}
-</body>
-</html>`;
+  return buildPortsIndexHtmlCore({
+    ports,
+    featuredGuideCardsHtml,
+    indexStyles: INDEX_STYLES,
+    analyticsHeadHtml: getAnalyticsHeadHtml(),
+    runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
+    baseUrl: BASE_URL,
+    defaultFavicon: DEFAULT_FAVICON,
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -3412,4 +3094,5 @@ module.exports = {
   replaceSignedStorageImgSrcInHtml,
   getFallbackImage,
   pickCardImage,
+  materializeSignedImageToPublic,
 };

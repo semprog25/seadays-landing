@@ -19,7 +19,9 @@
     "smoke-port-guides": "node scripts/smoke-port-guides.js",
     "test-image-pipeline": "node scripts/test-image-pipeline.js",
     "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
-    "upload-press-marketing": "node scripts/upload-press-marketing.js"
+    "upload-press-marketing": "node scripts/upload-press-marketing.js",
+    "regenerate-ports-index": "node scripts/regenerate-ports-index.js",
+    "fix-featured-guide-thumbnails": "node scripts/fix-featured-guide-thumbnails.js"
   },
   "engines": {
     "node": ">=18"
