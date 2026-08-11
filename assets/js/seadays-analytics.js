@@ -64,18 +64,21 @@
     var style = document.createElement('style');
     style.id = 'seadays-consent-styles';
     style.textContent =
-      '#' + BANNER_ID + '{position:fixed;left:0;right:0;bottom:0;z-index:99999;padding:14px 16px;background:rgba(10,10,10,0.96);border-top:1px solid rgba(255,0,51,0.35);box-shadow:0 -8px 32px rgba(0,0,0,0.45);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#fff;}' +
-      '#' + BANNER_ID + ' .seadays-consent-inner{max-width:960px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;}' +
-      '#' + BANNER_ID + ' .seadays-consent-copy{flex:1 1 280px;font-size:14px;line-height:1.5;color:rgba(255,255,255,0.85);}' +
-      '#' + BANNER_ID + ' .seadays-consent-copy a{color:#FF0033;font-weight:600;text-decoration:none;}' +
-      '#' + BANNER_ID + ' .seadays-consent-copy a:hover{text-decoration:underline;}' +
-      '#' + BANNER_ID + ' .seadays-consent-actions{display:flex;flex-wrap:wrap;gap:10px;}' +
-      '#' + BANNER_ID + ' button{min-height:44px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;}' +
+      '#' + BANNER_ID + '{position:fixed;left:0;right:0;bottom:0;z-index:99999;padding:16px;background:rgba(12,12,12,0.97);border-top:1px solid rgba(255,255,255,0.1);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#fff;}' +
+      '#' + BANNER_ID + ' .seadays-consent-inner{max-width:720px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;justify-content:space-between;}' +
+      '#' + BANNER_ID + ' .seadays-consent-copy{flex:1 1 260px;min-width:0;}' +
+      '#' + BANNER_ID + ' .seadays-consent-text{margin:0;font-size:15px;line-height:1.45;color:rgba(255,255,255,0.9);font-weight:500;}' +
+      '#' + BANNER_ID + ' .seadays-consent-text + .seadays-consent-text{margin-top:6px;font-size:14px;font-weight:400;color:rgba(255,255,255,0.72);}' +
+      '#' + BANNER_ID + ' .seadays-consent-legal{margin:8px 0 0;font-size:12px;line-height:1.4;color:rgba(255,255,255,0.45);}' +
+      '#' + BANNER_ID + ' .seadays-consent-legal a{color:rgba(255,255,255,0.55);font-weight:500;text-decoration:underline;text-underline-offset:2px;}' +
+      '#' + BANNER_ID + ' .seadays-consent-legal a:hover{color:rgba(255,255,255,0.8);}' +
+      '#' + BANNER_ID + ' .seadays-consent-actions{display:flex;flex-wrap:nowrap;gap:10px;flex-shrink:0;}' +
+      '#' + BANNER_ID + ' button{min-height:44px;min-width:96px;padding:10px 18px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer;border:1px solid transparent;}' +
       '#' + BANNER_ID + ' .seadays-consent-accept{background:#FF0033;color:#fff;border-color:#FF0033;}' +
       '#' + BANNER_ID + ' .seadays-consent-accept:hover{background:#cc0029;}' +
-      '#' + BANNER_ID + ' .seadays-consent-decline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.28);}' +
+      '#' + BANNER_ID + ' .seadays-consent-decline{background:transparent;color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.28);}' +
       '#' + BANNER_ID + ' .seadays-consent-decline:hover{border-color:rgba(255,255,255,0.55);}' +
-      '@media (max-width:600px){#' + BANNER_ID + ' .seadays-consent-actions{width:100%;}#' + BANNER_ID + ' button{flex:1 1 auto;}}';
+      '@media (max-width:600px){#' + BANNER_ID + '{padding:14px 14px calc(14px + env(safe-area-inset-bottom,0px));}#' + BANNER_ID + ' .seadays-consent-inner{flex-direction:column;align-items:stretch;gap:12px;}#' + BANNER_ID + ' .seadays-consent-actions{width:100%;}#' + BANNER_ID + ' button{flex:1 1 0;}}';
     document.head.appendChild(style);
   }
 
@@ -91,12 +94,13 @@
     banner.id = BANNER_ID;
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-live', 'polite');
-    banner.setAttribute('aria-label', 'Cookie and analytics consent');
+    banner.setAttribute('aria-label', 'Cookie preferences');
     banner.innerHTML =
       '<div class="seadays-consent-inner">' +
       '<div class="seadays-consent-copy">' +
-      'We use Google Analytics (GA4) to understand how visitors use seadays.app. Analytics cookies are used only if you Accept. ' +
-      '<a href="/cookies.html">Cookie Policy</a> · <a href="/privacy.html">Privacy Policy</a>' +
+      '<p class="seadays-consent-text">We use cookies to improve your experience and understand how SeaDays is used.</p>' +
+      '<p class="seadays-consent-text">You can choose whether to allow analytics cookies.</p>' +
+      '<p class="seadays-consent-legal"><a href="/cookies.html">Cookie Policy</a> · <a href="/privacy.html">Privacy Policy</a></p>' +
       '</div>' +
       '<div class="seadays-consent-actions">' +
       '<button type="button" class="seadays-consent-decline" data-seadays-consent="denied">Decline</button>' +
