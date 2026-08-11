@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-08-11T21:25:10.689Z",
+  "amsterdamDecision": "NOT published. Amsterdam exists in guide/affiliate data (amsterdam, amsterdam-ijmuiden) but is absent from the 323-port SEO cruise dataset (scripts/lib/appCruiseDataset.js) that drives /ports/ page generation. No Amsterdam SEO page should be invented outside that dataset. Enrichment under amsterdam remains available for a future dataset inclusion; it is not passenger-facing today.",
+  "actions": [
+    "Merged palma enrichment into palma-de-mallorca; moved terminals key",
+    "Replaced definitive visa boilerplate / thin entry stubs on 187 guides",
+    "barcelona: verified ~4.0M 2025 pleasure-cruise passenger movements; berthCount nulled",
+    "miami: kept verified FY2025 total; berthCount nulled",
+    "vigo: softened annual visitors wording",
+    "valencia: removed unverified 500,000+ figure",
+    "santorini: softened unverified 1M+ claim",
+    "genua: terminals updated to Ponte dei Mille + Ponte Andrea Doria",
+    "piraeus: clarified Terminal A/B wording",
+    "cozumel: pier naming kept with assignment caveat",
+    "marseille: clarified MPCT ~8 km + shuttle caveats",
+    "bergen: clarified multi-quay downtown wording",
+    "civitavecchia: nulled berthCount < terminalCount contradiction",
+    "copenhagen: nulled berthCount < terminalCount contradiction",
+    "southampton: nulled berthCount < terminalCount contradiction",
+    "stockholm: nulled berthCount < terminalCount contradiction"
+  ]
+}

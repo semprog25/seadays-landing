@@ -11,6 +11,8 @@ const {
   PORT_GUIDE_STYLES,
   buildPortGuideEarlySectionsHtml,
   buildPortGuideLateSectionsHtml,
+  buildThingsToDoSection,
+  hasRichThingsToDo,
   buildBreadcrumbsHtml,
   buildBreadcrumbJsonLd,
 } = require('./portGuideSections');
@@ -941,6 +943,12 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   }
   const ogImage = port.image_url || opts.defaultImage;
   const things = buildPortThingsBullets(port);
+  const richThingsHtml = hasRichThingsToDo(guide) ? buildThingsToDoSection(guide) : '';
+  const thingsBlock = richThingsHtml
+    ? richThingsHtml
+    : `<h2>Things to do</h2>
+      <article class="seo-body">${whatParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
+      <ul>${things}</ul>`;
   const bestTimeFromGuide =
     guide?.climate?.bestMonths && guide.climate.bestMonths.length
       ? guide.climate.bestMonths.join(', ')
@@ -1061,9 +1069,7 @@ ${getAnalyticsHeadHtml()}
         ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
       </article>
       ${earlyGuide}
-      <h2>Things to do</h2>
-      <article class="seo-body">${whatParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
-      <ul>${things}</ul>
+      ${thingsBlock}
       ${lateGuide}
       <h2>Cruise relevance</h2>
       <article class="seo-body">${cruiseParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>

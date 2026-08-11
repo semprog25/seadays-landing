@@ -163,9 +163,57 @@ function buildFactsSection(guide) {
   const cultural = listItems(f.culturalHighlights);
   const lists =
     (notable ? `<p class="pg-label">Notable features</p><ul>${notable}</ul>` : '') +
-    (cultural ? `<p class="pg-label">Cultural highlights</p><ul>${cultural}</ul>` : '');
+    (cultural ? `<p class="pg-label">Cultural context</p><ul>${cultural}</ul>` : '');
   if (!rows && !lists) return '';
   return section('Facts', `<dl class="pg-facts">${rows}</dl>${lists}`, 'facts');
+}
+
+/**
+ * Destination-specific shore-day guidance (replaces SEO template "Things to do" when present).
+ * Expected guide.thingsToDo shape:
+ *   { intro?, topThings[], shortCall?, standardCall?, longerCall?, practicalTip? }
+ */
+function buildThingsToDoSection(guide) {
+  const t = guide && guide.thingsToDo;
+  if (!t || typeof t !== 'object') return '';
+  const top = listItems(t.topThings);
+  const blocks = [];
+  if (hasText(t.intro)) blocks.push(`<p class="pg-prose">${escapeHtml(t.intro)}</p>`);
+  if (top) {
+    blocks.push(`<p class="pg-label">Top things to do</p><ul>${top}</ul>`);
+  }
+  if (hasText(t.shortCall)) {
+    blocks.push(
+      `<p class="pg-label">Short call (about 4–5 hours ashore)</p><p class="pg-prose">${escapeHtml(t.shortCall)}</p>`
+    );
+  }
+  if (hasText(t.standardCall)) {
+    blocks.push(
+      `<p class="pg-label">Standard call (about 6–8 hours ashore)</p><p class="pg-prose">${escapeHtml(t.standardCall)}</p>`
+    );
+  }
+  if (hasText(t.longerCall)) {
+    blocks.push(
+      `<p class="pg-label">Longer call (8+ hours or overnight)</p><p class="pg-prose">${escapeHtml(t.longerCall)}</p>`
+    );
+  }
+  if (hasText(t.practicalTip)) {
+    blocks.push(
+      `<p class="pg-label">Practical cruise tip</p><p class="pg-prose">${escapeHtml(t.practicalTip)}</p>`
+    );
+  }
+  if (!blocks.length) return '';
+  return section('Things to do', blocks.join('\n'), 'things-to-do');
+}
+
+function hasRichThingsToDo(guide) {
+  const t = guide && guide.thingsToDo;
+  if (!t || typeof t !== 'object') return false;
+  return (
+    (Array.isArray(t.topThings) && t.topThings.filter((x) => hasText(x)).length >= 3) ||
+    hasText(t.standardCall) ||
+    hasText(t.shortCall)
+  );
 }
 
 function buildSizeSection(guide) {
@@ -314,6 +362,8 @@ const PORT_GUIDE_STYLES = `
 .pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
 .pg-lead-guide { font-size: 18px; color: rgba(255,255,255,0.82); }
 .pg-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin: 12px 0 8px; font-weight: 700; }
+.pg-section#things-to-do ul { margin: 0 0 14px; padding-left: 1.2em; color: rgba(255,255,255,0.88); line-height: 1.65; }
+.pg-section#things-to-do li { margin: 0 0 6px; }
 .pg-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0 8px; }
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
@@ -421,4 +471,6 @@ module.exports = {
   buildBreadcrumbsHtml,
   buildBreadcrumbJsonLd,
   buildTerminalsSection,
+  buildThingsToDoSection,
+  hasRichThingsToDo,
 };

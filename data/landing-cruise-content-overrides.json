@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-21T23:35:54.164Z",
+  "updatedAt": "2026-08-11T21:41:35.430Z",
   "ships": {
     "adventure-of-the-seas": {
       "description": "Adventure of the Seas is a Voyager-class cruise ship operated by Royal Caribbean International.\n\nRegistered in the Bahamas, Adventure of the Seas has cruised from ports in the United States and Europe to sites in the Caribbean Sea, Baltic Sea, Mediterranean Sea, Canada and Europe.",
@@ -4837,19 +4837,22 @@
       ]
     },
     "bergen-norway": {
-      "description": "Bergen is a city and municipality in the Vestland county on the west coast of Norway.\n\nBergen is the second-largest city in Norway after the capital, Oslo.",
+      "description": "Bergen’s downtown quays (often around the Skolten / central harbor area) put Bryggen within a short walk—weather changes faster than itineraries.",
       "highlights": [
-        "Bergen is a city and municipality in the Vestland county on the west coast of Norway.",
-        "Bergen is the second-largest city in Norway after the capital, Oslo.",
-        "Bergen (.mw-parser-output .IPA-label-small{font-size:85%}.mw-parser-output .references .IPA-label-small,.mw-parser-output .infobox .IPA-label-small,.mw-parser-output .navbox .IPA-label-small{font-size:100%}Norwegian pronunciation: [ˈbæ̀rɡən] ⓘ, locally [ˈbæ̂ʁgæn]) is a city and municipality in the Vestland."
+        "Bryggen wharf district",
+        "Fish market waterfront",
+        "Fløibanen funicular to Mount Fløyen",
+        "Hanseatic museum area",
+        "Fjord day trips only on long calls"
       ],
       "metaDescription": "Bergen, Norway, Norway: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:49.498Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.752,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "tourism-board"
+        "tourism-board",
+        "official-port-tourism-research-2026"
       ]
     },
     "bilbao-spain": {
@@ -5061,18 +5064,22 @@
       ]
     },
     "dubrovnik-croatia": {
-      "description": "Dubrovnik, historically also known as Ragusa, is a city in southern Dalmatia, Croatia, by the Adriatic Sea.\n\nDubrovnik,[a] historically also known as Ragusa,[b] is a city in southern Dalmatia, Croatia, by the Adriatic Sea. It is one of the most prominent tourist destinations in the Mediterranean, a seaport and the centre of the Dubrovnik-Neretva County. In 2021, its total population was 41,562.[7] Recognizing its outstanding medieval architecture and fortifications, UNESCO inscribed the Old City of Dubrovnik as a World Heritage Site in 1979.[8]",
+      "description": "Ships use Port Gruž, roughly 3 km from Pile Gate. Summer heat and wall queues define the day more than the attraction list.",
       "highlights": [
-        "Dubrovnik, historically also known as Ragusa, is a city in southern Dalmatia, Croatia, by the Adriatic Sea.",
-        "Dubrovnik,[a] historically also known as Ragusa,[b] is a city in southern Dalmatia, Croatia, by the Adriatic Sea. It is one of the."
+        "Old City via Pile Gate and the Stradun",
+        "City Walls circuit (buy tickets strategically; go early)",
+        "Cable car viewpoint above the Old City",
+        "Lokrum Island boat trips when schedules fit",
+        "Fortresses and side streets away from the densest cruise surge"
       ],
       "metaDescription": "Dubrovnik, Croatia, Croatia: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:50.153Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.761,
+      "rewrittenAt": "2026-08-11T21:12:07.139Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "tourism-board"
+        "tourism-board",
+        "official-port-tourism-research-2026"
       ]
     },
     "dunedin-new-zealand": {
@@ -5195,18 +5202,23 @@
       ]
     },
     "genoa-italy": {
-      "description": "Genoa is the sixth-largest city in Italy and the capital of the Italian region of Liguria.\n\nGenoa[a] is the sixth-largest city in Italy and the capital of the Italian region of Liguria. As of 2025, 565,301 people live within the city's administrative limits.[4] While its metropolitan city has 818,629 inhabitants,[3] more than 1.5 million people live in the wider metropolitan area stretching along the Italian Riviera.[5]",
+      "description": "Genoa’s Stazioni Marittime berths put Porto Antico and the steep centro storico within walking range—comfortable shoes matter as much as the itinerary.",
       "highlights": [
-        "Genoa is the sixth-largest city in Italy and the capital of the Italian region of Liguria.",
-        "Genoa[a] is the sixth-largest city in Italy and the capital of the Italian region of Liguria. As of 2025, 565,301 people live."
+        "Porto Antico waterfront and Aquarium of Genoa",
+        "Centro storico caruggi (alleyways)",
+        "Via Garibaldi / Palazzi dei Rolli exteriors",
+        "Pesto and focaccia food stops",
+        "Nervi or Cinque Terre only on long, well-buffered calls"
       ],
       "metaDescription": "Genoa, Italy, Italy: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:50.503Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.751,
+      "rewrittenAt": "2026-08-11T21:25:10.692Z",
+      "model": "phase1-quality-correction",
+      "confidenceScore": 0.88,
       "sourcesUsed": [
         "wikipedia",
-        "tourism-board"
+        "tourism-board",
+        "official-port-tourism-research-2026",
+        "phase1-correction-2026"
       ]
     },
     "george-town-cayman-islands": {
@@ -5677,18 +5689,22 @@
       ]
     },
     "nassau-bahamas": {
-      "description": "Nassau is the capital and largest city of The Bahamas.\n\nNassau (/ˈnæsɔː/ NASS-aw) is the capital and largest city of The Bahamas. It is on the island of New Providence, which has a population of 296,522, 74.26% of the country's total population.[3] Nassau is commonly defined as a primate city, dwarfing all other towns in the country.[4] It is the centre of commerce, education, law, administration, and media of the country.",
+      "description": "Downtown Nassau Cruise Port opens onto Bay Street. Beach time and Paradise Island/Atlantis compete for the same clock.",
       "highlights": [
-        "Nassau is the capital and largest city of The Bahamas.",
-        "Nassau (/ˈnæsɔː/ NASS-aw) is the capital and largest city of The Bahamas. It is on the island of New Providence, which has."
+        "Bay Street and downtown colonial streets",
+        "Junkanoo Beach for a quick swim",
+        "Queen’s Staircase / Fort Fincastle area",
+        "Straw Market crafts",
+        "Atlantis / Paradise Island as a paid longer outing"
       ],
       "metaDescription": "Nassau, Bahamas, Bahamas: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:52.149Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.728,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "tourism-board"
+        "tourism-board",
+        "official-port-tourism-research-2026"
       ]
     },
     "new-york-ny-united-states": {
@@ -5812,19 +5828,23 @@
       ]
     },
     "palma-de-mallorca-spain": {
-      "description": "Palma, also known as Palma de Mallorca, is the capital and largest city of the autonomous community of the Balearic Islands in Spain.\n\nIt is situated on the south coast of Mallorca on the Bay of Palma.",
+      "description": "Ships use Estació Marítima terminals along Palma’s commercial waterfront. Poniente/Paraires (EM 1–4) are nearer the promenade route; Dique del Oeste (EM 5–6) sits farther out.",
       "highlights": [
-        "Palma, also known as Palma de Mallorca, is the capital and largest city of the autonomous community of the Balearic Islands in.",
-        "It is situated on the south coast of Mallorca on the Bay of Palma.",
-        "Palma,[a] also known as Palma de Mallorca (officially between 1983–1988, 2006–2008, and 2012–2016),[5] is the capital and largest city of the autonomous."
+        "Cathedral of Santa Maria (La Seu) and Parc de la Mar",
+        "Old Town lanes and Passeig del Born",
+        "Arab Baths or palace exteriors nearby",
+        "Waterfront promenade (Passeig Marítim) if berthed closer in",
+        "Bellver Castle or island tours only with spare time"
       ],
       "metaDescription": "Palma de Mallorca, Spain, Spain: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:52.417Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.749,
+      "rewrittenAt": "2026-08-11T21:25:10.692Z",
+      "model": "phase1-quality-correction",
+      "confidenceScore": 0.88,
       "sourcesUsed": [
         "wikipedia",
-        "tourism-board"
+        "tourism-board",
+        "official-port-tourism-research-2026",
+        "phase1-correction-2026"
       ]
     },
     "phuket-thailand": {
@@ -6227,18 +6247,22 @@
       ]
     },
     "valencia-spain": {
-      "description": "Valencia, officially València, is the capital of the Valencian Community and the province of the same name in Spain.\n\nValencia,[a] officially València,[b] is the capital of the Valencian Community and the province of the same name in Spain. It is located on the banks of the Turia, on the east coast of the Iberian Peninsula on the Mediterranean Sea. With a population of 824,340, it is the third-largest city in Spain. The urban area of Valencia has 1.6 million people while the metropolitan region has 2.5 million.",
+      "description": "The cruise terminal sits in the commercial port—shuttle or taxi first. Downtown Gothic Valencia and the City of Arts and Sciences are different directions; pick a theme.",
       "highlights": [
-        "Valencia, officially València, is the capital of the Valencian Community and the province of the same name in Spain.",
-        "Valencia,[a] officially València,[b] is the capital of the Valencian Community and the province of the same name in Spain. It is located."
+        "Cathedral / historic center and Central Market",
+        "Lonja and Gothic streets",
+        "City of Arts and Sciences architecture",
+        "Turia Gardens walking ribbon",
+        "Malvarrosa / Cabanyal beach districts on a beach-focused day"
       ],
       "metaDescription": "Valencia, Spain, Spain: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:53.910Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.769,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "tourism-board"
+        "tourism-board",
+        "official-port-tourism-research-2026"
       ]
     },
     "vancouver-bc-canada": {
@@ -6273,17 +6297,21 @@
       ]
     },
     "vigo-spain": {
-      "description": "Vigo is a city and municipality in Spain, in the autonomous community of Galicia in the province of Pontevedra, and the capital of the comarca of Vigo.\n\nLocated in the northwest of the Iberian Peninsula, it sits on the southern shore of an inlet of the Atlantic Ocean, the Ria de Vigo, the southernmost of the Rías Baixas.",
+      "description": "Vigo is one of Spain’s most walkable Atlantic cruise calls: the Trasatlánticos waterfront sits beside Casco Vello. Save long transfers for Cíes or Santiago only when time truly allows.",
       "highlights": [
-        "Vigo is a city and municipality in Spain, in the autonomous community of Galicia in the province of Pontevedra, and the capital.",
-        "Located in the northwest of the Iberian Peninsula, it sits on the southern shore of an inlet of the Atlantic Ocean, the."
+        "Casco Vello (old town) lanes and viewpoints",
+        "Oyster stalls and seafood along the waterfront",
+        "Jardines del Cable / promenade near the maritime station",
+        "Castro de Vigo hill views",
+        "Cíes Islands ferries or Santiago de Compostela only on longer calls"
       ],
       "metaDescription": "Vigo, Spain, Spain: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:53.996Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.7,
+      "rewrittenAt": "2026-08-11T21:12:07.138Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
-        "wikipedia"
+        "wikipedia",
+        "official-port-tourism-research-2026"
       ]
     },
     "wellington-new-zealand": {
@@ -6491,17 +6519,21 @@
       ]
     },
     "athens-piraeus-greece": {
-      "description": "Athens (Piraeus), Greece, Greece is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.\n\nCruise visitors planning Athens (Piraeus), Greece should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship.",
+      "description": "Piraeus is Athens’ cruise gate. The Acropolis area is roughly 10–13 km away—plan metro, taxi, or an organized tour, not a walk from the pier.",
       "highlights": [
-        "Athens (Piraeus), Greece, Greece is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.",
-        "Cruise visitors planning Athens (Piraeus), Greece should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship."
+        "Acropolis and Acropolis Museum (one tightly planned visit)",
+        "Plaka / Monastiraki lanes after the site",
+        "Ancient Agora if time remains nearby",
+        "Piraeus waterfront if you stay local",
+        "Island ferries are a separate complex—do not confuse them with cruise gates"
       ],
       "metaDescription": "Athens (Piraeus), Greece, Greece: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:49.313Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.298,
+      "rewrittenAt": "2026-08-11T21:12:23.559Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
-        "seadays-structured-fallback"
+        "seadays-structured-fallback",
+        "official-port-tourism-research-2026"
       ]
     },
     "auckland-new-zealand": {
@@ -6779,19 +6811,23 @@
       ]
     },
     "barcelona-spain": {
-      "description": "Barcelona is a city on the northeastern coast of Spain.\n\nBarcelona, Spain is a cruise port in Spain.",
+      "description": "Barcelona rewards a focused plan: Adossat berths need a shuttle or taxi into town, while the World Trade Center pier is closer to Port Vell. Pick one district cluster rather than racing across the city.",
       "highlights": [
-        "Barcelona is a city on the northeastern coast of Spain.",
-        "Barcelona, Spain is a cruise port in Spain.",
-        "Barcelona, Spain is listed in the SeaDays ports directory for cruise itinerary planning in Spain."
+        "Gothic Quarter lanes and Barcelona Cathedral area",
+        "La Rambla and Boqueria market (short visits work best)",
+        "Sagrada Família (timed entry strongly recommended)",
+        "Park Güell (book ahead; allow transfer time)",
+        "Barceloneta beachfront or Montjuïc viewpoints on lighter days"
       ],
       "metaDescription": "Barcelona, Spain, Spain: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:49.421Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.639,
+      "rewrittenAt": "2026-08-11T21:25:10.692Z",
+      "model": "phase1-quality-correction",
+      "confidenceScore": 0.88,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026",
+        "phase1-correction-2026"
       ]
     },
     "cannes-france": {
@@ -6899,19 +6935,22 @@
       ]
     },
     "copenhagen-denmark": {
-      "description": "Copenhagen is the capital and most populous city of both the country of Denmark and the wider Kingdom of Denmark, with a population of 671,673 people in the municipality and 1.4 million in the urban area.\n\nCopenhagen, Denmark is a cruise port in Denmark.",
+      "description": "Terminal choice changes everything: Oceankaj is a transit ride; Langelinie and Nordre Toldbod sit closer to the classic waterfront.",
       "highlights": [
-        "Copenhagen is the capital and most populous city of both the country of Denmark and the wider Kingdom of Denmark, with a.",
-        "Copenhagen, Denmark is a cruise port in Denmark.",
-        "Copenhagen, Denmark is listed in the SeaDays ports directory for cruise itinerary planning in Denmark."
+        "Nyhavn waterfront",
+        "Historic center / royal sights area",
+        "Tivoli Gardens when open for the season",
+        "Little Mermaid promenade if berthed near Langelinie",
+        "Vesterbro or Nørrebro cafés on a longer stroll"
       ],
       "metaDescription": "Copenhagen, Denmark, Denmark: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:49.907Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.601,
+      "rewrittenAt": "2026-08-11T21:12:07.139Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026"
       ]
     },
     "corfu-greece": {
@@ -6945,19 +6984,22 @@
       ]
     },
     "cozumel-mexico": {
-      "description": "Cozumel is an island and municipality in the Caribbean Sea off the eastern coast of Mexico's Yucatán Peninsula, opposite Playa del Carmen.\n\nCozumel, Mexico is a cruise port in Mexico.",
+      "description": "Cozumel has three main cruise piers. Your assigned pier (posted on the daily program) changes whether downtown is a walk or a taxi.",
       "highlights": [
-        "Cozumel is an island and municipality in the Caribbean Sea off the eastern coast of Mexico's Yucatán Peninsula, opposite Playa del Carmen.",
-        "Cozumel, Mexico is a cruise port in Mexico.",
-        "Cozumel, Mexico is listed in the SeaDays ports directory for cruise itinerary planning in Mexico."
+        "San Miguel waterfront shopping and dining",
+        "Beach clubs along the west coast",
+        "Snorkeling or diving on Cozumel’s reefs",
+        "San Gervasio Maya ruins inland",
+        "East-coast wild beaches on a guided island loop"
       ],
       "metaDescription": "Cozumel, Mexico, Mexico: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:49.956Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.633,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026"
       ]
     },
     "costa-maya-mexico": {
@@ -8026,17 +8068,21 @@
       ]
     },
     "marseille-provence-france": {
-      "description": "Marseille (Provence), France, France is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.\n\nCruise visitors planning Marseille (Provence), France should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship.",
+      "description": "Large ships use MPCT far from the Vieux-Port; smaller ships may berth nearer Joliette. Your terminal choice decides whether the day feels walkable.",
       "highlights": [
-        "Marseille (Provence), France, France is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.",
-        "Cruise visitors planning Marseille (Provence), France should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship."
+        "Vieux-Port waterfront and Le Panier lanes",
+        "Notre-Dame de la Garde (uphill; allow time and water)",
+        "MuCEM and modern waterfront museums",
+        "Bouillabaisse / Provençal market stops",
+        "Aix-en-Provence or Calanques only with confirmed timing"
       ],
       "metaDescription": "Marseille (Provence), France, France: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:51.801Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.544,
+      "rewrittenAt": "2026-08-11T21:12:23.559Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
-        "seadays-structured-fallback"
+        "seadays-structured-fallback",
+        "official-port-tourism-research-2026"
       ]
     },
     "mazatlan-mexico": {
@@ -8156,17 +8202,21 @@
       ]
     },
     "malaga-spain": {
-      "description": "Malaga, Spain, Spain is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.\n\nCruise visitors planning Malaga, Spain should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship.",
+      "description": "Málaga is often a walkable Costa del Sol call from central berths near Muelle Uno. Granada is a separate full-day excursion—not a casual add-on.",
       "highlights": [
-        "Malaga, Spain, Spain is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.",
-        "Cruise visitors planning Malaga, Spain should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship."
+        "Muelle Uno waterfront promenade",
+        "Alcazaba fortress",
+        "Málaga Cathedral",
+        "Picasso Museum (timed entry helps)",
+        "Gibralfaro viewpoint by taxi or energetic climb"
       ],
       "metaDescription": "Malaga, Spain, Spain: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:51.744Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.543,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
-        "seadays-structured-fallback"
+        "seadays-structured-fallback",
+        "official-port-tourism-research-2026"
       ]
     },
     "mykonos-greece": {
@@ -8186,19 +8236,22 @@
       ]
     },
     "naples-italy": {
-      "description": "Naples is the regional capital of Campania, Italy.\n\nNaples, Italy is a cruise port in Italy.",
+      "description": "The central Stazione Marittima berth is walkable to the historic core, but Pompeii, Herculaneum, and Capri each consume most of a call on their own.",
       "highlights": [
-        "Naples is the regional capital of Campania, Italy.",
-        "Naples, Italy is a cruise port in Italy.",
-        "Naples, Italy is listed in the SeaDays ports directory for cruise itinerary planning in Italy."
+        "Centro storico / Spaccanapoli and pizza culture",
+        "Piazza del Plebiscito area",
+        "Pompeii archaeological site (train/coach time required)",
+        "Herculaneum as a somewhat tighter archaeology option than Pompeii",
+        "Capri ferries only with careful timetable discipline"
       ],
       "metaDescription": "Naples, Italy, Italy: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:52.114Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.628,
+      "rewrittenAt": "2026-08-11T21:12:07.139Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026"
       ]
     },
     "naxos-greece": {
@@ -8230,19 +8283,22 @@
       ]
     },
     "miami-fl-united-states": {
-      "description": "The Miami metropolitan area in South Florida has an estimated 6.39 million residents, ranking as the fifth-largest metropolitan area in the Southeast and eighth-largest metropolitan area in the United States.\n\nMiami, FL, United States is a cruise port in United States.",
+      "description": "PortMiami is primarily an embarkation/turnaround hub. Shore “sightseeing” usually means pre-cruise hotel time or a short post-arrival window—not a classic 6-hour transit call.",
       "highlights": [
-        "The Miami metropolitan area in South Florida has an estimated 6.39 million residents, ranking as the fifth-largest metropolitan area in the Southeast.",
-        "Miami, FL, United States is a cruise port in United States.",
-        "Miami, FL, United States is listed in the SeaDays ports directory for cruise itinerary planning in United States."
+        "Confirm your lettered terminal (AA, A–F) before rideshare drop-off",
+        "Downtown Miami / Brickell for a pre-cruise night",
+        "South Beach Art Deco District on a longer layover",
+        "Wynwood walls if you have a half-day free before embarkation",
+        "On-port parking and tunnel/causeway traffic planning"
       ],
       "metaDescription": "Miami, FL, United States, United States: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:51.887Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.608,
+      "rewrittenAt": "2026-08-11T21:12:07.138Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026"
       ]
     },
     "mormugao-port-goa-india": {
@@ -8682,17 +8738,21 @@
       ]
     },
     "rome-civitavecchia-italy": {
-      "description": "Rome (Civitavecchia), Italy, Italy is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.\n\nCruise visitors planning Rome (Civitavecchia), Italy should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship.",
+      "description": "Most guests treat Civitavecchia as Rome’s gateway. A Rome day is rewarding but tight; staying local or choosing Tarquinia can be smarter on shorter calls.",
       "highlights": [
-        "Rome (Civitavecchia), Italy, Italy is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.",
-        "Cruise visitors planning Rome (Civitavecchia), Italy should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship."
+        "Rome classics (Colosseum area, historic center, or Vatican—pick one cluster)",
+        "Regional train via Civitavecchia station + local transfer in Rome",
+        "Organized Rome shore excursion with guaranteed return timing",
+        "Civitavecchia fortress / waterfront if remaining in town",
+        "Tarquinia or coastal Lazio on a lighter cultural day"
       ],
       "metaDescription": "Rome (Civitavecchia), Italy, Italy: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:52.979Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.298,
+      "rewrittenAt": "2026-08-11T21:12:23.558Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
-        "seadays-structured-fallback"
+        "seadays-structured-fallback",
+        "official-port-tourism-research-2026"
       ]
     },
     "rugen-germany": {
@@ -8766,19 +8826,22 @@
       ]
     },
     "santorini-greece": {
-      "description": "Santorini, officially Thira or Thera, is a Greek island in the southern Aegean Sea, about 200 km (120 mi) southeast from the mainland.\n\nSantorini, Greece is a cruise port in Greece.",
+      "description": "Santorini is primarily a tender call to the Old Port (Skala) below Fira; some excursions use Athinios for coaches. Cable-car queues dominate the clock.",
       "highlights": [
-        "Santorini, officially Thira or Thera, is a Greek island in the southern Aegean Sea, about 200 km (120 mi) southeast from the.",
-        "Santorini, Greece is a cruise port in Greece.",
-        "Santorini, Greece is listed in the SeaDays ports directory for cruise itinerary planning in Greece."
+        "Fira caldera paths and viewpoints",
+        "Cable car between Old Port and Fira (or steep stairs)",
+        "Oia (needs transfer time from Fira)",
+        "Akrotiri archaeological site on coach-based plans",
+        "Local wine tasting on longer island loops"
       ],
       "metaDescription": "Santorini, Greece, Greece: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:53.202Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.612,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026"
       ]
     },
     "santiago-san-antonio-chile": {
@@ -8943,17 +9006,21 @@
       ]
     },
     "southampton-united-kingdom": {
-      "description": "Southampton, United Kingdom, United Kingdom is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.\n\nCruise visitors planning Southampton, United Kingdom should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship.",
+      "description": "Southampton is the UK’s main turnaround port. “Things to do” often means embarkation logistics, a short city errand, or a London pre/post stay—not a packed transit sightseeing day.",
       "highlights": [
-        "Southampton, United Kingdom, United Kingdom is a cruise port profile in the SeaDays directory for travelers comparing itinerary stops and shore-day logistics.",
-        "Cruise visitors planning Southampton, United Kingdom should confirm berth location, transport time, local conditions, and all-aboard timing before leaving the ship."
+        "Confirm Eastern Docks (Ocean / QEII, Dock Gate 4) vs Western Docks (City / Horizon / Mayflower, Dock Gate 10)",
+        "Ocean Village / waterfront dining near Western Docks",
+        "SeaCity Museum / Titanic exhibits on a longer free window",
+        "London by rail for pre- or post-cruise nights",
+        "New Forest or Isle of Wight only with ample free time"
       ],
       "metaDescription": "Southampton, United Kingdom, United Kingdom: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:53.444Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.298,
+      "rewrittenAt": "2026-08-11T21:12:07.139Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
-        "seadays-structured-fallback"
+        "seadays-structured-fallback",
+        "official-port-tourism-research-2026"
       ]
     },
     "st-croix-frederiksted-us-virgin-islands": {
@@ -9069,19 +9136,22 @@
       ]
     },
     "stockholm-sweden": {
-      "description": "Stockholm is the capital and most populous city of Sweden, as well as the largest urban area in the Nordic countries.\n\nStockholm, Sweden is a cruise port in Sweden.",
+      "description": "Stadsgården can be walkable to Gamla Stan; Värtahamnen/Frihamnen usually need bus, metro, or taxi. Identify the terminal before planning a stroll.",
       "highlights": [
-        "Stockholm is the capital and most populous city of Sweden, as well as the largest urban area in the Nordic countries.",
-        "Stockholm, Sweden is a cruise port in Sweden.",
-        "Stockholm, Sweden is listed in the SeaDays ports directory for cruise itinerary planning in Sweden."
+        "Gamla Stan (Old Town) lanes and palace exteriors",
+        "Vasa Museum on Djurgården",
+        "Waterfront promenades and fika stops",
+        "ABBA Museum / Skansen on longer calls",
+        "Archipelago boats when schedules and berth location allow"
       ],
       "metaDescription": "Stockholm, Sweden, Sweden: cruise port overview and shore-day tips.",
-      "rewrittenAt": "2026-05-21T23:35:53.564Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.623,
+      "rewrittenAt": "2026-08-11T21:12:07.140Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
         "wikipedia",
-        "ts-port-data"
+        "ts-port-data",
+        "official-port-tourism-research-2026"
       ]
     },
     "svolv-r-norway": {
@@ -9460,6 +9530,23 @@
       "confidenceScore": 0.581,
       "sourcesUsed": [
         "seadays-structured-fallback"
+      ]
+    },
+    "amsterdam-netherlands": {
+      "highlights": [
+        "Canal belt walking loop",
+        "Rijksmuseum / Van Gogh Museum (timed tickets)",
+        "Anne Frank House (book far ahead)",
+        "Jordaan cafés and courtyards",
+        "Dam Square and Royal Palace exterior",
+        "Ferry across the IJ for A’DAM Lookout"
+      ],
+      "description": "Amsterdam cruise calls commonly use Passenger Terminal Amsterdam (PTA) on the IJ waterfront east of Centraal Station, with some ships using alternative berths or the IJmuiden sea lock complex on certain itineraries. From PTA, trams, metro, ferries, and taxis connect quickly into the historic canal belt.",
+      "rewrittenAt": "2026-08-11T21:12:23.559Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
+      "sourcesUsed": [
+        "official-port-tourism-research-2026"
       ]
     }
   }

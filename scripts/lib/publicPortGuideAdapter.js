@@ -252,6 +252,27 @@ function extractAllPublicPortGuides(appRoot) {
 }
 
 /**
+ * Known SEO/review-key aliases → canonical app port guide IDs.
+ * App `port-name-map` uses German/legacy IDs in a few cases (e.g. genua).
+ */
+const APP_PORT_ID_ALIASES = {
+  genoa: 'genua',
+  // English SEO names that differ from app guide keys
+  'genoa-italy': 'genua',
+};
+
+function resolveGuideId(candidate, guidesById) {
+  const raw = String(candidate || '')
+    .trim()
+    .toLowerCase();
+  if (!raw) return '';
+  if (guidesById[raw]) return raw;
+  const aliased = APP_PORT_ID_ALIASES[raw];
+  if (aliased && guidesById[aliased]) return aliased;
+  return '';
+}
+
+/**
  * Build website-slug → appPortId using review key map + name heuristics.
  */
 function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
@@ -263,6 +284,11 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
     const key = `${String(g.portName || '').toLowerCase()}|${String(g.country || '').toLowerCase()}`;
     byName.set(key, id);
     byName.set(String(g.portName || '').toLowerCase(), id);
+    // Also index common English aliases for German/legacy portName values
+    if (id === 'genua') {
+      byName.set('genoa|italy', id);
+      byName.set('genoa', id);
+    }
   }
   for (const port of seoPorts || []) {
     const slug = String(port.slug || '').trim();
@@ -273,22 +299,31 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
         : portSlugToReviewKey
           ? portSlugToReviewKey[slug]
           : '';
-    if (reviewKey && guidesById[reviewKey]) {
-      out[slug] = reviewKey;
+    const fromReview = resolveGuideId(reviewKey, guidesById);
+    if (fromReview) {
+      out[slug] = fromReview;
       continue;
     }
-    if (guidesById[slug]) {
-      out[slug] = slug;
+    const fromSlug = resolveGuideId(slug, guidesById);
+    if (fromSlug) {
+      out[slug] = fromSlug;
       continue;
     }
     const name = String(port.name || '').trim().toLowerCase();
     const country = String(port.country || '').trim().toLowerCase();
-    const hit = byName.get(`${name}|${country}`) || byName.get(name);
+    // "Genoa, Italy" → try bare city name too
+    const bareName = name.replace(/,\s*[^,]+$/, '').trim();
+    const hit =
+      byName.get(`${name}|${country}`) ||
+      byName.get(`${bareName}|${country}`) ||
+      byName.get(name) ||
+      byName.get(bareName);
     if (hit) out[slug] = hit;
     else {
-      // hamburg-germany → hamburg
+      // hamburg-germany → hamburg; genoa-italy → genoa alias → genua
       const first = slug.split('-')[0];
-      if (guidesById[first]) out[slug] = first;
+      const fromFirst = resolveGuideId(first, guidesById);
+      if (fromFirst) out[slug] = fromFirst;
     }
   }
   return out;
