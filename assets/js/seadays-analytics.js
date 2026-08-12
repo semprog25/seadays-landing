@@ -276,7 +276,26 @@
 
   window.seadaysOpenCookieSettings = openConsentSettings;
 
+  function isAppClientOpen() {
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      var client = params.get('seadays_client') || '';
+      return client === 'ios_app' || client === 'android_app' || client === 'app';
+    } catch (e) {
+      return false;
+    }
+  }
+
   function init() {
+    // Opened from the SeaDays native app (SFSafariViewController / Custom Tab):
+    // never show marketing cookie / advertising consent UI, and keep Consent Mode denied
+    // for ad storage so ATT "Ask App Not to Track" is not undermined by a second cookie prompt.
+    if (isAppClientOpen()) {
+      applyPrefs({ analytics: 'denied', advertising: 'denied' });
+      bindClickTracking();
+      return;
+    }
+
     var prefs = readPrefs();
     var hasDecision = prefs.analytics === 'granted' || prefs.analytics === 'denied';
     if (hasDecision) {
