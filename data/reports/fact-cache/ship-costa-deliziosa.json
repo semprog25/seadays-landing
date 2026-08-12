@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:59.068Z",
   "facts": [
     {
+      "claim": "Costa Deliziosa (Costa Cruises): Entered service 2010; 92,720 GT; 2260 guests (lower berth / double occupancy); 294 m length; Vista Hybrid class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Costa Deliziosa is a cruise ship flagship operated by the Italian cruise line Costa Crociere.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Deliziosa",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "deliziosa",
+    "yearBuilt": 2010,
+    "tonnage": 92720,
+    "capacity": 2260,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 926,
+    "length": 294,
+    "beam": 32,
+    "shipClass": "Vista Hybrid",
+    "status": "active",
+    "description": "Operated by Costa Cruises; entered service 2010; 110,000 GT; approx. 2,260 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

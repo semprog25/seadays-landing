@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:21.521Z",
   "facts": [
     {
+      "claim": "Norwegian Joy (Norwegian Cruise Line): Entered service 2017; 167,725 GT; 3804 guests (lower berth / double occupancy); 323 m length; Breakaway Plus class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Joy is a Breakaway Plus-class cruise ship operated by Norwegian Cruise Line (NCL) and is the second of four Breakaway Plus-class vessels in the company's fleet.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Joy",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "joy",
+    "yearBuilt": 2017,
+    "tonnage": 167725,
+    "capacity": 3804,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1821,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Breakaway Plus",
+    "status": "active",
+    "description": "Originally built for China, renovated in 2019 and again in 2024.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

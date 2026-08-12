@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:31.077Z",
   "facts": [
     {
+      "claim": "Seabourn Venture (Seabourn): Entered service 2022; 23,000 GT; 260 guests (lower berth / double occupancy); 233 m length; Expedition class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Seabourn Venture is an ultra-luxury expedition cruise ship operated by Seabourn Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Seabourn_Venture",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "seabourn-venture",
+    "yearBuilt": 2022,
+    "tonnage": 23000,
+    "capacity": 260,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 240,
+    "length": 233,
+    "beam": 27,
+    "shipClass": "Expedition",
+    "status": "active",
+    "description": "Operated by Seabourn; entered service 2022; 23,000 GT; approx. 260 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

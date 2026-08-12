@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "viking-mira",
+    "name": "Viking Mira",
+    "cruiseLine": "Viking"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.562Z",
+  "facts": [
+    {
+      "claim": "Viking Mira (Viking): Entered service 2026; 54,300 GT; 998 guests (lower berth / double occupancy); 245 m length; Star class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "viking-mira",
+    "yearBuilt": 2026,
+    "tonnage": 54300,
+    "capacity": 998,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 500,
+    "length": 245,
+    "beam": 32,
+    "shipClass": "Star",
+    "status": "active",
+    "description": "Third of Viking's larger ocean design (Vela class); entered service 2026.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

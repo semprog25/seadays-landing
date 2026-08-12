@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:21.917Z",
   "facts": [
     {
+      "claim": "Explora I (Explora Journeys): Entered service 2023; 63,900 GT; 922 guests (lower berth / double occupancy); 248 m length; Explora class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "The Explorair Relax MV is a German powered parachute that was designed by Mathias Mauch and produced by Explorair of Ebringen, Breisgau-Hochschwarzwald in Baden-Württemberg.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Explorair_Relax_MV",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "explora-i",
+    "yearBuilt": 2023,
+    "tonnage": 63900,
+    "capacity": 922,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 640,
+    "length": 248,
+    "beam": 32,
+    "shipClass": "Explora",
+    "status": "active",
+    "description": "First ship in the Explora Journeys fleet, offering luxury ocean travel with sustainable technology.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

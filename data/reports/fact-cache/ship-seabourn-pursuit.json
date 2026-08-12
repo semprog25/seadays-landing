@@ -6,7 +6,32 @@
     "cruiseLine": "Seabourn"
   },
   "fetchedAt": "2026-05-21T23:25:30.728Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "Seabourn Pursuit (Seabourn): Entered service 2023; 23,000 GT; 260 guests (lower berth / double occupancy); 233 m length; Expedition class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "seabourn-pursuit",
+    "yearBuilt": 2023,
+    "tonnage": 23000,
+    "capacity": 260,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 240,
+    "length": 233,
+    "beam": 27,
+    "shipClass": "Expedition",
+    "status": "active",
+    "description": "Operated by Seabourn; entered service 2023; 23,000 GT; approx. 260 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

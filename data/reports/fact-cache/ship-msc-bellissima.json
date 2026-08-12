@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:21:49.193Z",
   "facts": [
     {
+      "claim": "MSC Bellissima (MSC Cruises): Entered service 2019; 171,598 GT; 4488 guests (lower berth / double occupancy); 315 m length; Meraviglia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MSC Bellissima is a cruise ship operated by MSC Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Bellissima",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "bellissima",
+    "yearBuilt": 2019,
+    "tonnage": 171598,
+    "capacity": 4488,
+    "capacityMax": 5686,
+    "capacityBasis": "lower_berth",
+    "crew": 1536,
+    "length": 315,
+    "beam": 41,
+    "shipClass": "Meraviglia",
+    "status": "active",
+    "description": "Meraviglia-class; cruise ship operated by its listed cruise line; entered service 2019; 171,598 GT; approx. 4,488 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:18.233Z",
   "facts": [
     {
+      "claim": "Carnival Freedom (Carnival Cruise Line): Entered service 2007; 110,320 GT; 2980 guests (lower berth / double occupancy); 290 m length; Conquest class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Carnival Freedom offers some of the latest and greatest features across our fleet. Explore the cruise ship and you'll find a wide range of fun options to make the most of your time at sea. See photos, onboard activities, staterooms, deck plans, and itineraries. Book your Carnival Freedom cruise today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-freedom",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "freedom",
+    "yearBuilt": 2007,
+    "tonnage": 110320,
+    "capacity": 2980,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1150,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Conquest",
+    "status": "active",
+    "description": "Operated by Carnival Cruise Line; entered service 2007; 110,000 GT; approx. 2,980 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

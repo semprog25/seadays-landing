@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "viking-venus",
     "name": "Viking Venus",
-    "cruiseLine": "Viking River Cruises"
+    "cruiseLine": "Viking"
   },
   "fetchedAt": "2026-05-21T23:26:06.133Z",
   "facts": [
+    {
+      "claim": "Viking Venus (Viking): Entered service 2021; 47,800 GT; 930 guests (lower berth / double occupancy); 227 m length; Star class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Viking Vesta is a cruise ship that was launched in 2024, christened in June 2025 and entered service in July 2025.",
       "source": "wikipedia",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "viking-venus",
+    "yearBuilt": 2021,
+    "tonnage": 47800,
+    "capacity": 930,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 465,
+    "length": 227,
+    "beam": 29,
+    "shipClass": "Star",
+    "status": "active",
+    "description": "Operated by Viking; entered service 2021; 47,800 GT; approx. 930 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

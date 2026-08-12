@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:59.124Z",
   "facts": [
     {
+      "claim": "Costa Fascinosa (Costa Cruises): Entered service 2012; 114,500 GT; 2980 guests (lower berth / double occupancy); 290 m length; Concordia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Costa Fascinosa is a Concordia-class cruise ship that was ordered in October 2007 for Costa Crociere.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Fascinosa",
@@ -40,6 +46,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "fascinosa",
+    "yearBuilt": 2012,
+    "tonnage": 114500,
+    "capacity": 2980,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1110,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Concordia",
+    "status": "active",
+    "description": "Operated by Costa Cruises; entered service 2012; 130,000 GT; approx. 2,980 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

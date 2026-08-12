@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:26:11.902Z",
   "facts": [
     {
+      "claim": "Wind Spirit (Windstar Cruises): Entered service 1988; 36,000 GT; 148 guests (lower berth / double occupancy); 210 m length; Wind class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Wind spirit or spirit of the wind may refer to:A wind elemental\nA wind deity",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Wind_spirit",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "wind-spirit",
+    "yearBuilt": 1988,
+    "tonnage": 36000,
+    "capacity": 148,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 90,
+    "length": 210,
+    "beam": 25,
+    "shipClass": "Wind",
+    "status": "active",
+    "description": "Operated by Windstar Cruises; entered service 1988; 36,000 GT; approx. 148 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

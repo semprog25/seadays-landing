@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "mein-schiff-relax",
+    "name": "Mein Schiff Relax",
+    "cruiseLine": "TUI Cruises"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.559Z",
+  "facts": [
+    {
+      "claim": "Mein Schiff Relax (TUI Cruises): Entered service 2025; 161,000 GT; 4100 guests (lower berth / double occupancy); InTUItion class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mein-schiff-relax",
+    "yearBuilt": 2025,
+    "tonnage": 161000,
+    "capacity": 4100,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": null,
+    "length": null,
+    "beam": null,
+    "shipClass": "InTUItion",
+    "status": "active",
+    "description": "InTUItion-class; cruise ship operated by its listed cruise line; entered service 2025; 161,000 GT; approx. 4,100 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

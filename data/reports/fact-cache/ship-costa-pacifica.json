@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:04.671Z",
   "facts": [
     {
+      "claim": "Costa Pacifica (Costa Cruises): Entered service 2009; 114,288 GT; 2980 guests (lower berth / double occupancy); 290 m length; Concordia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Costa Pacifica is a Concordia-class cruise ship for Costa Crociere.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Pacifica",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "pacifica",
+    "yearBuilt": 2009,
+    "tonnage": 114288,
+    "capacity": 2980,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1110,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Concordia",
+    "status": "active",
+    "description": "Operated by Costa Cruises; entered service 2009; 130,000 GT; approx. 2,980 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

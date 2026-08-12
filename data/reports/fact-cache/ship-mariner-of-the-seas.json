@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:56.505Z",
   "facts": [
     {
+      "claim": "Mariner of the Seas (Royal Caribbean): Entered service 2003; 142,000 GT; 3300 guests (lower berth / double occupancy); 323 m length; Voyager class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Mariner of the Seas has more ways to play on the most maxed-out short getaway ever. Ditch the weekend road trip for an action-packed cruise ship.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/mariner-of-the-seas",
@@ -23,6 +29,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mariner-seas",
+    "yearBuilt": 2003,
+    "tonnage": 142000,
+    "capacity": 3300,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1185,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Voyager",
+    "status": "active",
+    "description": "Voyager-class; cruise ship operated by its listed cruise line; entered service 2003; 142,000 GT; approx. 3,300 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

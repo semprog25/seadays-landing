@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:04.787Z",
   "facts": [
     {
+      "claim": "Costa Toscana (Costa Cruises): Entered service 2021; 186,364 GT; 5330 guests (lower berth / double occupancy); 337 m length; Excellence class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Costa Toscana is an Excellence-class cruise ship currently operated by the Italian cruise line Costa Cruises, a subsidiary of Carnival Corporation & plc.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Toscana",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "toscana",
+    "yearBuilt": 2021,
+    "tonnage": 186364,
+    "capacity": 5330,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1678,
+    "length": 337,
+    "beam": 47,
+    "shipClass": "Excellence",
+    "status": "active",
+    "description": "Excellence-class; cruise ship operated by its listed cruise line; entered service 2021; 186,364 GT; approx. 5,330 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:15.751Z",
   "facts": [
     {
+      "claim": "Norwegian Encore (Norwegian Cruise Line): Entered service 2019; 169,116 GT; 3998 guests (lower berth / double occupancy); 323 m length; Breakaway Plus class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Encore is a Breakaway Plus-class cruise ship operated by Norwegian Cruise Line (NCL).",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Encore",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "encore",
+    "yearBuilt": 2019,
+    "tonnage": 169116,
+    "capacity": 3998,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 2100,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Breakaway Plus",
+    "status": "active",
+    "description": "Features the largest race track at sea and the Galaxy Pavilion.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

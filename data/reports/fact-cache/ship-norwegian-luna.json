@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "norwegian-luna",
+    "name": "Norwegian Luna",
+    "cruiseLine": "Norwegian Cruise Line"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.500Z",
+  "facts": [
+    {
+      "claim": "Norwegian Luna (Norwegian Cruise Line): Entered service 2026; 154,140 GT; 3565 guests (lower berth / double occupancy); 322 m length; Prima Plus class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "luna",
+    "yearBuilt": 2026,
+    "tonnage": 154140,
+    "capacity": 3565,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1506,
+    "length": 322,
+    "beam": 41,
+    "shipClass": "Prima Plus",
+    "status": "active",
+    "description": "Second Prima Plus-class ship; entered service March 2026. Features the Moon Climber adventure course and Luna Midway.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

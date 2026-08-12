@@ -3,10 +3,35 @@
     "kind": "ship",
     "slug": "world-voyager",
     "name": "World Voyager",
-    "cruiseLine": "nicko cruises"
+    "cruiseLine": "Nicko Cruises"
   },
   "fetchedAt": "2026-05-21T23:26:17.004Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "World Voyager (Nicko Cruises): Entered service 2020; 9,934 GT; 200 guests (lower berth / double occupancy); 126 m length; World Explorer class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "world-voyager",
+    "yearBuilt": 2020,
+    "tonnage": 9934,
+    "capacity": 200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 125,
+    "length": 126,
+    "beam": 19,
+    "shipClass": "World Explorer",
+    "status": "active",
+    "description": "Ice-strengthened expedition ship (Mystic / Nicko ocean program); ~200 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

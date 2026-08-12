@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:09.964Z",
   "facts": [
     {
+      "claim": "MSC World America (MSC Cruises): Entered service 2025; 216,638 GT; 5240 guests (lower berth / double occupancy); 333 m length; World class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "World Class ships are a class of cruise ships being built by Chantiers de l'Atlantique of France for MSC Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/World-class_cruise_ship",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "world-america",
+    "yearBuilt": 2025,
+    "tonnage": 216638,
+    "capacity": 5240,
+    "capacityMax": 6762,
+    "capacityBasis": "lower_berth",
+    "crew": 2138,
+    "length": 333,
+    "beam": 47,
+    "shipClass": "World",
+    "status": "active",
+    "description": "World-class; cruise ship operated by its listed cruise line; entered service 2025; 216,638 GT; approx. 5,240 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

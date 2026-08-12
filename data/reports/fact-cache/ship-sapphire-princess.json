@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:07.665Z",
   "facts": [
     {
+      "claim": "Sapphire Princess (Princess Cruises): Entered service 2004; 115,875 GT; 2680 guests (lower berth / double occupancy); 290 m length; Grand class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Sapphire Princess is a cruise ship owned by Princess Cruises that entered service in 2004 as the sister ship of Diamond Princess.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sapphire_Princess",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sapphire",
+    "yearBuilt": 2004,
+    "tonnage": 115875,
+    "capacity": 2680,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1100,
+    "length": 290,
+    "beam": 37,
+    "shipClass": "Grand",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2004; 110,000 GT; approx. 2,680 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -2,11 +2,17 @@
   "entity": {
     "kind": "ship",
     "slug": "pacific-encounter",
-    "name": "Pacific Encounter",
-    "cruiseLine": "P&O Cruises Australia"
+    "name": "Carnival Encounter",
+    "cruiseLine": "Carnival Cruise Line"
   },
   "fetchedAt": "2026-05-21T23:24:38.279Z",
   "facts": [
+    {
+      "claim": "Carnival Encounter (Carnival Cruise Line): Entered service 2002; 108,977 GT; 2600 guests (lower berth / double occupancy); 290 m length; Grand class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Carnival Encounter is a Grand-class cruise ship operated by Carnival Cruise Line.",
       "source": "wikipedia",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "pacific-encounter",
+    "yearBuilt": 2002,
+    "tonnage": 108977,
+    "capacity": 2600,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1100,
+    "length": 290,
+    "beam": 36,
+    "shipClass": "Grand",
+    "status": "active",
+    "description": "Formerly Star Princess, then Pacific Encounter (P&O Australia). Rebranded Carnival Encounter in March 2025. Homeported in Brisbane.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

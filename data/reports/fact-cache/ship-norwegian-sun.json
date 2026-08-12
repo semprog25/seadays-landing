@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:27.284Z",
   "facts": [
     {
+      "claim": "Norwegian Sun (Norwegian Cruise Line): Entered service 2001; 78,309 GT; 1936 guests (lower berth / double occupancy); 258 m length; Sun class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Sun is a Sun-class cruise ship operated by Norwegian Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Sun",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sun",
+    "yearBuilt": 2001,
+    "tonnage": 78309,
+    "capacity": 1936,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 906,
+    "length": 258,
+    "beam": 32,
+    "shipClass": "Sun",
+    "status": "active",
+    "description": "Operated by Norwegian Cruise Line; entered service 2001; 70,000 GT; approx. 1,936 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

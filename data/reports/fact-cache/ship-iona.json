@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:39.205Z",
   "facts": [
     {
+      "claim": "Iona (P&O Cruises): Entered service 2020; 184,089 GT; 5200 guests (lower berth / double occupancy); 347 m length; Excellence class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Iona is an island in the Inner Hebrides, off the Ross of Mull on the western coast of Scotland.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Iona",
@@ -34,6 +40,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "iona",
+    "yearBuilt": 2020,
+    "tonnage": 184089,
+    "capacity": 5200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1800,
+    "length": 347,
+    "beam": 41,
+    "shipClass": "Excellence",
+    "status": "active",
+    "description": "Excellence-class; cruise ship operated by its listed cruise line; entered service 2020; 184,089 GT; approx. 5,200 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -3,10 +3,35 @@
     "kind": "ship",
     "slug": "ms-spitsbergen",
     "name": "MS Spitsbergen",
-    "cruiseLine": "Hurtigruten / HX"
+    "cruiseLine": "Hurtigruten"
   },
   "fetchedAt": "2026-05-21T23:21:07.870Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "MS Spitsbergen (Hurtigruten): Entered service 2009; 43,000 GT; 335 guests (lower berth / double occupancy); 247 m length; Spitsbergen class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "ms-spitsbergen",
+    "yearBuilt": 2009,
+    "tonnage": 43000,
+    "capacity": 335,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 140,
+    "length": 247,
+    "beam": 27,
+    "shipClass": "Spitsbergen",
+    "status": "active",
+    "description": "Operated by Hurtigruten; entered service 2009; 43,000 GT; approx. 335 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

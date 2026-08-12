@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:54.075Z",
   "facts": [
     {
+      "claim": "Sun Princess (Princess Cruises): Entered service 2024; 177,882 GT; 4310 guests (lower berth / double occupancy); 345 m length; Sphere class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Sun Princess may refer to:Sun Princess (ship), various ships\nSun Princess (horse), a Thoroughbred racehorse\nSun Princess, the title given to the second place winner of the Sun and Salsa Festival pageant",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sun_Princess",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sun",
+    "yearBuilt": 2024,
+    "tonnage": 177882,
+    "capacity": 4310,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1600,
+    "length": 345,
+    "beam": 47,
+    "shipClass": "Sphere",
+    "status": "active",
+    "description": "The first Sphere Class ship, featuring the Dome and powered by LNG.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

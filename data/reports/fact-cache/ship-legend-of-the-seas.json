@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "legend-of-the-seas",
+    "name": "Legend of the Seas",
+    "cruiseLine": "Royal Caribbean"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.531Z",
+  "facts": [
+    {
+      "claim": "Legend of the Seas (Royal Caribbean): Entered service 2026; 248,663 GT; 5610 guests (lower berth / double occupancy); 365 m length; Icon class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "legend-seas",
+    "yearBuilt": 2026,
+    "tonnage": 248663,
+    "capacity": 5610,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 2350,
+    "length": 365,
+    "beam": 65,
+    "shipClass": "Icon",
+    "status": "active",
+    "description": "Third Icon-class ship; entered service July 2026. Same neighborhood layout as Icon and Star of the Seas, with Mediterranean then Fort Lauderdale deployments.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

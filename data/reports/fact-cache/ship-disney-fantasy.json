@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:10.567Z",
   "facts": [
     {
+      "claim": "Disney Fantasy (Disney Cruise Line): Entered service 2012; 129,750 GT; 2500 guests (lower berth / double occupancy); 348 m length; Dream class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Disney Fantasy is a cruise ship owned and operated by Disney Cruise Line, a subsidiary of the Walt Disney Company.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Disney_Fantasy",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "fantasy",
+    "yearBuilt": 2012,
+    "tonnage": 129750,
+    "capacity": 2500,
+    "capacityMax": 4000,
+    "capacityBasis": "lower_berth",
+    "crew": 1458,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Dream",
+    "status": "active",
+    "description": "Dream-class; cruise ship operated by its listed cruise line; entered service 2012; 129,750 GT; approx. 2,500 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

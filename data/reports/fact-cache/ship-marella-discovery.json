@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:50.895Z",
   "facts": [
     {
+      "claim": "Marella Discovery (Marella Cruises): Entered service 1995; 69,072 GT; 1914 guests (lower berth / double occupancy); 264 m length; Discovery class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Marella Discovery is a former Royal Caribbean International Vision-class cruise ship now sailing for Marella Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Marella_Discovery",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "marella-discovery",
+    "yearBuilt": 1995,
+    "tonnage": 69072,
+    "capacity": 1914,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 800,
+    "length": 264,
+    "beam": 32,
+    "shipClass": "Discovery",
+    "status": "active",
+    "description": "Formerly Splendour of the Seas, now sailing for TUI UK.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

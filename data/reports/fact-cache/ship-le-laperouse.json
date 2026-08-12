@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:50.507Z",
   "facts": [
     {
+      "claim": "Le Lapérouse (Ponant): Entered service 2018; 37,000 GT; 184 guests (lower berth / double occupancy); 217 m length; Explorer class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Le Lapérouse is the lead ship of the Ponant Explorers-class of cruise ships operated by Ponant.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Le_Lap%C3%A9rouse",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "le-laperouse",
+    "yearBuilt": 2018,
+    "tonnage": 37000,
+    "capacity": 184,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 110,
+    "length": 217,
+    "beam": 25,
+    "shipClass": "Explorer",
+    "status": "active",
+    "description": "Operated by Ponant; entered service 2018; 37,000 GT; approx. 184 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

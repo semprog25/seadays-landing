@@ -48,6 +48,8 @@ const {
   pickShipsForPortPage,
   pickBlogArticlesForEntity,
   applyPortGeoFromApiRows,
+  pickArticleImage,
+  extractArticleCardImageFromHtml,
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
@@ -2709,13 +2711,24 @@ async function main() {
       slug,
       name: s.name || slug,
       cruise_line: s.cruiseLine || 'Major cruise line',
-      description: '',
+      description: s.description || '',
       highlights: [],
       rating,
       reviewCount,
+      shipClass: s.shipClass || '',
+      capacity: s.capacity,
+      capacityMax: s.capacityMax,
+      capacityBasis: s.capacityBasis,
+      crew: s.crew,
+      yearBuilt: s.yearBuilt,
+      tonnage: s.tonnage,
+      length: s.length,
+      beam: s.beam,
+      status: s.status || 'active',
+      appId: s.appId || '',
     };
     return applyShipContentOverride(base, cruiseContentOverrides.ships[slug]);
-  });
+  }).filter((s) => !s.status || s.status === 'active');
 
   const fullPortRawList = (Array.isArray(APP_ALL_PORTS) && APP_ALL_PORTS.length ? APP_ALL_PORTS : FALLBACK_PORT_GRID).map((p) => {
     const slug = String(p.slug || '').trim() || slugify(p.name || 'port');
@@ -2778,6 +2791,24 @@ async function main() {
   fs.mkdirSync(path.join(repoRoot, 'ships'), { recursive: true });
   fs.mkdirSync(path.join(repoRoot, 'ports'), { recursive: true });
 
+  /** Ensure ship/port related cards keep real thumbs (CMS fields or prior blog HTML). */
+  function withRelatedCardImages(blogArticles) {
+    return (Array.isArray(blogArticles) ? blogArticles : []).map((a) => {
+      if (!a || !a.slug) return a;
+      if (pickArticleImage(a)) return a;
+      const blogPath = path.join(repoRoot, 'blog', a.slug, 'index.html');
+      if (!fs.existsSync(blogPath)) return a;
+      const fromHtml = extractArticleCardImageFromHtml(fs.readFileSync(blogPath, 'utf8'));
+      if (!fromHtml) return a;
+      return {
+        ...a,
+        thumbnailUrl: a.thumbnailUrl || fromHtml,
+        heroImageUrl: a.heroImageUrl || fromHtml,
+        ogImage: a.ogImage || fromHtml,
+      };
+    });
+  }
+
   for (const ship of seoShips) {
     const dir = path.join(repoRoot, 'ships', ship.slug);
     fs.mkdirSync(dir, { recursive: true });
@@ -2791,7 +2822,7 @@ async function main() {
       'cruise ship',
       ...ship.name.split(/\s+/).filter((w) => w.length > 3),
     ];
-    const blogs = pickBlogArticlesForEntity(articles, tokens, 6);
+    const blogs = withRelatedCardImages(pickBlogArticlesForEntity(articles, tokens, 6));
     fs.writeFileSync(path.join(dir, 'index.html'), buildShipDetailHtml(ship, relShips, destPorts, blogs, spOpts), 'utf8');
   }
   for (const port of seoPorts) {
@@ -2808,7 +2839,7 @@ async function main() {
       'shore day',
       ...port.name.split(/\s+/).filter((w) => w.length > 2),
     ];
-    const blogs = pickBlogArticlesForEntity(articles, tokens, 6);
+    const blogs = withRelatedCardImages(pickBlogArticlesForEntity(articles, tokens, 6));
     const appPortId = slugToAppPortId[port.slug] || '';
     const portGuide = (appPortId && publicGuides.byAppPortId[appPortId]) || null;
     const portTerminals = (appPortId && terminalsPayload.byPortId[appPortId]) || [];

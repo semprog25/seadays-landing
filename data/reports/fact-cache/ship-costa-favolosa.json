@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:58.605Z",
   "facts": [
     {
+      "claim": "Costa Favolosa (Costa Cruises): Entered service 2011; 114,500 GT; 2980 guests (lower berth / double occupancy); 290 m length; Concordia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Costa Favolosa is a cruise ship operated by Italian cruise line Costa Crociere, ordered in October 2007.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Favolosa",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "favolosa",
+    "yearBuilt": 2011,
+    "tonnage": 114500,
+    "capacity": 2980,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1110,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Concordia",
+    "status": "active",
+    "description": "Operated by Costa Cruises; entered service 2011; 130,000 GT; approx. 2,980 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

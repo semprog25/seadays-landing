@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:52.838Z",
   "facts": [
     {
+      "claim": "Celestyal Journey (Celestyal Cruises): Entered service 1994; 55,819 GT; 1260 guests (lower berth / double occupancy); 220 m length; ex-Statendam / Pacific Aria class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Celestyal Journey is a cruise ship completed in 1994 and initially sailed for Holland America Line as Ryndam.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Celestyal_Journey",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "celestyal-journey",
+    "yearBuilt": 1994,
+    "tonnage": 55819,
+    "capacity": 1260,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 500,
+    "length": 220,
+    "beam": 31,
+    "shipClass": "ex-Statendam / Pacific Aria",
+    "status": "active",
+    "description": "Formerly AIDAaura, now sailing Greek Islands and Mediterranean routes.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:56.281Z",
   "facts": [
     {
+      "claim": "Marella Explorer 2 (Marella Cruises): Entered service 1995; 71,297 GT; 1934 guests (lower berth / double occupancy); 251 m length; Explorer class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Marella Explorer 2, formerly Celebrity Century and SkySea Golden Era, was the lead ship of the Century class of cruise ships for Celebrity Cruises, and the co-flagship of the Celebrity fleet, along with Millennium-class ship Celebrity Constellation, and the newest Solstice class, Celebrity Reflection.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Marella_Explorer_2",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "marella-explorer-2",
+    "yearBuilt": 1995,
+    "tonnage": 71297,
+    "capacity": 1934,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 800,
+    "length": 251,
+    "beam": 32,
+    "shipClass": "Explorer",
+    "status": "active",
+    "description": "Formerly Celebrity Century, refurbished for Marella Cruises.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

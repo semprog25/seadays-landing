@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "seven-seas-mariner",
     "name": "Seven Seas Mariner",
-    "cruiseLine": "Regent Seven Seas"
+    "cruiseLine": "Regent Seven Seas Cruises"
   },
   "fetchedAt": "2026-05-21T23:25:36.497Z",
   "facts": [
+    {
+      "claim": "Seven Seas Mariner (Regent Seven Seas Cruises): Entered service 2001; 48,075 GT; 700 guests (lower berth / double occupancy); 216 m length; Mariner class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Seven Seas Mariner is a cruise ship operated by Regent Seven Seas Cruises.",
       "source": "wikipedia",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mariner",
+    "yearBuilt": 2001,
+    "tonnage": 48075,
+    "capacity": 700,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 445,
+    "length": 216,
+    "beam": 29,
+    "shipClass": "Mariner",
+    "status": "active",
+    "description": "Operated by Regent Seven Seas Cruises; entered service 2001; 58,000 GT; approx. 700 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

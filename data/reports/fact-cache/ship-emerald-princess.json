@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:16.137Z",
   "facts": [
     {
+      "claim": "Emerald Princess (Princess Cruises): Entered service 2007; 113,561 GT; 3090 guests (lower berth / double occupancy); 290 m length; Crown class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Emerald Princess is a Crown-class cruise ship for Princess Cruises that entered service in April 2007.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Emerald_Princess",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "emerald",
+    "yearBuilt": 2007,
+    "tonnage": 113561,
+    "capacity": 3090,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1200,
+    "length": 290,
+    "beam": 36,
+    "shipClass": "Crown",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2007; 130,000 GT; approx. 3,090 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

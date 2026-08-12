@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:12.174Z",
   "facts": [
     {
+      "claim": "Brilliance of the Seas (Royal Caribbean): Entered service 2002; 90,050 GT; 2100 guests (lower berth / double occupancy); 290 m length; Radiance class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Brilliance of the Seas is the ultimate escape for backroads ramblers — distinct cultures to discover ashore, and unique experiences onboard. Explore one-of-a-kind sights, sounds, and tastes when you start your next cruise vacation with Royal Caribbean.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/brilliance-of-the-seas",
@@ -23,6 +29,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "brilliance-seas",
+    "yearBuilt": 2002,
+    "tonnage": 90050,
+    "capacity": 2100,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 848,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Radiance",
+    "status": "active",
+    "description": "Radiance-class; cruise ship operated by its listed cruise line; entered service 2002; 90,050 GT; approx. 2,100 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

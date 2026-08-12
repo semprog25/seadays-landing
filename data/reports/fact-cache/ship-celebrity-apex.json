@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:41.033Z",
   "facts": [
     {
+      "claim": "Celebrity Apex (Celebrity Cruises): Entered service 2020; 129,500 GT; 2900 guests (lower berth / double occupancy); 290 m length; Edge class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Discover Celebrity Apex. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-apex",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "apex",
+    "yearBuilt": 2020,
+    "tonnage": 129500,
+    "capacity": 2900,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1320,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Edge",
+    "status": "active",
+    "description": "Edge-class; cruise ship operated by its listed cruise line; entered service 2020; 129,500 GT; approx. 2,900 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

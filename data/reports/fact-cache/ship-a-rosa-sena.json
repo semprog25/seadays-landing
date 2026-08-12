@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:43.125Z",
   "facts": [
     {
+      "claim": "A-ROSA Sena (A-ROSA Cruises): Entered service 2022; 280 guests (maximum); 135 m length.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "A-Rosa Luna is a German river cruise ship, cruising in the Rhone – Saône basin.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/A-Rosa_Luna",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "arosa-sena",
+    "yearBuilt": 2022,
+    "tonnage": null,
+    "capacity": 280,
+    "capacityMax": null,
+    "capacityBasis": "maximum",
+    "crew": 60,
+    "length": 135,
+    "beam": 17,
+    "shipClass": null,
+    "status": "active",
+    "description": "Largest A-ROSA Rhine river ship (official: 135 m × 17.7 m, max. 280 guests). Hybrid-capable river cruiser with retractable bridge.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

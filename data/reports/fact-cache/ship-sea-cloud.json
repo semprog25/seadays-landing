@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:13.434Z",
   "facts": [
     {
+      "claim": "Sea Cloud (Sea Cloud Cruises): Entered service 1931; 2,531 GT; 64 guests (lower berth / double occupancy); 109 m length; Tall Ship class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Sea Cloud is a sailing cruise ship owned by Sea Cloud Cruises of Hamburg, Germany.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sea_Cloud",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sea-cloud",
+    "yearBuilt": 1931,
+    "tonnage": 2531,
+    "capacity": 64,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 60,
+    "length": 109,
+    "beam": 15,
+    "shipClass": "Tall Ship",
+    "status": "active",
+    "description": "Historic four-masted barque offering luxury tall-ship cruises.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

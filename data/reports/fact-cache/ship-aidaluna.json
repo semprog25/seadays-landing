@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:49.169Z",
   "facts": [
     {
+      "claim": "AIDAluna (AIDA Cruises): Entered service 2009; 69,203 GT; 2070 guests (lower berth / double occupancy); 252 m length; Sphinx class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "AIDAluna is a Sphinx-class cruise ship, owned by the United States-based Carnival Corp and operated by AIDA Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/AIDAluna",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "luna",
+    "yearBuilt": 2009,
+    "tonnage": 69203,
+    "capacity": 2070,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 607,
+    "length": 252,
+    "beam": 32,
+    "shipClass": "Sphinx",
+    "status": "active",
+    "description": "Offers the unique Moonlight Bar and a giant LED screen on the pool deck for open-air movie nights.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

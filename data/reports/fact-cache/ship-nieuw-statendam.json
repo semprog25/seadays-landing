@@ -6,7 +6,32 @@
     "cruiseLine": "Holland America Line"
   },
   "fetchedAt": "2026-05-21T23:23:57.385Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "Nieuw Statendam (Holland America Line): Entered service 2018; 99,840 GT; 2660 guests (lower berth / double occupancy); 300 m length; Pinnacle class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "nieuw-statendam",
+    "yearBuilt": 2018,
+    "tonnage": 99840,
+    "capacity": 2660,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1053,
+    "length": 300,
+    "beam": 35,
+    "shipClass": "Pinnacle",
+    "status": "active",
+    "description": "Operated by Holland America Line; entered service 2018; 110,000 GT; approx. 2,660 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

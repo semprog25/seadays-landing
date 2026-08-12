@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:47.665Z",
   "facts": [
     {
+      "claim": "Sky Princess (Princess Cruises): Entered service 2019; 145,281 GT; 3660 guests (lower berth / double occupancy); 330 m length; Royal class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Sky Princess may refer to:Kingdom Coaster, a wooden roller coaster in Dutch Wonderland near Lancaster, Pennsylvania, opened in 1992 and called the Sky Princess before 2007\nAtlantic Star , an Australian cruise ship formerly known as Sky Princess, built in 1984, laid up in 2010, sold to shipbreaker in Aliağa, Turkey, and renamed Antic\nSky Princess (2019), a Royal-class cruise ship operating for Princess Cruises since October 2019",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sky_Princess",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sky",
+    "yearBuilt": 2019,
+    "tonnage": 145281,
+    "capacity": 3660,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1346,
+    "length": 330,
+    "beam": 38,
+    "shipClass": "Royal",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2019; 130,000 GT; approx. 3,660 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:26:11.235Z",
   "facts": [
     {
+      "claim": "Voyager of the Seas (Royal Caribbean): Entered service 1999; 142,000 GT; 3250 guests (lower berth / double occupancy); 323 m length; Voyager class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Voyager of the Seas is packed with more ways to play on your getaway. Catch a wave on the FlowRider surf simulator. Take a flavor-filled journey to the exotic Far East and find your element with rustic Italian dishes served with a contemporary flair.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/voyager-of-the-seas",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "voyager-seas",
+    "yearBuilt": 1999,
+    "tonnage": 142000,
+    "capacity": 3250,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1200,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Voyager",
+    "status": "active",
+    "description": "Voyager-class; cruise ship operated by its listed cruise line; entered service 1999; 142,000 GT; approx. 3,250 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

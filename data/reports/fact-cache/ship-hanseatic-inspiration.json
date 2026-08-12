@@ -6,7 +6,32 @@
     "cruiseLine": "Hapag-Lloyd Cruises"
   },
   "fetchedAt": "2026-05-21T23:20:27.674Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "Hanseatic Inspiration (Hapag-Lloyd Cruises): Entered service 2019; 16,100 GT; 230 guests (lower berth / double occupancy); 226 m length; Hanseatic class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "hanseatic-inspiration",
+    "yearBuilt": 2019,
+    "tonnage": 16100,
+    "capacity": 230,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 175,
+    "length": 226,
+    "beam": 26,
+    "shipClass": "Hanseatic",
+    "status": "active",
+    "description": "Operated by Hapag-Lloyd Cruises; entered service 2019; 16,100 GT; approx. 230 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

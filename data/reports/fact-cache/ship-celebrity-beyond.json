@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:41.060Z",
   "facts": [
     {
+      "claim": "Celebrity Beyond (Celebrity Cruises): Entered service 2022; 140,600 GT; 3260 guests (lower berth / double occupancy); 323 m length; Edge class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Discover Celebrity Beyond. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-beyond",
@@ -23,6 +29,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "beyond",
+    "yearBuilt": 2022,
+    "tonnage": 140600,
+    "capacity": 3260,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1320,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Edge",
+    "status": "active",
+    "description": "Edge-class; cruise ship operated by its listed cruise line; entered service 2022; 140,600 GT; approx. 3,260 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:41.878Z",
   "facts": [
     {
+      "claim": "Silver Dawn (Silversea Cruises): Entered service 2021; 40,700 GT; 596 guests (lower berth / double occupancy); 213 m length; Muse class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Silver Dawn is an outdoor 1980 stainless steel sculpture by Spanish American artist Manuel Izquierdo, installed at Wallace Park in northwest Portland, Oregon, in the United States.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Silver_Dawn",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-dawn",
+    "yearBuilt": 2021,
+    "tonnage": 40700,
+    "capacity": 596,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 411,
+    "length": 213,
+    "beam": 27,
+    "shipClass": "Muse",
+    "status": "active",
+    "description": "Operated by Silversea Cruises; entered service 2021; 40,700 GT; approx. 596 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

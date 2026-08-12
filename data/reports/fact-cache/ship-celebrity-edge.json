@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:46.790Z",
   "facts": [
     {
+      "claim": "Celebrity Edge (Celebrity Cruises): Entered service 2018; 129,500 GT; 2900 guests (lower berth / double occupancy); 290 m length; Edge class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Discover Celebrity Edge. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-edge",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "edge",
+    "yearBuilt": 2018,
+    "tonnage": 129500,
+    "capacity": 2900,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1320,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Edge",
+    "status": "active",
+    "description": "Introduced the revolutionary Magic Carpet and Infinite Verandas.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

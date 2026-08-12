@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:43.145Z",
   "facts": [
     {
+      "claim": "Adventure of the Seas (Royal Caribbean): Entered service 2001; 142,000 GT; 3100 guests (lower berth / double occupancy); 323 m length; Voyager class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Adventure of the Seas offers more to do onboard, with fewer days between some of the world’s most incredible destinations. An all-out vacation adventure that’s sure to put a dent in your bucket list.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/adventure-of-the-seas",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "adventure-seas",
+    "yearBuilt": 2001,
+    "tonnage": 142000,
+    "capacity": 3100,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1180,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Voyager",
+    "status": "active",
+    "description": "Voyager-class; cruise ship operated by its listed cruise line; entered service 2001; 142,000 GT; approx. 3,100 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

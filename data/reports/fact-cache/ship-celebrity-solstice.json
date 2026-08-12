@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:52.571Z",
   "facts": [
     {
+      "claim": "Celebrity Solstice (Celebrity Cruises): Entered service 2008; 122,000 GT; 2850 guests (lower berth / double occupancy); 290 m length; Solstice class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Discover Celebrity Solstice. View the award-winning luxury cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-solstice",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "solstice",
+    "yearBuilt": 2008,
+    "tonnage": 122000,
+    "capacity": 2850,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1250,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Solstice",
+    "status": "active",
+    "description": "Scheduled for extensive dry dock renovation in early 2026, introducing new amenities, reinvented outdoor spaces, and ship-wide stateroom and suite upgrades.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:30.709Z",
   "facts": [
     {
+      "claim": "Seabourn Quest (Seabourn): Entered service 2011; 32,346 GT; 460 guests (lower berth / double occupancy); 198 m length; Odyssey class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MV Seabourn Quest is a luxury cruise ship in Seabourn Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MV_Seabourn_Quest",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "seabourn-quest",
+    "yearBuilt": 2011,
+    "tonnage": 32346,
+    "capacity": 460,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 330,
+    "length": 198,
+    "beam": 26,
+    "shipClass": "Odyssey",
+    "status": "active",
+    "description": "Operated by Seabourn; entered service 2011; 32,346 GT; approx. 460 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

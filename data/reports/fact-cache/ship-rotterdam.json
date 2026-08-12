@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:01.900Z",
   "facts": [
     {
+      "claim": "Rotterdam (Holland America Line): Entered service 2021; 99,840 GT; 2660 guests (lower berth / double occupancy); 300 m length; Pinnacle class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Rotterdam is the second-largest city in the Netherlands by population and the largest by area (319.4 km2).",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Rotterdam",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "rotterdam",
+    "yearBuilt": 2021,
+    "tonnage": 99840,
+    "capacity": 2660,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1053,
+    "length": 300,
+    "beam": 35,
+    "shipClass": "Pinnacle",
+    "status": "active",
+    "description": "Operated by Holland America Line; entered service 2021; 110,000 GT; approx. 2,660 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

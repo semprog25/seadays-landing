@@ -6,7 +6,32 @@
     "cruiseLine": "Havila Voyages"
   },
   "fetchedAt": "2026-05-21T23:20:33.438Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "Havila Capella (Havila Voyages): Entered service 2021; 56,000 GT; 640 guests (lower berth / double occupancy); 308 m length; Havila class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "havila-capella",
+    "yearBuilt": 2021,
+    "tonnage": 56000,
+    "capacity": 640,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 120,
+    "length": 308,
+    "beam": 30,
+    "shipClass": "Havila",
+    "status": "active",
+    "description": "Operated by Havila Voyages; entered service 2021; 56,000 GT; approx. 640 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

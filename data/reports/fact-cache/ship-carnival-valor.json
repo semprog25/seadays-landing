@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:35.531Z",
   "facts": [
     {
+      "claim": "Carnival Valor (Carnival Cruise Line): Entered service 2004; 110,239 GT; 2980 guests (lower berth / double occupancy); 290 m length; Conquest class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Your high seas hero, Carnival Valor is here to rescue you from ordinary cruise vacations and whisk you away with the best dining and entertainment a cruise ship has to offer. See photos, onboard activities, deck plans, staterooms and itinerary options. Book your Carnival Valor cruise today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-valor",
@@ -35,6 +41,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "valor",
+    "yearBuilt": 2004,
+    "tonnage": 110239,
+    "capacity": 2980,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1180,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Conquest",
+    "status": "active",
+    "description": "Operated by Carnival Cruise Line; entered service 2004; 110,000 GT; approx. 2,980 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:04.776Z",
   "facts": [
     {
+      "claim": "Crown Princess (Princess Cruises): Entered service 2006; 113,561 GT; 3090 guests (lower berth / double occupancy); 290 m length; Crown class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "A crown prince or hereditary prince is the heir apparent to the throne in a royal or imperial monarchy.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Crown_prince",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "crown",
+    "yearBuilt": 2006,
+    "tonnage": 113561,
+    "capacity": 3090,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1200,
+    "length": 290,
+    "beam": 36,
+    "shipClass": "Crown",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2006; 130,000 GT; approx. 3,090 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

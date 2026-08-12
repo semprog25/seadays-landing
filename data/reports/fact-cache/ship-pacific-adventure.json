@@ -2,11 +2,17 @@
   "entity": {
     "kind": "ship",
     "slug": "pacific-adventure",
-    "name": "Pacific Adventure",
-    "cruiseLine": "P&O Cruises Australia"
+    "name": "Carnival Adventure",
+    "cruiseLine": "Carnival Cruise Line"
   },
   "fetchedAt": "2026-05-21T23:24:37.754Z",
   "facts": [
+    {
+      "claim": "Carnival Adventure (Carnival Cruise Line): Entered service 2001; 108,865 GT; 2640 guests (lower berth / double occupancy); 290 m length; Grand class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Carnival Adventure is a Grand-class cruise ship operated by Carnival Cruise Line.",
       "source": "wikipedia",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "pacific-adventure",
+    "yearBuilt": 2001,
+    "tonnage": 108865,
+    "capacity": 2640,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1100,
+    "length": 290,
+    "beam": 36,
+    "shipClass": "Grand",
+    "status": "active",
+    "description": "Formerly Golden Princess, then Pacific Adventure (P&O Australia). Rebranded Carnival Adventure in March 2025 when P&O Cruises Australia folded into Carnival Cruise Line. Homeported in Sydney.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

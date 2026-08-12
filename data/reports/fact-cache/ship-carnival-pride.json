@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:29.785Z",
   "facts": [
     {
+      "claim": "Carnival Pride (Carnival Cruise Line): Entered service 2001; 88,500 GT; 2130 guests (lower berth / double occupancy); 294 m length; Spirit class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Carnival Pride is a treat for your eyes, your taste buds and of course, your fun buds. Invite them all to come enjoy the vacation that this cruise ship is proud to offer. See photos, deck plans, staterooms, onboard activities, and itinerary options for 2018-2020. Book your Carnival Pride cruise today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-pride",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "pride",
+    "yearBuilt": 2001,
+    "tonnage": 88500,
+    "capacity": 2130,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 930,
+    "length": 294,
+    "beam": 32,
+    "shipClass": "Spirit",
+    "status": "active",
+    "description": "Operated by Carnival Cruise Line; entered service 2001; 110,000 GT; approx. 2,130 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

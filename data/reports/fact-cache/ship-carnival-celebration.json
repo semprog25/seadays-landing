@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:17.976Z",
   "facts": [
     {
+      "claim": "Carnival Celebration (Carnival Cruise Line): Entered service 2022; 183,521 GT; 5360 guests (lower berth / double occupancy); 345 m length; Excel class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Welcome Carnival Celebration, now sailing from Miami. Find out what's new aboard, including onboard rollercoaster BOLT®! Explore photos, deck plans, staterooms and itinerary options. Grab your spot on Carnival Celebration today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-celebration",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "celebration",
+    "yearBuilt": 2022,
+    "tonnage": 183521,
+    "capacity": 5360,
+    "capacityMax": 6500,
+    "capacityBasis": "lower_berth",
+    "crew": 1735,
+    "length": 345,
+    "beam": 47,
+    "shipClass": "Excel",
+    "status": "active",
+    "description": "Sister ship to Mardi Gras, introduced in 2022. Features multiple themed zones and entertainment areas similar to the Excel class design.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

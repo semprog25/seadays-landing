@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:48.311Z",
   "facts": [
     {
+      "claim": "Spirit of Discovery (Saga Cruises): Entered service 2019; 58,119 GT; 999 guests (lower berth / double occupancy); 236 m length; Spirit class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Spirit of Discovery may refer toSpirit of Discovery (2001), a cruise ship of Cruise West\nSpirit of Discovery (2019), a cruise ship launched in 2019 for Saga Cruises\nSpirit of Discovery (sculpture), a 2005 sculpture by Veronica and Edwin Dam de Nogales",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Spirit_of_Discovery",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "spirit-of-discovery",
+    "yearBuilt": 2019,
+    "tonnage": 58119,
+    "capacity": 999,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 520,
+    "length": 236,
+    "beam": 31,
+    "shipClass": "Spirit",
+    "status": "active",
+    "description": "All-balcony ship designed for the over-50s market, featuring single cabins and traditional British style.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

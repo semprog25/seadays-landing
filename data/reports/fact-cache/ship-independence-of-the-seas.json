@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:39.055Z",
   "facts": [
     {
+      "claim": "Independence of the Seas (Royal Caribbean): Entered service 2008; 154,400 GT; 3850 guests (lower berth / double occupancy); 348 m length; Freedom class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Independence of the Seas sails short getaways year-round. This cruise ship is loaded with surprises to thrill even the boldest warriors. Whatever you’re craving, you’ll find plenty of delicious food onboard.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/independence-of-the-seas",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "independence-seas",
+    "yearBuilt": 2008,
+    "tonnage": 154400,
+    "capacity": 3850,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1360,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Freedom",
+    "status": "active",
+    "description": "Freedom-class; cruise ship operated by its listed cruise line; entered service 2008; 154,400 GT; approx. 3,850 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

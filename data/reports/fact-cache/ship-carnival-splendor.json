@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:35.283Z",
   "facts": [
     {
+      "claim": "Carnival Splendor (Carnival Cruise Line): Entered service 2008; 113,323 GT; 3010 guests (lower berth / double occupancy); 290 m length; Concordia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Master the art of cruise ship fun onboard Carnival Splendor - the newest and biggest ship in our fleet. Explore cruise ships departing Sydney at Carnival!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-splendor",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "splendor",
+    "yearBuilt": 2008,
+    "tonnage": 113323,
+    "capacity": 3010,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1150,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Concordia",
+    "status": "active",
+    "description": "Operated by Carnival Cruise Line; entered service 2008; 130,000 GT; approx. 3,010 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

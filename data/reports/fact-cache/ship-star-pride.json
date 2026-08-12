@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:53.823Z",
   "facts": [
     {
+      "claim": "Star Pride (Windstar Cruises): Entered service 1988; 42,000 GT; 312 guests (lower berth / double occupancy); 242 m length; Star Plus class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Star Pride was the first of three German built cruise ships that were initially built for the Seabourn Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Star_Pride",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "star-pride",
+    "yearBuilt": 1988,
+    "tonnage": 42000,
+    "capacity": 312,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 190,
+    "length": 242,
+    "beam": 27,
+    "shipClass": "Star Plus",
+    "status": "active",
+    "description": "Operated by Windstar Cruises; entered service 1988; 42,000 GT; approx. 312 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

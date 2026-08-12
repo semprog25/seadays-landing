@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:31.541Z",
   "facts": [
     {
+      "claim": "Serenade of the Seas (Royal Caribbean): Entered service 2003; 90,050 GT; 2100 guests (lower berth / double occupancy); 290 m length; Radiance class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Serenade of the Seas offers you to take in the wild views from the top of the rock climbing wall or dig into delicious dining from around the world. Discover electrifying nightlife that keeps the thrills going long after sunset.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/serenade-of-the-seas",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "serenade-seas",
+    "yearBuilt": 2003,
+    "tonnage": 90050,
+    "capacity": 2100,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 891,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Radiance",
+    "status": "active",
+    "description": "Radiance-class; cruise ship operated by its listed cruise line; entered service 2003; 90,050 GT; approx. 2,100 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

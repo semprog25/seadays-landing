@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:46.776Z",
   "facts": [
     {
+      "claim": "Celebrity Flora (Celebrity Cruises): Entered service 2019; 5,922 GT; 100 guests (lower berth / double occupancy); 102 m length; Expedition class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Discover Celebrity Flora. View the award-winning cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-flora",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "flora",
+    "yearBuilt": 2019,
+    "tonnage": 5922,
+    "capacity": 100,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 80,
+    "length": 102,
+    "beam": 17,
+    "shipClass": "Expedition",
+    "status": "active",
+    "description": "Purpose-built for the Galapagos Islands.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

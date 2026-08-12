@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:21.538Z",
   "facts": [
     {
+      "claim": "Norwegian Jade (Norwegian Cruise Line): Entered service 2006; 93,558 GT; 2402 guests (lower berth / double occupancy); 294 m length; Jewel class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Jade is a cruise ship for Norwegian Cruise Line (NCL), originally built as Pride of Hawaii for their NCL America division.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Jade",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "jade",
+    "yearBuilt": 2006,
+    "tonnage": 93558,
+    "capacity": 2402,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1037,
+    "length": 294,
+    "beam": 32,
+    "shipClass": "Jewel",
+    "status": "active",
+    "description": "Operated by Norwegian Cruise Line; entered service 2006; 110,000 GT; approx. 2,402 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

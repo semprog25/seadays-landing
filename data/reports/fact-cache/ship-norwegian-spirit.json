@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:27.296Z",
   "facts": [
     {
+      "claim": "Norwegian Spirit (Norwegian Cruise Line): Entered service 1998; 75,904 GT; 2018 guests (lower berth / double occupancy); 268 m length; Spirit class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Spirit is a Leo-class cruise ship operated by Norwegian Cruise Line (NCL).",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Spirit",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "spirit",
+    "yearBuilt": 1998,
+    "tonnage": 75904,
+    "capacity": 2018,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 912,
+    "length": 268,
+    "beam": 32,
+    "shipClass": "Spirit",
+    "status": "active",
+    "description": "Completely modernized in a $100 million renovation in 2020.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

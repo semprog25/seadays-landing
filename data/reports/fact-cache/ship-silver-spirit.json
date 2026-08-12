@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:42.553Z",
   "facts": [
     {
+      "claim": "Silver Spirit (Silversea Cruises): Entered service 2009; 36,000 GT; 600 guests (lower berth / double occupancy); 211 m length; Spirit class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "The Rolls-Royce Silver Spirit is a full-size luxury car produced by Rolls-Royce Motors, in Crewe, England, from 1980 to 1997.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Rolls-Royce_Silver_Spirit",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-spirit",
+    "yearBuilt": 2009,
+    "tonnage": 36000,
+    "capacity": 600,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 411,
+    "length": 211,
+    "beam": 27,
+    "shipClass": "Spirit",
+    "status": "active",
+    "description": "Operated by Silversea Cruises; entered service 2009; 36,000 GT; approx. 600 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

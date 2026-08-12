@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:56.679Z",
   "facts": [
     {
+      "claim": "Mein Schiff 1 (TUI Cruises): Entered service 2018; 111,500 GT; 2850 guests (lower berth / double occupancy); 290 m length; Mein Schiff 1 class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Two ships have been named Mein Schiff 1,Mein Schiff 1 (2010) launched in 1996, served under this name between 2010 and 2018\nMein Schiff 1 (2018) launched in 2018",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Mein_Schiff_1",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mein-schiff-1",
+    "yearBuilt": 2018,
+    "tonnage": 111500,
+    "capacity": 2850,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1000,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Mein Schiff 1",
+    "status": "active",
+    "description": "Mein Schiff 1-class; cruise ship operated by its listed cruise line; entered service 2018; 111,500 GT; approx. 2,850 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

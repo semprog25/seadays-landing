@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:21:49.296Z",
   "facts": [
     {
+      "claim": "MSC Euribia (MSC Cruises): Entered service 2023; 184,011 GT; 4816 guests (lower berth / double occupancy); 331 m length; Meraviglia Plus class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MSC Euribia is a Meraviglia-Plus-class cruise ship owned and operated by MSC Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Euribia",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "euribia",
+    "yearBuilt": 2023,
+    "tonnage": 184011,
+    "capacity": 4816,
+    "capacityMax": 6335,
+    "capacityBasis": "lower_berth",
+    "crew": 1704,
+    "length": 331,
+    "beam": 47,
+    "shipClass": "Meraviglia Plus",
+    "status": "active",
+    "description": "Meraviglia Plus-class; cruise ship operated by its listed cruise line; entered service 2023; 184,011 GT; approx. 4,816 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

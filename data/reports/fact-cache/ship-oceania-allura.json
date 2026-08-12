@@ -6,7 +6,32 @@
     "cruiseLine": "Oceania Cruises"
   },
   "fetchedAt": "2026-05-21T23:24:32.807Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "Oceania Allura (Oceania Cruises): Entered service 2025; 67,800 GT; 1200 guests (lower berth / double occupancy); 243 m length; Allura class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "allura",
+    "yearBuilt": 2025,
+    "tonnage": 67800,
+    "capacity": 1200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 800,
+    "length": 243,
+    "beam": 32,
+    "shipClass": "Allura",
+    "status": "active",
+    "description": "Formally named in Miami on November 13, 2025, launched its inaugural season in the Caribbean.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

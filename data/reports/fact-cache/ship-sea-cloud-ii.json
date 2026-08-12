@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:19.182Z",
   "facts": [
     {
+      "claim": "Sea Cloud II (Sea Cloud Cruises): Entered service 2001; 3,849 GT; 94 guests (lower berth / double occupancy); 117 m length; Tall Ship class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Sea Cloud II is a large barque built as a cruise ship, and operated by Sea Cloud Cruises of Hamburg, Germany.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sea_Cloud_II",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sea-cloud-ii",
+    "yearBuilt": 2001,
+    "tonnage": 3849,
+    "capacity": 94,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 65,
+    "length": 117,
+    "beam": 16,
+    "shipClass": "Tall Ship",
+    "status": "active",
+    "description": "Modern tall ship combining traditional sail with contemporary cabins.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

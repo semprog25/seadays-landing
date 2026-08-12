@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:26:17.666Z",
   "facts": [
     {
+      "claim": "Zuiderdam (Holland America Line): Entered service 2002; 82,305 GT; 1990 guests (lower berth / double occupancy); 285 m length; Vista class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MS Zuiderdam is a Vista-class cruise ship owned and operated by Holland America Line (HAL).",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MS_Zuiderdam",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "zuiderdam",
+    "yearBuilt": 2002,
+    "tonnage": 82305,
+    "capacity": 1990,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 817,
+    "length": 285,
+    "beam": 32,
+    "shipClass": "Vista",
+    "status": "active",
+    "description": "Operated by Holland America Line; entered service 2002; 70,000 GT; approx. 1,990 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

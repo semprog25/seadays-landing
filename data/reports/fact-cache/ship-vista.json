@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:26:11.076Z",
   "facts": [
     {
+      "claim": "Vista (Oceania Cruises): Entered service 2023; 67,800 GT; 1200 guests (lower berth / double occupancy); 243 m length; Allura class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Tata SIA Airlines Limited, doing business as Vistara, was a full-service Indian airline based in Gurgaon, with its hub at Indira Gandhi International Airport.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Vistara",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "vista",
+    "yearBuilt": 2023,
+    "tonnage": 67800,
+    "capacity": 1200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 800,
+    "length": 243,
+    "beam": 32,
+    "shipClass": "Allura",
+    "status": "active",
+    "description": "Operated by Oceania Cruises; entered service 2023; 70,000 GT; approx. 1,200 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

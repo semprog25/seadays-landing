@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:30.345Z",
   "facts": [
     {
+      "claim": "Seabourn Ovation (Seabourn): Entered service 2018; 40,350 GT; 600 guests (lower berth / double occupancy); 210 m length; Encore class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MV Seabourn Ovation is a cruise ship owned by Seabourn Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MV_Seabourn_Ovation",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "seabourn-ovation",
+    "yearBuilt": 2018,
+    "tonnage": 40350,
+    "capacity": 600,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 330,
+    "length": 210,
+    "beam": 28,
+    "shipClass": "Encore",
+    "status": "active",
+    "description": "Operated by Seabourn; entered service 2018; 40,350 GT; approx. 600 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

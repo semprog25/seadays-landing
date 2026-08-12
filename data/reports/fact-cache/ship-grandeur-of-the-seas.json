@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:27.694Z",
   "facts": [
     {
+      "claim": "Grandeur of the Seas (Royal Caribbean): Entered service 1996; 74,100 GT; 1950 guests (lower berth / double occupancy); 290 m length; Vision class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Grandeur of the Seas offers the perfect blend of unique experiences onboard and unbelievable shores, like picturesque ports and  iconic coastlines. Reserve your next cruise and enjoy a unique and memorable cruise adventure.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/grandeur-of-the-seas",
@@ -35,6 +41,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "grandeur-seas",
+    "yearBuilt": 1996,
+    "tonnage": 74100,
+    "capacity": 1950,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 760,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Vision",
+    "status": "active",
+    "description": "Vision-class; cruise ship operated by its listed cruise line; entered service 1996; 74,100 GT; approx. 1,950 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

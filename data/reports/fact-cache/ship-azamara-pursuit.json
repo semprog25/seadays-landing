@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:06.415Z",
   "facts": [
     {
+      "claim": "Azamara Pursuit (Azamara): Entered service 2001; 30,277 GT; 702 guests (lower berth / double occupancy); 181 m length; R class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Azamara Pursuit is a cruise ship operating for Azamara Club Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Azamara_Pursuit",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "pursuit",
+    "yearBuilt": 2001,
+    "tonnage": 30277,
+    "capacity": 702,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 408,
+    "length": 181,
+    "beam": 25,
+    "shipClass": "R",
+    "status": "active",
+    "description": "Operated by Azamara; entered service 2001; 58,000 GT; approx. 702 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

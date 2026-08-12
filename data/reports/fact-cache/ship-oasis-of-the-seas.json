@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:32.511Z",
   "facts": [
     {
+      "claim": "Oasis of the Seas (Royal Caribbean): Entered service 2009; 222,900 GT; 5450 guests (lower berth / double occupancy); 362 m length; Oasis class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Oasis of the Seas is the first of its class and one of the best cruise ships for couples. Discover never-before-seen innovations, intimate dinners, outstanding nightlife, romantic spa treatments, unique accommodations, and a wide range of cultural experiences.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/oasis-of-the-seas",
@@ -47,6 +53,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "oasis-seas",
+    "yearBuilt": 2009,
+    "tonnage": 222900,
+    "capacity": 5450,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 2165,
+    "length": 362,
+    "beam": 47,
+    "shipClass": "Oasis",
+    "status": "active",
+    "description": "A large cruise ship, originally launched in 2009 and extensively renovated in 2024.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

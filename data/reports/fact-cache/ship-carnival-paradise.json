@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:29.516Z",
   "facts": [
     {
+      "claim": "Carnival Paradise (Carnival Cruise Line): Entered service 1998; 70,367 GT; 2120 guests (lower berth / double occupancy); 261 m length; Fantasy class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Carnival Paradise features a fun-packed vacation with fresh new updates both indoors and out, so you can enjoy a slice of cruise ship paradise at sea. See photos, onboard activities, staterooms, deck plans, and itinerary options. Book your Carnival Paradise cruise today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-paradise",
@@ -53,6 +59,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "paradise",
+    "yearBuilt": 1998,
+    "tonnage": 70367,
+    "capacity": 2120,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 920,
+    "length": 261,
+    "beam": 31,
+    "shipClass": "Fantasy",
+    "status": "active",
+    "description": "Operated by Carnival Cruise Line; entered service 1998; 110,000 GT; approx. 2,120 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

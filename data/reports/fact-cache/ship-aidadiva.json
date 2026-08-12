@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:49.161Z",
   "facts": [
     {
+      "claim": "AIDAdiva (AIDA Cruises): Entered service 2007; 69,203 GT; 2070 guests (lower berth / double occupancy); 252 m length; Sphinx class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "AIDAdiva is a Sphinx-class cruise ship operated by the German cruise line AIDA Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/AIDAdiva",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "diva",
+    "yearBuilt": 2007,
+    "tonnage": 69203,
+    "capacity": 2070,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 607,
+    "length": 252,
+    "beam": 32,
+    "shipClass": "Sphinx",
+    "status": "active",
+    "description": "The first of the Sphinx class, revolutionizing the fleet with the open Theatrium concept instead of a traditional theater. Refreshed in 2025.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

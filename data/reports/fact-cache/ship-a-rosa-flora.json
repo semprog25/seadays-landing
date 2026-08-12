@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:43.135Z",
   "facts": [
     {
+      "claim": "A-ROSA Flora (A-ROSA Cruises): Entered service 2014; 3,524 GT; 183 guests (maximum); 135 m length.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "A-Rosa Flora is a German river cruise ship, cruising in the Rhine – Main – Danube basin.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/A-Rosa_Flora",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "arosa-flora",
+    "yearBuilt": 2014,
+    "tonnage": 3524,
+    "capacity": 183,
+    "capacityMax": null,
+    "capacityBasis": "maximum",
+    "crew": 50,
+    "length": 135,
+    "beam": 11,
+    "shipClass": null,
+    "status": "active",
+    "description": "A-ROSA river cruise ship on the Rhine–Main–Danube system (official: 135 m × 11.4 m, max. 183 guests). Entered service 2014.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

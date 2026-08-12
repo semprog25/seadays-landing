@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:49.205Z",
   "facts": [
     {
+      "claim": "AIDAmar (AIDA Cruises): Entered service 2012; 71,304 GT; 2200 guests (lower berth / double occupancy); 253 m length; Sphinx class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "AIDAmar is an Icarus-class cruise ship, built at Meyer Werft for AIDA Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/AIDAmar",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mar",
+    "yearBuilt": 2012,
+    "tonnage": 71304,
+    "capacity": 2200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 609,
+    "length": 253,
+    "beam": 32,
+    "shipClass": "Sphinx",
+    "status": "active",
+    "description": "Sphinx-class favorite with the onboard brewery, floating restaurant ",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

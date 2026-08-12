@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:13.410Z",
   "facts": [
     {
+      "claim": "Scarlet Lady (Virgin Voyages): Entered service 2020; 110,338 GT; 2770 guests (lower berth / double occupancy); 290 m length; Lady class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Scarlet Lady cruise ship shines brighter. Enjoy upgraded suites, stylish cabanas, modern cocktail spots, spa enhancements & a more modern design.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.virginvoyages.com/ships/scarlet-lady",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "scarlet-lady",
+    "yearBuilt": 2020,
+    "tonnage": 110338,
+    "capacity": 2770,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1160,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Lady",
+    "status": "active",
+    "description": "The first Virgin Voyages ship, focused on adults-only sailings with modern design and nightlife-forward entertainment.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:53.935Z",
   "facts": [
     {
+      "claim": "Star Princess (Princess Cruises): Entered service 2025; 177,882 GT; 4310 guests (lower berth / double occupancy); 345 m length; Sphere class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Star Princess may refer to one of the following ships:Star Princess (1989), in service with Princess Cruises between 1989 and 1997\nStar Princess (2001), in service with Princess Cruises between 2002 and 2020\nStar Princess (2024), in service with Princess Cruises from 2025",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Star_Princess",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "star",
+    "yearBuilt": 2025,
+    "tonnage": 177882,
+    "capacity": 4310,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1600,
+    "length": 345,
+    "beam": 47,
+    "shipClass": "Sphere",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2025; 168,000 GT; approx. 4,310 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

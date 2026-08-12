@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "silver-cloud",
+    "name": "Silver Cloud",
+    "cruiseLine": "Silversea Cruises"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.559Z",
+  "facts": [
+    {
+      "claim": "Silver Cloud (Silversea Cruises): Entered service 1994; 16,900 GT; 250 guests (lower berth / double occupancy); Wind class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-cloud",
+    "yearBuilt": 1994,
+    "tonnage": 16900,
+    "capacity": 250,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": null,
+    "length": null,
+    "beam": null,
+    "shipClass": "Wind",
+    "status": "active",
+    "description": "Operated by Silversea Cruises; entered service 1994; 16,900 GT; approx. 250 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

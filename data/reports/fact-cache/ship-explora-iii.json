@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "explora-iii",
+    "name": "Explora III",
+    "cruiseLine": "Explora Journeys"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.471Z",
+  "facts": [
+    {
+      "claim": "Explora III (Explora Journeys): Entered service 2026; 72,810 GT; 922 guests (lower berth / double occupancy); 268 m length; Explora LNG class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "explora-iii",
+    "yearBuilt": 2026,
+    "tonnage": 72810,
+    "capacity": 922,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 640,
+    "length": 268,
+    "beam": 32,
+    "shipClass": "Explora LNG",
+    "status": "active",
+    "description": "Third Explora Journeys ship and the brand's first LNG-powered vessel; enlarged hull vs Explora I/II. Entered service August 2026 after delivery from Fincantieri Sestri Ponente.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

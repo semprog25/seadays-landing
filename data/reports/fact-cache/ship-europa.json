@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:21.907Z",
   "facts": [
     {
+      "claim": "Europa (Hapag-Lloyd Cruises): Entered service 1999; 28,890 GT; 400 guests (lower berth / double occupancy); 260 m length; Europa class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Europa commonly refers to Europe in many languages, and is also the name of a moon of Jupiter.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Europa",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "europa",
+    "yearBuilt": 1999,
+    "tonnage": 28890,
+    "capacity": 400,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 280,
+    "length": 260,
+    "beam": 28,
+    "shipClass": "Europa",
+    "status": "active",
+    "description": "Operated by Hapag-Lloyd Cruises; entered service 1999; 28,890 GT; approx. 400 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

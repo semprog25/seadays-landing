@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:22.101Z",
   "facts": [
     {
+      "claim": "Explorer of the Seas (Royal Caribbean): Entered service 2000; 142,000 GT; 3250 guests (lower berth / double occupancy); 348 m length; Voyager class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Explorer of the Seas is filled with unforgettable activities and features from bow to stern. Explorer of the Seas is one of the coolest culture-cruising ships out there.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/explorer-of-the-seas",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "explorer-seas",
+    "yearBuilt": 2000,
+    "tonnage": 142000,
+    "capacity": 3250,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1180,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Voyager",
+    "status": "active",
+    "description": "Voyager-class; cruise ship operated by its listed cruise line; entered service 2000; 142,000 GT; approx. 3,250 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

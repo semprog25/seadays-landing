@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "silver-origin",
+    "name": "Silver Origin",
+    "cruiseLine": "Silversea Cruises"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.556Z",
+  "facts": [
+    {
+      "claim": "Silver Origin (Silversea Cruises): Entered service 2020; 5,800 GT; 100 guests (lower berth / double occupancy); Expedition class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-origin",
+    "yearBuilt": 2020,
+    "tonnage": 5800,
+    "capacity": 100,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": null,
+    "length": null,
+    "beam": null,
+    "shipClass": "Expedition",
+    "status": "active",
+    "description": "Expedition-class; cruise ship operated by its listed cruise line; entered service 2020; 5,800 GT; approx. 100 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

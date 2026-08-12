@@ -383,9 +383,59 @@ function buildSeoShipRecords(rawList) {
       hasContentOverride: Boolean(raw.hasContentOverride),
       rating,
       reviewCount,
+      // Pass-2 verified catalog specs (optional; Key facts / JSON-LD)
+      capacity: pickFirstFiniteNumber(raw.capacity, raw.passengers),
+      capacityMax: pickFirstFiniteNumber(raw.capacityMax),
+      capacityBasis: raw.capacityBasis || raw.capacity_basis || '',
+      crew: pickFirstFiniteNumber(raw.crew),
+      yearBuilt: pickFirstFiniteNumber(raw.yearBuilt, raw.year_built, raw.enteredService),
+      tonnage: pickFirstFiniteNumber(raw.tonnage, raw.grossTonnage, raw.gt),
+      length: pickFirstFiniteNumber(raw.length, raw.lengthMeters),
+      beam: pickFirstFiniteNumber(raw.beam),
+      status: raw.status || '',
+      appId: raw.appId || raw.app_id || '',
     });
   }
   return out;
+}
+
+function formatCapacityLabel(ship) {
+  if (!Number.isFinite(ship.capacity)) return '';
+  const n = Math.round(ship.capacity).toLocaleString('en-US');
+  if (ship.capacityBasis === 'maximum') return `${n} (maximum)`;
+  return `${n} (lower berth / double occupancy)`;
+}
+
+function buildShipKeyFactsHtml(ship) {
+  const rows = [];
+  rows.push(`<dt>Cruise line</dt><dd>${escapeHtml(ship.cruise_line)}</dd>`);
+  if (ship.shipClass) rows.push(`<dt>Ship class</dt><dd>${escapeHtml(ship.shipClass)}</dd>`);
+  if (Number.isFinite(ship.yearBuilt)) {
+    rows.push(`<dt>Entered service</dt><dd>${escapeHtml(String(Math.round(ship.yearBuilt)))}</dd>`);
+  }
+  if (Number.isFinite(ship.tonnage)) {
+    rows.push(
+      `<dt>Gross tonnage</dt><dd>${escapeHtml(Math.round(ship.tonnage).toLocaleString('en-US'))} GT</dd>`
+    );
+  }
+  if (Number.isFinite(ship.capacity)) {
+    rows.push(`<dt>Passenger capacity</dt><dd>${escapeHtml(formatCapacityLabel(ship))}</dd>`);
+  }
+  if (Number.isFinite(ship.capacityMax) && ship.capacityMax !== ship.capacity) {
+    rows.push(
+      `<dt>Maximum capacity</dt><dd>${escapeHtml(Math.round(ship.capacityMax).toLocaleString('en-US'))}</dd>`
+    );
+  }
+  if (Number.isFinite(ship.crew)) {
+    rows.push(`<dt>Crew</dt><dd>${escapeHtml(Math.round(ship.crew).toLocaleString('en-US'))}</dd>`);
+  }
+  if (Number.isFinite(ship.length)) {
+    rows.push(`<dt>Length</dt><dd>${escapeHtml(String(Math.round(ship.length)))} m</dd>`);
+  }
+  if (ship.status && ship.status !== 'active') {
+    rows.push(`<dt>Status</dt><dd>${escapeHtml(ship.status)}</dd>`);
+  }
+  return rows.join('\n        ');
 }
 
 function buildSeoPortRecords(rawList) {
@@ -638,9 +688,52 @@ function isUsableArticleImage(url) {
   return /^https?:\/\//i.test(s);
 }
 
+/** Marketing / favicon placeholders — never treat these as real article thumbs. */
+function isGenericMarketingImage(url) {
+  const s = String(url || '');
+  return /Websitehomebucket\/Cruise%20planner\.jpg|Websitehomebucket\/Discover%20Ships|SeadaysPublic\/seadaysfav\.png/i.test(
+    s
+  );
+}
+
+/**
+ * Pull a card thumbnail from an already-generated blog HTML page.
+ * Prefer og:image, then twitter:image, then the first usable article <img>.
+ * Does not invent placeholders; skips generic marketing fallbacks.
+ */
+function extractArticleCardImageFromHtml(html) {
+  const raw = String(html || '');
+  if (!raw) return '';
+  const candidates = [];
+  const og = raw.match(/property=["']og:image["']\s+content=["']([^"']+)["']/i)
+    || raw.match(/content=["']([^"']+)["']\s+property=["']og:image["']/i);
+  if (og && og[1]) candidates.push(og[1]);
+  const tw = raw.match(/name=["']twitter:image["']\s+content=["']([^"']+)["']/i)
+    || raw.match(/content=["']([^"']+)["']\s+name=["']twitter:image["']/i);
+  if (tw && tw[1]) candidates.push(tw[1]);
+  for (const m of raw.matchAll(/<img\b[^>]*?\bsrc=["']([^"']+)["'][^>]*>/gi)) {
+    if (m[1]) candidates.push(m[1]);
+  }
+  for (const c of candidates) {
+    const url = String(c || '').trim();
+    if (!isUsableArticleImage(url)) continue;
+    if (isGenericMarketingImage(url)) continue;
+    return url;
+  }
+  return '';
+}
+
 function pickArticleImage(article) {
-  if (isUsableArticleImage(article.thumbnailUrl)) return article.thumbnailUrl;
-  if (isUsableArticleImage(article.heroImageUrl)) return article.heroImageUrl;
+  if (!article) return '';
+  if (isUsableArticleImage(article.thumbnailUrl) && !isGenericMarketingImage(article.thumbnailUrl)) {
+    return article.thumbnailUrl;
+  }
+  if (isUsableArticleImage(article.heroImageUrl) && !isGenericMarketingImage(article.heroImageUrl)) {
+    return article.heroImageUrl;
+  }
+  if (isUsableArticleImage(article.ogImage) && !isGenericMarketingImage(article.ogImage)) {
+    return article.ogImage;
+  }
   return '';
 }
 
@@ -837,6 +930,41 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
     category: 'Cruise ship',
     aggregateRating: buildShipAggregateRatingJsonLd(ship),
   };
+  if (Number.isFinite(ship.yearBuilt)) jsonLd.releaseDate = String(Math.round(ship.yearBuilt));
+  if (ship.shipClass) jsonLd.model = ship.shipClass;
+  const additionalProperty = [];
+  if (Number.isFinite(ship.tonnage)) {
+    additionalProperty.push({
+      '@type': 'PropertyValue',
+      name: 'Gross tonnage',
+      value: Math.round(ship.tonnage),
+      unitText: 'GT',
+    });
+  }
+  if (Number.isFinite(ship.capacity)) {
+    additionalProperty.push({
+      '@type': 'PropertyValue',
+      name: 'Passenger capacity',
+      value: Math.round(ship.capacity),
+      description: formatCapacityLabel(ship),
+    });
+  }
+  if (Number.isFinite(ship.crew)) {
+    additionalProperty.push({
+      '@type': 'PropertyValue',
+      name: 'Crew',
+      value: Math.round(ship.crew),
+    });
+  }
+  if (Number.isFinite(ship.length)) {
+    additionalProperty.push({
+      '@type': 'PropertyValue',
+      name: 'Length',
+      value: Math.round(ship.length),
+      unitText: 'm',
+    });
+  }
+  if (additionalProperty.length) jsonLd.additionalProperty = additionalProperty;
   Object.keys(jsonLd).forEach((k) => {
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
@@ -889,9 +1017,8 @@ ${getAnalyticsHeadHtml()}
       <article class="seo-body">${audienceParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
       <h2>Key facts</h2>
       <dl class="seo-keyfacts">
-        <dt>Cruise line</dt><dd>${escapeHtml(ship.cruise_line)}</dd>
+        ${buildShipKeyFactsHtml(ship)}
         <dt>Experience</dt><dd>${escapeHtml(experienceShort)}</dd>
-        <dt>Ship focus</dt><dd>${escapeHtml(shipClass)}</dd>
       </dl>
       <h2>Highlights</h2>
       <ul>${whyBullets}</ul>
@@ -1112,4 +1239,8 @@ module.exports = {
   slugify,
   applyPortGeoFromApiRows,
   isUsableArticleImage,
+  isGenericMarketingImage,
+  extractArticleCardImageFromHtml,
+  pickArticleImage,
+  buildArticleCards,
 };

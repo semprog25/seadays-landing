@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:10.588Z",
   "facts": [
     {
+      "claim": "Disney Magic (Disney Cruise Line): Entered service 1998; 83,333 GT; 2400 guests (lower berth / double occupancy); 290 m length; Magic class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Disney Magic is a cruise ship owned and operated by Disney Cruise Line, a subsidiary of the Walt Disney Company.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Disney_Magic",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "magic",
+    "yearBuilt": 1998,
+    "tonnage": 83333,
+    "capacity": 2400,
+    "capacityMax": 2713,
+    "capacityBasis": "lower_berth",
+    "crew": 950,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Magic",
+    "status": "active",
+    "description": "Magic-class; cruise ship operated by its listed cruise line; entered service 1998; 83,333 GT; approx. 2,400 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

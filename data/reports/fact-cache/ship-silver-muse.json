@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:42.243Z",
   "facts": [
     {
+      "claim": "Silver Muse (Silversea Cruises): Entered service 2017; 40,700 GT; 550 guests (lower berth / double occupancy); 213 m length; Muse class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Silver Muse is a cruise ship owned by Silversea Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Silver_Muse",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-muse",
+    "yearBuilt": 2017,
+    "tonnage": 40700,
+    "capacity": 550,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 411,
+    "length": 213,
+    "beam": 27,
+    "shipClass": "Muse",
+    "status": "active",
+    "description": "Operated by Silversea Cruises; entered service 2017; 40,700 GT; approx. 550 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

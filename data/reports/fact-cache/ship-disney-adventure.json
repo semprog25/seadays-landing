@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:10.371Z",
   "facts": [
     {
+      "claim": "Disney Adventure (Disney Cruise Line): Entered service 2026; 208,108 GT; 6000 guests (lower berth / double occupancy); 341 m length; Global class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Disney Adventure is a cruise ship owned and operated by Disney Cruise Line, a subsidiary of the Walt Disney Company.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Disney_Adventure",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "adventure",
+    "yearBuilt": 2026,
+    "tonnage": 208108,
+    "capacity": 6000,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 2300,
+    "length": 341,
+    "beam": 41,
+    "shipClass": "Global",
+    "status": "active",
+    "description": "Global-class ship (ex-Genting); entered service March 2026, homeported year-round in Singapore.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

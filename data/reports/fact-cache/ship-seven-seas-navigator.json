@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "seven-seas-navigator",
     "name": "Seven Seas Navigator",
-    "cruiseLine": "Regent Seven Seas"
+    "cruiseLine": "Regent Seven Seas Cruises"
   },
   "fetchedAt": "2026-05-21T23:25:36.632Z",
   "facts": [
+    {
+      "claim": "Seven Seas Navigator (Regent Seven Seas Cruises): Entered service 1999; 50,000 GT; 490 guests (lower berth / double occupancy); 278 m length; Navigator class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Seven Seas Navigator is a luxury cruise ship operated by Regent Seven Seas Cruises (RSSC).",
       "source": "wikipedia",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "navigator",
+    "yearBuilt": 1999,
+    "tonnage": 50000,
+    "capacity": 490,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 345,
+    "length": 278,
+    "beam": 28,
+    "shipClass": "Navigator",
+    "status": "active",
+    "description": "Operated by Regent Seven Seas Cruises; entered service 1999; 50,000 GT; approx. 490 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

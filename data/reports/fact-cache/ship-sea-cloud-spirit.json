@@ -6,7 +6,32 @@
     "cruiseLine": "Sea Cloud Cruises"
   },
   "fetchedAt": "2026-05-21T23:25:24.961Z",
-  "facts": [],
+  "facts": [
+    {
+      "claim": "Sea Cloud Spirit (Sea Cloud Cruises): Entered service 2021; 4,230 GT; 136 guests (lower berth / double occupancy); 138 m length; Tall Ship class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
   "errors": [],
-  "sourcesUsed": []
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sea-cloud-spirit",
+    "yearBuilt": 2021,
+    "tonnage": 4230,
+    "capacity": 136,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 85,
+    "length": 138,
+    "beam": 17,
+    "shipClass": "Tall Ship",
+    "status": "active",
+    "description": "Newest Sea Cloud tall ship; hybrid propulsion with traditional sail.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

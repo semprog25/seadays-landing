@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:59.055Z",
   "facts": [
     {
+      "claim": "Costa Diadema (Costa Cruises): Entered service 2014; 132,500 GT; 3700 guests (lower berth / double occupancy); 306 m length; Dream class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Costa Diadema is a Dream-class cruise ship owned by Carnival Corporation and operated by Costa Crociere.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Diadema",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "diadema",
+    "yearBuilt": 2014,
+    "tonnage": 132500,
+    "capacity": 3700,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1253,
+    "length": 306,
+    "beam": 37,
+    "shipClass": "Dream",
+    "status": "active",
+    "description": "Operated by Costa Cruises; entered service 2014; 168,000 GT; approx. 3,700 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:21.753Z",
   "facts": [
     {
+      "claim": "Eurodam (Holland America Line): Entered service 2008; 86,700 GT; 2120 guests (lower berth / double occupancy); 285 m length; Signature class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MS Eurodam is a Signature-class cruise ship for Holland America Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MS_Eurodam",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "eurodam",
+    "yearBuilt": 2008,
+    "tonnage": 86700,
+    "capacity": 2120,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 929,
+    "length": 285,
+    "beam": 32,
+    "shipClass": "Signature",
+    "status": "active",
+    "description": "Operated by Holland America Line; entered service 2008; 110,000 GT; approx. 2,120 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

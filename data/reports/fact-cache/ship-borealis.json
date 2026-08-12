@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:12.189Z",
   "facts": [
     {
+      "claim": "Borealis (Fred. Olsen Cruise Lines): Entered service 1997; 61,849 GT; 1350 guests (lower berth / double occupancy); 238 m length; ex-Rotterdam class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Borealis GmbH is an Austrian plastics manufacturer that is the second largest producer of polyolefins in Europe, as well as a leader in the petrochemicals industry.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Borealis_(company)",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "borealis",
+    "yearBuilt": 1997,
+    "tonnage": 61849,
+    "capacity": 1350,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 660,
+    "length": 238,
+    "beam": 32,
+    "shipClass": "ex-Rotterdam",
+    "status": "active",
+    "description": "Formerly Amsterdam, now sailing for Fred. Olsen with traditional British style.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

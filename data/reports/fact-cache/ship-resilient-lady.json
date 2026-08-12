@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:50.380Z",
   "facts": [
     {
+      "claim": "Resilient Lady (Virgin Voyages): Entered service 2023; 110,338 GT; 2770 guests (lower berth / double occupancy); 290 m length; Lady class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Resilient Lady reimagines cruising: adults-only, modern design, smart cabins, immersive venues, vibrant entertainment & intimate nightlife, luxury awaits.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.virginvoyages.com/ships/resilient-lady",
@@ -35,6 +41,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "resilient-lady",
+    "yearBuilt": 2023,
+    "tonnage": 110338,
+    "capacity": 2770,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1160,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Lady",
+    "status": "active",
+    "description": "Lady-class; cruise ship operated by its listed cruise line; entered service 2023; 110,338 GT; approx. 2,770 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

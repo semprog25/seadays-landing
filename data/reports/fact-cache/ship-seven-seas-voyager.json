@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "seven-seas-voyager",
     "name": "Seven Seas Voyager",
-    "cruiseLine": "Regent Seven Seas"
+    "cruiseLine": "Regent Seven Seas Cruises"
   },
   "fetchedAt": "2026-05-21T23:25:37.302Z",
   "facts": [
+    {
+      "claim": "Seven Seas Voyager (Regent Seven Seas Cruises): Entered service 2003; 42,363 GT; 700 guests (lower berth / double occupancy); 204 m length; Voyager class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Seven Seas Voyager is a cruise ship for Regent Seven Seas Cruises headquartered in Miami, Florida.",
       "source": "wikipedia",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "voyager",
+    "yearBuilt": 2003,
+    "tonnage": 42363,
+    "capacity": 700,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 445,
+    "length": 204,
+    "beam": 28,
+    "shipClass": "Voyager",
+    "status": "active",
+    "description": "Operated by Regent Seven Seas Cruises; entered service 2003; 58,000 GT; approx. 700 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

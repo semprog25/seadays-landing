@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:04.681Z",
   "facts": [
     {
+      "claim": "Costa Smeralda (Costa Cruises): Entered service 2019; 185,010 GT; 5220 guests (lower berth / double occupancy); 337 m length; Excellence class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "The Costa Smeralda is a coastal area and tourist destination in northern Sardinia, Italy, with a length of some 20 km, although the term originally designated only a small stretch in the commune of Arzachena.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Smeralda",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "smeralda",
+    "yearBuilt": 2019,
+    "tonnage": 185010,
+    "capacity": 5220,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1678,
+    "length": 337,
+    "beam": 47,
+    "shipClass": "Excellence",
+    "status": "active",
+    "description": "Excellence-class; cruise ship operated by its listed cruise line; entered service 2019; 185,010 GT; approx. 5,220 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

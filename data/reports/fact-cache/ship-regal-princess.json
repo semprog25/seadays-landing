@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:44.615Z",
   "facts": [
     {
+      "claim": "Regal Princess (Princess Cruises): Entered service 2014; 142,714 GT; 3560 guests (lower berth / double occupancy); 330 m length; Royal class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Regal Princess may refer to one of the following ships:Regal Princess (1990), in service with Princess Cruise Line between 1991 and 2007\nRegal Princess (2013), commenced service with Princess Cruise Line in 2014",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Regal_Princess_(ship)",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "regal",
+    "yearBuilt": 2014,
+    "tonnage": 142714,
+    "capacity": 3560,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1346,
+    "length": 330,
+    "beam": 38,
+    "shipClass": "Royal",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2014; 130,000 GT; approx. 3,560 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

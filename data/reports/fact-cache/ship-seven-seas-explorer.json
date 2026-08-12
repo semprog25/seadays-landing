@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "seven-seas-explorer",
     "name": "Seven Seas Explorer",
-    "cruiseLine": "Regent Seven Seas"
+    "cruiseLine": "Regent Seven Seas Cruises"
   },
   "fetchedAt": "2026-05-21T23:25:36.108Z",
   "facts": [
+    {
+      "claim": "Seven Seas Explorer (Regent Seven Seas Cruises): Entered service 2016; 55,254 GT; 750 guests (lower berth / double occupancy); 224 m length; Explorer class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "Seven Seas Explorer is an Explorer-class cruise ship currently operated by Regent Seven Seas Cruises, a subsidiary of Norwegian Cruise Line Holdings.",
       "source": "wikipedia",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "explorer",
+    "yearBuilt": 2016,
+    "tonnage": 55254,
+    "capacity": 750,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 542,
+    "length": 224,
+    "beam": 31,
+    "shipClass": "Explorer",
+    "status": "active",
+    "description": "Operated by Regent Seven Seas Cruises; entered service 2016; 60,000 GT; approx. 750 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:59.585Z",
   "facts": [
     {
+      "claim": "Ventura (P&O Cruises): Entered service 2008; 116,017 GT; 3090 guests (lower berth / double occupancy); 290 m length; Grand class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Jesse Ventura is an American politician, Vietnam veteran, actor, and retired professional wrestler.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Jesse_Ventura",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "ventura",
+    "yearBuilt": 2008,
+    "tonnage": 116017,
+    "capacity": 3090,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1200,
+    "length": 290,
+    "beam": 36,
+    "shipClass": "Grand",
+    "status": "active",
+    "description": "Operated by P&O Cruises; entered service 2008; 130,000 GT; approx. 3,090 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

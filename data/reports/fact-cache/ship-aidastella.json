@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:55.087Z",
   "facts": [
     {
+      "claim": "AIDAstella (AIDA Cruises): Entered service 2013; 71,304 GT; 2200 guests (lower berth / double occupancy); 253 m length; Sphinx class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "AIDAstella is a Sphinx-class cruise ship, built at Meyer Werft for AIDA Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/AIDAstella",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "stella",
+    "yearBuilt": 2013,
+    "tonnage": 71304,
+    "capacity": 2200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 609,
+    "length": 253,
+    "beam": 32,
+    "shipClass": "Sphinx",
+    "status": "active",
+    "description": "The final Sphinx-class ship, featuring a Nordic-inspired spa design and the popular Brauhaus (brewery) at sea.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

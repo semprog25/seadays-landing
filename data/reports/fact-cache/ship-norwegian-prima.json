@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:26.812Z",
   "facts": [
     {
+      "claim": "Norwegian Prima (Norwegian Cruise Line): Entered service 2022; 143,535 GT; 3195 guests (lower berth / double occupancy); 300 m length; Prima class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Prima is a Prima-class cruise ship operated by Norwegian Cruise Line (NCL).",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Prima",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "prima",
+    "yearBuilt": 2022,
+    "tonnage": 143535,
+    "capacity": 3195,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1506,
+    "length": 300,
+    "beam": 41,
+    "shipClass": "Prima",
+    "status": "active",
+    "description": "First of the Prima Class, offering extensive outdoor deck space including Ocean Boulevard.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

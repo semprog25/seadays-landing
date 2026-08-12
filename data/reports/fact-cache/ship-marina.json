@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:56.529Z",
   "facts": [
     {
+      "claim": "Marina (Oceania Cruises): Entered service 2011; 66,084 GT; 1250 guests (lower berth / double occupancy); 239 m length; Oceania class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MS Marina is an Oceania-class cruise ship, which was constructed at Fincantieri's Sestri Ponente yards in Italy for Oceania Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MS_Marina",
@@ -34,6 +40,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "marina",
+    "yearBuilt": 2011,
+    "tonnage": 66084,
+    "capacity": 1250,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 800,
+    "length": 239,
+    "beam": 32,
+    "shipClass": "Oceania",
+    "status": "active",
+    "description": "Operated by Oceania Cruises; entered service 2011; 70,000 GT; approx. 1,250 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

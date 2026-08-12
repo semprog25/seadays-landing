@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "queen-mary-2",
     "name": "Queen Mary 2",
-    "cruiseLine": "Cunard Line"
+    "cruiseLine": "Cunard"
   },
   "fetchedAt": "2026-05-21T23:25:25.160Z",
   "facts": [
+    {
+      "claim": "Queen Mary 2 (Cunard): Entered service 2003; 148,528 GT; 2680 guests (lower berth / double occupancy); 345 m length; Ocean Liner class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "RMS Queen Mary 2 (QM2) is a British ocean liner.",
       "source": "wikipedia",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mary-2",
+    "yearBuilt": 2003,
+    "tonnage": 148528,
+    "capacity": 2680,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1253,
+    "length": 345,
+    "beam": 41,
+    "shipClass": "Ocean Liner",
+    "status": "active",
+    "description": "The only true ocean liner currently in service (delivered 2003; entered passenger service 2004).",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

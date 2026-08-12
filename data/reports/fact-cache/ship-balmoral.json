@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:06.754Z",
   "facts": [
     {
+      "claim": "Balmoral (Fred. Olsen Cruise Lines): Entered service 1988; 43,537 GT; 1350 guests (lower berth / double occupancy); 218 m length; Balmoral class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Balmoral is a cruise ship owned and operated by Fred.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MV_Balmoral_(2008)",
@@ -34,6 +40,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "balmoral",
+    "yearBuilt": 1988,
+    "tonnage": 43537,
+    "capacity": 1350,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 510,
+    "length": 218,
+    "beam": 29,
+    "shipClass": "Balmoral",
+    "status": "active",
+    "description": "Smaller ship offering traditional British cruising experience.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

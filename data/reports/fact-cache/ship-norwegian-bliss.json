@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:14.687Z",
   "facts": [
     {
+      "claim": "Norwegian Bliss (Norwegian Cruise Line): Entered service 2018; 168,028 GT; 4004 guests (lower berth / double occupancy); 348 m length; Breakaway Plus class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Bliss is a cruise ship for Norwegian Cruise Line, which entered service on 21 April 2018.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Bliss",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "bliss",
+    "yearBuilt": 2018,
+    "tonnage": 168028,
+    "capacity": 4004,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 2100,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Breakaway Plus",
+    "status": "active",
+    "description": "Designed for Alaska cruising with a massive observation lounge. Underwent significant refurbishment in early 2025 with upgrades to public areas, specialty restaurants, and new Horizon Park space.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

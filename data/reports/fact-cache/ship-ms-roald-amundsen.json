@@ -3,10 +3,16 @@
     "kind": "ship",
     "slug": "ms-roald-amundsen",
     "name": "MS Roald Amundsen",
-    "cruiseLine": "Hurtigruten / HX"
+    "cruiseLine": "Hurtigruten"
   },
   "fetchedAt": "2026-05-21T23:21:07.808Z",
   "facts": [
+    {
+      "claim": "MS Roald Amundsen (Hurtigruten): Entered service 2019; 51,000 GT; 530 guests (lower berth / double occupancy); 286 m length; Amundsen class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
     {
       "claim": "MS Roald Amundsen is a hybrid powered expedition cruise ship operated by HX Expeditions.",
       "source": "wikipedia",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "ms-roald-amundsen",
+    "yearBuilt": 2019,
+    "tonnage": 51000,
+    "capacity": 530,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 151,
+    "length": 286,
+    "beam": 29,
+    "shipClass": "Amundsen",
+    "status": "active",
+    "description": "Operated by Hurtigruten; entered service 2019; 51,000 GT; approx. 530 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

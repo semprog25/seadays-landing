@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "silver-endeavour",
+    "name": "Silver Endeavour",
+    "cruiseLine": "Silversea Cruises"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.555Z",
+  "facts": [
+    {
+      "claim": "Silver Endeavour (Silversea Cruises): Entered service 2022; 20,450 GT; 220 guests (lower berth / double occupancy); Expedition class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-endeavour",
+    "yearBuilt": 2022,
+    "tonnage": 20450,
+    "capacity": 220,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": null,
+    "length": null,
+    "beam": null,
+    "shipClass": "Expedition",
+    "status": "active",
+    "description": "Expedition-class; cruise ship operated by its listed cruise line; entered service 2022; 20,450 GT; approx. 220 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

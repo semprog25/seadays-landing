@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:23:23.024Z",
   "facts": [
     {
+      "claim": "MSC Preziosa (MSC Cruises): Entered service 2013; 139,072 GT; 3502 guests (lower berth / double occupancy); 348 m length; Fantasia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MSC Preziosa is a Fantasia-class cruise ship owned and operated by MSC Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Preziosa",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "preziosa",
+    "yearBuilt": 2013,
+    "tonnage": 139072,
+    "capacity": 3502,
+    "capacityMax": 4345,
+    "capacityBasis": "lower_berth",
+    "crew": 1388,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Fantasia",
+    "status": "active",
+    "description": "Fantasia-class; cruise ship operated by its listed cruise line; entered service 2013; 139,072 GT; approx. 3,502 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

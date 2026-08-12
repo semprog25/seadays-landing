@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "silver-ray",
+    "name": "Silver Ray",
+    "cruiseLine": "Silversea Cruises"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.554Z",
+  "facts": [
+    {
+      "claim": "Silver Ray (Silversea Cruises): Entered service 2024; 54,700 GT; 730 guests (lower berth / double occupancy); 244 m length; Nova class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-ray",
+    "yearBuilt": 2024,
+    "tonnage": 54700,
+    "capacity": 730,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 544,
+    "length": 244,
+    "beam": 29,
+    "shipClass": "Nova",
+    "status": "active",
+    "description": "Second Nova-class ship; entered service 2024 as sister to Silver Nova.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

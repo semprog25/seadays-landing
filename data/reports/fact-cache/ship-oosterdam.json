@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:33.078Z",
   "facts": [
     {
+      "claim": "Oosterdam (Holland America Line): Entered service 2003; 82,305 GT; 1990 guests (lower berth / double occupancy); 285 m length; Vista class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MS Oosterdam is a Vista class cruise ship of the Holland America Line, a division of Carnival Corporation & plc.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MS_Oosterdam",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "oosterdam",
+    "yearBuilt": 2003,
+    "tonnage": 82305,
+    "capacity": 1990,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 817,
+    "length": 285,
+    "beam": 32,
+    "shipClass": "Vista",
+    "status": "active",
+    "description": "Operated by Holland America Line; entered service 2003; 70,000 GT; approx. 1,990 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

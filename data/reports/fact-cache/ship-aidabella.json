@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:43.569Z",
   "facts": [
     {
+      "claim": "AIDAbella (AIDA Cruises): Entered service 2008; 69,203 GT; 2070 guests (lower berth / double occupancy); 252 m length; Sphinx class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "AIDAbella is a cruise ship operated by AIDA Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/AIDAbella",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "bella",
+    "yearBuilt": 2008,
+    "tonnage": 69203,
+    "capacity": 2070,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 607,
+    "length": 252,
+    "beam": 32,
+    "shipClass": "Sphinx",
+    "status": "active",
+    "description": "Known for its bell-shaped Theatrium glass walls and the 4D Cinemare experience.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

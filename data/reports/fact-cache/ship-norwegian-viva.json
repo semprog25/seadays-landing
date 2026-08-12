@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:31.987Z",
   "facts": [
     {
+      "claim": "Norwegian Viva (Norwegian Cruise Line): Entered service 2023; 142,500 GT; 3195 guests (lower berth / double occupancy); 300 m length; Prima class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Viva is a Prima-class cruise ship of Norwegian Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Viva",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "viva",
+    "yearBuilt": 2023,
+    "tonnage": 142500,
+    "capacity": 3195,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1506,
+    "length": 300,
+    "beam": 41,
+    "shipClass": "Prima",
+    "status": "active",
+    "description": "Sister to Prima, featuring the Indulge Food Hall and The Drop slide.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

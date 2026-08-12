@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:23.762Z",
   "facts": [
     {
+      "claim": "Carnival Legend (Carnival Cruise Line): Entered service 2002; 88,500 GT; 2130 guests (lower berth / double occupancy); 294 m length; Spirit class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "For a cruise that’s sure to go down in the history books, turn to Carnival Legend. This cruise ship is pack with fun, both indoors and out, earning its legendary nameplate. See photos, staterooms, deck plans, onboard activities, and itinerary options. Book your Carnival Legend cruise today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-legend",
@@ -35,6 +41,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "legend",
+    "yearBuilt": 2002,
+    "tonnage": 88500,
+    "capacity": 2130,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 930,
+    "length": 294,
+    "beam": 32,
+    "shipClass": "Spirit",
+    "status": "active",
+    "description": "Operated by Carnival Cruise Line; entered service 2002; 110,000 GT; approx. 2,130 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

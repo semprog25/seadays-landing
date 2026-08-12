@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:55.076Z",
   "facts": [
     {
+      "claim": "AIDAPrima (AIDA Cruises): Entered service 2016; 125,572 GT; 3290 guests (lower berth / double occupancy); 300 m length; Hyperion class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "AIDAprima is the flagship of AIDA Cruises, built by Mitsubishi Shipbuilding at their shipyard in Nagasaki, Japan.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/AIDAprima",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "prima",
+    "yearBuilt": 2016,
+    "tonnage": 125572,
+    "capacity": 3290,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 900,
+    "length": 300,
+    "beam": 37,
+    "shipClass": "Hyperion",
+    "status": "active",
+    "description": "The first Hyperion-class ship, known for its foil-roofed Beach Club, Racer water slide, and extensive organic dining options.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

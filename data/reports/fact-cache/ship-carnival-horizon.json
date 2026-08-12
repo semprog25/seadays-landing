@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:23.744Z",
   "facts": [
     {
+      "claim": "Carnival Horizon (Carnival Cruise Line): Entered service 2018; 133,500 GT; 3960 guests (lower berth / double occupancy); 323 m length; Vista class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Say hello to Carnival Horizon! The same way the sea and the sky are united by one perfect line, Carnival Horizon brings you together with great fun, comfort, dining, and exotic destinations. Explore photos, deck plans, staterooms, itinerary options, and more.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-horizon",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "horizon",
+    "yearBuilt": 2018,
+    "tonnage": 133500,
+    "capacity": 3960,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1450,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Vista",
+    "status": "active",
+    "description": "Features a large water park, family-friendly venues, and multiple entertainment zones.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

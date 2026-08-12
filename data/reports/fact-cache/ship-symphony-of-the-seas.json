@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:25:54.670Z",
   "facts": [
     {
+      "claim": "Symphony of the Seas (Royal Caribbean): Entered service 2018; 230,000 GT; 5500 guests (lower berth / double occupancy); 362 m length; Oasis class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Symphony of the Seas, a perception remixing, memory maxing mic drop. Our biggest cruise ship with all the greatest hits, plus revolutionary new firsts. Start your next vacation adventure here.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/symphony-of-the-seas",
@@ -23,6 +29,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "symphony-seas",
+    "yearBuilt": 2018,
+    "tonnage": 230000,
+    "capacity": 5500,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 2200,
+    "length": 362,
+    "beam": 47,
+    "shipClass": "Oasis",
+    "status": "active",
+    "description": "Features a multi-deck slide, laser tag arena, and Broadway-style musical entertainment.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:50.751Z",
   "facts": [
     {
+      "claim": "Majestic Princess (Princess Cruises): Entered service 2017; 143,700 GT; 3560 guests (lower berth / double occupancy); 330 m length; Royal class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Majestic Princess is a British-registered Royal-class cruise ship operated by Princess Cruises, a subsidiary of Carnival Corporation & plc.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Majestic_Princess",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "majestic",
+    "yearBuilt": 2017,
+    "tonnage": 143700,
+    "capacity": 3560,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1346,
+    "length": 330,
+    "beam": 38,
+    "shipClass": "Royal",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2017; 130,000 GT; approx. 3,560 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:18:54.894Z",
   "facts": [
     {
+      "claim": "Albatros (Phoenix Reisen): Entered service 1973; 28,500 GT; 1200 guests (lower berth / double occupancy); 205 m length; ex-Royal Viking Sea class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "An albatross is one of a family of large winged seabirds.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Albatross_(disambiguation)",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "albatros",
+    "yearBuilt": 1973,
+    "tonnage": 28500,
+    "capacity": 1200,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 500,
+    "length": 205,
+    "beam": 27,
+    "shipClass": "ex-Royal Viking Sea",
+    "status": "active",
+    "description": "Classic ship offering traditional German cruising experience.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:22:36.138Z",
   "facts": [
     {
+      "claim": "MSC Meraviglia (MSC Cruises): Entered service 2017; 171,598 GT; 4488 guests (lower berth / double occupancy); 315 m length; Meraviglia class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MSC Meraviglia is a cruise ship owned and operated by MSC Cruises, built at the Chantiers de l'Atlantique shipyard in Saint-Nazaire, France, by STX France.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Meraviglia",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "meraviglia",
+    "yearBuilt": 2017,
+    "tonnage": 171598,
+    "capacity": 4488,
+    "capacityMax": 5714,
+    "capacityBasis": "lower_berth",
+    "crew": 1536,
+    "length": 315,
+    "beam": 41,
+    "shipClass": "Meraviglia",
+    "status": "active",
+    "description": "Meraviglia-class; cruise ship operated by its listed cruise line; entered service 2017; 171,598 GT; approx. 4,488 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

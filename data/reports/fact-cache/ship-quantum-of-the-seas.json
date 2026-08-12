@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:38.836Z",
   "facts": [
     {
+      "claim": "Quantum of the Seas (Royal Caribbean): Entered service 2014; 166,750 GT; 4150 guests (lower berth / double occupancy); 348 m length; Quantum class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Designed with our Chinese guests in mind, Quantum of the Seas is a fully immersive ship, complete with Mandarin speaking crew and local cuisines served onboard. Travel to the most sought-after cities to explore the cutting-edge architecture, stylish shops, and ancient temples.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/quantum-of-the-seas",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "quantum-seas",
+    "yearBuilt": 2014,
+    "tonnage": 166750,
+    "capacity": 4150,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1500,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Quantum",
+    "status": "active",
+    "description": "Quantum-class; cruise ship operated by its listed cruise line; entered service 2014; 166,750 GT; approx. 4,150 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

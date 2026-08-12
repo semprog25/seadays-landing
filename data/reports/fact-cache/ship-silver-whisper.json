@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "silver-whisper",
+    "name": "Silver Whisper",
+    "cruiseLine": "Silversea Cruises"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.557Z",
+  "facts": [
+    {
+      "claim": "Silver Whisper (Silversea Cruises): Entered service 2001; 28,250 GT; 350 guests (lower berth / double occupancy); Shadow class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "silver-whisper",
+    "yearBuilt": 2001,
+    "tonnage": 28250,
+    "capacity": 350,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": null,
+    "length": null,
+    "beam": null,
+    "shipClass": "Shadow",
+    "status": "active",
+    "description": "Operated by Silversea Cruises; entered service 2001; 28,250 GT; approx. 350 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

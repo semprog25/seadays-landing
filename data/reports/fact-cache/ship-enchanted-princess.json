@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:16.333Z",
   "facts": [
     {
+      "claim": "Enchanted Princess (Princess Cruises): Entered service 2020; 145,281 GT; 3660 guests (lower berth / double occupancy); 330 m length; Royal class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Enchanted Princess is a Royal-class cruise ship operated by Princess Cruises, a subsidiary of Carnival Corporation & plc.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Enchanted_Princess",
@@ -28,6 +34,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "enchanted",
+    "yearBuilt": 2020,
+    "tonnage": 145281,
+    "capacity": 3660,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1346,
+    "length": 330,
+    "beam": 38,
+    "shipClass": "Royal",
+    "status": "active",
+    "description": "Operated by Princess Cruises; entered service 2020; 130,000 GT; approx. 3,660 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

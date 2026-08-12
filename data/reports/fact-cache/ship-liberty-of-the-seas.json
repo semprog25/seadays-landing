@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:50.737Z",
   "facts": [
     {
+      "claim": "Liberty of the Seas (Royal Caribbean): Entered service 2007; 154,400 GT; 3750 guests (lower berth / double occupancy); 348 m length; Freedom class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Liberty of the Seas brings you to some of the most incredible ports with plenty of adventure, entertainment, nightlife. Start your vacation by booking your next cruise with Royal Caribbean.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.royalcaribbean.com/cruise-ships/liberty-of-the-seas",
@@ -47,6 +53,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "liberty-seas",
+    "yearBuilt": 2007,
+    "tonnage": 154400,
+    "capacity": 3750,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1360,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Freedom",
+    "status": "active",
+    "description": "Freedom-class; cruise ship operated by its listed cruise line; entered service 2007; 154,400 GT; approx. 3,750 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

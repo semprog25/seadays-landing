@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:24:27.045Z",
   "facts": [
     {
+      "claim": "Norwegian Sky (Norwegian Cruise Line): Entered service 1999; 77,104 GT; 2004 guests (lower berth / double occupancy); 259 m length; Sun class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Norwegian Sky is a Sun-class cruise ship owned and operated by Norwegian Cruise Line.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Norwegian_Sky",
@@ -22,6 +28,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "sky",
+    "yearBuilt": 1999,
+    "tonnage": 77104,
+    "capacity": 2004,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 899,
+    "length": 259,
+    "beam": 32,
+    "shipClass": "Sun",
+    "status": "active",
+    "description": "Operated by Norwegian Cruise Line; entered service 1999; 110,000 GT; approx. 2,004 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

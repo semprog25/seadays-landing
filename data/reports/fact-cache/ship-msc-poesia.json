@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:23:23.008Z",
   "facts": [
     {
+      "claim": "MSC Poesia (MSC Cruises): Entered service 2008; 92,627 GT; 2550 guests (lower berth / double occupancy); 323 m length; Musica class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MSC Poesia is a cruise ship owned and operated by MSC Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Poesia",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "poesia",
+    "yearBuilt": 2008,
+    "tonnage": 92627,
+    "capacity": 2550,
+    "capacityMax": 3223,
+    "capacityBasis": "lower_berth",
+    "crew": 1039,
+    "length": 323,
+    "beam": 37,
+    "shipClass": "Musica",
+    "status": "active",
+    "description": "Musica-class; cruise ship operated by its listed cruise line; entered service 2008; 92,627 GT; approx. 2,550 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

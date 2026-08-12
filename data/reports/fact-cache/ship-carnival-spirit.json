@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:35.272Z",
   "facts": [
     {
+      "claim": "Carnival Spirit (Carnival Cruise Line): Entered service 2001; 88,500 GT; 2130 guests (lower berth / double occupancy); 294 m length; Spirit class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Get ready for an unforgettable cruise adventure full of fun and activities onboard Carnival Spirit. Book your cruise vacation today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/carnival-spirit",
@@ -35,6 +41,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "spirit",
+    "yearBuilt": 2001,
+    "tonnage": 88500,
+    "capacity": 2130,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 930,
+    "length": 294,
+    "beam": 32,
+    "shipClass": "Spirit",
+    "status": "active",
+    "description": "Completed a month-long dry dock in March 2025, introducing various upgrades and enhancements to public spaces and amenities.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

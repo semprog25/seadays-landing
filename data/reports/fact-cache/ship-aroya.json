@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:00.705Z",
   "facts": [
     {
+      "claim": "Aroya (Aroya Cruises): Entered service 2017; 56,769 GT; 1680 guests (lower berth / double occupancy); 251 m length; ex-Costa neoRomantica class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Aroya may refer to:Årøya, an island of Finnmark, Norway\nArøya, a group of islands of Telemark, Norway\nAroya, Colorado, a small, rural, unincorporated community in Cheyenne County, Colorado\nArroyo Colorado, a river of Texas\nAroya, a cruise ship",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Aroya",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "aroya",
+    "yearBuilt": 2017,
+    "tonnage": 56769,
+    "capacity": 1680,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1516,
+    "length": 251,
+    "beam": 29,
+    "shipClass": "ex-Costa neoRomantica",
+    "status": "active",
+    "description": "Saudi-flagged Aroya Cruises ship; formerly Costa neoRomantica. Specs reflect the current Aroya configuration where published.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

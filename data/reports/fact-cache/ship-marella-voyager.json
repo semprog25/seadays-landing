@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:56.519Z",
   "facts": [
     {
+      "claim": "Marella Voyager (Marella Cruises): Entered service 1998; 77,302 GT; 1954 guests (lower berth / double occupancy); 264 m length; Voyager class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Marella Voyager is the second of two Century-class cruise ships operated by TUI Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/Marella_Voyager",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "marella-voyager",
+    "yearBuilt": 1998,
+    "tonnage": 77302,
+    "capacity": 1954,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 820,
+    "length": 264,
+    "beam": 32,
+    "shipClass": "Voyager",
+    "status": "active",
+    "description": "Formerly Grandeur of the Seas, now part of the Marella fleet.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

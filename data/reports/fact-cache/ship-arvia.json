@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:00.695Z",
   "facts": [
     {
+      "claim": "Arvia (P&O Cruises): Entered service 2022; 185,581 GT; 5280 guests (lower berth / double occupancy); 347 m length; Excellence class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MS Arvia is an Excellence-class cruise ship in service for P&O Cruises, a subsidiary of Carnival Corporation & plc.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MS_Arvia",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "arvia",
+    "yearBuilt": 2022,
+    "tonnage": 185581,
+    "capacity": 5280,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 1800,
+    "length": 347,
+    "beam": 41,
+    "shipClass": "Excellence",
+    "status": "active",
+    "description": "Excellence-class; cruise ship operated by its listed cruise line; entered service 2022; 185,581 GT; approx. 5,280 guests.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

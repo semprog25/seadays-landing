@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:20:50.762Z",
   "facts": [
     {
+      "claim": "Mardi Gras (Carnival Cruise Line): Entered service 2020; 181,808 GT; 5270 guests (lower berth / double occupancy); 344 m length; Excel class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "From BOLT, the first rollercoaster at sea to brand-new themed Zones, find out what's aboard Mardi Gras, sailing from Port Canaveral! Explore photos, deck plans, staterooms and itinerary options. Grab your spot on Mardi Gras today!",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.carnival.com/cruise-ships/mardi-gras",
@@ -41,6 +47,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "mardi-gras",
+    "yearBuilt": 2020,
+    "tonnage": 181808,
+    "capacity": 5270,
+    "capacityMax": 6500,
+    "capacityBasis": "lower_berth",
+    "crew": 1735,
+    "length": 344,
+    "beam": 47,
+    "shipClass": "Excel",
+    "status": "active",
+    "description": "First Excel-class ship (delivered 2020; maiden season 2021). LNG-powered with Bolt roller coaster and multiple themed zones.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

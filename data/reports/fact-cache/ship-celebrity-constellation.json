@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:19:41.298Z",
   "facts": [
     {
+      "claim": "Celebrity Constellation (Celebrity Cruises): Entered service 2002; 90,200 GT; 2150 guests (lower berth / double occupancy); 290 m length; Millennium class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "Discover Celebrity Constellation. View the award-winning cruise ship's deck plan, staterooms, dining options, things to do and upcoming sailings.",
       "source": "official-cruise-line",
       "sourceUrl": "https://www.celebritycruises.com/cruise-ships/celebrity-constellation",
@@ -29,6 +35,23 @@
   "errors": [],
   "sourcesUsed": [
     "wikipedia",
-    "official-cruise-line"
-  ]
+    "official-cruise-line",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "constellation",
+    "yearBuilt": 2002,
+    "tonnage": 90200,
+    "capacity": 2150,
+    "capacityMax": null,
+    "capacityBasis": "lower_berth",
+    "crew": 999,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Millennium",
+    "status": "active",
+    "description": "Millennium-class; cruise ship operated by its listed cruise line; entered service 2002; 90,200 GT; approx. 2,150 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }

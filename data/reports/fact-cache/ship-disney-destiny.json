@@ -1,0 +1,37 @@
+{
+  "entity": {
+    "kind": "ship",
+    "slug": "disney-destiny",
+    "name": "Disney Destiny",
+    "cruiseLine": "Disney Cruise Line"
+  },
+  "fetchedAt": "2026-08-12T00:20:10.468Z",
+  "facts": [
+    {
+      "claim": "Disney Destiny (Disney Cruise Line): Entered service 2025; 144,000 GT; 2500 guests (lower berth / double occupancy); 348 m length; Wish class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    }
+  ],
+  "errors": [],
+  "sourcesUsed": [
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "destiny",
+    "yearBuilt": 2025,
+    "tonnage": 144000,
+    "capacity": 2500,
+    "capacityMax": 4000,
+    "capacityBasis": "lower_berth",
+    "crew": 1555,
+    "length": 348,
+    "beam": 41,
+    "shipClass": "Wish",
+    "status": "active",
+    "description": "Third Wish-class ship; entered service November 2025 from Fort Lauderdale with a heroes-and-villains theme.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
+}

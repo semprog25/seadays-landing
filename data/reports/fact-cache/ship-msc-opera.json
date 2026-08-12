@@ -8,6 +8,12 @@
   "fetchedAt": "2026-05-21T23:22:41.580Z",
   "facts": [
     {
+      "claim": "MSC Opera (MSC Cruises): Entered service 2004; 65,591 GT; 2150 guests (lower berth / double occupancy); 290 m length; Lirica class.",
+      "source": "seadays-catalog-pass2",
+      "sourceUrl": "app://cruise-data/ships",
+      "confidence": 0.95
+    },
+    {
       "claim": "MSC Opera is a cruise ship built in 2004, carrying 2,679 passengers in 1,071 cabins, and with a crew complement of approximately 728, currently operated by Swiss company MSC Cruises.",
       "source": "wikipedia",
       "sourceUrl": "https://en.wikipedia.org/wiki/MSC_Opera",
@@ -16,6 +22,23 @@
   ],
   "errors": [],
   "sourcesUsed": [
-    "wikipedia"
-  ]
+    "wikipedia",
+    "seadays-catalog-pass2"
+  ],
+  "catalogSpecs": {
+    "appId": "opera",
+    "yearBuilt": 2004,
+    "tonnage": 65591,
+    "capacity": 2150,
+    "capacityMax": 2679,
+    "capacityBasis": "lower_berth",
+    "crew": 728,
+    "length": 290,
+    "beam": 35,
+    "shipClass": "Lirica",
+    "status": "active",
+    "description": "Lirica-class; cruise ship operated by its listed cruise line; entered service 2004; 65,591 GT; approx. 2,150 guests at double occupancy.",
+    "syncedAt": "2026-08-12",
+    "source": "SeaDays cruise-data catalog Pass-2"
+  }
 }
