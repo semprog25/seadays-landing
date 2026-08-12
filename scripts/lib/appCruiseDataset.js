@@ -1971,6 +1971,12 @@ export const allPorts = [
     "country": "Norway"
   },
   {
+    "slug": "flensburg-germany",
+    "name": "Flensburg, Germany",
+    "region": "Baltic",
+    "country": "Germany"
+  },
+  {
     "slug": "florence-pisa-livorno-italy",
     "name": "Florence/Pisa (Livorno), Italy",
     "region": "Mediterranean",
@@ -2065,6 +2071,12 @@ export const allPorts = [
     "name": "Greenock, United Kingdom",
     "region": "Scotland",
     "country": "United Kingdom"
+  },
+  {
+    "slug": "greifswald-germany",
+    "name": "Greifswald, Germany",
+    "region": "Baltic",
+    "country": "Germany"
   },
   {
     "slug": "grundarfjor-ur-iceland",
@@ -3343,6 +3355,12 @@ export const allPorts = [
     "name": "Wellington, New Zealand",
     "region": "New Zealand",
     "country": "New Zealand"
+  },
+  {
+    "slug": "wilhelmshaven-germany",
+    "name": "Wilhelmshaven, Germany",
+    "region": "North Sea",
+    "country": "Germany"
   },
   {
     "slug": "wismar-germany",
