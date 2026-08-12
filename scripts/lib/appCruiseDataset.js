@@ -5353,6 +5353,12 @@ export const allPorts = [
     "country": "Egypt"
   },
   {
+    "slug": "alghero-italy",
+    "name": "Alghero, Italy",
+    "region": "Mediterranean",
+    "country": "Italy"
+  },
+  {
     "slug": "alicante-spain",
     "name": "Alicante, Spain",
     "region": "Mediterranean",
@@ -5381,6 +5387,12 @@ export const allPorts = [
     "name": "Anchorage, AK, United States",
     "region": "Alaska",
     "country": "United States"
+  },
+  {
+    "slug": "ancona-italy",
+    "name": "Ancona, Italy",
+    "region": "Mediterranean",
+    "country": "Italy"
   },
   {
     "slug": "andalsnes-norway",
@@ -5483,6 +5495,12 @@ export const allPorts = [
     "name": "Bar Harbor, ME, United States",
     "region": "New England",
     "country": "United States"
+  },
+  {
+    "slug": "bar-montenegro",
+    "name": "Bar, Montenegro",
+    "region": "Mediterranean",
+    "country": "Montenegro"
   },
   {
     "slug": "barbados-bridgetown-barbados",
@@ -5941,6 +5959,12 @@ export const allPorts = [
     "country": "Turkey"
   },
   {
+    "slug": "esbjerg-denmark",
+    "name": "Esbjerg, Denmark",
+    "region": "North Sea",
+    "country": "Denmark"
+  },
+  {
     "slug": "falmouth-jamaica",
     "name": "Falmouth, Jamaica",
     "region": "Caribbean",
@@ -6013,6 +6037,12 @@ export const allPorts = [
     "country": "United States"
   },
   {
+    "slug": "galway-ireland",
+    "name": "Galway, Ireland",
+    "region": "British Isles",
+    "country": "Ireland"
+  },
+  {
     "slug": "gdansk-poland",
     "name": "Gdansk, Poland",
     "region": "Baltic",
@@ -6041,6 +6071,12 @@ export const allPorts = [
     "name": "George Town, Cayman Islands",
     "region": "Caribbean",
     "country": "Cayman Islands"
+  },
+  {
+    "slug": "gijon-spain",
+    "name": "Gijón, Spain",
+    "region": "Atlantic",
+    "country": "Spain"
   },
   {
     "slug": "glasgow-united-kingdom",
@@ -6391,6 +6427,12 @@ export const allPorts = [
     "country": "Lithuania"
   },
   {
+    "slug": "ko-samui-thailand",
+    "name": "Ko Samui, Thailand",
+    "region": "Asia",
+    "country": "Thailand"
+  },
+  {
     "slug": "kochi-india",
     "name": "Kochi, India",
     "region": "Asia",
@@ -6436,6 +6478,12 @@ export const allPorts = [
     "slug": "kristiansand-norway",
     "name": "Kristiansand, Norway",
     "region": "Southern Norway",
+    "country": "Norway"
+  },
+  {
+    "slug": "kristiansund-norway",
+    "name": "Kristiansund, Norway",
+    "region": "Fjords",
     "country": "Norway"
   },
   {
@@ -6701,6 +6749,12 @@ export const allPorts = [
     "name": "Mormugao Port (Goa), India",
     "region": "Asia",
     "country": "India"
+  },
+  {
+    "slug": "motril-granada-spain",
+    "name": "Motril (Granada), Spain",
+    "region": "Mediterranean",
+    "country": "Spain"
   },
   {
     "slug": "mumbai-india",
@@ -7303,6 +7357,12 @@ export const allPorts = [
     "country": "Singapore"
   },
   {
+    "slug": "sir-bani-yas-island-united-arab-emirates",
+    "name": "Sir Bani Yas Island, United Arab Emirates",
+    "region": "Middle East",
+    "country": "United Arab Emirates"
+  },
+  {
     "slug": "sitka-ak-united-states",
     "name": "Sitka, AK, United States",
     "region": "Alaska",
@@ -7325,6 +7385,12 @@ export const allPorts = [
     "name": "Skjolden, Norway",
     "region": "Fjords",
     "country": "Norway"
+  },
+  {
+    "slug": "sorrento-italy",
+    "name": "Sorrento, Italy",
+    "region": "Mediterranean",
+    "country": "Italy"
   },
   {
     "slug": "southampton-united-kingdom",
@@ -7417,6 +7483,12 @@ export const allPorts = [
     "country": "Norway"
   },
   {
+    "slug": "swinoujscie-poland",
+    "name": "Świnoujście, Poland",
+    "region": "Baltic",
+    "country": "Poland"
+  },
+  {
     "slug": "sydney-australia",
     "name": "Sydney, Australia",
     "region": "Australia",
@@ -7495,6 +7567,12 @@ export const allPorts = [
     "country": "Greece"
   },
   {
+    "slug": "tianjin-beijing-china",
+    "name": "Tianjin (Beijing), China",
+    "region": "Asia",
+    "country": "China"
+  },
+  {
     "slug": "tokyo-yokohama-japan",
     "name": "Tokyo (Yokohama), Japan",
     "region": "Asia",
@@ -7529,6 +7607,12 @@ export const allPorts = [
     "name": "Trondheim, Norway",
     "region": "Fjords",
     "country": "Norway"
+  },
+  {
+    "slug": "turku-finland",
+    "name": "Turku, Finland",
+    "region": "Baltic",
+    "country": "Finland"
   },
   {
     "slug": "ulvik-norway",
@@ -7609,10 +7693,22 @@ export const allPorts = [
     "country": "India"
   },
   {
+    "slug": "vlore-albania",
+    "name": "Vlorë, Albania",
+    "region": "Mediterranean",
+    "country": "Albania"
+  },
+  {
     "slug": "warnemunde-berlin-germany",
     "name": "Warnemünde (Berlin), Germany",
     "region": "Baltic",
     "country": "Germany"
+  },
+  {
+    "slug": "waterford-ireland",
+    "name": "Waterford, Ireland",
+    "region": "British Isles",
+    "country": "Ireland"
   },
   {
     "slug": "wellington-new-zealand",
@@ -7631,6 +7727,12 @@ export const allPorts = [
     "name": "Wismar, Germany",
     "region": "Baltic",
     "country": "Germany"
+  },
+  {
+    "slug": "xiamen-china",
+    "name": "Xiamen, China",
+    "region": "Asia",
+    "country": "China"
   },
   {
     "slug": "yanbu-saudi-arabia",
