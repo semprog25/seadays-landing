@@ -5377,6 +5377,12 @@ export const allPorts = [
     "country": "Netherlands"
   },
   {
+    "slug": "anchorage-ak-united-states",
+    "name": "Anchorage, AK, United States",
+    "region": "Alaska",
+    "country": "United States"
+  },
+  {
     "slug": "andalsnes-norway",
     "name": "Åndalsnes, Norway",
     "region": "Fjords",
@@ -5705,6 +5711,12 @@ export const allPorts = [
     "name": "Cherbourg, France",
     "region": "Atlantic",
     "country": "France"
+  },
+  {
+    "slug": "chios-greece",
+    "name": "Chios, Greece",
+    "region": "Greek Isles",
+    "country": "Greece"
   },
   {
     "slug": "cochin-port-india",
@@ -6115,6 +6127,12 @@ export const allPorts = [
     "country": "Greece"
   },
   {
+    "slug": "hilo-hi-united-states",
+    "name": "Hilo, HI, United States",
+    "region": "Hawaii",
+    "country": "United States"
+  },
+  {
     "slug": "ho-chi-minh-city-phu-my-vietnam",
     "name": "Ho Chi Minh City (Phu My), Vietnam",
     "region": "Asia",
@@ -6155,6 +6173,12 @@ export const allPorts = [
     "name": "Horta (Azores), Portugal",
     "region": "Atlantic Islands",
     "country": "Portugal"
+  },
+  {
+    "slug": "houston-tx-united-states",
+    "name": "Houston, TX, United States",
+    "region": "Texas",
+    "country": "United States"
   },
   {
     "slug": "huatulco-mexico",
@@ -6211,6 +6235,12 @@ export const allPorts = [
     "country": "Turkey"
   },
   {
+    "slug": "jacksonville-fl-united-states",
+    "name": "Jacksonville, FL, United States",
+    "region": "Florida",
+    "country": "United States"
+  },
+  {
     "slug": "jakarta-indonesia",
     "name": "Jakarta, Indonesia",
     "region": "Asia",
@@ -6251,6 +6281,12 @@ export const allPorts = [
     "name": "Katakolon (Olympia), Greece",
     "region": "Greek Isles",
     "country": "Greece"
+  },
+  {
+    "slug": "kauai-nawiliwili-hi-united-states",
+    "name": "Kauai (Nawiliwili), HI, United States",
+    "region": "Hawaii",
+    "country": "United States"
   },
   {
     "slug": "kavala-greece",
@@ -6295,6 +6331,12 @@ export const allPorts = [
     "country": "Norway"
   },
   {
+    "slug": "kirkwall-orkney-united-kingdom",
+    "name": "Kirkwall (Orkney), United Kingdom",
+    "region": "Scotland",
+    "country": "United Kingdom"
+  },
+  {
     "slug": "klaipeda-lithuania",
     "name": "Klaipeda, Lithuania",
     "region": "Baltic",
@@ -6311,6 +6353,12 @@ export const allPorts = [
     "name": "Kolkata, India",
     "region": "Asia",
     "country": "India"
+  },
+  {
+    "slug": "kona-hi-united-states",
+    "name": "Kona, HI, United States",
+    "region": "Hawaii",
+    "country": "United States"
   },
   {
     "slug": "koper-slovenia",
@@ -6517,6 +6565,12 @@ export const allPorts = [
     "country": "France"
   },
   {
+    "slug": "maui-kahului-hi-united-states",
+    "name": "Maui (Kahului), HI, United States",
+    "region": "Hawaii",
+    "country": "United States"
+  },
+  {
     "slug": "mazatlan-mexico",
     "name": "Mazatlan, Mexico",
     "region": "Mexican Riviera",
@@ -6557,6 +6611,12 @@ export const allPorts = [
     "name": "Mina Salman (Manama), Bahrain",
     "region": "Middle East",
     "country": "Bahrain"
+  },
+  {
+    "slug": "mobile-al-united-states",
+    "name": "Mobile, AL, United States",
+    "region": "South",
+    "country": "United States"
   },
   {
     "slug": "molde-norway",
@@ -6787,6 +6847,12 @@ export const allPorts = [
     "country": "Australia"
   },
   {
+    "slug": "philadelphia-pa-united-states",
+    "name": "Philadelphia, PA, United States",
+    "region": "Mid-Atlantic",
+    "country": "United States"
+  },
+  {
     "slug": "philipsburg-st-maarten",
     "name": "Philipsburg, St. Maarten",
     "region": "Caribbean",
@@ -6863,6 +6929,12 @@ export const allPorts = [
     "name": "Port Zayed (Abu Dhabi), United Arab Emirates",
     "region": "Middle East",
     "country": "United Arab Emirates"
+  },
+  {
+    "slug": "portland-me-united-states",
+    "name": "Portland, ME, United States",
+    "region": "New England",
+    "country": "United States"
   },
   {
     "slug": "porto-leixoes-portugal",
@@ -7181,6 +7253,12 @@ export const allPorts = [
     "name": "Southampton, United Kingdom",
     "region": "British Isles",
     "country": "United Kingdom"
+  },
+  {
+    "slug": "spetses-greece",
+    "name": "Spetses, Greece",
+    "region": "Greek Isles",
+    "country": "Greece"
   },
   {
     "slug": "split-croatia",
