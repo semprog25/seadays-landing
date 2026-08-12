@@ -46,10 +46,40 @@ jobs:
         env:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SEADAYS_MATERIALIZE_SIGNED: '1'
           VIATOR_AFFILIATE_PID: ${{ secrets.VIATOR_AFFILIATE_PID }}
           VIATOR_AFFILIATE_MCID: ${{ secrets.VIATOR_AFFILIATE_MCID }}
           VIATOR_AFFILIATE_MEDIUM: link
         run: npm run generate-blogs
+
+      - name: Fix featured guide thumbnails (ports/ships)
+        env:
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: npm run fix-featured-guide-thumbnails
+
+      - name: Guard against placeholder featured thumbs
+        run: |
+          node -e "
+          const fs=require('fs');
+          const badRe=/Websitehomebucket\\/Cruise%20planner\\.jpg|Websitehomebucket\\/Discover%20Ships%20%20Ports\\.jpg|SeadaysPublic\\/seadaysfav\\.png/i;
+          let failed=false;
+          for (const f of ['ports/index.html','ships/index.html']) {
+            const html=fs.readFileSync(f,'utf8');
+            const cards=[...html.matchAll(/<a class=\"guide-card\"[^>]*>[\\s\\S]*?<img\\b([^>]*)>/gi)];
+            for (const m of cards) {
+              const attrs=m[1]||'';
+              const src=(attrs.match(/\\bsrc=\"([^\"]+)\"/i)||[])[1]||'';
+              const type=(attrs.match(/data-img-type=\"([^\"]+)\"/i)||[])[1]||'';
+              if (type==='fallback' || badRe.test(src)) {
+                console.error('PLACEHOLDER featured thumb in', f, src.slice(0,120));
+                failed=true;
+              }
+            }
+          }
+          if (failed) process.exit(1);
+          console.log('featured thumbs OK');
+          "
 
       - name: Check for changes
         id: changes
