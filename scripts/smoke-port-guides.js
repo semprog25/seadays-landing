@@ -88,6 +88,6 @@ assert.ok(!/>\s*15\s*</.test(berthsChunk), 'valencia berths not 15');
 assert.ok(val.includes('id="things-to-do"'), 'valencia things-to-do');
 assert.ok(val.includes('Standard call (about 6–8 hours ashore)'), 'valencia 6-8h');
 
-assert.ok(!fs.existsSync(path.join(root, 'ports', 'amsterdam-netherlands')), 'amsterdam not invented');
+assert.ok(fs.existsSync(path.join(root, 'ports', 'amsterdam-netherlands')), 'amsterdam published from dataset');
 
 console.log('smoke-port-guides PASS');
