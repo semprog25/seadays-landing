@@ -21,6 +21,7 @@ const DIRECTORY_ALIAS_TO_CANONICAL = {
   'cochin-port-india': 'kochi-india',
   'mumbai-port-india': 'mumbai-india',
   'vizag-india': 'visakhapatnam-india',
+  'doha-port-qatar': 'doha-qatar',
 };
 
 /** Canonical display names + search aliases for known duplicate destinations. */
@@ -29,6 +30,7 @@ const CANONICAL_DISPLAY = {
   'chennai-india': { displayName: 'Chennai', aliases: ['chennai', 'chennai port', 'madras'] },
   'mumbai-india': { displayName: 'Mumbai', aliases: ['mumbai', 'mumbai port', 'bombay'] },
   'visakhapatnam-india': { displayName: 'Visakhapatnam', aliases: ['visakhapatnam', 'vizag'] },
+  'doha-qatar': { displayName: 'Doha', aliases: ['doha', 'doha port'] },
 };
 
 const NORTH_AMERICA_REGIONS = [

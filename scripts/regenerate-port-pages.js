@@ -35,6 +35,10 @@ const {
   getViatorConfigFromEnv,
 } = require('./lib/viatorAffiliate');
 const { getAppRepoRoot, buildPortSlugToReviewKeyMap } = require('./lib/reviewAggregateMerge');
+const {
+  getAliasRedirectTarget,
+  writePortSeoRedirectPages,
+} = require('./lib/portSeoRedirects');
 
 const BASE_URL = 'https://seadays.app';
 const DEFAULT_FAVICON =
@@ -237,6 +241,8 @@ function main() {
   let withAffiliate = 0;
 
   for (const port of seoPorts) {
+    // Browse-hidden aliases: publish as noindex redirects (batch-written below).
+    if (getAliasRedirectTarget(port.slug)) continue;
     const dir = path.join(repoRoot, 'ports', port.slug);
     fs.mkdirSync(dir, { recursive: true });
     const appPortId = slugToAppPortId[port.slug] || '';
@@ -280,6 +286,11 @@ function main() {
     );
     fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
   }
+
+  const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
+  console.log(
+    `[regenerate-port-pages] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
+  );
 
   const patchedIndex = patchPortsIndexCards(repoRoot, seoPorts);
   console.log(

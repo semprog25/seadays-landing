@@ -55,6 +55,12 @@ const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appC
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
 const {
+  getAliasRedirectTarget,
+  getPreservedPortDirectorySlugs,
+  isPortSeoRedirectSlug,
+  writePortSeoRedirectPages,
+} = require('./lib/portSeoRedirects');
+const {
   loadLandingCruiseContentOverrides,
   applyShipContentOverride,
   applyPortContentOverride,
@@ -100,10 +106,13 @@ function ensurePublicPortGuides(repoRoot, appRoot) {
 /**
  * Remove ships/<slug> and ports/<slug> directories not present in the current build.
  * Prevents stale programmatic SEO pages from older dataset snapshots (disk vs sitemap drift).
+ * Preserves standalone port redirect folders (e.g. koper-croatia → koper-slovenia).
  */
 function removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts) {
   const shipSlugs = new Set(seoShips.map((s) => String(s.slug || '').trim()).filter(Boolean));
   const portSlugs = new Set(seoPorts.map((p) => String(p.slug || '').trim()).filter(Boolean));
+  const preservedPorts = getPreservedPortDirectorySlugs();
+  for (const slug of preservedPorts) portSlugs.add(slug);
   for (const kind of ['ships', 'ports']) {
     const base = path.join(repoRoot, kind);
     if (!fs.existsSync(base)) continue;
@@ -754,8 +763,9 @@ function sitemapUrlLine(loc, changefreq, priority, lastmod) {
 
 /**
  * Slugs under repoRoot/{segment}/ that have index.html (directory guides only).
+ * When skipNoindex is true, omits pages with robots noindex (e.g. alias redirects).
  */
-function listDirectoryIndexSlugs(repoRoot, segment) {
+function listDirectoryIndexSlugs(repoRoot, segment, { skipNoindex = false } = {}) {
   const base = path.join(repoRoot, segment);
   if (!fs.existsSync(base)) return [];
   const slugs = [];
@@ -768,7 +778,17 @@ function listDirectoryIndexSlugs(repoRoot, segment) {
       continue;
     }
     if (!isDir) continue;
-    if (!fs.existsSync(path.join(full, 'index.html'))) continue;
+    const indexPath = path.join(full, 'index.html');
+    if (!fs.existsSync(indexPath)) continue;
+    if (skipNoindex) {
+      try {
+        const html = fs.readFileSync(indexPath, 'utf8');
+        if (/name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) continue;
+        if (/content=["'][^"']*noindex[^"']*["'][^>]*name=["']robots["']/i.test(html)) continue;
+      } catch (e) {
+        continue;
+      }
+    }
     slugs.push(name);
   }
   return slugs.sort();
@@ -814,13 +834,13 @@ function writeSitemapSnapshotFromDisk(repoRoot) {
     seenUrls.add(url);
     sitemap += sitemapUrlLine(url, 'monthly', '0.7', todayIso);
   }
-  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ships')) {
+  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ships', { skipNoindex: true })) {
     const url = `${BASE_URL}/ships/${slug}/`;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
     sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
   }
-  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ports')) {
+  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ports', { skipNoindex: true })) {
     const url = `${BASE_URL}/ports/${slug}/`;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
@@ -2825,7 +2845,15 @@ async function main() {
     const blogs = withRelatedCardImages(pickBlogArticlesForEntity(articles, tokens, 6));
     fs.writeFileSync(path.join(dir, 'index.html'), buildShipDetailHtml(ship, relShips, destPorts, blogs, spOpts), 'utf8');
   }
+  const unpublishedPortSlugs = new Set();
   for (const port of seoPorts) {
+    if (unpublishedPortSlugs.has(port.slug)) {
+      const orphan = path.join(repoRoot, 'ports', port.slug);
+      if (fs.existsSync(orphan)) fs.rmSync(orphan, { recursive: true, force: true });
+      continue;
+    }
+    // Browse-hidden aliases: publish as noindex redirects (written after orphan cleanup).
+    if (getAliasRedirectTarget(port.slug)) continue;
     const dir = path.join(repoRoot, 'ports', port.slug);
     fs.mkdirSync(dir, { recursive: true });
     const relPorts = pickRelatedPorts(seoPorts, port, 5);
@@ -2873,6 +2901,10 @@ async function main() {
   }
 
   removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts);
+  const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
+  console.log(
+    `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
+  );
 
   async function buildFeaturedGuideCardsHtml(featuredArticles, keyPrefix) {
     const safe = Array.isArray(featuredArticles) ? featuredArticles : [];
@@ -3072,6 +3104,7 @@ async function main() {
     sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
   }
   for (const p of seoPorts) {
+    if (isPortSeoRedirectSlug(p.slug)) continue;
     const url = `${BASE_URL}/ports/${p.slug}/`;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
