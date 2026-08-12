@@ -5317,6 +5317,12 @@ export const allPorts = [
     "country": "Egypt"
   },
   {
+    "slug": "adelaide-australia",
+    "name": "Adelaide, Australia",
+    "region": "Australia",
+    "country": "Australia"
+  },
+  {
     "slug": "ajaccio-corsica-france",
     "name": "Ajaccio (Corsica), France",
     "region": "Mediterranean",
@@ -5449,6 +5455,12 @@ export const allPorts = [
     "country": "Norway"
   },
   {
+    "slug": "bali-benoa-indonesia",
+    "name": "Bali (Benoa), Indonesia",
+    "region": "Asia",
+    "country": "Indonesia"
+  },
+  {
     "slug": "baltimore-md-united-states",
     "name": "Baltimore, MD, United States",
     "region": "Mid-Atlantic",
@@ -5533,6 +5545,12 @@ export const allPorts = [
     "country": "Turkey"
   },
   {
+    "slug": "bonifacio-france",
+    "name": "Bonifacio, France",
+    "region": "Mediterranean",
+    "country": "France"
+  },
+  {
     "slug": "bordeaux-france",
     "name": "Bordeaux, France",
     "region": "Atlantic",
@@ -5555,6 +5573,12 @@ export const allPorts = [
     "name": "Bremerhaven, Germany",
     "region": "Northern Europe",
     "country": "Germany"
+  },
+  {
+    "slug": "brest-france",
+    "name": "Brest, France",
+    "region": "Atlantic",
+    "country": "France"
   },
   {
     "slug": "brindisi-italy",
@@ -5647,6 +5671,12 @@ export const allPorts = [
     "country": "Bahamas"
   },
   {
+    "slug": "chania-crete-greece",
+    "name": "Chania (Crete), Greece",
+    "region": "Greek Isles",
+    "country": "Greece"
+  },
+  {
     "slug": "charleston-sc-united-states",
     "name": "Charleston, SC, United States",
     "region": "South",
@@ -5687,6 +5717,18 @@ export const allPorts = [
     "name": "Cochin, India",
     "region": "Asia",
     "country": "India"
+  },
+  {
+    "slug": "colombo-sri-lanka",
+    "name": "Colombo, Sri Lanka",
+    "region": "Asia",
+    "country": "Sri Lanka"
+  },
+  {
+    "slug": "colon-panama",
+    "name": "Colon, Panama",
+    "region": "Caribbean",
+    "country": "Panama"
   },
   {
     "slug": "copenhagen-denmark",
@@ -5801,6 +5843,12 @@ export const allPorts = [
     "name": "Dunedin, New Zealand",
     "region": "New Zealand",
     "country": "New Zealand"
+  },
+  {
+    "slug": "durres-albania",
+    "name": "Durres, Albania",
+    "region": "Mediterranean",
+    "country": "Albania"
   },
   {
     "slug": "edinburgh-south-queensferry-united-kingdom",
@@ -5989,6 +6037,12 @@ export const allPorts = [
     "country": "Norway"
   },
   {
+    "slug": "gythion-greece",
+    "name": "Gythion, Greece",
+    "region": "Greek Isles",
+    "country": "Greece"
+  },
+  {
     "slug": "haifa-israel",
     "name": "Haifa, Israel",
     "region": "Middle East",
@@ -6065,6 +6119,12 @@ export const allPorts = [
     "name": "Ho Chi Minh City (Phu My), Vietnam",
     "region": "Asia",
     "country": "Vietnam"
+  },
+  {
+    "slug": "hobart-australia",
+    "name": "Hobart, Australia",
+    "region": "Australia",
+    "country": "Australia"
   },
   {
     "slug": "honfleur-france",
@@ -6149,6 +6209,12 @@ export const allPorts = [
     "name": "Izmir, Turkey",
     "region": "Mediterranean",
     "country": "Turkey"
+  },
+  {
+    "slug": "jakarta-indonesia",
+    "name": "Jakarta, Indonesia",
+    "region": "Asia",
+    "country": "Indonesia"
   },
   {
     "slug": "jeddah-islamic-port-saudi-arabia",
@@ -6247,10 +6313,10 @@ export const allPorts = [
     "country": "India"
   },
   {
-    "slug": "koper-croatia",
-    "name": "Koper, Croatia",
+    "slug": "koper-slovenia",
+    "name": "Koper, Slovenia",
     "region": "Mediterranean",
-    "country": "Croatia"
+    "country": "Slovenia"
   },
   {
     "slug": "korcula-croatia",
@@ -6275,6 +6341,12 @@ export const allPorts = [
     "name": "Kristiansand, Norway",
     "region": "Southern Norway",
     "country": "Norway"
+  },
+  {
+    "slug": "kuala-lumpur-port-klang-malaysia",
+    "name": "Kuala Lumpur (Port Klang), Malaysia",
+    "region": "Asia",
+    "country": "Malaysia"
   },
   {
     "slug": "kuwait-city-kuwait",
@@ -6349,6 +6421,12 @@ export const allPorts = [
     "country": "Greece"
   },
   {
+    "slug": "lima-callao-peru",
+    "name": "Lima (Callao), Peru",
+    "region": "South America",
+    "country": "Peru"
+  },
+  {
     "slug": "limassol-cyprus",
     "name": "Limassol, Cyprus",
     "region": "Mediterranean",
@@ -6421,6 +6499,12 @@ export const allPorts = [
     "country": "Bahrain"
   },
   {
+    "slug": "manila-philippines",
+    "name": "Manila, Philippines",
+    "region": "Asia",
+    "country": "Philippines"
+  },
+  {
     "slug": "marigot-st-maarten",
     "name": "Marigot, St. Maarten",
     "region": "Caribbean",
@@ -6485,6 +6569,12 @@ export const allPorts = [
     "name": "Monaco, Monaco",
     "region": "Riviera",
     "country": "Monaco"
+  },
+  {
+    "slug": "monemvasia-greece",
+    "name": "Monemvasia, Greece",
+    "region": "Greek Isles",
+    "country": "Greece"
   },
   {
     "slug": "montego-bay-jamaica",
@@ -6661,6 +6751,12 @@ export const allPorts = [
     "country": "Spain"
   },
   {
+    "slug": "panama-city-panama",
+    "name": "Panama City, Panama",
+    "region": "Pacific Coast",
+    "country": "Panama"
+  },
+  {
     "slug": "paros-greece",
     "name": "Paros, Greece",
     "region": "Greek Isles",
@@ -6673,10 +6769,22 @@ export const allPorts = [
     "country": "Greece"
   },
   {
+    "slug": "penang-malaysia",
+    "name": "Penang, Malaysia",
+    "region": "Asia",
+    "country": "Malaysia"
+  },
+  {
     "slug": "perfect-day-at-cococay-bahamas",
     "name": "Perfect Day at CocoCay, Bahamas",
     "region": "Private Island",
     "country": "Bahamas"
+  },
+  {
+    "slug": "perth-australia",
+    "name": "Perth, Australia",
+    "region": "Australia",
+    "country": "Australia"
   },
   {
     "slug": "philipsburg-st-maarten",
@@ -6767,6 +6875,12 @@ export const allPorts = [
     "name": "Porto Cervo, Italy",
     "region": "Mediterranean",
     "country": "Italy"
+  },
+  {
+    "slug": "porto-vecchio-france",
+    "name": "Porto-Vecchio, France",
+    "region": "Mediterranean",
+    "country": "France"
   },
   {
     "slug": "portsmouth-united-kingdom",
@@ -6967,6 +7081,12 @@ export const allPorts = [
     "country": "Brazil"
   },
   {
+    "slug": "saranda-albania",
+    "name": "Saranda, Albania",
+    "region": "Mediterranean",
+    "country": "Albania"
+  },
+  {
     "slug": "sassnitz-mukran-germany",
     "name": "Sassnitz (Mukran), Germany",
     "region": "Baltic",
@@ -7093,6 +7213,12 @@ export const allPorts = [
     "country": "US Virgin Islands"
   },
   {
+    "slug": "st-tropez-france",
+    "name": "St. Tropez, France",
+    "region": "Riviera",
+    "country": "France"
+  },
+  {
     "slug": "stavanger-norway",
     "name": "Stavanger, Norway",
     "region": "Fjords",
@@ -7139,6 +7265,12 @@ export const allPorts = [
     "name": "Sydney, NS, Canada",
     "region": "Atlantic Canada",
     "country": "Canada"
+  },
+  {
+    "slug": "symi-greece",
+    "name": "Symi, Greece",
+    "region": "Greek Isles",
+    "country": "Greece"
   },
   {
     "slug": "syracuse-italy",
