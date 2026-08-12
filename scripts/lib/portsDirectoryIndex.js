@@ -222,12 +222,17 @@ function countPortsForRegions(directoryPorts, regionKeys) {
   return directoryPorts.filter((p) => set.has(p.region)).length;
 }
 
+function compareLabelsAz(a, b) {
+  return String(a || '').localeCompare(String(b || ''), undefined, { sensitivity: 'base' });
+}
+
 function buildRegionBrowseHtml(directoryPorts) {
   const presentRegions = new Set(directoryPorts.map((p) => p.region));
   const priorityKeys = new Set();
   const cards = [];
 
-  for (const def of PRIORITY_REGION_DEFS) {
+  const priorityDefsAz = PRIORITY_REGION_DEFS.slice().sort((a, b) => compareLabelsAz(a.label, b.label));
+  for (const def of priorityDefsAz) {
     const available = def.regions.filter((r) => presentRegions.has(r));
     if (!available.length) continue;
     const count = countPortsForRegions(directoryPorts, available);
@@ -244,7 +249,7 @@ function buildRegionBrowseHtml(directoryPorts) {
 
   const otherRegions = [...presentRegions]
     .filter((r) => !priorityKeys.has(r))
-    .sort((a, b) => a.localeCompare(b));
+    .sort(compareLabelsAz);
 
   const otherPills = otherRegions
     .map((region) => {
@@ -268,13 +273,11 @@ function buildPortCardsHtml(directoryPorts) {
   return directoryPorts
     .slice()
     .sort((a, b) => {
-      const ra = a.region.toLowerCase();
-      const rb = b.region.toLowerCase();
-      if (ra !== rb) return ra.localeCompare(rb);
-      const ca = a.country.toLowerCase();
-      const cb = b.country.toLowerCase();
-      if (ca !== cb) return ca.localeCompare(cb);
-      return String(a.displayName || '').localeCompare(String(b.displayName || ''));
+      const regionCmp = compareLabelsAz(a.region, b.region);
+      if (regionCmp !== 0) return regionCmp;
+      const countryCmp = compareLabelsAz(a.country, b.country);
+      if (countryCmp !== 0) return countryCmp;
+      return compareLabelsAz(a.displayName, b.displayName);
     })
     .map((port) => {
       const fr = formatDirectoryRating(port.rating);
@@ -459,7 +462,7 @@ function buildPortsDirectoryClientScript() {
       regions: null,
       country: '__all__',
       bookable: false,
-      sort: 'popular',
+      sort: 'name',
       query: ''
     };
 
@@ -517,7 +520,7 @@ function buildPortsDirectoryClientScript() {
       });
     }
     function sortCards(list){
-      var mode = state.sort || 'popular';
+      var mode = state.sort || 'name';
       return list.slice().sort(function(a, b){
         if(mode === 'name'){
           var na = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
@@ -563,7 +566,7 @@ function buildPortsDirectoryClientScript() {
         });
       }
       var entries = Object.keys(counts).map(function(k){ return counts[k]; })
-        .sort(function(a, b){ return b.count - a.count || a.label.localeCompare(b.label); });
+        .sort(function(a, b){ return a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }); });
 
       if(countryBrowse){
         countryBrowse.innerHTML = '';
@@ -769,7 +772,7 @@ function buildPortsDirectoryClientScript() {
     }
     if(filterSort){
       filterSort.addEventListener('change', function(){
-        state.sort = filterSort.value || 'popular';
+        state.sort = filterSort.value || 'name';
         apply();
       });
     }
@@ -836,14 +839,15 @@ function buildPortsIndexHtml(opts) {
   const { regionCardsHtml, otherRegionsHtml, otherRegionCount } = buildRegionBrowseHtml(directoryPorts);
   const cards = buildPortCardsHtml(directoryPorts);
 
-  const allRegions = [...new Set(directoryPorts.map((p) => p.region))].sort((a, b) =>
-    a.localeCompare(b)
-  );
+  const allRegions = [...new Set(directoryPorts.map((p) => p.region))].sort(compareLabelsAz);
+  const priorityFilterDefsAz = PRIORITY_REGION_DEFS.filter((def) =>
+    def.regions.some((r) => allRegions.includes(r))
+  ).sort((a, b) => compareLabelsAz(a.label, b.label));
   const filterRegionOptions = [
     `<option value="__all__">All Regions</option>`,
-    ...PRIORITY_REGION_DEFS.filter((def) =>
-      def.regions.some((r) => allRegions.includes(r))
-    ).map((def) => `<option value="${escapeHtml(def.key)}">${escapeHtml(def.label)}</option>`),
+    ...priorityFilterDefsAz.map(
+      (def) => `<option value="${escapeHtml(def.key)}">${escapeHtml(def.label)}</option>`
+    ),
     ...allRegions
       .filter((r) => !PRIORITY_REGION_DEFS.some((d) => d.regions.includes(r) && d.key === r))
       .map((r) => `<option value="${escapeHtml(r)}">${escapeHtml(r)}</option>`),
@@ -955,9 +959,9 @@ ${regionCardsHtml}
         </select>
         <label class="sr-only" for="filterSort">Sort</label>
         <select id="filterSort" class="filter-select">
-          <option value="popular">Sort: Popular</option>
-          <option value="name">Sort: Name</option>
+          <option value="name" selected>Sort: Name</option>
           <option value="country">Sort: Country</option>
+          <option value="popular">Sort: Popular</option>
         </select>
       </div>
       <p class="results-meta" id="resultsMeta"></p>
