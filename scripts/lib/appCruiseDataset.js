@@ -5521,6 +5521,12 @@ export const allPorts = [
     "country": "United Kingdom"
   },
   {
+    "slug": "belize-city-belize",
+    "name": "Belize City, Belize",
+    "region": "Caribbean",
+    "country": "Belize"
+  },
+  {
     "slug": "bergen-norway",
     "name": "Bergen, Norway",
     "region": "Fjords",
@@ -5549,6 +5555,12 @@ export const allPorts = [
     "name": "Bodrum, Turkey",
     "region": "Mediterranean",
     "country": "Turkey"
+  },
+  {
+    "slug": "bonaire-bonaire",
+    "name": "Bonaire, Bonaire",
+    "region": "Caribbean",
+    "country": "Bonaire"
   },
   {
     "slug": "bonifacio-france",
@@ -5653,6 +5665,12 @@ export const allPorts = [
     "country": "United States"
   },
   {
+    "slug": "capri-italy",
+    "name": "Capri, Italy",
+    "region": "Mediterranean",
+    "country": "Italy"
+  },
+  {
     "slug": "cartagena-colombia",
     "name": "Cartagena (Colombia), Colombia",
     "region": "Caribbean",
@@ -5695,14 +5713,14 @@ export const allPorts = [
     "country": "Canada"
   },
   {
-    "slug": "chennai-port-india",
-    "name": "Chennai Port, India",
+    "slug": "chennai-india",
+    "name": "Chennai, India",
     "region": "Asia",
     "country": "India"
   },
   {
-    "slug": "chennai-india",
-    "name": "Chennai, India",
+    "slug": "chennai-port-india",
+    "name": "Chennai Port, India",
     "region": "Asia",
     "country": "India"
   },
@@ -5719,14 +5737,20 @@ export const allPorts = [
     "country": "Greece"
   },
   {
-    "slug": "cochin-port-india",
-    "name": "Cochin Port, India",
-    "region": "Asia",
-    "country": "India"
+    "slug": "christchurch-lyttelton-new-zealand",
+    "name": "Christchurch (Lyttelton), New Zealand",
+    "region": "New Zealand",
+    "country": "New Zealand"
   },
   {
     "slug": "cochin-india",
     "name": "Cochin, India",
+    "region": "Asia",
+    "country": "India"
+  },
+  {
+    "slug": "cochin-port-india",
+    "name": "Cochin Port, India",
     "region": "Asia",
     "country": "India"
   },
@@ -5759,6 +5783,12 @@ export const allPorts = [
     "name": "Cork (Cobh), Ireland",
     "region": "British Isles",
     "country": "Ireland"
+  },
+  {
+    "slug": "corner-brook-canada",
+    "name": "Corner Brook, Canada",
+    "region": "Atlantic Canada",
+    "country": "Canada"
   },
   {
     "slug": "costa-maya-mexico",
@@ -5819,6 +5849,12 @@ export const allPorts = [
     "name": "Doha, Qatar",
     "region": "Middle East",
     "country": "Qatar"
+  },
+  {
+    "slug": "douglas-isle-of-man",
+    "name": "Douglas (Isle of Man), Isle of Man",
+    "region": "British Isles",
+    "country": "Isle of Man"
   },
   {
     "slug": "dover-united-kingdom",
@@ -5941,6 +5977,12 @@ export const allPorts = [
     "country": "Italy"
   },
   {
+    "slug": "fort-de-france-martinique",
+    "name": "Fort-de-France, Martinique",
+    "region": "Caribbean",
+    "country": "Martinique"
+  },
+  {
     "slug": "fort-lauderdale-fl-united-states",
     "name": "Fort Lauderdale, FL, United States",
     "region": "Florida",
@@ -5957,6 +5999,12 @@ export const allPorts = [
     "name": "Fujairah, United Arab Emirates",
     "region": "Middle East",
     "country": "United Arab Emirates"
+  },
+  {
+    "slug": "fukuoka-japan",
+    "name": "Fukuoka, Japan",
+    "region": "Asia",
+    "country": "Japan"
   },
   {
     "slug": "galveston-tx-united-states",
@@ -6655,14 +6703,14 @@ export const allPorts = [
     "country": "India"
   },
   {
-    "slug": "mumbai-port-india",
-    "name": "Mumbai Port, India",
+    "slug": "mumbai-india",
+    "name": "Mumbai, India",
     "region": "Asia",
     "country": "India"
   },
   {
-    "slug": "mumbai-india",
-    "name": "Mumbai, India",
+    "slug": "mumbai-port-india",
+    "name": "Mumbai Port, India",
     "region": "Asia",
     "country": "India"
   },
@@ -6779,6 +6827,12 @@ export const allPorts = [
     "name": "Ocho Rios, Jamaica",
     "region": "Caribbean",
     "country": "Jamaica"
+  },
+  {
+    "slug": "okinawa-naha-japan",
+    "name": "Okinawa (Naha), Japan",
+    "region": "Asia",
+    "country": "Japan"
   },
   {
     "slug": "olbia-italy",
@@ -6931,16 +6985,16 @@ export const allPorts = [
     "country": "United Arab Emirates"
   },
   {
+    "slug": "portimao-portugal",
+    "name": "Portimão, Portugal",
+    "region": "Atlantic",
+    "country": "Portugal"
+  },
+  {
     "slug": "portland-me-united-states",
     "name": "Portland, ME, United States",
     "region": "New England",
     "country": "United States"
-  },
-  {
-    "slug": "porto-leixoes-portugal",
-    "name": "Porto (Leixoes), Portugal",
-    "region": "Atlantic",
-    "country": "Portugal"
   },
   {
     "slug": "porto-cervo-italy",
@@ -6949,10 +7003,22 @@ export const allPorts = [
     "country": "Italy"
   },
   {
+    "slug": "porto-leixoes-portugal",
+    "name": "Porto (Leixoes), Portugal",
+    "region": "Atlantic",
+    "country": "Portugal"
+  },
+  {
     "slug": "porto-vecchio-france",
     "name": "Porto-Vecchio, France",
     "region": "Mediterranean",
     "country": "France"
+  },
+  {
+    "slug": "portofino-italy",
+    "name": "Portofino, Italy",
+    "region": "Riviera",
+    "country": "Italy"
   },
   {
     "slug": "portsmouth-united-kingdom",
@@ -7057,6 +7123,12 @@ export const allPorts = [
     "country": "Italy"
   },
   {
+    "slug": "roseau-dominica",
+    "name": "Roseau, Dominica",
+    "region": "Caribbean",
+    "country": "Dominica"
+  },
+  {
     "slug": "rostock-germany",
     "name": "Rostock, Germany",
     "region": "Baltic",
@@ -7133,6 +7205,12 @@ export const allPorts = [
     "name": "San Juan, Puerto Rico",
     "region": "Caribbean",
     "country": "Puerto Rico"
+  },
+  {
+    "slug": "santander-spain",
+    "name": "Santander, Spain",
+    "region": "Atlantic",
+    "country": "Spain"
   },
   {
     "slug": "santiago-san-antonio-chile",
@@ -7271,6 +7349,12 @@ export const allPorts = [
     "name": "St. Croix (Frederiksted), US Virgin Islands",
     "region": "Caribbean",
     "country": "US Virgin Islands"
+  },
+  {
+    "slug": "st-george-s-grenada",
+    "name": "St. George's, Grenada",
+    "region": "Caribbean",
+    "country": "Grenada"
   },
   {
     "slug": "st-kitts-basseterre-st-kitts",
@@ -7417,6 +7501,12 @@ export const allPorts = [
     "country": "Japan"
   },
   {
+    "slug": "tortola-british-virgin-islands",
+    "name": "Tortola, British Virgin Islands",
+    "region": "Caribbean",
+    "country": "British Virgin Islands"
+  },
+  {
     "slug": "toulon-france",
     "name": "Toulon, France",
     "region": "Mediterranean",
@@ -7559,89 +7649,5 @@ export const allPorts = [
     "name": "Zakynthos, Greece",
     "region": "Greek Isles",
     "country": "Greece"
-  }
-]
-export const allRegions = [
-  "Alaska",
-  "Arctic",
-  "Asia",
-  "Atlantic",
-  "Atlantic Canada",
-  "Atlantic Islands",
-  "Australia",
-  "Baja Mexico",
-  "Balearic Islands",
-  "Baltic",
-  "British Isles",
-  "California",
-  "Canary Islands",
-  "Caribbean",
-  "Fjords",
-  "Florida",
-  "Greek Isles",
-  "Gulf of Mexico",
-  "Hawaii",
-  "Lofoten",
-  "Mediterranean",
-  "Mexican Riviera",
-  "Mid-Atlantic",
-  "Middle East",
-  "New England",
-  "New Zealand",
-  "North Sea",
-  "Northeast",
-  "Northern Europe",
-  "Northern Ireland",
-  "Pacific Coast",
-  "Pacific Northwest",
-  "Private Island",
-  "Riviera",
-  "Scandinavia",
-  "Scotland",
-  "South",
-  "South America",
-  "Southern Norway",
-  "St. Lawrence",
-  "Texas"
-]
-
-export const allCruiseLines = [
-  "A-ROSA Cruises",
-  "AIDA Cruises",
-  "Aroya Cruises",
-  "Azamara",
-  "Carnival Cruise Line",
-  "Celebrity Cruises",
-  "Celestyal Cruises",
-  "Costa Cruises",
-  "Cunard Line",
-  "Disney Cruise Line",
-  "Explora Journeys",
-  "Fred. Olsen Cruise Lines",
-  "Hapag-Lloyd Cruises",
-  "Havila Voyages",
-  "Holland America Line",
-  "Hurtigruten / HX",
-  "Marella Cruises",
-  "MSC Cruises",
-  "nicko cruises",
-  "Norwegian Cruise Line",
-  "Oceania Cruises",
-  "P&O Cruises",
-  "P&O Cruises Australia",
-  "Phoenix Reisen",
-  "PLANTOURS Kreuzfahrten",
-  "Ponant",
-  "Princess Cruises",
-  "Regent Seven Seas",
-  "Royal Caribbean",
-  "Saga Cruises",
-  "Sea Cloud Cruises",
-  "Seabourn",
-  "Silversea Cruises",
-  "SNAV",
-  "TUI Cruises",
-  "Viking River Cruises",
-  "Virgin Voyages",
-  "Windstar Cruises"
-]
+  },
+];
