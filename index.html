@@ -1184,118 +1184,396 @@ window.__SEADAYS_GA_READY__ = true;
 
         .hero-store-badges { margin-top: 40px; }
 
-        /* Flip cards – Cruise Planning Tools (3×2 grid) */
-        .flip-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 24px;
+        /* Compact interactive cruise journey */
+        .voyage-journey {
             width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1080px;
+            margin: 36px auto 0;
         }
-        .flip-cards-grid .flip-card-wrap {
-            min-width: 0;
-        }
-        @media (max-width: 1024px) {
-            .flip-cards-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                max-width: 920px;
-                gap: 28px;
-            }
-        }
-        .flip-card-wrap {
-            --card-accent: var(--neon-red);
-            --card-glow: 255, 0, 51;
-            perspective: 1000px;
-            min-height: 300px;
-        }
-        .flip-card-wrap.theme-1 { --card-accent: #ff0033; --card-glow: 255, 0, 51; }
-        .flip-card-wrap.theme-2 { --card-accent: #06b6d4; --card-glow: 6, 182, 212; }
-        .flip-card-wrap.theme-3 { --card-accent: #f59e0b; --card-glow: 245, 158, 11; }
-        .flip-card-wrap.theme-4 { --card-accent: #48bb78; --card-glow: 72, 187, 120; }
-        .flip-card-wrap.theme-5 { --card-accent: #9370db; --card-glow: 147, 112, 219; }
-        .flip-card-wrap.theme-6 { --card-accent: #ec4899; --card-glow: 236, 72, 153; }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 300px;
-            transition: transform 0.45s ease;
-            transform-style: preserve-3d;
-        }
-        .flip-card-wrap.flipped .flip-card-inner { transform: rotateY(180deg); }
-        .flip-card-face {
-            --face-accent: var(--card-accent);
-            --face-glow: var(--card-glow);
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
+        .journey-shell {
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 24px;
-            border: 2px solid var(--face-accent);
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 0 12px rgba(var(--face-glow), 0.28), 0 0 24px rgba(var(--face-glow), 0.14), 0 4px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(165deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.015) 55%, rgba(255,0,51,0.04) 100%);
+            padding: 28px 28px 32px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+        }
+        .journey-nav {
+            position: relative;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0;
+            margin: 0 0 28px;
+            padding: 0 4px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            list-style: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            scroll-snap-type: x proximity;
+        }
+        .journey-nav::-webkit-scrollbar { display: none; }
+        .journey-nav::before {
+            content: '';
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            top: 18px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .journey-tab {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 0;
+            min-width: 108px;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            align-items: center;
+            gap: 8px;
+            padding: 0 6px 4px;
+            background: transparent;
+            border: 0;
             cursor: pointer;
+            color: rgba(255,255,255,0.42);
+            scroll-snap-align: center;
+            -webkit-tap-highlight-color: transparent;
         }
-        .flip-card-face:has(.color-1),
-        .flip-card-face:has(.back-color-1) { --face-accent: #ff0033; --face-glow: 255, 0, 51; }
-        .flip-card-face:has(.color-2),
-        .flip-card-face:has(.back-color-2) { --face-accent: #06b6d4; --face-glow: 6, 182, 212; }
-        .flip-card-face:has(.color-3),
-        .flip-card-face:has(.back-color-3) { --face-accent: #f59e0b; --face-glow: 245, 158, 11; }
-        .flip-card-face:has(.color-4),
-        .flip-card-face:has(.back-color-4) { --face-accent: #48bb78; --face-glow: 72, 187, 120; }
-        .flip-card-face:has(.color-5),
-        .flip-card-face:has(.back-color-5) { --face-accent: #9370db; --face-glow: 147, 112, 219; }
-        .flip-card-face:has(.color-6),
-        .flip-card-face:has(.back-color-6) { --face-accent: #ec4899; --face-glow: 236, 72, 153; }
-        .flip-card-face.back { transform: rotateY(180deg); }
-        .flip-card-wrap:hover .flip-card-face {
-            box-shadow: 0 0 20px rgba(var(--face-glow), 0.5), 0 0 40px rgba(var(--face-glow), 0.28), 0 10px 40px rgba(var(--face-glow), 0.2);
+        .journey-tab:focus-visible {
+            outline: 2px solid var(--neon-red);
+            outline-offset: 4px;
+            border-radius: 8px;
         }
-        .flip-card-image {
-            width: 100%;
-            height: 140px;
-            flex-shrink: 0;
-            background: rgba(255, 255, 255, 0.05);
+        .journey-tab-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(10,10,10,0.9);
+            color: rgba(255,255,255,0.55);
+            transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+        .journey-tab-label {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .journey-tab[aria-selected="true"] {
+            color: #fff;
+        }
+        .journey-tab[aria-selected="true"] .journey-tab-num {
+            color: #fff;
+            border-color: var(--neon-red);
+            background: rgba(255,0,51,0.18);
+            box-shadow: 0 0 0 3px rgba(255,0,51,0.12), 0 0 18px rgba(255,0,51,0.25);
+        }
+        .journey-tab[aria-selected="true"] .journey-tab-label {
+            color: var(--neon-red);
+        }
+        .journey-controls {
             display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin: -12px 0 18px;
+        }
+        .journey-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.75);
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+        }
+        .journey-arrow:hover {
+            border-color: rgba(255,255,255,0.28);
+            color: #fff;
+        }
+        .journey-arrow:focus-visible {
+            outline: 2px solid var(--neon-red);
+            outline-offset: 2px;
+        }
+        .journey-panel {
+            position: relative;
+            overflow: hidden;
+            min-height: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            /* Prevent scroll-anchoring / snap jumps when stages swap */
+            overflow-anchor: none;
+        }
+        .journey-copy { max-width: 34rem; }
+        .journey-kicker {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 12px;
+        }
+        .journey-kicker span {
+            color: var(--neon-red);
+            margin-right: 10px;
+        }
+        .journey-title {
+            font-size: clamp(26px, 3.4vw, 36px);
+            font-weight: 800;
+            letter-spacing: -0.7px;
+            line-height: 1.15;
+            color: #fff;
+            margin: 0 0 14px;
+        }
+        .journey-body {
+            font-size: 16px;
+            line-height: 1.65;
+            color: rgba(255,255,255,0.68);
+            margin: 0 0 18px;
+        }
+        .journey-includes {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin: 0;
+            padding: 0;
+        }
+        .journey-includes li {
+            font-size: 14px;
+            color: rgba(255,255,255,0.78);
+            position: relative;
+            padding-left: 14px;
+        }
+        .journey-includes li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--neon-red);
+            opacity: 0.85;
+        }
+        .journey-visual {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(0,0,0,0.35);
+            aspect-ratio: 16 / 9;
+            max-height: 280px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+        }
+        .journey-visual-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 10px;
+            height: 100%;
+            min-height: 200px;
+            padding: 28px;
             box-sizing: border-box;
         }
-        .flip-card-image .flip-card-title {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            line-height: 1.3;
+        .journey-visual-card strong {
+            font-size: clamp(22px, 3vw, 30px);
+            letter-spacing: -0.5px;
+            color: #fff;
+            line-height: 1.2;
         }
-        .flip-card-image.color-1 { background: linear-gradient(135deg, rgba(255, 0, 51, 0.35), rgba(255, 0, 51, 0.15)); }
-        .flip-card-image.color-2 { background: linear-gradient(135deg, rgba(6, 182, 212, 0.35), rgba(6, 182, 212, 0.15)); }
-        .flip-card-image.color-3 { background: linear-gradient(135deg, rgba(245, 158, 11, 0.35), rgba(245, 158, 11, 0.15)); }
-        .flip-card-image.color-4 { background: linear-gradient(135deg, rgba(72, 187, 120, 0.35), rgba(72, 187, 120, 0.15)); }
-        .flip-card-image.color-5 { background: linear-gradient(135deg, rgba(147, 112, 219, 0.35), rgba(147, 112, 219, 0.15)); }
-        .flip-card-image.color-6 { background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(236, 72, 153, 0.15)); }
-        .flip-card-image.back-color-1 { background: linear-gradient(135deg, rgba(255, 0, 51, 0.4), rgba(255, 0, 51, 0.15)); }
-        .flip-card-image.back-color-2 { background: linear-gradient(135deg, rgba(6, 182, 212, 0.4), rgba(6, 182, 212, 0.15)); }
-        .flip-card-image.back-color-3 { background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.15)); }
-        .flip-card-image.back-color-4 { background: linear-gradient(135deg, rgba(72, 187, 120, 0.4), rgba(72, 187, 120, 0.15)); }
-        .flip-card-image.back-color-5 { background: linear-gradient(135deg, rgba(147, 112, 219, 0.4), rgba(147, 112, 219, 0.15)); }
-        .flip-card-image.back-color-6 { background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(236, 72, 153, 0.15)); }
-        .flip-card-body { padding: 20px; flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
-        .flip-card-body .flip-card-title { display: none; }
-        .flip-card-desc {
+        .journey-visual-card span {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.55;
+            color: rgba(255,255,255,0.55);
+            max-width: 18rem;
+            line-height: 1.5;
+        }
+        .journey-visual-card--plan {
+            background:
+                radial-gradient(ellipse at 18% 12%, rgba(255,0,51,0.28), transparent 52%),
+                radial-gradient(ellipse at 90% 88%, rgba(255,0,51,0.12), transparent 45%),
+                linear-gradient(160deg, #141014 0%, #0a0a0a 55%, #1a0a10 100%);
+        }
+        .journey-visual-card--discover {
+            background:
+                radial-gradient(ellipse at 18% 12%, rgba(56, 140, 220, 0.26), transparent 52%),
+                radial-gradient(ellipse at 90% 88%, rgba(30, 80, 140, 0.18), transparent 45%),
+                linear-gradient(160deg, #0e141c 0%, #0a0a0a 55%, #0a121a 100%);
+        }
+        .journey-visual-card--connect {
+            background:
+                radial-gradient(ellipse at 18% 12%, rgba(236, 72, 120, 0.26), transparent 52%),
+                radial-gradient(ellipse at 90% 88%, rgba(255,0,51,0.1), transparent 45%),
+                linear-gradient(160deg, #161012 0%, #0a0a0a 55%, #1a0c12 100%);
+        }
+        .journey-visual-card--track {
+            background:
+                radial-gradient(ellipse at 18% 12%, rgba(45, 180, 150, 0.24), transparent 52%),
+                radial-gradient(ellipse at 90% 88%, rgba(20, 100, 90, 0.16), transparent 45%),
+                linear-gradient(160deg, #0e1614 0%, #0a0a0a 55%, #0a1412 100%);
+        }
+        .journey-visual-card--remember {
+            background:
+                radial-gradient(ellipse at 20% 10%, rgba(255,0,51,0.22), transparent 50%),
+                radial-gradient(ellipse at 88% 90%, rgba(180, 40, 70, 0.16), transparent 48%),
+                linear-gradient(160deg, #121212 0%, #0a0a0a 60%, #1a0a10 100%);
+        }
+        .journey-stage {
+            grid-area: 1 / 1;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 28px 40px;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            /* Stay in flow (stacked) so panel height = tallest stage — no snap jump */
+            position: relative;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translate3d(100%, 0, 0);
+            z-index: 0;
+        }
+        .journey-stage.is-active {
+            visibility: visible;
+            pointer-events: auto;
+            transform: translate3d(0, 0, 0);
+            z-index: 1;
+        }
+        .journey-stage.is-from-right,
+        .journey-stage.is-from-left,
+        .journey-stage.is-entering,
+        .journey-stage.is-leaving-left,
+        .journey-stage.is-leaving-right {
+            visibility: visible;
+            pointer-events: none;
+        }
+        .journey-stage.is-from-right {
+            transform: translate3d(100%, 0, 0);
+        }
+        .journey-stage.is-from-left {
+            transform: translate3d(-100%, 0, 0);
+        }
+        .journey-stage.is-entering {
+            transform: translate3d(0, 0, 0);
+            z-index: 1;
+        }
+        .journey-stage.is-leaving-left {
+            z-index: 0;
+            transform: translate3d(-100%, 0, 0);
+        }
+        .journey-stage.is-leaving-right {
+            z-index: 0;
+            transform: translate3d(100%, 0, 0);
+        }
+        .journey-stage.is-animating {
+            transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        #cruise-planning-tools.journey-section {
+            overflow-anchor: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .journey-stage.is-animating { transition: none; }
+            .journey-tab-num { transition: none; }
+        }
+        .journey-seo-visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        #cruise-planning-tools.journey-section {
+            min-height: 0;
+            height: auto;
+            padding: 72px 0 64px;
+            scroll-snap-align: start;
+            scroll-snap-stop: normal;
+        }
+        @media (max-width: 900px) {
+            .journey-shell { padding: 22px 18px 24px; border-radius: 18px; }
+            .journey-panel { min-height: 0; }
+            .journey-stage,
+            .journey-stage.is-active,
+            .journey-stage.is-entering {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .journey-visual {
+                order: -1;
+                aspect-ratio: 16 / 9;
+                max-height: 168px;
+                min-height: 0;
+            }
+            .journey-visual-card {
+                min-height: 0;
+                padding: 20px;
+                gap: 6px;
+            }
+            .journey-visual-card strong { font-size: 22px; }
+            .journey-visual-card span { font-size: 13px; }
+            .journey-title { font-size: 26px; }
+            .journey-body { font-size: 15px; margin-bottom: 14px; }
+            .journey-controls { display: none; }
+            .journey-nav {
+                justify-content: flex-start;
+                gap: 4px;
+                padding-bottom: 16px;
+                margin-bottom: 16px;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255,0,51,0.55) rgba(255,255,255,0.08);
+            }
+            .journey-nav::-webkit-scrollbar { display: block; height: 3px; }
+            .journey-nav::-webkit-scrollbar-thumb {
+                background: rgba(255,0,51,0.5);
+                border-radius: 99px;
+            }
+            .journey-nav::-webkit-scrollbar-track {
+                background: rgba(255,255,255,0.06);
+                border-radius: 99px;
+            }
+            .journey-nav::before { display: none; }
+            .journey-nav.journey-nav--more {
+                -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 36px), transparent 100%);
+                mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 36px), transparent 100%);
+            }
+            .journey-tab { flex: 0 0 auto; min-width: 92px; }
+            #cruise-planning-tools.journey-section { padding: 48px 0 40px; }
+        }
+        @media (max-width: 480px) {
+            .voyage-journey { margin-top: 24px; }
+            .journey-shell { padding: 18px 14px 20px; }
+            .journey-tab { min-width: 84px; }
+            .journey-tab-num { width: 32px; height: 32px; font-size: 11px; }
+            .journey-tab-label { font-size: 10px; letter-spacing: 0.12em; }
+            .journey-visual {
+                border-radius: 12px;
+                aspect-ratio: 2 / 1;
+                max-height: 148px;
+            }
+            .journey-visual-card { padding: 16px; }
+            .journey-visual-card strong { font-size: 18px; }
+            .journey-visual-card span { font-size: 12px; }
+            .journey-kicker { margin-bottom: 8px; }
+            .journey-title { font-size: 22px; margin-bottom: 10px; }
         }
 
         /* Feature card app button */
@@ -1853,51 +2131,114 @@ window.__SEADAYS_GA_READY__ = true;
 
         /* Footer – snap target so last scroll lands here */
         footer {
-            padding: 60px 0 30px;
+            padding: 80px 0 36px;
             margin-top: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: left;
             background: #050505;
             scroll-snap-align: start;
         }
-
-        .footer-content {
+        .footer-shell {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-            text-align: left;
+            grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+            gap: 48px 48px;
+            margin-bottom: 44px;
+            align-items: start;
         }
-
-        .footer-section h4 {
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: white;
+        .footer-brand { max-width: 340px; }
+        .footer-brand-logo {
+            display: inline-block;
+            text-decoration: none;
+            margin-bottom: 18px;
         }
-
-        .footer-section ul {
-            list-style: none;
+        .footer-brand-logo img {
+            display: block;
+            width: auto;
+            height: 40px;
+            max-width: 180px;
         }
-
-        .footer-section ul li {
+        .footer-brand-desc {
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 15px;
+            line-height: 1.65;
             margin-bottom: 12px;
         }
-
+        .footer-brand-meta {
+            color: rgba(255, 255, 255, 0.38);
+            font-size: 13px;
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+        .footer-hamburg {
+            display: block;
+        }
+        .footer-social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.55);
+            text-decoration: none;
+            font-size: 14px;
+            min-height: 28px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .footer-social a:hover { color: var(--neon-red); }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 28px 16px;
+            text-align: left;
+            min-width: 0;
+        }
+        .footer-section h4 {
+            margin-bottom: 16px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .footer-section ul { list-style: none; margin: 0; padding: 0; }
+        .footer-section ul li { margin-bottom: 11px; }
         .footer-section a {
             color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--neon-red);
-        }
-
-        .footer-bottom {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.3);
+            transition: color 0.25s ease;
             font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+        }
+        .footer-section a:hover { color: var(--neon-red); }
+        .footer-bottom {
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.32);
+            font-size: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px;
+            text-align: left;
+        }
+        .footer-mobile-brand {
+            display: none;
+        }
+        @media (max-width: 1100px) {
+            .footer-shell {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-content {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 28px 24px;
+            }
         }
 
         /* Smooth Scroll */
@@ -1995,12 +2336,6 @@ window.__SEADAYS_GA_READY__ = true;
                 font-size: 14px;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 30px;
-            }
-
             .hero {
                 padding: 40px 20px;
             }
@@ -2070,6 +2405,127 @@ window.__SEADAYS_GA_READY__ = true;
             .blog-section-grid { grid-template-columns: 1fr; }
             .blog-card-image { height: 240px; }
             .blog-card-image-placeholder { height: 240px; }
+            /* Mobile footer: compact 2-col nav */
+            footer {
+                padding: 48px 0 28px;
+                padding-bottom: max(28px, env(safe-area-inset-bottom));
+            }
+            .footer-shell {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-bottom: 0;
+            }
+            .footer-brand {
+                max-width: none;
+                text-align: center;
+            }
+            .footer-brand .footer-brand-logo {
+                display: none;
+            }
+            .footer-brand > .footer-brand-desc,
+            .footer-brand > .footer-brand-meta {
+                display: none;
+            }
+            .footer-social {
+                gap: 12px 16px;
+                justify-content: center;
+            }
+            .footer-content {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 32px 20px;
+                text-align: center;
+                margin-bottom: 0;
+                align-items: start;
+                justify-items: center;
+            }
+            .footer-section {
+                width: 100%;
+                text-align: center;
+            }
+            .footer-section h4 {
+                margin-bottom: 16px;
+                text-align: center;
+            }
+            .footer-section ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+            .footer-section ul li {
+                margin-bottom: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-section a {
+                min-height: 36px;
+                padding: 8px 0;
+                font-size: 14px;
+                line-height: 1.35;
+                justify-content: center;
+                width: 100%;
+                text-align: center;
+            }
+            .footer-section--legal {
+                grid-column: 1 / -1;
+            }
+            .footer-mobile-brand {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                margin: 32px 0 0;
+                padding: 8px 12px 0;
+                box-sizing: border-box;
+            }
+            .footer-logo-mobile {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin: 0 0 14px;
+                padding: 0;
+                text-decoration: none;
+            }
+            .footer-logo-mobile img {
+                display: block;
+                width: auto;
+                height: 36px;
+                max-width: 160px;
+                margin: 0 auto;
+            }
+            .footer-mobile-brand .footer-brand-desc {
+                display: block;
+                margin: 0 0 8px;
+                font-size: 14px;
+                line-height: 1.55;
+                max-width: 22rem;
+                text-align: center;
+            }
+            .footer-mobile-brand .footer-brand-meta {
+                display: block;
+                margin: 0;
+                font-size: 12px;
+                line-height: 1.5;
+                text-align: center;
+            }
+            .footer-hamburg {
+                display: inline;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 0;
+                margin-top: 16px;
+                padding-top: 20px;
+            }
+            .footer-bottom p {
+                width: 100%;
+                text-align: center;
+            }
             .flip-cards-grid { grid-template-columns: 1fr; gap: 20px; }
             .flip-card-wrap { min-height: 280px; }
             .flip-card-inner { min-height: 280px; }
@@ -2125,7 +2581,10 @@ window.__SEADAYS_GA_READY__ = true;
             .store-badge { min-width: 120px; padding: 14px 16px; min-height: 44px; }
             .hero-store-badges { flex-direction: column; align-items: center; margin-top: 28px; }
             footer { padding: 40px 0 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
-            .footer-content { gap: 28px; margin-bottom: 28px; }
+            .footer-content { gap: 28px 14px; }
+            .footer-section a { font-size: 13px; }
+            .footer-mobile-brand { margin-top: 24px; }
+            .footer-logo-mobile img { height: 32px; }
             .btn-primary { min-height: 44px; padding: 14px 28px; }
             .featured-carousel-wrap { min-height: auto; }
             .featured-tool-content { padding: 0 8px; min-width: 0; max-width: 100%; }
@@ -2136,6 +2595,15 @@ window.__SEADAYS_GA_READY__ = true;
             .blog-card-body { padding: 16px; }
             .blog-card-title { font-size: 16px; }
             .blog-card-excerpt { font-size: 13px; }
+        }
+        @media (max-width: 360px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .footer-section--legal {
+                grid-column: auto;
+            }
         }
 
         /* Skip link: visible only when focused (accessibility) */
@@ -2198,54 +2666,141 @@ window.__SEADAYS_GA_READY__ = true;
             <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to features" onclick="document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'smooth'});}"></div>
         </section>
 
-        <!-- Cruise Planning Tools (flip cards) - full viewport, scroll-snap -->
-        <section id="cruise-planning-tools" class="fullpage-section">
+        <!-- Voyage journey (compact interactive) -->
+        <section id="cruise-planning-tools" class="journey-section" aria-labelledby="voyage-journey-title">
             <div class="container">
-                <h2 class="section-title">Cruise Planning Tools<br>for Smarter Voyages</h2>
-                <p class="section-subtitle">Roll calls, cruise planning, budget tracking, community, and ship discovery—prioritized for cruise passengers in one app.</p>
-                <div class="flip-cards-grid" id="flipCardsGrid">
+                <h2 id="voyage-journey-title" class="section-title">Your cruise,<br>from first plan to last memory</h2>
+                <p class="section-subtitle">One place to plan the sailing, discover ships and ports, meet your crew, and keep the voyage with you.</p>
 
-                        <div class="flip-card-wrap theme-5" tabindex="0" role="button" aria-label="Cruise Roll Calls – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-5"><h3 class="flip-card-title">Cruise Roll Calls</h3></div><div class="flip-card-body"><p class="flip-card-desc">Join roll calls for your ship and sailing date. Meet fellow cruisers, coordinate excursions, and introduce yourself before embarkation.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-5"><h3 class="flip-card-title">Crew Chat</h3></div><div class="flip-card-body"><p class="flip-card-desc">Chat with travelers on your sailing to plan meetups, port days, and onboard activities in real time.</p></div></div>
-                            </div>
+                <div class="voyage-journey" data-journey-root>
+                    <div class="journey-shell">
+                        <div class="journey-nav" role="tablist" aria-label="Cruise journey stages. Swipe sideways to see all five stages.">
+                            <button type="button" class="journey-tab" role="tab" id="journey-tab-plan" aria-controls="journey-panel-plan" aria-selected="true" data-stage="plan">
+                                <span class="journey-tab-num" aria-hidden="true">01</span>
+                                <span class="journey-tab-label">Plan</span>
+                            </button>
+                            <button type="button" class="journey-tab" role="tab" id="journey-tab-discover" aria-controls="journey-panel-discover" aria-selected="false" tabindex="-1" data-stage="discover">
+                                <span class="journey-tab-num" aria-hidden="true">02</span>
+                                <span class="journey-tab-label">Discover</span>
+                            </button>
+                            <button type="button" class="journey-tab" role="tab" id="journey-tab-connect" aria-controls="journey-panel-connect" aria-selected="false" tabindex="-1" data-stage="connect">
+                                <span class="journey-tab-num" aria-hidden="true">03</span>
+                                <span class="journey-tab-label">Connect</span>
+                            </button>
+                            <button type="button" class="journey-tab" role="tab" id="journey-tab-track" aria-controls="journey-panel-track" aria-selected="false" tabindex="-1" data-stage="track">
+                                <span class="journey-tab-num" aria-hidden="true">04</span>
+                                <span class="journey-tab-label">Track</span>
+                            </button>
+                            <button type="button" class="journey-tab" role="tab" id="journey-tab-remember" aria-controls="journey-panel-remember" aria-selected="false" tabindex="-1" data-stage="remember">
+                                <span class="journey-tab-num" aria-hidden="true">05</span>
+                                <span class="journey-tab-label">Remember</span>
+                            </button>
                         </div>
 
-                        <div class="flip-card-wrap theme-1" tabindex="0" role="button" aria-label="Cruise Planner – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-1"><h3 class="flip-card-title">Cruise Planner</h3></div><div class="flip-card-body"><p class="flip-card-desc">Plan every moment of your cruise. Organize excursions, shows, reservations, and sea days so you always know what's next.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-1"><h3 class="flip-card-title">Itinerary Tools</h3></div><div class="flip-card-body"><p class="flip-card-desc">Organize notes, activities, and travel details so your entire cruise itinerary stays structured and easy to manage.</p></div></div>
-                            </div>
+                        <div class="journey-controls" aria-hidden="false">
+                            <button type="button" class="journey-arrow" data-journey-prev aria-label="Previous stage">‹</button>
+                            <button type="button" class="journey-arrow" data-journey-next aria-label="Next stage">›</button>
                         </div>
 
-                        <div class="flip-card-wrap theme-2" tabindex="0" role="button" aria-label="Cruise budget tracking – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-2"><h3 class="flip-card-title">Cruise Budget Tracking</h3></div><div class="flip-card-body"><p class="flip-card-desc">Understand the real cost of your cruise. Track trip expenses, onboard spending, and extras with clear financial insights.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-2"><h3 class="flip-card-title">Rate Ships</h3></div><div class="flip-card-body"><p class="flip-card-desc">Share your experience and rate cruise ships based on cabins, dining, entertainment, and overall atmosphere.</p></div></div>
-                            </div>
-                        </div>
+                        <div class="journey-panel">
+                            <article class="journey-stage is-active" role="tabpanel" id="journey-panel-plan" aria-labelledby="journey-tab-plan" data-stage="plan" aria-hidden="false">
+                                <div class="journey-copy">
+                                    <p class="journey-kicker"><span>01</span>Plan</p>
+                                    <h3 class="journey-title">Build the days before you board</h3>
+                                    <p class="journey-body">Map shows, excursions, reservations, and sea days into one clear itinerary — so embarkation feels calm, not chaotic.</p>
+                                    <ul class="journey-includes">
+                                        <li>Cruise Planner</li>
+                                        <li>Itinerary tools</li>
+                                    </ul>
+                                </div>
+                                <div class="journey-visual" aria-hidden="true">
+                                    <div class="journey-visual-card journey-visual-card--plan">
+                                        <strong>Cruise Planner</strong>
+                                        <span>Itineraries, reservations, and sea days — organized before you board.</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                        <div class="flip-card-wrap theme-3" tabindex="0" role="button" aria-label="Cruise Community – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-3"><h3 class="flip-card-title">Cruise Community</h3></div><div class="flip-card-body"><p class="flip-card-desc">Connect with fellow cruisers on the same sailing. Share tips, experiences, and recommendations with the SeaDays community.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-3"><h3 class="flip-card-title">SeaStories</h3></div><div class="flip-card-body"><p class="flip-card-desc">Read and share cruise tips, photos, and port-day stories from passengers who have sailed before you.</p></div></div>
-                            </div>
-                        </div>
+                            <article class="journey-stage" role="tabpanel" id="journey-panel-discover" aria-labelledby="journey-tab-discover" data-stage="discover" aria-hidden="true">
+                                <div class="journey-copy">
+                                    <p class="journey-kicker"><span>02</span>Discover</p>
+                                    <h3 class="journey-title">Choose ships and ports with confidence</h3>
+                                    <p class="journey-body">Browse ships, destinations, and port guides shaped by real sailings — so every day ashore has a plan worth stepping into.</p>
+                                    <ul class="journey-includes">
+                                        <li>Ships directory</li>
+                                        <li>Ports &amp; guides</li>
+                                    </ul>
+                                </div>
+                                <div class="journey-visual" aria-hidden="true">
+                                    <div class="journey-visual-card journey-visual-card--discover">
+                                        <strong>Ships &amp; ports</strong>
+                                        <span>Directories and guides shaped by real sailings and destinations.</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                        <div class="flip-card-wrap theme-4" tabindex="0" role="button" aria-label="Ship and port discovery – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-4"><h3 class="flip-card-title">Ship &amp; Port Discovery</h3></div><div class="flip-card-body"><p class="flip-card-desc">Explore cruise ships and ports. Read reviews, compare destinations, and plan what to do on every day ashore.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-4"><h3 class="flip-card-title">Port Guides</h3></div><div class="flip-card-body"><p class="flip-card-desc">Discover beaches, excursions, and local tips from cruisers who have visited each port on your itinerary.</p></div></div>
-                            </div>
-                        </div>
+                            <article class="journey-stage" role="tabpanel" id="journey-panel-connect" aria-labelledby="journey-tab-connect" data-stage="connect" aria-hidden="true">
+                                <div class="journey-copy">
+                                    <p class="journey-kicker"><span>03</span>Connect</p>
+                                    <h3 class="journey-title">Meet your sailing before day one</h3>
+                                    <p class="journey-body">Join the roll call for your exact ship and date, chat with fellow cruisers, and coordinate meetups before you even embark.</p>
+                                    <ul class="journey-includes">
+                                        <li>Cruise Roll Calls</li>
+                                        <li>Crew Chat</li>
+                                        <li>Community</li>
+                                    </ul>
+                                </div>
+                                <div class="journey-visual" aria-hidden="true">
+                                    <div class="journey-visual-card journey-visual-card--connect">
+                                        <strong>Roll Calls &amp; crew</strong>
+                                        <span>Meet your sailing early — chat, coordinate, and share tips.</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                        <div class="flip-card-wrap theme-6" tabindex="0" role="button" aria-label="Cruise Passport – click to flip">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-face front"><div class="flip-card-image color-6"><h3 class="flip-card-title">Cruise Passport</h3></div><div class="flip-card-body"><p class="flip-card-desc">Your personal cruise history in one place—voyages, ships sailed, ports visited, and achievements unlocked.</p></div></div>
-                                <div class="flip-card-face back"><div class="flip-card-image back-color-6"><h3 class="flip-card-title">Share Progress</h3></div><div class="flip-card-body"><p class="flip-card-desc">Export and share your Cruise Passport card with friends and the SeaDays community after each voyage.</p></div></div>
-                            </div>
+                            <article class="journey-stage" role="tabpanel" id="journey-panel-track" aria-labelledby="journey-tab-track" data-stage="track" aria-hidden="true">
+                                <div class="journey-copy">
+                                    <p class="journey-kicker"><span>04</span>Track</p>
+                                    <h3 class="journey-title">See the real cost — and your cruise story</h3>
+                                    <p class="journey-body">Follow onboard spending and trip expenses as they happen, then keep ships, ports, and voyages together in your Cruise Passport.</p>
+                                    <ul class="journey-includes">
+                                        <li>Budget tracking</li>
+                                        <li>Cruise Passport</li>
+                                    </ul>
+                                </div>
+                                <div class="journey-visual" aria-hidden="true">
+                                    <div class="journey-visual-card journey-visual-card--track">
+                                        <strong>Budget &amp; Passport</strong>
+                                        <span>Spending clarity and your cruise history in one place.</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="journey-stage" role="tabpanel" id="journey-panel-remember" aria-labelledby="journey-tab-remember" data-stage="remember" aria-hidden="true">
+                                <div class="journey-copy">
+                                    <p class="journey-kicker"><span>05</span>Remember</p>
+                                    <h3 class="journey-title">Keep the stories from every sailing</h3>
+                                    <p class="journey-body">Read passenger tips and port-day stories, share your own, and leave honest ship reviews for the next cruiser who follows.</p>
+                                    <ul class="journey-includes">
+                                        <li>SeaStories</li>
+                                        <li>Ship reviews</li>
+                                    </ul>
+                                </div>
+                                <div class="journey-visual" aria-hidden="true">
+                                    <div class="journey-visual-card journey-visual-card--remember">
+                                        <strong>SeaStories &amp; reviews</strong>
+                                        <span>Passenger tips, port-day notes, and honest ship impressions — kept with your voyage.</span>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
+                    </div>
+                </div>
+
+                <div class="journey-seo-visually-hidden">
+                    Cruise Planning Tools for Smarter Voyages. SeaDays includes Cruise Roll Calls, Crew Chat, Cruise Planner, Itinerary Tools,
+                    Cruise Budget Tracking, Rate Ships, Cruise Community, SeaStories, Ship and Port Discovery, Port Guides,
+                    Cruise Passport, and Share Progress.
                 </div>
             </div>
         </section>
@@ -2509,55 +3064,75 @@ window.__SEADAYS_GA_READY__ = true;
         <!-- Footer -->
         <footer>
             <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h4>Product</h4>
-                        <ul>
-                            <li><a href="/cruise-roll-calls/">Cruise roll calls</a></li>
-                            <li><a href="/cruise-planner/">Cruise planner</a></li>
-                            <li><a href="/cruise-budget-planner/">Budget planner</a></li>
-                            <li><a href="/cruise-community/">Community</a></li>
-                            <li><a href="/blog/">Blog</a></li>
-                            <li><a href="#download">Download SeaDays Free</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="https://seadays.app/about.html">About Us</a></li>
-                            <li><a href="https://seadays.app/press/">Press</a></li>
-                            <li><a href="https://seadays.app/help.html">Help Center</a></li>
-                            <li><a href="https://seadays.app/contact.html">Contact</a></li>
-                            <li><a href="https://seadays.app/faq.html">FAQ</a></li>
-                            <li><a href="https://seadays.app/seo-admin.html">Admin</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li>
-                            <li><a href="https://seadays.app/terms.html">Terms of Service</a></li>
-                            <li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li>
-                            <li><a href="https://seadays.app/gdpr.html">GDPR</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="#">Twitter</a></li>
+                <div class="footer-shell">
+                    <div class="footer-brand">
+                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
+                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
+                        </a>
+                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                        <ul class="footer-social">
                             <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="#">Facebook</a></li>
                             <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
                         </ul>
                     </div>
+
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h4>Explore</h4>
+                            <ul>
+                                <li><a href="/ships/">Ships</a></li>
+                                <li><a href="/ports/">Ports</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="/#blog">SeaStories</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Plan</h4>
+                            <ul>
+                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
+                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
+                                <li><a href="/cruise-community/">Cruise Community</a></li>
+                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>SeaDays</h4>
+                            <ul>
+                                <li><a href="/about.html">About</a></li>
+                                <li><a href="/help.html">Help</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Sustainability</h4>
+                            <ul>
+                                <li><a href="/co2/">CO₂ Contribution</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section footer-section--legal">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="/privacy.html">Privacy</a></li>
+                                <li><a href="/terms.html">Terms</a></li>
+                                <li><a href="/cookies.html">Cookie Policy</a></li>
+                                <li><a href="/gdpr.html">GDPR</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                
+
+                <div class="footer-mobile-brand">
+                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
+                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+                    </a>
+                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                </div>
+
                 <div class="footer-bottom">
-                    <p>made with love from the port city of Hamburg <span aria-hidden="true">⚓</span></p>
-                    <p style="margin-top: 12px;">© 2026 SeaDays. All rights reserved.</p>
+                    <p>© 2026 SeaDays. All rights reserved.</p>
                     <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
                 </div>
             </div>
@@ -2662,7 +3237,7 @@ window.__SEADAYS_GA_READY__ = true;
 
             document.addEventListener('keydown', function(e) {
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
-                if (e.target.closest && e.target.closest('.flip-card-wrap, button, [role="button"], .blog-card')) return;
+                if (e.target.closest && e.target.closest('.journey-shell, .flip-card-wrap, button, [role="button"], .blog-card')) return;
                 var key = e.key;
                 if (key === 'ArrowDown' || key === 'PageDown' || (key === ' ' && !e.ctrlKey && !e.metaKey)) {
                     if (key === ' ') e.preventDefault();
@@ -2675,18 +3250,209 @@ window.__SEADAYS_GA_READY__ = true;
             });
         })();
 
-        // Flip cards: click or Enter/Space toggles; auto-rotate every 5s
-        (function() {
-            var cards = document.querySelectorAll('.flip-card-wrap');
-            cards.forEach(function(wrap) {
-                wrap.addEventListener('click', function() { wrap.classList.toggle('flipped'); });
-                wrap.addEventListener('keydown', function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wrap.classList.toggle('flipped'); }
+        (function initVoyageJourney() {
+            var root = document.querySelector('[data-journey-root]');
+            if (!root) return;
+            var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+            var panels = Array.prototype.slice.call(root.querySelectorAll('[role="tabpanel"]'));
+            var nav = root.querySelector('.journey-nav');
+            var stages = tabs.map(function (t) { return t.getAttribute('data-stage'); });
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var autoTimer = null;
+            var index = 0;
+            var animating = false;
+            var animTimer = null;
+            var animIncoming = null;
+            var frozenScrollY = null;
+
+            function updateNavHint() {
+                if (!nav) return;
+                var max = nav.scrollWidth - nav.clientWidth - 4;
+                nav.classList.toggle('journey-nav--more', max > 8 && nav.scrollLeft < max);
+            }
+
+            /** Scroll tab horizontally inside nav only — never touch page scroll-snap. */
+            function scrollTabHorizontally(tab) {
+                if (!nav || !tab) return;
+                var navRect = nav.getBoundingClientRect();
+                var tabRect = tab.getBoundingClientRect();
+                var pad = 12;
+                if (tabRect.left < navRect.left + pad) {
+                    nav.scrollLeft += tabRect.left - navRect.left - pad;
+                } else if (tabRect.right > navRect.right - pad) {
+                    nav.scrollLeft += tabRect.right - navRect.right + pad;
+                }
+                updateNavHint();
+            }
+
+            function focusTabNoScroll(tab) {
+                if (!tab || typeof tab.focus !== 'function') return;
+                try { tab.focus({ preventScroll: true }); }
+                catch (err) { tab.focus(); }
+            }
+
+            function freezePageScroll() {
+                frozenScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+            }
+
+            function releasePageScroll() {
+                if (frozenScrollY === null) return;
+                var y = frozenScrollY;
+                frozenScrollY = null;
+                if (Math.abs((window.scrollY || document.documentElement.scrollTop || 0) - y) > 1) {
+                    window.scrollTo(0, y);
+                }
+            }
+
+            function clearAnimClasses(panel) {
+                panel.classList.remove('is-leaving-left', 'is-leaving-right', 'is-from-right', 'is-from-left', 'is-entering', 'is-animating');
+            }
+
+            function finishAnim() {
+                if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+                panels.forEach(function (panel, pi) {
+                    clearAnimClasses(panel);
+                    var on = pi === index;
+                    panel.classList.toggle('is-active', on);
+                    panel.setAttribute('aria-hidden', on ? 'false' : 'true');
+                });
+                animating = false;
+                animIncoming = null;
+                releasePageScroll();
+            }
+
+            function setStage(stage, opts) {
+                opts = opts || {};
+                var i = stages.indexOf(stage);
+                if (i < 0) return;
+                var from = index;
+                if (i === from && panels[i].classList.contains('is-active') && !opts.instant) return;
+
+                var n = stages.length;
+                var dir = 0;
+                if (!opts.instant && !reduceMotion && panels[from].classList.contains('is-active') && i !== from) {
+                    var fwd = (i - from + n) % n;
+                    var bwd = (from - i + n) % n;
+                    dir = fwd <= bwd ? 1 : -1;
+                }
+
+                index = i;
+                tabs.forEach(function (tab, ti) {
+                    var selected = ti === i;
+                    tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+                    tab.tabIndex = selected ? 0 : -1;
+                    if (selected && opts.focusTab) focusTabNoScroll(tab);
+                    if (selected && opts.scrollTabIntoView) scrollTabHorizontally(tab);
+                });
+
+                if (dir === 0) {
+                    finishAnim();
+                    updateNavHint();
+                    return;
+                }
+
+                if (animating) finishAnim();
+
+                var outgoing = panels[from];
+                var incoming = panels[i];
+                animating = true;
+                animIncoming = incoming;
+                freezePageScroll();
+
+                incoming.classList.remove('is-active', 'is-leaving-left', 'is-leaving-right', 'is-entering');
+                incoming.classList.add(dir === 1 ? 'is-from-right' : 'is-from-left');
+                incoming.setAttribute('aria-hidden', 'false');
+                void incoming.offsetWidth;
+
+                outgoing.classList.add('is-animating');
+                incoming.classList.add('is-animating');
+                outgoing.classList.add(dir === 1 ? 'is-leaving-left' : 'is-leaving-right');
+                outgoing.classList.remove('is-active');
+                incoming.classList.remove('is-from-right', 'is-from-left');
+                incoming.classList.add('is-entering');
+
+                function onEnd(e) {
+                    if (e.target !== incoming) return;
+                    if (e.propertyName && e.propertyName.indexOf('transform') === -1) return;
+                    incoming.removeEventListener('transitionend', onEnd);
+                    finishAnim();
+                }
+                incoming.addEventListener('transitionend', onEnd);
+                animTimer = setTimeout(finishAnim, 700);
+                updateNavHint();
+            }
+
+            function step(delta) {
+                var next = (index + delta + stages.length) % stages.length;
+                setStage(stages[next], { scrollTabIntoView: true });
+                restartAuto();
+            }
+
+            function restartAuto() {
+                if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+                if (reduceMotion) return;
+                autoTimer = setInterval(function () { step(1); }, 9000);
+            }
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    setStage(tab.getAttribute('data-stage'), { scrollTabIntoView: true });
+                    restartAuto();
+                });
+                tab.addEventListener('keydown', function (e) {
+                    var key = e.key;
+                    if (key === 'ArrowRight' || key === 'ArrowDown') {
+                        e.preventDefault();
+                        step(1);
+                        focusTabNoScroll(tabs[index]);
+                    } else if (key === 'ArrowLeft' || key === 'ArrowUp') {
+                        e.preventDefault();
+                        step(-1);
+                        focusTabNoScroll(tabs[index]);
+                    } else if (key === 'Home') {
+                        e.preventDefault();
+                        setStage(stages[0], { focusTab: true, scrollTabIntoView: true });
+                        restartAuto();
+                    } else if (key === 'End') {
+                        e.preventDefault();
+                        setStage(stages[stages.length - 1], { focusTab: true, scrollTabIntoView: true });
+                        restartAuto();
+                    }
                 });
             });
-            setInterval(function() {
-                cards.forEach(function(wrap) { wrap.classList.toggle('flipped'); });
-            }, 5000);
+
+            var prev = root.querySelector('[data-journey-prev]');
+            var nextBtn = root.querySelector('[data-journey-next]');
+            if (prev) prev.addEventListener('click', function () { step(-1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
+
+            var panel = root.querySelector('.journey-panel');
+            if (panel) {
+                var startX = null;
+                panel.addEventListener('touchstart', function (e) {
+                    if (!e.changedTouches || !e.changedTouches[0]) return;
+                    startX = e.changedTouches[0].clientX;
+                }, { passive: true });
+                panel.addEventListener('touchend', function (e) {
+                    if (startX === null || !e.changedTouches || !e.changedTouches[0]) return;
+                    var dx = e.changedTouches[0].clientX - startX;
+                    startX = null;
+                    if (Math.abs(dx) < 48) return;
+                    step(dx < 0 ? 1 : -1);
+                }, { passive: true });
+            }
+
+            if (nav) {
+                nav.addEventListener('scroll', updateNavHint, { passive: true });
+                window.addEventListener('resize', updateNavHint);
+            }
+
+            setStage('plan', { instant: true });
+            restartAuto();
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) { if (autoTimer) clearInterval(autoTimer); autoTimer = null; }
+                else restartAuto();
+            });
         })();
 
         // Featured tools carousel: stable sizing, pause on hover/touch, reset interval on dot click, GPU-friendly
