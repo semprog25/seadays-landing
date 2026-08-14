@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- SeaDays analytics: GA4 G-WSQDQ33QZD + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-WSQDQ33QZD');
+window.__SEADAYS_GA_READY__ = true;
+</script>
+<script src="/assets/js/seadays-analytics.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://seadays.app/co2/">
+  <link rel="icon" type="image/png" href="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png">
+  <title>SeaDays CO₂ Contribution | Turning Cruises into Positive Action</title>
+  <meta name="description" content="SeaDays estimates voyage footprints and builds a growing community contribution. See the live total and follow where we’re heading next.">
+  <meta name="keywords" content="SeaDays CO2, cruise carbon footprint, cruise CO2 estimate, environmental contribution, tonnes CO2e, SeaDays sustainability">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://seadays.app/co2/">
+  <meta property="og:title" content="SeaDays CO₂ Contribution">
+  <meta property="og:description" content="Your cruising can contribute to something positive. See the SeaDays community contribution total.">
+  <meta property="og:image" content="https://seadays.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://seadays.app/co2/">
+  <meta name="twitter:title" content="SeaDays CO₂ Contribution">
+  <meta name="twitter:description" content="Your cruising can contribute to something positive. See the SeaDays community contribution total.">
+  <meta name="twitter:image" content="https://seadays.app/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "SeaDays CO₂ Contribution",
+    "description": "SeaDays community CO₂e contributions linked to estimated cruise footprints, and the path toward supporting environmental action.",
+    "url": "https://seadays.app/co2/",
+    "isPartOf": { "@type": "WebSite", "name": "SeaDays", "url": "https://seadays.app/" },
+    "about": {
+      "@type": "Thing",
+      "name": "SeaDays community CO₂e contribution",
+      "description": "Growing total of community contributions recorded against estimated cruise footprints."
+    }
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --dark-bg: #0a0a0a;
+      --dark-bg-alt: #0f0f0f;
+      --neon-red: #FF0033;
+      --eco-green: #3DDC97;
+      --eco-green-deep: #0F3D2E;
+      --eco-green-mid: #1FA971;
+      --eco-glow: rgba(61, 220, 151, 0.45);
+      --text-light: #ffffff;
+      --text-gray: rgba(255, 255, 255, 0.68);
+      --text-muted: rgba(255, 255, 255, 0.45);
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-light);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    .starfield {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(180deg, #050805 0%, #0a0a0a 45%, #0b1210 100%);
+      pointer-events: none;
+    }
+    .star {
+      position: absolute; border-radius: 50%; background: rgba(180, 255, 210, 0.55);
+      animation: twinkle 3.6s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; }
+      50% { opacity: 0.85; }
+    }
+    .grid-overlay {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(61, 220, 151, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(61, 220, 151, 0.03) 1px, transparent 1px);
+      background-size: 100px 100px;
+    }
+    .content-layer { position: relative; z-index: 10; }
+    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .top-bar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; gap: 16px;
+    }
+    .back-link {
+      color: var(--neon-red); text-decoration: none; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+    }
+    .back-link:hover { color: #ff3366; }
+    .brand-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--text-muted); font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; text-decoration: none;
+    }
+    .brand-chip img {
+      width: auto; height: 28px; max-width: 140px; border-radius: 0;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.28));
+    }
+    .brand-chip .brand-chip-label { display: none; }
+
+    /* Hero */
+    .co2-hero {
+      min-height: min(92vh, 860px);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 40px 0 72px; position: relative;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      border: 1px solid rgba(61, 220, 151, 0.28);
+      background: rgba(61, 220, 151, 0.08);
+      color: var(--eco-green); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 5.5vw, 56px); font-weight: 900; letter-spacing: -1.5px;
+      line-height: 1.12; margin-bottom: 14px; max-width: 18ch;
+    }
+    .hero-sub {
+      color: var(--text-gray); font-size: clamp(15px, 2.2vw, 19px);
+      max-width: 40rem; margin: 0 auto 40px; line-height: 1.55;
+    }
+
+    .meter-stage {
+      position: relative;
+      width: min(420px, 88vw);
+      height: min(420px, 88vw);
+      margin: 0 auto 28px;
+      display: grid; place-items: center;
+      flex-shrink: 0;
+    }
+    .meter-glow {
+      position: absolute; inset: 8%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(61, 220, 151, 0.28) 0%, rgba(31, 169, 113, 0.1) 42%, transparent 70%);
+      filter: blur(8px);
+      animation: glowPulse 4.8s ease-in-out infinite;
+    }
+    .meter-vessel {
+      position: relative;
+      width: 62%;
+      height: 78%;
+      border-radius: 42% / 28%;
+      border: 1.5px solid rgba(61, 220, 151, 0.45);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 18%, rgba(15, 61, 46, 0.25) 100%);
+      box-shadow:
+        inset 0 0 40px rgba(61, 220, 151, 0.12),
+        0 0 40px rgba(61, 220, 151, 0.18),
+        0 20px 60px rgba(0,0,0,0.45);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: vesselFloat 6.5s ease-in-out infinite;
+    }
+    .meter-vessel::before {
+      content: '';
+      position: absolute; top: 10%; left: 14%; width: 18%; height: 42%;
+      border-radius: 40%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
+      pointer-events: none; z-index: 3;
+    }
+    .liquid {
+      position: absolute; left: -8%; right: -8%; bottom: 0;
+      height: 58%;
+      background:
+        linear-gradient(180deg, rgba(61, 220, 151, 0.95) 0%, rgba(31, 169, 113, 0.9) 45%, rgba(15, 61, 46, 0.95) 100%);
+      z-index: 1;
+    }
+    .liquid::before,
+    .liquid::after {
+      content: '';
+      position: absolute; left: -20%; width: 140%; height: 28px;
+      border-radius: 45%;
+      background: rgba(180, 255, 210, 0.35);
+      top: -12px;
+      animation: wave 3.8s ease-in-out infinite;
+    }
+    .liquid::after {
+      opacity: 0.45; top: -6px; animation-duration: 5.4s; animation-direction: reverse;
+      background: rgba(255,255,255,0.18);
+    }
+    .bubbles { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+    .bubble {
+      position: absolute; bottom: 8%; border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      box-shadow: 0 0 8px rgba(61, 220, 151, 0.5);
+      animation: rise var(--dur, 4s) linear infinite;
+      animation-delay: var(--delay, 0s);
+      left: var(--x, 50%);
+      width: var(--size, 6px); height: var(--size, 6px);
+      opacity: 0;
+    }
+    .meter-readout {
+      position: absolute; inset: 0; z-index: 4;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      pointer-events: none; padding: 14% 10%;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .meter-value {
+      --meter-size: clamp(2.75rem, 11vw, 5.25rem);
+      font-size: var(--meter-size);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ffffff 0%, #b8ffd8 48%, #3ddc97 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 24px rgba(61, 220, 151, 0.45));
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .meter-value[data-scale="short"] { --meter-size: clamp(3rem, 12vw, 5.25rem); }
+    .meter-value[data-scale="medium"] { --meter-size: clamp(2.35rem, 9vw, 4.1rem); }
+    .meter-value[data-scale="long"] { --meter-size: clamp(1.85rem, 7vw, 3.2rem); }
+    .meter-value[data-scale="xl"] { --meter-size: clamp(1.45rem, 5.5vw, 2.55rem); }
+    .meter-value[data-scale="compact"] { --meter-size: clamp(1.9rem, 8vw, 3.4rem); }
+    .meter-unit {
+      margin-top: 10px; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: rgba(184, 255, 216, 0.9);
+    }
+    .meter-exact {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap; border: 0;
+    }
+    .meter-caption {
+      color: var(--text-muted); font-size: 14px; max-width: 28rem; margin: 0 auto 8px;
+    }
+    .community-stats {
+      margin-top: 28px;
+      padding: 22px 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(61, 220, 151, 0.2);
+      background: linear-gradient(145deg, rgba(61, 220, 151, 0.08), rgba(255,255,255,0.02));
+      max-width: 36rem;
+      width: 100%;
+    }
+    .community-stats-label {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--eco-green); margin-bottom: 16px;
+    }
+    .community-stats-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .community-stat strong {
+      display: block; font-size: clamp(18px, 3.5vw, 24px); font-weight: 800;
+      color: #fff; line-height: 1.15; font-variant-numeric: tabular-nums;
+    }
+    .community-stat span {
+      display: block; margin-top: 4px; font-size: 12px; color: var(--text-muted);
+      line-height: 1.3;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.55; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    @keyframes vesselFloat {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    @keyframes wave {
+      0%, 100% { transform: translateX(-6%) scaleY(1); }
+      50% { transform: translateX(6%) scaleY(1.15); }
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(0.7); opacity: 0; }
+      15% { opacity: 0.7; }
+      100% { transform: translateY(-220%) scale(1); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .meter-glow, .meter-vessel, .liquid::before, .liquid::after, .bubble, .star { animation: none !important; }
+    }
+
+    /* Content sections */
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .section h2 {
+      font-size: clamp(24px, 4vw, 36px); font-weight: 900; letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section h3 {
+      font-size: clamp(20px, 3vw, 24px); font-weight: 800; letter-spacing: -0.3px;
+      margin: 28px 0 12px; color: #fff;
+    }
+    .section p, .section li { color: var(--text-gray); font-size: 17px; }
+    .section p + p { margin-top: 14px; }
+    .lead { font-size: 19px; color: rgba(255,255,255,0.82); max-width: 46rem; }
+    .card-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px;
+    }
+    .info-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: 18px; padding: 22px 20px; text-align: left;
+    }
+    .info-card .card-kicker {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--eco-green); margin-bottom: 10px;
+    }
+    .info-card h3 {
+      font-size: 16px; font-weight: 800; margin: 0 0 10px; color: #fff;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .info-card h3::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      background: var(--eco-green); box-shadow: 0 0 10px var(--eco-glow);
+    }
+    .info-card p { font-size: 15px; margin: 0; }
+    .methodology {
+      margin-top: 28px;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      overflow: hidden;
+    }
+    .methodology summary {
+      cursor: pointer; list-style: none;
+      padding: 16px 20px; font-weight: 700; color: #fff; font-size: 15px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      min-height: 48px;
+    }
+    .methodology summary::-webkit-details-marker { display: none; }
+    .methodology summary::after {
+      content: '+'; color: var(--eco-green); font-size: 20px; font-weight: 400; line-height: 1;
+    }
+    .methodology[open] summary::after { content: '−'; }
+    .methodology-body {
+      padding: 0 20px 20px; color: var(--text-gray); font-size: 15px;
+    }
+    .methodology-body ul {
+      margin: 12px 0 0 1.1em; display: grid; gap: 8px;
+    }
+    .note {
+      margin-top: 0;
+      padding: 16px 18px; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-muted); font-size: 14px; line-height: 1.55;
+    }
+    .social-row {
+      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
+    }
+    .social-chip {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 12px 22px; border-radius: 999px;
+      border: 1px solid rgba(61, 220, 151, 0.35);
+      background: rgba(61, 220, 151, 0.08);
+      color: #fff; text-decoration: none; font-weight: 700; font-size: 15px;
+    }
+    .social-chip:hover {
+      border-color: rgba(61, 220, 151, 0.65);
+      background: rgba(61, 220, 151, 0.14);
+    }
+    .cta-band {
+      margin: 40px 0 80px; padding: 40px 28px; border-radius: 24px; text-align: center;
+      background: linear-gradient(145deg, rgba(61, 220, 151, 0.12), rgba(255,0,51,0.08));
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .cta-band h2 { margin-bottom: 10px; font-size: clamp(24px, 4vw, 36px); font-weight: 900; }
+    .cta-band p { margin-bottom: 22px; color: var(--text-gray); font-size: 17px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 14px 28px; border-radius: 999px;
+      font-weight: 700; text-decoration: none; font-size: 16px;
+    }
+    .btn-primary { background: var(--neon-red); color: #fff; }
+    .btn-primary:hover { background: #cc0029; }
+    .btn-secondary {
+      border: 2px solid rgba(255,255,255,0.2); color: #fff; background: transparent;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.45); }
+
+    footer {
+      padding: 80px 0 36px;
+      margin-top: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: left;
+      background: #050505;
+    }
+    .footer-shell {
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+      gap: 48px 48px;
+      margin-bottom: 44px;
+      align-items: start;
+    }
+    .footer-brand { max-width: 340px; }
+    .footer-brand-logo {
+      display: inline-block;
+      text-decoration: none;
+      margin-bottom: 18px;
+    }
+    .footer-brand-logo img {
+      display: block;
+      width: auto;
+      height: 40px;
+      max-width: 180px;
+    }
+    .footer-brand-desc {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .footer-brand-meta {
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 13px;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .footer-hamburg { display: block; }
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .footer-social a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 14px;
+      min-height: 28px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .footer-social a:hover { color: var(--neon-red); }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 28px 16px;
+      text-align: left;
+      min-width: 0;
+    }
+    .footer-section h4 {
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .footer-section ul { list-style: none; margin: 0; padding: 0; }
+    .footer-section ul li { margin-bottom: 11px; }
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.25s ease;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+    }
+    .footer-section a:hover { color: var(--neon-red); }
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.32);
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+    }
+    .footer-mobile-brand { display: none; }
+    @media (max-width: 1100px) {
+      .footer-shell {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .footer-content {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px 24px;
+      }
+    }
+    @media (max-width: 768px) {
+      footer {
+        padding: 48px 0 28px;
+        padding-bottom: max(28px, env(safe-area-inset-bottom));
+      }
+      .footer-shell {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 0;
+      }
+      .footer-brand {
+        max-width: none;
+        text-align: center;
+      }
+      .footer-brand .footer-brand-logo { display: none; }
+      .footer-brand > .footer-brand-desc,
+      .footer-brand > .footer-brand-meta { display: none; }
+      .footer-social {
+        gap: 12px 16px;
+        justify-content: center;
+      }
+      .footer-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 20px;
+        text-align: center;
+        margin-bottom: 0;
+        align-items: start;
+        justify-items: center;
+      }
+      .footer-section {
+        width: 100%;
+        text-align: center;
+      }
+      .footer-section h4 {
+        margin-bottom: 16px;
+        text-align: center;
+      }
+      .footer-section ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      .footer-section ul li {
+        margin-bottom: 0;
+        width: 100%;
+        text-align: center;
+      }
+      .footer-section a {
+        min-height: 36px;
+        padding: 8px 0;
+        font-size: 14px;
+        line-height: 1.35;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+      }
+      .footer-section--legal { grid-column: 1 / -1; }
+      .footer-mobile-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin: 32px 0 0;
+        padding: 8px 12px 0;
+        box-sizing: border-box;
+      }
+      .footer-logo-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 0 14px;
+        padding: 0;
+        text-decoration: none;
+      }
+      .footer-logo-mobile img {
+        display: block;
+        width: auto;
+        height: 36px;
+        max-width: 160px;
+        margin: 0 auto;
+      }
+      .footer-mobile-brand .footer-brand-desc {
+        display: block;
+        margin: 0 0 8px;
+        font-size: 14px;
+        line-height: 1.55;
+        max-width: 22rem;
+        text-align: center;
+      }
+      .footer-mobile-brand .footer-brand-meta {
+        display: block;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .footer-hamburg { display: inline; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 0;
+        margin-top: 16px;
+        padding-top: 20px;
+      }
+      .footer-bottom p {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      footer { padding: 40px 0 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+      .footer-content { gap: 28px 14px; }
+      .footer-section a { font-size: 13px; }
+      .footer-mobile-brand { margin-top: 24px; }
+      .footer-logo-mobile img { height: 32px; }
+      .community-stats-grid { grid-template-columns: 1fr; gap: 14px; text-align: left; }
+      .hero-title { max-width: 14ch; }
+      .hero-sub { margin-bottom: 28px; }
+    }
+    @media (max-width: 360px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .footer-section--legal { grid-column: auto; }
+    }
+    @media (max-width: 800px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .co2-hero { min-height: auto; padding: 24px 0 48px; }
+      .meter-stage { margin-bottom: 18px; width: min(340px, 86vw); height: min(340px, 86vw); }
+      .section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <main class="content-layer">
+    <div class="container">
+      <div class="top-bar">
+        <a class="back-link" href="/">← Back to SeaDays</a>
+        <a class="brand-chip" href="/" aria-label="SeaDays home">
+          <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="140" height="28" decoding="async">
+        </a>
+      </div>
+
+      <section class="co2-hero" aria-labelledby="co2-hero-title">
+        <p class="hero-eyebrow">Sustainability</p>
+        <h1 id="co2-hero-title" class="hero-title">Your cruising can contribute to something positive</h1>
+        <p class="hero-sub">
+          SeaDays estimates the footprint of your voyage and gives cruisers a way to turn that journey into a positive contribution. As our community grows, so will our impact.
+        </p>
+
+        <div class="meter-stage" id="co2Meter" data-target="0" aria-live="polite">
+          <div class="meter-glow" aria-hidden="true"></div>
+          <div class="meter-vessel" aria-hidden="true">
+            <div class="liquid" id="co2Liquid"></div>
+            <div class="bubbles" id="co2Bubbles"></div>
+          </div>
+          <div class="meter-readout">
+            <div class="meter-value" id="co2Value" data-scale="short">0.00</div>
+            <span class="meter-exact" id="co2Exact">0.00 tonnes CO₂e</span>
+            <div class="meter-unit">tonnes CO₂e</div>
+          </div>
+        </div>
+
+        <p class="meter-caption" id="co2Caption">Loading community contribution total…</p>
+        <div class="community-stats" id="co2Meta" hidden>
+          <p class="community-stats-label">SeaDays Community</p>
+          <div class="community-stats-grid">
+            <div class="community-stat">
+              <strong id="co2Count">0</strong>
+              <span id="co2CountLabel">contributions</span>
+            </div>
+            <div class="community-stat">
+              <strong id="co2Points">0</strong>
+              <span>Points contributed</span>
+            </div>
+            <div class="community-stat">
+              <strong id="co2TonsStat">0.00</strong>
+              <span>tonnes CO₂e</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="what-it-means">
+        <h2>What this number represents</h2>
+        <p class="lead">
+          This is the growing total of CO₂e contributions recorded by the SeaDays community against estimated cruise footprints.
+        </p>
+        <p>
+          Every contribution starts with a voyage: its distance, duration and port calls help us estimate the journey’s footprint. Cruisers can then use SeaDays Points to make a contribution against that estimate.
+        </p>
+      </section>
+
+      <section class="section" id="how-calculated">
+        <h2>How we estimate your voyage footprint</h2>
+        <p class="lead">
+          SeaDays uses three parts of your voyage to create an estimate: distance travelled, time at sea and port calls.
+        </p>
+        <div class="card-grid">
+          <article class="info-card">
+            <p class="card-kicker">Distance</p>
+            <h3>Distance travelled</h3>
+            <p>How far the voyage travels.</p>
+          </article>
+          <article class="info-card">
+            <p class="card-kicker">Time at sea</p>
+            <h3>Time at sea</h3>
+            <p>How long the cruise operates.</p>
+          </article>
+          <article class="info-card">
+            <p class="card-kicker">Port calls</p>
+            <h3>Port calls</h3>
+            <p>The additional activity associated with visiting ports.</p>
+          </article>
+        </div>
+        <details class="methodology">
+          <summary>Methodology</summary>
+          <div class="methodology-body">
+            <p>Assumptions used in the estimate:</p>
+            <ul>
+              <li>~0.4 kg CO₂e per passenger per nautical mile</li>
+              <li>~0.15 tonnes per day for time at sea</li>
+              <li>~0.05 tonnes per port call</li>
+              <li>Weighted together as 60% distance, 30% time at sea, 10% ports</li>
+              <li>A small minimum so short or incomplete itineraries still produce a usable figure</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section class="section" id="where-heading">
+        <h2>Turning voyages into positive action</h2>
+        <p class="lead">
+          Cruising creates memories, connects people and moves us around the world. We want SeaDays to help give something back.
+        </p>
+        <p>
+          We’re currently working on the right environmental initiative to support with our growing community contribution. When that partnership is in place, we’ll share it openly here and across our social channels.
+        </p>
+
+        <h3>Where we’re heading</h3>
+        <p>
+          SeaDays is building a community contribution that can support meaningful environmental action.
+        </p>
+        <p>
+          As the community grows, we’re working toward choosing an environmental initiative that aligns with the values behind SeaDays: protecting the places we travel to and helping make future journeys more responsible.
+        </p>
+        <p>
+          We’ll announce the initiative publicly once it is confirmed.
+        </p>
+
+        <h3 id="follow-journey">Follow the journey</h3>
+        <p>
+          Want to know where the contribution goes next? Follow SeaDays on social media. We’ll share the partnership and progress as soon as it’s ready.
+        </p>
+        <p style="margin-top:12px;color:rgba(255,255,255,0.82);font-weight:600;">
+          Follow SeaDays to see where we go next.
+        </p>
+        <div class="social-row">
+          <a class="social-chip" href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="social-chip" href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
+      </section>
+
+      <section class="section" id="transparency-note" style="padding-top:40px;padding-bottom:24px;">
+        <p class="note">
+          SeaDays currently records community contributions against estimated voyage footprints. The environmental initiative supported by these contributions will be announced once confirmed.
+        </p>
+      </section>
+
+      <div class="cta-band">
+        <h2>Make your next voyage count</h2>
+        <p>Plan your cruise, estimate your footprint, and join the SeaDays community.</p>
+        <div class="btn-row">
+          <a class="btn-primary" href="/#download">Download SeaDays</a>
+          <a class="btn-secondary" href="#follow-journey">Follow our journey</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-shell">
+          <div class="footer-brand">
+            <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
+              <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
+            </a>
+            <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+            <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+            <ul class="footer-social">
+              <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            </ul>
+          </div>
+          <div class="footer-content">
+            <div class="footer-section">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="/ships/">Ships</a></li>
+                <li><a href="/ports/">Ports</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/#blog">SeaStories</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Plan</h4>
+              <ul>
+                <li><a href="/cruise-planner/">Cruise Planner</a></li>
+                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
+                <li><a href="/cruise-community/">Cruise Community</a></li>
+                <li><a href="/#cruise-passport">Cruise Passport</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>SeaDays</h4>
+              <ul>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/help.html">Help</a></li>
+                <li><a href="/faq.html">FAQ</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Sustainability</h4>
+              <ul>
+                <li><a href="/co2/">CO₂ Contribution</a></li>
+              </ul>
+            </div>
+            <div class="footer-section footer-section--legal">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="/privacy.html">Privacy</a></li>
+                <li><a href="/terms.html">Terms</a></li>
+                <li><a href="/cookies.html">Cookie Policy</a></li>
+                <li><a href="/gdpr.html">GDPR</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-mobile-brand">
+          <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
+            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+          </a>
+          <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+          <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 SeaDays. All rights reserved.</p>
+          <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var starfield = document.getElementById('starfield');
+      if (starfield) {
+        for (var i = 0; i < 90; i++) {
+          var star = document.createElement('div');
+          star.className = 'star';
+          var size = Math.random() * 2.4 + 0.8;
+          star.style.width = size + 'px';
+          star.style.height = size + 'px';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.animationDelay = (Math.random() * 3) + 's';
+          starfield.appendChild(star);
+        }
+      }
+
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var bubbles = document.getElementById('co2Bubbles');
+      if (bubbles && !reduceMotion) {
+        for (var b = 0; b < 10; b++) {
+          var bubble = document.createElement('span');
+          bubble.className = 'bubble';
+          bubble.style.setProperty('--x', (12 + Math.random() * 76) + '%');
+          bubble.style.setProperty('--size', (3 + Math.random() * 5) + 'px');
+          bubble.style.setProperty('--dur', (3.2 + Math.random() * 3.5) + 's');
+          bubble.style.setProperty('--delay', (Math.random() * 4) + 's');
+          bubbles.appendChild(bubble);
+        }
+      }
+
+      var valueEl = document.getElementById('co2Value');
+      var exactEl = document.getElementById('co2Exact');
+      var captionEl = document.getElementById('co2Caption');
+      var metaEl = document.getElementById('co2Meta');
+      var countEl = document.getElementById('co2Count');
+      var countLabelEl = document.getElementById('co2CountLabel');
+      var pointsEl = document.getElementById('co2Points');
+      var tonsStatEl = document.getElementById('co2TonsStat');
+      var meter = document.getElementById('co2Meter');
+      var animated = false;
+      var ABBREV_THRESHOLD = 10000000;
+
+      function formatExactTons(n) {
+        if (!isFinite(n)) return '0.00';
+        return n.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+      }
+
+      function formatDisplayTons(n) {
+        if (!isFinite(n) || n < 0) n = 0;
+        if (n >= ABBREV_THRESHOLD) {
+          var millions = n / 1000000;
+          var digits = millions >= 100 ? 0 : 1;
+          return millions.toLocaleString(undefined, {
+            minimumFractionDigits: digits,
+            maximumFractionDigits: digits
+          }) + 'M';
+        }
+        if (n >= 1000) {
+          return n.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+        }
+        if (n >= 100) {
+          return n.toLocaleString(undefined, {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 2
+          });
+        }
+        return n.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+      }
+
+      function scaleForDisplay(text) {
+        if (/M$/.test(text)) return 'compact';
+        var len = String(text).length;
+        if (len <= 5) return 'short';
+        if (len <= 9) return 'medium';
+        if (len <= 11) return 'long';
+        return 'xl';
+      }
+
+      function renderValue(n, isFinal, targetHint) {
+        var target = isFinite(targetHint) ? targetHint : Number(meter.getAttribute('data-target'));
+        var display;
+        if (isFinite(target) && target >= ABBREV_THRESHOLD) {
+          var millions = n / 1000000;
+          var digits = (target / 1000000) >= 100 ? 0 : 1;
+          display = millions.toLocaleString(undefined, {
+            minimumFractionDigits: digits,
+            maximumFractionDigits: digits
+          }) + 'M';
+        } else {
+          display = formatDisplayTons(n);
+        }
+        var exactSource = isFinal ? n : (isFinite(target) ? target : n);
+        var exact = formatExactTons(exactSource);
+        valueEl.textContent = display;
+        valueEl.setAttribute('data-scale', scaleForDisplay(display));
+        if (exactEl) {
+          exactEl.textContent = exact + ' tonnes CO₂e';
+        }
+        valueEl.setAttribute('aria-label', exact + ' tonnes CO₂e');
+        if (tonsStatEl && isFinal) tonsStatEl.textContent = formatExactTons(n);
+      }
+
+      function animateTo(target) {
+        if (animated) return;
+        animated = true;
+        if (tonsStatEl) tonsStatEl.textContent = formatExactTons(target);
+        if (reduceMotion) {
+          renderValue(target, true, target);
+          return;
+        }
+        var start = null;
+        var duration = 1600;
+        function frame(ts) {
+          if (start === null) start = ts;
+          var t = Math.min(1, (ts - start) / duration);
+          var eased = 1 - Math.pow(1 - t, 3);
+          renderValue(target * eased, false, target);
+          if (t < 1) requestAnimationFrame(frame);
+          else renderValue(target, true, target);
+        }
+        requestAnimationFrame(frame);
+      }
+
+      function demoOverrideTons() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var raw = params.get('demoTons');
+          if (raw === null || raw === '') return null;
+          var n = Number(raw);
+          return isFinite(n) && n >= 0 ? n : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function applyPayload(data) {
+        var tons = Number(data && data.totalTonsOffset);
+        if (!isFinite(tons) || tons < 0) tons = 0;
+        var demo = demoOverrideTons();
+        if (demo !== null) tons = demo;
+
+        meter.setAttribute('data-target', String(tons));
+        captionEl.textContent = 'Community contribution total';
+
+        if (metaEl) {
+          metaEl.hidden = false;
+          var count = Number((data && data.contributionCount) || 0);
+          if (demo !== null && !(data && data.contributionCount)) {
+            /* keep live count when demoing number only */
+          }
+          countEl.textContent = String(count);
+          if (countLabelEl) {
+            countLabelEl.textContent = count === 1 ? 'contribution' : 'contributions';
+          }
+          pointsEl.textContent = Number((data && data.totalPointsSpent) || 0).toLocaleString();
+          tonsStatEl.textContent = formatExactTons(tons);
+        }
+
+        var kicked = false;
+        function kickAnimation() {
+          if (kicked) return;
+          kicked = true;
+          animateTo(tons);
+        }
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                kickAnimation();
+                io.disconnect();
+              }
+            });
+          }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+          io.observe(meter);
+          setTimeout(kickAnimation, 500);
+        } else {
+          kickAnimation();
+        }
+      }
+
+      fetch('/data/co2-contribution.json', { cache: 'no-cache' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(applyPayload)
+        .catch(function () {
+          var demo = demoOverrideTons();
+          if (demo !== null) {
+            applyPayload({
+              totalTonsOffset: demo,
+              contributionCount: 0,
+              totalPointsSpent: 0
+            });
+            return;
+          }
+          captionEl.textContent = 'Contribution total unavailable right now.';
+          renderValue(0, true);
+        });
+    })();
+  </script>
+</body>
+</html>

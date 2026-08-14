@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "source": "public.carbon_offset_history",
+  "unit": "tonnes_co2e",
+  "label": "Community contribution total",
+  "disclaimer": "SeaDays currently records community contributions against estimated voyage footprints. The environmental initiative supported by these contributions will be announced once confirmed.",
+  "totalTonsOffset": 4.4156,
+  "contributionCount": 1,
+  "totalPointsSpent": 884,
+  "pointsPerTonOptions": [200, 500],
+  "calculation": {
+    "model": "SeaDays carbonFootprintCalculator",
+    "unit": "tonnes CO₂e per passenger voyage (estimate)",
+    "factors": {
+      "distanceKgPerPassengerPerNauticalMile": 0.4,
+      "durationTonsPerDay": 0.15,
+      "portsTonsPerPort": 0.05,
+      "weights": {
+        "distance": 0.6,
+        "duration": 0.3,
+        "ports": 0.1
+      },
+      "minimumTons": 0.1
+    },
+    "notes": [
+      "Distance uses Haversine between itinerary ports (or ~480 nm/day when coordinates are incomplete).",
+      "Contributions spend SeaDays Points against the estimated footprint (200 or 500 points per tonne, or custom at/above minimum).",
+      "Recording writes to carbon_offset_history via the SeaDays edge API."
+    ]
+  },
+  "updatedAt": "2026-08-13T12:00:00.000Z",
+  "updatedBy": "manual-snapshot-from-production-sql"
+}
