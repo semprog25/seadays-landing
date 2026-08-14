@@ -820,6 +820,7 @@ function writeSitemapSnapshotFromDisk(repoRoot) {
     { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
     { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
     { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
+    { loc: BASE_URL + '/co2/', changefreq: 'weekly', priority: '0.8', lastmod: todayIso },
   ];
   let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   const seenUrls = new Set();
@@ -3075,6 +3076,7 @@ async function main() {
     { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
     { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
     { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
+    { loc: BASE_URL + '/co2/', changefreq: 'weekly', priority: '0.8', lastmod: todayIso },
   ];
   let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   const seenUrls = new Set();
