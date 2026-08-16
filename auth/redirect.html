@@ -154,9 +154,9 @@
     <p style="margin: 0 0 24px; line-height: 1.5; color: rgba(255, 255, 255, 0.75);">
       Tap the button below to return to the SeaDays app and complete sign-in.
     </p>
-    <button type="button" class="btn" id="open-app-btn" style="min-height: 48px; padding: 16px 32px;">
+    <a class="btn" id="open-app-btn" href="#" style="min-height: 48px; padding: 16px 32px; display: inline-block;">
       Open SeaDays
-    </button>
+    </a>
   </div>
 
   <script>
@@ -173,10 +173,14 @@
         hashParams.has('error_description') ||
         searchParams.has('error') ||
         searchParams.has('error_description');
-      // iOS app uses custom scheme SeaDays (see capacitor.config ios.scheme); Android uses capacitor://
+      // iOS: CFBundleURLSchemes SeaDays + com.seadays.app (capacitor ios.scheme = SeaDays).
+      // Android: capacitor://localhost
       var isAppleOS = /iPhone|iPad|iPod/i.test(ua);
-      var appBase = isAppleOS ? 'SeaDays://localhost/auth/callback' : 'capacitor://localhost/auth/callback';
-      var appUrl = appBase + qs + hash;
+      var appBases = isAppleOS
+        ? ['SeaDays://localhost/auth/callback', 'com.seadays.app://localhost/auth/callback']
+        : ['capacitor://localhost/auth/callback', 'SeaDays://localhost/auth/callback'];
+      var appUrls = appBases.map(function(base) { return base + qs + hash; });
+      var appUrl = appUrls[0];
 
       function showFailureFromAuth() {
         var desc =
@@ -206,13 +210,64 @@
         document.getElementById('failure-view').style.display = 'block';
       }
 
-      if (isMobile) {
+      function openAppDeepLink(url) {
+        try {
+          // Hidden iframe helps some in-app browsers deliver custom-scheme handoffs
+          // without navigating the visible page away from the recovery UI.
+          var iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = url;
+          document.body.appendChild(iframe);
+          setTimeout(function() {
+            try { document.body.removeChild(iframe); } catch (e) {}
+          }, 1500);
+        } catch (e) {}
+        try {
+          window.location.href = url;
+        } catch (e2) {}
+      }
+
+      function showMobileOpenFallback() {
         document.getElementById('loading').style.display = 'none';
+        var openView = document.getElementById('mobile-open-view');
+        openView.style.display = 'block';
+        var openBtn = document.getElementById('open-app-btn');
+        openBtn.setAttribute('href', appUrl);
+        openBtn.onclick = function(ev) {
+          if (ev && ev.preventDefault) ev.preventDefault();
+          openAppDeepLink(appUrl);
+          // Alternate scheme shortly after — covers scheme mismatches.
+          setTimeout(function() {
+            if (appUrls[1]) openAppDeepLink(appUrls[1]);
+          }, 250);
+          return false;
+        };
+      }
+
+      if (isMobile) {
         if (hasError) {
+          document.getElementById('loading').style.display = 'none';
           showFailureFromAuth();
-        } else {
-          window.location.replace(appUrl);
+          return;
         }
+
+        // Always keep a visible recovery UI. A single location.replace() with no
+        // fallback left users on a blank page when SFSafariViewController failed
+        // to deliver SeaDays:// — PKCE code never reached the app (/token never fired).
+        showMobileOpenFallback();
+
+        var attemptIndex = 0;
+        var delays = [0, 400, 1000, 2000];
+        function attemptOpen() {
+          if (attemptIndex >= delays.length) return;
+          var url = appUrls[attemptIndex % appUrls.length];
+          setTimeout(function() {
+            openAppDeepLink(url);
+            attemptIndex += 1;
+            attemptOpen();
+          }, delays[attemptIndex]);
+        }
+        attemptOpen();
         return;
       }
 
