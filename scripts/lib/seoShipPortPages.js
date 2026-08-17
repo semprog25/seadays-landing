@@ -9,6 +9,11 @@
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
 const { getFaviconHeadHtml } = require('./faviconHead');
 const {
+  getSiteHeaderHtml,
+  getSiteFooterHtml,
+  getSiteShellCssLinkHtml,
+} = require('./siteShell');
+const {
   PORT_GUIDE_STYLES,
   buildPortGuideEarlySectionsHtml,
   buildPortGuideLateSectionsHtml,
@@ -874,19 +879,12 @@ const PAGE_STYLES = `
 .seo-article-card small { color: rgba(255,255,255,0.66); line-height: 1.45; padding-bottom: 16px; }
 .seo-inline-more a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .seo-inline-more a:hover { text-decoration: underline; }
-.header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
+/* Site chrome header/footer styles come from /assets/css/site-shell.css */
 @media (max-width: 720px) { .seo-visual-panel, .seo-article-grid { grid-template-columns: 1fr; } .seo-visual-copy { padding: 0 20px 22px; } .seo-visual-img, .seo-visual-art { min-height: 190px; height: 190px; } }
 ` + PORT_GUIDE_STYLES;
 
 function buildDirectoryHeaderNav() {
-  return `<nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>`;
+  return getSiteHeaderHtml({ page: 'default' });
 }
 
 function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opts) {
@@ -996,13 +994,14 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:description" content="${escapeHtml(metaDesc)}">
   <meta property="twitter:image" content="${escapeHtml(ogImage)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+  ${getSiteShellCssLinkHtml()}
   <style>${opts.indexStyles}${PAGE_STYLES}</style>
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">${buildDirectoryHeaderNav()}</header>
+    ${buildDirectoryHeaderNav()}
     <main class="seo-detail container">
       ${heroImg}
       <h1>${escapeHtml(ship.name)}</h1>
@@ -1033,11 +1032,7 @@ ${getFaviconHeadHtml()}
       <h2>More reading</h2>
       ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
     </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays</p></div>
-      </div>
-    </footer>
+    ${getSiteFooterHtml()}
   </div>
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<100;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   ${opts.runtimeGuardScript}
@@ -1181,13 +1176,14 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:image" content="${escapeHtml(ogImage)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>
+  ${getSiteShellCssLinkHtml()}
   <style>${opts.indexStyles}${PAGE_STYLES}</style>
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">${buildDirectoryHeaderNav()}</header>
+    ${buildDirectoryHeaderNav()}
     <main class="seo-detail container">
       ${buildBreadcrumbsHtml(port)}
       ${heroImg}
@@ -1215,11 +1211,7 @@ ${getFaviconHeadHtml()}
       <h2>More reading</h2>
       ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
     </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays</p></div>
-      </div>
-    </footer>
+    ${getSiteFooterHtml()}
   </div>
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<100;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   ${opts.runtimeGuardScript}

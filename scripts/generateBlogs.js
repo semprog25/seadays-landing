@@ -45,6 +45,11 @@ const { getFaviconHeadHtml } = require('./lib/faviconHead');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
 const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
 const {
+  getSiteHeaderHtml,
+  getSiteFooterHtml,
+  getSiteShellCssLinkHtml,
+} = require('./lib/siteShell');
+const {
   buildSeoShipRecords,
   buildSeoPortRecords,
   buildShipDetailHtml,
@@ -1617,14 +1622,7 @@ async function fetchReviewsShipsPorts() {
 }
 
 function buildDirectoryHeaderNav() {
-  return `<nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>`;
+  return getSiteHeaderHtml({ page: 'default' });
 }
 
 function formatDirectoryRating(rating) {
@@ -1794,12 +1792,13 @@ ${getFaviconHeadHtml()}
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 </style>
+  ${getSiteShellCssLinkHtml()}
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">${buildDirectoryHeaderNav()}</header>
+    ${buildDirectoryHeaderNav()}
     <section class="directory-hero" aria-labelledby="ships-title">
       <div class="directory-hero-copy">
         <h1 id="ships-title">Cruise ships</h1>
@@ -1846,16 +1845,7 @@ ${getFaviconHeadHtml()}
       <p>Each card links to a static ship guide you can bookmark or share. For deck plans, live ship data, and community reviews, open the SeaDays app—download from the homepage and sign in to sync your preferences across devices.</p>
       <p>For itinerary inspiration, pair this list with our <a href="/blog/">cruise blog</a> and the <a href="/ports/">ports directory</a> to sketch sea days, port days, and pre- or post-cruise stays.</p>
     </article>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ports/">Ports</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p></div>
-      </div>
-    </footer>
+    ${getSiteFooterHtml()}
   </div>
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   <script>
@@ -2302,22 +2292,14 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:description" content="${description}">
   <meta property="twitter:image" content="${ogImage}">
   <script type="application/ld+json">${jsonLdStr}</script>
+  ${getSiteShellCssLinkHtml()}
   <style>${ARTICLE_STYLES}</style>
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">
-      <nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>
-    </header>
+    ${getSiteHeaderHtml({ page: 'default' })}
     <main class="container">
       <article>
         <a href="/blog/" class="back-to-blog">← Back to Blog</a>
@@ -2337,16 +2319,7 @@ ${getFaviconHeadHtml()}
         ${moreHtml}
       </article>
     </main>
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/press/">Press</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
-      </div>
-    </footer>
+    ${getSiteFooterHtml()}
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
@@ -2471,22 +2444,14 @@ ${preloadLinks}
   <meta property="twitter:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
   <meta property="twitter:description" content="Cruise tips, ship and port guides, packing and sea-day ideas from SeaDays. Plan smarter before you book.">
   <meta property="twitter:image" content="${DEFAULT_FAVICON}">
+  ${getSiteShellCssLinkHtml()}
   <style>${INDEX_STYLES}</style>
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">
-      <nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>
-    </header>
+    ${getSiteHeaderHtml({ page: 'default' })}
     <section class="blog-hero">
       <div class="container">
         <h1>SeaDays cruise blog</h1>
@@ -2558,16 +2523,7 @@ ${preloadLinks}
     <div class="container">
       <div class="blog-grid" id="blogGrid">${cards.join('\n')}</div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/press/">Press</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
-      </div>
-    </footer>
+    ${getSiteFooterHtml()}
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();

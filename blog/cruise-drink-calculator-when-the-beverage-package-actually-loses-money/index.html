@@ -128,21 +128,24 @@ footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); 
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
 </style>
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">
-      <nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>
-    </header>
+    <!-- seadays-site-shell:header -->
+        <header class="header site-header">
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="/#cruise-planning-tools">Features</a>
+                <a href="/ships/">Ships</a>
+                <a href="/ports/">Ports</a>
+                <a href="/blog/">Blog</a>
+                <a href="/press/">Press</a>
+                <a href="/#download">Get SeaDays</a>
+            </nav>
+        </header>
+        <!-- seadays-site-shell:header-end seadays-site-shell -->
     <main class="container">
       <article>
         <a href="/blog/" class="back-to-blog">← Back to Blog</a>
@@ -162,16 +165,84 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         <section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more><a href="/blog/the-seadays-drink-package-calculator-math-that-tells-you-when-to-skip-the-package-entirely/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_d5d568ad-6bb1-429e-8b9c-1d558f-f9832fda47df1d98.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">The SeaDays Drink Package Calculator Math That Tells You When to Skip the Package Entirely</h3><p class="more-card-excerpt">The embarkation drink-package upsell costs between $420 and $1,260 per person per week, and most cruisers decide in ninety seconds. The SeaDays Drink Package Calculator replaces the guess with real math per cruise line, region, and drink mix — and the break-even number often flips the &quot;obvious&quot; choice.</p></div></a><a href="/blog/why-joining-a-roll-call-in-seadays-changes-how-you-book-shore-excursions-on-day-one/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_0b29f57e-d318-46d5-950c-885341-0718b31ac84de0e4.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Why Joining a Roll Call in SeaDays Changes How You Book Shore Excursions on Day One</h3><p class="more-card-excerpt">A $119 cruise-line excursion and a $52 private-group version are usually the exact same bus with a different sign on it. Roll Calls in SeaDays are the coordination tool that lets 4–8 passengers on the same sailing split private operators for half the price — if you join them before embarkation, not after.</p></div></a><a href="/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_4b3fc715-c1bc-47f6-8c3a-0185ee-b9d2416586ecdfd3.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">The Real Cost of Cruise Drink Packages: Is It Worth It?</h3><p class="more-card-excerpt">Cruise drink packages can seem like a steal—or a rip-off—depending on how you vacation. We break down the math, the fine print, and the honest truth about whether that all-you-can-drink deal actually saves you money.</p></div></a><a href="/blog/carnival-cruise-planning-fun-ships-value-fares-and-smart-spending/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_799e1018-7ade-4575-a345-27e17d-a4d8edb2186d6e6a.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Carnival Cruise Planning: Fun Ships, Value Fares, and Smart Spending</h3><p class="more-card-excerpt">Carnival cruises are popular because they combine energetic onboard entertainment with relatively affordable fares, but the real value depends on how well passengers plan spending before embarkation day. Understanding fare types, beverage costs, port timing, and onboard extras helps travelers avoid budget surprises once the cruise begins.</p></div></a><a href="/blog/cruise-budget-planner-the-categories-most-spreadsheets-forget/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_b83c2411-e3d8-4847-bd82-4f71b0-46a324f210cd850c.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Cruise Budget Planner: The Categories Most Spreadsheets Forget</h3><p class="more-card-excerpt">Cruise fares are only part of the total vacation cost. Gratuities, Wi-Fi, excursions, transportation, and small onboard purchases add up quickly. This guide covers the budget categories SeaDays Voyage Analytics is designed to track before and during your sailing.</p></div></a><a href="/blog/the-truth-about-cruise-ship-internet-speed-test-results-myths-and-what-to-expect/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_b9539dc0-eed3-4934-b3e6-286c61-b206746dee7700e9.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">The Truth About Cruise Ship Internet: Speed Test Results, Myths, and What to Expect</h3><p class="more-card-excerpt">Cruise ship internet has improved, but marketing Mbps rarely match the emotional experience of a sea day when everyone uploads at once. This article explains how ship internet actually works, what “speed test results” can and cannot tell you, and how to plan realistic connectivity for email, work, and streaming—without mistaking a floating resort for a fiber office.</p></div></a><a href="/blog/are-cruises-actually-cheaper-than-hotels-real-cost-breakdown/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/portside/blog_post_ef03117c-d2c7-4955-9761-683f1b9475d8-thumbnail.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Are Cruises Actually Cheaper Than Hotels? Real Cost Breakdown</h3><p class="more-card-excerpt">Are cruises actually cheaper than hotels? Sometimes—when you compare per-night lodging, food, and transport across multi-city routes. Often not—when you add flights, excursions, WiFi, gratuities, and port spending that hotel trips itemize differently. This real cost breakdown shows how to compare apples without marketing oranges.</p></div></a><a href="/blog/what-a-10000-cruise-actually-gets-you/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_343a0ae4-7358-46b4-afca-edf81e-4caaa6d0e1be47c7.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">What a $10,000 Cruise Actually Gets You</h3><p class="more-card-excerpt">Ten thousand dollars is not “pocket change,” but in cruising it is also not a single universal product. Depending on cabin, line, season, length, and inclusions, a $10,000 cruise might mean a suite on a mainstream ship, a balcony on an expedition vessel, or a luxury week where gratuities and beverages disappear from your mental math. This article breaks down what that budget realistically buys—per-night thinking, hidden costs, and the experience deltas that separate marketing from memory.</p></div></a><a href="/blog/do-cruises-actually-harm-the-environment-what-the-data-really-says-in-2026/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_d3a39914-4b5b-46b4-8b35-460cd2-649c36c2529ea37e.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Do Cruises Actually Harm the Environment? What the Data Really Says in 2026</h3><p class="more-card-excerpt">Cruise vacations concentrate fuel use, waste, and port traffic into a single floating city—which makes them an easy target for headlines. This article separates emissions math from marketing, explains how regulations and ship technology have shifted the baseline, and gives you practical ways to reduce your footprint without abandoning the ocean entirely.</p></div></a><a href="/blog/how-cruise-roll-calls-help-you-meet-people-before-embarkation-day/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_58722fd9-c75d-49f9-aa62-72f5fd-a64dce794f1e54a3.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">How Cruise Roll Calls Help You Meet People Before Embarkation Day</h3><p class="more-card-excerpt">Cruise roll calls connect you with passengers sailing on the exact same ship and departure date. Here is how to find your group, what to post, and why SeaDays keeps voyage conversations organized instead of buried inside massive cruise forums.</p></div></a><a href="/blog/7-ways-planning-your-cruise-properly-saves-you-money/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_5b6b6d38-f0d1-4e3e-b578-f48615-b871cf6b7dc16168.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">7 Ways Planning Your Cruise Properly Saves You Money</h3><p class="more-card-excerpt">7 Ways Planning Your Cruise Properly Saves You Money: practical cruise advice covering Roatan, the Mediterranean, and real scenarios. Written for travelers who want useful details, not generic tips.</p></div></a><a href="/blog/cruise-ship-problems-what-can-go-wrong-and-how-often-it-does/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_51433f84-ed40-4ae6-99e0-a02c8e-bb89a1f9782be984.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Cruise Ship Problems: What Can Go Wrong (And How Often It Does)</h3><p class="more-card-excerpt">Engine failures, norovirus, and rough seas—cruise ship problems make headlines. But how common are they really? And what should you actually worry about before your next voyage?</p></div></a></div></section>
       </article>
     </main>
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/press/">Press</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
-      </div>
-    </footer>
+    <!-- seadays-site-shell:footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-shell">
+                    <div class="footer-brand">
+                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
+                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
+                        </a>
+                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                        <ul class="footer-social">
+                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h4>Explore</h4>
+                            <ul>
+                                <li><a href="/ships/">Ships</a></li>
+                                <li><a href="/ports/">Ports</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="/press/">Press</a></li>
+                                <li><a href="/#blog">SeaStories</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Plan</h4>
+                            <ul>
+                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
+                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
+                                <li><a href="/cruise-community/">Cruise Community</a></li>
+                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>SeaDays</h4>
+                            <ul>
+                                <li><a href="/about.html">About</a></li>
+                                <li><a href="/help.html">Help</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Sustainability</h4>
+                            <ul>
+                                <li><a href="/co2/">CO₂ Contribution</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section footer-section--legal">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="/privacy.html">Privacy</a></li>
+                                <li><a href="/terms.html">Terms</a></li>
+                                <li><a href="/cookies.html">Cookie Policy</a></li>
+                                <li><a href="/gdpr.html">GDPR</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-mobile-brand">
+                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
+                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+                    </a>
+                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 SeaDays. All rights reserved.</p>
+                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
+                </div>
+            </div>
+        </footer>
+        <!-- seadays-site-shell:footer-end seadays-site-shell -->
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();

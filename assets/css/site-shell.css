@@ -1,0 +1,256 @@
+/* SeaDays global site shell — derived from homepage index.html. Do not fork. */
+header.header.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 100;
+  background: transparent;
+  border-bottom: none;
+}
+
+header.header.site-header .header-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+header.header.site-header .header-nav a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+header.header.site-header .header-nav a:hover {
+  color: white;
+  text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
+}
+
+footer:has(.footer-shell),
+footer.site-footer {
+  padding: 80px 0 36px;
+  margin-top: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: left;
+  background: #050505;
+  scroll-snap-align: start;
+}
+
+.footer-shell {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 48px 48px;
+  margin-bottom: 44px;
+  align-items: start;
+}
+
+.footer-brand { max-width: 340px; }
+
+.footer-brand-logo {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+
+.footer-brand-logo img {
+  display: block;
+  width: auto;
+  height: 40px;
+  max-width: 180px;
+}
+
+.footer-brand-desc {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.footer-brand-meta {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.footer-hamburg { display: block; }
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-social a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  font-size: 14px;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-social a:hover { color: var(--neon-red, #FF0033); }
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 28px 16px;
+  text-align: left;
+  min-width: 0;
+}
+
+.footer-section h4 {
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-section ul { list-style: none; margin: 0; padding: 0; }
+.footer-section ul li { margin-bottom: 11px; }
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+}
+
+.footer-section a:hover { color: var(--neon-red, #FF0033); }
+
+.footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+}
+
+.footer-mobile-brand { display: none; }
+
+@media (max-width: 1100px) {
+  .footer-shell {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  header.header.site-header { padding: 15px 20px; }
+  header.header.site-header .header-nav { gap: 12px 15px; }
+  header.header.site-header .header-nav a { font-size: 13px; }
+
+  footer:has(.footer-shell),
+  footer.site-footer {
+    padding: 48px 0 28px;
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+  .footer-shell {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 0;
+  }
+  .footer-brand { max-width: none; text-align: center; }
+  .footer-brand .footer-brand-logo { display: none; }
+  .footer-brand > .footer-brand-desc,
+  .footer-brand > .footer-brand-meta { display: none; }
+  .footer-social { gap: 12px 16px; justify-content: center; }
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 20px;
+    text-align: center;
+    margin-bottom: 0;
+    align-items: start;
+    justify-items: center;
+  }
+  .footer-section { width: 100%; text-align: center; }
+  .footer-section h4 { margin-bottom: 16px; text-align: center; }
+  .footer-section ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section ul li { margin-bottom: 10px; }
+  .footer-section a { justify-content: center; }
+  .footer-section--legal { grid-column: 1 / -1; }
+  .footer-mobile-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .footer-logo-mobile {
+    display: inline-block;
+    text-decoration: none;
+  }
+  .footer-logo-mobile img {
+    display: block;
+    width: auto;
+    height: 36px;
+    max-width: 160px;
+  }
+  .footer-mobile-brand .footer-brand-desc {
+    margin-bottom: 0;
+    max-width: 28rem;
+  }
+  .footer-mobile-brand .footer-brand-meta {
+    margin-bottom: 0;
+  }
+  .footer-hamburg { display: inline; }
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .footer-bottom p { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  /* Match homepage: hide top nav on small phones; footer is the mobile IA */
+  header.header.site-header .header-nav a { display: none; }
+  footer:has(.footer-shell),
+  footer.site-footer {
+    padding: 40px 0 24px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  .footer-content { gap: 28px 14px; }
+  .footer-section a { font-size: 13px; }
+  .footer-mobile-brand { margin-top: 24px; }
+  .footer-logo-mobile img { height: 32px; }
+}
+
+@media (max-width: 360px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-section--legal { grid-column: auto; }
+}

@@ -6,6 +6,11 @@
  */
 
 const { getFaviconHeadHtml } = require('./faviconHead');
+const {
+  getSiteHeaderHtml,
+  getSiteFooterHtml,
+  getSiteShellCssLinkHtml,
+} = require('./siteShell');
 
 function escapeHtml(s) {
   return String(s == null ? '' : s)
@@ -326,14 +331,7 @@ function buildPortCardsHtml(directoryPorts) {
 }
 
 function buildDirectoryHeaderNav() {
-  return `<nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>`;
+  return getSiteHeaderHtml({ page: 'default' });
 }
 
 const PORTS_DIRECTORY_EXTRA_CSS = `
@@ -886,6 +884,7 @@ ${getFaviconHeadHtml()}
     url: canonical,
     isPartOf: { '@type': 'WebSite', name: 'SeaDays', url: BASE_URL + '/' },
   })}</script>
+  ${getSiteShellCssLinkHtml()}
   <style>${INDEX_STYLES}
 ${PORTS_DIRECTORY_EXTRA_CSS}
 </style>
@@ -894,7 +893,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">${buildDirectoryHeaderNav()}</header>
+    ${buildDirectoryHeaderNav()}
     <section class="directory-hero" aria-labelledby="ports-title">
       <div class="directory-hero-copy">
         <h1 id="ports-title">Explore Cruise Ports &amp; Destinations</h1>
@@ -996,16 +995,7 @@ ${regionCardsHtml}
       <p>Browse like our ships directory: start from a region, narrow by country, then open a port guide. Each link opens a static port guide; terminals, safety notes, and fresher crowd patterns load in the SeaDays app.</p>
       <p>When you are ready to compare vessels for these regions, return to the <a href="/ships/">ships directory</a> and cross-check cabins, dining, and entertainment before you commit.</p>
     </article>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Guides</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/ships/">Ships</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy</a></li><li><a href="https://seadays.app/terms.html">Terms</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p></div>
-      </div>
-    </footer>
+    ${getSiteFooterHtml()}
   </div>
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   <script>${buildPortsDirectoryClientScript()}

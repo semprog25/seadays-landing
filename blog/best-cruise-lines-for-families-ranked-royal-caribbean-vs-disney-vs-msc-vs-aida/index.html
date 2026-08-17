@@ -128,21 +128,24 @@ footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); 
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
 </style>
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
 </head>
 <body>
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    <header class="header">
-      <nav class="header-nav">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/ships/">Ships</a>
-        <a href="/ports/">Ports</a>
-        <a href="https://seadays.app/privacy.html">Privacy</a>
-        <a href="https://seadays.app/terms.html">Terms</a>
-      </nav>
-    </header>
+    <!-- seadays-site-shell:header -->
+        <header class="header site-header">
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="/#cruise-planning-tools">Features</a>
+                <a href="/ships/">Ships</a>
+                <a href="/ports/">Ports</a>
+                <a href="/blog/">Blog</a>
+                <a href="/press/">Press</a>
+                <a href="/#download">Get SeaDays</a>
+            </nav>
+        </header>
+        <!-- seadays-site-shell:header-end seadays-site-shell -->
     <main class="container">
       <article>
         <a href="/blog/" class="back-to-blog">← Back to Blog</a>
@@ -162,16 +165,84 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         <section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more><a href="/blog/best-cruises-for-families-the-ultimate-guide-for-infants-kids-and-teens/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/portside/article_1774909930268_4cbr7ygx3-thumbnail.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Best Cruises for Families: The Ultimate Guide for Infants, Kids, and Teens</h3><p class="more-card-excerpt">Planning a cruise with children can feel overwhelming, especially when different age groups need different experiences. This complete guide helps you choose the best cruise for infants, kids, and teens so the whole family enjoys the journey.</p></div></a><a href="/blog/caribbean-vs-mediterranean-cruise-which-should-you-choose-for-your-first-trip/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_93bc725b-bdca-45ff-95fd-4e76d6-2c0d08c5562e6a68.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Caribbean vs Mediterranean Cruise: Which Should You Choose for Your First Trip?</h3><p class="more-card-excerpt">First-time cruisers often narrow the world to two iconic regions—the warm, beach-forward Caribbean or the culture-dense Mediterranean. Neither is “better”; they solve different travel appetites. This comparison covers climate, costs, crowds, excursions, flight logistics, and who thrives in each region so you can book with confidence.</p></div></a><a href="/blog/disney-cruise-line-vs-royal-caribbean-best-for-families/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_4143c22e-1521-43a8-acaa-a04d8e-0227ef9c7586b560.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Disney Cruise Line vs Royal Caribbean: Best for Families</h3><p class="more-card-excerpt">Disney Cruise Line vs Royal Caribbean: Best for Families: detailed comparison of Royal Caribbean and Disney Cruise Line covering amenities, dining, cabins, and total value. Real analysis for cruise travelers choosing between these lines.</p></div></a><a href="/blog/msc-cruises-planning-guide-for-european-and-caribbean-sailings/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_2c9b1a49-6d9f-4fd8-98de-2c0b22-afa7010ed870188f.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">MSC Cruises Planning Guide for European and Caribbean Sailings</h3><p class="more-card-excerpt">MSC Cruises combines European cruise traditions with rapidly expanding Caribbean itineraries, creating a different onboard experience compared to many American cruise lines. Understanding fare inclusions, dining culture, embarkation differences, and multilingual passenger dynamics helps travelers plan more confidently before sailing.</p></div></a><a href="/blog/cruise-vs-flying-hotels-which-is-actually-better-in-2026/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_b2e8ae97-7a22-4696-ba3f-40f353-c5899312dc91a723.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Cruise vs Flying + Hotels: Which Is Actually Better in 2026?</h3><p class="more-card-excerpt">“Better” depends on what you optimize—total cost, time stress, scenery, or flexibility. In 2026, airfare volatility, hotel resort fees, and cruise packaging all shifted the math again. This guide compares cruise vacations against the classic fly-plus-hotel trip with honest trade-offs, hidden costs, and decision frameworks you can reuse for every booking.</p></div></a><a href="/blog/family-friendly-cruise-ships-which-one-should-you-pick/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_3564b096-543c-4808-9f7a-1e2da6-0ed8165f4dfcc570.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Family-Friendly Cruise Ships: Which One Should You Pick?</h3><p class="more-card-excerpt">The best family cruise ship matches your kids’ ages, your budget, and how you handle crowds. This guide breaks down what to look for—kids clubs, splash zones, connecting cabins, dining flexibility, and line-by-line strengths—so you book with confidence.</p></div></a><a href="/blog/cruise-cabin-choices-inside-oceanview-or-balconywhich-is-right-for-you/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_cb3ef715-e132-4add-99d1-f93e62-124ea51f6228db54.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Cruise Cabin Choices: Inside, Oceanview, or Balcony—Which Is Right for You?</h3><p class="more-card-excerpt">Your cabin choice can make or break your cruise experience. Inside cabins save money; balconies offer views and fresh air. Here&#39;s how to decide which cabin type fits your style and budget.</p></div></a><a href="/blog/complete-guide-to-budget-cruise-vs-luxury-cruise/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_67b49623-b989-4a31-8f42-1a23ac-c85e4a1e66a766ee.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Complete Guide to Budget Cruise Vs Luxury Cruise</h3><p class="more-card-excerpt">If budget cruise vs luxury cruise is what you are trying to plan around, treat it as a bundle of decisions—cabin, route timing, and port-day realism—rather than a single “best list” answer. It matters most for families when you are choosing a</p></div></a><a href="/blog/aidacosma-vs-msc-seashore-ship-comparison-guide/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_c5e64ecb-8283-462c-b006-701905-1096162849f424b0.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">AIDAcosma vs. MSC Seashore: Ship Comparison Guide</h3><p class="more-card-excerpt">AIDAcosma and MSC Seashore both target families and international guests, but their brands, languages onboard, and venue philosophies differ. This side-by-side comparison helps you pick the right hull for your budget, dining style, and cabin priorities.</p></div></a><a href="/blog/luxury-cruises-comparing-royal-caribbeans-oasis-class-ships/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_5ca1b5ef-84d4-48c4-8626-427da9-ae541abb30f026f7.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Luxury Cruises: Comparing Royal Caribbean’s Oasis-Class Ships</h3><p class="more-card-excerpt">Royal Caribbean’s Oasis class redefined mega-ship cruising with neighborhoods, Central Park, and record-breaking entertainment. This guide compares Oasis-class vessels—how they differ after refits, which itineraries suit them, and how to capture a “luxury-adjacent” experience within a mass-market resort ship.</p></div></a><a href="/blog/cruise-itinerary-planning-how-to-choose-the-perfect-route/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_d9adca90-34f2-49c5-a6aa-a3ff39-9f40e1ee004ed728.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Cruise Itinerary Planning: How to Choose the Perfect Route</h3><p class="more-card-excerpt">The right cruise itinerary can make your vacation. The wrong one can leave you bored or exhausted. Here&#39;s how to pick a route that matches your style, budget, and dreams.</p></div></a><a href="/blog/port-days-vs-sea-days-how-to-balance-exploration-rest-and-onboard-fun/" class="more-card"><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_ac8d5798-ac5c-4524-8d7c-af9c18-be503ac572c2e1a9.jpg" alt="" width="400" height="160" class="more-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')"><div class="more-card-body"><h3 class="more-card-title">Port Days vs Sea Days: How to Balance Exploration, Rest, and Onboard Fun</h3><p class="more-card-excerpt">Every itinerary mixes days in port with days at sea—and the ratio shapes whether you return energized or exhausted. This guide helps you choose itineraries with the right balance, plan port days without sprinting, use sea days for recovery or ship highlights, and avoid the classic mistake of treating every hour like a checklist.</p></div></a></div></section>
       </article>
     </main>
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section"><h4>Product</h4><ul><li><a href="/#download">Download</a></li></ul></div>
-          <div class="footer-section"><h4>Company</h4><ul><li><a href="https://seadays.app/about.html">About Us</a></li><li><a href="https://seadays.app/press/">Press</a></li><li><a href="https://seadays.app/help.html">Help Center</a></li><li><a href="https://seadays.app/contact.html">Contact</a></li><li><a href="https://seadays.app/faq.html">FAQ</a></li></ul></div>
-          <div class="footer-section"><h4>Legal</h4><ul><li><a href="https://seadays.app/privacy.html">Privacy Policy</a></li><li><a href="https://seadays.app/terms.html">Terms of Service</a></li><li><a href="https://seadays.app/cookies.html">Cookie Policy</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>&copy; 2026 SeaDays. All rights reserved.</p><p style="margin-top:12px;">made with love from the port city of Hamburg</p></div>
-      </div>
-    </footer>
+    <!-- seadays-site-shell:footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-shell">
+                    <div class="footer-brand">
+                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
+                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
+                        </a>
+                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                        <ul class="footer-social">
+                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h4>Explore</h4>
+                            <ul>
+                                <li><a href="/ships/">Ships</a></li>
+                                <li><a href="/ports/">Ports</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="/press/">Press</a></li>
+                                <li><a href="/#blog">SeaStories</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Plan</h4>
+                            <ul>
+                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
+                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
+                                <li><a href="/cruise-community/">Cruise Community</a></li>
+                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>SeaDays</h4>
+                            <ul>
+                                <li><a href="/about.html">About</a></li>
+                                <li><a href="/help.html">Help</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Sustainability</h4>
+                            <ul>
+                                <li><a href="/co2/">CO₂ Contribution</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section footer-section--legal">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="/privacy.html">Privacy</a></li>
+                                <li><a href="/terms.html">Terms</a></li>
+                                <li><a href="/cookies.html">Cookie Policy</a></li>
+                                <li><a href="/gdpr.html">GDPR</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-mobile-brand">
+                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
+                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+                    </a>
+                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 SeaDays. All rights reserved.</p>
+                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
+                </div>
+            </div>
+        </footer>
+        <!-- seadays-site-shell:footer-end seadays-site-shell -->
   </div>
   <script>
     (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();

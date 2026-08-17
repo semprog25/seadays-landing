@@ -15,6 +15,7 @@
     "generate-blog-pages": "node scripts/generate-blog-pages.js",
     "generate-feature-landings": "node scripts/buildFeatureLandingPages.js",
     "generate-press": "node scripts/generate-press-assets.js",
+    "apply-site-shell": "node scripts/apply-site-shell.js",
     "inject-analytics": "node scripts/inject-analytics-head.js",
     "inject-blog-ad-slots": "node scripts/inject-blog-ad-slots.js",
     "extract-public-port-guides": "node scripts/extract-public-port-guides.js",
