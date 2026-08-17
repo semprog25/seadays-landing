@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+<!-- SeaDays analytics: GA4 G-WSQDQ33QZD + Consent Mode v2 -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
+<script>
+gtag('js', new Date());
+gtag('config', 'G-WSQDQ33QZD');
+window.__SEADAYS_GA_READY__ = true;
+</script>
+<script src="/assets/js/seadays-analytics.js" defer></script>
+
+
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="How SeaDays protects accounts, app data, and seadays.app — limited to practices verified in the August 2026 security audit.">
+    <link rel="canonical" href="https://seadays.app/security.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seadays.app/security.html">
+    <meta property="og:title" content="Security &amp; Privacy - SeaDays">
+    <meta property="og:description" content="How SeaDays protects accounts, app data, and seadays.app — limited to practices verified in the August 2026 security audit.">
+    <meta property="og:image" content="https://seadays.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Security &amp; Privacy - SeaDays">
+    <meta name="twitter:description" content="How SeaDays protects accounts, app data, and seadays.app — limited to practices verified in the August 2026 security audit.">
+    <meta name="twitter:image" content="https://seadays.app/og-image.png">
+    <title>Security &amp; Privacy - SeaDays</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-bg-alt: #1a1a1a;
+            --neon-red: #FF0033;
+            --text-light: #ffffff;
+            --text-gray: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Starfield Background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Grid Overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-image: 
+                linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--neon-red);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            filter: brightness(1.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 0, 51, 0.1);
+            border: 2px solid rgba(255, 0, 51, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 30px rgba(255, 0, 51, 0.3);
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .last-updated {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .section ul {
+            list-style: disc;
+            padding-left: 28px;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .section strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(255, 0, 51, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--neon-red);
+            margin: 20px 0;
+        }
+
+        .highlight strong {
+            color: var(--neon-red);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 24px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .container {
+                padding: 30px 15px 60px;
+            }
+        }
+    </style>
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <style id="site-shell-page-pad">.content-layer > .container, .content-layer > main, body > .container { padding-top: 88px; }</style>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="starfield" id="starfield"></div>
+    
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+
+    <div class="content-layer">
+<!-- seadays-site-shell:header -->
+        <header class="header site-header">
+            <nav class="header-nav" aria-label="Main navigation">
+                <a href="/#cruise-planning-tools">Features</a>
+                <a href="/ships/">Ships</a>
+                <a href="/ports/">Ports</a>
+                <a href="/blog/">Blog</a>
+                <a href="/press/">Press</a>
+                <a href="/#download">Get SeaDays</a>
+            </nav>
+        </header>
+        <!-- seadays-site-shell:header-end seadays-site-shell -->
+
+        <div class="container">
+            <a href="https://seadays.app/" class="back-link">← Back to Home</a>
+            
+            <div class="header">
+                <div class="icon-container">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF0033" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h1>Security &amp; Privacy</h1>
+                <p class="last-updated">Last Updated: August 17, 2026</p>
+            </div>
+
+            <div class="content">
+                <div class="highlight">
+                    <p>This page describes <strong>only practices verified</strong> during SeaDays’ August 17, 2026 technical security audit of the app, Supabase backend, and seadays.app. It is not a SOC 2, ISO, HIPAA, or GDPR certification, and it does not claim encryption-at-rest, “no AI training,” or other controls we did not independently verify.</p>
+                </div>
+
+                <div class="section">
+                    <h2>What this covers</h2>
+                    <p>SeaDays is a cruise planning and community app (iOS, Android, and web) operated with a marketing site at seadays.app. Account authentication is provided by Supabase Auth. Application APIs run on Supabase Edge Functions. Some trip and social data is stored in Postgres with Row Level Security; other features use a server-side key-value store that is not readable by the public anon key.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Accounts and sessions</h2>
+                    <ul>
+                        <li>Sign-in uses Supabase Auth with PKCE (Proof Key for Code Exchange) for OAuth.</li>
+                        <li>The mobile/web client is configured with the project’s public anon (publishable) API key only. The service-role key is not shipped in the app.</li>
+                        <li>Protected API routes require a valid user session. Public read endpoints are limited to feeds and similar catalog content.</li>
+                        <li>Waitlist email export requires a CMS administrator session, not the public anon key.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Database access</h2>
+                    <ul>
+                        <li>Row Level Security is enabled on SeaDays application tables in the audited Postgres project.</li>
+                        <li>The key-value table used by the Edge Function is not granted to anon or authenticated client roles.</li>
+                        <li>Voyage costs, drink logs, and similar user tables are scoped to the signed-in user in RLS policies.</li>
+                        <li>Internal tables such as blog drafts, moderation reports, and carbon-funding ledgers are not readable through the client API after the 17 August 2026 grant hardening.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Files and media</h2>
+                    <ul>
+                        <li>Chat images, note images, and profile pictures are stored in private buckets. Client access is limited to the owner’s folder, or to time-limited signed URLs issued by the server after authentication.</li>
+                        <li>Public buckets are used for marketing and Portside article media (SeadaysPublic, portside images, and the auth-redirect asset bucket).</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Website (seadays.app)</h2>
+                    <ul>
+                        <li>The marketing site is served over HTTPS (HTTP/2 observed on 17 August 2026).</li>
+                        <li>The site uses Google Analytics 4 with Consent Mode v2 defaults that deny analytics and ads storage until consent is updated.</li>
+                        <li>The contact form posts to the SeaDays API. Guest submissions are rate-limited and are not stored under another user’s account id.</li>
+                    </ul>
+                    <p>GitHub Pages, which hosts seadays.app, does not currently send Content-Security-Policy, Strict-Transport-Security, or X-Frame-Options headers. We do not claim those headers are in place.</p>
+                </div>
+
+                <div class="section">
+                    <h2>What we do not claim</h2>
+                    <p>We have not published evidence for, and therefore do not claim: SOC 2, ISO 27001, HIPAA, GDPR certification, encryption-at-rest configuration, a bug-bounty program, or a promise that data is never used to train AI models.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Related policies</h2>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Use</a></li>
+                        <li><a href="/cookies.html">Cookie Policy</a></li>
+                        <li><a href="/gdpr.html">GDPR</a></li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Contact</h2>
+                    <p>Security and privacy questions:</p>
+                    <div class="contact-info">
+                        <p><strong>Privacy:</strong> privacy@seadays.app</p>
+                        <p><strong>Support:</strong> support@seadays.app</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- seadays-site-shell:footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-shell">
+                    <div class="footer-brand">
+                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
+                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
+                        </a>
+                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                        <ul class="footer-social">
+                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h4>Explore</h4>
+                            <ul>
+                                <li><a href="/ships/">Ships</a></li>
+                                <li><a href="/ports/">Ports</a></li>
+                                <li><a href="/blog/">Blog</a></li>
+                                <li><a href="/press/">Press</a></li>
+                                <li><a href="/#blog">SeaStories</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Plan</h4>
+                            <ul>
+                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
+                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
+                                <li><a href="/cruise-community/">Cruise Community</a></li>
+                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>SeaDays</h4>
+                            <ul>
+                                <li><a href="/about.html">About</a></li>
+                                <li><a href="/help.html">Help</a></li>
+                                <li><a href="/faq.html">FAQ</a></li>
+                                <li><a href="/contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Sustainability</h4>
+                            <ul>
+                                <li><a href="/co2/">CO₂ Contribution</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section footer-section--legal">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="/privacy.html">Privacy</a></li>
+                                <li><a href="/security.html">Security</a></li>
+                                <li><a href="/terms.html">Terms</a></li>
+                                <li><a href="/cookies.html">Cookie Policy</a></li>
+                                <li><a href="/gdpr.html">GDPR</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-mobile-brand">
+                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
+                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+                    </a>
+                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>© 2026 SeaDays. All rights reserved.</p>
+                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
+                </div>
+            </div>
+        </footer>
+        <!-- seadays-site-shell:footer-end seadays-site-shell -->
+<script>
+        // Generate animated starfield
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
+        }
+
+        createStarfield();
+    </script>
+</body>
+</html>

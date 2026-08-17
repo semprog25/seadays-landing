@@ -30,7 +30,7 @@ window.__SEADAYS_GA_READY__ = true;
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeaDays - Waitlist Admin</title>
+    <meta name="robots" content="noindex, nofollow">
     
     <style>
         * {
@@ -287,37 +287,9 @@ window.__SEADAYS_GA_READY__ = true;
 
         async function loadWaitlist() {
             const emailList = document.getElementById('emailList');
-            emailList.innerHTML = '<div class="loading">Loading waitlist...</div>';
+            emailList.innerHTML =
+                '<div class="loading">Waitlist export requires a CMS admin session. The public anon key cannot list emails. Use the SeaDays CMS (seo-admin) while signed in as an admin, or the Supabase dashboard.</div>';
             hideMessages();
-
-            try {
-                const response = await fetch(`${API_BASE}/waitlist/all`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-                    }
-                });
-
-                const data = await response.json();
-
-                if (data.success) {
-                    allEmailsData = data.emails || [];
-                    document.getElementById('totalCount').textContent = data.count || 0;
-                    
-                    // Calculate today's and week's signups (if we had timestamp data)
-                    document.getElementById('todayCount').textContent = '-';
-                    document.getElementById('weekCount').textContent = '-';
-
-                    displayEmails(allEmailsData);
-                } else {
-                    throw new Error(data.error || 'Failed to load waitlist');
-                }
-            } catch (error) {
-                console.error('Error loading waitlist:', error);
-                emailList.innerHTML = '<div class="loading">Failed to load waitlist. Please try again.</div>';
-                showError('Failed to load waitlist: ' + error.message);
-            }
         }
 
         function displayEmails(emails) {

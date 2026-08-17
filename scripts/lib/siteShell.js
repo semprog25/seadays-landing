@@ -113,6 +113,7 @@ function getSiteFooterHtml() {
                             <h4>Legal</h4>
                             <ul>
                                 <li><a href="/privacy.html">Privacy</a></li>
+                                <li><a href="/security.html">Security</a></li>
                                 <li><a href="/terms.html">Terms</a></li>
                                 <li><a href="/cookies.html">Cookie Policy</a></li>
                                 <li><a href="/gdpr.html">GDPR</a></li>
@@ -203,7 +204,10 @@ footer.site-footer {
   gap: 48px 48px;
   margin-bottom: 44px;
   align-items: start;
+  width: 100%;
 }
+
+.footer-shell > * { min-width: 0; }
 
 .footer-brand { max-width: 340px; }
 
@@ -256,15 +260,16 @@ footer.site-footer {
 
 .footer-social a:hover { color: var(--neon-red, #FF0033); }
 
-.footer-content {
+.footer-shell .footer-content {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 28px 16px;
   text-align: left;
   min-width: 0;
+  width: 100%;
 }
 
-.footer-section h4 {
+.footer-shell .footer-section h4 {
   margin-bottom: 16px;
   font-size: 12px;
   font-weight: 800;
@@ -273,10 +278,10 @@ footer.site-footer {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.footer-section ul { list-style: none; margin: 0; padding: 0; }
-.footer-section ul li { margin-bottom: 11px; }
+.footer-shell .footer-section ul { list-style: none; margin: 0; padding: 0; }
+.footer-shell .footer-section ul li { margin-bottom: 11px; }
 
-.footer-section a {
+.footer-shell .footer-section a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 0.25s ease;
@@ -286,7 +291,7 @@ footer.site-footer {
   min-height: 28px;
 }
 
-.footer-section a:hover { color: var(--neon-red, #FF0033); }
+.footer-shell .footer-section a:hover { color: var(--neon-red, #FF0033); }
 
 .footer-bottom {
   padding-top: 28px;
@@ -307,7 +312,7 @@ footer.site-footer {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .footer-content {
+  .footer-shell .footer-content {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px 24px;
   }
@@ -333,7 +338,7 @@ footer.site-footer {
   .footer-brand > .footer-brand-desc,
   .footer-brand > .footer-brand-meta { display: none; }
   .footer-social { gap: 12px 16px; justify-content: center; }
-  .footer-content {
+  .footer-shell .footer-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 32px 20px;
     text-align: center;
@@ -341,16 +346,16 @@ footer.site-footer {
     align-items: start;
     justify-items: center;
   }
-  .footer-section { width: 100%; text-align: center; }
-  .footer-section h4 { margin-bottom: 16px; text-align: center; }
-  .footer-section ul {
+  .footer-shell .footer-section { width: 100%; text-align: center; }
+  .footer-shell .footer-section h4 { margin-bottom: 16px; text-align: center; }
+  .footer-shell .footer-section ul {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .footer-section ul li { margin-bottom: 10px; }
-  .footer-section a { justify-content: center; }
-  .footer-section--legal { grid-column: 1 / -1; }
+  .footer-shell .footer-section ul li { margin-bottom: 10px; }
+  .footer-shell .footer-section a { justify-content: center; }
+  .footer-shell .footer-section--legal { grid-column: 1 / -1; }
   .footer-mobile-brand {
     display: flex;
     flex-direction: column;
@@ -393,18 +398,18 @@ footer.site-footer {
     padding: 40px 0 24px;
     padding-bottom: max(24px, env(safe-area-inset-bottom));
   }
-  .footer-content { gap: 28px 14px; }
-  .footer-section a { font-size: 13px; }
+  .footer-shell .footer-content { gap: 28px 14px; }
+  .footer-shell .footer-section a { font-size: 13px; }
   .footer-mobile-brand { margin-top: 24px; }
   .footer-logo-mobile img { height: 32px; }
 }
 
 @media (max-width: 360px) {
-  .footer-content {
+  .footer-shell .footer-content {
     grid-template-columns: 1fr;
     gap: 28px;
   }
-  .footer-section--legal { grid-column: auto; }
+  .footer-shell .footer-section--legal { grid-column: auto; }
 }
 `;
 }
