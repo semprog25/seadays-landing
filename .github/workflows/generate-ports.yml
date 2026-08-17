@@ -1,31 +1,37 @@
-name: Generate blogs
+name: Generate port catalogue
 
-# Channel B — blog/SEO generation only.
+# Channel C — port/ship catalogue generation only. Does not rewrite blogs.
 on:
   push:
     branches: [main]
     paths:
-      - 'scripts/generateBlogs.js'
-      - 'scripts/lib/adsenseArticleSlot.js'
-      - 'scripts/lib/adsenseConfig.js'
-      - 'scripts/lib/analyticsSnippet.js'
-      - 'scripts/lib/faviconHead.js'
-      - 'scripts/lib/seoKeywordLinks.js'
-      - 'scripts/inject-blog-ad-slots.js'
-      - 'scripts/inject-blog-port-links.js'
-      - 'scripts/inject-analytics-head.js'
-      - 'blog-article.html'
-      - '.github/workflows/generate-blogs.yml'
-  schedule:
-    # CMS-published articles are not git-triggered; pick them up daily without touching ports.
-    - cron: '0 6 * * *'
+      - 'scripts/lib/appCruiseDataset.js'
+      - 'scripts/lib/seoShipPortPages.js'
+      - 'scripts/lib/seoShipPortFallbacks.js'
+      - 'scripts/lib/landingCruiseContentOverrides.js'
+      - 'scripts/lib/reviewAggregateMerge.js'
+      - 'scripts/lib/portSeoRedirects.js'
+      - 'scripts/lib/portsDirectoryIndex.js'
+      - 'scripts/lib/publicPortGuideAdapter.js'
+      - 'scripts/lib/portGuideSections.js'
+      - 'scripts/lib/viatorAffiliate.js'
+      - 'scripts/regenerate-port-pages.js'
+      - 'scripts/regenerate-ports-index.js'
+      - 'scripts/extract-public-port-guides.js'
+      - 'scripts/extract-public-port-terminals.js'
+      - 'scripts/fix-featured-guide-thumbnails.js'
+      - 'data/public-port-guides.json'
+      - 'data/public-port-terminals.json'
+      - 'data/known-affiliate-port-ids.json'
+      - 'data/landing-cruise-content-overrides.json'
+      - '.github/workflows/generate-ports.yml'
   workflow_dispatch:
     inputs:
       channel:
         description: Generation channel
         type: choice
-        options: [blogs, sitemap, auto]
-        default: blogs
+        options: [ports, catalogue, auto]
+        default: ports
 
 concurrency:
   group: seadays-landing-generate
@@ -86,7 +92,7 @@ jobs:
         if: needs.classify.outputs.needs_viator == 'true'
         run: |
           if [ -z "${{ secrets.VIATOR_AFFILIATE_PID }}" ] || [ -z "${{ secrets.VIATOR_AFFILIATE_MCID }}" ]; then
-            echo "::error::VIATOR_AFFILIATE_PID and VIATOR_AFFILIATE_MCID are required for this generation channel."
+            echo "::error::VIATOR_AFFILIATE_PID and VIATOR_AFFILIATE_MCID are required so port guide CTAs keep live affiliate URLs."
             exit 1
           fi
 

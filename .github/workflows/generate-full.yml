@@ -1,59 +1,21 @@
-name: Generate blogs
+name: Full static rebuild
 
-# Channel B — blog/SEO generation only.
+# Channel D — intentional full regeneration. Orphan catalogue cleanup is off
+# unless explicitly enabled. Never runs on ordinary pushes.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/generateBlogs.js'
-      - 'scripts/lib/adsenseArticleSlot.js'
-      - 'scripts/lib/adsenseConfig.js'
-      - 'scripts/lib/analyticsSnippet.js'
-      - 'scripts/lib/faviconHead.js'
-      - 'scripts/lib/seoKeywordLinks.js'
-      - 'scripts/inject-blog-ad-slots.js'
-      - 'scripts/inject-blog-port-links.js'
-      - 'scripts/inject-analytics-head.js'
-      - 'blog-article.html'
-      - '.github/workflows/generate-blogs.yml'
-  schedule:
-    # CMS-published articles are not git-triggered; pick them up daily without touching ports.
-    - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
-      channel:
-        description: Generation channel
-        type: choice
-        options: [blogs, sitemap, auto]
-        default: blogs
+      allow_orphan_cleanup:
+        description: Delete ship/port directories that are not in the current dataset (destructive)
+        type: boolean
+        default: false
 
 concurrency:
   group: seadays-landing-generate
   cancel-in-progress: false
 
 jobs:
-  classify:
-    runs-on: ubuntu-latest
-    outputs:
-      skip: ${{ steps.plan.outputs.skip }}
-      channel: ${{ steps.plan.outputs.channel }}
-      needs_viator: ${{ steps.plan.outputs.needs_viator }}
-      commit_message: ${{ steps.plan.outputs.commit_message }}
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Classify generation channel
-        id: plan
-        env:
-          GENERATION_CHANNEL: ${{ github.event.inputs.channel || '' }}
-          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-        run: node scripts/ci-classify-generation.js
-
   generate:
-    needs: classify
-    if: needs.classify.outputs.skip != 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -83,14 +45,13 @@ jobs:
           fi
 
       - name: Verify Viator affiliate secrets
-        if: needs.classify.outputs.needs_viator == 'true'
         run: |
           if [ -z "${{ secrets.VIATOR_AFFILIATE_PID }}" ] || [ -z "${{ secrets.VIATOR_AFFILIATE_MCID }}" ]; then
-            echo "::error::VIATOR_AFFILIATE_PID and VIATOR_AFFILIATE_MCID are required for this generation channel."
+            echo "::error::VIATOR_AFFILIATE_PID and VIATOR_AFFILIATE_MCID are required for a full rebuild."
             exit 1
           fi
 
-      - name: Generate channel
+      - name: Generate full site
         env:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -98,7 +59,8 @@ jobs:
           VIATOR_AFFILIATE_PID: ${{ secrets.VIATOR_AFFILIATE_PID }}
           VIATOR_AFFILIATE_MCID: ${{ secrets.VIATOR_AFFILIATE_MCID }}
           VIATOR_AFFILIATE_MEDIUM: link
-        run: bash scripts/ci-run-channel.sh ${{ needs.classify.outputs.channel }}
+          ALLOW_ORPHAN_CLEANUP: ${{ github.event.inputs.allow_orphan_cleanup }}
+        run: bash scripts/ci-run-channel.sh full
 
       - name: Check for changes
         id: changes
@@ -110,5 +72,5 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         env:
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
-          COMMIT_MSG: ${{ needs.classify.outputs.commit_message }}
+          COMMIT_MSG: chore: regenerate static blog, ships, ports, and sitemap [skip ci]
         run: bash scripts/ci-safe-push-generated.sh

@@ -7,6 +7,11 @@
   "scripts": {
     "start": "node server.js",
     "generate-blogs": "node scripts/generateBlogs.js",
+    "generate-blogs:ci": "node scripts/generateBlogs.js --blogs-only",
+    "generate-ports:ci": "node scripts/generateBlogs.js --ports-only",
+    "generate-catalogue:ci": "node scripts/generateBlogs.js --catalogue-only",
+    "generate-full:ci": "node scripts/generateBlogs.js --full --allow-orphan-cleanup",
+    "test:ci-channels": "node scripts/test-generate-mode.js && node scripts/test-ci-classify-generation.js && node scripts/test-catalogue-inventory.js && node scripts/test-port-seo-redirects.js && node scripts/test-image-pipeline.js && bash scripts/test-ci-safe-push.sh",
     "generate-blog-pages": "node scripts/generate-blog-pages.js",
     "generate-feature-landings": "node scripts/buildFeatureLandingPages.js",
     "generate-press": "node scripts/generate-press-assets.js",

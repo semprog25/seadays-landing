@@ -139,15 +139,20 @@ The generator injects 2–4 related-article links inside content (after the 2nd 
 
 ### GitHub Action
 
-A workflow (`.github/workflows/generate-blogs.yml`) runs:
+Landing CI is split so a normal HTML/CSS/page push does **not** regenerate blogs or the 412-port catalogue.
 
-- On push to `main` when script or workflow changes
-- On manual trigger (`workflow_dispatch`)
-- Daily at 06:00 UTC
+| Channel | Workflow | When it runs | What it regenerates |
+|---|---|---|---|
+| A — deploy | `.github/workflows/deploy.yml` | Ordinary landing-page pushes | Nothing. GitHub Pages publishes the committed HTML. |
+| B — blogs | `.github/workflows/generate-blogs.yml` | Blog templates/scripts, daily 06:00 UTC CMS pickup, or manual dispatch | Blog HTML + sitemap. Not ports. |
+| C — ports | `.github/workflows/generate-ports.yml` | Port/ship dataset, templates, or guides | Port and/or ship catalogue + sitemap. Not blogs. |
+| D — full | `.github/workflows/generate-full.yml` | Manual `workflow_dispatch` only | Everything. Orphan folder deletion is a separate checkbox and is **off** by default. |
 
-**Required secret**: `SUPABASE_ANON_KEY` in the repo settings.
+`removeOrphanShipPortDirectories()` is **not** run on channels A–C or on a default `npm run generate-blogs`. It only runs with `--allow-orphan-cleanup` on an explicit full rebuild.
 
-The workflow commits updated `blog/` and `sitemap.xml` and pushes back to `main`.
+**Required secret**: `SUPABASE_ANON_KEY`. Port/full channels also need `VIATOR_AFFILIATE_PID` and `VIATOR_AFFILIATE_MCID`.
+
+Generated output is committed with `[skip ci]` via `scripts/ci-safe-push-generated.sh`.
 
 ## URL Structure
 

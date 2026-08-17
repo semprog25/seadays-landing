@@ -10,7 +10,13 @@
  * - Ensures SEO meta tags, canonical, robots, loading="lazy" on images
  *
  * Usage: node scripts/generateBlogs.js
+ *        node scripts/generateBlogs.js --blogs-only
+ *        node scripts/generateBlogs.js --ports-only
+ *        node scripts/generateBlogs.js --ships-only
+ *        node scripts/generateBlogs.js --catalogue-only
  *        node scripts/generateBlogs.js --sitemap-only   (rebuild sitemap from disk; no Supabase write)
+ *        node scripts/generateBlogs.js --full --allow-orphan-cleanup
+ * Default (no flags) regenerates blogs + ships + ports but does NOT delete catalogue folders.
  * Requires: SUPABASE_ANON_KEY (fetch), SUPABASE_SERVICE_ROLE_KEY (upload base64 images)
  */
 'use strict';
@@ -83,6 +89,7 @@ const {
   resolvePortAffiliateCta,
   getViatorConfigFromEnv,
 } = require('./lib/viatorAffiliate');
+const { parseGenerateMode } = require('./lib/generateMode');
 const https = require('https');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -106,7 +113,9 @@ function ensurePublicPortGuides(repoRoot, appRoot) {
 
 /**
  * Remove ships/<slug> and ports/<slug> directories not present in the current build.
- * Prevents stale programmatic SEO pages from older dataset snapshots (disk vs sitemap drift).
+ * Destructive: live folders disappear if they are missing from APP_ALL_PORTS/SHIPS
+ * (this previously deleted ports/koper-croatia/). Only call when the caller passed
+ * --allow-orphan-cleanup on an explicit full/catalogue rebuild.
  * Preserves standalone port redirect folders (e.g. koper-croatia → koper-slovenia).
  */
 function removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts) {
@@ -2845,7 +2854,9 @@ async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = []
 
 async function main() {
   const repoRoot = path.join(__dirname, '..');
-  if (process.argv.includes('--sitemap-only')) {
+  const mode = parseGenerateMode(process.argv);
+  console.log(`[generateBlogs] generation mode: ${mode.label}`);
+  if (mode.sitemapOnly) {
     writeSitemapSnapshotFromDisk(repoRoot);
     console.log('Done.');
     return;
@@ -2865,18 +2876,24 @@ async function main() {
   externalChecksCount = 0;
   externalCheckCache.clear();
   base64UrlCache.clear();
-  console.log('Fetching articles from Supabase...');
-  const [data, featuredSlugs] = await Promise.all([
-    fetchArticles(),
-    fetchBlogFeaturedSlugs(),
-  ]);
+  let data = { articles: [] };
+  let featuredSlugs = [];
+  if (mode.blogs) {
+    console.log('Fetching articles from Supabase...');
+    [data, featuredSlugs] = await Promise.all([
+      fetchArticles(),
+      fetchBlogFeaturedSlugs(),
+    ]);
+  } else {
+    console.log('[generateBlogs] skipping CMS article fetch');
+  }
   const rawArticles = (data?.articles || []).filter(a => a && a.isDraft !== true && a.showOnWebsite !== false);
   const existingBlogSlugs = listPublishedBlogSlugsForSitemap(repoRoot);
-  const skipBlogRewrite = rawArticles.length === 0 && existingBlogSlugs.length > 0;
+  const skipBlogRewrite = !mode.blogs || (rawArticles.length === 0 && existingBlogSlugs.length > 0);
   if (rawArticles.length === 0 && !skipBlogRewrite) {
     console.log('No published articles found. Creating empty blog structure.');
   }
-  if (skipBlogRewrite) {
+  if (mode.blogs && skipBlogRewrite && rawArticles.length === 0 && existingBlogSlugs.length > 0) {
     console.warn(
       `[generateBlogs] CMS returned 0 articles but ${existingBlogSlugs.length} posts exist on disk; preserving blog HTML.`
     );
@@ -2910,10 +2927,20 @@ async function main() {
   }
 
   console.log('Merging thumbnail payloads for articles missing hero/thumbnail...');
-  await mergePortsideThumbnailsIntoArticles(articles);
+  if (mode.blogs && articles.length) {
+    await mergePortsideThumbnailsIntoArticles(articles);
+  }
 
-  console.log('Fetching ships & ports for programmatic SEO pages...');
-  const { ships: rawShips, ports: rawPorts } = await fetchReviewsShipsPorts();
+  let rawShips = [];
+  let rawPorts = [];
+  if (mode.ships || mode.ports) {
+    console.log('Fetching ships & ports for programmatic SEO pages...');
+    const fetched = await fetchReviewsShipsPorts();
+    rawShips = fetched.ships || [];
+    rawPorts = fetched.ports || [];
+  } else {
+    console.log('[generateBlogs] skipping live ship/port review fetch');
+  }
   const reviewByShipId = buildReviewAggregateByIdMap(Array.isArray(rawShips) ? rawShips : []);
   const reviewByPortId = buildReviewAggregateByIdMap(Array.isArray(rawPorts) ? rawPorts : []);
   const appRoot = getAppRepoRoot();
@@ -3004,23 +3031,27 @@ async function main() {
   const seoPorts = buildSeoPortRecords(fullPortRawList);
   applyPortGeoFromApiRows(seoPorts, rawPorts, portSlugToReviewKey);
 
-  const publicGuides = ensurePublicPortGuides(repoRoot, appRoot);
+  const publicGuides = (mode.ships || mode.ports)
+    ? ensurePublicPortGuides(repoRoot, appRoot)
+    : (loadPublicPortGuidesFile(repoRoot) || { byAppPortId: {} });
   const slugToAppPortId = buildSlugToAppPortIdMap(
     seoPorts,
     portSlugToReviewKey,
     publicGuides.byAppPortId || {}
   );
   const terminalsPayload = loadPublicPortTerminals(repoRoot);
-  const knownAffiliatePortIds = loadKnownAffiliatePortIds(appRoot);
-  const viatorConfig = getViatorConfigFromEnv();
-  if (!viatorConfig.configured) {
+  const knownAffiliatePortIds = (mode.ships || mode.ports) ? loadKnownAffiliatePortIds(appRoot) : new Set();
+  const viatorConfig = mode.ports ? getViatorConfigFromEnv() : { configured: false };
+  if (mode.ports && !viatorConfig.configured) {
     console.warn(
       '[generateBlogs] VIATOR_AFFILIATE_PID/MCID not set — Bookable Experiences CTA will deep-link to app download until configured.'
     );
   }
-  console.log(
-    `[generateBlogs] public port guides: ${Object.keys(publicGuides.byAppPortId || {}).length}; terminals ports: ${Object.keys(terminalsPayload.byPortId || {}).length}`
-  );
+  if (mode.ships || mode.ports) {
+    console.log(
+      `[generateBlogs] public port guides: ${Object.keys(publicGuides.byAppPortId || {}).length}; terminals ports: ${Object.keys(terminalsPayload.byPortId || {}).length}`
+    );
+  }
 
   const spOpts = {
     baseUrl: BASE_URL,
@@ -3054,6 +3085,7 @@ async function main() {
     });
   }
 
+  if (mode.ships) {
   for (const ship of seoShips) {
     const dir = path.join(repoRoot, 'ships', ship.slug);
     fs.mkdirSync(dir, { recursive: true });
@@ -3070,7 +3102,9 @@ async function main() {
     const blogs = withRelatedCardImages(pickBlogArticlesForEntity(articles, tokens, 6));
     fs.writeFileSync(path.join(dir, 'index.html'), buildShipDetailHtml(ship, relShips, destPorts, blogs, spOpts), 'utf8');
   }
+  }
   const unpublishedPortSlugs = new Set();
+  if (mode.ports) {
   for (const port of seoPorts) {
     if (unpublishedPortSlugs.has(port.slug)) {
       const orphan = path.join(repoRoot, 'ports', port.slug);
@@ -3124,12 +3158,20 @@ async function main() {
       'utf8'
     );
   }
+  }
 
-  removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts);
-  const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
-  console.log(
-    `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
-  );
+  if (mode.allowOrphanCleanup) {
+    console.log('[generateBlogs] running destructive orphan catalogue cleanup (--allow-orphan-cleanup)');
+    removeOrphanShipPortDirectories(repoRoot, seoShips, seoPorts);
+  } else {
+    console.log('[generateBlogs] skipping orphan catalogue cleanup');
+  }
+  if (mode.ports) {
+    const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
+    console.log(
+      `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
+    );
+  }
 
   async function buildFeaturedGuideCardsHtml(featuredArticles, keyPrefix) {
     const safe = Array.isArray(featuredArticles) ? featuredArticles : [];
@@ -3188,27 +3230,34 @@ async function main() {
     return pickBlogArticlesForEntity(articles, ['cruise ports', 'shore days', ...topRegionTokens], 6).slice(0, 6);
   }
 
-  const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
-  const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
-
-  fs.writeFileSync(
-    path.join(repoRoot, 'ships', 'index.html'),
-    replaceSignedStorageImgSrcInHtml(
-      buildShipsIndexHtml({ ships: seoShips, articles, featuredGuideCardsHtml: shipGuideCardsHtml })
-    ),
-    'utf8'
-  );
-  fs.writeFileSync(
-    path.join(repoRoot, 'ports', 'index.html'),
-    replaceSignedStorageImgSrcInHtml(
-      buildPortsIndexHtml({ ports: seoPorts, articles, featuredGuideCardsHtml: portGuideCardsHtml })
-    ),
-    'utf8'
-  );
-  console.log(`  wrote ${seoShips.length} ship + ${seoPorts.length} port detail pages + indexes`);
+  if (mode.ships) {
+    const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
+    fs.writeFileSync(
+      path.join(repoRoot, 'ships', 'index.html'),
+      replaceSignedStorageImgSrcInHtml(
+        buildShipsIndexHtml({ ships: seoShips, articles, featuredGuideCardsHtml: shipGuideCardsHtml })
+      ),
+      'utf8'
+    );
+  }
+  if (mode.ports) {
+    const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
+    fs.writeFileSync(
+      path.join(repoRoot, 'ports', 'index.html'),
+      replaceSignedStorageImgSrcInHtml(
+        buildPortsIndexHtml({ ports: seoPorts, articles, featuredGuideCardsHtml: portGuideCardsHtml })
+      ),
+      'utf8'
+    );
+  }
+  if (mode.ships || mode.ports) {
+    console.log(
+      `  wrote ${mode.ships ? seoShips.length : 0} ship + ${mode.ports ? seoPorts.length : 0} port detail pages + indexes`
+    );
+  }
 
   if (skipBlogRewrite) {
-    rewriteBrandAuthorsOnDisk(repoRoot);
+    if (mode.blogs) rewriteBrandAuthorsOnDisk(repoRoot);
   } else {
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
@@ -3299,8 +3348,8 @@ async function main() {
 
   const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
     articles,
-    seoShips,
-    seoPorts,
+    seoShips: mode.ships ? seoShips : [],
+    seoPorts: mode.ports ? seoPorts : [],
   });
   fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
   const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
@@ -3329,7 +3378,13 @@ async function main() {
 
   // Scan every generated file for CDN URLs, SVG thumbnails, nested anchors,
   // and HTTP reachability. Throws on any violation — build fails loudly.
-  await runPostBuildValidation(blogDir, repoRoot, articles, seoShips, seoPorts);
+  await runPostBuildValidation(
+    blogDir,
+    repoRoot,
+    mode.blogs ? articles : [],
+    mode.ships ? seoShips : [],
+    mode.ports ? seoPorts : []
+  );
 
   console.log('Done.');
 }
@@ -3356,4 +3411,6 @@ module.exports = {
   extractArticleLastmodFromHtml,
   publicStaticSitemapUrls,
   buildSitemapXml,
+  parseGenerateMode,
+  removeOrphanShipPortDirectories,
 };

@@ -1,0 +1,38 @@
+name: Landing deploy
+
+# Channel A — normal landing/app-page deploy.
+# GitHub Pages publishes committed HTML from main. This job never regenerates
+# blogs or the port catalogue.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'scripts/**'
+      - 'data/**'
+      - 'blog-article.html'
+      - 'blog/**'
+      - 'ports/**'
+      - 'ships/**'
+      - 'sitemap.xml'
+      - '.github/workflows/generate-*.yml'
+      - '.github/workflows/generate-full.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: landing-deploy-main
+  cancel-in-progress: false
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Confirm static Pages payload
+        run: |
+          test -f index.html
+          test -f CNAME
+          test -d blog
+          test -d ports
+          test -d ships
+          echo "Static GitHub Pages deploy only. No blog/port regeneration."
