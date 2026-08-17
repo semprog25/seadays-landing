@@ -109,25 +109,42 @@ function clampAggregateRatingValue(n) {
 }
 
 /**
- * Product + AggregateRating for Google Rich Results: use numeric fields and a clear scale
- * (see Google Product snippet / aggregateRating guidelines).
+ * AggregateRating only when genuine review data exists.
+ * Never emit fallback/default values (e.g. 4.5 / 100).
  */
 function buildShipAggregateRatingJsonLd(ship) {
-  const DEFAULT_RATING = 4.5;
-  const DEFAULT_COUNT = 100;
-  const bestRating = 5;
-  const worstRating = 1;
-  let ratingVal = ship.rating;
-  let countVal = ship.reviewCount;
-  if (ratingVal == null || !Number.isFinite(ratingVal) || ratingVal <= 0) ratingVal = DEFAULT_RATING;
-  if (countVal == null || !Number.isFinite(countVal) || countVal <= 0) countVal = DEFAULT_COUNT;
-  const rv = clampAggregateRatingValue(ratingVal) ?? DEFAULT_RATING;
+  const ratingVal = pickFirstFiniteNumber(ship && ship.rating);
+  const countVal = parseOptionalInt(ship && ship.reviewCount);
+  if (ratingVal == null || ratingVal <= 0) return null;
+  if (countVal == null || countVal <= 0) return null;
+  const rv = clampAggregateRatingValue(ratingVal);
+  if (rv == null) return null;
   return {
     '@type': 'AggregateRating',
     ratingValue: Math.round(rv * 10) / 10,
-    reviewCount: Math.max(1, Math.round(countVal)),
-    bestRating,
-    worstRating,
+    reviewCount: countVal,
+    bestRating: 5,
+    worstRating: 1,
+  };
+}
+
+function buildShipBreadcrumbsHtml(ship) {
+  return (
+    `<nav class="pg-breadcrumbs" aria-label="Breadcrumb">` +
+    `<a href="/">Home</a> / <a href="/ships/">Ships</a> / <span>${escapeHtml(ship.name)}</span>` +
+    `</nav>`
+  );
+}
+
+function buildShipBreadcrumbJsonLd(ship, canonical) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://seadays.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Ships', item: 'https://seadays.app/ships/' },
+      { '@type': 'ListItem', position: 3, name: ship.name, item: canonical },
+    ],
   };
 }
 
@@ -929,8 +946,9 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
     url: canonical,
     brand: { '@type': 'Brand', name: ship.cruise_line },
     category: 'Cruise ship',
-    aggregateRating: buildShipAggregateRatingJsonLd(ship),
   };
+  const aggregateRating = buildShipAggregateRatingJsonLd(ship);
+  if (aggregateRating) jsonLd.aggregateRating = aggregateRating;
   if (Number.isFinite(ship.yearBuilt)) jsonLd.releaseDate = String(Math.round(ship.yearBuilt));
   if (ship.shipClass) jsonLd.model = ship.shipClass;
   const additionalProperty = [];
@@ -967,8 +985,9 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   }
   if (additionalProperty.length) jsonLd.additionalProperty = additionalProperty;
   Object.keys(jsonLd).forEach((k) => {
-    if (jsonLd[k] === undefined) delete jsonLd[k];
+    if (jsonLd[k] === undefined || jsonLd[k] === null) delete jsonLd[k];
   });
+  const breadcrumbLd = buildShipBreadcrumbJsonLd(ship, canonical);
 
   const heroImg = ship.image_url
     ? `<img class="seo-hero-img" src="${escapeHtml(ship.image_url)}" alt="${escapeHtml(ship.name)}" width="800" height="420" loading="eager" decoding="async">`
@@ -996,6 +1015,7 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:description" content="${escapeHtml(metaDesc)}">
   <meta property="twitter:image" content="${escapeHtml(ogImage)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+  <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>
   <style>${opts.indexStyles}${PAGE_STYLES}</style>
 </head>
 <body>
@@ -1004,6 +1024,7 @@ ${getFaviconHeadHtml()}
   <div class="content-layer">
     <header class="header">${buildDirectoryHeaderNav()}</header>
     <main class="seo-detail container">
+      ${buildShipBreadcrumbsHtml(ship)}
       ${heroImg}
       <h1>${escapeHtml(ship.name)}</h1>
       <p class="lead">${escapeHtml(ship.cruise_line)} · ${escapeHtml(shipClass)}</p>
@@ -1244,4 +1265,7 @@ module.exports = {
   extractArticleCardImageFromHtml,
   pickArticleImage,
   buildArticleCards,
+  buildShipAggregateRatingJsonLd,
+  buildShipBreadcrumbJsonLd,
+  buildShipBreadcrumbsHtml,
 };
