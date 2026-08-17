@@ -5,6 +5,8 @@
  * Presentation-layer only — does not delete or rewrite individual port URLs.
  */
 
+const { getFaviconHeadHtml } = require('./faviconHead');
+
 function escapeHtml(s) {
   return String(s == null ? '' : s)
     .replace(/&/g, '&amp;')
@@ -865,7 +867,7 @@ ${analyticsHeadHtml}
   <meta name="description" content="${escapeHtml(desc)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+${getFaviconHeadHtml()}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">

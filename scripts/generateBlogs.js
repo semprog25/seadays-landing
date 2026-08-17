@@ -35,6 +35,7 @@ if (!process.env.SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) {
 }
 const { injectKeywordLinksIntoBodyHtml, buildPortLinksFromSeoPorts } = require('./lib/seoKeywordLinks');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
+const { getFaviconHeadHtml } = require('./lib/faviconHead');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
 const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
 const {
@@ -153,12 +154,12 @@ const FEATURE_LANDING_SLUGS = [
   'cruise-community',
 ];
 
-function featureLandingUrls(todayIso) {
+function featureLandingUrls(repoRoot) {
   return FEATURE_LANDING_SLUGS.map((slug) => ({
     loc: `${BASE_URL}/${slug}/`,
     changefreq: 'monthly',
     priority: '0.88',
-    lastmod: todayIso,
+    lastmod: fileLastmodIso(path.join(repoRoot, slug, 'index.html')),
   }));
 }
 
@@ -812,44 +813,83 @@ function listPublishedBlogSlugsForSitemap(repoRoot) {
   return out;
 }
 
-function writeSitemapSnapshotFromDisk(repoRoot) {
-  const todayIso = new Date().toISOString().split('T')[0];
+function buildSitemapXml(repoRoot, { articles = [], seoShips = [], seoPorts = [] } = {}) {
+  const indexLastmod = fileLastmodIso(path.join(repoRoot, 'index.html'));
   const staticUrls = [
-    { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: todayIso },
-    ...featureLandingUrls(todayIso),
-    { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
-    { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
-    { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
-    { loc: BASE_URL + '/co2/', changefreq: 'weekly', priority: '0.8', lastmod: todayIso },
+    { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: indexLastmod },
+    ...featureLandingUrls(repoRoot),
+    {
+      loc: BASE_URL + '/blog/',
+      changefreq: 'daily',
+      priority: '0.9',
+      lastmod: fileLastmodIso(path.join(repoRoot, 'blog', 'index.html')),
+    },
+    {
+      loc: BASE_URL + '/ships/',
+      changefreq: 'weekly',
+      priority: '0.85',
+      lastmod: fileLastmodIso(path.join(repoRoot, 'ships', 'index.html')),
+    },
+    {
+      loc: BASE_URL + '/ports/',
+      changefreq: 'weekly',
+      priority: '0.85',
+      lastmod: fileLastmodIso(path.join(repoRoot, 'ports', 'index.html')),
+    },
+    {
+      loc: BASE_URL + '/co2/',
+      changefreq: 'weekly',
+      priority: '0.8',
+      lastmod: fileLastmodIso(path.join(repoRoot, 'co2', 'index.html')),
+    },
+    ...publicStaticSitemapUrls(repoRoot),
   ];
   let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   const seenUrls = new Set();
   for (const u of staticUrls) {
-    if (seenUrls.has(u.loc)) continue;
+    if (!u.loc || seenUrls.has(u.loc)) continue;
     seenUrls.add(u.loc);
     sitemap += sitemapUrlLine(u.loc, u.changefreq, u.priority, u.lastmod);
+  }
+  for (const a of articles) {
+    if (!a || !a.slug) continue;
+    const url = blogCanonicalUrl(a.slug);
+    if (seenUrls.has(url)) continue;
+    seenUrls.add(url);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.7', articleSitemapLastmod(a, repoRoot));
   }
   for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
     const url = blogCanonicalUrl(slug);
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
-    sitemap += sitemapUrlLine(url, 'monthly', '0.7', todayIso);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.7', diskArticleSitemapLastmod(repoRoot, slug));
   }
-  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ships', { skipNoindex: true })) {
+  const shipList = Array.isArray(seoShips) && seoShips.length
+    ? seoShips.map((s) => s.slug).filter(Boolean)
+    : listDirectoryIndexSlugs(repoRoot, 'ships', { skipNoindex: true });
+  for (const slug of shipList) {
     const url = `${BASE_URL}/ships/${slug}/`;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
-    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.65', fileLastmodIso(path.join(repoRoot, 'ships', slug, 'index.html')));
   }
-  for (const slug of listDirectoryIndexSlugs(repoRoot, 'ports', { skipNoindex: true })) {
+  const portList = Array.isArray(seoPorts) && seoPorts.length
+    ? seoPorts.map((p) => p.slug).filter((slug) => slug && !isPortSeoRedirectSlug(slug))
+    : listDirectoryIndexSlugs(repoRoot, 'ports', { skipNoindex: true });
+  for (const slug of portList) {
     const url = `${BASE_URL}/ports/${slug}/`;
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
-    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
+    sitemap += sitemapUrlLine(url, 'monthly', '0.65', fileLastmodIso(path.join(repoRoot, 'ports', slug, 'index.html')));
   }
   sitemap += '</urlset>';
-  fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
-  console.log('[sitemap-only] Wrote sitemap.xml with', seenUrls.size, 'URLs');
+  return { xml: sitemap, count: seenUrls.size };
+}
+
+function writeSitemapSnapshotFromDisk(repoRoot) {
+  const { xml, count } = buildSitemapXml(repoRoot);
+  fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), xml, 'utf8');
+  console.log('[sitemap-only] Wrote sitemap.xml with', count, 'URLs');
 }
 
 function buildRedirectPage(slug) {
@@ -1057,13 +1097,184 @@ function formatDate(ts) {
 }
 
 function formatIsoDate(ts) {
-  if (ts == null) return '';
-  let ms = typeof ts === 'number' ? ts : (typeof ts === 'string' ? parseInt(ts, 10) : Date.parse(ts));
-  if (isNaN(ms) || !Number.isFinite(ms)) return '';
+  if (ts == null || ts === '') return '';
+  if (ts instanceof Date) {
+    if (isNaN(ts.getTime())) return '';
+    return ts.toISOString().split('T')[0];
+  }
+  if (typeof ts === 'string') {
+    const s = ts.trim();
+    if (!s) return '';
+    if (/^\d{4}-\d{2}-\d{2}/.test(s)) {
+      const iso = s.length === 10 ? `${s}T00:00:00.000Z` : s;
+      const d = new Date(iso);
+      if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
+    }
+    if (/^\d+(\.\d+)?$/.test(s)) {
+      ts = Number(s);
+    } else {
+      const parsed = Date.parse(s);
+      if (isNaN(parsed)) return '';
+      return new Date(parsed).toISOString().split('T')[0];
+    }
+  }
+  if (typeof ts !== 'number' || !Number.isFinite(ts)) return '';
+  let ms = ts;
   if (ms < 10000000000) ms *= 1000;
   const d = new Date(ms);
   if (isNaN(d.getTime())) return '';
   return d.toISOString().split('T')[0];
+}
+
+function isGenericBrandAuthor(name) {
+  const n = String(name || '').trim().toLowerCase().replace(/\s+/g, '');
+  if (!n) return true;
+  return n === 'anonymous' || n === 'seadays' || n === 'seaday' || n === 'admin' || n === 'editor' || n === 'staff';
+}
+
+function buildArticleAuthorJsonLd(article) {
+  const name = String(article && article.author ? article.author : '').trim();
+  if (!isGenericBrandAuthor(name)) {
+    return { '@type': 'Person', name };
+  }
+  return { '@type': 'Organization', name: 'SeaDays' };
+}
+
+function articleAuthorDisplayName(article) {
+  const name = String(article && article.author ? article.author : '').trim();
+  if (!isGenericBrandAuthor(name)) return name;
+  return 'SeaDays';
+}
+
+function fileLastmodIso(filePath) {
+  try {
+    const d = fs.statSync(filePath).mtime;
+    if (!d || isNaN(d.getTime())) return '';
+    return d.toISOString().split('T')[0];
+  } catch {
+    return '';
+  }
+}
+
+function extractArticleLastmodFromHtml(html) {
+  if (!html) return '';
+  const blocks = String(html).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi) || [];
+  for (const block of blocks) {
+    const raw = block.replace(/^<script[^>]*>/i, '').replace(/<\/script>$/i, '');
+    try {
+      const data = JSON.parse(raw);
+      if (!data || Array.isArray(data)) continue;
+      const lastmod = formatIsoDate(data.dateModified || data.datePublished || '');
+      if (lastmod) return lastmod;
+    } catch {
+      // ignore invalid JSON-LD blocks
+    }
+  }
+  return '';
+}
+
+function diskArticleSitemapLastmod(repoRoot, slug) {
+  const p = path.join(repoRoot, 'blog', slug, 'index.html');
+  if (!fs.existsSync(p)) return '';
+  try {
+    return extractArticleLastmodFromHtml(fs.readFileSync(p, 'utf8'));
+  } catch {
+    return '';
+  }
+}
+
+function rewriteBrandAuthorsOnDisk(repoRoot) {
+  let changed = 0;
+  for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
+    const p = path.join(repoRoot, 'blog', slug, 'index.html');
+    if (!fs.existsSync(p)) continue;
+    let html;
+    try {
+      html = fs.readFileSync(p, 'utf8');
+    } catch {
+      continue;
+    }
+    const next = html
+      .replace(
+        /"author":\{"@type":"Person","name":"(?:Seadays|SeaDays|Anonymous)"\}/g,
+        '"author":{"@type":"Organization","name":"SeaDays"}'
+      )
+      .replace(
+        /<span class="author">(?:Seadays|Anonymous)<\/span>/g,
+        '<span class="author">SeaDays</span>'
+      );
+    if (next !== html) {
+      fs.writeFileSync(p, next, 'utf8');
+      changed += 1;
+    }
+  }
+  console.log(`[generateBlogs] patched brand JSON-LD author on ${changed} on-disk articles`);
+}
+
+function loadArticleStubsFromDisk(repoRoot) {
+  const out = [];
+  for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
+    const p = path.join(repoRoot, 'blog', slug, 'index.html');
+    if (!fs.existsSync(p)) continue;
+    let html;
+    try {
+      html = fs.readFileSync(p, 'utf8');
+    } catch {
+      continue;
+    }
+    const titleRaw = (html.match(/<h1>([^<]+)<\/h1>/i) || [])[1] || slug;
+    const desc = (html.match(/<meta name="description" content="([^"]*)"/i) || [])[1] || '';
+    const img = extractArticleCardImageFromHtml(html);
+    const lastmod = extractArticleLastmodFromHtml(html);
+    out.push({
+      slug,
+      title: titleRaw.replace(/&amp;/g, '&').replace(/&quot;/g, '"'),
+      excerpt: desc,
+      seoDescription: desc,
+      updatedAt: lastmod,
+      publishedAt: lastmod,
+      thumbnailUrl: img || '',
+      heroImageUrl: img || '',
+      author: 'SeaDays',
+    });
+  }
+  return out;
+}
+
+function articleSitemapLastmod(article, repoRoot) {
+  const fromSource = formatIsoDate(
+    article && (article.updatedAt || article.publishedAt || article.timestamp || article.createdAt)
+  );
+  if (fromSource) return fromSource;
+  if (!article || !article.slug) return '';
+  return diskArticleSitemapLastmod(repoRoot, article.slug);
+}
+
+const PUBLIC_STATIC_SITEMAP_PAGES = [
+  { loc: '/about.html', file: 'about.html' },
+  { loc: '/faq.html', file: 'faq.html' },
+  { loc: '/help.html', file: 'help.html' },
+  { loc: '/contact.html', file: 'contact.html' },
+  { loc: '/privacy.html', file: 'privacy.html' },
+  { loc: '/terms.html', file: 'terms.html' },
+  { loc: '/cookies.html', file: 'cookies.html' },
+  { loc: '/gdpr.html', file: 'gdpr.html' },
+  { loc: '/press/', file: 'press/index.html' },
+];
+
+function publicStaticSitemapUrls(repoRoot) {
+  const out = [];
+  for (const page of PUBLIC_STATIC_SITEMAP_PAGES) {
+    const filePath = path.join(repoRoot, page.file);
+    if (!fs.existsSync(filePath)) continue;
+    out.push({
+      loc: BASE_URL + page.loc,
+      changefreq: 'monthly',
+      priority: '0.55',
+      lastmod: fileLastmodIso(filePath),
+    });
+  }
+  return out;
 }
 
 function stripHtmlToPlainText(html, maxLen = 5000) {
@@ -1497,7 +1708,7 @@ ${getAnalyticsHeadHtml()}
   <meta name="description" content="${escapeHtml(desc)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+${getFaviconHeadHtml()}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">
@@ -2029,7 +2240,8 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
 
   const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
   const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
-  const authorNamePlain = article.author || 'Anonymous';
+  const authorJsonLd = buildArticleAuthorJsonLd(article);
+  const authorNamePlain = articleAuthorDisplayName(article);
   const articleBodyText = stripHtmlToPlainText(bodyHtml, 5000);
   const keywords = Array.isArray(article.tags) && article.tags.length
     ? article.tags.map((t) => (typeof t === 'string' ? t : t?.name)).filter(Boolean)
@@ -2044,7 +2256,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     headline: article.title || 'Article',
     description: rawMetaDescription || articleBodyText.slice(0, 160) || undefined,
     image: [ogImage],
-    author: { '@type': 'Person', name: authorNamePlain },
+    author: authorJsonLd,
     publisher: {
       '@type': 'Organization',
       name: 'SeaDays',
@@ -2069,7 +2281,7 @@ ${getAnalyticsHeadHtml()}
   <meta name="description" content="${description}">
   <title>${title} | SeaDays</title>
   <link rel="canonical" href="${canonicalUrl}">
-  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+${getFaviconHeadHtml()}
   <meta property="og:type" content="article">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:title" content="${title}">
@@ -2238,7 +2450,7 @@ ${getAnalyticsHeadHtml()}
   <meta name="description" content="SeaDays cruise blog: independent cruise tips, first-time cruise help, ship and port guides, cabin and drink-package advice, Mediterranean and Caribbean ideas. Free articles—plan before you book.">
   <title>SeaDays Blog | Cruise Tips, Guides &amp; Stories</title>
   <link rel="canonical" href="${BASE_URL}/blog/">
-  <link rel="icon" type="image/png" href="${DEFAULT_FAVICON}">
+${getFaviconHeadHtml()}
 ${preloadLinks}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${BASE_URL}/blog/">
@@ -2659,8 +2871,15 @@ async function main() {
     fetchBlogFeaturedSlugs(),
   ]);
   const rawArticles = (data?.articles || []).filter(a => a && a.isDraft !== true && a.showOnWebsite !== false);
-  if (rawArticles.length === 0) {
+  const existingBlogSlugs = listPublishedBlogSlugsForSitemap(repoRoot);
+  const skipBlogRewrite = rawArticles.length === 0 && existingBlogSlugs.length > 0;
+  if (rawArticles.length === 0 && !skipBlogRewrite) {
     console.log('No published articles found. Creating empty blog structure.');
+  }
+  if (skipBlogRewrite) {
+    console.warn(
+      `[generateBlogs] CMS returned 0 articles but ${existingBlogSlugs.length} posts exist on disk; preserving blog HTML.`
+    );
   }
 
   const slugMap = new Map();
@@ -2684,6 +2903,11 @@ async function main() {
     const mb = typeof tb === 'number' ? tb : (tb < 10000000000 ? tb * 1000 : Date.parse(tb) || 0);
     return mb - ma;
   });
+  if (skipBlogRewrite && articles.length === 0) {
+    const stubs = loadArticleStubsFromDisk(repoRoot);
+    articles.push(...stubs);
+    console.log(`[generateBlogs] loaded ${stubs.length} on-disk article stubs for related cards and sitemap lastmod`);
+  }
 
   console.log('Merging thumbnail payloads for articles missing hero/thumbnail...');
   await mergePortsideThumbnailsIntoArticles(articles);
@@ -2983,6 +3207,9 @@ async function main() {
   );
   console.log(`  wrote ${seoShips.length} ship + ${seoPorts.length} port detail pages + indexes`);
 
+  if (skipBlogRewrite) {
+    rewriteBrandAuthorsOnDisk(repoRoot);
+  } else {
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
     const full = await fetchFullArticle(article.id);
@@ -3056,6 +3283,7 @@ async function main() {
       console.warn('  [warn] index.html markers not found, skipping home page injection');
     }
   }
+  }
 
   console.log(`\nImage stats: ${imageStats.uploaded} uploaded, ${imageStats.removed} removed (base64)`);
   const total = imageQualityStats.supabase + imageQualityStats.external + imageQualityStats.fallback;
@@ -3069,54 +3297,15 @@ async function main() {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
 
-  const todayIso = new Date().toISOString().split('T')[0];
-  const staticUrls = [
-    { loc: BASE_URL + '/', changefreq: 'weekly', priority: '1.0', lastmod: todayIso },
-    ...featureLandingUrls(todayIso),
-    { loc: BASE_URL + '/blog/', changefreq: 'daily', priority: '0.9', lastmod: todayIso },
-    { loc: BASE_URL + '/ships/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
-    { loc: BASE_URL + '/ports/', changefreq: 'weekly', priority: '0.85', lastmod: todayIso },
-    { loc: BASE_URL + '/co2/', changefreq: 'weekly', priority: '0.8', lastmod: todayIso },
-  ];
-  let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-  const seenUrls = new Set();
-  for (const u of staticUrls) {
-    if (seenUrls.has(u.loc)) continue;
-    seenUrls.add(u.loc);
-    sitemap += sitemapUrlLine(u.loc, u.changefreq, u.priority, u.lastmod);
-  }
-  for (const a of articles) {
-    const url = blogCanonicalUrl(a.slug);
-    if (seenUrls.has(url)) continue;
-    seenUrls.add(url);
-    const lastmod =
-      formatIsoDate(a.updatedAt || a.publishedAt || a.timestamp || a.createdAt) || todayIso;
-    sitemap += sitemapUrlLine(url, 'monthly', '0.7', lastmod);
-  }
-  for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
-    const url = blogCanonicalUrl(slug);
-    if (seenUrls.has(url)) continue;
-    seenUrls.add(url);
-    sitemap += sitemapUrlLine(url, 'monthly', '0.7', todayIso);
-  }
-  for (const s of seoShips) {
-    const url = `${BASE_URL}/ships/${s.slug}/`;
-    if (seenUrls.has(url)) continue;
-    seenUrls.add(url);
-    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
-  }
-  for (const p of seoPorts) {
-    if (isPortSeoRedirectSlug(p.slug)) continue;
-    const url = `${BASE_URL}/ports/${p.slug}/`;
-    if (seenUrls.has(url)) continue;
-    seenUrls.add(url);
-    sitemap += sitemapUrlLine(url, 'monthly', '0.65', todayIso);
-  }
-  sitemap += '</urlset>';
+  const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
+    articles,
+    seoShips,
+    seoPorts,
+  });
   fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
   const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
   if (!sitemapValid) console.warn('[warn] sitemap.xml may be invalid');
-  console.log('Wrote sitemap.xml with', seenUrls.size, 'URLs (no duplicates)');
+  console.log('Wrote sitemap.xml with', sitemapCount, 'URLs (no duplicates)');
 
   const adsTxtBody = getAdsTxtFileContents();
   const adsTxtPath = path.join(repoRoot, 'ads.txt');
@@ -3161,4 +3350,10 @@ module.exports = {
   getFallbackImage,
   pickCardImage,
   materializeSignedImageToPublic,
+  formatIsoDate,
+  buildArticleAuthorJsonLd,
+  articleAuthorDisplayName,
+  extractArticleLastmodFromHtml,
+  publicStaticSitemapUrls,
+  buildSitemapXml,
 };

@@ -7,6 +7,7 @@
  */
 
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
+const { getFaviconHeadHtml } = require('./faviconHead');
 const {
   PORT_GUIDE_STYLES,
   buildPortGuideEarlySectionsHtml,
@@ -983,7 +984,7 @@ ${getAnalyticsHeadHtml()}
   <meta name="description" content="${escapeHtml(metaDesc)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/png" href="${opts.defaultImage}">
+${getFaviconHeadHtml()}
   <meta property="og:type" content="article">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">
@@ -1167,7 +1168,7 @@ ${getAnalyticsHeadHtml()}
   <meta name="description" content="${escapeHtml(metaDesc)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/png" href="${opts.defaultImage}">
+${getFaviconHeadHtml()}
   <meta property="og:type" content="article">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">

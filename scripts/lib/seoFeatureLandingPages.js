@@ -1,6 +1,7 @@
 'use strict';
 
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
+const { getFaviconHeadHtml } = require('./faviconHead');
 
 const BASE_URL = 'https://seadays.app';
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.seadays.app';
@@ -272,7 +273,7 @@ ${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${canonical}">
-  <link rel="icon" type="image/png" href="${FAVICON_URL}">
+${getFaviconHeadHtml()}
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(page.metaDescription)}">
   <meta name="keywords" content="${escapeHtml(page.primaryKeyword)}, cruise planning app, cruise vacation planner, SeaDays">

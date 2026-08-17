@@ -18,6 +18,8 @@
     "inject-blog-port-links": "node scripts/inject-blog-port-links.js",
     "smoke-port-guides": "node scripts/smoke-port-guides.js",
     "test-image-pipeline": "node scripts/test-image-pipeline.js",
+    "test-seo-phase1": "node scripts/test-seo-phase1.js",
+    "test-port-seo-redirects": "node scripts/test-port-seo-redirects.js",
     "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
     "upload-press-marketing": "node scripts/upload-press-marketing.js",
     "regenerate-ports-index": "node scripts/regenerate-ports-index.js",
