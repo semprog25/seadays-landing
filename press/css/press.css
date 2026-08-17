@@ -1055,19 +1055,7 @@ footer {
   background: #050505;
 }
 
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-  text-align: left;
-}
-
-.footer-section h4 {
-  margin-bottom: 20px;
-  font-size: 18px;
-  color: white;
-}
+/* Footer chrome is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
 
 .footer-section ul {
   list-style: none;

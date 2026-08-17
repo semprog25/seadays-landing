@@ -50,12 +50,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .header-nav a:hover { color: white; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
-.footer-section h4 { margin-bottom: 20px; font-size: 18px; }
-.footer-section ul { list-style: none; }
-.footer-section li { margin-bottom: 12px; }
-.footer-section a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
-.footer-section a:hover { color: var(--neon-red); }
+/* Footer column layout is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
 .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
