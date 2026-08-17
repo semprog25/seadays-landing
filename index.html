@@ -22,6 +22,7 @@ gtag('config', 'G-WSQDQ33QZD');
 window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://auth.seadays.app https://soqkgrfzluewpuiguypm.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com; connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co https://auth.seadays.app https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://soqkgrfzluewpuiguypm.supabase.co; upgrade-insecure-requests">
 
 
 
@@ -133,12 +134,9 @@ window.__SEADAYS_GA_READY__ = true;
     </script>
 
     <!--
-    Recommended HTTP security headers (set on server / CDN):
-    Content-Security-Policy: default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co; frame-ancestors 'none';
-    Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-    X-Frame-Options: DENY
-    X-Content-Type-Options: nosniff
-    Referrer-Policy: strict-origin-when-cross-origin
+    HTTP security headers cannot be set by GitHub Pages (this host). Meta CSP
+    above is a partial browser control; it cannot set HSTS, X-Frame-Options, or
+    CSP frame-ancestors. See docs/SEADAYS_APP_SECURITY_HEADERS.md for CDN config.
     -->
     
     <style>
@@ -3068,6 +3066,17 @@ window.__SEADAYS_GA_READY__ = true;
         </div>
 
         
+        <!-- Security & Privacy (verified claims only — see /security.html) -->
+        <section id="security-privacy" class="fullpage-section" aria-labelledby="security-privacy-title">
+            <div class="container" style="text-align:center; max-width:720px;">
+                <h2 id="security-privacy-title" class="section-title">Security &amp; Privacy</h2>
+                <p class="section-subtitle">Signed-in sessions, database access controls, and HTTPS on seadays.app. We publish only practices we have technically verified.</p>
+                <div class="community-cta-wrap">
+                    <a href="/security.html" class="btn-secondary" aria-label="Read how SeaDays protects accounts and data">How we protect your data</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Press & Media (subtle homepage entry) -->
         <section id="press-media" class="fullpage-section" aria-labelledby="press-media-title">
             <div class="container" style="text-align:center; max-width:720px;">
@@ -3609,6 +3618,29 @@ window.__SEADAYS_GA_READY__ = true;
                     grid.style.display = 'none';
                     if (empty) empty.style.display = 'block';
                 }
+                function escapeHtml(s) {
+                    return String(s)
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;');
+                }
+                function safeHttpsUrl(url, fallback) {
+                    try {
+                        var u = new URL(String(url || ''), 'https://seadays.app');
+                        if (u.protocol !== 'https:') return fallback;
+                        var host = u.hostname;
+                        if (
+                            host === 'seadays.app' ||
+                            host === 'auth.seadays.app' ||
+                            host === 'soqkgrfzluewpuiguypm.supabase.co' ||
+                            host.endsWith('.supabase.co')
+                        ) {
+                            return u.href;
+                        }
+                    } catch (e) {}
+                    return fallback;
+                }
                 fetch(EDGE + '/portside-articles?limit=100&forWebsite=1', {
                     headers: { apikey: ANON, Authorization: 'Bearer ' + ANON }
                 })
@@ -3631,20 +3663,22 @@ window.__SEADAYS_GA_READY__ = true;
                         grid.innerHTML = articles
                             .map(function (a) {
                                 var slug = String(a.slug || '').trim() || 'post';
-                                var img = String(a.thumbnailUrl || a.heroImageUrl || '').trim() || FB;
-                                var title = String(a.title || 'Article').replace(/</g, '&lt;');
-                                var ex = String(a.excerpt || '')
-                                    .replace(/<[^>]+>/g, ' ')
-                                    .replace(/\s+/g, ' ')
-                                    .trim()
-                                    .slice(0, 140);
+                                var img = safeHttpsUrl(a.thumbnailUrl || a.heroImageUrl || '', FB);
+                                var title = escapeHtml(a.title || 'Article');
+                                var ex = escapeHtml(
+                                    String(a.excerpt || '')
+                                        .replace(/<[^>]+>/g, ' ')
+                                        .replace(/\s+/g, ' ')
+                                        .trim()
+                                        .slice(0, 140)
+                                );
                                 if (ex) ex += '…';
                                 return (
                                     '<a href="https://seadays.app/blog/' +
                                     encodeURIComponent(slug) +
                                     '/" class="blog-card">' +
                                     '<img class="blog-card-image" src="' +
-                                    img.replace(/"/g, '&quot;') +
+                                    escapeHtml(img) +
                                     '" alt="" loading="lazy" decoding="async" width="400" height="230" onerror="this.onerror=null;this.src=\'' +
                                     FB +
                                     '\'">' +
