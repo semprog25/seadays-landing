@@ -264,13 +264,12 @@ function buildTerminalsSection(terminals) {
   return section('Cruise terminals', `<div class="pg-terminal-grid">${cards}</div>`, 'cruise-terminals');
 }
 
-function buildTravelerQuestionsSection(guide, portName) {
+function collectPortFaqItems(guide, portName) {
   const questions = [];
   if (guide?.gettingThere?.distanceToCity) {
     questions.push({
       q: `How far is ${portName} cruise terminal from the city center?`,
       a: guide.gettingThere.distanceToCity,
-      answers: 1,
     });
   }
   if (guide?.gettingThere?.publicTransport || (guide?.gettingThere?.transportation || []).length) {
@@ -279,23 +278,31 @@ function buildTravelerQuestionsSection(guide, portName) {
       a:
         guide.gettingThere.publicTransport ||
         (guide.gettingThere.transportation || []).join(', '),
-      answers: 1,
     });
   }
   if (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements) {
     questions.push({
       q: `What are the entry or visa requirements for ${portName}?`,
       a: [guide.politics.visaRequirements, guide.politics.entryRequirements].filter(Boolean).join(' '),
-      answers: 1,
     });
   }
   if (guide?.climate?.bestMonths?.length) {
     questions.push({
       q: `When is the best time to visit ${portName} on a cruise?`,
       a: `Best months: ${guide.climate.bestMonths.join(', ')}. ${guide.climate.description || ''}`.trim(),
-      answers: 1,
     });
   }
+  return questions
+    .map((item) => ({
+      q: String(item.q || '').trim(),
+      a: String(item.a || '').trim(),
+    }))
+    .filter((item) => item.q && item.a)
+    .slice(0, 6);
+}
+
+function buildTravelerQuestionsSection(guide, portName) {
+  const questions = collectPortFaqItems(guide, portName);
   if (!questions.length) {
     return (
       section(
@@ -316,7 +323,7 @@ function buildTravelerQuestionsSection(guide, portName) {
         `<article class="pg-qa-card">` +
         `<h3>${escapeHtml(item.q)}</h3>` +
         `<p>${escapeHtml(item.a)}</p>` +
-        `<p class="pg-meta">${item.answers} public answer${item.answers === 1 ? '' : 's'}</p>` +
+        `<p class="pg-meta">Guide answer</p>` +
         `</article>`
     )
     .join('');
@@ -473,4 +480,5 @@ module.exports = {
   buildTerminalsSection,
   buildThingsToDoSection,
   hasRichThingsToDo,
+  collectPortFaqItems,
 };
