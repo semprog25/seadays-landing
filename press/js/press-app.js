@@ -583,6 +583,7 @@ function renderFooter() {
                                 <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
                                 <li><a href="/cruise-community/">Cruise Community</a></li>
                                 <li><a href="/#cruise-passport">Cruise Passport</a></li>
+                                <li><a href="/download/?utm_source=seadays_web&amp;utm_medium=footer&amp;utm_campaign=organic_web&amp;campaign=organic_web">Get SeaDays</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">

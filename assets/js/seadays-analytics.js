@@ -226,11 +226,14 @@
 
   function isPrimaryCta(anchor) {
     if (!anchor || !anchor.classList) return false;
+    var href = anchor.getAttribute('href') || '';
     if (anchor.classList.contains('cta-button')) return true;
     if (anchor.classList.contains('store-badge')) return true;
-    if (anchor.classList.contains('explore-seadays-link') && /download/i.test(anchor.textContent || '')) return true;
+    if (anchor.classList.contains('download-primary')) return true;
+    if (anchor.classList.contains('explore-seadays-link') && /download|get seadays/i.test(anchor.textContent || '')) return true;
+    if (/\/download\/?/i.test(href)) return true;
     if (anchor.closest && anchor.closest('#download')) return true;
-    if (anchor.closest && anchor.closest('.cta-section') && /play\.google|apps\.apple|#download/i.test(anchor.getAttribute('href') || '')) return true;
+    if (anchor.closest && anchor.closest('.cta-section') && /play\.google|apps\.apple|#download|\/download/i.test(href)) return true;
     return false;
   }
 

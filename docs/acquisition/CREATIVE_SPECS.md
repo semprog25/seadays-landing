@@ -18,6 +18,7 @@ Honest claims only: cruise planner, ship/port guides, packing, expenses, Cruise 
 | Surface | Sizes | Notes |
 |---|---|---|
 | Google App campaigns | 1200×628, 1200×1200, 320×50, 300×250, 9:16 video 10–30s | Mix text + UI screenshots. DE + EN. |
+| Apple Search Ads | text ads + custom product pages | Brand Exact + Category Exact. Requires App Store Connect `pt`. Do not launch until billing + provider token exist. |
 | Reddit | 1200×628 link; 1080×1920 app install | No fake social proof. |
 | Instagram | 1080×1080, 1080×1920 | @seadaysapp |
 | TikTok | 1080×1920, 15–30s | @seadaysapp |
@@ -35,3 +36,15 @@ Existing press screenshots: `press/` in this repo. Prefer those over mock redesi
 - Know your ship. Plan every port.
 - First cruise? Start in SeaDays
 - Free on iOS and Android · 11 languages
+
+## Apple Search Ads (prepare only)
+
+Brand Exact: SeaDays, Sea Days, SeaDays app.
+Category Exact: cruise planner, cruise planning app, cruise port guide, packing list cruise.
+Negatives: AIS, live ship tracking, cruise jobs, dating, cheap tickets, live maps.
+
+Do not launch until Apple Ads billing and the campaign provider token (`pt`) are in place.
+
+## YouTube / TikTok / Instagram
+
+Same six concepts. Dark background, neon-red wordmark, real UI frames from `press/`. No fake review counts. CTA always `seadays.app/download/?campaign=…` (instagram, tiktok, youtube_cruise_planner).

@@ -1429,7 +1429,7 @@ function buildAppDownloadCtaSection() {
   return (
     '<section class="app-download-cta" aria-label="Download SeaDays">' +
     '<div class="app-download-cta-inner">' +
-    '<div><strong>Planning this cruise? Save it in SeaDays.</strong>' +
+    '<div><strong>Planning your first cruise? Start with SeaDays.</strong>' +
     '<span>Keep itinerary, packing, and port days in one app — free on iOS and Android.</span></div>' +
     '<a href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog" class="explore-seadays-link">Get SeaDays</a>' +
     '</div></section>'

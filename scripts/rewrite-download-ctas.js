@@ -49,6 +49,28 @@ function trackingForRel(rel) {
   return { medium: 'web', campaign: 'organic_web' };
 }
 
+function contextualBlock(rel, quotedHref) {
+  if (/^ships\/[^/]+\/index\.html$/.test(rel)) {
+    return (
+      `<p class="seo-inline-more seadays-contextual-cta">` +
+      `<a href="${quotedHref}">Know your ship before you sail. Plan this cruise in SeaDays.</a></p>\n`
+    );
+  }
+  if (/^ports\/[^/]+\/index\.html$/.test(rel)) {
+    return (
+      `<p class="seo-inline-more seadays-contextual-cta">` +
+      `<a href="${quotedHref}">Save this port in SeaDays.</a></p>\n`
+    );
+  }
+  if (/^cruise-(planner|roll-calls|community|budget|drink)/.test(rel)) {
+    return (
+      `<p class="seadays-contextual-cta">` +
+      `<a href="${quotedHref}">Plan this cruise in SeaDays.</a></p>\n`
+    );
+  }
+  return '';
+}
+
 function rewriteHtml(html, rel) {
   const t = trackingForRel(rel);
   const href = downloadPagePath({
@@ -63,6 +85,25 @@ function rewriteHtml(html, rel) {
     /href=(["'])https:\/\/seadays\.app\/?#download\1/g,
     `href="${quoted}"`
   );
+  if (rel.startsWith('blog/') && /app-download-cta/.test(next)) {
+    next = next.replace(
+      /<strong>Plan smarter\.[^<]*<\/strong>/g,
+      '<strong>Planning your first cruise? Start with SeaDays.</strong>'
+    );
+    next = next.replace(
+      /<strong>Planning this cruise\?[^<]*<\/strong>/g,
+      '<strong>Planning your first cruise? Start with SeaDays.</strong>'
+    );
+  }
+  if (!/seadays-contextual-cta/.test(next)) {
+    const block = contextualBlock(rel, quoted);
+    if (block && /<!-- seadays-site-shell:footer -->/.test(next)) {
+      next = next.replace(
+        '<!-- seadays-site-shell:footer -->',
+        `${block}<!-- seadays-site-shell:footer -->`
+      );
+    }
+  }
   return next;
 }
 

@@ -11,7 +11,6 @@ header.header.site-header {
   z-index: 100;
   background: transparent;
   border-bottom: none;
-  pointer-events: none;
 }
 
 header.header.site-header .header-nav {
@@ -20,7 +19,6 @@ header.header.site-header .header-nav {
   align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
-  pointer-events: auto;
 }
 
 header.header.site-header .header-nav a {

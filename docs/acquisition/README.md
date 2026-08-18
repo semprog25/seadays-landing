@@ -30,7 +30,7 @@ Do not optimize paid campaigns for installs alone.
 
 ## Website routing
 
-- **Get SeaDays** in the global header goes to `/download/` (not `#download`). No homepage scroll jump.
+- **Get SeaDays** in inner-page headers and the site footer goes to `/download/` (not `#download`). Homepage header keeps Features / Ships / Ports / Blog / Press so the snap layout is unchanged; homepage hero store badges and in-page Download buttons still convert.
 - Homepage hero store badges remain in place (`#download` still exists for old links).
 - Android UA → Play is the primary button on `/download/`.
 - iPhone/iPad UA → App Store is the primary button.
