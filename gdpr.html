@@ -51,20 +51,22 @@ window.__SEADAYS_GA_READY__ = true;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
             min-height: 100vh;
         }
+        .content-layer { position: relative; z-index: 10; }
         .container {
             max-width: 800px;
             margin: 0 auto;
+            padding: 40px 20px 80px;
         }
-        h1 { color: #FF0033; margin-bottom: 10px; }
-        h2 { color: white; margin-top: 40px; font-size: 22px; }
-        h3 { color: #FF0033; margin-top: 25px; font-size: 18px; }
-        p, li { line-height: 1.8; color: #a0a0a0; margin-bottom: 15px; }
-        ul { margin-left: 20px; }
-        a { color: #FF0033; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        .legal-article h1 { color: #FF0033; margin-bottom: 10px; }
+        .legal-article h2 { color: white; margin-top: 40px; font-size: 22px; }
+        .legal-article h3 { color: #FF0033; margin-top: 25px; font-size: 18px; }
+        .legal-article p, .legal-article li { line-height: 1.8; color: #a0a0a0; margin-bottom: 15px; }
+        .legal-article ul { margin-left: 20px; }
+        .legal-article a { color: #FF0033; text-decoration: none; }
+        .legal-article a:hover { text-decoration: underline; }
         .last-updated { color: #666; font-size: 14px; margin-bottom: 30px; }
         
         .info-box {
@@ -118,6 +120,7 @@ window.__SEADAYS_GA_READY__ = true;
   <style id="site-shell-page-pad">.content-layer > .container, .content-layer > main, body > .container { padding-top: 88px; }</style>
 </head>
 <body>
+<div class="content-layer">
 <!-- seadays-site-shell:header -->
         <header class="header site-header">
             <nav class="header-nav" aria-label="Main navigation">
@@ -131,7 +134,7 @@ window.__SEADAYS_GA_READY__ = true;
         </header>
         <!-- seadays-site-shell:header-end seadays-site-shell -->
 
-    <div class="container">
+    <div class="container legal-article">
         <h1>GDPR Compliance & Your Rights</h1>
         <p class="last-updated">Last Updated: November 14, 2024</p>
         
@@ -392,9 +395,8 @@ window.__SEADAYS_GA_READY__ = true;
         
         <h2>Contact Information</h2>
         <p><strong>Data Protection Officer (DPO):</strong><br>
-        📧 Email: dpo@seadays.app<br>
-        📧 GDPR Requests: gdpr@seadays.app<br>
-        📬 Address: SeaDays Inc., [Your EU Address Here]</p>
+        Email: <a href="mailto:dpo@seadays.app">dpo@seadays.app</a><br>
+        GDPR Requests: <a href="mailto:gdpr@seadays.app">gdpr@seadays.app</a></p>
         
         <h2>Related Documents</h2>
         <ul>
@@ -490,5 +492,6 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
         </footer>
         <!-- seadays-site-shell:footer-end seadays-site-shell -->
+</div>
 </body>
 </html>

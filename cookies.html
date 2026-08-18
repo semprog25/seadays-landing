@@ -67,6 +67,7 @@ window.__SEADAYS_GA_READY__ = true;
             min-height: 100vh;
         }
 
+        .content-layer { position: relative; z-index: 10; }
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -89,7 +90,7 @@ window.__SEADAYS_GA_READY__ = true;
             transform: translateX(-5px);
         }
 
-        .header {
+        .page-intro {
             text-align: center;
             margin-bottom: 40px;
         }
@@ -200,6 +201,7 @@ window.__SEADAYS_GA_READY__ = true;
   <style id="site-shell-page-pad">.content-layer > .container, .content-layer > main, body > .container { padding-top: 88px; }</style>
 </head>
 <body>
+<div class="content-layer">
 <!-- seadays-site-shell:header -->
         <header class="header site-header">
             <nav class="header-nav" aria-label="Main navigation">
@@ -216,7 +218,7 @@ window.__SEADAYS_GA_READY__ = true;
     <div class="container">
         <a href="https://seadays.app/" class="back-link">← Back to Home</a>
         
-        <div class="header">
+        <div class="page-intro">
             <div class="icon-container">🍪</div>
             <h1>Cookie Policy</h1>
             <p class="last-updated">Last Updated: August 11, 2026</p>
@@ -420,6 +422,7 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
         </footer>
         <!-- seadays-site-shell:footer-end seadays-site-shell -->
+</div>
 <script>
       document.getElementById('seadaysCookieSettingsBtn')?.addEventListener('click', function () {
         if (typeof window.seadaysOpenCookieSettings === 'function') window.seadaysOpenCookieSettings();

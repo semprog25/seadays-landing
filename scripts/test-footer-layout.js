@@ -118,6 +118,20 @@ test('shared footer owns .container width so download/legal pages cannot leak pa
   assert.match(downloadHtml, /footer-shell/);
 });
 
+test('legal pages do not publish placeholder Inc. or EU address copy', () => {
+  const files = ['gdpr.html', 'privacy.html', 'terms.html', 'cookies.html', 'security.html'];
+  const leaks = [];
+  for (const rel of files) {
+    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    if (/SeaDays Inc/i.test(html) || /Your EU Address Here/i.test(html)) leaks.push(rel);
+  }
+  assert.deepStrictEqual(leaks, []);
+  const gdpr = fs.readFileSync(path.join(ROOT, 'gdpr.html'), 'utf8');
+  assert.match(gdpr, /class="content-layer"/);
+  assert.match(gdpr, /class="container legal-article"/);
+  assert.doesNotMatch(gdpr, /body\s*\{[^}]*padding:\s*40px 20px/);
+});
+
 test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', () => {
   const footer = getSiteFooterHtml();
   for (const needle of [
