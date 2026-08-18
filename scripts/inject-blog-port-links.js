@@ -8,9 +8,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const { injectKeywordLinksIntoBodyHtml, buildPortLinksFromSeoPorts } = require('./lib/seoKeywordLinks');
-const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
-const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
+const { pathToFileURL } = require('url');
+const { injectKeywordLinksIntoBodyHtml, buildPortLinksFromSeoPorts, buildShipLinksFromSeoShips } = require('./lib/seoKeywordLinks');
+const { buildSeoPortRecords, buildSeoShipRecords } = require('./lib/seoShipPortPages');
 
 function extractArticleBody(html) {
   const startTag = '<div class="article-body">';
@@ -41,8 +41,11 @@ function extractArticleBody(html) {
   return null;
 }
 
-function main() {
+async function main() {
   const repoRoot = path.join(__dirname, '..');
+  const ds = await import(pathToFileURL(path.join(__dirname, 'lib/appCruiseDataset.js')).href);
+  const APP_ALL_PORTS = ds.allPorts || [];
+  const APP_ALL_SHIPS = ds.allShips || [];
   const rawPorts = APP_ALL_PORTS.map((p) => {
     const slug = String(p.slug || '').trim();
     const country = p.country || '';
@@ -55,6 +58,8 @@ function main() {
   });
   const seoPorts = buildSeoPortRecords(rawPorts);
   const portLinks = buildPortLinksFromSeoPorts(seoPorts);
+  const seoShips = buildSeoShipRecords(APP_ALL_SHIPS);
+  const shipLinks = buildShipLinksFromSeoShips(seoShips);
   const blogDir = path.join(repoRoot, 'blog');
   let changed = 0;
   let scanned = 0;
@@ -66,14 +71,16 @@ function main() {
     if (!fs.existsSync(indexPath)) continue;
     scanned += 1;
     let html = fs.readFileSync(indexPath, 'utf8');
+    if (/name=["']robots["'][^>]*noindex/i.test(html)) continue;
     const extracted = extractArticleBody(html);
     if (!extracted) continue;
-    if (extracted.body.includes('port-guide-link')) continue;
     const after = injectKeywordLinksIntoBodyHtml(extracted.body, {
-      maxShipLinks: 0,
-      maxPortLinks: 0,
-      maxSpecificPortLinks: 4,
+      maxShipLinks: 1,
+      maxPortLinks: 1,
+      maxSpecificPortLinks: extracted.body.includes('port-guide-link') ? 0 : 3,
+      maxSpecificShipLinks: extracted.body.includes('ship-guide-link') ? 0 : 2,
       portLinks,
+      shipLinks,
     });
     if (after === extracted.body) continue;
     let nextHtml = html.slice(0, extracted.start) + after + html.slice(extracted.end);
@@ -82,16 +89,17 @@ function main() {
       const cta =
         '<p class="related-inline">Planning a shore day? Explore our linked <a href="/ports/" class="contextual-link">SeaDays Cruise Port Guide</a> for terminals, transport tips, and bookable experiences.</p>';
       nextHtml = nextHtml.slice(0, insertAt) + cta + nextHtml.slice(insertAt);
-      linked += 1;
-    } else if (after.includes('port-guide-link')) {
-      linked += 1;
     }
+    if (after.includes('port-guide-link') || after.includes('ship-guide-link')) linked += 1;
     fs.writeFileSync(indexPath, nextHtml, 'utf8');
     changed += 1;
   }
   console.log(
-    `[inject-blog-port-links] scanned=${scanned} changed=${changed} withPortLinks=${linked} portPhrases=${Object.keys(portLinks).length}`
+    `[inject-blog-port-links] scanned=${scanned} changed=${changed} withLinks=${linked} portPhrases=${Object.keys(portLinks).length} shipPhrases=${Object.keys(shipLinks).length}`
   );
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

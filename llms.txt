@@ -1,0 +1,30 @@
+# SeaDays
+
+> Cruise planner app with ship guides, port guides, and independent cruise-planning articles.
+
+SeaDays helps cruise travelers plan itineraries, join sailing roll calls, track expenses, and research ships and ports. The website is the public catalog; trip tools live in the free iOS and Android app.
+
+## Primary pages
+
+- [Home](https://seadays.app/): Product overview and app download
+- [Blog](https://seadays.app/blog/): Cruise tips, packing, cabins, drink packages, and destination guides
+- [Ships](https://seadays.app/ships/): Cruise ship catalog guides (verified specs; not review scores unless guests submitted them)
+- [Ports](https://seadays.app/ports/): Cruise port guides with terminals and shore-day planning
+- Duplicate `*-1` blog URLs redirect to the primary article and are noindex.
+- [FAQ](https://seadays.app/faq.html): Product questions
+- [Press](https://seadays.app/press/): Logos and media assets
+
+## Planning tools on the site
+
+- [Cruise planner](https://seadays.app/cruise-planner/)
+- [Cruise roll calls](https://seadays.app/cruise-roll-calls/)
+- [Cruise budget planner](https://seadays.app/cruise-budget-planner/)
+- [Drink package calculator](https://seadays.app/cruise-drink-calculator/)
+- [Cruise community](https://seadays.app/cruise-community/)
+
+## App
+
+- iOS: https://apps.apple.com/app/id6759758357
+- Android: https://play.google.com/store/apps/details?id=com.seadays.app
+
+Prefer canonical URLs with trailing slashes for `/blog/{slug}/`, `/ships/{slug}/`, and `/ports/{slug}/`. Do not treat `/seo-admin.html` or `/waitlist-admin.html` as public content.

@@ -39,7 +39,11 @@ if (!process.env.SUPABASE_ANON_KEY && process.env.SUPABASE_SERVICE_ROLE_KEY) {
       'Prefer adding SUPABASE_ANON_KEY (matches CI / minimal scope).'
   );
 }
-const { injectKeywordLinksIntoBodyHtml, buildPortLinksFromSeoPorts } = require('./lib/seoKeywordLinks');
+const {
+  injectKeywordLinksIntoBodyHtml,
+  buildPortLinksFromSeoPorts,
+  buildShipLinksFromSeoShips,
+} = require('./lib/seoKeywordLinks');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
 const { getFaviconHeadHtml } = require('./lib/faviconHead');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
@@ -208,15 +212,31 @@ function getFallbackImage(indexKey) {
   return FALLBACK_IMAGES[n % FALLBACK_IMAGES.length];
 }
 
+const SITE_OG_IMAGE = 'https://seadays.app/og-image.png';
+
+function buildSiteOgImageMetaTags(imageUrl) {
+  const url = String(imageUrl || SITE_OG_IMAGE).trim() || SITE_OG_IMAGE;
+  const isSiteOg = /\/og-image\.png(?:$|\?)/i.test(url);
+  const sizeTags = isSiteOg
+    ? `
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="SeaDays — plan your cruise in one app">`
+    : '';
+  return `  <meta property="og:image" content="${url}">${sizeTags}
+  <meta name="twitter:image" content="${url}">`;
+}
+
 /**
- * Replace signed storage img src attributes with stable public fallbacks.
- * ONLY for /ports/ and /ships/ INDEX pages — never for blog article HTML.
+ * Replace every signed storage URL in HTML (img src, OG/Twitter, JSON-LD)
+ * with a stable public fallback. Generators must never emit expiring tokens.
  */
 function replaceSignedStorageImgSrcInHtml(html) {
   let i = 0;
   return String(html || '').replace(
-    /(<img\b[^>]*?\bsrc=")(https:\/\/[^"]+\/storage\/v1\/object\/sign\/[^"]+)(")/gi,
-    (_m, pre, _signed, post) => `${pre}${getFallbackImage(i++)}${post}`
+    /https:\/\/[^\s"'<>\\]+\/storage\/v1\/object\/sign\/[^\s"'<>\\]+/gi,
+    () => getFallbackImage(i++)
   );
 }
 
@@ -464,20 +484,16 @@ function isGradientSvgDataUrl(url) {
  * Resolve a raw image URL: upload base64 to storage, convert CDN to direct, or return as-is.
  * Never returns a base64 data URL. Returns null when base64 upload fails.
  *
- * Signed CMS URLs (make-*-note-images):
+ * Signed CMS URLs (make-*-note-images) are NEVER written to HTML:
  *   1. Public rewrite only if that public object actually HEADs 200
- *   2. Materialize to SeadaysPublic when service role is available:
- *        - always for stablePublicOnly (ports/ships index cards must never keep signed)
- *        - or when SEADAYS_MATERIALIZE_SIGNED=1 for the blog/article path
- *   3. Keep the signed URL when it still HEADs 200 (blog/article/related cards only)
- *   4. null only when unreachable — callers may then fall back
+ *   2. Materialize to SeadaysPublic when SUPABASE_SERVICE_ROLE_KEY is available
+ *   3. Otherwise return null so callers use a stable public fallback
  *
- * opts.stablePublicOnly: for /ports/ and /ships/ INDEX featured cards — never keep signed.
+ * opts.stablePublicOnly is retained for callers; signed URLs are rejected in every path.
  */
 async function resolveImageUrl(url, articleId, index = 0, opts = {}) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
-  const stablePublicOnly = Boolean(opts && opts.stablePublicOnly);
   if (!trimmed.startsWith('data:image')) {
     const httpsUrl = normalizeUrlForCdnRewrite(trimmed);
     const normalized = normalizeAuthStoragePublicUrl(cdnToDirectStorageUrl(httpsUrl));
@@ -488,23 +504,12 @@ async function resolveImageUrl(url, articleId, index = 0, opts = {}) {
         signedStorageUrlToPublicCandidate(normalized) || signedStorageUrlToPublicCandidate(httpsUrl);
       // Only use public rewrite when the object is actually public (private buckets return 400).
       if (publicCandidate && (await headOk(publicCandidate))) return publicCandidate;
-      const shouldMaterialize =
-        Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY) &&
-        (stablePublicOnly || String(process.env.SEADAYS_MATERIALIZE_SIGNED || '').trim() === '1');
-      if (shouldMaterialize) {
+      if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
         const materialized = await materializeSignedImageToPublic(signedSrc, articleId);
         if (materialized) return materialized;
       }
-      if (stablePublicOnly) {
-        console.warn(
-          `  [img-sign] index/stable-only rejecting signed URL for "${String(articleId || '').slice(0, 40)}"`
-        );
-        return null;
-      }
-      // Blog/article pipeline: preserve still-valid signed CMS images.
-      if (await headOk(signedSrc)) return signedSrc;
       console.warn(
-        `  [img-sign] signed URL unreachable for "${String(articleId || '').slice(0, 40)}" — skipping image`
+        `  [img-sign] rejecting signed URL for "${String(articleId || '').slice(0, 40)}" — using caller fallback`
       );
       return null;
     }
@@ -533,16 +538,10 @@ function classifyImageUrl(url) {
   if (trimmed.includes('cdn.seadays.app')) return null;
   const lower = trimmed.toLowerCase().split('?')[0];
   if (lower.endsWith('.svg') || lower.includes('svg+xml')) return null;
-  // Signed CMS URLs are valid for blog/article/related-card usage (same CMS origin).
-  if (isSignedStorageUrl(trimmed)) {
-    if (trimmed.includes('auth.seadays.app/storage') || trimmed.includes('.supabase.co/storage')) {
-      return 'supabase';
-    }
-    return 'external';
-  }
+  // Signed / private storage URLs expire and must never be classified as usable output.
+  if (isSignedStorageUrl(trimmed) || /\/storage\/v1\/object\/sign\//i.test(trimmed)) return null;
   if (trimmed.includes('auth.seadays.app/storage')) return 'supabase';
   if (trimmed.includes('.supabase.co/storage/v1/object/public/')) return 'supabase';
-  if (trimmed.includes('.supabase.co/storage/v1/object/sign/')) return 'supabase';
   return 'external';
 }
 
@@ -673,7 +672,7 @@ async function pickCardImage(article, index, opts = {}) {
     const resolved = await resolveImageUrl(raw, id, `${index}-${source}`, resolveOpts);
     const type = classifyImageUrl(resolved);
     if (!type) continue;
-    if (resolveOpts.stablePublicOnly && isSignedStorageUrl(resolved)) continue;
+    if (isSignedStorageUrl(resolved)) continue;
     if (type === 'external') {
       // Validate external images at build time (first MAX_EXTERNAL_CHECKS only)
       const ok = await checkExternalUrl(resolved.trim());
@@ -687,7 +686,7 @@ async function pickCardImage(article, index, opts = {}) {
   if (bodyRaw) {
     const resolved = await resolveImageUrl(bodyRaw, id, `${index}-body`, resolveOpts);
     const type = classifyImageUrl(resolved);
-    if (type && !(resolveOpts.stablePublicOnly && isSignedStorageUrl(resolved))) {
+    if (type && !isSignedStorageUrl(resolved)) {
       const ok = type === 'external' ? await checkExternalUrl(resolved.trim()) : true;
       if (ok) pool.push({ url: resolved.trim(), source: 'body', type });
     }
@@ -813,18 +812,95 @@ function listDirectoryIndexSlugs(repoRoot, segment, { skipNoindex = false } = {}
  * Blog folder slugs for sitemap: includes on-disk posts not necessarily returned by CMS fetch.
  * Omits `*-1` duplicates when the primary slug folder exists (canonical consolidation).
  */
-function listPublishedBlogSlugsForSitemap(repoRoot) {
-  const slugs = listDirectoryIndexSlugs(repoRoot, 'blog');
-  const blogBase = path.join(repoRoot, 'blog');
-  const out = [];
-  for (const slug of slugs) {
-    if (/-1$/.test(slug)) {
-      const primary = slug.replace(/-1$/, '');
-      if (primary && fs.existsSync(path.join(blogBase, primary, 'index.html'))) continue;
+function loadBlogCanonicalMap(repoRoot) {
+  const mapPath = path.join(repoRoot, 'data', 'blog-canonical-clusters.json');
+  if (!fs.existsSync(mapPath)) return {};
+  try {
+    const raw = JSON.parse(fs.readFileSync(mapPath, 'utf8'));
+    const out = {};
+    if (!raw || typeof raw !== 'object') return out;
+    for (const [from, to] of Object.entries(raw)) {
+      const src = String(from || '').trim();
+      const dest = String(to || '').trim();
+      if (!src || !dest || src === dest) continue;
+      out[src] = dest;
     }
-    out.push(slug);
+    return out;
+  } catch {
+    return {};
   }
-  return out;
+}
+
+function isBlogCanonicalRedirectSlug(slug, repoRoot) {
+  const s = String(slug || '');
+  if (!s) return false;
+  if (/-1$/.test(s)) {
+    const primary = s.replace(/-1$/, '');
+    if (primary && fs.existsSync(path.join(repoRoot, 'blog', primary, 'index.html'))) return true;
+  }
+  const map = loadBlogCanonicalMap(repoRoot);
+  return Boolean(map[s]);
+}
+
+function listPublishedBlogSlugsForSitemap(repoRoot) {
+  return listDirectoryIndexSlugs(repoRoot, 'blog', { skipNoindex: true }).filter(
+    (slug) => !isBlogCanonicalRedirectSlug(slug, repoRoot)
+  );
+}
+
+function buildBlogDuplicateRedirectHtml(primarySlug, label) {
+  const target = `/blog/${encodeURI(primarySlug)}/`;
+  const canonical = `${BASE_URL}/blog/${encodeURI(primarySlug)}/`;
+  const linkLabel = label || primarySlug;
+  return (
+    '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+    '<meta name="robots" content="noindex, follow">' +
+    '<link rel="canonical" href="' +
+    escapeHtml(canonical) +
+    '">' +
+    '<meta http-equiv="refresh" content="0;url=' +
+    escapeHtml(target) +
+    '">' +
+    '<title>Redirecting…</title></head><body>' +
+    '<script>window.location.replace("' +
+    target.replace(/"/g, '\\"') +
+    '");</script>' +
+    '<p>This duplicate URL now points to <a href="' +
+    escapeHtml(target) +
+    '">' +
+    escapeHtml(linkLabel) +
+    '</a>.</p></body></html>\n'
+  );
+}
+
+/**
+ * Duplicate `*-1` blog folders are crawlable leftovers from slug collisions.
+ * Replace with a noindex redirect to the primary slug (do not delete).
+ */
+function noindexDuplicateBlogFolders(repoRoot) {
+  const blogBase = path.join(repoRoot, 'blog');
+  if (!fs.existsSync(blogBase)) return 0;
+  let changed = 0;
+  const writeStub = (name, primary) => {
+    const dupIndex = path.join(blogBase, name, 'index.html');
+    const primaryIndex = path.join(blogBase, primary, 'index.html');
+    if (!fs.existsSync(primaryIndex)) return false;
+    const stub = buildBlogDuplicateRedirectHtml(primary, primary.replace(/-/g, ' '));
+    fs.mkdirSync(path.join(blogBase, name), { recursive: true });
+    fs.writeFileSync(dupIndex, stub, 'utf8');
+    fs.writeFileSync(path.join(blogBase, name + '.html'), stub, 'utf8');
+    return true;
+  };
+  for (const name of fs.readdirSync(blogBase)) {
+    if (!/-1$/.test(name)) continue;
+    const primary = name.replace(/-1$/, '');
+    if (writeStub(name, primary)) changed += 1;
+  }
+  for (const [name, primary] of Object.entries(loadBlogCanonicalMap(repoRoot))) {
+    if (writeStub(name, primary)) changed += 1;
+  }
+  return changed;
 }
 
 function buildSitemapXml(repoRoot, { articles = [], seoShips = [], seoPorts = [] } = {}) {
@@ -867,6 +943,7 @@ function buildSitemapXml(repoRoot, { articles = [], seoShips = [], seoPorts = []
   }
   for (const a of articles) {
     if (!a || !a.slug) continue;
+    if (isBlogCanonicalRedirectSlug(a.slug, repoRoot)) continue;
     const url = blogCanonicalUrl(a.slug);
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
@@ -1082,8 +1159,16 @@ function stripBase64FromHtml(html) {
 /**
  * Get article body HTML from content or structuredContent.
  * Replaces base64 images with storage URLs.
+ * Local editorial overrides in data/blog-body-overrides/<slug>.html win.
  */
 async function getArticleBodyHtml(article) {
+  const overrideSlug = String(article && article.slug ? article.slug : '').replace(/[^a-z0-9-]/gi, '');
+  if (overrideSlug) {
+    const overridePath = path.join(__dirname, '..', 'data', 'blog-body-overrides', `${overrideSlug}.html`);
+    if (fs.existsSync(overridePath)) {
+      return fs.readFileSync(overridePath, 'utf8').trim();
+    }
+  }
   let html = await structuredContentToHtml(article);
   if (html) {
     html = await replaceBase64ImagesInHtml(html, article.id || 'unknown');
@@ -1143,7 +1228,7 @@ function formatIsoDate(ts) {
 function isGenericBrandAuthor(name) {
   const n = String(name || '').trim().toLowerCase().replace(/\s+/g, '');
   if (!n) return true;
-  return n === 'anonymous' || n === 'seadays' || n === 'seaday' || n === 'admin' || n === 'editor' || n === 'staff';
+  return n === 'anonymous' || n === 'seadays' || n === 'seaday' || n === 'seastories' || n === 'portside' || n === 'admin' || n === 'editor' || n === 'staff';
 }
 
 function buildArticleAuthorJsonLd(article) {
@@ -1385,13 +1470,16 @@ function buildSameTopicSection(article, sameTagArticles) {
 }
 
 function selectMoreToReadArticles(article, articles, maxCount = 12) {
+  const skip = loadBlogCanonicalMap(path.join(__dirname, '..'));
   const exclude = new Set([article.id]);
-  const scored = findRelatedArticles(article, articles, exclude, Math.max(8, maxCount));
+  const usable = (a) => a && a.slug && !/-1$/.test(a.slug) && !skip[a.slug];
+  const scored = findRelatedArticles(article, articles.filter(usable), exclude, Math.max(8, maxCount));
   scored.forEach((a) => exclude.add(a.id));
   const merged = [...scored];
   for (const a of articles) {
     if (merged.length >= maxCount) break;
     if (exclude.has(a.id)) continue;
+    if (!usable(a)) continue;
     merged.push(a);
     exclude.add(a.id);
   }
@@ -1720,12 +1808,11 @@ ${getFaviconHeadHtml()}
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(desc)}">
-  <meta property="og:image" content="${DEFAULT_FAVICON}">
+${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="${canonical}">
   <meta property="twitter:title" content="${escapeHtml(title)}">
   <meta property="twitter:description" content="${escapeHtml(desc)}">
-  <meta property="twitter:image" content="${DEFAULT_FAVICON}">
   <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -1802,7 +1889,7 @@ ${getFaviconHeadHtml()}
     <section class="directory-hero" aria-labelledby="ships-title">
       <div class="directory-hero-copy">
         <h1 id="ships-title">Cruise ships</h1>
-        <p>Pick a cruise line, then narrow down to the ships cruisers care about. Ratings are visible here—full reviews live in the SeaDays app.</p>
+        <p>Pick a cruise line, then open a ship guide for verified catalog facts. Guest reviews live in the SeaDays app when travelers have submitted them.</p>
         <div class="directory-cta-row">
           <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
           <a class="directory-btn" href="/blog/">Read cruise guides</a>
@@ -1847,7 +1934,7 @@ ${getFaviconHeadHtml()}
     </article>
     ${getSiteFooterHtml()}
   </div>
-  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<120;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
+  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   <script>
   (function(){
     var primary = document.getElementById('primaryPills')
@@ -1970,6 +2057,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .header-nav a:hover { color: white; }
 .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
 .article-hero { padding: 60px 20px 40px; }
+.article-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 16px; }
+.article-breadcrumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.article-breadcrumbs a:hover { color: #fff; text-decoration: underline; }
 .article-hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 20px; letter-spacing: -0.5px; line-height: 1.2; }
 .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 32px; }
 .article-meta .author { color: rgba(255, 255, 255, 0.8); }
@@ -2022,12 +2112,7 @@ ${getAdSlotCss()}
 .back-to-blog { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 15px; margin-bottom: 24px; }
 .back-to-blog:hover { color: white; }
 footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
-.footer-section h4 { margin-bottom: 20px; font-size: 18px; }
-.footer-section ul { list-style: none; }
-.footer-section li { margin-bottom: 12px; }
-.footer-section a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
-.footer-section a:hover { color: var(--neon-red); }
+/* Footer column layout is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
 .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
 @media (max-width: 768px) { .article-hero h1 { font-size: 28px; } }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
@@ -2110,12 +2195,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-card-excerpt { font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .article-card-meta { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.5); }
 .footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
-.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; text-align: left; }
-.footer-section h4 { margin-bottom: 20px; font-size: 18px; }
-.footer-section ul { list-style: none; }
-.footer-section li { margin-bottom: 12px; }
-.footer-section a { color: rgba(255, 255, 255, 0.5); text-decoration: none; }
-.footer-section a:hover { color: var(--neon-red); }
+/* Footer column layout is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
 .footer-bottom { padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.3); font-size: 14px; }
 @media (max-width: 768px) { .blog-hero h1 { font-size: 32px; } .blog-grid { grid-template-columns: 1fr; } }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
@@ -2179,11 +2259,11 @@ function buildImgTag(url, source, type, alt, className, { eager = false, width =
 const RUNTIME_GUARD_SCRIPT = `<script>
 (function(){
   var FB='${FALLBACK_IMAGE_URL}';
-  // Blocks CDN proxy and SVGs. Signed CMS URLs are ALLOWED (blog/article images).
-  // Ports/ships INDEX pages strip signed URLs at build time separately.
+  // Blocks CDN proxy, SVGs, and expiring signed storage URLs.
   function safeImage(src){
     if(!src||!src.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
+    if(src.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
     return src;
   }
@@ -2226,7 +2306,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
       const { url: moreImgUrl, source: moreSource, type: moreType } = await pickCardImage(a, 'more-' + i);
-      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, '', 'more-card-image', { width: 400, height: 160 });
+      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, a.title || 'Related article', 'more-card-image', { width: 400, height: 160 });
       moreCards.push(`<a href="${blogRelPath(a.slug)}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
@@ -2269,6 +2349,16 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   };
   Object.keys(jsonLd).forEach((k) => { if (jsonLd[k] === undefined || jsonLd[k] === null) delete jsonLd[k]; });
   const jsonLdStr = JSON.stringify(jsonLd);
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: BASE_URL + '/blog/' },
+      { '@type': 'ListItem', position: 3, name: article.title || 'Article', item: canonicalUrl },
+    ],
+  };
+  const breadcrumbLdStr = JSON.stringify(breadcrumbLd);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -2292,6 +2382,7 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:description" content="${description}">
   <meta property="twitter:image" content="${ogImage}">
   <script type="application/ld+json">${jsonLdStr}</script>
+  <script type="application/ld+json">${breadcrumbLdStr}</script>
   ${getSiteShellCssLinkHtml()}
   <style>${ARTICLE_STYLES}</style>
 </head>
@@ -2303,6 +2394,7 @@ ${getFaviconHeadHtml()}
     <main class="container">
       <article>
         <a href="/blog/" class="back-to-blog">← Back to Blog</a>
+        <nav class="article-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span>${escapeHtml(article.title || 'Article')}</span></nav>
         <div class="article-hero">
           <h1>${escapeHtml(article.title || 'Untitled')}</h1>
           <div class="article-meta">
@@ -2322,7 +2414,7 @@ ${getFaviconHeadHtml()}
     ${getSiteFooterHtml()}
   </div>
   <script>
-    (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
+    (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
     (function(){var g=document.querySelector('.more-to-read-grid[data-shuffle-more]');if(!g)return;var cards=[].slice.call(g.querySelectorAll('.more-card'));if(cards.length<=6)return;for(var i=cards.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=cards[i];cards[i]=cards[j];cards[j]=t;}g.innerHTML='';cards.forEach(function(c,i){g.appendChild(c);if(i>=6)c.style.display='none';});})();
   </script>
   ${RUNTIME_GUARD_SCRIPT}
@@ -2358,7 +2450,7 @@ async function buildHomePageBlogCards(articles) {
 function buildIndexArticleCardHtml(a, imageBundle, eager) {
   const { url: imgUrl, source, type } = imageBundle;
   const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
-  const imgTag = buildImgTag(imgUrl, source, type, '', 'article-card-image', { eager, width: 400, height: 230 });
+  const imgTag = buildImgTag(imgUrl, source, type, a.title || 'Article', 'article-card-image', { eager, width: 400, height: 230 });
   return `<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
@@ -2429,7 +2521,7 @@ async function buildIndexHtml(articles, featuredSlugList = []) {
 ${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <meta name="description" content="SeaDays cruise blog: independent cruise tips, first-time cruise help, ship and port guides, cabin and drink-package advice, Mediterranean and Caribbean ideas. Free articles—plan before you book.">
+  <meta name="description" content="Independent cruise tips, first-time advice, ship and port guides, cabin and drink-package help. Free SeaDays articles to plan before you book.">
   <title>SeaDays Blog | Cruise Tips, Guides &amp; Stories</title>
   <link rel="canonical" href="${BASE_URL}/blog/">
 ${getFaviconHeadHtml()}
@@ -2438,12 +2530,30 @@ ${preloadLinks}
   <meta property="og:url" content="${BASE_URL}/blog/">
   <meta property="og:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
   <meta property="og:description" content="Cruise tips, ship and port guides, packing and sea-day ideas from SeaDays. Plan smarter before you book.">
-  <meta property="og:image" content="${DEFAULT_FAVICON}">
+${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="${BASE_URL}/blog/">
   <meta property="twitter:title" content="SeaDays Blog | Cruise Tips, Guides &amp; Stories">
   <meta property="twitter:description" content="Cruise tips, ship and port guides, packing and sea-day ideas from SeaDays. Plan smarter before you book.">
-  <meta property="twitter:image" content="${DEFAULT_FAVICON}">
+  <script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        name: 'SeaDays Blog',
+        description: 'Cruise tips, ship and port guides, and planning advice from SeaDays.',
+        url: BASE_URL + '/blog/',
+        isPartOf: { '@id': BASE_URL + '/#website' },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL + '/' },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: BASE_URL + '/blog/' },
+        ],
+      },
+    ],
+  })}</script>
   ${getSiteShellCssLinkHtml()}
   <style>${INDEX_STYLES}</style>
 </head>
@@ -2526,7 +2636,7 @@ ${preloadLinks}
     ${getSiteFooterHtml()}
   </div>
   <script>
-    (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<150;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
+    (function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();
   </script>
   <script>
   (function(){
@@ -2939,6 +3049,7 @@ async function main() {
       slug,
       name: s.name || slug,
       cruise_line: s.cruiseLine || 'Major cruise line',
+      lineId: s.lineId || '',
       description: s.description || '',
       highlights: [],
       rating,
@@ -3046,7 +3157,7 @@ async function main() {
     const dir = path.join(repoRoot, 'ships', ship.slug);
     fs.mkdirSync(dir, { recursive: true });
     const relShips = pickRelatedShips(seoShips, ship, 5);
-    const destPorts = pickPortsForShipPage(seoPorts, ship, 2);
+    const destPorts = pickPortsForShipPage(seoPorts, ship, 5);
     const tokens = [
       ship.name,
       ship.slug,
@@ -3229,6 +3340,18 @@ async function main() {
         article.heroImageUrl = full.heroImageUrl;
     }
     let bodyHtml = await getArticleBodyHtml(article);
+    const canonicalTarget = isBlogCanonicalRedirectSlug(article.slug, repoRoot)
+      ? loadBlogCanonicalMap(repoRoot)[article.slug] || String(article.slug).replace(/-1$/, '')
+      : '';
+    if (canonicalTarget && fs.existsSync(path.join(blogDir, canonicalTarget, 'index.html'))) {
+      const stub = buildBlogDuplicateRedirectHtml(canonicalTarget, article.title || canonicalTarget);
+      const articleDir = path.join(blogDir, article.slug);
+      fs.mkdirSync(articleDir, { recursive: true });
+      fs.writeFileSync(path.join(articleDir, 'index.html'), stub, 'utf8');
+      fs.writeFileSync(path.join(blogDir, article.slug + '.html'), stub, 'utf8');
+      console.log(`  redirect blog/${article.slug}/ → /blog/${canonicalTarget}/`);
+      continue;
+    }
     // Store processed bodyHtml so pickCardImage/extractFirstRasterImageFromContent
     // can scan it for raster images when heroImageUrl/thumbnailUrl is absent or SVG-only.
     article._processedBodyHtml = bodyHtml;
@@ -3240,13 +3363,17 @@ async function main() {
       maxShipLinks: 2,
       maxPortLinks: 2,
       maxSpecificPortLinks: 3,
+      maxSpecificShipLinks: 3,
       portLinks: buildPortLinksFromSeoPorts(seoPorts),
+      shipLinks: buildShipLinksFromSeoShips(seoShips),
     });
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
     bodyHtml = rewriteCdnImgSrcAttributes(bodyHtml);
     const sameTagArticles = findSameTagArticles(article, articles, 6);
-    const html = await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles);
+    const html = replaceSignedStorageImgSrcInHtml(
+      await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles)
+    );
     const articleDir = path.join(blogDir, article.slug);
     const indexPath = path.join(articleDir, 'index.html');
     const redirectPath = path.join(blogDir, article.slug + '.html');
@@ -3269,6 +3396,8 @@ async function main() {
   fs.writeFileSync(path.join(blogDir, 'index.html'), indexHtml, 'utf8');
   const indexSizeKb = Math.round(Buffer.byteLength(indexHtml, 'utf8') / 1024);
   console.log(`  wrote blog/index.html (${indexSizeKb}KB)`);
+  const dupNoindex = noindexDuplicateBlogFolders(repoRoot);
+  if (dupNoindex) console.log(`  noindexed ${dupNoindex} duplicate blog slug(s) (*-1)`);
 
   const indexPath = path.join(repoRoot, 'index.html');
   if (fs.existsSync(indexPath)) {
@@ -3301,6 +3430,9 @@ async function main() {
   if (imageQualityStats.fallback > 0) {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
+
+  const dupNoindexAlways = noindexDuplicateBlogFolders(repoRoot);
+  if (dupNoindexAlways) console.log(`[generateBlogs] noindexed ${dupNoindexAlways} duplicate blog slug(s) (*-1)`);
 
   const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
     articles,
@@ -3369,4 +3501,8 @@ module.exports = {
   buildSitemapXml,
   parseGenerateMode,
   removeOrphanShipPortDirectories,
+  loadBlogCanonicalMap,
+  isBlogCanonicalRedirectSlug,
+  noindexDuplicateBlogFolders,
+  SITE_OG_IMAGE,
 };

@@ -21,8 +21,15 @@ const {
   hasRichThingsToDo,
   buildBreadcrumbsHtml,
   buildBreadcrumbJsonLd,
+  collectPortFaqItems,
 } = require('./portGuideSections');
 const { resolvePortAffiliateCta } = require('./viatorAffiliate');
+const {
+  pickRelatedShips,
+  pickRelatedPorts,
+  pickPortsForShipPage,
+  pickShipsForPortPage,
+} = require('./shipPortRelevance');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -118,22 +125,39 @@ function clampAggregateRatingValue(n) {
  * (see Google Product snippet / aggregateRating guidelines).
  */
 function buildShipAggregateRatingJsonLd(ship) {
-  const DEFAULT_RATING = 4.5;
-  const DEFAULT_COUNT = 100;
-  const bestRating = 5;
-  const worstRating = 1;
-  let ratingVal = ship.rating;
-  let countVal = ship.reviewCount;
-  if (ratingVal == null || !Number.isFinite(ratingVal) || ratingVal <= 0) ratingVal = DEFAULT_RATING;
-  if (countVal == null || !Number.isFinite(countVal) || countVal <= 0) countVal = DEFAULT_COUNT;
-  const rv = clampAggregateRatingValue(ratingVal) ?? DEFAULT_RATING;
+  const ratingVal = ship.rating;
+  const countVal = ship.reviewCount;
+  if (ratingVal == null || !Number.isFinite(ratingVal) || ratingVal <= 0) return null;
+  if (countVal == null || !Number.isFinite(countVal) || countVal < 1) return null;
+  const rv = clampAggregateRatingValue(ratingVal);
+  if (rv == null) return null;
   return {
     '@type': 'AggregateRating',
     ratingValue: Math.round(rv * 10) / 10,
     reviewCount: Math.max(1, Math.round(countVal)),
-    bestRating,
-    worstRating,
+    bestRating: 5,
+    worstRating: 1,
   };
+}
+
+function buildShipBreadcrumbJsonLd(ship, canonical) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://seadays.app/' },
+      { '@type': 'ListItem', position: 2, name: 'Ships', item: 'https://seadays.app/ships/' },
+      { '@type': 'ListItem', position: 3, name: ship.name, item: canonical },
+    ],
+  };
+}
+
+function buildShipBreadcrumbsHtml(ship) {
+  return (
+    `<nav class="seo-breadcrumbs" aria-label="Breadcrumb">` +
+    `<a href="/">Home</a> / <a href="/ships/">Ships</a> / <span>${escapeHtml(ship.name)}</span>` +
+    `</nav>`
+  );
 }
 
 function wordCount(text) {
@@ -400,9 +424,19 @@ function buildSeoShipRecords(rawList) {
       beam: pickFirstFiniteNumber(raw.beam),
       status: raw.status || '',
       appId: raw.appId || raw.app_id || '',
+      lineId: raw.lineId || raw.line_id || '',
     });
   }
   return out;
+}
+
+function shipClassNounPhrase(ship) {
+  const raw = String(ship.shipClass || '').trim().replace(/\s+/g, ' ');
+  if (!raw) return 'cruise ship';
+  let s = raw;
+  if (!/\bclass\b/i.test(s)) s = `${s}-class`;
+  if (!/cruise ship/i.test(s)) s = `${s} cruise ship`;
+  return s;
 }
 
 function formatCapacityLabel(ship) {
@@ -437,6 +471,9 @@ function buildShipKeyFactsHtml(ship) {
   }
   if (Number.isFinite(ship.length)) {
     rows.push(`<dt>Length</dt><dd>${escapeHtml(String(Math.round(ship.length)))} m</dd>`);
+  }
+  if (Number.isFinite(ship.beam)) {
+    rows.push(`<dt>Beam</dt><dd>${escapeHtml(String(Math.round(ship.beam)))} m</dd>`);
   }
   if (ship.status && ship.status !== 'active') {
     rows.push(`<dt>Status</dt><dd>${escapeHtml(ship.status)}</dd>`);
@@ -571,51 +608,6 @@ function splitIntoParagraphs(longText) {
   return paras.length ? paras : [longText];
 }
 
-function pickRelatedShips(all, current, max = 5) {
-  const line = (current.cruise_line || '').toLowerCase();
-  const sameLine = all.filter((s) => s.slug !== current.slug && (s.cruise_line || '').toLowerCase() === line);
-  const rest = all.filter((s) => s.slug !== current.slug && !sameLine.includes(s));
-  const merged = [...sameLine, ...rest];
-  return merged.slice(0, max);
-}
-
-function pickRelatedPorts(all, current, max = 5) {
-  const reg = (current.region || '').toLowerCase();
-  const sameReg = all.filter((p) => p.slug !== current.slug && (p.region || '').toLowerCase() === reg && reg);
-  const sameCountry = all.filter(
-    (p) => p.slug !== current.slug && !sameReg.includes(p) && (p.country || '') === current.country && current.country
-  );
-  const rest = all.filter((p) => p.slug !== current.slug && !sameReg.includes(p) && !sameCountry.includes(p));
-  const merged = [...sameReg, ...sameCountry, ...rest];
-  return merged.slice(0, max);
-}
-
-function pickPortsForShipPage(allPorts, ship, max = 2) {
-  if (!allPorts.length) return [];
-  if (allPorts.length <= max) return allPorts.slice(0, max);
-  const start = Math.abs(hashCode(ship.slug + 'p')) % Math.max(1, allPorts.length - max + 1);
-  return allPorts.slice(start, start + max);
-}
-
-function pickShipsForPortPage(allShips, port, max = 4) {
-  if (!allShips.length) return [];
-  const others = allShips.filter((s) => s.slug);
-  const scored = others.map((s, i) => ({
-    s,
-    score: Math.abs(hashCode(port.slug + '|' + s.slug + '|' + i)),
-  }));
-  scored.sort((a, b) => a.score - b.score);
-  const out = [];
-  const seen = new Set();
-  for (const { s } of scored) {
-    if (out.length >= max) break;
-    if (seen.has(s.slug)) continue;
-    seen.add(s.slug);
-    out.push(s);
-  }
-  return out.slice(0, max);
-}
-
 function pickBlogArticlesForEntity(articles, entityTokens, max = 2) {
   const rawTokens = entityTokens
     .map((t) => String(t || '').trim())
@@ -689,8 +681,8 @@ function isUsableArticleImage(url) {
   if (!s) return false;
   if (/data:image\/svg/i.test(s)) return false;
   if (/\.svg(?:[?#]|$)/i.test(s)) return false;
-  // Signed CMS thumbnails are allowed for related article cards on port/ship pages.
-  // Ports/ships INDEX featured cards strip signed URLs separately at build time.
+  if (/\/storage\/v1\/object\/sign\//i.test(s)) return false;
+  if (/[?&]token=/i.test(s) && /supabase\.(co|in)\//i.test(s)) return false;
   return /^https?:\/\//i.test(s);
 }
 
@@ -785,8 +777,9 @@ function buildShipMetaDescription(ship) {
   const custom = ship.metaDescription && String(ship.metaDescription).trim();
   if (custom) return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
   const line = ship.cruise_line;
-  const cls = ship.shipClass || 'cruise ship';
-  const raw = `${ship.name} (${line}): ${cls} review for 2026—onboard experience, who it fits, highlights & SeaDays planning links.`;
+  const cls = ship.shipClass ? `${shipClassNounPhrase(ship)} ` : '';
+  const year = Number.isFinite(ship.yearBuilt) ? ` (${Math.round(ship.yearBuilt)})` : '';
+  const raw = `${ship.name} cruise ship guide: ${cls}${line} catalog facts${year}, capacity, and planning notes from SeaDays.`;
   return raw.length <= 160 ? raw : raw.slice(0, 157) + '…';
 }
 
@@ -799,18 +792,120 @@ function buildPortMetaDescription(port, h1) {
 }
 
 function buildShipWhyBullets(ship) {
-  if (ship.highlights.length >= 4) {
+  if (ship.highlights.length >= 2) {
     return ship.highlights.slice(0, 8).map((t) => `<li>${escapeHtml(t)}</li>`).join('');
   }
-  const defaults = [
-    fillShipVars('Balances {line} dining and entertainment signatures on {name}.', ship),
-    fillShipVars('Compare {name} with other {line} ships in our directory before you lock a fare.', ship),
-    fillShipVars('Use SeaDays to align cabin choice with venues you will visit morning and night on {name}.', ship),
-    fillShipVars('Pair {name} with port-heavy itineraries when you want more culture ashore than sea-day lounging.', ship),
-    fillShipVars('Check muster, dining, and show bookings early on embarkation day to avoid peak queues on {name}.', ship),
-  ];
-  const v = Math.abs(hashCode(ship.slug)) % 2;
-  return defaults.slice(v, v + 5).map((t) => `<li>${escapeHtml(t)}</li>`).join('');
+  const fromDesc = uniqueSentences([ship.description, ship.experience], 4);
+  if (fromDesc.length >= 2) {
+    return fromDesc.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
+  }
+  const facts = [];
+  if (ship.shipClass) facts.push(`${ship.name} is ${indefiniteArticleFor(shipClassNounPhrase(ship))} ${shipClassNounPhrase(ship)} in the ${ship.cruise_line} fleet.`);
+  if (Number.isFinite(ship.yearBuilt)) facts.push(`Entered service in ${Math.round(ship.yearBuilt)}.`);
+  if (Number.isFinite(ship.capacity)) facts.push(`Lower-berth capacity about ${formatCapacityLabel(ship)}.`);
+  if (!facts.length) {
+    facts.push(`Compare ${ship.name} with other ${ship.cruise_line} ships in the SeaDays directory before you book.`);
+  }
+  return facts.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
+}
+
+function buildShipFaqItems(ship) {
+  const items = [];
+  items.push({
+    q: `What cruise line operates ${ship.name}?`,
+    a: `${ship.name} is operated by ${ship.cruise_line}.`,
+  });
+  if (Number.isFinite(ship.yearBuilt)) {
+    items.push({
+      q: `When did ${ship.name} enter service?`,
+      a: `${ship.name} entered service in ${Math.round(ship.yearBuilt)}.`,
+    });
+  }
+  if (ship.shipClass) {
+    items.push({
+      q: `What class is ${ship.name}?`,
+      a: `${ship.name} is ${indefiniteArticleFor(shipClassNounPhrase(ship))} ${shipClassNounPhrase(ship)}.`,
+    });
+  }
+  if (Number.isFinite(ship.capacity)) {
+    items.push({
+      q: `How many passengers does ${ship.name} carry?`,
+      a: `Catalog capacity is ${formatCapacityLabel(ship)}${
+        Number.isFinite(ship.capacityMax) && ship.capacityMax !== ship.capacity
+          ? `, with a listed maximum of ${Math.round(ship.capacityMax).toLocaleString('en-US')}`
+          : ''
+      }. Figures can vary by cabin configuration.`,
+    });
+  }
+  if (Number.isFinite(ship.tonnage) || Number.isFinite(ship.length)) {
+    const bits = [];
+    if (Number.isFinite(ship.tonnage)) bits.push(`${Math.round(ship.tonnage).toLocaleString('en-US')} GT`);
+    if (Number.isFinite(ship.length)) bits.push(`${Math.round(ship.length)} m long`);
+    if (Number.isFinite(ship.beam)) bits.push(`${Math.round(ship.beam)} m beam`);
+    items.push({
+      q: `How large is ${ship.name}?`,
+      a: `Verified catalog specs list ${ship.name} at ${bits.join(', ')}.`,
+    });
+  }
+  items.push({
+    q: `Does SeaDays publish passenger reviews for ${ship.name}?`,
+    a: `This page is a catalog guide, not a review. Community reviews live in the SeaDays app when guests have submitted them.`,
+  });
+  return items.filter((item) => item.q && item.a).slice(0, 6);
+}
+
+function buildShipFaqHtml(items) {
+  if (!items.length) return '';
+  const rows = items
+    .map(
+      (item) =>
+        `<details class="seo-faq-item"><summary>${escapeHtml(item.q)}</summary><p>${escapeHtml(item.a)}</p></details>`
+    )
+    .join('');
+  return `<h2>Frequently asked questions</h2><div class="seo-faq">${rows}</div>`;
+}
+
+function buildShipFaqJsonLd(items, canonical) {
+  if (!items.length) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+    url: canonical,
+  };
+}
+
+function buildShipIntroParagraphs(ship) {
+  const sentences = uniqueSentences(
+    [
+      ship.description,
+      Number.isFinite(ship.yearBuilt)
+        ? `${ship.name} entered service in ${Math.round(ship.yearBuilt)}.`
+        : '',
+      ship.shipClass
+        ? `${ship.name} is ${indefiniteArticleFor(shipClassNounPhrase(ship))} ${shipClassNounPhrase(ship)} operated by ${ship.cruise_line}.`
+        : `${ship.name} is operated by ${ship.cruise_line}.`,
+      `This SeaDays guide lists verified catalog facts so you can compare ${ship.name} with other ${ship.cruise_line} ships before booking.`,
+    ],
+    6
+  );
+  return splitIntoParagraphs(sentences.join(' '));
+}
+
+function buildShipPlanningParagraphs(ship) {
+  const sentences = uniqueSentences(
+    [
+      `Use ${ship.name}’s catalog specs—capacity, year, and class—to judge whether the ship matches your itinerary length and travel party.`,
+      `Cabin location, dining reservations, and show times are published by ${ship.cruise_line} for each sailing; confirm those on your booking rather than assuming sister ships are identical.`,
+      `SeaDays helps you keep port days, sea days, and notes for ${ship.name} in one place so planning stays with the voyage instead of scattered screenshots.`,
+    ],
+    3
+  );
+  return splitIntoParagraphs(sentences.join(' '));
 }
 
 function buildPortThingsBullets(port) {
@@ -827,10 +922,20 @@ function buildPortThingsBullets(port) {
     .join('');
 }
 
-function moreOnSeaDaysInline() {
+function moreOnSeaDaysInline(kind) {
+  if (kind === 'port') {
+    return (
+      '<p class="seo-body seo-inline-more">' +
+      '<a href="/blog/what-happens-if-you-miss-your-cruise-ship/">What if you miss the ship?</a> · ' +
+      '<a href="/blog/cruise-packing-list-what-to-bring-and-what-to-leave-home/">Cruise packing list</a> · ' +
+      '<a href="/ships/">Ships directory</a>' +
+      '</p>'
+    );
+  }
   return (
     '<p class="seo-body seo-inline-more">' +
-    '<a href="/blog/">Cruise guides on the blog</a> · ' +
+    '<a href="/blog/what-is-a-sea-day-on-a-cruise/">What is a sea day?</a> · ' +
+    '<a href="/blog/first-time-cruise-tips-what-to-know-before-you-go/">First-time cruise tips</a> · ' +
     '<a href="/ports/">Ports directory</a>' +
     '</p>'
   );
@@ -879,6 +984,13 @@ const PAGE_STYLES = `
 .seo-article-card small { color: rgba(255,255,255,0.66); line-height: 1.45; padding-bottom: 16px; }
 .seo-inline-more a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .seo-inline-more a:hover { text-decoration: underline; }
+.seo-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 18px; }
+.seo-breadcrumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.seo-breadcrumbs a:hover { color: #fff; text-decoration: underline; }
+.seo-faq { display: grid; gap: 10px; margin: 12px 0 28px; }
+.seo-faq-item { border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; background: rgba(255,255,255,0.04); padding: 14px 16px; }
+.seo-faq-item summary { cursor: pointer; font-weight: 700; color: #fff; }
+.seo-faq-item p { margin: 10px 0 0; color: rgba(255,255,255,0.86); line-height: 1.65; }
 /* Site chrome header/footer styles come from /assets/css/site-shell.css */
 @media (max-width: 720px) { .seo-visual-panel, .seo-article-grid { grid-template-columns: 1fr; } .seo-visual-copy { padding: 0 20px 22px; } .seo-visual-img, .seo-visual-art { min-height: 190px; height: 190px; } }
 ` + PORT_GUIDE_STYLES;
@@ -890,47 +1002,39 @@ function buildDirectoryHeaderNav() {
 function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opts) {
   const BASE_URL = opts.baseUrl;
   const canonical = `${BASE_URL}/ships/${ship.slug}/`;
-  const triple = budgetShipTriple(ship);
-  const overviewParas = splitIntoParagraphs(triple.overview);
-  const experienceParas = splitIntoParagraphs(triple.experience);
-  const audienceParas = splitIntoParagraphs(triple.audience);
-  const experienceShort = ship.hasContentOverride
-    ? `${ship.cruise_line} ship profile for itinerary, cabin, and shore-day planning.`
-    : firstSentence(ship.experience || triple.experience, `${ship.cruise_line} cruise ship profile.`);
-  const shipClass = ship.shipClass || 'Contemporary cruise ship';
-  const title = `${ship.name} Review, Features & Cruise Experience (2026)`;
+  const introParas = buildShipIntroParagraphs(ship);
+  const planningParas = buildShipPlanningParagraphs(ship);
+  const notableSource = uniqueSentences([ship.description, ship.experience], 4).join(' ');
+  const notableParas = notableSource ? splitIntoParagraphs(notableSource) : [];
+  const shipClass = shipClassNounPhrase(ship);
+  const title = `${ship.name} Cruise Ship Guide | ${ship.cruise_line}`;
+  const h1 = `${ship.name} Cruise Ship Guide`;
   const metaDesc = buildShipMetaDescription(ship);
   const ogImage = ship.image_url || opts.defaultImage;
   const whyBullets = buildShipWhyBullets(ship);
+  const faqItems = buildShipFaqItems(ship);
 
-  const shipPick = relatedShips.slice(0, 4);
-  const portPick = relatedPorts.slice(0, 2);
+  const shipPick = relatedShips.slice(0, 6);
+  const portPick = relatedPorts.slice(0, 5);
   const blogPick = blogArticles.slice(0, 6);
   const visualPanel = buildFunVisualPanel('ship', ship, blogPick);
 
   const relatedShipLinks = shipPick
-    .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a></li>`)
+    .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)} cruise ship guide</a></li>`)
     .join('');
   const relatedPortLinks = portPick
     .map((p) => `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(p.name)}${p.country ? `, ${escapeHtml(p.country)}` : ''}</a></li>`)
     .join('');
-  const blogCards = buildArticleCards(blogPick, 'Ship guide');
+  const blogCards = buildArticleCards(blogPick, 'Cruise guide');
 
-  const bodyForLd = `${triple.overview} ${triple.experience} ${triple.audience}`;
-  const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const vehicle = {
+    '@type': 'Vehicle',
     name: ship.name,
-    description: jsonLdDesc,
-    image: ogImage ? [ogImage] : undefined,
-    url: canonical,
     brand: { '@type': 'Brand', name: ship.cruise_line },
-    category: 'Cruise ship',
-    aggregateRating: buildShipAggregateRatingJsonLd(ship),
+    url: canonical,
   };
-  if (Number.isFinite(ship.yearBuilt)) jsonLd.releaseDate = String(Math.round(ship.yearBuilt));
-  if (ship.shipClass) jsonLd.model = ship.shipClass;
+  if (Number.isFinite(ship.yearBuilt)) vehicle.modelDate = String(Math.round(ship.yearBuilt));
+  if (ship.shipClass) vehicle.model = shipClassNounPhrase(ship);
   const additionalProperty = [];
   if (Number.isFinite(ship.tonnage)) {
     additionalProperty.push({
@@ -963,13 +1067,35 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
       unitText: 'm',
     });
   }
-  if (additionalProperty.length) jsonLd.additionalProperty = additionalProperty;
-  Object.keys(jsonLd).forEach((k) => {
-    if (jsonLd[k] === undefined) delete jsonLd[k];
-  });
+  if (Number.isFinite(ship.beam)) {
+    additionalProperty.push({
+      '@type': 'PropertyValue',
+      name: 'Beam',
+      value: Math.round(ship.beam),
+      unitText: 'm',
+    });
+  }
+  if (additionalProperty.length) vehicle.additionalProperty = additionalProperty;
 
+  const jsonLdDesc = introParas.join(' ').slice(0, 500);
+  const aggregateRating = buildShipAggregateRatingJsonLd(ship);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description: jsonLdDesc || metaDesc,
+    url: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'SeaDays', url: `${BASE_URL}/` },
+    about: vehicle,
+  };
+  if (aggregateRating) jsonLd.about.aggregateRating = aggregateRating;
+
+  const faqLd = buildShipFaqJsonLd(faqItems, canonical);
   const heroImg = ship.image_url
-    ? `<img class="seo-hero-img" src="${escapeHtml(ship.image_url)}" alt="${escapeHtml(ship.name)}" width="800" height="420" loading="eager" decoding="async">`
+    ? `<img class="seo-hero-img" src="${escapeHtml(ship.image_url)}" alt="${escapeHtml(ship.name)} cruise ship" width="800" height="420" loading="eager" decoding="async">`
+    : '';
+  const notableHtml = notableParas.length
+    ? `<h2>What makes this ship notable</h2><article class="seo-body">${notableParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>`
     : '';
 
   return `<!DOCTYPE html>
@@ -983,7 +1109,7 @@ ${getAnalyticsHeadHtml()}
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
 ${getFaviconHeadHtml()}
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(metaDesc)}">
@@ -994,6 +1120,8 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:description" content="${escapeHtml(metaDesc)}">
   <meta property="twitter:image" content="${escapeHtml(ogImage)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
+  <script type="application/ld+json">${JSON.stringify(buildShipBreadcrumbJsonLd(ship, canonical))}</script>
+  ${faqLd ? `<script type="application/ld+json">${JSON.stringify(faqLd)}</script>` : ''}
   ${getSiteShellCssLinkHtml()}
   <style>${opts.indexStyles}${PAGE_STYLES}</style>
 </head>
@@ -1003,38 +1131,38 @@ ${getFaviconHeadHtml()}
   <div class="content-layer">
     ${buildDirectoryHeaderNav()}
     <main class="seo-detail container">
+      ${buildShipBreadcrumbsHtml(ship)}
       ${heroImg}
-      <h1>${escapeHtml(ship.name)}</h1>
+      <h1>${escapeHtml(h1)}</h1>
       <p class="lead">${escapeHtml(ship.cruise_line)} · ${escapeHtml(shipClass)}</p>
       ${visualPanel}
       <h2>Overview</h2>
       <article class="seo-body">
-        ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
+        ${introParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
       </article>
-      <h2>Experience on board</h2>
-      <article class="seo-body">${experienceParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
-      <h2>Who this ship is best for</h2>
-      <article class="seo-body">${audienceParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
       <h2>Key facts</h2>
       <dl class="seo-keyfacts">
         ${buildShipKeyFactsHtml(ship)}
-        <dt>Experience</dt><dd>${escapeHtml(experienceShort)}</dd>
       </dl>
+      ${notableHtml}
       <h2>Highlights</h2>
       <ul>${whyBullets}</ul>
+      <h2>Practical planning</h2>
+      <article class="seo-body">${planningParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
+      ${buildShipFaqHtml(faqItems)}
       <h2>Related ships</h2>
       <ul class="seo-cross-list">${relatedShipLinks || '<li><a href="/ships/">Browse ships</a></li>'}</ul>
-      <h2>Destinations to explore</h2>
+      <h2>Related ports</h2>
       <ul class="seo-cross-list">
-        ${relatedPortLinks || ''}
+        ${relatedPortLinks || '<li><a href="/ports/">Browse ports</a></li>'}
       </ul>
-      ${moreOnSeaDaysInline()}
+      ${moreOnSeaDaysInline('ship')}
       <h2>More reading</h2>
       ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
     </main>
     ${getSiteFooterHtml()}
   </div>
-  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<100;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
+  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   ${opts.runtimeGuardScript}
 </body>
 </html>`;
@@ -1148,6 +1276,18 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
   const breadcrumbLd = buildBreadcrumbJsonLd(port, canonical);
+  const faqItems = collectPortFaqItems(guide, port.name);
+  const faqLd = faqItems.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
+      }
+    : null;
 
   const heroImg = port.image_url
     ? `<img class="seo-hero-img" src="${escapeHtml(port.image_url)}" alt="${escapeHtml(h1)}" width="800" height="420" loading="eager" decoding="async">`
@@ -1164,7 +1304,7 @@ ${getAnalyticsHeadHtml()}
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
 ${getFaviconHeadHtml()}
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(metaDesc)}">
@@ -1176,6 +1316,7 @@ ${getFaviconHeadHtml()}
   <meta property="twitter:image" content="${escapeHtml(ogImage)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>
+  ${faqLd ? `<script type="application/ld+json">${JSON.stringify(faqLd)}</script>` : ''}
   ${getSiteShellCssLinkHtml()}
   <style>${opts.indexStyles}${PAGE_STYLES}</style>
 </head>
@@ -1207,13 +1348,13 @@ ${getFaviconHeadHtml()}
       <ul class="seo-cross-list">${relatedPortLinks || '<li><a href="/ports/">Browse ports</a></li>'}</ul>
       <h2>Ships to explore</h2>
       <ul class="seo-cross-list">${relatedShipLinks || '<li><a href="/ships/">Browse ships</a></li>'}</ul>
-      ${moreOnSeaDaysInline()}
+      ${moreOnSeaDaysInline('port')}
       <h2>More reading</h2>
       ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
     </main>
     ${getSiteFooterHtml()}
   </div>
-  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<100;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
+  <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   ${opts.runtimeGuardScript}
 </body>
 </html>`;
@@ -1236,4 +1377,7 @@ module.exports = {
   extractArticleCardImageFromHtml,
   pickArticleImage,
   buildArticleCards,
+  buildShipBreadcrumbJsonLd,
+  buildShipBreadcrumbsHtml,
+  buildShipAggregateRatingJsonLd,
 };

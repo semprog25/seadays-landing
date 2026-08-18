@@ -282,6 +282,10 @@ ${getFaviconHeadHtml()}
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(page.metaDescription)}">
   <meta property="og:image" content="${OG_IMAGE}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="SeaDays — plan your cruise in one app">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="${canonical}">
   <meta name="twitter:title" content="${escapeHtml(title)}">
