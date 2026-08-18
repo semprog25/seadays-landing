@@ -876,8 +876,12 @@ window.__SEADAYS_GA_READY__ = true;
             padding: 60px 20px;
         }
 
-        section:nth-child(even):not(.hero) {
-            background: rgba(255, 255, 255, 0.02);
+        /* Star / blank rhythm: transparent sections show the starfield; solid sections cover it. */
+        section.band-stars {
+            background: transparent;
+        }
+        section.band-solid {
+            background: var(--dark-bg-alt);
         }
 
         .section-title {
@@ -1104,12 +1108,30 @@ window.__SEADAYS_GA_READY__ = true;
             letter-spacing: 0.5px;
         }
 
-        /* Blog section – 2x2 grid (2 top, 2 bottom) */
+        /* Blog section – 2x2 grid that must stay inside one snap frame */
         .blog-section-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 20px;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        #blog.fullpage-section {
+            padding: 56px 0 40px;
+            justify-content: center;
+        }
+        #blog.fullpage-section > .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+            max-height: 100%;
+        }
+        #blog .section-title {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        #blog .section-subtitle {
+            margin-bottom: 16px;
         }
         .blog-card {
             background: rgba(255, 255, 255, 0.03);
@@ -1123,19 +1145,19 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .blog-card:hover {
             border-color: var(--neon-red);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2);
+            transform: none;
+            box-shadow: 0 8px 28px rgba(255, 0, 51, 0.16);
         }
         .blog-card-image {
             width: 100%;
-            height: 170px;
+            height: 118px;
             object-fit: cover;
             object-position: top center;
             background: rgba(255, 255, 255, 0.05);
         }
         .blog-card-image-placeholder {
             width: 100%;
-            height: 170px;
+            height: 118px;
             background: linear-gradient(135deg, rgba(255, 0, 51, 0.15), rgba(6, 182, 212, 0.15));
         }
         .blog-card-body { padding: 20px; }
@@ -1150,11 +1172,11 @@ window.__SEADAYS_GA_READY__ = true;
             font-size: 14px;
             color: rgba(255, 255, 255, 0.65);
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        .blog-section-cta { text-align: center; margin-top: 24px; }
+        .blog-section-cta { text-align: center; margin-top: 16px; }
         .blog-loading, .blog-empty { text-align: center; padding: 24px; color: rgba(255, 255, 255, 0.5); }
 
         /* Featured Tools carousel – left: phone/screenshot, right: content, auto-advance */
@@ -2242,16 +2264,23 @@ window.__SEADAYS_GA_READY__ = true;
         section.fullpage-section.story-band {
             min-height: 100vh;
             min-height: 100dvh;
+            height: 100vh;
+            height: 100dvh;
+            max-height: 100vh;
+            max-height: 100dvh;
             justify-content: center;
             padding: 80px 0;
             scroll-snap-align: start;
             scroll-snap-stop: always;
             box-sizing: border-box;
+            overflow: hidden;
         }
         .story-band .container {
             max-width: 1200px;
             width: 100%;
             text-align: left;
+            min-height: 0;
+            max-height: 100%;
         }
         .panel-eyebrow {
             display: inline-block;
@@ -2324,11 +2353,19 @@ window.__SEADAYS_GA_READY__ = true;
             font-size: 15px;
         }
 
+        #homepage-faq.fullpage-section > .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
         .faq-panel {
             display: grid;
             grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
             gap: 36px 56px;
             align-items: start;
+            min-height: 0;
+            max-height: 100%;
+            width: 100%;
         }
         .faq-panel .panel-copy {
             margin-bottom: 18px;
@@ -2338,6 +2375,12 @@ window.__SEADAYS_GA_READY__ = true;
             display: grid;
             text-align: left;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 0;
+            max-height: 100%;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.2) transparent;
         }
         .homepage-faq-list details {
             border: 0;
@@ -2418,13 +2461,44 @@ window.__SEADAYS_GA_READY__ = true;
             padding-right: 0;
         }
         .trust-item-icon {
-            width: 28px;
-            height: 28px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ff5a73;
             margin-bottom: 12px;
+            border-radius: 10px;
+            background: rgba(255, 90, 115, 0.08);
+        }
+        .trust-item:nth-child(1) .trust-item-icon { color: #ff5a73; background: rgba(255, 90, 115, 0.1); }
+        .trust-item:nth-child(2) .trust-item-icon { color: #5eead4; background: rgba(94, 234, 212, 0.1); }
+        .trust-item:nth-child(3) .trust-item-icon { color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
+        .trust-item:nth-child(4) .trust-item-icon { color: #34d399; background: rgba(52, 211, 153, 0.1); }
+        #security-privacy.in-view .trust-item {
+            animation: trustRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+        #security-privacy.in-view .trust-item:nth-child(1) { animation-delay: 0.05s; }
+        #security-privacy.in-view .trust-item:nth-child(2) { animation-delay: 0.16s; }
+        #security-privacy.in-view .trust-item:nth-child(3) { animation-delay: 0.27s; }
+        #security-privacy.in-view .trust-item:nth-child(4) { animation-delay: 0.38s; }
+        #security-privacy.in-view .trust-item-icon {
+            animation: trustGlow 2.6s ease-in-out infinite;
+        }
+        #security-privacy.in-view .trust-item:nth-child(2) .trust-item-icon { animation-delay: 0.2s; }
+        #security-privacy.in-view .trust-item:nth-child(3) .trust-item-icon { animation-delay: 0.4s; }
+        #security-privacy.in-view .trust-item:nth-child(4) .trust-item-icon { animation-delay: 0.6s; }
+        @keyframes trustRise {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes trustGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; }
+            50% { transform: scale(1.08); box-shadow: 0 0 18px currentColor; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #security-privacy.in-view .trust-item,
+            #security-privacy.in-view .trust-item-icon { animation: none; }
         }
         .trust-item-icon svg {
             width: 22px;
@@ -3069,7 +3143,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Voyage journey (compact interactive) -->
-        <section id="cruise-planning-tools" class="journey-section" aria-labelledby="voyage-journey-title">
+        <section id="cruise-planning-tools" class="journey-section band-solid" aria-labelledby="voyage-journey-title">
             <div class="container">
                 <h2 id="voyage-journey-title" class="section-title">Your cruise,<br>from first plan to last memory</h2>
                 <p class="section-subtitle">One place to plan the sailing, discover ships and ports, meet your crew, and keep the voyage with you.</p>
@@ -3208,7 +3282,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Latest from the Community (blog) - full viewport, scroll-snap -->
-        <section id="blog" class="fullpage-section">
+        <section id="blog" class="fullpage-section band-stars">
             <div class="container">
                 <h2 class="section-title">Latest from the Community</h2>
                 <p class="section-subtitle">Portside Stories, cruise tips, and experiences shared by fellow SeaDays travelers.</p>
@@ -3250,7 +3324,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Featured Tools carousel - full viewport, scroll-snap -->
-        <section id="featured-tools" class="fullpage-section">
+        <section id="featured-tools" class="fullpage-section band-solid">
             <div class="container">
                 <div class="featured-carousel-wrap">
                     <div class="featured-carousel-track" id="featuredCarouselTrack">
@@ -3336,7 +3410,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Cruise Passport -->
-        <section id="cruise-passport" class="fullpage-section" aria-labelledby="cruise-passport-title">
+        <section id="cruise-passport" class="fullpage-section band-stars" aria-labelledby="cruise-passport-title">
             <div class="container">
                 <h2 id="cruise-passport-title" class="section-title">Cruise Passport</h2>
                 <p class="section-subtitle">Your personal cruise history, built automatically.</p>
@@ -3426,7 +3500,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Community Section – feature-rich, no app links on cards; CTA scrolls to download -->
-        <section id="community" class="fullpage-section">
+        <section id="community" class="fullpage-section band-solid">
             <div class="container">
                 <h2 class="section-title">Connect With Fellow Cruisers</h2>
                 <p class="section-subtitle">Meet travelers on your sailing, share cruise tips, and discover experiences from the SeaDays community.</p>
@@ -3465,7 +3539,7 @@ window.__SEADAYS_GA_READY__ = true;
 
         
         <!-- Homepage FAQ (visible; matches FAQPage JSON-LD) -->
-        <section id="homepage-faq" class="fullpage-section story-band" aria-labelledby="homepage-faq-title">
+        <section id="homepage-faq" class="fullpage-section story-band band-stars" aria-labelledby="homepage-faq-title">
             <div class="container faq-panel">
                 <div>
                     <p class="panel-eyebrow">FAQ</p>
@@ -3515,7 +3589,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Security & Privacy (verified claims only — see /security.html) -->
-        <section id="security-privacy" class="fullpage-section story-band" aria-labelledby="security-privacy-title">
+        <section id="security-privacy" class="fullpage-section story-band band-solid" aria-labelledby="security-privacy-title">
             <div class="container">
                 <p class="panel-eyebrow">Security &amp; Privacy</p>
                 <h2 id="security-privacy-title" class="panel-headline">Your voyage. Your data. Protected.</h2>
@@ -3557,7 +3631,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Press & Media (subtle homepage entry) -->
-        <section id="press-media" class="fullpage-section story-band" aria-labelledby="press-media-title">
+        <section id="press-media" class="fullpage-section story-band band-stars" aria-labelledby="press-media-title">
             <div class="container press-panel">
                 <div>
                     <p class="panel-eyebrow">Press &amp; Media</p>
@@ -4265,6 +4339,24 @@ window.__SEADAYS_GA_READY__ = true;
                 });
             }, { threshold: 0.15 });
             io.observe(hero);
+        })();
+        (function initSecurityPrivacyMotion() {
+            var section = document.getElementById('security-privacy');
+            if (!section) return;
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                section.classList.add('in-view');
+                return;
+            }
+            if (!('IntersectionObserver' in window)) {
+                section.classList.add('in-view');
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) section.classList.add('in-view');
+                });
+            }, { threshold: 0.4 });
+            io.observe(section);
         })();
     </script>
     <script src="https://unpkg.com/lucide@0.487.0/dist/umd/lucide.min.js" defer></script>
