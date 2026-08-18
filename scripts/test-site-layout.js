@@ -65,6 +65,14 @@ test('shared shell CSS does not snap footers to a full viewport', () => {
   assert.doesNotMatch(css, /footer[^{]*\{[^}]*scroll-snap-align:\s*start/);
 });
 
+test('shared footer paints above fixed starfield layers', () => {
+  const css = getSiteShellCss();
+  assert.match(css, /footer:has\(\.footer-shell\),\s*\nfooter\.site-footer \{/);
+  assert.match(css, /z-index:\s*10/);
+  assert.match(css, /position:\s*relative/);
+  assert.match(css, /body:not\(:has\(\.fullpage-section\)\)/);
+});
+
 test('Get SeaDays header item is styled as a CTA and stays visible on small phones', () => {
   const css = getSiteShellCss();
   assert.match(css, /header\.header\.site-header \.header-nav a\[href\*="\/download\/"\]/);
@@ -118,8 +126,11 @@ test('homepage closing pane keeps Press + footer together', () => {
 
 test('download page uses a flex column so the footer sits at the viewport bottom', () => {
   const css = fs.readFileSync(path.join(ROOT, 'assets/css/download.css'), 'utf8');
-  assert.match(css, /\.download-page \.content-layer/);
-  assert.match(css, /min-height:\s*100dvh/);
+  assert.match(css, /\.download-page \{[\s\S]*?min-height:\s*100dvh/);
+  const contentLayer = css.match(/\.download-page \.content-layer \{[^}]+\}/);
+  assert.ok(contentLayer, 'download content-layer rule');
+  assert.match(contentLayer[0], /flex:\s*1/);
+  assert.doesNotMatch(contentLayer[0], /min-height:\s*100vh/);
   const html = fs.readFileSync(path.join(ROOT, 'download/index.html'), 'utf8');
   assert.match(html, /footer-shell/);
   assert.match(html, /seadays-download\.js/);
@@ -130,7 +141,10 @@ test('press kit HTML includes the shared footer without relying on JS', () => {
   const html = fs.readFileSync(path.join(ROOT, 'press/index.html'), 'utf8');
   assert.match(html, /footer-shell/);
   const js = fs.readFileSync(path.join(ROOT, 'press/js/press-app.js'), 'utf8');
+  assert.doesNotMatch(js, /function renderFooter\(/);
   assert.doesNotMatch(js, /renderFooter\(\),/);
+  const pressCss = fs.readFileSync(path.join(ROOT, 'press/css/press.css'), 'utf8');
+  assert.doesNotMatch(pressCss, /\.press-hero \{[\s\S]*?height:\s*100vh/);
 });
 
 const publicFiles = walkHtmlFiles(ROOT);

@@ -197,22 +197,20 @@ body:has(.site-card:hover) .starfield {
   box-sizing: border-box;
 }
 
-/* Hero — matches homepage hero */
+/* Hero — content-sized; do not reserve a full empty viewport */
 .press-hero {
   position: relative;
   overflow: hidden;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 100vh;
-  min-height: 100dvh;
-  max-height: 100vh;
-  max-height: 100dvh;
+  height: auto;
+  min-height: 0;
+  max-height: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 72px 20px 72px;
-  padding-top: max(72px, calc(env(safe-area-inset-top) + 56px));
+  padding: 112px 20px 56px;
+  padding-top: max(112px, calc(env(safe-area-inset-top) + 72px));
 }
 
 .press-hero::before {
@@ -394,12 +392,13 @@ body:has(.site-card:hover) .starfield {
   width: 100%;
 }
 
-/* Scroll indicator — matches homepage */
+/* Scroll indicator — below hero CTAs, not pinned to a 100vh frame */
 .scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin: 36px auto 0;
   width: 30px;
   height: 50px;
   border: 2px solid rgba(255, 255, 255, 0.25);
@@ -1047,8 +1046,10 @@ body:has(.scroll-indicator:hover) .starfield {
   margin-top: 12px;
 }
 
-/* Footer — matches homepage */
+/* Footer chrome is owned by /assets/css/site-shell.css. Keep it above the starfield. */
 footer {
+  position: relative;
+  z-index: 10;
   padding: 60px 0 30px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
@@ -1208,7 +1209,7 @@ footer {
   }
 
   .scroll-indicator {
-    bottom: 16px;
+    margin-top: 24px;
     height: 42px;
   }
 }

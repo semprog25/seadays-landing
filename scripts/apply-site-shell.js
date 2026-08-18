@@ -240,14 +240,8 @@ function applyPress() {
   if (fs.existsSync(appPath)) {
     let js = fs.readFileSync(appPath, 'utf8');
     const before = js;
-    const footerFn = `function renderFooter() {
-  return \`
-${getSiteFooterHtml()}
-  \`;
-}`;
-    if (/function renderFooter\(\) \{[\s\S]*?\n\}/.test(js)) {
-      js = js.replace(/function renderFooter\(\) \{[\s\S]*?\n\}/, footerFn);
-    }
+    js = js.replace(/function renderFooter\(\) \{[\s\S]*?\n\}\n*/g, '');
+    js = js.replace(/\s*renderFooter\(\),\s*/g, '\n    ');
     if (js !== before) {
       if (!DRY_RUN) fs.writeFileSync(appPath, js);
       changed = true;
