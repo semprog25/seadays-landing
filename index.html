@@ -231,14 +231,6 @@ window.__SEADAYS_GA_READY__ = true;
             -webkit-overflow-scrolling: touch;
         }
 
-        #cruise-planning-tools,
-        #blog,
-        #featured-tools,
-        #cruise-passport,
-        #community,
-        #homepage-faq,
-        #security-privacy,
-        #press-media,
         #download {
             scroll-margin-top: 24px;
         }
@@ -252,10 +244,14 @@ window.__SEADAYS_GA_READY__ = true;
             position: relative;
         }
 
-        /* Full-height sections: snap on scroll (mouse and keyboard) */
+        /* Full-height sections: one viewport per snap, no overflow jump */
         .fullpage-section {
             min-height: 100vh;
             min-height: 100dvh;
+            height: 100vh;
+            height: 100dvh;
+            max-height: 100vh;
+            max-height: 100dvh;
             scroll-snap-align: start;
             scroll-snap-stop: always;
             display: flex;
@@ -263,6 +259,15 @@ window.__SEADAYS_GA_READY__ = true;
             justify-content: center;
             padding: 80px 0;
             box-sizing: border-box;
+            overflow: hidden;
+        }
+        .fullpage-section > .container,
+        .fullpage-section > .hero-content {
+            width: 100%;
+            max-height: 100%;
+        }
+        .fullpage-section .section-subtitle {
+            margin-bottom: 28px;
         }
 
         /* Starfield — stars use --sf-r/g/b + --star-a; bloom + tint from hover zones (:has) */
@@ -444,11 +449,27 @@ window.__SEADAYS_GA_READY__ = true;
             position: relative;
             overflow: hidden;
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 60px 20px;
+        }
+        .hero-bg-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.34;
+            filter: saturate(0.75) brightness(0.62) contrast(1.12);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-bg-video { display: none; }
         }
 
         .hero::before {
@@ -462,15 +483,18 @@ window.__SEADAYS_GA_READY__ = true;
             background: radial-gradient(circle, rgba(255, 0, 51, 0.08) 0%, transparent 70%);
             animation: pulse-glow 4s ease-in-out infinite;
             pointer-events: none;
+            z-index: 1;
         }
 
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 0, 51, 0.06) 0%, transparent 50%),
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.28) 0%, rgba(10, 10, 10, 0.48) 55%, rgba(10, 10, 10, 0.72) 100%),
+                        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 0, 51, 0.06) 0%, transparent 50%),
                         radial-gradient(ellipse 60% 80% at 50% 100%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
             pointer-events: none;
+            z-index: 1;
         }
 
         @keyframes pulse-glow {
@@ -486,7 +510,7 @@ window.__SEADAYS_GA_READY__ = true;
 
         .hero-content {
             position: relative;
-            z-index: 10;
+            z-index: 2;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -692,6 +716,7 @@ window.__SEADAYS_GA_READY__ = true;
             padding-top: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 2;
         }
 
         .scroll-indicator:hover {
@@ -1084,7 +1109,7 @@ window.__SEADAYS_GA_READY__ = true;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 24px;
-            margin-top: 48px;
+            margin-top: 20px;
         }
         .blog-card {
             background: rgba(255, 255, 255, 0.03);
@@ -1103,14 +1128,14 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .blog-card-image {
             width: 100%;
-            height: 260px;
+            height: 170px;
             object-fit: cover;
             object-position: top center;
             background: rgba(255, 255, 255, 0.05);
         }
         .blog-card-image-placeholder {
             width: 100%;
-            height: 260px;
+            height: 170px;
             background: linear-gradient(135deg, rgba(255, 0, 51, 0.15), rgba(6, 182, 212, 0.15));
         }
         .blog-card-body { padding: 20px; }
@@ -1129,7 +1154,7 @@ window.__SEADAYS_GA_READY__ = true;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        .blog-section-cta { text-align: center; margin-top: 40px; }
+        .blog-section-cta { text-align: center; margin-top: 24px; }
         .blog-loading, .blog-empty { text-align: center; padding: 24px; color: rgba(255, 255, 255, 0.5); }
 
         /* Featured Tools carousel – left: phone/screenshot, right: content, auto-advance */
@@ -1138,7 +1163,7 @@ window.__SEADAYS_GA_READY__ = true;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
-            min-height: 65vh;
+            min-height: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1562,11 +1587,24 @@ window.__SEADAYS_GA_READY__ = true;
             border: 0;
         }
         #cruise-planning-tools.journey-section {
-            min-height: 0;
-            height: auto;
+            min-height: 100vh;
+            min-height: 100dvh;
+            height: 100vh;
+            height: 100dvh;
+            max-height: 100vh;
+            max-height: 100dvh;
+            overflow: hidden;
             padding: 72px 0 64px;
             scroll-snap-align: start;
-            scroll-snap-stop: normal;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        #cruise-planning-tools.journey-section > .container {
+            width: 100%;
+            max-height: 100%;
         }
         @media (max-width: 900px) {
             .journey-shell { padding: 22px 18px 24px; border-radius: 18px; }
@@ -1661,7 +1699,7 @@ window.__SEADAYS_GA_READY__ = true;
         /* Community section – feature-rich, no app links on cards; CTA scrolls to #home */
         .community-intro {
             max-width: 640px;
-            margin: 0 auto 40px;
+            margin: 0 auto 20px;
             text-align: center;
             color: rgba(255, 255, 255, 0.8);
             font-size: 17px;
@@ -1670,9 +1708,9 @@ window.__SEADAYS_GA_READY__ = true;
         .community-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-top: 32px;
-            margin-bottom: 40px;
+            gap: 18px;
+            margin-top: 16px;
+            margin-bottom: 24px;
         }
         .community-card {
             padding: 28px 24px;
@@ -1716,7 +1754,17 @@ window.__SEADAYS_GA_READY__ = true;
             text-decoration: none;
         }
         @media (max-width: 768px) {
-            .community-cards { grid-template-columns: 1fr; }
+            .community-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .community-card { padding: 16px 14px; }
+            .community-card-title { font-size: 16px; margin-bottom: 8px; }
+            .community-card-desc {
+                font-size: 13px;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .community-intro { display: none; }
         }
 
         /* Cruise Passport section */
@@ -2324,12 +2372,8 @@ window.__SEADAYS_GA_READY__ = true;
             border-right: 1.5px solid rgba(255, 255, 255, 0.5);
             border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
             transform: rotate(45deg);
-            transition: transform 0.2s ease;
+            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
             flex-shrink: 0;
-        }
-        .homepage-faq-list details[open] summary::after {
-            transform: rotate(225deg);
-            margin-top: 6px;
         }
         .homepage-faq-list details p {
             margin: 0;
@@ -2338,8 +2382,19 @@ window.__SEADAYS_GA_READY__ = true;
             line-height: 1.6;
             font-size: 15px;
         }
+        .homepage-faq-list .faq-answer {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .homepage-faq-list details.is-open summary::after,
+        .homepage-faq-list details[open] summary::after {
+            transform: rotate(225deg);
+            margin-top: 6px;
+        }
         @media (prefers-reduced-motion: reduce) {
             .homepage-faq-list summary::after { transition: none; }
+            .homepage-faq-list .faq-answer { transition: none; }
         }
 
         .trust-strip {
@@ -2731,9 +2786,14 @@ window.__SEADAYS_GA_READY__ = true;
             .featured-tool-bullets { display: flex; flex-direction: column; align-items: flex-start; padding-left: 0; width: 100%; max-width: 28rem; margin-left: auto; margin-right: auto; }
             .featured-tool-bullets li { font-size: 14px; overflow-wrap: break-word; word-break: break-word; max-width: 100%; width: 100%; text-align: left; }
             .featured-carousel-wrap { min-height: auto; padding: 0 0 24px; }
-            .blog-section-grid { grid-template-columns: 1fr; }
-            .blog-card-image { height: 240px; }
-            .blog-card-image-placeholder { height: 240px; }
+            .blog-section-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .blog-card-image { height: 110px; }
+            .blog-card-image-placeholder { height: 110px; }
+            .blog-card-excerpt { display: none; }
+            .blog-card-body { padding: 12px 14px; }
+            .blog-card-title { font-size: 14px; margin-bottom: 0; }
+            .carousel-visual { order: -1; min-height: 160px; max-height: 180px; }
+            .featured-tool-bullets { display: none; }
             /* Mobile footer: compact 2-col nav */
             footer {
                 padding: 48px 0 28px;
@@ -2861,12 +2921,12 @@ window.__SEADAYS_GA_READY__ = true;
             .flip-card-body { padding: 16px; }
             .flip-card-title { font-size: 16px; }
             .flip-card-desc { font-size: 13px; line-height: 1.5; }
-            .community-cards { grid-template-columns: 1fr; }
-            .community-card { padding: 22px 18px; }
-            .community-card-title { font-size: 18px; }
-            .community-card-desc { font-size: 14px; }
-            .community-intro { font-size: 15px; padding: 0 12px; margin-bottom: 28px; }
-            .section-subtitle { margin-bottom: 40px; padding-left: 12px; padding-right: 12px; }
+            .community-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .community-card { padding: 16px 14px; }
+            .community-card-title { font-size: 16px; }
+            .community-card-desc { font-size: 13px; }
+            .community-intro { display: none; }
+            .section-subtitle { margin-bottom: 20px; padding-left: 12px; padding-right: 12px; }
             section.fullpage-section { padding: 48px 0; }
             section:not(.hero) { padding: 60px 0; }
             .passport-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; margin-bottom: 32px; }
@@ -2899,7 +2959,7 @@ window.__SEADAYS_GA_READY__ = true;
             .hero-content { padding: 0 4px; }
             .hero-logo { width: 280px; max-width: 85vw; margin-bottom: 28px; }
             .section-title { font-size: 26px; margin-bottom: 16px; padding: 0 8px; }
-            .section-subtitle { font-size: 15px; margin-bottom: 32px; }
+            .section-subtitle { font-size: 15px; margin-bottom: 18px; }
             .container { padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
             section:not(.hero) { padding: 44px 0; }
             section.fullpage-section { padding: 40px 0; }
@@ -2919,11 +2979,11 @@ window.__SEADAYS_GA_READY__ = true;
             .featured-tool-content { padding: 0 8px; min-width: 0; max-width: 100%; }
             .featured-tool-content h2 { font-size: 22px; margin-bottom: 14px; line-height: 1.15; }
             .featured-tool-desc { font-size: 14px; line-height: 1.6; overflow-wrap: break-word; word-break: break-word; }
-            .featured-tool-bullets li { font-size: 13px; overflow-wrap: break-word; word-break: break-word; }
-            .carousel-visual { min-height: 220px; }
-            .blog-card-body { padding: 16px; }
-            .blog-card-title { font-size: 16px; }
-            .blog-card-excerpt { font-size: 13px; }
+            .featured-tool-bullets { display: none; }
+            .carousel-visual { min-height: 140px; max-height: 160px; }
+            .blog-card-body { padding: 12px 14px; }
+            .blog-card-title { font-size: 14px; margin-bottom: 0; }
+            .blog-card-excerpt { display: none; }
         }
         @media (max-width: 360px) {
             .footer-shell .footer-content {
@@ -2973,6 +3033,9 @@ window.__SEADAYS_GA_READY__ = true;
 
         <!-- Fullscreen Hero Section -->
         <section class="hero fullpage-section" id="home">
+            <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="/videos/hero-ocean-poster.jpg" aria-hidden="true">
+                <source src="/videos/hero-ocean-preview.mp4" type="video/mp4">
+            </video>
             <div class="hero-content">
                 <img src="/logo.png" alt="SeaDays – Cruise Planner and Roll Call App" class="hero-logo" width="360" height="80" decoding="async" fetchpriority="high">
                 
@@ -3417,35 +3480,35 @@ window.__SEADAYS_GA_READY__ = true;
                 <div class="homepage-faq-list">
                     <details>
                         <summary>What is SeaDays?</summary>
-                        <p>SeaDays is an all-in-one cruise planner and roll call app. Plan itineraries, join roll calls for your sailing, track cruise budgets, explore ships and ports, and connect with fellow cruisers.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>SeaDays is an all-in-one cruise planner and roll call app. Plan itineraries, join roll calls for your sailing, track cruise budgets, explore ships and ports, and connect with fellow cruisers.</p></div></div>
                     </details>
                     <details>
                         <summary>Is SeaDays free?</summary>
-                        <p>SeaDays is free to download on iPhone and Android. A free tier includes basic cruise tracking, XP, and community access. Optional paid plans in the App Store and Google Play unlock more saved trips, ad-free browsing, Roll Call access, and additional planning tools. See the <a href="/faq.html">full FAQ</a> for plan details.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>SeaDays is free to download on iPhone and Android. A free tier includes basic cruise tracking, XP, and community access. Optional paid plans in the App Store and Google Play unlock more saved trips, ad-free browsing, Roll Call access, and additional planning tools. See the <a href="/faq.html">full FAQ</a> for plan details.</p></div></div>
                     </details>
                     <details>
                         <summary>What can I do with SeaDays?</summary>
-                        <p>Plan itineraries, browse ship and port guides, track expenses, keep a Cruise Passport, and use community tools such as roll calls, reviews, and crew chat.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>Plan itineraries, browse ship and port guides, track expenses, keep a Cruise Passport, and use community tools such as roll calls, reviews, and crew chat.</p></div></div>
                     </details>
                     <details>
                         <summary>How do cruise roll calls work?</summary>
-                        <p>Find your ship and sailing date, join the roll call for that voyage, introduce yourself, and chat with other guests before and during the cruise. Roll Call access is included on paid plans.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>Find your ship and sailing date, join the roll call for that voyage, introduce yourself, and chat with other guests before and during the cruise. Roll Call access is included on paid plans.</p></div></div>
                     </details>
                     <details>
                         <summary>Can I use SeaDays before my cruise?</summary>
-                        <p>Yes. You can plan your itinerary, browse ships and ports, and connect with fellow guests before embarkation, then keep using SeaDays during the voyage.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>Yes. You can plan your itinerary, browse ships and ports, and connect with fellow guests before embarkation, then keep using SeaDays during the voyage.</p></div></div>
                     </details>
                     <details>
                         <summary>Does SeaDays work on iPhone and Android?</summary>
-                        <p>Yes. SeaDays is a native iPhone app on the <a href="https://apps.apple.com/app/id6759758357?utm_source=seadays_web&amp;utm_medium=faq&amp;utm_campaign=launch_2026">App Store</a> and a native Android app on <a href="https://play.google.com/store/apps/details?id=com.seadays.app&amp;utm_source=seadays_web&amp;utm_medium=faq&amp;utm_campaign=launch_2026">Google Play</a>, and it is available in 11 languages.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>Yes. SeaDays is a native iPhone app on the <a href="https://apps.apple.com/app/id6759758357?utm_source=seadays_web&amp;utm_medium=faq&amp;utm_campaign=launch_2026">App Store</a> and a native Android app on <a href="https://play.google.com/store/apps/details?id=com.seadays.app&amp;utm_source=seadays_web&amp;utm_medium=faq&amp;utm_campaign=launch_2026">Google Play</a>, and it is available in 11 languages.</p></div></div>
                     </details>
                     <details>
                         <summary>Is my personal information protected?</summary>
-                        <p>SeaDays uses secure authentication, access controls, and HTTPS to help protect your account and personal information. Read <a href="/security.html">how we protect your data</a> and our <a href="/privacy.html">Privacy Policy</a>. <a href="/terms.html">Terms</a> also apply.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>SeaDays uses secure authentication, access controls, and HTTPS to help protect your account and personal information. Read <a href="/security.html">how we protect your data</a> and our <a href="/privacy.html">Privacy Policy</a>. <a href="/terms.html">Terms</a> also apply.</p></div></div>
                     </details>
                     <details>
                         <summary>How can I contact SeaDays?</summary>
-                        <p>Email <a href="mailto:support@seadays.app">support@seadays.app</a> or use the <a href="/contact.html">Contact</a> page. The <a href="/help.html">Help Center</a> covers common account and app questions.</p>
+                        <div class="faq-answer"><div class="faq-answer-inner"><p>Email <a href="mailto:support@seadays.app">support@seadays.app</a> or use the <a href="/contact.html">Contact</a> page. The <a href="/help.html">Help Center</a> covers common account and app questions.</p></div></div>
                     </details>
                 </div>
             </div>
@@ -4129,6 +4192,79 @@ window.__SEADAYS_GA_READY__ = true;
             } else {
                 run();
             }
+        })();
+    </script>
+    <script>
+        (function initHomepageFaqSlide() {
+            var list = document.querySelector('.homepage-faq-list');
+            if (!list) return;
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var items = Array.prototype.slice.call(list.querySelectorAll('details'));
+
+            function setOpen(details, open) {
+                var panel = details.querySelector('.faq-answer');
+                if (!panel) return;
+                if (reduceMotion) {
+                    details.open = open;
+                    details.classList.toggle('is-open', open);
+                    panel.style.height = open ? 'auto' : '0px';
+                    return;
+                }
+                if (open) {
+                    details.open = true;
+                    details.classList.add('is-open');
+                    panel.style.height = panel.scrollHeight + 'px';
+                } else {
+                    panel.style.height = panel.scrollHeight + 'px';
+                    details.classList.remove('is-open');
+                    requestAnimationFrame(function () {
+                        panel.style.height = '0px';
+                    });
+                    panel.addEventListener('transitionend', function onEnd(ev) {
+                        if (ev.propertyName !== 'height') return;
+                        panel.removeEventListener('transitionend', onEnd);
+                        if (!details.classList.contains('is-open')) details.open = false;
+                    });
+                }
+            }
+
+            items.forEach(function (details) {
+                var summary = details.querySelector('summary');
+                var panel = details.querySelector('.faq-answer');
+                if (panel) panel.style.height = '0px';
+                details.open = false;
+                details.classList.remove('is-open');
+                if (!summary) return;
+                summary.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var willOpen = !details.classList.contains('is-open');
+                    items.forEach(function (other) {
+                        if (other !== details && other.classList.contains('is-open')) setOpen(other, false);
+                    });
+                    setOpen(details, willOpen);
+                });
+            });
+        })();
+        (function initHeroPreviewVideo() {
+            var video = document.querySelector('.hero-bg-video');
+            var hero = document.getElementById('home');
+            if (!video || !hero) return;
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) {
+                video.removeAttribute('autoplay');
+                video.pause();
+                video.style.display = 'none';
+                return;
+            }
+            video.addEventListener('error', function () { video.style.display = 'none'; });
+            if (!('IntersectionObserver' in window)) return;
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) video.play().catch(function () {});
+                    else video.pause();
+                });
+            }, { threshold: 0.15 });
+            io.observe(hero);
         })();
     </script>
     <script src="https://unpkg.com/lucide@0.487.0/dist/umd/lucide.min.js" defer></script>
