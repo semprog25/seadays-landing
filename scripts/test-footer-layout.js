@@ -220,7 +220,11 @@ test('press kit snaps by section and does not auto-scroll', () => {
   const js = fs.readFileSync(path.join(ROOT, 'press/js/press-app.js'), 'utf8');
   assert.match(html, /class="press-kit"/);
   assert.match(html, /footer-shell/);
+  assert.match(html, /class="press-hero press-snap-section"/);
+  assert.doesNotMatch(html, /Loading press kit/);
   assert.doesNotMatch(js, /function renderFooter\(/);
+  assert.doesNotMatch(js, /behavior:\s*['"]smooth['"]/);
+  assert.match(js, /behavior:\s*'auto'/);
   assert.match(css, /html:has\(body\.press-kit\) \{[\s\S]*?scroll-snap-type:\s*y\s+mandatory/);
   const hero = css.match(/\.press-hero \{[^}]+\}/);
   assert.ok(hero, 'press-hero rule');

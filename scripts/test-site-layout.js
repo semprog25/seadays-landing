@@ -118,7 +118,9 @@ test('homepage snaps on user scroll and does not auto-advance panes', () => {
   assert.match(html, /scroll-snap-type:\s*y\s+mandatory/);
   assert.match(html, /scroll-behavior:\s*auto/);
   assert.doesNotMatch(html, /scroll-behavior:\s*smooth/);
+  assert.doesNotMatch(html, /behavior:\s*['"]smooth['"]/);
   assert.doesNotMatch(html, /setInterval\(/);
+  assert.match(html, /document\.querySelector\('\.site-close'\)/);
 });
 
 test('homepage closing pane keeps Press + footer together', () => {

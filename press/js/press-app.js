@@ -55,7 +55,7 @@ function renderHero() {
   const hero = press.hero;
   const completeKit = press.packages.complete.file;
   return `
-    <section class="press-hero press-snap-section reveal" id="top" aria-labelledby="hero-title">
+    <section class="press-hero press-snap-section" id="top" aria-labelledby="hero-title">
       <div class="press-hero-inner container">
         <img src="${HERO_LOGO}" alt="SeaDays – Cruise Planner App" class="hero-logo" width="320" height="auto" decoding="async" fetchpriority="high">
         <p class="eyebrow">Official Media Center</p>
@@ -547,21 +547,38 @@ function renderLegal() {
   `;
 }
 
+function snapToSelector(selector) {
+  if (!selector) return;
+  const target = document.querySelector(selector);
+  if (!(target instanceof HTMLElement)) return;
+  target.scrollIntoView({ behavior: 'auto', block: 'start' });
+}
+
 function bindScrollTargets() {
   document.querySelectorAll('[data-scroll-target]').forEach((element) => {
     if (!(element instanceof HTMLElement)) return;
-    const scrollToTarget = () => {
-      const selector = element.dataset.scrollTarget;
-      if (!selector) return;
-      document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+    const scrollToTarget = (event) => {
+      event.preventDefault();
+      snapToSelector(element.dataset.scrollTarget);
     };
     element.addEventListener('click', scrollToTarget);
     element.addEventListener('keydown', (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        scrollToTarget();
+        snapToSelector(element.dataset.scrollTarget);
       }
     });
+  });
+
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element ? event.target.closest('a[href^="#"]') : null;
+    if (!(link instanceof HTMLAnchorElement)) return;
+    const href = link.getAttribute('href');
+    if (!href || href === '#' || href === '#main-content') return;
+    const target = document.querySelector(href);
+    if (!(target instanceof HTMLElement)) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: 'auto', block: 'start' });
   });
 }
 

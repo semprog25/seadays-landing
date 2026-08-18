@@ -1567,7 +1567,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         e.stopPropagation()
         seoD.open = true
         syncSeoBtn()
-        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'smooth', block: 'nearest' }) } catch(x) {}
+        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'auto', block: 'nearest' }) } catch(x) {}
       })
       seoD.addEventListener('toggle', syncSeoBtn)
       syncSeoBtn()

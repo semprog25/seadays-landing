@@ -2046,7 +2046,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
 const ARTICLE_STYLES = `
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark-bg); color: white; line-height: 1.6; overflow-x: hidden; }
 .starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); overflow: hidden; }
 .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.5); border-radius: 50%; animation: twinkle 3s infinite ease-in-out; }
@@ -2664,7 +2664,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         e.stopPropagation()
         seoD.open = true
         syncSeoBtn()
-        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'smooth', block: 'nearest' }) } catch(x) {}
+        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'auto', block: 'nearest' }) } catch(x) {}
       })
       seoD.addEventListener('toggle', syncSeoBtn)
       syncSeoBtn()

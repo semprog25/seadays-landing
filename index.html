@@ -3299,7 +3299,7 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
 
             <!-- Scroll Indicator -->
-            <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to features" onclick="document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'smooth'});}"></div>
+            <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to features" onclick="document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'auto', block: 'start'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'auto', block: 'start'});}"></div>
         </section>
 
         <!-- Voyage journey (compact interactive) -->
@@ -3982,7 +3982,9 @@ window.__SEADAYS_GA_READY__ = true;
                 document.getElementById('featured-tools'),
                 document.getElementById('cruise-passport'),
                 document.getElementById('community'),
-                document.querySelector('footer')
+                document.getElementById('homepage-faq'),
+                document.getElementById('security-privacy'),
+                document.querySelector('.site-close')
             ].filter(Boolean);
 
             function getCurrentIndex() {
@@ -3999,7 +4001,7 @@ window.__SEADAYS_GA_READY__ = true;
             function goToSection(direction) {
                 var idx = getCurrentIndex();
                 idx = direction === 'next' ? Math.min(idx + 1, snapTargets.length - 1) : Math.max(idx - 1, 0);
-                snapTargets[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                snapTargets[idx].scrollIntoView({ behavior: 'auto', block: 'start' });
             }
 
             document.addEventListener('keydown', function(e) {
