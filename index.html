@@ -1487,35 +1487,46 @@ window.__SEADAYS_GA_READY__ = true;
             box-shadow: 0 16px 40px rgba(0,0,0,0.3);
         }
         .journey-visual-card {
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            gap: 10px;
+            gap: 8px;
             height: 100%;
             min-height: 200px;
             padding: 28px;
             box-sizing: border-box;
         }
+        .journey-visual-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            max-width: 18rem;
+        }
         .journey-visual-card strong {
-            font-size: clamp(22px, 3vw, 30px);
-            letter-spacing: -0.5px;
+            font-size: clamp(24px, 3.2vw, 32px);
+            font-weight: 800;
+            letter-spacing: -0.6px;
             color: #fff;
-            line-height: 1.2;
+            line-height: 1.15;
+            text-shadow: 0 2px 18px rgba(0,0,0,0.4);
         }
         .journey-visual-card span {
             font-size: 14px;
-            color: rgba(255,255,255,0.55);
+            color: rgba(255,255,255,0.8);
             max-width: 18rem;
             line-height: 1.5;
             text-align: center;
+            text-shadow: 0 1px 12px rgba(0,0,0,0.38);
         }
         .journey-visual-card--plan,
         .journey-visual-card--connect,
         .journey-visual-card--remember {
             background-color: #8b1020;
-            background-image: url("/images/journey/banner-red.webp");
+            background-image: url("/images/journey/banner-red.webp?v=20260818");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1523,7 +1534,7 @@ window.__SEADAYS_GA_READY__ = true;
         .journey-visual-card--discover,
         .journey-visual-card--track {
             background-color: #1a1a1a;
-            background-image: url("/images/journey/banner-gray.webp");
+            background-image: url("/images/journey/banner-gray.webp?v=20260818");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1636,10 +1647,10 @@ window.__SEADAYS_GA_READY__ = true;
             }
             .journey-visual-card {
                 min-height: 0;
-                padding: 20px;
+                padding: 16px;
                 gap: 6px;
             }
-            .journey-visual-card strong { font-size: 22px; }
+            .journey-visual-card strong { font-size: 20px; }
             .journey-visual-card span { font-size: 13px; }
             .journey-title { font-size: 26px; }
             .journey-body { font-size: 15px; margin-bottom: 14px; }
@@ -1680,7 +1691,7 @@ window.__SEADAYS_GA_READY__ = true;
                 aspect-ratio: 2 / 1;
                 max-height: 148px;
             }
-            .journey-visual-card { padding: 16px; }
+            .journey-visual-card { padding: 14px; }
             .journey-visual-card strong { font-size: 18px; }
             .journey-visual-card span { font-size: 12px; }
             .journey-kicker { margin-bottom: 8px; }
@@ -2397,22 +2408,26 @@ window.__SEADAYS_GA_READY__ = true;
             font-size: 15px;
         }
 
-        #homepage-faq.fullpage-section > .container {
+        #homepage-faq.fullpage-section > .container.faq-panel {
             height: 100%;
-            display: flex;
-            align-items: center;
-        }
-        .faq-panel {
             display: grid;
-            grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
-            gap: 36px 56px;
-            align-items: start;
+            grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+            gap: 28px 40px;
+            align-items: stretch;
             min-height: 0;
             max-height: 100%;
             width: 100%;
         }
-        .faq-panel .panel-copy {
-            margin-bottom: 18px;
+        .faq-intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+            padding: 14px 12px 14px 0;
+        }
+        .faq-intro .panel-copy {
+            margin: 16px 0 0;
+            max-width: 32ch;
         }
         .homepage-faq-list {
             margin: 0;
@@ -2610,10 +2625,13 @@ window.__SEADAYS_GA_READY__ = true;
 
         @media (max-width: 900px) {
             .faq-panel,
-            .press-panel {
+            .press-panel,
+            #homepage-faq.fullpage-section > .container.faq-panel {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
+            .faq-intro { padding: 0; justify-content: flex-start; }
+            .faq-intro .panel-copy { max-width: none; margin: 0 0 18px; }
             .press-panel {
                 grid-template-areas:
                     "copy"
@@ -3260,8 +3278,10 @@ window.__SEADAYS_GA_READY__ = true;
                                 </div>
                                 <div class="journey-visual" aria-hidden="true">
                                     <div class="journey-visual-card journey-visual-card--plan">
-                                        <strong>Cruise Planner</strong>
-                                        <span>Itineraries, reservations, and sea days — organized before you board.</span>
+                                        <div class="journey-visual-copy">
+                                            <strong>Cruise Planner</strong>
+                                            <span>Itineraries, reservations, and sea days — organized before you board.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -3278,8 +3298,10 @@ window.__SEADAYS_GA_READY__ = true;
                                 </div>
                                 <div class="journey-visual" aria-hidden="true">
                                     <div class="journey-visual-card journey-visual-card--discover">
-                                        <strong>Ships &amp; ports</strong>
-                                        <span>Directories and guides shaped by real sailings and destinations.</span>
+                                        <div class="journey-visual-copy">
+                                            <strong>Ships &amp; ports</strong>
+                                            <span>Directories and guides shaped by real sailings and destinations.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -3297,8 +3319,10 @@ window.__SEADAYS_GA_READY__ = true;
                                 </div>
                                 <div class="journey-visual" aria-hidden="true">
                                     <div class="journey-visual-card journey-visual-card--connect">
-                                        <strong>Roll Calls &amp; crew</strong>
-                                        <span>Meet your sailing early — chat, coordinate, and share tips.</span>
+                                        <div class="journey-visual-copy">
+                                            <strong>Roll Calls &amp; crew</strong>
+                                            <span>Meet your sailing early — chat, coordinate, and share tips.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -3315,8 +3339,10 @@ window.__SEADAYS_GA_READY__ = true;
                                 </div>
                                 <div class="journey-visual" aria-hidden="true">
                                     <div class="journey-visual-card journey-visual-card--track">
-                                        <strong>Budget &amp; Passport</strong>
-                                        <span>Spending clarity and your cruise history in one place.</span>
+                                        <div class="journey-visual-copy">
+                                            <strong>Budget &amp; Passport</strong>
+                                            <span>Spending clarity and your cruise history in one place.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -3333,8 +3359,10 @@ window.__SEADAYS_GA_READY__ = true;
                                 </div>
                                 <div class="journey-visual" aria-hidden="true">
                                     <div class="journey-visual-card journey-visual-card--remember">
-                                        <strong>SeaStories &amp; reviews</strong>
-                                        <span>Passenger tips, port-day notes, and honest ship impressions — kept with your voyage.</span>
+                                        <div class="journey-visual-copy">
+                                            <strong>SeaStories &amp; reviews</strong>
+                                            <span>Passenger tips, port-day notes, and honest ship impressions — kept with your voyage.</span>
+                                        </div>
                                     </div>
                                 </div>
                             </article>
@@ -3610,10 +3638,12 @@ window.__SEADAYS_GA_READY__ = true;
         <!-- Homepage FAQ (visible; matches FAQPage JSON-LD) -->
         <section id="homepage-faq" class="fullpage-section story-band band-stars" aria-labelledby="homepage-faq-title">
             <div class="container faq-panel">
-                <div>
+                <div class="faq-intro">
+                    <div class="faq-intro-top">
                     <p class="panel-eyebrow">FAQ</p>
                     <h2 id="homepage-faq-title" class="panel-headline">Frequently asked questions</h2>
                     <p class="panel-copy">Short answers about the SeaDays app.<br>More detail lives in Help, the full FAQ, and Privacy.</p>
+                    </div>
                     <p class="faq-intro-links">
                         <a href="/help.html">Help</a>
                         <a href="/faq.html">Full FAQ</a>
