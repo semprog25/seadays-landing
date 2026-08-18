@@ -107,10 +107,14 @@ window.__SEADAYS_GA_READY__ = true;
     .top-bar {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; gap: 16px;
+      position: relative;
+      z-index: 110;
     }
     .back-link {
       color: var(--neon-red); text-decoration: none; font-weight: 600;
       display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+      position: relative;
+      z-index: 110;
     }
     .back-link:hover { color: #ff3366; }
     .brand-chip {
@@ -668,7 +672,6 @@ window.__SEADAYS_GA_READY__ = true;
                 <a href="/ports/">Ports</a>
                 <a href="/blog/">Blog</a>
                 <a href="/press/">Press</a>
-                <a href="/#download">Get SeaDays</a>
             </nav>
         </header>
         <!-- seadays-site-shell:header-end seadays-site-shell -->
