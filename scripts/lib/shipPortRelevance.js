@@ -250,6 +250,20 @@ function pickShipsForPortPage(allShips, port, max = 4) {
   return pool.slice(0, max);
 }
 
+function classKey(s) {
+  return norm(s && s.shipClass)
+    .replace(/\bcruise ships?\b/g, ' ')
+    .replace(/-?class\b/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function sameShipClass(a, b) {
+  const ca = classKey(a);
+  const cb = classKey(b);
+  return Boolean(ca && cb && ca === cb);
+}
+
 function pickRelatedShips(all, current, max = 6) {
   const others = (all || []).filter((s) => s && s.slug && s.slug !== current.slug);
   const line = norm(current.cruise_line || current.cruiseLine);
@@ -258,14 +272,13 @@ function pickRelatedShips(all, current, max = 6) {
     if (lineId && resolveLineId(s) === lineId) return true;
     return norm(s.cruise_line || s.cruiseLine) === line && line;
   });
-  const sameClass = others.filter(
-    (s) =>
-      !sameLine.includes(s) &&
-      current.shipClass &&
-      norm(s.shipClass) === norm(current.shipClass)
+  const sameLineSameClass = sameLine.filter((s) => sameShipClass(s, current));
+  const sameLineOtherClass = sameLine.filter((s) => !sameShipClass(s, current));
+  const sameClassOtherLine = others.filter(
+    (s) => !sameLine.includes(s) && sameShipClass(s, current)
   );
-  const rest = others.filter((s) => !sameLine.includes(s) && !sameClass.includes(s));
-  return [...sameLine, ...sameClass, ...rest].slice(0, max);
+  const rest = others.filter((s) => !sameLine.includes(s) && !sameClassOtherLine.includes(s));
+  return [...sameLineSameClass, ...sameLineOtherClass, ...sameClassOtherLine, ...rest].slice(0, max);
 }
 
 function pickRelatedPorts(all, current, max = 5) {

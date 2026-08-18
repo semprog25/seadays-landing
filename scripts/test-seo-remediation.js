@@ -126,6 +126,119 @@ async function main() {
     assert.ok(related.slice(0, 3).every((s) => s.cruise_line === 'AIDA Cruises'));
   });
 
+  test('Solstice-class sisters rank before other Celebrity ships', () => {
+    const ship = ships.find((s) => s.slug === 'celebrity-solstice');
+    assert.ok(ship, 'celebrity-solstice missing from SEO ship records');
+    const related = pickRelatedShips(ships, ship, 5);
+    const slugs = related.map((s) => s.slug);
+    assert.ok(
+      slugs.some((s) =>
+        /celebrity-equinox|celebrity-eclipse|celebrity-silhouette|celebrity-reflection/.test(s)
+      ),
+      `expected Solstice-class sister, got ${slugs.join(', ')}`
+    );
+    assert.ok(
+      !slugs.slice(0, 4).includes('celebrity-flora'),
+      `Edge/expedition ships should not crowd Solstice sisters: ${slugs.join(', ')}`
+    );
+  });
+
+  test('related ships treat Solstice and Solstice-class cruise ship as the same class', () => {
+    const related = pickRelatedShips(
+      [
+        {
+          slug: 'celebrity-solstice',
+          name: 'Celebrity Solstice',
+          cruise_line: 'Celebrity Cruises',
+          lineId: 'celebrity',
+          shipClass: 'Solstice',
+        },
+        {
+          slug: 'celebrity-equinox',
+          name: 'Celebrity Equinox',
+          cruise_line: 'Celebrity Cruises',
+          lineId: 'celebrity',
+          shipClass: 'Solstice-class cruise ship',
+        },
+        {
+          slug: 'celebrity-xcel',
+          name: 'Celebrity Xcel',
+          cruise_line: 'Celebrity Cruises',
+          lineId: 'celebrity',
+          shipClass: 'Edge',
+        },
+      ],
+      {
+        slug: 'celebrity-solstice',
+        cruise_line: 'Celebrity Cruises',
+        lineId: 'celebrity',
+        shipClass: 'Solstice',
+      },
+      2
+    );
+    assert.strictEqual(related[0].slug, 'celebrity-equinox');
+  });
+
+  test('generic ship metaDescription is replaced with catalog facts', () => {
+    const html = buildShipDetailHtml(
+      {
+        slug: 'celebrity-solstice',
+        name: 'Celebrity Solstice',
+        cruise_line: 'Celebrity Cruises',
+        shipClass: 'Solstice',
+        yearBuilt: 2008,
+        capacity: 2850,
+        tonnage: 122000,
+        highlights: [
+          'Celebrity Solstice is the lead ship of the Solstice class.',
+          'Celebrity Solstice is operated by Celebrity Cruises.',
+          'Celebrity Solstice is a Celebrity Cruises ship profile in the SeaDays cruise directory.',
+        ],
+        metaDescription:
+          'Celebrity Solstice (Celebrity Cruises): planning overview, highlights, and tips for passengers.',
+        description:
+          'Scheduled for extensive dry dock renovation in early 2026, introducing new amenities.',
+      },
+      [],
+      [],
+      [],
+      { baseUrl: 'https://seadays.app', defaultImage: 'https://seadays.app/logo.png', indexStyles: '', runtimeGuardScript: '' }
+    );
+    assert.doesNotMatch(html, /planning overview, highlights, and tips for passengers/);
+    assert.match(html, /meta name="description" content="[^"]*Solstice-class/);
+    assert.doesNotMatch(html, /ship profile in the SeaDays cruise directory/);
+  });
+
+  test('port cruise-guide sections render before Wikipedia-style overview', () => {
+    const html = buildPortDetailHtml(
+      {
+        slug: 'molde-norway',
+        name: 'Molde',
+        country: 'Norway',
+        region: 'Fjords',
+        highlights: [],
+        description: 'Molde Municipality is a municipality in Møre og Romsdal county, Norway.',
+      },
+      [],
+      [],
+      [],
+      {
+        baseUrl: 'https://seadays.app',
+        defaultImage: 'https://seadays.app/logo.png',
+        indexStyles: '',
+        runtimeGuardScript: '',
+        portGuide: {
+          portName: 'Molde',
+          portInfo: { description: 'Known as the City of Roses, a cruise port with mountain views.' },
+        },
+      }
+    );
+    const leadAt = html.indexOf('City of Roses');
+    const wikiAt = html.indexOf('Molde Municipality is a municipality');
+    assert.ok(leadAt !== -1 && wikiAt !== -1, 'expected lead and overview copy');
+    assert.ok(leadAt < wikiAt, 'cruise port lead should appear before municipality overview');
+  });
+
   test('port FAQ JSON-LD is omitted without traveler Q&A data', () => {
     const html = buildPortDetailHtml(
       { slug: 'example-port', name: 'Example', country: 'Nowhere', region: '', highlights: [], description: 'A cruise port.' },

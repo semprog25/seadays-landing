@@ -14,6 +14,7 @@
  *        node scripts/generateBlogs.js --ports-only
  *        node scripts/generateBlogs.js --ships-only
  *        node scripts/generateBlogs.js --catalogue-only
+ *        node scripts/generateBlogs.js --ships-only --only=celebrity-solstice
  *        node scripts/generateBlogs.js --sitemap-only   (rebuild sitemap from disk; no Supabase write)
  *        node scripts/generateBlogs.js --full --allow-orphan-cleanup
  * Default (no flags) regenerates blogs + ships + ports but does NOT delete catalogue folders.
@@ -2921,7 +2922,11 @@ async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = []
 async function main() {
   const repoRoot = path.join(__dirname, '..');
   const mode = parseGenerateMode(process.argv);
+  const onlySlugSet = new Set(mode.onlySlugs || []);
   console.log(`[generateBlogs] generation mode: ${mode.label}`);
+  if (onlySlugSet.size) {
+    console.log(`[generateBlogs] scoped rewrite: ${[...onlySlugSet].join(', ')}`);
+  }
   if (mode.sitemapOnly) {
     writeSitemapSnapshotFromDisk(repoRoot);
     console.log('Done.');
@@ -3154,6 +3159,7 @@ async function main() {
 
   if (mode.ships) {
   for (const ship of seoShips) {
+    if (onlySlugSet.size && !onlySlugSet.has(ship.slug)) continue;
     const dir = path.join(repoRoot, 'ships', ship.slug);
     fs.mkdirSync(dir, { recursive: true });
     const relShips = pickRelatedShips(seoShips, ship, 5);
@@ -3173,6 +3179,7 @@ async function main() {
   const unpublishedPortSlugs = new Set();
   if (mode.ports) {
   for (const port of seoPorts) {
+    if (onlySlugSet.size && !onlySlugSet.has(port.slug)) continue;
     if (unpublishedPortSlugs.has(port.slug)) {
       const orphan = path.join(repoRoot, 'ports', port.slug);
       if (fs.existsSync(orphan)) fs.rmSync(orphan, { recursive: true, force: true });
@@ -3233,7 +3240,7 @@ async function main() {
   } else {
     console.log('[generateBlogs] skipping orphan catalogue cleanup');
   }
-  if (mode.ports) {
+  if (mode.ports && !onlySlugSet.size) {
     const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
     console.log(
       `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
@@ -3297,7 +3304,7 @@ async function main() {
     return pickBlogArticlesForEntity(articles, ['cruise ports', 'shore days', ...topRegionTokens], 6).slice(0, 6);
   }
 
-  if (mode.ships) {
+  if (mode.ships && !onlySlugSet.size) {
     const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ships', 'index.html'),
@@ -3307,7 +3314,7 @@ async function main() {
       'utf8'
     );
   }
-  if (mode.ports) {
+  if (mode.ports && !onlySlugSet.size) {
     const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ports', 'index.html'),
@@ -3431,9 +3438,12 @@ async function main() {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
 
-  const dupNoindexAlways = noindexDuplicateBlogFolders(repoRoot);
+  const dupNoindexAlways = onlySlugSet.size ? 0 : noindexDuplicateBlogFolders(repoRoot);
   if (dupNoindexAlways) console.log(`[generateBlogs] noindexed ${dupNoindexAlways} duplicate blog slug(s) (*-1)`);
 
+  if (onlySlugSet.size) {
+    console.log('[generateBlogs] skipping sitemap/ads.txt rewrite for --only=');
+  } else {
   const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
     articles,
     seoShips: mode.ships ? seoShips : [],
@@ -3460,6 +3470,7 @@ async function main() {
         'Provide ca-pub-… client ID and ad unit slot ID before deploy.'
     );
   }
+  }
   if (!isAdSenseConfigured()) {
     console.warn('[adsense] Blog mid-article slots will not be emitted until AdSense is configured.');
   }
@@ -3470,8 +3481,8 @@ async function main() {
     blogDir,
     repoRoot,
     mode.blogs ? articles : [],
-    mode.ships ? seoShips : [],
-    mode.ports ? seoPorts : []
+    mode.ships ? (onlySlugSet.size ? seoShips.filter((s) => onlySlugSet.has(s.slug)) : seoShips) : [],
+    mode.ports ? (onlySlugSet.size ? seoPorts.filter((p) => onlySlugSet.has(p.slug)) : seoPorts) : []
   );
 
   console.log('Done.');

@@ -12,6 +12,7 @@ Disallow: /landing-cms
 Disallow: /portside-articles
 Disallow: /api/
 Disallow: /functions/
+Disallow: /.cursor/
 
 # Public content is available to major AI crawlers (same policy as User-agent: *).
 User-agent: GPTBot

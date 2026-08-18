@@ -61,9 +61,17 @@ function applyOverride(slug, meta) {
       /<meta property="twitter:description" content="[^"]*">/,
       `<meta property="twitter:description" content="${attr}">`
     );
+    html = html.replace(
+      /("headline":"[^"]+","description":")((?:\\.|[^"\\])*)(")/,
+      `$1${JSON.stringify(desc).slice(1, -1)}$3`
+    );
   }
   if (meta && meta.readMins) {
     html = html.replace(/<span>\d+ min read<\/span>/, `<span>${Number(meta.readMins)} min read</span>`);
+  }
+  if (meta && meta.dateModified) {
+    const iso = String(meta.dateModified);
+    html = html.replace(/"dateModified":"[^"]*"/, `"dateModified":"${iso}"`);
   }
   html = html.replace(
     /("articleBody":")((?:\\.|[^"\\])*)(")/,
