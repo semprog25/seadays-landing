@@ -108,10 +108,16 @@ window.__SEADAYS_GA_READY__ = true;
     .top-bar {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; gap: 16px;
+      position: relative;
+      z-index: 110;
+      pointer-events: none;
     }
     .back-link {
       color: var(--neon-red); text-decoration: none; font-weight: 600;
       display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+      position: relative;
+      z-index: 110;
+      pointer-events: auto;
     }
     .back-link:hover { color: #ff3366; }
     .brand-chip {
@@ -677,9 +683,6 @@ window.__SEADAYS_GA_READY__ = true;
     <div class="container">
       <div class="top-bar">
         <a class="back-link" href="/">← Back to SeaDays</a>
-        <a class="brand-chip" href="/" aria-label="SeaDays home">
-          <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="140" height="28" decoding="async">
-        </a>
       </div>
 
       <section class="co2-hero" aria-labelledby="co2-hero-title">

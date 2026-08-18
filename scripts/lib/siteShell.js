@@ -29,20 +29,23 @@ function getSiteNavLinks(opts = {}) {
     campaign: 'organic_nav',
   });
 
-  // Global destinations required across the site. Homepage visual language preserved;
-  // Roll Calls / Community remain in page content + footer Plan / sections.
-  return [
+  // Homepage hero already has store badges; do not add a sixth header item there.
+  // Inner pages send Get SeaDays to /download/ (not #download) so campaign tracking works.
+  const links = [
     { href: featuresHref, label: 'Features' },
     { href: '/ships/', label: 'Ships' },
     { href: '/ports/', label: 'Ports' },
     { href: '/blog/', label: 'Blog' },
     { href: '/press/', label: 'Press' },
-    { href: downloadHref, label: 'Get SeaDays' },
   ];
+  if (page !== 'home') {
+    links.push({ href: downloadHref, label: 'Get SeaDays' });
+  }
+  return links;
 }
 
 /**
- * Homepage-faithful top nav. Ships/Ports/Press/Get SeaDays added for global discoverability.
+ * Homepage-faithful top nav. Ships/Ports/Press added for global discoverability.
  * Roll Calls remains in footer Plan links (and on homepage content).
  * @param {{ page?: SiteShellPage }} [opts]
  */
@@ -101,6 +104,7 @@ function getSiteFooterHtml() {
                                 <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
                                 <li><a href="/cruise-community/">Cruise Community</a></li>
                                 <li><a href="/#cruise-passport">Cruise Passport</a></li>
+                                <li><a href="${downloadPagePath({ source: 'seadays_web', medium: 'footer', campaign: 'organic_web' }).replace(/&/g, '&amp;')}">Get SeaDays</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">
