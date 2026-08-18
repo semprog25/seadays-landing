@@ -1108,14 +1108,14 @@ window.__SEADAYS_GA_READY__ = true;
             letter-spacing: 0.5px;
         }
 
-        /* Blog section – compact 2x2 so full thumbnails stay visible in one snap frame */
+        /* Blog section – 2x2 that fills the cards, centered, not full-bleed wide */
         .blog-section-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
+            gap: 18px;
             margin: 12px auto 0;
             width: 100%;
-            max-width: 640px;
+            max-width: 1020px;
         }
         #blog.fullpage-section {
             padding: 40px 0 28px;
@@ -1155,14 +1155,14 @@ window.__SEADAYS_GA_READY__ = true;
             display: block;
             width: 100%;
             height: auto;
-            aspect-ratio: 3 / 2;
-            object-fit: contain;
+            aspect-ratio: 2 / 1;
+            object-fit: cover;
             object-position: center;
             background: rgba(255, 255, 255, 0.04);
         }
         .blog-card-image-placeholder {
             width: 100%;
-            aspect-ratio: 3 / 2;
+            aspect-ratio: 2 / 1;
             background: linear-gradient(135deg, rgba(255, 0, 51, 0.15), rgba(6, 182, 212, 0.15));
         }
         .blog-card-body { padding: 14px 16px 16px; }
@@ -1174,12 +1174,7 @@ window.__SEADAYS_GA_READY__ = true;
             color: white;
         }
         .blog-card-excerpt {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.65);
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            display: none;
         }
         .blog-section-cta { text-align: center; margin-top: 10px; }
         .blog-loading, .blog-empty { text-align: center; padding: 24px; color: rgba(255, 255, 255, 0.5); }
@@ -2196,11 +2191,68 @@ window.__SEADAYS_GA_READY__ = true;
             pointer-events: none;
         }
         @media (max-width: 768px) {
-            .passport-split { grid-template-columns: 1fr; gap: 32px; }
-            .passport-copy { text-align: center; }
-            .passport-copy .passport-explainer { margin: 0 auto; text-align: center; }
-            .passport-cta-row { justify-content: center; }
-            .passport-livecard-right { justify-content: center; }
+            #cruise-passport.fullpage-section {
+                padding: 28px 0 20px;
+                justify-content: center;
+            }
+            #cruise-passport.fullpage-section > .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                min-height: 0;
+                max-height: 100%;
+            }
+            #cruise-passport .section-title { font-size: 26px; margin-bottom: 6px; }
+            #cruise-passport .section-subtitle { margin-bottom: 10px; font-size: 15px; }
+            .passport-split {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                width: 100%;
+            }
+            .passport-copy { text-align: center; order: 2; }
+            .passport-copy .passport-explainer {
+                margin: 0 auto;
+                text-align: center;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .passport-explainer p { margin-bottom: 8px; }
+            .passport-explainer p + p { display: none; }
+            .passport-secondary-note { display: none; }
+            .passport-cta-row {
+                justify-content: center;
+                margin-top: 12px;
+                gap: 10px;
+            }
+            .passport-cta-row .btn-primary,
+            .passport-cta-row .btn-secondary {
+                padding: 12px 22px;
+                font-size: 14px;
+            }
+            .passport-cta-row .btn-secondary { display: none; }
+            .passport-livecard-right {
+                justify-content: center;
+                order: 1;
+            }
+            .passport-preview-livecard {
+                max-width: min(340px, 100%);
+                border-radius: 20px;
+            }
+            .passport-livecard-inner { padding: 16px 16px 56px; }
+            .passport-livecard-appmark { margin-bottom: 10px; gap: 8px; }
+            .passport-livecard-appicon { width: 28px; height: 28px; }
+            .passport-livecard-appname { font-size: 15px; }
+            .passport-livecard-level { margin-top: 4px; }
+            .passport-livecard-rank { font-size: 22px; margin-top: 4px; }
+            .passport-livecard-sub { font-size: 11px; margin-top: 4px; }
+            .passport-livecard-stats { margin-top: 12px; padding-top: 12px; }
+            .passport-livecard-statValue { font-size: 20px; }
+            .passport-livecard-section { margin-top: 10px; padding-top: 10px; }
+            .passport-livecard-sectionTitle { margin-bottom: 6px; }
+            .passport-livecard-chip { font-size: 11px; padding: 4px 10px; }
+            .passport-livecard-footer { margin-top: 10px; padding-top: 10px; }
+            .passport-livecard-seaDays { font-size: 15px; }
+            .passport-livecard-watermark { width: 44px; bottom: 12px; right: 12px; }
             .passport-stats-grid { grid-template-columns: repeat(2, 1fr); }
             .passport-hero-image { max-width: 100%; margin-bottom: 24px; border-radius: 16px; }
             .passport-preview-card { margin: 0 auto 20px; padding: 20px 16px; border-radius: 20px; }
@@ -2212,10 +2264,7 @@ window.__SEADAYS_GA_READY__ = true;
         }
         @media (max-width: 480px) {
             .passport-preview-stats { grid-template-columns: 1fr; }
-            .passport-livecard-inner { padding: 22px; padding-bottom: 92px; }
-            .passport-livecard-rank { font-size: 28px; }
-            .passport-livecard-statValue { font-size: 22px; }
-            .passport-livecard-chip { font-size: 12px; padding: 6px 12px; }
+            .passport-cta-row .btn-primary { width: 100%; max-width: 320px; }
         }
 
         /* Feature detail modal */
@@ -2530,11 +2579,18 @@ window.__SEADAYS_GA_READY__ = true;
         .press-panel {
             display: grid;
             grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
-            gap: 36px 48px;
-            align-items: center;
+            grid-template-areas:
+                "copy banner"
+                "cta banner";
+            column-gap: 48px;
+            row-gap: 10px;
+            align-items: start;
         }
+        .press-copy { grid-area: copy; }
+        .press-panel .panel-cta { grid-area: cta; align-self: start; }
+        .press-banner-thumb { grid-area: banner; align-self: center; }
         .press-panel .panel-copy {
-            margin-bottom: 24px;
+            margin-bottom: 8px;
         }
         .press-banner-thumb {
             display: block;
@@ -2560,8 +2616,20 @@ window.__SEADAYS_GA_READY__ = true;
             .faq-panel,
             .press-panel {
                 grid-template-columns: 1fr;
-                gap: 28px;
+                gap: 20px;
             }
+            .press-panel {
+                grid-template-areas:
+                    "copy"
+                    "banner"
+                    "cta";
+                justify-items: center;
+                text-align: center;
+            }
+            .press-copy { text-align: center; }
+            .press-panel .panel-copy { margin-left: auto; margin-right: auto; }
+            .press-banner-thumb { width: 100%; max-width: 640px; }
+            .press-panel .panel-cta { justify-self: center; }
             .trust-strip {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -2866,6 +2934,8 @@ window.__SEADAYS_GA_READY__ = true;
             .featured-tool-bullets li { font-size: 14px; overflow-wrap: break-word; word-break: break-word; max-width: 100%; width: 100%; text-align: left; }
             .featured-carousel-wrap { min-height: auto; padding: 0 0 24px; }
             .blog-section-grid { grid-template-columns: 1fr 1fr; gap: 12px; max-width: none; }
+            .blog-card-image,
+            .blog-card-image-placeholder { aspect-ratio: 3 / 2; }
             .blog-card-excerpt { display: none; }
             .blog-card-body { padding: 12px 14px; }
             .blog-card-title { font-size: 14px; margin-bottom: 0; }
@@ -3636,17 +3706,17 @@ window.__SEADAYS_GA_READY__ = true;
         <!-- Press & Media (subtle homepage entry) -->
         <section id="press-media" class="fullpage-section story-band band-stars" aria-labelledby="press-media-title">
             <div class="container press-panel">
-                <div>
+                <div class="press-copy">
                     <p class="panel-eyebrow">Press &amp; Media</p>
                     <h2 id="press-media-title" class="panel-headline">SeaDays, ready for the story.</h2>
                     <p class="panel-copy">Logos, screenshots and brand assets for journalists, partners and creators.</p>
-                    <div class="panel-cta">
-                        <a href="/press/" class="btn-secondary" aria-label="View SeaDays press kit">View Press →</a>
-                    </div>
                 </div>
                 <a class="press-banner-thumb" href="/press/" aria-label="View SeaDays press kit">
                     <img src="/press/marketing/seadays-marketing-hero-all-in-one-charcoal-grid-wide.png" alt="SeaDays dark charcoal grid marketing banner highlighting Plan smarter, Cruise better, All in one app" width="1024" height="576" loading="lazy" decoding="async">
                 </a>
+                <div class="panel-cta">
+                    <a href="/press/" class="btn-secondary" aria-label="View SeaDays press kit">View Press →</a>
+                </div>
             </div>
         </section>
 
