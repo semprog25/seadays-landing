@@ -1526,7 +1526,7 @@ window.__SEADAYS_GA_READY__ = true;
         .journey-visual-card--connect,
         .journey-visual-card--remember {
             background-color: #8b1020;
-            background-image: url("/images/journey/banner-red.webp?v=20260818");
+            background-image: url("/images/journey/banner-red.webp?v=20260818c");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1534,7 +1534,7 @@ window.__SEADAYS_GA_READY__ = true;
         .journey-visual-card--discover,
         .journey-visual-card--track {
             background-color: #1a1a1a;
-            background-image: url("/images/journey/banner-gray.webp?v=20260818");
+            background-image: url("/images/journey/banner-gray.webp?v=20260818c");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -2419,11 +2419,11 @@ window.__SEADAYS_GA_READY__ = true;
         }
 
         #homepage-faq.fullpage-section > .container.faq-panel {
-            height: 100%;
+            height: auto;
             display: grid;
             grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-            gap: 28px 40px;
-            align-items: stretch;
+            gap: 28px 48px;
+            align-items: start;
             min-height: 0;
             max-height: 100%;
             width: 100%;
@@ -2431,13 +2431,15 @@ window.__SEADAYS_GA_READY__ = true;
         .faq-intro {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 18px;
             min-width: 0;
-            padding: 14px 12px 14px 0;
+            padding: 4px 8px 0 0;
         }
         .faq-intro .panel-copy {
-            margin: 16px 0 0;
-            max-width: 32ch;
+            margin: 0;
+            max-width: 34ch;
         }
         .homepage-faq-list {
             margin: 0;
