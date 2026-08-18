@@ -1,0 +1,115 @@
+{
+  "property": "sc-domain:seadays.app",
+  "productionShaBefore": "63cf4c8a0",
+  "capturedAt": "2026-08-18",
+  "gscRange": "3 months",
+  "searchType": "Web",
+  "lastDataRefreshNote": "Search Console Performance UI, last update about 3 hours before capture",
+  "siteTotals": {
+    "clicks": 4,
+    "impressions": 1890,
+    "ctr": 0.002,
+    "averagePosition": 67.7
+  },
+  "indexing": {
+    "indexed": 726,
+    "notIndexed": 166,
+    "asOf": "2026-08-14",
+    "shipsIndex": "Crawled — currently not indexed; last crawl 2026-05-10; indexing already requested; not re-requested"
+  },
+  "countriesTop10": [
+    { "country": "United Kingdom", "clicks": 1, "impressions": 608, "ctr": 0.002, "position": 74.5 },
+    { "country": "United States", "clicks": 1, "impressions": 533, "ctr": 0.002, "position": 62.0 },
+    { "country": "Germany", "clicks": 1, "impressions": 29, "ctr": 0.034, "position": 75.0 },
+    { "country": "Spain", "clicks": 1, "impressions": 18, "ctr": 0.056, "position": 64.8 },
+    { "country": "Canada", "clicks": 0, "impressions": 74, "ctr": 0, "position": 67.0 },
+    { "country": "Philippines", "clicks": 0, "impressions": 46, "ctr": 0, "position": 66.3 },
+    { "country": "India", "clicks": 0, "impressions": 46, "ctr": 0, "position": 74.8 },
+    { "country": "Netherlands", "clicks": 0, "impressions": 43, "ctr": 0, "position": 73.6 },
+    { "country": "Australia", "clicks": 0, "impressions": 35, "ctr": 0, "position": 69.9 },
+    { "country": "Vietnam", "clicks": 0, "impressions": 28, "ctr": 0, "position": 43.8 }
+  ],
+  "devices": [
+    { "device": "Desktop", "clicks": 2, "impressions": 1479, "ctr": 0.001, "position": 68.6 },
+    { "device": "Mobile", "clicks": 2, "impressions": 408, "ctr": 0.005, "position": 64.6 },
+    { "device": "Tablet", "clicks": 0, "impressions": 6, "ctr": 0, "position": 78.8 }
+  ],
+  "changedPages": [
+    {
+      "url": "https://seadays.app/",
+      "impressions": 123,
+      "clicks": 4,
+      "ctr": 0.033,
+      "position": 18.3,
+      "queries": [
+        { "query": "seadays", "impressions": 43, "clicks": 2, "ctr": 0.047, "position": 6.6 },
+        { "query": "seas app", "impressions": 17, "clicks": 0, "ctr": 0, "position": 26.5 }
+      ],
+      "change": "One title change: 'SeaDays – Cruise Planner in 11 Languages' → 'SeaDays – Cruise Planner App'. Description and H1 unchanged."
+    },
+    {
+      "url": "https://seadays.app/ships/celebrity-solstice/",
+      "impressions": 874,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 75.1,
+      "queries": [
+        { "query": "celebrity solstice", "impressions": 321, "position": 76.3 },
+        { "query": "celebrity solstice ship", "impressions": 113, "position": 75.5 },
+        { "query": "celebrity solstice cruise ship", "impressions": 86, "position": 80.7 },
+        { "query": "cruise ship celebrity solstice", "impressions": 45, "position": 68.5 },
+        { "query": "celebrity cruises solstice", "impressions": 31, "position": 72.8 },
+        { "query": "celebrity solstice position", "impressions": 18, "position": 86.6, "note": "AIS tracker intent; not invented" }
+      ],
+      "change": "Fact-based meta description from catalog specs; related ships now Solstice-class sisters; tautological highlights replaced with verified year/capacity/GT. No live-position/AIS content."
+    },
+    {
+      "url": "https://seadays.app/ports/molde-norway/",
+      "impressions": 83,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 78.8,
+      "queries": [
+        { "query": "molde port", "impressions": 39, "position": 79.9 },
+        { "query": "molde cruise port", "impressions": 19, "position": 79.8 },
+        { "query": "molde norway cruise port", "impressions": 10, "position": 78.3 }
+      ],
+      "change": "Moved verified cruise-port lead, terminals, and getting-there above Wikipedia municipality overview. No invented distances/hours. Viator CTA preserved."
+    },
+    {
+      "url": "https://seadays.app/ports/haugesund-norway/",
+      "impressions": 33,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 81.2,
+      "queries": [
+        { "query": "haugesund port", "impressions": 8, "position": 87.2 }
+      ],
+      "change": "Same presentation reorder as Molde. Existing verified walking/terminal notes kept. Viator CTA preserved."
+    },
+    {
+      "url": "https://seadays.app/blog/cruise-itinerary-planning-how-to-choose-the-perfect-route/",
+      "impressions": 69,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 62.0,
+      "queries": [
+        { "query": "cruise ship itinerary sample", "impressions": 20, "position": 62.4 },
+        { "query": "cruise itinerary sample", "impressions": 17, "position": 63.0 }
+      ],
+      "change": "Added generic educational 7-night sample itinerary table plus embarkation/sea-day/port-timing explanation. Linked sea-day, port-day, ships, and ports pages. No named fake sailing."
+    }
+  ],
+  "unchangedOnPurpose": [
+    {
+      "url": "https://seadays.app/ships/",
+      "reason": "200, canonical, index,follow, in sitemap, linked from nav/footer. Crawled-not-indexed is a quality/recrawl issue. Indexing already requested."
+    },
+    {
+      "url": "https://seadays.app/blog/what-is-a-sea-day-on-a-cruise/",
+      "impressions": 17,
+      "position": 73.9,
+      "reason": "Expanded article already answers sea-day intent. No query gaps in top GSC queries. No ad slot."
+    }
+  ]
+}

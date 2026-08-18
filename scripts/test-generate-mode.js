@@ -56,6 +56,19 @@ test('--sitemap-only is a no-write content mode', () => {
   assert.strictEqual(mode.ports, false);
 });
 
+test('--only= scopes catalogue rewrites without changing channel flags', () => {
+  const mode = parseGenerateMode([
+    'node',
+    'x',
+    '--catalogue-only',
+    '--only=celebrity-solstice,molde-norway',
+  ]);
+  assert.strictEqual(mode.ships, true);
+  assert.strictEqual(mode.ports, true);
+  assert.strictEqual(mode.blogs, false);
+  assert.deepStrictEqual(mode.onlySlugs, ['celebrity-solstice', 'molde-norway']);
+});
+
 test('--allow-orphan-cleanup is the only way to enable destructive cleanup', () => {
   const src = require('fs').readFileSync(require('path').join(__dirname, 'generateBlogs.js'), 'utf8');
   if (!src.includes('if (mode.allowOrphanCleanup)')) {

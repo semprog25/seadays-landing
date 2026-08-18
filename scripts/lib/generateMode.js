@@ -12,6 +12,16 @@ function hasFlag(argv, flag) {
   return Array.isArray(argv) && argv.includes(flag);
 }
 
+function parseOnlySlugs(argv = []) {
+  const raw = Array.isArray(argv) ? argv.find((a) => String(a).startsWith('--only=')) : '';
+  if (!raw) return [];
+  return String(raw)
+    .slice('--only='.length)
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 function parseGenerateMode(argv = process.argv) {
   const sitemapOnly = hasFlag(argv, '--sitemap-only');
   const blogsOnly = hasFlag(argv, '--blogs-only');
@@ -20,6 +30,7 @@ function parseGenerateMode(argv = process.argv) {
   const catalogueOnly = hasFlag(argv, '--catalogue-only');
   const explicitFull = hasFlag(argv, '--full');
   const allowOrphanRequested = hasFlag(argv, '--allow-orphan-cleanup');
+  const onlySlugs = parseOnlySlugs(argv);
   const scoped = blogsOnly || portsOnly || shipsOnly || catalogueOnly || sitemapOnly;
   const full = explicitFull || !scoped;
 
@@ -31,6 +42,7 @@ function parseGenerateMode(argv = process.argv) {
       ports: false,
       full: false,
       allowOrphanCleanup: false,
+      onlySlugs: [],
       label: 'sitemap-only',
     };
   }
@@ -49,6 +61,7 @@ function parseGenerateMode(argv = process.argv) {
     if (catalogueOnly) labelParts.push('catalogue');
   }
   if (allowOrphanCleanup) labelParts.push('orphan-cleanup');
+  if (onlySlugs.length) labelParts.push(`only=${onlySlugs.length}`);
 
   return {
     sitemapOnly: false,
@@ -57,6 +70,7 @@ function parseGenerateMode(argv = process.argv) {
     ports,
     full,
     allowOrphanCleanup,
+    onlySlugs,
     label: labelParts.join('+') || 'full',
   };
 }
@@ -101,6 +115,7 @@ function commitMessageForChannel(channel) {
 
 module.exports = {
   parseGenerateMode,
+  parseOnlySlugs,
   generateArgsForChannel,
   commitMessageForChannel,
 };

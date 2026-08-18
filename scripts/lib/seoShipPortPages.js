@@ -773,9 +773,15 @@ function buildFunVisualPanel(kind, entity, relatedArticles) {
   </section>`;
 }
 
+function isGenericShipMetaDescription(text) {
+  return /planning overview, highlights, and tips for passengers/i.test(String(text || ''));
+}
+
 function buildShipMetaDescription(ship) {
   const custom = ship.metaDescription && String(ship.metaDescription).trim();
-  if (custom) return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
+  if (custom && !isGenericShipMetaDescription(custom)) {
+    return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
+  }
   const line = ship.cruise_line;
   const cls = ship.shipClass ? `${shipClassNounPhrase(ship)} ` : '';
   const year = Number.isFinite(ship.yearBuilt) ? ` (${Math.round(ship.yearBuilt)})` : '';
@@ -791,11 +797,29 @@ function buildPortMetaDescription(port, h1) {
   return raw.length <= 160 ? raw : raw.slice(0, 157) + '…';
 }
 
-function buildShipWhyBullets(ship) {
-  if (ship.highlights.length >= 2) {
-    return ship.highlights.slice(0, 8).map((t) => `<li>${escapeHtml(t)}</li>`).join('');
+function isLowValueShipHighlight(text, ship) {
+  const t = String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!t) return true;
+  if (/ship profile in the SeaDays cruise directory/i.test(t)) return true;
+  const name = String(ship && ship.name ? ship.name : '')
+    .replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (name && new RegExp(`^${name} is operated by `, 'i').test(t) && t.split(/\s+/).length <= 12) {
+    return true;
   }
-  const fromDesc = uniqueSentences([ship.description, ship.experience], 4);
+  return false;
+}
+
+function buildShipWhyBullets(ship) {
+  const highlights = (Array.isArray(ship.highlights) ? ship.highlights : [])
+    .map((t) => String(t || '').trim())
+    .filter((t) => t && !isLowValueShipHighlight(t, ship));
+  if (highlights.length >= 2) {
+    return highlights.slice(0, 8).map((t) => `<li>${escapeHtml(t)}</li>`).join('');
+  }
+  const fromDesc = uniqueSentences([ship.description, ship.experience], 4)
+    .filter((t) => !isLowValueShipHighlight(t, ship));
   if (fromDesc.length >= 2) {
     return fromDesc.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
   }
@@ -1331,11 +1355,11 @@ ${getFaviconHeadHtml()}
       <h1>${escapeHtml(h1)} Cruise Port Guide</h1>
       <p class="lead">${escapeHtml(port.region || 'Cruise destination')}${port.country ? ` · ${escapeHtml(port.country)}` : ''}</p>
       ${visualPanel}
+      ${earlyGuide}
       <h2>Overview</h2>
       <article class="seo-body">
         ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
       </article>
-      ${earlyGuide}
       ${thingsBlock}
       ${lateGuide}
       <h2>Cruise relevance</h2>
