@@ -22,6 +22,7 @@ gtag('config', 'G-WSQDQ33QZD');
 window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://auth.seadays.app https://soqkgrfzluewpuiguypm.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com; connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co https://auth.seadays.app https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://soqkgrfzluewpuiguypm.supabase.co; upgrade-insecure-requests">
 
 
 
@@ -326,6 +327,12 @@ window.__SEADAYS_GA_READY__ = true;
                 </div>
 
                 <div class="section">
+                    <h2>Private data between users</h2>
+                    <p>Private APIs require a valid signed-in session. Message threads, diagnostic dumps, points balances, and buddy lists are bound to the authenticated caller. Another signed-in user cannot read or wipe your private conversation or account dump by substituting a user id in the URL.</p>
+                    <p>Some profile-style fields (public cruise stats and achievements) remain readable so you can view another sailor’s public profile. That is product behavior, not a private-data leak.</p>
+                </div>
+
+                <div class="section">
                     <h2>Database access</h2>
                     <ul>
                         <li>Row Level Security is enabled on SeaDays application tables in the audited Postgres project.</li>
@@ -350,7 +357,21 @@ window.__SEADAYS_GA_READY__ = true;
                         <li>The site uses Google Analytics 4 with Consent Mode v2 defaults that deny analytics and ads storage until consent is updated.</li>
                         <li>The contact form posts to the SeaDays API. Guest submissions are rate-limited and are not stored under another user’s account id.</li>
                     </ul>
-                    <p>GitHub Pages, which hosts seadays.app, does not currently send Content-Security-Policy, Strict-Transport-Security, or X-Frame-Options headers. We do not claim those headers are in place.</p>
+                    <p>GitHub Pages, which hosts seadays.app, does not send Content-Security-Policy, Strict-Transport-Security, X-Frame-Options, or similar <em>HTTP response</em> headers. A Content-Security-Policy <em>meta</em> tag may be present on some pages; it is not a substitute for HSTS or frame-ancestors. We do not claim those HTTP headers are in place until a CDN or reverse proxy is configured in front of GitHub Pages.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Testing and maintenance</h2>
+                    <ul>
+                        <li>SeaDays runs automated unit tests for authentication matching, HTML sanitization, and Edge ownership checks as part of development.</li>
+                        <li>A technical security audit of the app, database policies, Edge Functions, and seadays.app was completed on 17 August 2026. Findings and remaining risks are tracked internally.</li>
+                    </ul>
+                    <p>We do not claim a third-party penetration-test certificate or a public bug-bounty program.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Privacy and GDPR</h2>
+                    <p>We publish a <a href="/privacy.html">Privacy Policy</a>, a <a href="/cookies.html">Cookie Policy</a>, and a <a href="/gdpr.html">GDPR information page</a>. Those documents describe how we handle personal data and how you can contact us. This is not a GDPR certification, ISO certification, or SOC 2 report.</p>
                 </div>
 
                 <div class="section">
