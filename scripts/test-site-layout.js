@@ -113,6 +113,14 @@ test('ad slots occupy no layout until consent marks them ready', () => {
   assert.match(shell, /aside\.seadays-ad-slot:not\(\.seadays-ad-slot--ready\)/);
 });
 
+test('homepage snaps on user scroll and does not auto-advance panes', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  assert.match(html, /scroll-snap-type:\s*y\s+mandatory/);
+  assert.match(html, /scroll-behavior:\s*auto/);
+  assert.doesNotMatch(html, /scroll-behavior:\s*smooth/);
+  assert.doesNotMatch(html, /setInterval\(/);
+});
+
 test('homepage closing pane keeps Press + footer together', () => {
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.match(html, /class="site-close"/);
@@ -144,7 +152,8 @@ test('press kit HTML includes the shared footer without relying on JS', () => {
   assert.doesNotMatch(js, /function renderFooter\(/);
   assert.doesNotMatch(js, /renderFooter\(\),/);
   const pressCss = fs.readFileSync(path.join(ROOT, 'press/css/press.css'), 'utf8');
-  assert.doesNotMatch(pressCss, /\.press-hero \{[\s\S]*?height:\s*100vh/);
+  assert.match(pressCss, /scroll-snap-type:\s*y\s+mandatory/);
+  assert.match(pressCss, /\.press-hero \{[\s\S]*?min-height:\s*100dvh/);
 });
 
 const publicFiles = walkHtmlFiles(ROOT);

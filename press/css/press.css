@@ -28,8 +28,12 @@ html {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+html:has(body.press-kit) {
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -192,24 +196,28 @@ body:has(.site-card:hover) .starfield {
   text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
 }
 
-/* Section layout — hero stays full viewport; other sections scroll normally */
+/* Section layout — one viewport per snap; tall sections scroll inside the pane */
 .press-snap-section {
   box-sizing: border-box;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
-/* Hero — content-sized; do not reserve a full empty viewport */
+/* Hero — full viewport snap pane */
 .press-hero {
   position: relative;
   overflow: hidden;
-  height: auto;
-  min-height: 0;
-  max-height: none;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 112px 20px 56px;
+  padding: 112px 20px 72px;
   padding-top: max(112px, calc(env(safe-area-inset-top) + 72px));
 }
 
@@ -392,13 +400,13 @@ body:has(.site-card:hover) .starfield {
   width: 100%;
 }
 
-/* Scroll indicator — below hero CTAs, not pinned to a 100vh frame */
+/* Scroll indicator — pinned to the bottom of the hero pane */
 .scroll-indicator {
-  position: relative;
-  bottom: auto;
-  left: auto;
-  transform: none;
-  margin: 36px auto 0;
+  position: absolute;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
   width: 30px;
   height: 50px;
   border: 2px solid rgba(255, 255, 255, 0.25);
@@ -442,15 +450,29 @@ body:has(.scroll-indicator:hover) .starfield {
   --sf-b: 51;
 }
 
-/* Sections — matches homepage alternating bands */
+/* Sections — matches homepage alternating bands; one snap pane each */
 .press-section {
   padding: 88px 0 64px;
   position: relative;
   background: var(--dark-bg-alt);
 }
 
+.press-section.press-snap-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
 .press-section.press-snap-section .container {
   width: 100%;
+}
+
+.press-section.press-legal {
+  max-height: none;
+  overflow: visible;
 }
 
 .press-snap-section--compact .section-subtitle {
@@ -1047,13 +1069,11 @@ body:has(.scroll-indicator:hover) .starfield {
 }
 
 /* Footer chrome is owned by /assets/css/site-shell.css. Keep it above the starfield. */
-footer {
+footer:has(.footer-shell) {
   position: relative;
   z-index: 10;
-  padding: 60px 0 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  text-align: center;
-  background: #050505;
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
 }
 
 /* Footer chrome is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
@@ -1209,8 +1229,8 @@ footer {
   }
 
   .scroll-indicator {
-    margin-top: 24px;
     height: 42px;
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
 }
 

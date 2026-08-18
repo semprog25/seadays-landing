@@ -228,7 +228,7 @@ window.__SEADAYS_GA_READY__ = true;
             overflow-x: hidden;
             overflow-y: auto;
             scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
+            scroll-behavior: auto;
             -webkit-overflow-scrolling: touch;
         }
 
@@ -1180,7 +1180,7 @@ window.__SEADAYS_GA_READY__ = true;
         .blog-section-cta { text-align: center; margin-top: 10px; }
         .blog-loading, .blog-empty { text-align: center; padding: 24px; color: rgba(255, 255, 255, 0.5); }
 
-        /* Featured Tools carousel – left: phone/screenshot, right: content, auto-advance */
+        /* Featured Tools carousel – left: phone/screenshot, right: content */
         .featured-carousel-wrap {
             max-width: 1100px;
             margin: 0 auto;
@@ -2859,9 +2859,9 @@ window.__SEADAYS_GA_READY__ = true;
             }
         }
 
-        /* Smooth Scroll */
+        /* Instant snap — do not animate the page as if it were auto-scrolling */
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: auto;
         }
 
         /* Responsive */
@@ -4157,8 +4157,6 @@ window.__SEADAYS_GA_READY__ = true;
 
             function restartAuto() {
                 if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-                if (reduceMotion) return;
-                autoTimer = setInterval(function () { step(1); }, 9000);
             }
 
             tabs.forEach(function (tab) {
@@ -4226,13 +4224,10 @@ window.__SEADAYS_GA_READY__ = true;
         (function() {
             var track = document.getElementById('featuredCarouselTrack');
             var dotsContainer = document.getElementById('featuredCarouselDots');
-            var wrap = track && track.closest('.featured-carousel-wrap');
             if (!track || !dotsContainer) return;
             var slides = track.querySelectorAll('.featured-carousel-slide');
             var total = slides.length;
             var index = 0;
-            var interval = null;
-            var intervalTime = 6000;
 
             function update() {
                 track.style.transform = 'translate3d(-' + (index * 100) + '%, 0, 0)';
@@ -4245,28 +4240,6 @@ window.__SEADAYS_GA_READY__ = true;
             function goTo(i) {
                 index = (i + total) % total;
                 update();
-                resetInterval();
-            }
-
-            function next() {
-                index = (index + 1) % total;
-                update();
-            }
-
-            function startInterval() {
-                if (interval !== null) return;
-                interval = setInterval(next, intervalTime);
-            }
-
-            function resetInterval() {
-                clearInterval(interval);
-                interval = null;
-                startInterval();
-            }
-
-            function stopInterval() {
-                clearInterval(interval);
-                interval = null;
             }
 
             for (var d = 0; d < total; d++) {
@@ -4281,23 +4254,7 @@ window.__SEADAYS_GA_READY__ = true;
                 dotsContainer.appendChild(dot);
             }
 
-            if (wrap) {
-                wrap.addEventListener('mouseenter', stopInterval);
-                wrap.addEventListener('mouseleave', startInterval);
-                wrap.addEventListener('touchstart', stopInterval, { passive: true });
-                wrap.addEventListener('touchend', function() { setTimeout(startInterval, 400); }, { passive: true });
-                wrap.addEventListener('touchcancel', function() { setTimeout(startInterval, 400); }, { passive: true });
-                wrap.addEventListener('focusin', stopInterval);
-                wrap.addEventListener('focusout', startInterval);
-            }
-
-            document.addEventListener('visibilitychange', function() {
-                if (document.hidden) stopInterval();
-                else startInterval();
-            });
-
             update();
-            startInterval();
         })();
 
         // Feature modal: Learn More opens modal with details
