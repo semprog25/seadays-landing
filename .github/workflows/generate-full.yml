@@ -72,5 +72,5 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         env:
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
-          COMMIT_MSG: chore: regenerate static blog, ships, ports, and sitemap [skip ci]
+          COMMIT_MSG: "chore: regenerate static blog, ships, ports, and sitemap [skip ci]"
         run: bash scripts/ci-safe-push-generated.sh
