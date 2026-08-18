@@ -1508,35 +1508,22 @@ window.__SEADAYS_GA_READY__ = true;
             max-width: 18rem;
             line-height: 1.5;
         }
-        .journey-visual-card--plan {
-            background:
-                radial-gradient(ellipse at 18% 12%, rgba(255,0,51,0.28), transparent 52%),
-                radial-gradient(ellipse at 90% 88%, rgba(255,0,51,0.12), transparent 45%),
-                linear-gradient(160deg, #141014 0%, #0a0a0a 55%, #1a0a10 100%);
-        }
-        .journey-visual-card--discover {
-            background:
-                radial-gradient(ellipse at 18% 12%, rgba(56, 140, 220, 0.26), transparent 52%),
-                radial-gradient(ellipse at 90% 88%, rgba(30, 80, 140, 0.18), transparent 45%),
-                linear-gradient(160deg, #0e141c 0%, #0a0a0a 55%, #0a121a 100%);
-        }
-        .journey-visual-card--connect {
-            background:
-                radial-gradient(ellipse at 18% 12%, rgba(236, 72, 120, 0.26), transparent 52%),
-                radial-gradient(ellipse at 90% 88%, rgba(255,0,51,0.1), transparent 45%),
-                linear-gradient(160deg, #161012 0%, #0a0a0a 55%, #1a0c12 100%);
-        }
-        .journey-visual-card--track {
-            background:
-                radial-gradient(ellipse at 18% 12%, rgba(45, 180, 150, 0.24), transparent 52%),
-                radial-gradient(ellipse at 90% 88%, rgba(20, 100, 90, 0.16), transparent 45%),
-                linear-gradient(160deg, #0e1614 0%, #0a0a0a 55%, #0a1412 100%);
-        }
+        .journey-visual-card--plan,
+        .journey-visual-card--connect,
         .journey-visual-card--remember {
-            background:
-                radial-gradient(ellipse at 20% 10%, rgba(255,0,51,0.22), transparent 50%),
-                radial-gradient(ellipse at 88% 90%, rgba(180, 40, 70, 0.16), transparent 48%),
-                linear-gradient(160deg, #121212 0%, #0a0a0a 60%, #1a0a10 100%);
+            background-color: #8b1020;
+            background-image: url("/images/journey/banner-red.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .journey-visual-card--discover,
+        .journey-visual-card--track {
+            background-color: #1a1a1a;
+            background-image: url("/images/journey/banner-gray.webp");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .journey-stage {
             grid-area: 1 / 1;
