@@ -54,14 +54,25 @@ function buildPortLinkEntries(portLinks) {
     .map((phrase) => ({ phrase, href: String(portLinks[phrase]) }));
 }
 
+function buildShipLinkEntries(shipLinks) {
+  if (!shipLinks || typeof shipLinks !== 'object') return [];
+  return Object.keys(shipLinks)
+    .filter((k) => k && shipLinks[k])
+    .sort((a, b) => b.length - a.length)
+    .map((phrase) => ({ phrase, href: String(shipLinks[phrase]) }));
+}
+
 function injectKeywordLinksIntoBodyHtml(html, opts = {}) {
   const maxShip = opts.maxShipLinks != null ? opts.maxShipLinks : 2;
   const maxPort = opts.maxPortLinks != null ? opts.maxPortLinks : 2;
   const maxSpecific = opts.maxSpecificPortLinks != null ? opts.maxSpecificPortLinks : 3;
+  const maxSpecificShips = opts.maxSpecificShipLinks != null ? opts.maxSpecificShipLinks : 3;
   let shipLeft = maxShip;
   let portLeft = maxPort;
   let specificLeft = maxSpecific;
+  let specificShipLeft = maxSpecificShips;
   const specificPorts = buildPortLinkEntries(opts.portLinks);
+  const specificShips = buildShipLinkEntries(opts.shipLinks);
   const parts = html.split(/(<[^>]+>)/g);
   const out = [];
   let anchorDepth = 0;
@@ -79,7 +90,23 @@ function injectKeywordLinksIntoBodyHtml(html, opts = {}) {
     let seg = part;
     let insertedLinkInSegment = false;
 
-    if (specificLeft > 0 && specificPorts.length) {
+    if (specificShipLeft > 0 && specificShips.length) {
+      for (const entry of specificShips) {
+        if (specificShipLeft <= 0) break;
+        const re = new RegExp(`(^|[^\\w])(${escapeRegExp(entry.phrase)})(?!\\w)`, 'i');
+        if (!re.test(seg)) continue;
+        specificShipLeft--;
+        seg = seg.replace(
+          re,
+          (full, before, matched) =>
+            `${before}<a href="${entry.href}" class="contextual-link ship-guide-link">${matched}</a>`
+        );
+        insertedLinkInSegment = true;
+        break;
+      }
+    }
+
+    if (!insertedLinkInSegment && specificLeft > 0 && specificPorts.length) {
       for (const entry of specificPorts) {
         if (specificLeft <= 0) break;
         const re = new RegExp(`(^|[^\\w])(${escapeRegExp(entry.phrase)})(?!\\w)`, 'i');
@@ -95,7 +122,7 @@ function injectKeywordLinksIntoBodyHtml(html, opts = {}) {
       }
     }
 
-    if (shipLeft > 0) {
+    if (!insertedLinkInSegment && shipLeft > 0) {
       for (const phrase of SHIP_PHRASES) {
         if (shipLeft <= 0) break;
         const re = new RegExp(`(^|[^\\w])(${escapeRegExp(phrase)})(?!\\w)`, 'i');
@@ -157,9 +184,81 @@ function buildPortLinksFromSeoPorts(seoPorts) {
   return map;
 }
 
+/**
+ * Build phrase → /ships/<slug>/ map from seo ship records.
+ * Skips short names that collide with common English words.
+ */
+function buildShipLinksFromSeoShips(seoShips) {
+  const BLOCKLIST = new Set([
+    'vista',
+    'jewel',
+    'dream',
+    'pride',
+    'spirit',
+    'legend',
+    'magic',
+    'wonder',
+    'freedom',
+    'liberty',
+    'horizon',
+    'summit',
+    'constellation',
+    'eclipse',
+    'solstice',
+    'reflection',
+    'enchantment',
+    'radiance',
+    'brilliance',
+    'serenade',
+    'mariner',
+    'navigator',
+    'voyager',
+    'explorer',
+    'adventure',
+    'independence',
+    'oasis',
+    'allure',
+    'harmony',
+    'symphony',
+    'wonder',
+    'utopia',
+    'icon',
+    'star',
+    'sun',
+    'dawn',
+    'dusk',
+    'moon',
+    'sky',
+    'sea',
+    'edge',
+    'beyond',
+    'scape',
+    'escape',
+    'breakaway',
+    'getaway',
+    'pearl',
+    'gem',
+    'jade',
+    'coral',
+    'island',
+    'beach',
+    'coast',
+  ]);
+  const map = {};
+  for (const s of Array.isArray(seoShips) ? seoShips : []) {
+    const slug = String(s.slug || '').trim();
+    const name = String(s.name || '').trim();
+    if (!slug || !name || name.length < 8) continue;
+    if (BLOCKLIST.has(name.toLowerCase())) continue;
+    map[name] = `/ships/${slug}/`;
+  }
+  return map;
+}
+
 module.exports = {
   injectKeywordLinksIntoBodyHtml,
   SHIP_PHRASES,
   PORT_PHRASES,
   buildPortLinksFromSeoPorts,
+  buildShipLinksFromSeoShips,
 };

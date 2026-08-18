@@ -102,6 +102,13 @@
       return;
     }
 
+    // Custom cookie banner is not an IAB TCF CMP. Until a Google-certified TCF
+    // CMP is installed, request non-personalized ads only (EEA/UK policy-safe).
+    window.adsbygoogle = window.adsbygoogle || [];
+    if (typeof window.__tcfapi !== 'function') {
+      window.adsbygoogle.requestNonPersonalizedAds = 1;
+    }
+
     slots.forEach(function (slot) {
       fillSlot(slot);
     });
