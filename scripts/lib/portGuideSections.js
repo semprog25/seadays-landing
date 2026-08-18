@@ -5,7 +5,7 @@
  * Information depth mirrors the app PortDetail guide; UI is web-editorial.
  */
 
-const { PLAY_STORE_URL, APP_STORE_URL } = require('./seoFeatureLandingPages');
+const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath } = require('./storeLinks');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -44,7 +44,7 @@ function buildAppCommunityCta(opts = {}) {
   const title = opts.title || 'Get more from your port guide';
   const body =
     opts.body ||
-    'Read the full community reviews, answer traveler questions, and share your own experience in the SeaDays app.';
+    'Planning this port day? Save itinerary notes, reviews, and shore-day details in SeaDays.';
   const play = PLAY_STORE_URL || 'https://play.google.com/store/apps/details?id=com.seadays.app';
   const apple = APP_STORE_URL || 'https://apps.apple.com/app/id6759758357';
   return (
@@ -52,9 +52,9 @@ function buildAppCommunityCta(opts = {}) {
     `<div class="pg-app-cta-copy"><strong>${escapeHtml(title)}</strong>` +
     `<p>${escapeHtml(body)}</p></div>` +
     `<div class="pg-app-cta-actions">` +
-    `<a class="pg-btn pg-btn-primary" href="${escapeHtml(apple)}" target="_blank" rel="noopener noreferrer">Download on the App Store</a>` +
-    `<a class="pg-btn" href="${escapeHtml(play)}" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>` +
-    `<a class="pg-btn pg-btn-ghost" href="/#download">Open SeaDays</a>` +
+    `<a class="pg-btn pg-btn-primary" href="${escapeHtml(downloadPagePath({ source: 'seadays_web', medium: 'port_guide', campaign: 'port_guide' }))}">Get SeaDays</a>` +
+    `<a class="pg-btn" href="${escapeHtml(apple)}" target="_blank" rel="noopener noreferrer">App Store</a>` +
+    `<a class="pg-btn pg-btn-ghost" href="${escapeHtml(play)}" target="_blank" rel="noopener noreferrer">Google Play</a>` +
     `</div></aside>`
   );
 }
@@ -65,7 +65,7 @@ function buildBookableExperiencesBanner(affiliate, portName) {
   const hasUrl = hasText(affiliate.url);
   const href = hasUrl
     ? affiliate.url
-    : '/#download';
+    : downloadPagePath({ source: 'seadays_web', medium: 'port_guide', campaign: 'port_guide' });
   const ctaLabel = hasUrl ? 'Browse Experiences →' : 'Continue in SeaDays →';
   const rel = hasUrl ? 'noopener noreferrer sponsored' : 'noopener noreferrer';
   const target = hasUrl ? '_blank' : '_self';

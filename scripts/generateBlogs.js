@@ -1360,6 +1360,7 @@ const PUBLIC_STATIC_SITEMAP_PAGES = [
   { loc: '/cookies.html', file: 'cookies.html' },
   { loc: '/gdpr.html', file: 'gdpr.html' },
   { loc: '/press/', file: 'press/index.html' },
+  { loc: '/download/', file: 'download/index.html' },
 ];
 
 function publicStaticSitemapUrls(repoRoot) {
@@ -1428,9 +1429,9 @@ function buildAppDownloadCtaSection() {
   return (
     '<section class="app-download-cta" aria-label="Download SeaDays">' +
     '<div class="app-download-cta-inner">' +
-    '<div><strong>Plan smarter. Meet your roll call. Track your budget.</strong>' +
-    '<span>Download SeaDays free on iOS and Android.</span></div>' +
-    '<a href="/#download" class="explore-seadays-link">Download SeaDays Free</a>' +
+    '<div><strong>Planning this cruise? Save it in SeaDays.</strong>' +
+    '<span>Keep itinerary, packing, and port days in one app — free on iOS and Android.</span></div>' +
+    '<a href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog" class="explore-seadays-link">Get SeaDays</a>' +
     '</div></section>'
   );
 }
@@ -1892,7 +1893,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         <h1 id="ships-title">Cruise ships</h1>
         <p>Pick a cruise line, then open a ship guide for verified catalog facts. Guest reviews live in the SeaDays app when travelers have submitted them.</p>
         <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
+          <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=ship_guide&amp;utm_campaign=ship_guide">Get SeaDays</a>
           <a class="directory-btn" href="/blog/">Read cruise guides</a>
         </div>
       </div>
@@ -1918,7 +1919,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
           <strong>Want the full reviews?</strong>
           <span>Download SeaDays to read and leave reviews for ships and ports.</span>
         </div>
-        <a class="directory-btn directory-btn-primary" href="/#download">Get the app</a>
+        <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=ship_guide&amp;utm_campaign=ship_guide">Get SeaDays</a>
       </div>
     </section>
     <section class="featured-guides" aria-label="Popular cruise guides">
@@ -2568,7 +2569,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         <h1>SeaDays cruise blog</h1>
         <p>Stories, tips, and experiences shared by the SeaDays community.</p>
         <div class="hero-actions">
-          <a class="hero-btn hero-btn-primary" href="/#download">Download SeaDays</a>
+          <a class="hero-btn hero-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog">Get SeaDays</a>
           <a class="hero-btn" href="/ships/">Explore ships</a>
           <a class="hero-btn" href="/ports/">Explore ports</a>
         </div>

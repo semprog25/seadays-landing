@@ -2,10 +2,8 @@
 
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
 const { getFaviconHeadHtml } = require('./faviconHead');
-
+const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath } = require('./storeLinks');
 const BASE_URL = 'https://seadays.app';
-const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.seadays.app';
-const APP_STORE_URL = 'https://apps.apple.com/de/app/seadays/id6759758357';
 const LOGO_URL = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png';
 const FAVICON_URL = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
 const OG_IMAGE = 'https://seadays.app/og-image.png';
@@ -355,9 +353,9 @@ ${getFaviconHeadHtml()}
     </section>
     <section class="cta-section" aria-label="Download SeaDays">
       <h2>${escapeHtml(page.ctaLabel)}</h2>
-      <p>Download SeaDays free on iOS and Android—the modern all-in-one cruise planner and roll call app.</p>
+      <p>Get SeaDays free on iOS and Android — the cruise planner with ship and port guides, packing, and crew tools.</p>
       <div class="cta-row">
-        <a class="cta-button" href="${PLAY_STORE_URL}" rel="noopener noreferrer" target="_blank">Download SeaDays Free</a>
+        <a class="cta-button" href="${downloadPagePath({ source: 'seadays_web', medium: 'feature', campaign: 'feature_landing' })}">Get SeaDays</a>
         <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
       </div>
       <div class="store-row">

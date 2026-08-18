@@ -9,6 +9,7 @@ const { getAdsenseAccountMetaHtml } = require('./adsenseConfig');
 
 const GA_MEASUREMENT_ID = 'G-WSQDQ33QZD';
 const ANALYTICS_SCRIPT_SRC = '/assets/js/seadays-analytics.js';
+const DOWNLOAD_SCRIPT_SRC = '/assets/js/seadays-download.js';
 const ADSENSE_ACCOUNT_META_RE =
   /<meta\s+name=["']google-adsense-account["'][^>]*>\s*/gi;
 
@@ -37,7 +38,8 @@ gtag('js', new Date());
 gtag('config', '${GA_MEASUREMENT_ID}');
 window.__SEADAYS_GA_READY__ = true;
 </script>
-<script src="${ANALYTICS_SCRIPT_SRC}" defer></script>`;
+<script src="${ANALYTICS_SCRIPT_SRC}" defer></script>
+<script src="${DOWNLOAD_SCRIPT_SRC}" defer></script>`;
 }
 
 function countAdsenseAccountMeta(html) {
@@ -86,7 +88,7 @@ const LEGACY_GA_BLOCK_RE =
   /(?:<!--\s*Google tag \(gtag\.js\)\s*-->\s*)?<script\s+async\s+src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-WSQDQ33QZD"><\/script>\s*<script>\s*window\.dataLayer\s*=\s*window\.dataLayer\s*\|\|\s*\[\];\s*function\s+gtag\(\)\s*\{\s*dataLayer\.push\(arguments\);\s*\}\s*gtag\('js',\s*new Date\(\)\);\s*gtag\('config',\s*'G-WSQDQ33QZD'\);\s*<\/script>/gi;
 
 const SHARED_GA_BLOCK_RE =
-  /<!--\s*SeaDays analytics:[\s\S]*?<script\s+src="\/assets\/js\/seadays-analytics\.js"[^>]*><\/script>/gi;
+  /<!--\s*SeaDays analytics:[\s\S]*?<script\s+src="\/assets\/js\/seadays-analytics\.js"[^>]*><\/script>(?:\s*<script\s+src="\/assets\/js\/seadays-download\.js"[^>]*><\/script>)?/gi;
 
 /**
  * Removes legacy inline gtag blocks and any prior shared SeaDays analytics snippet.
@@ -109,7 +111,14 @@ function injectAnalyticsHead(html) {
   const configCount = (html.match(/gtag\(\s*['"]config['"]/g) || []).length;
 
   if (hasSharedScript && hasConsentDefault && configCount === 1) {
-    return ensureAdsenseAccountMeta(html);
+    let next = ensureAdsenseAccountMeta(html);
+    if (!next.includes(DOWNLOAD_SCRIPT_SRC)) {
+      next = next.replace(
+        /<script src="\/assets\/js\/seadays-analytics\.js" defer><\/script>/g,
+        `<script src="${ANALYTICS_SCRIPT_SRC}" defer></script>\n<script src="${DOWNLOAD_SCRIPT_SRC}" defer></script>`
+      );
+    }
+    return next;
   }
 
   let next = stripAnalyticsFromHtml(html);

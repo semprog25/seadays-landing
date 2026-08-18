@@ -900,7 +900,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
         <h1 id="ports-title">Explore Cruise Ports &amp; Destinations</h1>
         <p>Discover cruise ports, destinations, and port guides. Search by name, or browse Region → Country → Port—the same clear hierarchy as our ships directory.</p>
         <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
+          <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
           <a class="directory-btn" href="/blog/">Read destination guides</a>
         </div>
       </div>
@@ -978,7 +978,7 @@ ${regionCardsHtml}
           <strong>Want the full reviews?</strong>
           <span>Download SeaDays to read and leave reviews for ports and ships.</span>
         </div>
-        <a class="directory-btn directory-btn-primary" href="/#download">Get the app</a>
+        <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
       </div>
     </section>
     <section class="featured-guides" aria-label="Popular destination guides">

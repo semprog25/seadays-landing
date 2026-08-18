@@ -6,6 +6,8 @@
 
 'use strict';
 
+const { downloadPagePath } = require('./storeLinks');
+
 const SITE_SHELL_CSS_HREF = '/assets/css/site-shell.css';
 const SITE_SHELL_MARKER_START = '<!-- seadays-site-shell';
 const SITE_SHELL_MARKER_END = 'seadays-site-shell -->';
@@ -21,7 +23,11 @@ const SITE_SHELL_MARKER_END = 'seadays-site-shell -->';
 function getSiteNavLinks(opts = {}) {
   const page = opts.page === 'home' ? 'home' : 'default';
   const featuresHref = page === 'home' ? '#cruise-planning-tools' : '/#cruise-planning-tools';
-  const downloadHref = page === 'home' ? '#download' : '/#download';
+  const downloadHref = downloadPagePath({
+    source: 'seadays_web',
+    medium: 'nav',
+    campaign: 'organic_nav',
+  });
 
   // Global destinations required across the site. Homepage visual language preserved;
   // Roll Calls / Community remain in page content + footer Plan / sections.
@@ -42,7 +48,10 @@ function getSiteNavLinks(opts = {}) {
  */
 function getSiteHeaderHtml(opts = {}) {
   const links = getSiteNavLinks(opts)
-    .map((link) => `                <a href="${link.href}">${link.label}</a>`)
+    .map((link) => {
+      const href = String(link.href).replace(/&/g, '&amp;');
+      return `                <a href="${href}">${link.label}</a>`;
+    })
     .join('\n');
 
   return `${SITE_SHELL_MARKER_START}:header -->

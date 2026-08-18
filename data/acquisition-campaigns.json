@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "updated": "2026-08-18",
+  "site": "https://seadays.app",
+  "stores": {
+    "androidPackageId": "com.seadays.app",
+    "iosAppId": "6759758357",
+    "iosBundleId": "com.seadays.app",
+    "play": "https://play.google.com/store/apps/details?id=com.seadays.app",
+    "appStore": "https://apps.apple.com/app/id6759758357"
+  },
+  "notes": {
+    "appleProviderToken": "Paste the App Store Connect campaign provider token (pt) here when available. Campaign links without pt still open the live listing but will not appear in Apple campaign reports.",
+    "googleAds": "Do not launch spend from this file. Use these campaign IDs when creating App campaigns in Google Ads after authorization.",
+    "activationEvent": "activated_user — first voyage created after onboarding. Optimize paid campaigns for this event, not raw installs."
+  },
+  "appleProviderToken": "",
+  "defaultSource": "seadays_web",
+  "campaigns": [
+    {
+      "id": "organic_nav",
+      "channel": "direct",
+      "source": "seadays_web",
+      "medium": "nav",
+      "description": "Get SeaDays in the global site header"
+    },
+    {
+      "id": "organic_hero",
+      "channel": "direct",
+      "source": "seadays_web",
+      "medium": "hero",
+      "description": "Homepage hero store badges"
+    },
+    {
+      "id": "organic_search",
+      "channel": "google_organic",
+      "source": "google",
+      "medium": "organic",
+      "description": "Organic search landing on seadays.app"
+    },
+    {
+      "id": "organic_web",
+      "channel": "direct",
+      "source": "seadays_web",
+      "medium": "web",
+      "description": "Default website download when no campaign is present"
+    },
+    {
+      "id": "homepage",
+      "channel": "qr",
+      "source": "offline",
+      "medium": "qr",
+      "description": "Printed / shared QR pointing at the homepage download flow"
+    },
+    {
+      "id": "blog",
+      "channel": "seo",
+      "source": "seadays_web",
+      "medium": "blog",
+      "description": "End-of-article download CTA"
+    },
+    {
+      "id": "ship_guide",
+      "channel": "seo",
+      "source": "seadays_web",
+      "medium": "ship_guide",
+      "description": "Cruise ship guide pages"
+    },
+    {
+      "id": "port_guide",
+      "channel": "seo",
+      "source": "seadays_web",
+      "medium": "port_guide",
+      "description": "Cruise port guide pages"
+    },
+    {
+      "id": "feature_landing",
+      "channel": "seo",
+      "source": "seadays_web",
+      "medium": "feature",
+      "description": "Cruise planner / roll call / budget feature landings"
+    },
+    {
+      "id": "hamburg_port",
+      "channel": "offline",
+      "source": "offline",
+      "medium": "qr",
+      "description": "Hamburg port / local event QR"
+    },
+    {
+      "id": "cruise_events",
+      "channel": "offline",
+      "source": "offline",
+      "medium": "qr",
+      "description": "Cruise shows and travel events"
+    },
+    {
+      "id": "print",
+      "channel": "offline",
+      "source": "offline",
+      "medium": "print",
+      "description": "Printed materials with a generic SeaDays QR"
+    },
+    {
+      "id": "instagram",
+      "channel": "instagram",
+      "source": "instagram",
+      "medium": "social",
+      "description": "Instagram profile and organic posts"
+    },
+    {
+      "id": "tiktok",
+      "channel": "tiktok",
+      "source": "tiktok",
+      "medium": "social",
+      "description": "TikTok profile and organic posts"
+    },
+    {
+      "id": "youtube_cruise_planner",
+      "channel": "youtube",
+      "source": "youtube",
+      "medium": "video",
+      "description": "YouTube / Shorts cruise planner creative"
+    },
+    {
+      "id": "organic_reddit",
+      "channel": "reddit_organic",
+      "source": "reddit",
+      "medium": "social",
+      "description": "Genuine Reddit answers that mention SeaDays when relevant"
+    },
+    {
+      "id": "reddit_cruise_planners",
+      "channel": "reddit_ads",
+      "source": "reddit",
+      "medium": "cpc",
+      "description": "Paid Reddit test: cruise planner angle. Do not launch without spend approval."
+    },
+    {
+      "id": "reddit_cruise_ports",
+      "channel": "reddit_ads",
+      "source": "reddit",
+      "medium": "cpc",
+      "description": "Paid Reddit test: port-day planning"
+    },
+    {
+      "id": "reddit_first_time_cruisers",
+      "channel": "reddit_ads",
+      "source": "reddit",
+      "medium": "cpc",
+      "description": "Paid Reddit test: first-time cruisers"
+    },
+    {
+      "id": "google_android_search",
+      "channel": "google_ads",
+      "source": "google",
+      "medium": "cpc",
+      "description": "Google App campaign — Android search / Play inventory"
+    },
+    {
+      "id": "google_android_cruise_planner",
+      "channel": "google_ads",
+      "source": "google",
+      "medium": "cpc",
+      "description": "Google App campaign — Android cruise planner, Germany first"
+    },
+    {
+      "id": "google_android_cruise_ports",
+      "channel": "google_ads",
+      "source": "google",
+      "medium": "cpc",
+      "description": "Google App campaign — Android cruise ports"
+    },
+    {
+      "id": "google_android_first_time",
+      "channel": "google_ads",
+      "source": "google",
+      "medium": "cpc",
+      "description": "Google App campaign — Android first-time cruisers"
+    },
+    {
+      "id": "google_ios_cruise_planner",
+      "channel": "google_ads",
+      "source": "google",
+      "medium": "cpc",
+      "description": "Google App campaign — iOS cruise planner. Eligible because the App Store listing is live."
+    },
+    {
+      "id": "apple_search_brand",
+      "channel": "apple_ads",
+      "source": "apple",
+      "medium": "cpc",
+      "description": "Apple Search Ads brand exact. Blocked until Apple Ads account + billing are finished."
+    },
+    {
+      "id": "apple_search_category",
+      "channel": "apple_ads",
+      "source": "apple",
+      "medium": "cpc",
+      "description": "Apple Search Ads category exact (cruise planner / port guide)."
+    }
+  ]
+}

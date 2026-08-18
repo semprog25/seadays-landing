@@ -604,6 +604,7 @@ function renderFooter() {
                             <h4>Legal</h4>
                             <ul>
                                 <li><a href="/privacy.html">Privacy</a></li>
+                                <li><a href="/security.html">Security</a></li>
                                 <li><a href="/terms.html">Terms</a></li>
                                 <li><a href="/cookies.html">Cookie Policy</a></li>
                                 <li><a href="/gdpr.html">GDPR</a></li>

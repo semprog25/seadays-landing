@@ -344,6 +344,7 @@ async function main() {
     } = require('./lib/analyticsSnippet');
     const snippet = getAnalyticsHeadHtml();
     assert.match(snippet, /<meta name="google-adsense-account" content="ca-pub-3084834499411817">/);
+    assert.match(snippet, /seadays-download\.js/);
     assert.doesNotMatch(snippet, /adsbygoogle\.js/);
     assert.doesNotMatch(snippet, /enable_page_level_ads/);
     assert.strictEqual(countAdsenseAccountMeta(snippet), 1);
