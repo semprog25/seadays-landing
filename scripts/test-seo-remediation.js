@@ -155,6 +155,10 @@ async function main() {
     assert.match(robots, /Allow: \//);
     assert.match(robots, /Sitemap: https:\/\/seadays\.app\/sitemap\.xml/);
     assert.match(robots, /Disallow: \/auth\//);
+    assert.match(robots, /Disallow: \/landing-cms/);
+    assert.match(robots, /Disallow: \/portside-articles/);
+    assert.match(robots, /Disallow: \/api\//);
+    assert.match(robots, /Disallow: \/functions\//);
     assert.doesNotMatch(robots, /Disallow: \/assets/);
   });
 
