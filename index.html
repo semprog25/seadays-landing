@@ -2159,6 +2159,211 @@ window.__SEADAYS_GA_READY__ = true;
             line-height: 1.55;
         }
 
+        /* Compact Security / Press panels — not full-viewport empty heroes.
+           Specificity must beat section.fullpage-section and section:not(.hero). */
+        section.fullpage-section.homepage-panel {
+            min-height: 0;
+            justify-content: flex-start;
+            padding: 56px 0 64px;
+            scroll-snap-stop: normal;
+        }
+        .homepage-panel .container {
+            max-width: 1080px;
+            width: 100%;
+            text-align: left;
+        }
+        .panel-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.48);
+            margin-bottom: 10px;
+        }
+        .panel-headline {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.9px;
+            line-height: 1.15;
+            color: #fff;
+            margin: 0 0 12px;
+            text-align: left;
+        }
+        .panel-copy {
+            font-size: 17px;
+            line-height: 1.65;
+            color: rgba(255, 255, 255, 0.72);
+            max-width: 560px;
+            margin: 0 0 28px;
+        }
+        .homepage-panel .panel-cta {
+            margin-top: 4px;
+        }
+        .homepage-panel .btn-secondary {
+            padding: 14px 28px;
+            font-size: 15px;
+        }
+
+        .trust-strip {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0;
+            margin: 0 0 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .trust-item {
+            text-align: left;
+            padding: 22px 22px 22px 0;
+            border: 0;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            background: transparent;
+            border-radius: 0;
+        }
+        .trust-item:last-child {
+            border-right: 0;
+            padding-right: 0;
+        }
+        .trust-item-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5a73;
+            margin-bottom: 12px;
+        }
+        .trust-item-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.75;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .trust-item h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 6px;
+        }
+        .trust-item p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        .press-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.92fr) minmax(280px, 1.08fr);
+            gap: 36px 48px;
+            align-items: center;
+        }
+        .press-panel .panel-copy {
+            margin-bottom: 24px;
+        }
+        .press-kit-stage {
+            position: relative;
+            min-height: 300px;
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at 70% 20%, rgba(255, 0, 51, 0.16), transparent 55%),
+                linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .press-kit-logo {
+            position: absolute;
+            left: 50%;
+            top: 46%;
+            width: min(248px, 56%);
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+        }
+        .press-shot {
+            position: absolute;
+            width: 38%;
+            max-width: 180px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+            background: #111;
+            object-fit: cover;
+            aspect-ratio: 9 / 16;
+        }
+        .press-shot--one {
+            left: 5%;
+            top: 12%;
+            transform: rotate(-9deg);
+            z-index: 3;
+        }
+        .press-shot--two {
+            right: 5%;
+            top: 8%;
+            width: 32%;
+            transform: rotate(8deg);
+            z-index: 1;
+        }
+        .press-shot--three {
+            right: 14%;
+            bottom: 7%;
+            width: 30%;
+            transform: rotate(4deg);
+            z-index: 3;
+        }
+        .press-app-icon {
+            position: absolute;
+            left: 18%;
+            bottom: 12%;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            z-index: 4;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        @media (max-width: 900px) {
+            .trust-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .trust-item {
+                padding: 18px 16px 18px 0;
+            }
+            .trust-item:nth-child(2n) {
+                border-right: 0;
+                padding-right: 0;
+            }
+            .trust-item:nth-child(-n+2) {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .press-panel {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .press-kit-stage {
+                min-height: 260px;
+            }
+            .panel-headline { font-size: 30px; }
+        }
+        @media (max-width: 768px) {
+            section.fullpage-section.homepage-panel { padding: 40px 0 48px; }
+            .panel-headline { font-size: 28px; }
+            .panel-copy { font-size: 16px; margin-bottom: 22px; }
+            .trust-strip { margin-bottom: 22px; }
+        }
+        @media (max-width: 520px) {
+            .trust-item {
+                padding: 16px 12px 16px 0;
+            }
+            .press-kit-stage { min-height: 220px; }
+            .press-app-icon { width: 44px; height: 44px; }
+        }
+
         /* Footer – snap target so last scroll lands here */
         footer {
             padding: 80px 0 36px;
@@ -3121,23 +3326,64 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Security & Privacy (verified claims only — see /security.html) -->
-        <section id="security-privacy" class="fullpage-section" aria-labelledby="security-privacy-title">
-            <div class="container" style="text-align:center; max-width:720px;">
-                <h2 id="security-privacy-title" class="section-title">Security &amp; Privacy</h2>
-                <p class="section-subtitle">Signed-in sessions, database access controls, and HTTPS on seadays.app. We publish only practices we have technically verified.</p>
-                <div class="community-cta-wrap">
-                    <a href="/security.html" class="btn-secondary" aria-label="Read how SeaDays protects accounts and data">How we protect your data</a>
+        <section id="security-privacy" class="fullpage-section homepage-panel" aria-labelledby="security-privacy-title">
+            <div class="container">
+                <p class="panel-eyebrow">Security &amp; Privacy</p>
+                <h2 id="security-privacy-title" class="panel-headline">Your voyage. Your data. Protected.</h2>
+                <p class="panel-copy">SeaDays uses secure authentication, access controls and encrypted connections to help protect your account and personal information.</p>
+                <div class="trust-strip">
+                    <article class="trust-item">
+                        <div class="trust-item-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                        </div>
+                        <h3>Secure accounts</h3>
+                        <p>Protected sign-in and authenticated sessions.</p>
+                    </article>
+                    <article class="trust-item">
+                        <div class="trust-item-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3.2 8.6 7 10 3.8-1.4 7-5 7-10V6l-7-3z"/></svg>
+                        </div>
+                        <h3>Private data</h3>
+                        <p>Access controls help keep personal information limited to the people who should see it.</p>
+                    </article>
+                    <article class="trust-item">
+                        <div class="trust-item-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M7 12a5 5 0 0 1 0-7l2 2"/><path d="M17 12a5 5 0 0 1 0 7l-2-2"/><path d="M8 12h8"/></svg>
+                        </div>
+                        <h3>Secure connections</h3>
+                        <p>SeaDays uses HTTPS to protect data travelling between you and seadays.app.</p>
+                    </article>
+                    <article class="trust-item">
+                        <div class="trust-item-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"/></svg>
+                        </div>
+                        <h3>Security testing</h3>
+                        <p>Security controls and application behaviour are regularly tested and reviewed.</p>
+                    </article>
+                </div>
+                <div class="panel-cta">
+                    <a href="/security.html" class="btn-secondary" aria-label="Read how SeaDays protects accounts and data">How we protect your data →</a>
                 </div>
             </div>
         </section>
 
         <!-- Press & Media (subtle homepage entry) -->
-        <section id="press-media" class="fullpage-section" aria-labelledby="press-media-title">
-            <div class="container" style="text-align:center; max-width:720px;">
-                <h2 id="press-media-title" class="section-title">Press &amp; Media</h2>
-                <p class="section-subtitle">Logos, screenshots, and brand assets for journalists, partners, and creators.</p>
-                <div class="community-cta-wrap">
-                    <a href="/press/" class="btn-secondary" aria-label="View SeaDays press kit">View Press</a>
+        <section id="press-media" class="fullpage-section homepage-panel" aria-labelledby="press-media-title">
+            <div class="container press-panel">
+                <div>
+                    <p class="panel-eyebrow">Press &amp; Media</p>
+                    <h2 id="press-media-title" class="panel-headline">SeaDays, ready for the story.</h2>
+                    <p class="panel-copy">Logos, screenshots and brand assets for journalists, partners and creators.</p>
+                    <div class="panel-cta">
+                        <a href="/press/" class="btn-secondary" aria-label="View SeaDays press kit">View Press →</a>
+                    </div>
+                </div>
+                <div class="press-kit-stage" aria-hidden="true">
+                    <img class="press-shot press-shot--one" src="/press/screenshots/seadays-feature-voyage-analytics-dashboard.png" alt="" width="180" height="320" loading="lazy" decoding="async">
+                    <img class="press-shot press-shot--two" src="/press/screenshots/seadays-feature-discover-ships-ports.png" alt="" width="160" height="284" loading="lazy" decoding="async">
+                    <img class="press-shot press-shot--three" src="/press/screenshots/seadays-feature-cruise-roll-calls.png" alt="" width="150" height="266" loading="lazy" decoding="async">
+                    <img class="press-kit-logo" src="/press/logos/seadays-logo-light.png" alt="" width="220" height="49" loading="lazy" decoding="async">
+                    <img class="press-app-icon" src="/press/icons/seadays-app-icon-1024.png" alt="" width="56" height="56" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
