@@ -104,6 +104,20 @@ test('shared footer is a stacking context above decorative layers', () => {
   assert.doesNotMatch(footerBlock[0], /scroll-snap-align:\s*start/);
 });
 
+test('shared footer owns .container width so download/legal pages cannot leak page layout', () => {
+  const css = getSiteShellCss();
+  const containerBlock = css.match(
+    /footer:has\(\.footer-shell\) > \.container,[\s\S]*?footer\.site-footer > \.container \{[\s\S]*?\}/
+  );
+  assert.ok(containerBlock, 'footer container rule');
+  assert.match(containerBlock[0], /max-width:\s*1200px/);
+  assert.match(containerBlock[0], /padding-left:\s*max\(20px/);
+  assert.match(containerBlock[0], /padding-top:\s*0/);
+  const downloadHtml = fs.readFileSync(path.join(ROOT, 'download/index.html'), 'utf8');
+  assert.doesNotMatch(downloadHtml, /\*\s*\{\s*margin:\s*0;\s*padding:\s*0/);
+  assert.match(downloadHtml, /footer-shell/);
+});
+
 test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', () => {
   const footer = getSiteFooterHtml();
   for (const needle of [

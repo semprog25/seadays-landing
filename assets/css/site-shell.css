@@ -69,6 +69,25 @@ footer.site-footer {
 }
 
 /*
+ * Footer HTML always wraps chrome in .container. Pages like /download/ never
+ * define that class, so columns sat flush to the viewport. Company pages reuse
+ * .container for article width (900px + extra padding), which also leaked in.
+ * Own the inner width here so every public footer matches homepage chrome.
+ */
+footer:has(.footer-shell) > .container,
+footer.site-footer > .container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+  box-sizing: border-box;
+}
+
+/*
  * Inner pages: starfield/grid are position:fixed; z-index:0/1.
  * A static footer as a body sibling paints UNDER those layers, so visitors
  * see a blank starfield where the footer occupies layout space.
