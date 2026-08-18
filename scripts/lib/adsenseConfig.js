@@ -51,6 +51,15 @@ function getAdsTxtFileContents() {
   return `${line}\n`;
 }
 
+/**
+ * Official AdSense site/account association tag.
+ * This is verification only — it does not load adsbygoogle.js or Auto Ads.
+ */
+function getAdsenseAccountMetaHtml() {
+  if (!/^ca-pub-\d{10,}$/.test(ADSENSE_CLIENT_ID)) return '';
+  return `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">`;
+}
+
 module.exports = {
   ADSENSE_CLIENT_ID,
   ADSENSE_ARTICLE_MID_SLOT,
@@ -59,4 +68,5 @@ module.exports = {
   getPublisherIdForAdsTxt,
   getAdsTxtLine,
   getAdsTxtFileContents,
+  getAdsenseAccountMetaHtml,
 };

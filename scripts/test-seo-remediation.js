@@ -218,6 +218,48 @@ async function main() {
     }
   });
 
+  test('ads.txt is the authorized Google publisher line', () => {
+    const adsTxt = fs.readFileSync(path.join(root, 'ads.txt'), 'utf8');
+    assert.strictEqual(adsTxt.trim(), 'google.com, pub-3084834499411817, DIRECT, f08c47fec0942fa0');
+  });
+
+  test('shared head snippet associates AdSense without loading ads', () => {
+    const {
+      getAnalyticsHeadHtml,
+      injectAnalyticsHead,
+      countAdsenseAccountMeta,
+    } = require('./lib/analyticsSnippet');
+    const snippet = getAnalyticsHeadHtml();
+    assert.match(snippet, /<meta name="google-adsense-account" content="ca-pub-3084834499411817">/);
+    assert.doesNotMatch(snippet, /adsbygoogle\.js/);
+    assert.doesNotMatch(snippet, /enable_page_level_ads/);
+    assert.strictEqual(countAdsenseAccountMeta(snippet), 1);
+
+    const once = injectAnalyticsHead('<head><meta charset="UTF-8"></head>');
+    const twice = injectAnalyticsHead(once);
+    assert.strictEqual(twice, once);
+    assert.strictEqual(countAdsenseAccountMeta(once), 1);
+    assert.doesNotMatch(once, /adsbygoogle\.js/);
+  });
+
+  test('public pages carry exactly one AdSense account meta', () => {
+    const files = [
+      'index.html',
+      'blog/index.html',
+      'ships/index.html',
+      'ships/aidacosma/index.html',
+      'ports/barcelona-spain/index.html',
+      'blog/complete-guide-to-budget-cruise-vs-luxury-cruise/index.html',
+    ];
+    for (const rel of files) {
+      const html = fs.readFileSync(path.join(root, rel), 'utf8');
+      const matches = html.match(/<meta\s+name=["']google-adsense-account["'][^>]*>/gi) || [];
+      assert.strictEqual(matches.length, 1, `${rel} adsense meta count ${matches.length}`);
+      assert.match(matches[0], /content=["']ca-pub-3084834499411817["']/);
+      assert.doesNotMatch(html, /enable_page_level_ads/);
+    }
+  });
+
   console.log('seo-remediation tests passed');
 }
 
