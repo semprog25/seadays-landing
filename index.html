@@ -1642,8 +1642,18 @@ window.__SEADAYS_GA_READY__ = true;
             .journey-visual {
                 order: -1;
                 aspect-ratio: 16 / 9;
-                max-height: 168px;
+                width: 100%;
+                max-height: none;
                 min-height: 0;
+                height: auto;
+            }
+            .journey-visual-card--plan,
+            .journey-visual-card--connect,
+            .journey-visual-card--remember,
+            .journey-visual-card--discover,
+            .journey-visual-card--track {
+                background-size: contain;
+                background-position: center;
             }
             .journey-visual-card {
                 min-height: 0;
@@ -1688,8 +1698,8 @@ window.__SEADAYS_GA_READY__ = true;
             .journey-tab-label { font-size: 10px; letter-spacing: 0.12em; }
             .journey-visual {
                 border-radius: 12px;
-                aspect-ratio: 2 / 1;
-                max-height: 148px;
+                aspect-ratio: 16 / 9;
+                max-height: none;
             }
             .journey-visual-card { padding: 14px; }
             .journey-visual-card strong { font-size: 18px; }
@@ -2628,10 +2638,46 @@ window.__SEADAYS_GA_READY__ = true;
             .press-panel,
             #homepage-faq.fullpage-section > .container.faq-panel {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 16px;
             }
-            .faq-intro { padding: 0; justify-content: flex-start; }
-            .faq-intro .panel-copy { max-width: none; margin: 0 0 18px; }
+            #homepage-faq.fullpage-section > .container.faq-panel {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                height: 100%;
+            }
+            #homepage-faq .faq-intro {
+                padding: 0;
+                justify-content: flex-start;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                max-width: 36rem;
+                flex: 0 0 auto;
+            }
+            #homepage-faq .panel-headline,
+            #homepage-faq .panel-copy,
+            #homepage-faq .panel-eyebrow {
+                text-align: center;
+            }
+            .faq-intro .panel-copy {
+                max-width: 34ch;
+                margin: 10px auto 14px;
+            }
+            .faq-intro-links {
+                justify-content: center;
+            }
+            #homepage-faq .homepage-faq-list {
+                width: 100%;
+                max-width: 36rem;
+                flex: 0 1 auto;
+                min-height: 0;
+                max-height: calc(100% - 9rem);
+                text-align: left;
+                padding-right: 8px;
+            }
             .press-panel {
                 grid-template-areas:
                     "copy"
@@ -2663,7 +2709,8 @@ window.__SEADAYS_GA_READY__ = true;
             .panel-headline { font-size: 28px; }
             .panel-copy { font-size: 16px; margin-bottom: 22px; }
             .trust-strip { margin-bottom: 22px; }
-            .homepage-faq-list summary { font-size: 15px; min-height: 48px; }
+            .homepage-faq-list summary { font-size: 15px; min-height: 44px; padding: 11px 8px 11px 0; }
+            #homepage-faq .panel-headline { font-size: 26px; }
         }
         @media (max-width: 520px) {
             .trust-item {
