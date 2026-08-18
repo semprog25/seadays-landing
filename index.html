@@ -122,18 +122,58 @@ window.__SEADAYS_GA_READY__ = true;
             },
             {
               "@type": "Question",
-              "name": "How do cruise roll calls work on SeaDays?",
+              "name": "Is SeaDays free?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Find your ship and sailing date, join the roll call for your voyage, introduce yourself, and chat with other guests before and during the cruise."
+                "text": "SeaDays is free to download on iPhone and Android. A free tier includes basic cruise tracking, XP, and community access. Optional paid plans in the App Store and Google Play unlock more saved trips, ad-free browsing, Roll Call access, and additional planning tools."
               }
             },
             {
               "@type": "Question",
-              "name": "Is SeaDays free?",
+              "name": "What can I do with SeaDays?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "SeaDays is free to download on iOS and Android with core cruise planning, roll call, and community features."
+                "text": "Plan itineraries, browse ship and port guides, track expenses, keep a Cruise Passport, and use community tools such as roll calls, reviews, and crew chat."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do cruise roll calls work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Find your ship and sailing date, join the roll call for that voyage, introduce yourself, and chat with other guests before and during the cruise. Roll Call access is included on paid plans."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use SeaDays before my cruise?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can plan your itinerary, browse ships and ports, and connect with fellow guests before embarkation, then keep using SeaDays during the voyage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does SeaDays work on iPhone and Android?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. SeaDays is a native iPhone app on the App Store and a native Android app on Google Play, and it is available in 11 languages."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my personal information protected?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SeaDays uses secure authentication, access controls, and HTTPS to help protect your account and personal information. Details are on the Security and Privacy pages."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I contact SeaDays?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Email support@seadays.app or use the Contact page. The Help Center covers common account and app questions."
               }
             }
           ]
@@ -189,6 +229,18 @@ window.__SEADAYS_GA_READY__ = true;
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
+        }
+
+        #cruise-planning-tools,
+        #blog,
+        #featured-tools,
+        #cruise-passport,
+        #community,
+        #homepage-faq,
+        #security-privacy,
+        #press-media,
+        #download {
+            scroll-margin-top: 24px;
         }
 
         body {
@@ -2138,37 +2190,16 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .feature-modal .modal-close:hover { color: white; }
 
-        .homepage-faq-list { margin-top: 28px; display: grid; gap: 12px; text-align: left; }
-        .homepage-faq-list details {
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 14px;
-            padding: 14px 18px;
-            background: rgba(255,255,255,0.04);
-        }
-        .homepage-faq-list summary {
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 17px;
-            color: #fff;
-            list-style: none;
-        }
-        .homepage-faq-list summary::-webkit-details-marker { display: none; }
-        .homepage-faq-list details p {
-            margin: 10px 0 0;
-            color: rgba(255,255,255,0.78);
-            line-height: 1.55;
-        }
-
-        /* Compact Security / Press panels — not full-viewport empty heroes.
+        /* Closing chapters: FAQ, Security, Press — same grid, no 100vh empty heroes.
            Specificity must beat section.fullpage-section and section:not(.hero). */
-        section.fullpage-section.homepage-panel {
+        section.fullpage-section.story-band {
             min-height: 0;
             justify-content: flex-start;
-            padding: 56px 0 64px;
+            padding: 72px 0 80px;
             scroll-snap-stop: normal;
         }
-        .homepage-panel .container {
-            max-width: 1080px;
+        .story-band .container {
+            max-width: 1200px;
             width: 100%;
             text-align: left;
         }
@@ -2197,12 +2228,95 @@ window.__SEADAYS_GA_READY__ = true;
             max-width: 560px;
             margin: 0 0 28px;
         }
-        .homepage-panel .panel-cta {
+        .story-band .panel-cta {
             margin-top: 4px;
         }
-        .homepage-panel .btn-secondary {
+        .story-band .btn-secondary {
             padding: 14px 28px;
             font-size: 15px;
+        }
+        .faq-intro-links,
+        .faq-intro-links a,
+        .homepage-faq-list a {
+            color: #ff5a73;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .faq-intro-links a:hover,
+        .homepage-faq-list a:hover {
+            text-decoration: underline;
+        }
+        .faq-intro-links {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            font-size: 15px;
+        }
+
+        .faq-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+            gap: 36px 56px;
+            align-items: start;
+        }
+        .faq-panel .panel-copy {
+            margin-bottom: 18px;
+        }
+        .homepage-faq-list {
+            margin: 0;
+            display: grid;
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .homepage-faq-list details {
+            border: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0;
+            padding: 0;
+            background: transparent;
+        }
+        .homepage-faq-list summary {
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            color: #fff;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            min-height: 52px;
+            padding: 14px 0;
+        }
+        .homepage-faq-list summary::-webkit-details-marker { display: none; }
+        .homepage-faq-list summary:focus-visible {
+            outline: 2px solid #ff5a73;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+        .homepage-faq-list summary::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-right: 1.5px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+            transform: rotate(45deg);
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+        .homepage-faq-list details[open] summary::after {
+            transform: rotate(225deg);
+            margin-top: 6px;
+        }
+        .homepage-faq-list details p {
+            margin: 0;
+            padding: 0 28px 16px 0;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .homepage-faq-list summary::after { transition: none; }
         }
 
         .trust-strip {
@@ -2267,8 +2381,8 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .press-kit-stage {
             position: relative;
-            min-height: 300px;
-            border-radius: 24px;
+            min-height: 280px;
+            border-radius: 20px;
             background:
                 radial-gradient(ellipse at 70% 20%, rgba(255, 0, 51, 0.16), transparent 55%),
                 linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
@@ -2328,6 +2442,11 @@ window.__SEADAYS_GA_READY__ = true;
         }
 
         @media (max-width: 900px) {
+            .faq-panel,
+            .press-panel {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
             .trust-strip {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
@@ -2341,20 +2460,17 @@ window.__SEADAYS_GA_READY__ = true;
             .trust-item:nth-child(-n+2) {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             }
-            .press-panel {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
             .press-kit-stage {
-                min-height: 260px;
+                min-height: 240px;
             }
             .panel-headline { font-size: 30px; }
         }
         @media (max-width: 768px) {
-            section.fullpage-section.homepage-panel { padding: 40px 0 48px; }
+            section.fullpage-section.story-band { padding: 48px 0 56px; }
             .panel-headline { font-size: 28px; }
             .panel-copy { font-size: 16px; margin-bottom: 22px; }
             .trust-strip { margin-bottom: 22px; }
+            .homepage-faq-list summary { font-size: 15px; min-height: 48px; }
         }
         @media (max-width: 520px) {
             .trust-item {
@@ -2844,6 +2960,13 @@ window.__SEADAYS_GA_READY__ = true;
             }
         }
 
+        @media (max-width: 768px) {
+            section.fullpage-section.story-band { padding: 48px 0 56px; }
+        }
+        @media (max-width: 480px) {
+            section.fullpage-section.story-band { padding: 40px 0 48px; }
+        }
+
         /* Skip link: visible only when focused (accessibility) */
         .skip-link { position: absolute; top: 0; left: -9999px; padding: 10px 16px; background: var(--dark-bg-alt); color: white; z-index: 10001; font-weight: 600; }
         .skip-link:focus { left: 0; }
@@ -2869,7 +2992,6 @@ window.__SEADAYS_GA_READY__ = true;
                 <a href="/ports/">Ports</a>
                 <a href="/blog/">Blog</a>
                 <a href="/press/">Press</a>
-                <a href="#download">Get SeaDays</a>
             </nav>
         </header>
         <!-- seadays-site-shell:header-end seadays-site-shell -->
@@ -3305,28 +3427,57 @@ window.__SEADAYS_GA_READY__ = true;
 
         
         <!-- Homepage FAQ (visible; matches FAQPage JSON-LD) -->
-        <section id="homepage-faq" class="fullpage-section" aria-labelledby="homepage-faq-title">
-            <div class="container" style="max-width:720px;">
-                <h2 id="homepage-faq-title" class="section-title">Frequently asked questions</h2>
+        <section id="homepage-faq" class="fullpage-section story-band" aria-labelledby="homepage-faq-title">
+            <div class="container faq-panel">
+                <div>
+                    <p class="panel-eyebrow">FAQ</p>
+                    <h2 id="homepage-faq-title" class="panel-headline">Frequently asked questions</h2>
+                    <p class="panel-copy">Short answers about the SeaDays app. More detail lives in Help, the full FAQ, and Privacy.</p>
+                    <p class="faq-intro-links">
+                        <a href="/help.html">Help</a>
+                        <a href="/faq.html">Full FAQ</a>
+                        <a href="/privacy.html">Privacy</a>
+                    </p>
+                </div>
                 <div class="homepage-faq-list">
-                    <details open>
+                    <details>
                         <summary>What is SeaDays?</summary>
                         <p>SeaDays is an all-in-one cruise planner and roll call app. Plan itineraries, join roll calls for your sailing, track cruise budgets, explore ships and ports, and connect with fellow cruisers.</p>
                     </details>
                     <details>
-                        <summary>How do cruise roll calls work on SeaDays?</summary>
-                        <p>Find your ship and sailing date, join the roll call for your voyage, introduce yourself, and chat with other guests before and during the cruise.</p>
+                        <summary>Is SeaDays free?</summary>
+                        <p>SeaDays is free to download on iPhone and Android. A free tier includes basic cruise tracking, XP, and community access. Optional paid plans in the App Store and Google Play unlock more saved trips, ad-free browsing, Roll Call access, and additional planning tools. See the <a href="/faq.html">full FAQ</a> for plan details.</p>
                     </details>
                     <details>
-                        <summary>Is SeaDays free?</summary>
-                        <p>SeaDays is free to download on iOS and Android with core cruise planning, roll call, and community features.</p>
+                        <summary>What can I do with SeaDays?</summary>
+                        <p>Plan itineraries, browse ship and port guides, track expenses, keep a Cruise Passport, and use community tools such as roll calls, reviews, and crew chat.</p>
+                    </details>
+                    <details>
+                        <summary>How do cruise roll calls work?</summary>
+                        <p>Find your ship and sailing date, join the roll call for that voyage, introduce yourself, and chat with other guests before and during the cruise. Roll Call access is included on paid plans.</p>
+                    </details>
+                    <details>
+                        <summary>Can I use SeaDays before my cruise?</summary>
+                        <p>Yes. You can plan your itinerary, browse ships and ports, and connect with fellow guests before embarkation, then keep using SeaDays during the voyage.</p>
+                    </details>
+                    <details>
+                        <summary>Does SeaDays work on iPhone and Android?</summary>
+                        <p>Yes. SeaDays is a native iPhone app on the <a href="https://apps.apple.com/app/id6759758357?utm_source=seadays_web&amp;utm_medium=faq&amp;utm_campaign=launch_2026">App Store</a> and a native Android app on <a href="https://play.google.com/store/apps/details?id=com.seadays.app&amp;utm_source=seadays_web&amp;utm_medium=faq&amp;utm_campaign=launch_2026">Google Play</a>, and it is available in 11 languages.</p>
+                    </details>
+                    <details>
+                        <summary>Is my personal information protected?</summary>
+                        <p>SeaDays uses secure authentication, access controls, and HTTPS to help protect your account and personal information. Read <a href="/security.html">how we protect your data</a> and our <a href="/privacy.html">Privacy Policy</a>. <a href="/terms.html">Terms</a> also apply.</p>
+                    </details>
+                    <details>
+                        <summary>How can I contact SeaDays?</summary>
+                        <p>Email <a href="mailto:support@seadays.app">support@seadays.app</a> or use the <a href="/contact.html">Contact</a> page. The <a href="/help.html">Help Center</a> covers common account and app questions.</p>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- Security & Privacy (verified claims only — see /security.html) -->
-        <section id="security-privacy" class="fullpage-section homepage-panel" aria-labelledby="security-privacy-title">
+        <section id="security-privacy" class="fullpage-section story-band" aria-labelledby="security-privacy-title">
             <div class="container">
                 <p class="panel-eyebrow">Security &amp; Privacy</p>
                 <h2 id="security-privacy-title" class="panel-headline">Your voyage. Your data. Protected.</h2>
@@ -3368,7 +3519,7 @@ window.__SEADAYS_GA_READY__ = true;
         </section>
 
         <!-- Press & Media (subtle homepage entry) -->
-        <section id="press-media" class="fullpage-section homepage-panel" aria-labelledby="press-media-title">
+        <section id="press-media" class="fullpage-section story-band" aria-labelledby="press-media-title">
             <div class="container press-panel">
                 <div>
                     <p class="panel-eyebrow">Press &amp; Media</p>

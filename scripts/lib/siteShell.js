@@ -21,22 +21,21 @@ const SITE_SHELL_MARKER_END = 'seadays-site-shell -->';
 function getSiteNavLinks(opts = {}) {
   const page = opts.page === 'home' ? 'home' : 'default';
   const featuresHref = page === 'home' ? '#cruise-planning-tools' : '/#cruise-planning-tools';
-  const downloadHref = page === 'home' ? '#download' : '/#download';
 
   // Global destinations required across the site. Homepage visual language preserved;
   // Roll Calls / Community remain in page content + footer Plan / sections.
+  // Store download CTAs live in the homepage hero; do not duplicate them in the header.
   return [
     { href: featuresHref, label: 'Features' },
     { href: '/ships/', label: 'Ships' },
     { href: '/ports/', label: 'Ports' },
     { href: '/blog/', label: 'Blog' },
     { href: '/press/', label: 'Press' },
-    { href: downloadHref, label: 'Get SeaDays' },
   ];
 }
 
 /**
- * Homepage-faithful top nav. Ships/Ports/Press/Get SeaDays added for global discoverability.
+ * Homepage-faithful top nav. Ships/Ports/Press added for global discoverability.
  * Roll Calls remains in footer Plan links (and on homepage content).
  * @param {{ page?: SiteShellPage }} [opts]
  */
