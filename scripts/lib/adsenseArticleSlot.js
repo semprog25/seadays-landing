@@ -105,8 +105,8 @@ function buildAdSlotHtml(clientId, slotId) {
  */
 function getAdSlotCss() {
   return `
-.article-body aside.${AD_SLOT_CLASS}{margin:28px 0;padding:0;border:0;border-radius:0;background:transparent;min-height:0;overflow:hidden;}
-.article-body aside.${AD_SLOT_CLASS}.seadays-ad-slot--ready{min-height:250px;}
+.article-body aside.${AD_SLOT_CLASS}{display:none;margin:0;padding:0;border:0;border-radius:0;background:transparent;min-height:0;overflow:hidden;}
+.article-body aside.${AD_SLOT_CLASS}.seadays-ad-slot--ready{display:block;margin:28px 0;min-height:250px;}
 .article-body aside.${AD_SLOT_CLASS}.seadays-ad-slot--inactive{display:none;min-height:0;margin:0;}
 .article-body aside.${AD_SLOT_CLASS} .adsbygoogle{display:block;min-height:0;}
 .article-body aside.${AD_SLOT_CLASS}.seadays-ad-slot--ready .adsbygoogle{min-height:90px;}

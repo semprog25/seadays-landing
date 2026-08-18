@@ -35,6 +35,26 @@ header.header.site-header .header-nav a:hover {
   text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
 }
 
+/* Get SeaDays is a download CTA, not a content destination. Campaign URLs stay on /download/. */
+header.header.site-header .header-nav a[href*="/download/"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 0, 51, 0.18);
+  border: 1px solid rgba(255, 0, 51, 0.45);
+  color: #fff;
+  font-weight: 700;
+}
+header.header.site-header .header-nav a[href*="/download/"]:hover {
+  color: #fff;
+  background: rgba(255, 0, 51, 0.32);
+  border-color: rgba(255, 0, 51, 0.7);
+  text-shadow: none;
+}
+
 footer:has(.footer-shell),
 footer.site-footer {
   padding: 80px 0 36px;
@@ -42,7 +62,7 @@ footer.site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   text-align: left;
   background: #050505;
-  scroll-snap-align: start;
+  scroll-snap-align: none;
 }
 
 .footer-shell {
@@ -238,8 +258,9 @@ footer.site-footer {
 }
 
 @media (max-width: 480px) {
-  /* Match homepage: hide top nav on small phones; footer is the mobile IA */
+  /* Match homepage: hide text nav on small phones; keep Get SeaDays as a CTA */
   header.header.site-header .header-nav a { display: none; }
+  header.header.site-header .header-nav a[href*="/download/"] { display: inline-flex; }
   footer:has(.footer-shell),
   footer.site-footer {
     padding: 40px 0 24px;
@@ -257,4 +278,12 @@ footer.site-footer {
     gap: 28px;
   }
   .footer-shell .footer-section--legal { grid-column: auto; }
+}
+
+/* AdSense: occupy no layout until consent marks the slot ready. */
+.article-body aside.seadays-ad-slot:not(.seadays-ad-slot--ready) {
+  display: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
 }

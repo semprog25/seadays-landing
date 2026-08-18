@@ -1,10 +1,19 @@
 /* Dedicated /download/ page. Reuses SeaDays dark + neon red. */
 .download-page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background: #0a0a0a;
   color: #fff;
+}
+
+.download-page .content-layer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .download-main {

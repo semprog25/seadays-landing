@@ -754,7 +754,6 @@ function renderPage() {
     renderMediaCoverage(),
     renderFaq(),
     renderLegal(),
-    renderFooter(),
     lightboxMarkup(),
   ].join('');
 }

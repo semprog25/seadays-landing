@@ -159,7 +159,7 @@ function applyHomepage() {
   if (!/id="press-media"/.test(html)) {
     const pressSection = `
         <!-- Press & Media (subtle homepage entry) -->
-        <section id="press-media" class="fullpage-section" aria-labelledby="press-media-title">
+        <section id="press-media" class="fullpage-section story-band band-stars" aria-labelledby="press-media-title">
             <div class="container" style="text-align:center; max-width:720px;">
                 <h2 id="press-media-title" class="section-title">Press &amp; Media</h2>
                 <p class="section-subtitle">Logos, screenshots, and brand assets for journalists, partners, and creators.</p>
@@ -172,6 +172,13 @@ function applyHomepage() {
     html = html.replace(
       /(\s*)(<!-- Footer -->)/,
       `$1${pressSection}\n$1$2`
+    );
+  }
+
+  if (!/class="site-close"/.test(html) && /id="press-media"/.test(html)) {
+    html = html.replace(
+      /(\s*)(<!-- Press & Media[\s\S]*?<!-- seadays-site-shell:footer-end seadays-site-shell -->)/,
+      `$1<div class="site-close">\n$2\n        </div>`
     );
   }
 
@@ -218,6 +225,11 @@ function applyPress() {
     const before = html;
     html = ensureSiteShellCssLink(html);
     html = replaceSiteHeaderInHtml(html, { page: 'default' });
+    if (!/seadays-site-shell:footer/.test(html) && !/<footer\b/i.test(html)) {
+      html = html.replace(/<\/body>/i, `${getSiteFooterHtml()}\n</body>`);
+    } else {
+      html = replaceSiteFooterInHtml(html);
+    }
     // Press page-local anchors (Assets / Guides) move into in-page content; global shell owns top nav.
     if (html !== before) {
       if (!DRY_RUN) fs.writeFileSync(indexPath, html);

@@ -2341,6 +2341,28 @@ window.__SEADAYS_GA_READY__ = true;
             box-sizing: border-box;
             overflow: hidden;
         }
+        /* Closing pane: Press + footer share one viewport. Footer is not its own
+           mandatory snap page (that left a full screen of empty space under a short footer). */
+        .site-close {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            box-sizing: border-box;
+        }
+        #press-media.fullpage-section.story-band {
+            min-height: 0;
+            height: auto;
+            max-height: none;
+            justify-content: flex-start;
+            padding: 48px 0 20px;
+            overflow: visible;
+            scroll-snap-align: none;
+            scroll-snap-stop: normal;
+        }
         .story-band .container {
             max-width: 1200px;
             width: 100%;
@@ -2721,14 +2743,14 @@ window.__SEADAYS_GA_READY__ = true;
             }
         }
 
-        /* Footer – snap target so last scroll lands here */
+        /* Footer – part of .site-close, not a separate 100vh snap page */
         footer {
             padding: 80px 0 36px;
             margin-top: 0;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
             text-align: left;
             background: #050505;
-            scroll-snap-align: start;
+            scroll-snap-align: none;
         }
         .footer-shell {
             display: grid;
@@ -3779,6 +3801,7 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
         </section>
 
+        <div class="site-close">
         <!-- Press & Media (subtle homepage entry) -->
         <section id="press-media" class="fullpage-section story-band band-stars" aria-labelledby="press-media-title">
             <div class="container press-panel">
@@ -3879,6 +3902,7 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
         </footer>
         <!-- seadays-site-shell:footer-end seadays-site-shell -->
+        </div>
     </main>
 
     <script>
