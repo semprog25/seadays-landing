@@ -25,3 +25,7 @@ if [[ "${CHANNEL}" == "ports" || "${CHANNEL}" == "ships" || "${CHANNEL}" == "cat
   npm run fix-featured-guide-thumbnails
   node scripts/guard-featured-thumbs.js
 fi
+
+echo "[ci-run-channel] restore acquisition download CTAs"
+node scripts/rewrite-download-ctas.js
+node scripts/inject-analytics-head.js
