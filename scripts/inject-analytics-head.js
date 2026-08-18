@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Inject shared GA4 + Consent Mode head snippet into existing static HTML.
+ * Also ensures the AdSense account meta (verification only, no ad script).
  * Used so generated pages get analytics without a full Supabase regenerate.
  * Generators also embed the same snippet for future builds.
  *
