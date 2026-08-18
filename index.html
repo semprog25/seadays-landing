@@ -2190,13 +2190,15 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .feature-modal .modal-close:hover { color: white; }
 
-        /* Closing chapters: FAQ, Security, Press — same grid, no 100vh empty heroes.
-           Specificity must beat section.fullpage-section and section:not(.hero). */
+        /* FAQ, Security, Press — same full-viewport snap pages as the sections above. */
         section.fullpage-section.story-band {
-            min-height: 0;
-            justify-content: flex-start;
-            padding: 72px 0 80px;
-            scroll-snap-stop: normal;
+            min-height: 100vh;
+            min-height: 100dvh;
+            justify-content: center;
+            padding: 80px 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            box-sizing: border-box;
         }
         .story-band .container {
             max-width: 1200px;
@@ -2442,7 +2444,6 @@ window.__SEADAYS_GA_READY__ = true;
             .panel-headline { font-size: 30px; }
         }
         @media (max-width: 768px) {
-            section.fullpage-section.story-band { padding: 48px 0 56px; }
             .panel-headline { font-size: 28px; }
             .panel-copy { font-size: 16px; margin-bottom: 22px; }
             .trust-strip { margin-bottom: 22px; }
@@ -2935,10 +2936,10 @@ window.__SEADAYS_GA_READY__ = true;
         }
 
         @media (max-width: 768px) {
-            section.fullpage-section.story-band { padding: 48px 0 56px; }
+            section.fullpage-section.story-band { padding: 48px 0; }
         }
         @media (max-width: 480px) {
-            section.fullpage-section.story-band { padding: 40px 0 48px; }
+            section.fullpage-section.story-band { padding: 40px 0; }
         }
 
         /* Skip link: visible only when focused (accessibility) */
