@@ -823,9 +823,6 @@ function buildPortsDirectoryClientScript() {
  */
 function buildPortsIndexHtml(opts) {
   const BASE_URL = opts.baseUrl || 'https://seadays.app';
-  const DEFAULT_FAVICON =
-    opts.defaultFavicon ||
-    'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
   const INDEX_STYLES = opts.indexStyles || '';
   const analyticsHeadHtml = opts.analyticsHeadHtml || '';
   const runtimeGuardScript = opts.runtimeGuardScript || '';
@@ -870,12 +867,16 @@ ${getFaviconHeadHtml()}
   <meta property="og:url" content="${canonical}">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(desc)}">
-  <meta property="og:image" content="${DEFAULT_FAVICON}">
+  <meta property="og:image" content="https://seadays.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="SeaDays — plan your cruise in one app">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="${canonical}">
   <meta property="twitter:title" content="${escapeHtml(title)}">
   <meta property="twitter:description" content="${escapeHtml(desc)}">
-  <meta property="twitter:image" content="${DEFAULT_FAVICON}">
+  <meta property="twitter:image" content="https://seadays.app/og-image.png">
   <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',

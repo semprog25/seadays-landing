@@ -22,6 +22,7 @@ gtag('config', 'G-WSQDQ33QZD');
 window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://auth.seadays.app https://soqkgrfzluewpuiguypm.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com; connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co https://auth.seadays.app https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://soqkgrfzluewpuiguypm.supabase.co; upgrade-insecure-requests">
 
 
 
@@ -49,8 +50,7 @@ window.__SEADAYS_GA_READY__ = true;
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <title>SeaDays – Cruise Planner in 11 Languages</title>
-    <meta name="description" content="Plan your cruise in one app — ship &amp; port guides, packing, expenses, Cruise Passport, drink tracker, and crew tools. Free on iOS &amp; Android. Available in 11 languages.">
-    <meta name="keywords" content="cruise planner app, cruise planning app, cruise packing list, cruise expense tracker, cruise port guide, cruise ship guide, cruise passport, cruise roll call, drink tracker cruise, multilingual cruise app">
+    <meta name="description" content="Plan your cruise in one app: ship and port guides, packing, expenses, Cruise Passport, and crew tools. Free on iOS and Android, in 11 languages.">
     <meta name="author" content="SeaDays">
 
     <!-- Open Graph -->
@@ -59,6 +59,12 @@ window.__SEADAYS_GA_READY__ = true;
     <meta property="og:title" content="SeaDays – Plan Your Cruise in One App">
     <meta property="og:description" content="Ship &amp; port guides, packing, expenses, Cruise Passport, and crew tools — in 11 languages. Free on iOS &amp; Android.">
     <meta property="og:image" content="https://seadays.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="SeaDays — plan your cruise in one app">
+    <meta property="og:site_name" content="SeaDays">
+    <meta property="og:locale" content="en_US">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -74,9 +80,10 @@ window.__SEADAYS_GA_READY__ = true;
       "@graph": [
         {
           "@type": "Organization",
+          "@id": "https://seadays.app/#organization",
           "name": "SeaDays",
           "url": "https://seadays.app/",
-          "logo": "https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png",
+          "logo": "https://seadays.app/logo.png",
           "sameAs": [
             "https://www.instagram.com/seadaysapp/",
             "https://www.tiktok.com/@seadaysapp"
@@ -84,10 +91,12 @@ window.__SEADAYS_GA_READY__ = true;
         },
         {
           "@type": "WebSite",
+          "@id": "https://seadays.app/#website",
           "name": "SeaDays",
           "url": "https://seadays.app/",
           "description": "The modern all-in-one cruise planner and roll call app for cruise passengers.",
-          "publisher": { "@id": "https://seadays.app/#organization" }
+          "publisher": { "@id": "https://seadays.app/#organization" },
+          "inLanguage": "en"
         },
         {
           "@type": "MobileApplication",
@@ -133,12 +142,9 @@ window.__SEADAYS_GA_READY__ = true;
     </script>
 
     <!--
-    Recommended HTTP security headers (set on server / CDN):
-    Content-Security-Policy: default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co; frame-ancestors 'none';
-    Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-    X-Frame-Options: DENY
-    X-Content-Type-Options: nosniff
-    Referrer-Policy: strict-origin-when-cross-origin
+    HTTP security headers cannot be set by GitHub Pages (this host). Meta CSP
+    above is a partial browser control; it cannot set HSTS, X-Frame-Options, or
+    CSP frame-ancestors. See docs/SEADAYS_APP_SECURITY_HEADERS.md for CDN config.
     -->
     
     <style>
@@ -2131,6 +2137,27 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .feature-modal .modal-close:hover { color: white; }
 
+        .homepage-faq-list { margin-top: 28px; display: grid; gap: 12px; text-align: left; }
+        .homepage-faq-list details {
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
+            padding: 14px 18px;
+            background: rgba(255,255,255,0.04);
+        }
+        .homepage-faq-list summary {
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 17px;
+            color: #fff;
+            list-style: none;
+        }
+        .homepage-faq-list summary::-webkit-details-marker { display: none; }
+        .homepage-faq-list details p {
+            margin: 10px 0 0;
+            color: rgba(255,255,255,0.78);
+            line-height: 1.55;
+        }
+
         /* Footer – snap target so last scroll lands here */
         footer {
             padding: 80px 0 36px;
@@ -2146,7 +2173,9 @@ window.__SEADAYS_GA_READY__ = true;
             gap: 48px 48px;
             margin-bottom: 44px;
             align-items: start;
+            width: 100%;
         }
+        .footer-shell > * { min-width: 0; }
         .footer-brand { max-width: 340px; }
         .footer-brand-logo {
             display: inline-block;
@@ -2191,12 +2220,13 @@ window.__SEADAYS_GA_READY__ = true;
             align-items: center;
         }
         .footer-social a:hover { color: var(--neon-red); }
-        .footer-content {
+        .footer-shell .footer-content {
             display: grid;
             grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 28px 16px;
             text-align: left;
             min-width: 0;
+            width: 100%;
         }
         .footer-section h4 {
             margin-bottom: 16px;
@@ -2237,7 +2267,7 @@ window.__SEADAYS_GA_READY__ = true;
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            .footer-content {
+            .footer-shell .footer-content {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 28px 24px;
             }
@@ -2432,7 +2462,7 @@ window.__SEADAYS_GA_READY__ = true;
                 gap: 12px 16px;
                 justify-content: center;
             }
-            .footer-content {
+            .footer-shell .footer-content {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 32px 20px;
                 text-align: center;
@@ -2583,7 +2613,7 @@ window.__SEADAYS_GA_READY__ = true;
             .store-badge { min-width: 120px; padding: 14px 16px; min-height: 44px; }
             .hero-store-badges { flex-direction: column; align-items: center; margin-top: 28px; }
             footer { padding: 40px 0 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
-            .footer-content { gap: 28px 14px; }
+            .footer-shell .footer-content { gap: 28px 14px; }
             .footer-section a { font-size: 13px; }
             .footer-mobile-brand { margin-top: 24px; }
             .footer-logo-mobile img { height: 32px; }
@@ -2599,11 +2629,11 @@ window.__SEADAYS_GA_READY__ = true;
             .blog-card-excerpt { font-size: 13px; }
         }
         @media (max-width: 360px) {
-            .footer-content {
+            .footer-shell .footer-content {
                 grid-template-columns: 1fr;
                 gap: 28px;
             }
-            .footer-section--legal {
+            .footer-shell .footer-section--legal {
                 grid-column: auto;
             }
         }
@@ -2641,7 +2671,7 @@ window.__SEADAYS_GA_READY__ = true;
         <!-- Fullscreen Hero Section -->
         <section class="hero fullpage-section" id="home">
             <div class="hero-content">
-                <img src="https://soqkgrfzluewpuiguypm.supabase.co/storage/v1/object/sign/seadays_storage/seadays.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV80MTZlZmJjMy0xODA3LTRjNDItYjI4MC1mZTA1NmI4ZDlkZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzZWFkYXlzX3N0b3JhZ2Uvc2VhZGF5cy5wbmciLCJpYXQiOjE3NjQ1MDQ1MDksImV4cCI6MzM0MTMwNDUwOX0.a2MNa3URA45R2fBVpue2apFr6K_uRZXTVbyLS-i0Hbk" alt="SeaDays – Cruise Planner and Roll Call App" class="hero-logo" width="360" height="auto" decoding="async" fetchpriority="high">
+                <img src="/logo.png" alt="SeaDays – Cruise Planner and Roll Call App" class="hero-logo" width="360" height="80" decoding="async" fetchpriority="high">
                 
                 <h1 class="tagline">Plan Your Cruise in One App</h1>
                 <p class="subtitle">Ship &amp; port guides, packing, expenses, Cruise Passport, and crew tools — free on iOS &amp; Android, in 11 languages.</p>
@@ -3068,6 +3098,38 @@ window.__SEADAYS_GA_READY__ = true;
         </div>
 
         
+        <!-- Homepage FAQ (visible; matches FAQPage JSON-LD) -->
+        <section id="homepage-faq" class="fullpage-section" aria-labelledby="homepage-faq-title">
+            <div class="container" style="max-width:720px;">
+                <h2 id="homepage-faq-title" class="section-title">Frequently asked questions</h2>
+                <div class="homepage-faq-list">
+                    <details open>
+                        <summary>What is SeaDays?</summary>
+                        <p>SeaDays is an all-in-one cruise planner and roll call app. Plan itineraries, join roll calls for your sailing, track cruise budgets, explore ships and ports, and connect with fellow cruisers.</p>
+                    </details>
+                    <details>
+                        <summary>How do cruise roll calls work on SeaDays?</summary>
+                        <p>Find your ship and sailing date, join the roll call for your voyage, introduce yourself, and chat with other guests before and during the cruise.</p>
+                    </details>
+                    <details>
+                        <summary>Is SeaDays free?</summary>
+                        <p>SeaDays is free to download on iOS and Android with core cruise planning, roll call, and community features.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security & Privacy (verified claims only — see /security.html) -->
+        <section id="security-privacy" class="fullpage-section" aria-labelledby="security-privacy-title">
+            <div class="container" style="text-align:center; max-width:720px;">
+                <h2 id="security-privacy-title" class="section-title">Security &amp; Privacy</h2>
+                <p class="section-subtitle">Signed-in sessions, database access controls, and HTTPS on seadays.app. We publish only practices we have technically verified.</p>
+                <div class="community-cta-wrap">
+                    <a href="/security.html" class="btn-secondary" aria-label="Read how SeaDays protects accounts and data">How we protect your data</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Press & Media (subtle homepage entry) -->
         <section id="press-media" class="fullpage-section" aria-labelledby="press-media-title">
             <div class="container" style="text-align:center; max-width:720px;">
@@ -3166,7 +3228,7 @@ window.__SEADAYS_GA_READY__ = true;
         // Generate animated starfield with simple particles
         function createStarfield() {
             const starfield = document.getElementById('starfield');
-            const starCount = 150;
+            const starCount = 40;
             
             // Create simple dot particles
             for (let i = 0; i < starCount; i++) {
@@ -3609,6 +3671,29 @@ window.__SEADAYS_GA_READY__ = true;
                     grid.style.display = 'none';
                     if (empty) empty.style.display = 'block';
                 }
+                function escapeHtml(s) {
+                    return String(s)
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;');
+                }
+                function safeHttpsUrl(url, fallback) {
+                    try {
+                        var u = new URL(String(url || ''), 'https://seadays.app');
+                        if (u.protocol !== 'https:') return fallback;
+                        var host = u.hostname;
+                        if (
+                            host === 'seadays.app' ||
+                            host === 'auth.seadays.app' ||
+                            host === 'soqkgrfzluewpuiguypm.supabase.co' ||
+                            host.endsWith('.supabase.co')
+                        ) {
+                            return u.href;
+                        }
+                    } catch (e) {}
+                    return fallback;
+                }
                 fetch(EDGE + '/portside-articles?limit=100&forWebsite=1', {
                     headers: { apikey: ANON, Authorization: 'Bearer ' + ANON }
                 })
@@ -3631,21 +3716,25 @@ window.__SEADAYS_GA_READY__ = true;
                         grid.innerHTML = articles
                             .map(function (a) {
                                 var slug = String(a.slug || '').trim() || 'post';
-                                var img = String(a.thumbnailUrl || a.heroImageUrl || '').trim() || FB;
-                                var title = String(a.title || 'Article').replace(/</g, '&lt;');
-                                var ex = String(a.excerpt || '')
-                                    .replace(/<[^>]+>/g, ' ')
-                                    .replace(/\s+/g, ' ')
-                                    .trim()
-                                    .slice(0, 140);
+                                var img = safeHttpsUrl(a.thumbnailUrl || a.heroImageUrl || '', FB);
+                                var title = escapeHtml(a.title || 'Article');
+                                var ex = escapeHtml(
+                                    String(a.excerpt || '')
+                                        .replace(/<[^>]+>/g, ' ')
+                                        .replace(/\s+/g, ' ')
+                                        .trim()
+                                        .slice(0, 140)
+                                );
                                 if (ex) ex += '…';
                                 return (
                                     '<a href="https://seadays.app/blog/' +
                                     encodeURIComponent(slug) +
                                     '/" class="blog-card">' +
                                     '<img class="blog-card-image" src="' +
-                                    img.replace(/"/g, '&quot;') +
-                                    '" alt="" loading="lazy" decoding="async" width="400" height="230" onerror="this.onerror=null;this.src=\'' +
+                                    escapeHtml(img) +
+                                    '" alt="' +
+                                    escapeHtml(title) +
+                                    '" loading="lazy" decoding="async" width="400" height="230" onerror="this.onerror=null;this.src=\'' +
                                     FB +
                                     '\'">' +
                                     '<div class="blog-card-body">' +

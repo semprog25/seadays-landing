@@ -4,6 +4,27 @@ Allow: /
 Disallow: /seo-admin.html
 Disallow: /waitlist-admin.html
 Disallow: /landing-page.html
+Disallow: /blog-article.html
+Disallow: /redirect.html
+Disallow: /auth/
+
+# Public content is available to major AI crawlers (same policy as User-agent: *).
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Anthropic-AI
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
 
 # Sitemap location (submit this in Google Search Console)
 Sitemap: https://seadays.app/sitemap.xml
