@@ -35,9 +35,18 @@ Do not optimize paid campaigns for installs alone.
 - Android UA → Play is the primary button on `/download/`.
 - iPhone/iPad UA → App Store is the primary button.
 - Desktop → both stores + campaign QR.
-- Campaign params (`utm_*`, `campaign`, Apple `ct`/`pt`/`mt`, Play `referrer`) are applied to **real** store URLs only.
+- Campaign params (`utm_*`, Apple `ct`/`pt`/`mt`, Play `referrer`) are applied to **real** store URLs only.
 
-Campaign taxonomy: [`data/acquisition-campaigns.json`](../../data/acquisition-campaigns.json)  
+Campaign taxonomy ([`data/acquisition-campaigns.json`](../../data/acquisition-campaigns.json)):
+
+| Surface | URL shape | Why |
+|---|---|---|
+| Header / footer / in-page CTAs | `utm_source` + `utm_medium` + `utm_campaign` | Standard analytics. `utm_campaign` **is** the SeaDays campaign id (`organic_web`, `organic_nav`, `ship_guide`, …). |
+| QR / print / bio | `?campaign={id}` only | Short payload. Same id as `utm_campaign`. |
+| Inbound compatibility | `campaign` **or** `utm_campaign` **or** `ct` | Runtime accepts all three. Do not require both. |
+
+Do not emit `utm_campaign=organic_web&campaign=organic_web` on new website links. Old duplicated URLs still resolve.
+
 URL builder: [`scripts/lib/storeLinks.js`](../../scripts/lib/storeLinks.js)  
 Runtime: [`assets/js/seadays-download.js`](../../assets/js/seadays-download.js)
 

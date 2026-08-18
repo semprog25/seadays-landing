@@ -94,6 +94,7 @@ test('canonical footer includes existing SeaDays destinations and /download/', (
     assert.match(footer, new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
   assert.match(footer, /utm_campaign=organic_web/);
+  assert.doesNotMatch(footer, /[?&]campaign=/);
 });
 
 test('ad slots occupy no layout until consent marks them ready', () => {
@@ -143,6 +144,18 @@ for (const file of publicFiles) {
 
 test('public content pages include the shared footer', () => {
   assert.deepStrictEqual(missingFooter, []);
+});
+
+test('public download hrefs do not duplicate campaign= alongside matching utm_campaign', () => {
+  const duplicates = [];
+  const pattern = /utm_campaign=([^&"'#]+)(?:&|&amp;)campaign=\1/;
+  for (const file of publicFiles) {
+    const rel = path.relative(ROOT, file);
+    const html = fs.readFileSync(file, 'utf8');
+    if (isRedirectStub(html) || isAdminOrToolPage(rel)) continue;
+    if (pattern.test(html)) duplicates.push(rel);
+  }
+  assert.deepStrictEqual(duplicates, []);
 });
 
 test('inner-page headers that include Get SeaDays still point at /download/', () => {

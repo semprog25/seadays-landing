@@ -107,18 +107,60 @@ function appStoreUrl(opts = {}) {
   return appendQuery(APP_STORE_URL, params);
 }
 
+/**
+ * Download-page URLs.
+ *
+ * Taxonomy (do not emit both identifiers with the same value):
+ * - Website chrome / CTAs: standard UTM only
+ *   /download/?utm_source=seadays_web&utm_medium=footer&utm_campaign=organic_web
+ * - Compact QR / print / bio: internal id only
+ *   /download/?campaign=hamburg_port
+ *
+ * Runtime (`seadays-download.js`) still reads campaign OR utm_campaign OR ct,
+ * so existing duplicated URLs keep working.
+ *
+ * @param {Record<string, string | boolean | undefined>} [opts]
+ */
 function downloadPagePath(opts = {}) {
   const t = normalizeTracking(opts);
-  const params = {
-    utm_source: t.source,
-    utm_medium: t.medium,
-    utm_campaign: t.campaign,
-    campaign: t.campaign,
-  };
-  if (t.content) params.utm_content = t.content;
-  if (t.term) params.utm_term = t.term;
+  const params = opts.compact
+    ? { campaign: t.campaign }
+    : {
+        utm_source: t.source,
+        utm_medium: t.medium,
+        utm_campaign: t.campaign,
+      };
+  if (!opts.compact && t.content) params.utm_content = t.content;
+  if (!opts.compact && t.term) params.utm_term = t.term;
   const url = appendQuery(`${SITE_ORIGIN}${DOWNLOAD_PATH}`, params);
   return url.replace(SITE_ORIGIN, '') || DOWNLOAD_PATH;
+}
+
+/**
+ * Drop redundant `campaign=` when it duplicates `utm_campaign=` on /download/ hrefs.
+ * Leaves compact `?campaign=` URLs (no utm_campaign) untouched.
+ * @param {string} html
+ */
+function stripRedundantCampaignParamsInHtml(html) {
+  return String(html || '').replace(
+    /href=(["'])(\/download\/\?[^"']+)\1/g,
+    (full, quote, href) => {
+      const decoded = String(href).replace(/&amp;/g, '&');
+      let url;
+      try {
+        url = new URL(decoded, SITE_ORIGIN);
+      } catch (e) {
+        return full;
+      }
+      const utm = url.searchParams.get('utm_campaign');
+      const camp = url.searchParams.get('campaign');
+      if (!utm || !camp || utm !== camp) return full;
+      url.searchParams.delete('campaign');
+      const nextPath = `${url.pathname}${url.search}`;
+      const encoded = href.indexOf('&amp;') !== -1 ? nextPath.replace(/&/g, '&amp;') : nextPath;
+      return `href=${quote}${encoded}${quote}`;
+    }
+  );
 }
 
 function downloadPageUrl(opts = {}) {
@@ -141,4 +183,5 @@ module.exports = {
   appStoreUrl,
   downloadPagePath,
   downloadPageUrl,
+  stripRedundantCampaignParamsInHtml,
 };

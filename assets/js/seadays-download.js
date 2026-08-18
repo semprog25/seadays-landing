@@ -56,6 +56,11 @@
     } catch (e) {}
   }
 
+  /**
+   * Canonical website links use utm_campaign only.
+   * Compact QR/print links use campaign only.
+   * Older duplicated URLs (both keys, same value) still work.
+   */
   function trackingFromSearch() {
     var params = new URLSearchParams(window.location.search || '');
     var campaign = params.get('campaign') || params.get('utm_campaign') || params.get('ct') || '';

@@ -34,9 +34,8 @@ function main() {
     if (!id || seen.has(id)) continue;
     seen.add(id);
     const url = downloadPageUrl({
-      source: row.source || 'seadays_web',
-      medium: row.medium || 'qr',
       campaign: id,
+      compact: true,
     });
     const dest = path.join(OUT_DIR, `${id}.svg`);
     generateSvg(url, dest);

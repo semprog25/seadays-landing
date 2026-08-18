@@ -9,7 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { downloadPagePath } = require('./lib/storeLinks');
+const { downloadPagePath, stripRedundantCampaignParamsInHtml } = require('./lib/storeLinks');
 
 const ROOT = path.join(__dirname, '..');
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -104,6 +104,7 @@ function rewriteHtml(html, rel) {
       );
     }
   }
+  next = stripRedundantCampaignParamsInHtml(next);
   return next;
 }
 
