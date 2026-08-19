@@ -154,7 +154,8 @@ test('press kit HTML includes the shared footer without relying on JS', () => {
   assert.doesNotMatch(js, /function renderFooter\(/);
   assert.doesNotMatch(js, /renderFooter\(\),/);
   const pressCss = fs.readFileSync(path.join(ROOT, 'press/css/press.css'), 'utf8');
-  assert.match(pressCss, /scroll-snap-type:\s*y\s+mandatory/);
+  assert.doesNotMatch(pressCss, /html:has\(body\.press-kit\)[\s\S]*scroll-snap-type:\s*y\s+mandatory/);
+  assert.doesNotMatch(pressCss, /\.press-section\.press-snap-section[\s\S]*max-height:\s*100dvh/);
   assert.match(pressCss, /\.press-hero \{[\s\S]*?min-height:\s*100dvh/);
 });
 

@@ -32,10 +32,6 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-html:has(body.press-kit) {
-  scroll-snap-type: y mandatory;
-}
-
 body {
   font-family: var(--font);
   background: var(--dark-bg);
@@ -196,22 +192,17 @@ body:has(.site-card:hover) .starfield {
   text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
 }
 
-/* Section layout — one viewport per snap; tall sections scroll inside the pane */
+/* Section layout — single document scroll (no viewport-locked snap panes) */
 .press-snap-section {
   box-sizing: border-box;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
-/* Hero — full viewport snap pane */
+/* Hero — first viewport band */
 .press-hero {
   position: relative;
   overflow: hidden;
-  height: 100vh;
-  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
-  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -450,29 +441,15 @@ body:has(.scroll-indicator:hover) .starfield {
   --sf-b: 51;
 }
 
-/* Sections — matches homepage alternating bands; one snap pane each */
+/* Sections — matches homepage alternating bands */
 .press-section {
   padding: 88px 0 64px;
   position: relative;
   background: var(--dark-bg-alt);
 }
 
-.press-section.press-snap-section {
-  min-height: 100vh;
-  min-height: 100dvh;
-  max-height: 100dvh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
-
 .press-section.press-snap-section .container {
   width: 100%;
-}
-
-.press-section.press-legal {
-  max-height: none;
-  overflow: visible;
 }
 
 .press-snap-section--compact .section-subtitle {
@@ -1072,8 +1049,6 @@ body:has(.scroll-indicator:hover) .starfield {
 footer:has(.footer-shell) {
   position: relative;
   z-index: 10;
-  scroll-snap-align: none;
-  scroll-snap-stop: normal;
 }
 
 /* Footer chrome is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
