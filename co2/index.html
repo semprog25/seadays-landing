@@ -21,6 +21,7 @@ gtag('config', 'G-WSQDQ33QZD');
 window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
+<script src="/assets/js/seadays-ads.js" defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://seadays.app/co2/">
@@ -28,32 +29,67 @@ window.__SEADAYS_GA_READY__ = true;
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <title>SeaDays CO₂ Contribution | Turning Cruises into Positive Action</title>
-  <meta name="description" content="SeaDays estimates voyage footprints and builds a growing community contribution. See the live total and follow where we’re heading next.">
-  <meta name="keywords" content="SeaDays CO2, cruise carbon footprint, cruise CO2 estimate, environmental contribution, tonnes CO2e, SeaDays sustainability">
+  <title>Cruise CO₂ Footprint Calculator | SeaDays</title>
+  <meta name="description" content="Estimate the carbon footprint of your cruise using the same methodology built into the SeaDays app. Enter your voyage details and see your CO₂e in trees, car months, and more.">
+  <meta name="keywords" content="cruise carbon footprint calculator, cruise CO2 estimate, how much CO2 does a cruise produce, cruise emissions calculator, SeaDays sustainability, cruise environmental impact">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://seadays.app/co2/">
-  <meta property="og:title" content="SeaDays CO₂ Contribution">
-  <meta property="og:description" content="Your cruising can contribute to something positive. See the SeaDays community contribution total.">
+  <meta property="og:title" content="Cruise CO₂ Footprint Calculator | SeaDays">
+  <meta property="og:description" content="How much CO₂ does your cruise produce? Enter your voyage details and get an instant estimate — trees, car months, phone charges and more.">
   <meta property="og:image" content="https://seadays.app/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://seadays.app/co2/">
-  <meta name="twitter:title" content="SeaDays CO₂ Contribution">
-  <meta name="twitter:description" content="Your cruising can contribute to something positive. See the SeaDays community contribution total.">
+  <meta name="twitter:title" content="Cruise CO₂ Footprint Calculator | SeaDays">
+  <meta name="twitter:description" content="How much CO₂ does your cruise produce? Calculate your voyage footprint instantly.">
   <meta name="twitter:image" content="https://seadays.app/og-image.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "SeaDays CO₂ Contribution",
-    "description": "SeaDays community CO₂e contributions linked to estimated cruise footprints, and the path toward supporting environmental action.",
-    "url": "https://seadays.app/co2/",
-    "isPartOf": { "@type": "WebSite", "name": "SeaDays", "url": "https://seadays.app/" },
-    "about": {
-      "@type": "Thing",
-      "name": "SeaDays community CO₂e contribution",
-      "description": "Growing total of community contributions recorded against estimated cruise footprints."
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://seadays.app/co2/#webpage",
+        "name": "Cruise CO₂ Footprint Calculator",
+        "description": "Estimate the carbon footprint of any cruise voyage using the SeaDays calculation methodology. See your CO₂e converted to trees, car months, phone charges, and energy hours.",
+        "url": "https://seadays.app/co2/",
+        "isPartOf": { "@type": "WebSite", "name": "SeaDays", "url": "https://seadays.app/" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "SeaDays", "item": "https://seadays.app/" },
+            { "@type": "ListItem", "position": 2, "name": "CO₂ Calculator", "item": "https://seadays.app/co2/" }
+          ]
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SeaDays Cruise CO₂ Calculator",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "url": "https://seadays.app/co2/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much CO₂ does a cruise ship produce per passenger?",
+            "acceptedAnswer": { "@type": "Answer", "text": "SeaDays estimates approximately 0.4 kg of CO₂e per passenger per nautical mile sailed, plus approximately 0.15 tonnes per day for overall ship operations and 0.05 tonnes per port call. These figures are weighted together to give a per-passenger voyage estimate." }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the SeaDays cruise CO₂ calculator work?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The calculator uses three inputs: distance sailed (nautical miles), cruise duration (days), and number of port calls. These are combined using published cruise-industry emission factors to produce an estimated per-passenger CO₂e figure." }
+          },
+          {
+            "@type": "Question",
+            "name": "Are these cruise emissions estimates accurate?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The estimates are based on published cruise-industry average emission factors and are suitable for understanding the approximate scale of a voyage's footprint. They are not certified measurements and will vary by ship type, fuel used, and actual route." }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <style>
@@ -71,6 +107,7 @@ window.__SEADAYS_GA_READY__ = true;
       --text-muted: rgba(255, 255, 255, 0.45);
       --glass: rgba(255, 255, 255, 0.04);
       --glass-border: rgba(255, 255, 255, 0.1);
+      --radius-card: 18px;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -103,6 +140,8 @@ window.__SEADAYS_GA_READY__ = true;
     }
     .content-layer { position: relative; z-index: 10; }
     .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top bar */
     .top-bar {
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 0; gap: 16px;
@@ -117,17 +156,11 @@ window.__SEADAYS_GA_READY__ = true;
       color: var(--text-muted); font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
       text-transform: uppercase; text-decoration: none;
     }
-    .brand-chip img {
-      width: auto; height: 28px; max-width: 140px; border-radius: 0;
-      filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.28));
-    }
-    .brand-chip .brand-chip-label { display: none; }
+    .brand-chip img { width: auto; height: 28px; max-width: 140px; border-radius: 0; filter: drop-shadow(0 0 10px rgba(255, 0, 51, 0.28)); }
 
-    /* Hero */
+    /* ─── Hero ─── */
     .co2-hero {
-      min-height: min(92vh, 860px);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; padding: 40px 0 72px; position: relative;
+      padding: 32px 0 64px; text-align: center;
     }
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -135,266 +168,314 @@ window.__SEADAYS_GA_READY__ = true;
       border: 1px solid rgba(61, 220, 151, 0.28);
       background: rgba(61, 220, 151, 0.08);
       color: var(--eco-green); font-size: 13px; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px;
     }
     .hero-title {
-      font-size: clamp(28px, 5.5vw, 56px); font-weight: 900; letter-spacing: -1.5px;
-      line-height: 1.12; margin-bottom: 14px; max-width: 18ch;
+      font-size: clamp(28px, 5.5vw, 54px); font-weight: 900; letter-spacing: -1.5px;
+      line-height: 1.1; margin-bottom: 14px; max-width: 20ch; margin-left: auto; margin-right: auto;
     }
     .hero-sub {
-      color: var(--text-gray); font-size: clamp(15px, 2.2vw, 19px);
-      max-width: 40rem; margin: 0 auto 40px; line-height: 1.55;
+      color: var(--text-gray); font-size: clamp(15px, 2.2vw, 18px);
+      max-width: 38rem; margin: 0 auto 0; line-height: 1.55;
     }
 
-    .meter-stage {
-      position: relative;
-      width: min(420px, 88vw);
-      height: min(420px, 88vw);
-      margin: 0 auto 28px;
-      display: grid; place-items: center;
-      flex-shrink: 0;
+    /* ─── Calculator ─── */
+    .calc-section {
+      padding: 0 0 56px;
     }
-    .meter-glow {
-      position: absolute; inset: 8%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(61, 220, 151, 0.28) 0%, rgba(31, 169, 113, 0.1) 42%, transparent 70%);
-      filter: blur(8px);
-      animation: glowPulse 4.8s ease-in-out infinite;
-    }
-    .meter-vessel {
-      position: relative;
-      width: 62%;
-      height: 78%;
-      border-radius: 42% / 28%;
-      border: 1.5px solid rgba(61, 220, 151, 0.45);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 18%, rgba(15, 61, 46, 0.25) 100%);
-      box-shadow:
-        inset 0 0 40px rgba(61, 220, 151, 0.12),
-        0 0 40px rgba(61, 220, 151, 0.18),
-        0 20px 60px rgba(0,0,0,0.45);
-      overflow: hidden;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      animation: vesselFloat 6.5s ease-in-out infinite;
-    }
-    .meter-vessel::before {
-      content: '';
-      position: absolute; top: 10%; left: 14%; width: 18%; height: 42%;
-      border-radius: 40%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
-      pointer-events: none; z-index: 3;
-    }
-    .liquid {
-      position: absolute; left: -8%; right: -8%; bottom: 0;
-      height: 58%;
-      background:
-        linear-gradient(180deg, rgba(61, 220, 151, 0.95) 0%, rgba(31, 169, 113, 0.9) 45%, rgba(15, 61, 46, 0.95) 100%);
-      z-index: 1;
-    }
-    .liquid::before,
-    .liquid::after {
-      content: '';
-      position: absolute; left: -20%; width: 140%; height: 28px;
-      border-radius: 45%;
-      background: rgba(180, 255, 210, 0.35);
-      top: -12px;
-      animation: wave 3.8s ease-in-out infinite;
-    }
-    .liquid::after {
-      opacity: 0.45; top: -6px; animation-duration: 5.4s; animation-direction: reverse;
-      background: rgba(255,255,255,0.18);
-    }
-    .bubbles { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
-    .bubble {
-      position: absolute; bottom: 8%; border-radius: 50%;
-      background: rgba(255,255,255,0.35);
-      box-shadow: 0 0 8px rgba(61, 220, 151, 0.5);
-      animation: rise var(--dur, 4s) linear infinite;
-      animation-delay: var(--delay, 0s);
-      left: var(--x, 50%);
-      width: var(--size, 6px); height: var(--size, 6px);
-      opacity: 0;
-    }
-    .meter-readout {
-      position: absolute; inset: 0; z-index: 4;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      pointer-events: none; padding: 14% 10%;
-      width: 100%;
-      max-width: 100%;
-      overflow: hidden;
-    }
-    .meter-value {
-      --meter-size: clamp(2.75rem, 11vw, 5.25rem);
-      font-size: var(--meter-size);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      max-width: 100%;
-      width: 100%;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      background: linear-gradient(180deg, #ffffff 0%, #b8ffd8 48%, #3ddc97 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      filter: drop-shadow(0 0 24px rgba(61, 220, 151, 0.45));
-      font-variant-numeric: tabular-nums;
-      font-feature-settings: "tnum" 1;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-    .meter-value[data-scale="short"] { --meter-size: clamp(3rem, 12vw, 5.25rem); }
-    .meter-value[data-scale="medium"] { --meter-size: clamp(2.35rem, 9vw, 4.1rem); }
-    .meter-value[data-scale="long"] { --meter-size: clamp(1.85rem, 7vw, 3.2rem); }
-    .meter-value[data-scale="xl"] { --meter-size: clamp(1.45rem, 5.5vw, 2.55rem); }
-    .meter-value[data-scale="compact"] { --meter-size: clamp(1.9rem, 8vw, 3.4rem); }
-    .meter-unit {
-      margin-top: 10px; font-size: 13px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: rgba(184, 255, 216, 0.9);
-    }
-    .meter-exact {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0, 0, 0, 0);
-      white-space: nowrap; border: 0;
-    }
-    .meter-caption {
-      color: var(--text-muted); font-size: 14px; max-width: 28rem; margin: 0 auto 8px;
-    }
-    .community-stats {
-      margin-top: 28px;
-      padding: 22px 24px;
-      border-radius: 18px;
+    .calc-card {
+      background: linear-gradient(145deg, rgba(61, 220, 151, 0.07), rgba(255,255,255,0.02));
       border: 1px solid rgba(61, 220, 151, 0.2);
-      background: linear-gradient(145deg, rgba(61, 220, 151, 0.08), rgba(255,255,255,0.02));
-      max-width: 36rem;
-      width: 100%;
+      border-radius: 24px;
+      padding: 36px 32px;
     }
-    .community-stats-label {
-      font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--eco-green); margin-bottom: 16px;
-    }
-    .community-stats-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-    }
-    .community-stat strong {
-      display: block; font-size: clamp(18px, 3.5vw, 24px); font-weight: 800;
-      color: #fff; line-height: 1.15; font-variant-numeric: tabular-nums;
-    }
-    .community-stat span {
-      display: block; margin-top: 4px; font-size: 12px; color: var(--text-muted);
-      line-height: 1.3;
-    }
-
-    @keyframes glowPulse {
-      0%, 100% { opacity: 0.55; transform: scale(0.96); }
-      50% { opacity: 1; transform: scale(1.05); }
-    }
-    @keyframes vesselFloat {
-      0%, 100% { transform: translateY(0) rotate(-1deg); }
-      50% { transform: translateY(-10px) rotate(1deg); }
-    }
-    @keyframes wave {
-      0%, 100% { transform: translateX(-6%) scaleY(1); }
-      50% { transform: translateX(6%) scaleY(1.15); }
-    }
-    @keyframes rise {
-      0% { transform: translateY(0) scale(0.7); opacity: 0; }
-      15% { opacity: 0.7; }
-      100% { transform: translateY(-220%) scale(1); opacity: 0; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .meter-glow, .meter-vessel, .liquid::before, .liquid::after, .bubble, .star { animation: none !important; }
-    }
-
-    /* Content sections */
-    .section {
-      padding: 72px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .section h2 {
-      font-size: clamp(24px, 4vw, 36px); font-weight: 900; letter-spacing: -0.5px;
-      margin-bottom: 16px;
-    }
-    .section h3 {
-      font-size: clamp(20px, 3vw, 24px); font-weight: 800; letter-spacing: -0.3px;
-      margin: 28px 0 12px; color: #fff;
-    }
-    .section p, .section li { color: var(--text-gray); font-size: 17px; }
-    .section p + p { margin-top: 14px; }
-    .lead { font-size: 19px; color: rgba(255,255,255,0.82); max-width: 46rem; }
-    .card-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px;
-    }
-    .info-card {
-      background: var(--glass); border: 1px solid var(--glass-border);
-      border-radius: 18px; padding: 22px 20px; text-align: left;
-    }
-    .info-card .card-kicker {
-      font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--eco-green); margin-bottom: 10px;
-    }
-    .info-card h3 {
-      font-size: 16px; font-weight: 800; margin: 0 0 10px; color: #fff;
+    .calc-title {
+      font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 28px;
       display: flex; align-items: center; gap: 10px;
     }
-    .info-card h3::before {
-      content: ''; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-      background: var(--eco-green); box-shadow: 0 0 10px var(--eco-glow);
+    .calc-title-dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--eco-green);
+      box-shadow: 0 0 12px var(--eco-glow); flex-shrink: 0;
     }
-    .info-card p { font-size: 15px; margin: 0; }
-    .methodology {
-      margin-top: 28px;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-      background: var(--glass);
-      overflow: hidden;
+    .calc-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px;
     }
-    .methodology summary {
-      cursor: pointer; list-style: none;
-      padding: 16px 20px; font-weight: 700; color: #fff; font-size: 15px;
+    .calc-field { display: flex; flex-direction: column; gap: 8px; }
+    .calc-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--eco-green);
+    }
+    .calc-hint {
+      font-size: 12px; color: var(--text-muted); margin-top: -4px; line-height: 1.4;
+    }
+    .calc-input-wrap { position: relative; }
+    .calc-input {
+      width: 100%; min-height: 52px; padding: 14px 16px;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 12px; color: #fff; font-size: 16px; font-weight: 600;
+      outline: none; appearance: none; -webkit-appearance: none;
+      transition: border-color 0.2s;
+    }
+    .calc-input:focus { border-color: rgba(61, 220, 151, 0.5); }
+    .calc-input[type="range"] {
+      min-height: auto; padding: 0; background: transparent; border: none;
+      cursor: pointer; accent-color: var(--eco-green);
+    }
+    .calc-range-val {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-top: 6px;
+    }
+    .calc-range-val strong {
+      font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px;
+    }
+    .calc-range-val span { font-size: 12px; color: var(--text-muted); }
+    .calc-stepper {
+      display: flex; align-items: center; gap: 0;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 12px; overflow: hidden; min-height: 52px;
+    }
+    .stepper-btn {
+      min-width: 48px; min-height: 52px; background: transparent;
+      border: none; color: rgba(255,255,255,0.7); font-size: 22px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.15s;
+    }
+    .stepper-btn:hover { background: rgba(61, 220, 151, 0.12); color: var(--eco-green); }
+    .stepper-val {
+      flex: 1; text-align: center; font-size: 18px; font-weight: 800;
+      color: #fff; min-width: 0;
+    }
+
+    /* ─── Result ─── */
+    .result-zone {
+      border-top: 1px solid rgba(61, 220, 151, 0.2);
+      padding-top: 28px;
+    }
+    .result-label {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--eco-green); margin-bottom: 10px; text-align: center;
+    }
+    .result-number {
+      font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 900; letter-spacing: -0.04em;
+      line-height: 1; text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #b8ffd8 48%, #3ddc97 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 20px rgba(61, 220, 151, 0.4));
+      font-variant-numeric: tabular-nums;
+    }
+    .result-unit {
+      text-align: center; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(184, 255, 216, 0.85); margin-top: 6px; margin-bottom: 18px;
+    }
+    .result-breakdown {
+      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
+      font-size: 13px; color: var(--text-muted); margin-bottom: 20px;
+    }
+    .result-breakdown span { display: inline-flex; align-items: center; gap: 5px; }
+    .result-breakdown strong { color: rgba(255,255,255,0.75); }
+    .result-actions {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .btn-share {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px; padding: 12px 22px; border-radius: 999px;
+      border: 1px solid rgba(61, 220, 151, 0.35);
+      background: rgba(61, 220, 151, 0.08);
+      color: #fff; font-weight: 700; font-size: 15px; cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-share:hover { border-color: rgba(61, 220, 151, 0.65); background: rgba(61, 220, 151, 0.14); }
+    .btn-app {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 12px 22px; border-radius: 999px;
+      background: var(--neon-red); color: #fff; font-weight: 700; font-size: 15px;
+      text-decoration: none;
+    }
+    .btn-app:hover { background: #cc0029; }
+
+    /* ─── Share toast ─── */
+    .share-toast {
+      display: none; position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(30,30,30,0.96); border: 1px solid rgba(61,220,151,0.3);
+      border-radius: 14px; padding: 14px 22px;
+      font-size: 14px; font-weight: 600; color: var(--eco-green);
+      z-index: 1000; white-space: nowrap;
+    }
+    .share-toast.visible { display: block; }
+
+    /* ─── Equivalence cards ─── */
+    .equiv-section { padding: 0 0 56px; }
+    .equiv-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .equiv-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-card); padding: 22px 18px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s;
+      text-align: left; position: relative; overflow: hidden;
+    }
+    .equiv-card:hover, .equiv-card:focus-visible {
+      border-color: rgba(61, 220, 151, 0.38); background: rgba(61, 220, 151, 0.06);
+      outline: none;
+    }
+    .equiv-card[aria-expanded="true"] {
+      border-color: rgba(61, 220, 151, 0.5); background: rgba(61, 220, 151, 0.08);
+    }
+    .equiv-icon { font-size: 30px; margin-bottom: 12px; display: block; }
+    .equiv-value {
+      font-size: clamp(22px, 4vw, 32px); font-weight: 900; letter-spacing: -0.5px;
+      color: #fff; line-height: 1;
+    }
+    .equiv-unit { font-size: 13px; color: var(--eco-green); font-weight: 700; margin-top: 3px; }
+    .equiv-label {
+      font-size: 13px; color: var(--text-muted); margin-top: 8px; font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .equiv-tap-hint {
+      font-size: 11px; color: rgba(61, 220, 151, 0.55); margin-top: 8px; font-style: italic;
+    }
+    .equiv-detail {
+      display: none; margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px; color: var(--text-gray); line-height: 1.55;
+    }
+    .equiv-card[aria-expanded="true"] .equiv-detail { display: block; }
+    .equiv-disclaimer {
+      margin-top: 16px; padding: 14px 18px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+      font-size: 13px; color: var(--text-muted); line-height: 1.55; text-align: center;
+    }
+
+    /* ─── Ad slot ─── */
+    .seadays-ad-slot {
+      text-align: center; padding: 4px 0;
+      min-height: 0; transition: min-height 0.2s;
+    }
+    .seadays-ad-slot--ready { min-height: 90px; }
+    .seadays-ad-slot--inactive { min-height: 0; }
+    .ad-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+      text-align: center; margin-bottom: 4px;
+    }
+    .ad-section {
+      padding: 24px 0;
+    }
+
+    /* ─── What changes section ─── */
+    .explain-section { padding: 56px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .explain-section h2 {
+      font-size: clamp(22px, 4vw, 34px); font-weight: 900; letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .explain-lead {
+      font-size: 17px; color: var(--text-gray); max-width: 44rem; margin-bottom: 32px;
+    }
+    .explain-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .explain-card {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-radius: var(--radius-card); padding: 22px 20px;
+    }
+    .explain-card h3 {
+      font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .explain-card h3 .e-icon { font-size: 18px; }
+    .explain-card p { font-size: 14px; color: var(--text-gray); line-height: 1.55; }
+    .explain-card .impact-tag {
+      display: inline-block; margin-top: 10px; padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .impact-high { background: rgba(255,80,80,0.15); color: #ff8080; }
+    .impact-med { background: rgba(255,200,60,0.15); color: #ffc83c; }
+    .impact-low { background: rgba(61,220,151,0.15); color: var(--eco-green); }
+
+    /* ─── SEO content sections ─── */
+    .seo-section { padding: 64px 0; border-top: 1px solid rgba(255,255,255,0.06); }
+    .seo-section h2 {
+      font-size: clamp(22px, 3.5vw, 32px); font-weight: 900; letter-spacing: -0.4px;
+      margin-bottom: 14px;
+    }
+    .seo-section h3 {
+      font-size: clamp(17px, 2.5vw, 22px); font-weight: 800; margin: 28px 0 10px; color: #fff;
+    }
+    .seo-section p { color: var(--text-gray); font-size: 17px; }
+    .seo-section p + p { margin-top: 12px; }
+    .seo-section .lead { font-size: 19px; color: rgba(255,255,255,0.82); max-width: 46rem; }
+    .seo-section ul {
+      margin: 14px 0 0 1.2em; display: grid; gap: 8px;
+      color: var(--text-gray); font-size: 16px;
+    }
+    .compare-table {
+      width: 100%; border-collapse: collapse; margin-top: 22px;
+      font-size: 15px;
+    }
+    .compare-table th, .compare-table td {
+      text-align: left; padding: 13px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .compare-table th {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--eco-green);
+    }
+    .compare-table td { color: var(--text-gray); }
+    .compare-table tr:first-child td, .compare-table tr:first-child th { border-top: 1px solid rgba(255,255,255,0.06); }
+    .methodology-box {
+      margin-top: 24px; border-radius: 16px;
+      border: 1px solid var(--glass-border); background: var(--glass); overflow: hidden;
+    }
+    .methodology-box summary {
+      cursor: pointer; list-style: none; padding: 16px 20px;
+      font-weight: 700; color: #fff; font-size: 15px;
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       min-height: 48px;
     }
-    .methodology summary::-webkit-details-marker { display: none; }
-    .methodology summary::after {
-      content: '+'; color: var(--eco-green); font-size: 20px; font-weight: 400; line-height: 1;
-    }
-    .methodology[open] summary::after { content: '−'; }
+    .methodology-box summary::-webkit-details-marker { display: none; }
+    .methodology-box summary::after { content: '+'; color: var(--eco-green); font-size: 20px; font-weight: 400; }
+    .methodology-box[open] summary::after { content: '−'; }
     .methodology-body {
       padding: 0 20px 20px; color: var(--text-gray); font-size: 15px;
     }
-    .methodology-body ul {
-      margin: 12px 0 0 1.1em; display: grid; gap: 8px;
+    .methodology-body ul { margin: 12px 0 0 1.1em; display: grid; gap: 8px; }
+
+    /* ─── Community meter ─── */
+    .community-section {
+      padding: 64px 0; border-top: 1px solid rgba(255,255,255,0.06);
     }
-    .note {
-      margin-top: 0;
-      padding: 16px 18px; border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
-      color: var(--text-muted); font-size: 14px; line-height: 1.55;
+    .community-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
     }
-    .social-row {
-      display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
+    .community-stats {
+      padding: 28px 24px; border-radius: 20px;
+      border: 1px solid rgba(61, 220, 151, 0.2);
+      background: linear-gradient(145deg, rgba(61, 220, 151, 0.08), rgba(255,255,255,0.02));
     }
-    .social-chip {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 48px; padding: 12px 22px; border-radius: 999px;
-      border: 1px solid rgba(61, 220, 151, 0.35);
-      background: rgba(61, 220, 151, 0.08);
-      color: #fff; text-decoration: none; font-weight: 700; font-size: 15px;
+    .community-stats-label {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--eco-green); margin-bottom: 20px;
     }
-    .social-chip:hover {
-      border-color: rgba(61, 220, 151, 0.65);
-      background: rgba(61, 220, 151, 0.14);
+    .community-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .community-stat strong {
+      display: block; font-size: clamp(18px, 3vw, 24px); font-weight: 800;
+      color: #fff; line-height: 1.15; font-variant-numeric: tabular-nums;
     }
+    .community-stat span {
+      display: block; margin-top: 4px; font-size: 12px; color: var(--text-muted); line-height: 1.3;
+    }
+
+    /* ─── CTA band ─── */
     .cta-band {
       margin: 40px 0 80px; padding: 40px 28px; border-radius: 24px; text-align: center;
       background: linear-gradient(145deg, rgba(61, 220, 151, 0.12), rgba(255,0,51,0.08));
       border: 1px solid rgba(255,255,255,0.1);
     }
-    .cta-band h2 { margin-bottom: 10px; font-size: clamp(24px, 4vw, 36px); font-weight: 900; }
+    .cta-band h2 { margin-bottom: 10px; font-size: clamp(22px, 4vw, 34px); font-weight: 900; }
     .cta-band p { margin-bottom: 22px; color: var(--text-gray); font-size: 17px; }
     .btn-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
     .btn-primary, .btn-secondary {
@@ -409,247 +490,92 @@ window.__SEADAYS_GA_READY__ = true;
     }
     .btn-secondary:hover { border-color: rgba(255,255,255,0.45); }
 
+    /* ─── Footer ─── */
     footer {
-      padding: 80px 0 36px;
-      margin-top: 0;
+      padding: 80px 0 36px; margin-top: 0;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      text-align: left;
-      background: #050505;
+      text-align: left; background: #050505;
     }
     .footer-shell {
-      display: grid;
-      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-      gap: 48px 48px;
-      margin-bottom: 44px;
-      align-items: start;
+      display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+      gap: 48px 48px; margin-bottom: 44px; align-items: start;
     }
     .footer-brand { max-width: 340px; }
-    .footer-brand-logo {
-      display: inline-block;
-      text-decoration: none;
-      margin-bottom: 18px;
-    }
-    .footer-brand-logo img {
-      display: block;
-      width: auto;
-      height: 40px;
-      max-width: 180px;
-    }
-    .footer-brand-desc {
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 15px;
-      line-height: 1.65;
-      margin-bottom: 12px;
-    }
-    .footer-brand-meta {
-      color: rgba(255, 255, 255, 0.38);
-      font-size: 13px;
-      line-height: 1.55;
-      margin-bottom: 18px;
-    }
+    .footer-brand-logo { display: inline-block; text-decoration: none; margin-bottom: 18px; }
+    .footer-brand-logo img { display: block; width: auto; height: 40px; max-width: 180px; }
+    .footer-brand-desc { color: rgba(255,255,255,0.62); font-size: 15px; line-height: 1.65; margin-bottom: 12px; }
+    .footer-brand-meta { color: rgba(255,255,255,0.38); font-size: 13px; line-height: 1.55; margin-bottom: 18px; }
     .footer-hamburg { display: block; }
-    .footer-social {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px 18px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .footer-social a {
-      color: rgba(255, 255, 255, 0.55);
-      text-decoration: none;
-      font-size: 14px;
-      min-height: 28px;
-      display: inline-flex;
-      align-items: center;
-    }
+    .footer-social { display: flex; flex-wrap: wrap; gap: 14px 18px; list-style: none; margin: 0; padding: 0; }
+    .footer-social a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14px; min-height: 28px; display: inline-flex; align-items: center; }
     .footer-social a:hover { color: var(--neon-red); }
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 28px 16px;
-      text-align: left;
-      min-width: 0;
-    }
-    .footer-section h4 {
-      margin-bottom: 16px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.9);
-    }
+    .footer-content { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 28px 16px; text-align: left; min-width: 0; }
+    .footer-section h4 { margin-bottom: 16px; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); }
     .footer-section ul { list-style: none; margin: 0; padding: 0; }
     .footer-section ul li { margin-bottom: 11px; }
-    .footer-section a {
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      transition: color 0.25s ease;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-    }
+    .footer-section a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; min-height: 28px; }
     .footer-section a:hover { color: var(--neon-red); }
     .footer-bottom {
-      padding-top: 28px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      color: rgba(255, 255, 255, 0.32);
-      font-size: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 12px;
-      text-align: left;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.32); font-size: 14px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px;
     }
     .footer-mobile-brand { display: none; }
+
     @media (max-width: 1100px) {
-      .footer-shell {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .footer-content {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px 24px;
-      }
+      .footer-shell { grid-template-columns: 1fr; gap: 40px; }
+      .footer-content { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px 24px; }
+    }
+    @media (max-width: 900px) {
+      .community-inner { grid-template-columns: 1fr; gap: 32px; }
     }
     @media (max-width: 768px) {
-      footer {
-        padding: 48px 0 28px;
-        padding-bottom: max(28px, env(safe-area-inset-bottom));
-      }
-      .footer-shell {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-bottom: 0;
-      }
-      .footer-brand {
-        max-width: none;
-        text-align: center;
-      }
+      footer { padding: 48px 0 28px; padding-bottom: max(28px,env(safe-area-inset-bottom)); }
+      .footer-shell { grid-template-columns: 1fr; gap: 24px; margin-bottom: 0; }
+      .footer-brand { max-width: none; text-align: center; }
       .footer-brand .footer-brand-logo { display: none; }
-      .footer-brand > .footer-brand-desc,
-      .footer-brand > .footer-brand-meta { display: none; }
-      .footer-social {
-        gap: 12px 16px;
-        justify-content: center;
-      }
-      .footer-content {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 32px 20px;
-        text-align: center;
-        margin-bottom: 0;
-        align-items: start;
-        justify-items: center;
-      }
-      .footer-section {
-        width: 100%;
-        text-align: center;
-      }
-      .footer-section h4 {
-        margin-bottom: 16px;
-        text-align: center;
-      }
-      .footer-section ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0;
-      }
-      .footer-section ul li {
-        margin-bottom: 0;
-        width: 100%;
-        text-align: center;
-      }
-      .footer-section a {
-        min-height: 36px;
-        padding: 8px 0;
-        font-size: 14px;
-        line-height: 1.35;
-        justify-content: center;
-        width: 100%;
-        text-align: center;
-      }
+      .footer-brand > .footer-brand-desc, .footer-brand > .footer-brand-meta { display: none; }
+      .footer-social { gap: 12px 16px; justify-content: center; }
+      .footer-content { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 32px 20px; text-align: center; margin-bottom: 0; align-items: start; justify-items: center; }
+      .footer-section { width: 100%; text-align: center; }
+      .footer-section h4 { margin-bottom: 16px; text-align: center; }
+      .footer-section ul { display: flex; flex-direction: column; align-items: center; gap: 0; }
+      .footer-section ul li { margin-bottom: 0; width: 100%; text-align: center; }
+      .footer-section a { min-height: 36px; padding: 8px 0; font-size: 14px; justify-content: center; width: 100%; text-align: center; }
       .footer-section--legal { grid-column: 1 / -1; }
-      .footer-mobile-brand {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        margin: 32px 0 0;
-        padding: 8px 12px 0;
-        box-sizing: border-box;
-      }
-      .footer-logo-mobile {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 0 0 14px;
-        padding: 0;
-        text-decoration: none;
-      }
-      .footer-logo-mobile img {
-        display: block;
-        width: auto;
-        height: 36px;
-        max-width: 160px;
-        margin: 0 auto;
-      }
-      .footer-mobile-brand .footer-brand-desc {
-        display: block;
-        margin: 0 0 8px;
-        font-size: 14px;
-        line-height: 1.55;
-        max-width: 22rem;
-        text-align: center;
-      }
-      .footer-mobile-brand .footer-brand-meta {
-        display: block;
-        margin: 0;
-        font-size: 12px;
-        line-height: 1.5;
-        text-align: center;
-      }
+      .footer-mobile-brand { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; margin: 32px 0 0; padding: 8px 12px 0; }
+      .footer-logo-mobile { display: flex; justify-content: center; align-items: center; width: 100%; margin: 0 0 14px; padding: 0; text-decoration: none; }
+      .footer-logo-mobile img { display: block; width: auto; height: 36px; max-width: 160px; margin: 0 auto; }
+      .footer-mobile-brand .footer-brand-desc { display: block; margin: 0 0 8px; font-size: 14px; line-height: 1.55; max-width: 22rem; text-align: center; }
+      .footer-mobile-brand .footer-brand-meta { display: block; margin: 0; font-size: 12px; line-height: 1.5; text-align: center; }
       .footer-hamburg { display: inline; }
-      .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 0;
-        margin-top: 16px;
-        padding-top: 20px;
-      }
-      .footer-bottom p {
-        width: 100%;
-        text-align: center;
-      }
+      .footer-bottom { flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0; margin-top: 16px; padding-top: 20px; }
+      .footer-bottom p { width: 100%; text-align: center; }
+    }
+    @media (max-width: 720px) {
+      .calc-grid { grid-template-columns: 1fr; gap: 16px; }
+      .equiv-grid { grid-template-columns: repeat(2, 1fr); }
+      .explain-grid { grid-template-columns: 1fr; }
+      .community-stats-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 480px) {
-      footer { padding: 40px 0 24px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+      .calc-card { padding: 24px 18px; }
+      .result-number { font-size: clamp(2.5rem, 15vw, 4rem); }
+      .equiv-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 40px 0 24px; padding-bottom: max(24px,env(safe-area-inset-bottom)); }
       .footer-content { gap: 28px 14px; }
       .footer-section a { font-size: 13px; }
       .footer-mobile-brand { margin-top: 24px; }
       .footer-logo-mobile img { height: 32px; }
       .community-stats-grid { grid-template-columns: 1fr; gap: 14px; text-align: left; }
-      .hero-title { max-width: 14ch; }
-      .hero-sub { margin-bottom: 28px; }
     }
     @media (max-width: 360px) {
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
+      .footer-content { grid-template-columns: 1fr; gap: 28px; }
       .footer-section--legal { grid-column: auto; }
+      .equiv-grid { grid-template-columns: 1fr; }
     }
-    @media (max-width: 800px) {
-      .card-grid { grid-template-columns: 1fr; }
-      .co2-hero { min-height: auto; padding: 24px 0 48px; }
-      .meter-stage { margin-bottom: 18px; width: min(340px, 86vw); height: min(340px, 86vw); }
-      .section { padding: 56px 0; }
+    @media (prefers-reduced-motion: reduce) {
+      .star { animation: none !important; }
     }
   </style>
   <link rel="stylesheet" href="/assets/css/site-shell.css">
@@ -657,6 +583,7 @@ window.__SEADAYS_GA_READY__ = true;
 <body>
   <div class="starfield" id="starfield" aria-hidden="true"></div>
   <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="share-toast" id="shareToast" role="status" aria-live="polite">Copied to clipboard ✓</div>
 
   <main class="content-layer">
 <!-- seadays-site-shell:header -->
@@ -680,143 +607,289 @@ window.__SEADAYS_GA_READY__ = true;
         </a>
       </div>
 
+      <!-- ── Hero ── -->
       <section class="co2-hero" aria-labelledby="co2-hero-title">
-        <p class="hero-eyebrow">Sustainability</p>
-        <h1 id="co2-hero-title" class="hero-title">Your cruising can contribute to something positive</h1>
+        <p class="hero-eyebrow">🌊 Cruise Footprint Calculator</p>
+        <h1 id="co2-hero-title" class="hero-title">What's the footprint of your next cruise?</h1>
         <p class="hero-sub">
-          SeaDays estimates the footprint of your voyage and gives cruisers a way to turn that journey into a positive contribution. As our community grows, so will our impact.
+          Enter your voyage details and get an instant CO₂ estimate — the same methodology used inside the SeaDays app.
+          See what it means in trees, car trips, and phone charges.
         </p>
+      </section>
 
-        <div class="meter-stage" id="co2Meter" data-target="0" aria-live="polite">
-          <div class="meter-glow" aria-hidden="true"></div>
-          <div class="meter-vessel" aria-hidden="true">
-            <div class="liquid" id="co2Liquid"></div>
-            <div class="bubbles" id="co2Bubbles"></div>
-          </div>
-          <div class="meter-readout">
-            <div class="meter-value" id="co2Value" data-scale="short">0.00</div>
-            <span class="meter-exact" id="co2Exact">0.00 tonnes CO₂e</span>
-            <div class="meter-unit">tonnes CO₂e</div>
-          </div>
-        </div>
+      <!-- ── Interactive Calculator ── -->
+      <section class="calc-section" aria-labelledby="calc-heading" id="calculator">
+        <div class="calc-card">
+          <h2 class="calc-title" id="calc-heading">
+            <span class="calc-title-dot" aria-hidden="true"></span>
+            Your cruise voyage
+          </h2>
 
-        <p class="meter-caption" id="co2Caption">Loading community contribution total…</p>
-        <div class="community-stats" id="co2Meta" hidden>
-          <p class="community-stats-label">SeaDays Community</p>
-          <div class="community-stats-grid">
-            <div class="community-stat">
-              <strong id="co2Count">0</strong>
-              <span id="co2CountLabel">contributions</span>
+          <div class="calc-grid">
+            <!-- Duration slider -->
+            <div class="calc-field">
+              <label class="calc-label" for="calcDays">Duration</label>
+              <p class="calc-hint">How many nights is your cruise?</p>
+              <input type="range" id="calcDays" class="calc-input"
+                min="2" max="28" step="1" value="7"
+                aria-label="Cruise duration in nights"
+                aria-valuemin="2" aria-valuemax="28" aria-valuenow="7">
+              <div class="calc-range-val">
+                <strong id="calcDaysVal">7</strong>
+                <span>nights</span>
+              </div>
             </div>
-            <div class="community-stat">
-              <strong id="co2Points">0</strong>
-              <span>Points contributed</span>
+
+            <!-- Distance slider -->
+            <div class="calc-field">
+              <label class="calc-label" for="calcDist">Distance</label>
+              <p class="calc-hint">Nautical miles sailed (approx.)</p>
+              <input type="range" id="calcDist" class="calc-input"
+                min="200" max="8000" step="50" value="2500"
+                aria-label="Distance in nautical miles"
+                aria-valuemin="200" aria-valuemax="8000" aria-valuenow="2500">
+              <div class="calc-range-val">
+                <strong id="calcDistVal">2,500</strong>
+                <span>nm</span>
+              </div>
             </div>
-            <div class="community-stat">
-              <strong id="co2TonsStat">0.00</strong>
-              <span>tonnes CO₂e</span>
+
+            <!-- Port calls stepper -->
+            <div class="calc-field">
+              <p class="calc-label" id="portsLabel">Port calls</p>
+              <p class="calc-hint">Number of ports visited</p>
+              <div class="calc-stepper" role="group" aria-labelledby="portsLabel">
+                <button type="button" class="stepper-btn" id="portsDec" aria-label="Decrease port calls">−</button>
+                <span class="stepper-val" id="calcPortsVal" aria-live="polite" aria-atomic="true">5</span>
+                <button type="button" class="stepper-btn" id="portsInc" aria-label="Increase port calls">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live result -->
+          <div class="result-zone" aria-live="polite" aria-atomic="true">
+            <p class="result-label">Your estimated cruise footprint</p>
+            <div class="result-number" id="resultTons" aria-label="0 tonnes CO₂e">0.00</div>
+            <p class="result-unit">tonnes CO₂e (per passenger)</p>
+            <div class="result-breakdown" id="resultBreakdown" aria-label="Footprint breakdown">
+              <span>🗺️ Distance <strong id="bdDist">—</strong></span>
+              <span>⏱ Duration <strong id="bdDur">—</strong></span>
+              <span>⚓ Ports <strong id="bdPorts">—</strong></span>
+            </div>
+            <div class="result-actions">
+              <button type="button" class="btn-share" id="shareBtn" aria-label="Share my footprint result">
+                Share my footprint
+              </button>
+              <a class="btn-app" href="/#download" id="co2AppCta">Track it in the app</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="what-it-means">
-        <h2>What this number represents</h2>
-        <p class="lead">
-          This is the growing total of CO₂e contributions recorded by the SeaDays community against estimated cruise footprints.
+      <!-- ── Equivalence cards ── -->
+      <section class="equiv-section" aria-labelledby="equiv-heading">
+        <h2 id="equiv-heading" style="font-size:clamp(20px,3.5vw,30px);font-weight:900;letter-spacing:-0.4px;margin-bottom:6px;">
+          What does that actually mean?
+        </h2>
+        <p style="color:var(--text-gray);font-size:16px;margin-bottom:20px;">
+          Tap any card to learn more about the comparison.
         </p>
-        <p>
-          Every contribution starts with a voyage: its distance, duration and port calls help us estimate the journey’s footprint. Cruisers can then use SeaDays Points to make a contribution against that estimate.
+        <div class="equiv-grid" id="equivGrid">
+          <!-- Cards injected by JS -->
+        </div>
+        <p class="equiv-disclaimer" id="equivDisclaimer">
+          These are equivalences for understanding scale. They are not claims that trees have been planted, carbon credits retired, or any other environmental action taken.
         </p>
       </section>
 
-      <section class="section" id="how-calculated">
-        <h2>How we estimate your voyage footprint</h2>
-        <p class="lead">
-          SeaDays uses three parts of your voyage to create an estimate: distance travelled, time at sea and port calls.
-        </p>
-        <div class="card-grid">
-          <article class="info-card">
-            <p class="card-kicker">Distance</p>
-            <h3>Distance travelled</h3>
-            <p>How far the voyage travels.</p>
-          </article>
-          <article class="info-card">
-            <p class="card-kicker">Time at sea</p>
-            <h3>Time at sea</h3>
-            <p>How long the cruise operates.</p>
-          </article>
-          <article class="info-card">
-            <p class="card-kicker">Port calls</p>
-            <h3>Port calls</h3>
-            <p>The additional activity associated with visiting ports.</p>
-          </article>
+      <!-- ── Ad slot 1: after result + equivalences ── -->
+      <div class="ad-section">
+        <p class="ad-label">Advertisement</p>
+        <div class="seadays-ad-slot" data-ad-placement="article-mid" aria-label="Advertisement">
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="horizontal"
+            data-full-width-responsive="true"></ins>
         </div>
-        <details class="methodology">
-          <summary>Methodology</summary>
-          <div class="methodology-body">
-            <p>Assumptions used in the estimate:</p>
-            <ul>
-              <li>~0.4 kg CO₂e per passenger per nautical mile</li>
-              <li>~0.15 tonnes per day for time at sea</li>
-              <li>~0.05 tonnes per port call</li>
-              <li>Weighted together as 60% distance, 30% time at sea, 10% ports</li>
-              <li>A small minimum so short or incomplete itineraries still produce a usable figure</li>
-            </ul>
+      </div>
+
+      <!-- ── What changes your footprint ── -->
+      <section class="explain-section" aria-labelledby="explain-heading" id="what-changes">
+        <h2 id="explain-heading">What changes your cruise footprint?</h2>
+        <p class="explain-lead">
+          A cruise footprint isn't fixed. These are the three biggest variables in any voyage estimate.
+          The result above updates instantly as you adjust the calculator above.
+        </p>
+        <div class="explain-grid">
+          <div class="explain-card">
+            <h3><span class="e-icon">🗺️</span> Distance sailed</h3>
+            <p>The single biggest driver. A transatlantic crossing covers 3,000+ nautical miles; a short Caribbean loop might be under 1,000. More miles means more fuel burned — roughly 0.4 kg CO₂e per passenger per nautical mile.</p>
+            <span class="impact-tag impact-high">Highest impact</span>
           </div>
-        </details>
-      </section>
-
-      <section class="section" id="where-heading">
-        <h2>Turning voyages into positive action</h2>
-        <p class="lead">
-          Cruising creates memories, connects people and moves us around the world. We want SeaDays to help give something back.
-        </p>
-        <p>
-          We’re currently working on the right environmental initiative to support with our growing community contribution. When that partnership is in place, we’ll share it openly here and across our social channels.
-        </p>
-
-        <h3>Where we’re heading</h3>
-        <p>
-          SeaDays is building a community contribution that can support meaningful environmental action.
-        </p>
-        <p>
-          As the community grows, we’re working toward choosing an environmental initiative that aligns with the values behind SeaDays: protecting the places we travel to and helping make future journeys more responsible.
-        </p>
-        <p>
-          We’ll announce the initiative publicly once it is confirmed.
-        </p>
-
-        <h3 id="follow-journey">Follow the journey</h3>
-        <p>
-          Want to know where the contribution goes next? Follow SeaDays on social media. We’ll share the partnership and progress as soon as it’s ready.
-        </p>
-        <p style="margin-top:12px;color:rgba(255,255,255,0.82);font-weight:600;">
-          Follow SeaDays to see where we go next.
-        </p>
-        <div class="social-row">
-          <a class="social-chip" href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a class="social-chip" href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <div class="explain-card">
+            <h3><span class="e-icon">⏱ </span> Days at sea</h3>
+            <p>A ship burning fuel to maintain power, heating, cooling, and hotel services adds around 0.15 tonnes per day regardless of how far it travels. Longer cruises accumulate this base load even on sea days.</p>
+            <span class="impact-tag impact-med">Moderate impact</span>
+          </div>
+          <div class="explain-card">
+            <h3><span class="e-icon">⚓</span> Port calls</h3>
+            <p>Each port stop involves manoeuvring, docking, and auxiliary power while in harbour. The estimate adds around 0.05 tonnes per port call. A port-heavy itinerary will be slightly higher than the distance alone suggests.</p>
+            <span class="impact-tag impact-low">Lower impact</span>
+          </div>
+        </div>
+        <div class="methodology-box" style="margin-top:28px;">
+          <details>
+            <summary>Full methodology and assumptions</summary>
+            <div class="methodology-body">
+              <p>The SeaDays cruise CO₂ estimator uses the following published average factors:</p>
+              <ul>
+                <li><strong>Distance-based:</strong> ~0.4 kg CO₂e per passenger per nautical mile</li>
+                <li><strong>Duration-based:</strong> ~0.15 tonnes CO₂e per day of cruise operation</li>
+                <li><strong>Port-based:</strong> ~0.05 tonnes CO₂e per port call</li>
+                <li>Combined as: 60% distance + 30% duration + 10% port calls</li>
+                <li>A minimum of 0.1 tonnes ensures short or incomplete itineraries still produce a usable figure</li>
+                <li>This is a per-passenger estimate; actual ship emissions are significantly larger</li>
+              </ul>
+              <p style="margin-top:14px;">These factors are drawn from cruise industry research and academic literature. They represent an average across vessel types, fuel grades, and operating conditions. Actual emissions will vary by ship age, fuel type (HFO vs. LNG vs. VLSFO), load factor, weather, and route.</p>
+              <p style="margin-top:10px;">SeaDays does not claim to provide certified, verified, or offset emissions measurements. The estimates are for personal understanding only.</p>
+            </div>
+          </details>
         </div>
       </section>
 
-      <section class="section" id="transparency-note" style="padding-top:40px;padding-bottom:24px;">
-        <p class="note">
-          SeaDays currently records community contributions against estimated voyage footprints. The environmental initiative supported by these contributions will be announced once confirmed.
-        </p>
+      <!-- ── SEO content: What is a cruise carbon footprint ── -->
+      <section class="seo-section" aria-labelledby="what-is-heading" id="what-is-cruise-carbon-footprint">
+        <h2 id="what-is-heading">What is a cruise carbon footprint?</h2>
+        <p class="lead">A cruise carbon footprint is an estimate of the greenhouse gas emissions produced during a voyage, typically expressed in tonnes of CO₂ equivalent (CO₂e) per passenger.</p>
+        <p>Cruise ships burn large quantities of marine fuel — historically heavy fuel oil, increasingly blended with lower-sulphur alternatives — to move the vessel, power the hotel facilities, and operate in port. All of that combustion produces CO₂, along with smaller quantities of methane, nitrous oxide, and other gases, which are rolled into the CO₂e figure.</p>
+        <p>The footprint covers the journey itself: the nautical miles sailed, the days at sea, and the port operations. It does not typically include the passenger's flights to and from the embarkation port, which can add substantially to the overall travel footprint.</p>
+
+        <h3>How much CO₂ does a cruise produce?</h3>
+        <p>Research consistently finds that cruising is among the more carbon-intensive forms of holiday travel on a per-passenger-kilometre basis. Published figures from cruise industry research and academic studies suggest roughly 0.4 kg CO₂e per passenger per nautical mile as a working average across fleet types, though this varies considerably by ship age and fuel.</p>
+        <p>For a typical 7-night Caribbean cruise covering around 2,500 nautical miles and calling at 5 ports, SeaDays estimates approximately <strong>0.65–0.80 tonnes CO₂e per passenger</strong>. A longer voyage — say, a 14-night transatlantic crossing covering 4,000+ nautical miles — might reach <strong>1.3–1.6 tonnes per passenger</strong>.</p>
+
+        <table class="compare-table" aria-label="Typical cruise footprints by voyage type">
+          <thead>
+            <tr>
+              <th>Voyage type</th>
+              <th>~Distance (nm)</th>
+              <th>~Duration</th>
+              <th>Estimated CO₂e</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Short Caribbean loop</td><td>1,200</td><td>5 nights</td><td>~0.40 t</td></tr>
+            <tr><td>Caribbean 7-night</td><td>2,500</td><td>7 nights</td><td>~0.70 t</td></tr>
+            <tr><td>Mediterranean 10-night</td><td>3,000</td><td>10 nights</td><td>~0.90 t</td></tr>
+            <tr><td>Norway fjords 14-night</td><td>3,800</td><td>14 nights</td><td>~1.15 t</td></tr>
+            <tr><td>Transatlantic crossing</td><td>4,200</td><td>14 nights</td><td>~1.30 t</td></tr>
+            <tr><td>World voyage (segment)</td><td>8,000</td><td>28 nights</td><td>~2.50 t</td></tr>
+          </tbody>
+        </table>
       </section>
 
-      <div class="cta-band">
-        <h2>Make your next voyage count</h2>
-        <p>Plan your cruise, estimate your footprint, and join the SeaDays community.</p>
+      <!-- ── SEO: CO2 vs cars and everyday activities ── -->
+      <section class="seo-section" aria-labelledby="compare-heading" id="cruise-co2-vs-cars">
+        <h2 id="compare-heading">Cruise CO₂ compared with other activities</h2>
+        <p class="lead">
+          Putting a voyage footprint into context makes it easier to understand what the number actually means.
+        </p>
+
+        <h3>Cruise vs. driving a car</h3>
+        <p>The average petrol car emits roughly 4.6 tonnes of CO₂ per year, or about 0.38 tonnes per month. A 7-night cruise footprint of ~0.70 tonnes is therefore equivalent to approximately <strong>1.8 months of average car use</strong>. A short 5-night cruise (~0.40 t) is closer to one month of driving.</p>
+
+        <h3>Cruise vs. flying</h3>
+        <p>A typical short-haul flight produces around 0.2 tonnes of CO₂e per passenger, while a long-haul intercontinental flight might produce 1.0–1.5 tonnes. Most 7-night cruises fall somewhere in between — meaning the voyage itself produces roughly the same footprint as <strong>three to four short-haul flights</strong>.</p>
+
+        <h3>Cruise vs. everyday activities</h3>
+        <p>A cruise footprint of 0.70 tonnes is equivalent to:</p>
+        <ul>
+          <li>Charging your smartphone approximately <strong>14,000 times</strong></li>
+          <li>Leaving an LED lightbulb on for roughly <strong>1.4 million hours</strong> (about 160 years continuous)</li>
+          <li>The annual CO₂ absorption of approximately <strong>34 mature trees</strong></li>
+        </ul>
+        <p>These comparisons illustrate scale — they are not suggestions that planting trees or changing lightbulbs offsets a cruise.</p>
+      </section>
+
+      <!-- ── Ad slot 2: after educational section ── -->
+      <div class="ad-section">
+        <p class="ad-label">Advertisement</p>
+        <div class="seadays-ad-slot" data-ad-placement="article-mid" aria-label="Advertisement">
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="horizontal"
+            data-full-width-responsive="true"></ins>
+        </div>
+      </div>
+
+      <!-- ── What cruisers can do ── -->
+      <section class="seo-section" aria-labelledby="reduce-heading" id="what-cruisers-can-do">
+        <h2 id="reduce-heading">What cruisers can do to reduce their footprint</h2>
+        <p class="lead">Individual choices around a cruise can shift the total footprint in meaningful ways.</p>
+        <ul>
+          <li><strong>Choose a newer ship:</strong> Modern vessels are significantly more fuel-efficient than older fleets. Choosing a ship built in the last decade makes a real difference.</li>
+          <li><strong>Prefer LNG-powered ships:</strong> Liquefied natural gas produces roughly 20–25% less CO₂ per unit of energy than heavy fuel oil.</li>
+          <li><strong>Shorter itineraries:</strong> A 5-night cruise has a meaningfully smaller footprint than a 14-night voyage — even if the per-day rate is similar.</li>
+          <li><strong>Walk or use public transport at ports:</strong> The biggest post-voyage variable is what you do in port. Walking tours and local buses have a far smaller footprint than private taxis and excursion coaches.</li>
+          <li><strong>Combine cruise and fly smart:</strong> Taking the train to the embarkation port, or choosing a port close to home, removes a substantial source of travel emissions from the equation.</li>
+          <li><strong>Choose itineraries with fewer sea days:</strong> Sea days accumulate duration-based emissions; a port-heavy itinerary at a similar distance can produce a slightly lower overall estimate.</li>
+          <li><strong>Consider a carbon contribution:</strong> Inside the SeaDays app, you can use SeaDays Points to make a contribution against your estimated voyage footprint. This is recorded in the community total and is intended to prompt reflection, not as a certified carbon offset.</li>
+        </ul>
+      </section>
+
+      <!-- ── Community contribution meter ── -->
+      <section class="community-section" aria-labelledby="community-heading" id="community">
+        <div class="community-inner">
+          <div>
+            <h2 id="community-heading" style="font-size:clamp(22px,3.5vw,32px);font-weight:900;letter-spacing:-0.4px;margin-bottom:12px;">
+              The SeaDays community contribution
+            </h2>
+            <p style="color:var(--text-gray);font-size:17px;margin-bottom:16px;">
+              Inside the app, cruisers can use SeaDays Points to make a contribution against their estimated voyage footprint. This is the growing community total.
+            </p>
+            <p style="color:var(--text-muted);font-size:14px;margin-bottom:24px;">
+              We're working toward directing this contribution toward a verified environmental initiative. We'll announce the partnership once confirmed.
+            </p>
+            <a class="btn-primary" href="/#download" style="display:inline-flex;min-height:48px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;">
+              Join the SeaDays community
+            </a>
+          </div>
+          <div class="community-stats">
+            <p class="community-stats-label">SeaDays Community</p>
+            <div class="community-stats-grid">
+              <div class="community-stat">
+                <strong id="co2Count">—</strong>
+                <span id="co2CountLabel">contributions</span>
+              </div>
+              <div class="community-stat">
+                <strong id="co2Points">—</strong>
+                <span>Points contributed</span>
+              </div>
+              <div class="community-stat">
+                <strong id="co2TonsStat">—</strong>
+                <span>tonnes CO₂e</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CTA ── -->
+      <div class="cta-band" id="download">
+        <h2>Track your cruise footprint in the SeaDays app</h2>
+        <p>Plan your voyage, estimate its footprint, and join a growing community of cruisers thinking about their journey.</p>
         <div class="btn-row">
-          <a class="btn-primary" href="/#download">Download SeaDays</a>
-          <a class="btn-secondary" href="#follow-journey">Follow our journey</a>
+          <a class="btn-primary" href="/#download" id="co2AppCtaBottom">Get SeaDays — it's free</a>
+          <a class="btn-secondary" href="#calculator">Calculate another voyage</a>
         </div>
       </div>
     </div>
 
-    <!-- seadays-site-shell:footer -->
+<!-- seadays-site-shell:footer -->
         <footer>
             <div class="container">
                 <div class="footer-shell">
@@ -831,7 +904,6 @@ window.__SEADAYS_GA_READY__ = true;
                             <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
                         </ul>
                     </div>
-
                     <div class="footer-content">
                         <div class="footer-section">
                             <h4>Explore</h4>
@@ -864,7 +936,7 @@ window.__SEADAYS_GA_READY__ = true;
                         <div class="footer-section">
                             <h4>Sustainability</h4>
                             <ul>
-                                <li><a href="/co2/">CO₂ Contribution</a></li>
+                                <li><a href="/co2/">CO₂ Calculator</a></li>
                             </ul>
                         </div>
                         <div class="footer-section footer-section--legal">
@@ -878,7 +950,6 @@ window.__SEADAYS_GA_READY__ = true;
                         </div>
                     </div>
                 </div>
-
                 <div class="footer-mobile-brand">
                     <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
                         <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
@@ -886,10 +957,9 @@ window.__SEADAYS_GA_READY__ = true;
                     <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
                     <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
                 </div>
-
                 <div class="footer-bottom">
                     <p>© 2026 SeaDays. All rights reserved.</p>
-                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
+                    <a href="https://seadays.app/" style="position:absolute;left:-9999px;">SeaDays Cruise Planner</a>
                 </div>
             </div>
         </footer>
@@ -897,215 +967,280 @@ window.__SEADAYS_GA_READY__ = true;
   </main>
 
   <script>
-    (function () {
-      var starfield = document.getElementById('starfield');
-      if (starfield) {
-        for (var i = 0; i < 90; i++) {
-          var star = document.createElement('div');
-          star.className = 'star';
-          var size = Math.random() * 2.4 + 0.8;
-          star.style.width = size + 'px';
-          star.style.height = size + 'px';
-          star.style.left = Math.random() * 100 + '%';
-          star.style.top = Math.random() * 100 + '%';
-          star.style.animationDelay = (Math.random() * 3) + 's';
-          starfield.appendChild(star);
-        }
+  (function () {
+    'use strict';
+
+    // ── Starfield ──
+    var starfield = document.getElementById('starfield');
+    if (starfield) {
+      for (var i = 0; i < 80; i++) {
+        var star = document.createElement('div');
+        star.className = 'star';
+        var sz = Math.random() * 2.2 + 0.8;
+        star.style.width = sz + 'px';
+        star.style.height = sz + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = (Math.random() * 3.5) + 's';
+        starfield.appendChild(star);
+      }
+    }
+
+    // ── Calculation — same methodology as src/utils/carbonFootprintCalculator.ts ──
+    // Factors: 0.4 kg CO2e/passenger/nm (distance), 0.15 t/day (duration), 0.05 t/port
+    // Weights: 60% distance, 30% duration, 10% ports
+    function calcFootprint(nm, days, ports) {
+      var distTons = (nm * 0.4) / 1000;
+      var durTons  = days * 0.15;
+      var portTons = ports * 0.05;
+      var total = (distTons * 0.6) + (durTons * 0.3) + (portTons * 0.1);
+      return {
+        total: Math.max(0.1, total),
+        distBased: distTons * 0.6,
+        durBased:  durTons  * 0.3,
+        portBased: portTons * 0.1
+      };
+    }
+
+    // ── Equivalences — same as src/utils/carbonComparisons.ts ──
+    function getEquivs(tons) {
+      var trees = Math.round(tons * 48);
+      var carMonths = Math.round((tons / 0.38) * 10) / 10;
+      var carDays  = Math.round(carMonths * 30);
+      var phoneCharges = Math.round(tons / 0.00005);
+      var lbHours = Math.round(tons / 0.0000005);
+      var lbDays  = Math.round(lbHours / 24);
+
+      function fmtLarge(n) {
+        if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+        if (n >= 1000)    return Math.round(n / 1000) + 'k';
+        return String(n);
       }
 
-      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var bubbles = document.getElementById('co2Bubbles');
-      if (bubbles && !reduceMotion) {
-        for (var b = 0; b < 10; b++) {
-          var bubble = document.createElement('span');
-          bubble.className = 'bubble';
-          bubble.style.setProperty('--x', (12 + Math.random() * 76) + '%');
-          bubble.style.setProperty('--size', (3 + Math.random() * 5) + 'px');
-          bubble.style.setProperty('--dur', (3.2 + Math.random() * 3.5) + 's');
-          bubble.style.setProperty('--delay', (Math.random() * 4) + 's');
-          bubbles.appendChild(bubble);
+      return [
+        {
+          icon: '🌳',
+          value: trees.toLocaleString(),
+          unit: trees === 1 ? 'tree' : 'trees',
+          label: 'Trees needed (1 year)',
+          detail: 'It would take approximately ' + trees.toLocaleString() + ' mature trees one full year to naturally absorb this amount of CO₂ through photosynthesis. Each tree absorbs about 21 kg (0.021 t) of CO₂ per year. This is an equivalence for understanding scale — not a claim that trees have been planted or credits retired.'
+        },
+        {
+          icon: '🚗',
+          value: carMonths,
+          unit: carMonths === 1 ? 'month driving' : 'months driving',
+          label: 'Car equivalent',
+          detail: 'This amount of CO₂ is equivalent to driving an average petrol car for about ' + carMonths + ' ' + (carMonths === 1 ? 'month' : 'months') + ' (' + carDays + ' days). The average car emits roughly 4.6 tonnes CO₂ per year, or 0.38 tonnes per month.'
+        },
+        {
+          icon: '📱',
+          value: fmtLarge(phoneCharges),
+          unit: 'phone charges',
+          label: 'Smartphone charges',
+          detail: 'Charging your smartphone ' + phoneCharges.toLocaleString() + ' times produces the same amount of CO₂. Each charge uses about 0.00005 tonnes (50 g) of CO₂ depending on your local power grid. That\'s like charging your phone every day for about ' + Math.round(phoneCharges / 365) + ' years.'
+        },
+        {
+          icon: '💡',
+          value: fmtLarge(lbHours),
+          unit: 'LED hours',
+          label: 'LED lightbulb energy',
+          detail: 'An energy-efficient LED bulb left on for ' + lbHours.toLocaleString() + ' hours (' + lbDays.toLocaleString() + ' days) would produce the same CO₂. LEDs use very little power — about 0.0000005 tonnes per hour — so this comparison shows just how large voyage emissions are relative to everyday electricity use.'
         }
-      }
+      ];
+    }
 
-      var valueEl = document.getElementById('co2Value');
-      var exactEl = document.getElementById('co2Exact');
-      var captionEl = document.getElementById('co2Caption');
-      var metaEl = document.getElementById('co2Meta');
-      var countEl = document.getElementById('co2Count');
-      var countLabelEl = document.getElementById('co2CountLabel');
-      var pointsEl = document.getElementById('co2Points');
-      var tonsStatEl = document.getElementById('co2TonsStat');
-      var meter = document.getElementById('co2Meter');
-      var animated = false;
-      var ABBREV_THRESHOLD = 10000000;
+    // ── State ──
+    var calcState = { nm: 2500, days: 7, ports: 5 };
 
-      function formatExactTons(n) {
-        if (!isFinite(n)) return '0.00';
-        return n.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
+    // ── DOM refs ──
+    var daysInput   = document.getElementById('calcDays');
+    var distInput   = document.getElementById('calcDist');
+    var daysVal     = document.getElementById('calcDaysVal');
+    var distVal     = document.getElementById('calcDistVal');
+    var portsValEl  = document.getElementById('calcPortsVal');
+    var portsDecBtn = document.getElementById('portsDec');
+    var portsIncBtn = document.getElementById('portsInc');
+    var resultTons  = document.getElementById('resultTons');
+    var bdDist      = document.getElementById('bdDist');
+    var bdDur       = document.getElementById('bdDur');
+    var bdPorts     = document.getElementById('bdPorts');
+    var equivGrid   = document.getElementById('equivGrid');
+
+    function fmt2(n) { return n.toFixed(2); }
+    function fmtNum(n) {
+      if (n >= 1) return n.toFixed(2);
+      return n.toFixed(2);
+    }
+
+    function trackCalcEvent(action, params) {
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', action, Object.assign({ send_to: 'G-WSQDQ33QZD' }, params || {}));
+        }
+      } catch(e) {}
+    }
+
+    var calcEventFired = false;
+    var inputDebounce = null;
+
+    function renderEquivCards(tons) {
+      var equivs = getEquivs(tons);
+      equivGrid.innerHTML = '';
+      equivs.forEach(function (eq, i) {
+        var card = document.createElement('article');
+        card.className = 'equiv-card';
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-expanded', 'false');
+        card.setAttribute('aria-label', eq.label + ': ' + eq.value + ' ' + eq.unit + '. Tap to learn more.');
+        card.innerHTML =
+          '<span class="equiv-icon" aria-hidden="true">' + eq.icon + '</span>' +
+          '<div class="equiv-value" id="ev-' + i + '">' + eq.value + '</div>' +
+          '<div class="equiv-unit">' + eq.unit + '</div>' +
+          '<div class="equiv-label">' + eq.label + '</div>' +
+          '<div class="equiv-tap-hint">Tap to learn more</div>' +
+          '<div class="equiv-detail" id="ed-' + i + '">' + eq.detail + '</div>';
+
+        function toggleCard() {
+          var expanded = card.getAttribute('aria-expanded') === 'true';
+          card.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          if (!expanded) {
+            trackCalcEvent('co2_equivalence_card_opened', { card: eq.label });
+          }
+        }
+        card.addEventListener('click', toggleCard);
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleCard(); }
         });
-      }
+        equivGrid.appendChild(card);
+      });
+    }
 
-      function formatDisplayTons(n) {
-        if (!isFinite(n) || n < 0) n = 0;
-        if (n >= ABBREV_THRESHOLD) {
-          var millions = n / 1000000;
-          var digits = millions >= 100 ? 0 : 1;
-          return millions.toLocaleString(undefined, {
-            minimumFractionDigits: digits,
-            maximumFractionDigits: digits
-          }) + 'M';
-        }
-        if (n >= 1000) {
-          return n.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-        }
-        if (n >= 100) {
-          return n.toLocaleString(undefined, {
-            minimumFractionDigits: 1,
-            maximumFractionDigits: 2
-          });
-        }
-        return n.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
+    function updateResult() {
+      var res = calcFootprint(calcState.nm, calcState.days, calcState.ports);
+      resultTons.textContent = fmt2(res.total);
+      resultTons.setAttribute('aria-label', fmt2(res.total) + ' tonnes CO₂e');
+      bdDist.textContent  = fmt2(res.distBased) + ' t';
+      bdDur.textContent   = fmt2(res.durBased)  + ' t';
+      bdPorts.textContent = fmt2(res.portBased) + ' t';
+      renderEquivCards(res.total);
+
+      if (!calcEventFired) {
+        calcEventFired = true;
+        trackCalcEvent('co2_calculator_opened');
+      }
+      clearTimeout(inputDebounce);
+      inputDebounce = setTimeout(function () {
+        trackCalcEvent('co2_calculator_input_changed', {
+          days: calcState.days,
+          nm: calcState.nm,
+          ports: calcState.ports,
+          result: parseFloat(fmt2(res.total))
         });
+      }, 800);
+    }
+
+    // ── Range inputs ──
+    daysInput.addEventListener('input', function () {
+      calcState.days = parseInt(this.value, 10) || 7;
+      daysVal.textContent = calcState.days;
+      daysInput.setAttribute('aria-valuenow', calcState.days);
+      updateResult();
+    });
+    distInput.addEventListener('input', function () {
+      calcState.nm = parseInt(this.value, 10) || 2500;
+      distVal.textContent = calcState.nm.toLocaleString();
+      distInput.setAttribute('aria-valuenow', calcState.nm);
+      updateResult();
+    });
+
+    // ── Port stepper ──
+    portsDecBtn.addEventListener('click', function () {
+      if (calcState.ports > 0) {
+        calcState.ports--;
+        portsValEl.textContent = calcState.ports;
+        updateResult();
+      }
+    });
+    portsIncBtn.addEventListener('click', function () {
+      if (calcState.ports < 20) {
+        calcState.ports++;
+        portsValEl.textContent = calcState.ports;
+        updateResult();
+      }
+    });
+
+    // ── Share ──
+    var shareBtn = document.getElementById('shareBtn');
+    var shareToast = document.getElementById('shareToast');
+    var toastTimer = null;
+
+    shareBtn.addEventListener('click', function () {
+      var res = calcFootprint(calcState.nm, calcState.days, calcState.ports);
+      var equivs = getEquivs(res.total);
+      var treeCard = equivs[0];
+      var carCard  = equivs[1];
+      var text =
+        'My ' + calcState.days + '-night cruise footprint estimate: ' +
+        fmt2(res.total) + ' t CO₂e — equivalent to ' +
+        treeCard.value + ' trees or ' + carCard.value + ' months of car use.\n' +
+        'Calculate yours: https://seadays.app/co2/';
+
+      trackCalcEvent('co2_share_clicked', { result: parseFloat(fmt2(res.total)) });
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showToast).catch(fallbackShare);
+      } else {
+        fallbackShare();
       }
 
-      function scaleForDisplay(text) {
-        if (/M$/.test(text)) return 'compact';
-        var len = String(text).length;
-        if (len <= 5) return 'short';
-        if (len <= 9) return 'medium';
-        if (len <= 11) return 'long';
-        return 'xl';
+      function showToast() {
+        shareToast.classList.add('visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { shareToast.classList.remove('visible'); }, 3000);
       }
-
-      function renderValue(n, isFinal, targetHint) {
-        var target = isFinite(targetHint) ? targetHint : Number(meter.getAttribute('data-target'));
-        var display;
-        if (isFinite(target) && target >= ABBREV_THRESHOLD) {
-          var millions = n / 1000000;
-          var digits = (target / 1000000) >= 100 ? 0 : 1;
-          display = millions.toLocaleString(undefined, {
-            minimumFractionDigits: digits,
-            maximumFractionDigits: digits
-          }) + 'M';
+      function fallbackShare() {
+        if (navigator.share) {
+          navigator.share({ title: 'My cruise CO₂ estimate', text: text, url: 'https://seadays.app/co2/' });
         } else {
-          display = formatDisplayTons(n);
-        }
-        var exactSource = isFinal ? n : (isFinite(target) ? target : n);
-        var exact = formatExactTons(exactSource);
-        valueEl.textContent = display;
-        valueEl.setAttribute('data-scale', scaleForDisplay(display));
-        if (exactEl) {
-          exactEl.textContent = exact + ' tonnes CO₂e';
-        }
-        valueEl.setAttribute('aria-label', exact + ' tonnes CO₂e');
-        if (tonsStatEl && isFinal) tonsStatEl.textContent = formatExactTons(n);
-      }
-
-      function animateTo(target) {
-        if (animated) return;
-        animated = true;
-        if (tonsStatEl) tonsStatEl.textContent = formatExactTons(target);
-        if (reduceMotion) {
-          renderValue(target, true, target);
-          return;
-        }
-        var start = null;
-        var duration = 1600;
-        function frame(ts) {
-          if (start === null) start = ts;
-          var t = Math.min(1, (ts - start) / duration);
-          var eased = 1 - Math.pow(1 - t, 3);
-          renderValue(target * eased, false, target);
-          if (t < 1) requestAnimationFrame(frame);
-          else renderValue(target, true, target);
-        }
-        requestAnimationFrame(frame);
-      }
-
-      function demoOverrideTons() {
-        try {
-          var params = new URLSearchParams(window.location.search);
-          var raw = params.get('demoTons');
-          if (raw === null || raw === '') return null;
-          var n = Number(raw);
-          return isFinite(n) && n >= 0 ? n : null;
-        } catch (e) {
-          return null;
+          showToast();
         }
       }
+    });
 
-      function applyPayload(data) {
-        var tons = Number(data && data.totalTonsOffset);
-        if (!isFinite(tons) || tons < 0) tons = 0;
-        var demo = demoOverrideTons();
-        if (demo !== null) tons = demo;
+    // ── Track app CTA clicks ──
+    var appCtas = document.querySelectorAll('#co2AppCta, #co2AppCtaBottom');
+    appCtas.forEach(function(el) {
+      el.addEventListener('click', function() {
+        trackCalcEvent('co2_page_app_cta_clicked');
+      });
+    });
 
-        meter.setAttribute('data-target', String(tons));
-        captionEl.textContent = 'Community contribution total';
+    // ── Community stats ──
+    fetch('/data/co2-contribution.json', { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) {
+        var count  = Number((data && data.contributionCount) || 0);
+        var points = Number((data && data.totalPointsSpent)  || 0);
+        var tons   = Number((data && data.totalTonsOffset)   || 0);
+        var co2CountEl  = document.getElementById('co2Count');
+        var co2LabelEl  = document.getElementById('co2CountLabel');
+        var co2PointsEl = document.getElementById('co2Points');
+        var co2TonsEl   = document.getElementById('co2TonsStat');
+        if (co2CountEl)  co2CountEl.textContent  = count.toLocaleString();
+        if (co2LabelEl)  co2LabelEl.textContent  = count === 1 ? 'contribution' : 'contributions';
+        if (co2PointsEl) co2PointsEl.textContent = points.toLocaleString();
+        if (co2TonsEl)   co2TonsEl.textContent   = tons.toFixed(2);
+      })
+      .catch(function () {
+        // Community stats unavailable; leave placeholder dashes
+      });
 
-        if (metaEl) {
-          metaEl.hidden = false;
-          var count = Number((data && data.contributionCount) || 0);
-          if (demo !== null && !(data && data.contributionCount)) {
-            /* keep live count when demoing number only */
-          }
-          countEl.textContent = String(count);
-          if (countLabelEl) {
-            countLabelEl.textContent = count === 1 ? 'contribution' : 'contributions';
-          }
-          pointsEl.textContent = Number((data && data.totalPointsSpent) || 0).toLocaleString();
-          tonsStatEl.textContent = formatExactTons(tons);
-        }
+    // ── Fire initial calculation ──
+    updateResult();
+    trackCalcEvent('co2_calculator_opened');
 
-        var kicked = false;
-        function kickAnimation() {
-          if (kicked) return;
-          kicked = true;
-          animateTo(tons);
-        }
-        if ('IntersectionObserver' in window) {
-          var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                kickAnimation();
-                io.disconnect();
-              }
-            });
-          }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
-          io.observe(meter);
-          setTimeout(kickAnimation, 500);
-        } else {
-          kickAnimation();
-        }
-      }
-
-      fetch('/data/co2-contribution.json', { cache: 'no-cache' })
-        .then(function (res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.json();
-        })
-        .then(applyPayload)
-        .catch(function () {
-          var demo = demoOverrideTons();
-          if (demo !== null) {
-            applyPayload({
-              totalTonsOffset: demo,
-              contributionCount: 0,
-              totalPointsSpent: 0
-            });
-            return;
-          }
-          captionEl.textContent = 'Contribution total unavailable right now.';
-          renderValue(0, true);
-        });
-    })();
+  })();
   </script>
 </body>
 </html>

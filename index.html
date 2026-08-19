@@ -2641,6 +2641,100 @@ window.__SEADAYS_GA_READY__ = true;
         /* Skip link: visible only when focused (accessibility) */
         .skip-link { position: absolute; top: 0; left: -9999px; padding: 10px 16px; background: var(--dark-bg-alt); color: white; z-index: 10001; font-weight: 600; }
         .skip-link:focus { left: 0; }
+
+        /* ── CO₂ Footprint Teaser Section ── */
+        #co2-footprint { border-top: 1px solid rgba(255,255,255,0.06); }
+        .co2-teaser-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 7px 13px; border-radius: 999px;
+            border: 1px solid rgba(61,220,151,0.28);
+            background: rgba(61,220,151,0.08);
+            color: #3DDC97; font-size: 12px; font-weight: 700;
+            letter-spacing: 0.07em; text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        #co2-footprint .section-title { margin-bottom: 10px; }
+        .co2-teaser-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+            margin: 36px 0 28px;
+        }
+        .co2-teaser-calc {
+            background: linear-gradient(145deg, rgba(61,220,151,0.08), rgba(255,255,255,0.02));
+            border: 1px solid rgba(61,220,151,0.22);
+            border-radius: 20px;
+            padding: 28px 24px;
+        }
+        .co2-calc-inner { display: grid; gap: 18px; margin-bottom: 22px; }
+        .co2-calc-row { display: grid; gap: 6px; }
+        .co2-calc-label {
+            font-size: 11px; font-weight: 800; letter-spacing: 0.08em;
+            text-transform: uppercase; color: #3DDC97;
+        }
+        .co2-calc-control { display: flex; flex-direction: column; gap: 4px; }
+        .co2-slider {
+            width: 100%; accent-color: #3DDC97; cursor: pointer;
+            height: 4px; border-radius: 2px;
+        }
+        .co2-slider-val { font-size: 13px; color: rgba(255,255,255,0.65); }
+        .co2-slider-val strong { color: #fff; font-weight: 800; }
+        .co2-result-strip {
+            border-top: 1px solid rgba(61,220,151,0.2);
+            padding-top: 18px;
+        }
+        .co2-result-main {
+            display: flex; align-items: baseline; gap: 8px;
+        }
+        .co2-result-num {
+            font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 900; letter-spacing: -0.04em;
+            background: linear-gradient(180deg, #fff 0%, #b8ffd8 48%, #3ddc97 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            font-variant-numeric: tabular-nums;
+        }
+        .co2-result-unit {
+            font-size: 16px; font-weight: 700; color: rgba(184,255,216,0.85); padding-bottom: 4px;
+        }
+        .co2-result-label { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+        .co2-equiv-chips {
+            display: grid;
+            gap: 14px;
+        }
+        .co2-equiv-chip {
+            display: flex; align-items: center; gap: 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 14px;
+            padding: 16px 18px;
+        }
+        .co2-chip-icon { font-size: 24px; flex-shrink: 0; }
+        .co2-chip-val {
+            font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.5px;
+            font-variant-numeric: tabular-nums;
+        }
+        .co2-chip-unit { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+        .co2-teaser-footer { text-align: center; }
+        .co2-teaser-cta {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-height: 52px; padding: 14px 32px; border-radius: 999px;
+            background: #FF0033; color: #fff; font-weight: 800; font-size: 17px;
+            text-decoration: none; letter-spacing: -0.2px;
+            transition: background 0.2s;
+        }
+        .co2-teaser-cta:hover { background: #cc0029; }
+        .co2-teaser-note {
+            margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.38);
+        }
+        @media (max-width: 800px) {
+            .co2-teaser-layout { grid-template-columns: 1fr; gap: 22px; }
+            .co2-equiv-chips { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .co2-equiv-chip { flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px; }
+        }
+        @media (max-width: 540px) {
+            .co2-equiv-chips { grid-template-columns: 1fr; }
+            .co2-equiv-chip { flex-direction: row; align-items: center; gap: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -2837,6 +2931,76 @@ window.__SEADAYS_GA_READY__ = true;
                     Cruise Planning Tools for Smarter Voyages. SeaDays includes Cruise Roll Calls, Crew Chat, Cruise Planner, Itinerary Tools,
                     Cruise Budget Tracking, Rate Ships, Cruise Community, SeaStories, Ship and Port Discovery, Port Guides,
                     Cruise Passport, and Share Progress.
+                </div>
+            </div>
+        </section>
+
+        <!-- CO₂ Footprint Teaser - full viewport, scroll-snap -->
+        <section id="co2-footprint" class="fullpage-section" aria-labelledby="co2-teaser-title">
+            <div class="container">
+                <div class="co2-teaser-eyebrow">🌊 Sustainability</div>
+                <h2 id="co2-teaser-title" class="section-title">What's the footprint of your next cruise?</h2>
+                <p class="section-subtitle">SeaDays can turn a cruise itinerary into an understandable CO₂ estimate — the same methodology used by the app.</p>
+
+                <div class="co2-teaser-layout">
+                    <!-- Live mini calculator -->
+                    <div class="co2-teaser-calc" aria-label="Cruise CO₂ mini calculator">
+                        <div class="co2-calc-inner">
+                            <div class="co2-calc-row">
+                                <label class="co2-calc-label" for="hpDays">Nights</label>
+                                <div class="co2-calc-control">
+                                    <input type="range" id="hpDays" class="co2-slider"
+                                        min="2" max="28" step="1" value="7"
+                                        aria-label="Cruise duration in nights"
+                                        aria-valuemin="2" aria-valuemax="28" aria-valuenow="7">
+                                    <span class="co2-slider-val"><strong id="hpDaysVal">7</strong> nights</span>
+                                </div>
+                            </div>
+                            <div class="co2-calc-row">
+                                <label class="co2-calc-label" for="hpDist">Distance</label>
+                                <div class="co2-calc-control">
+                                    <input type="range" id="hpDist" class="co2-slider"
+                                        min="200" max="8000" step="50" value="2500"
+                                        aria-label="Distance in nautical miles"
+                                        aria-valuemin="200" aria-valuemax="8000" aria-valuenow="2500">
+                                    <span class="co2-slider-val"><strong id="hpDistVal">2,500</strong> nm</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live result -->
+                        <div class="co2-result-strip" aria-live="polite" aria-atomic="true">
+                            <div class="co2-result-main">
+                                <span class="co2-result-num" id="hpResultTons">0.70</span>
+                                <span class="co2-result-unit">t CO₂e</span>
+                            </div>
+                            <p class="co2-result-label">estimated per passenger</p>
+                        </div>
+                    </div>
+
+                    <!-- Equivalence chips -->
+                    <div class="co2-equiv-chips" aria-label="CO₂ equivalences" aria-live="polite" aria-atomic="true">
+                        <div class="co2-equiv-chip">
+                            <span class="co2-chip-icon">🌳</span>
+                            <span class="co2-chip-val" id="hpTrees">34</span>
+                            <span class="co2-chip-unit">trees / year</span>
+                        </div>
+                        <div class="co2-equiv-chip">
+                            <span class="co2-chip-icon">🚗</span>
+                            <span class="co2-chip-val" id="hpCar">1.8</span>
+                            <span class="co2-chip-unit">months driving</span>
+                        </div>
+                        <div class="co2-equiv-chip">
+                            <span class="co2-chip-icon">📱</span>
+                            <span class="co2-chip-val" id="hpPhone">14k</span>
+                            <span class="co2-chip-unit">phone charges</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="co2-teaser-footer">
+                    <a href="/co2/" class="co2-teaser-cta" id="hpCo2Cta">Calculate my cruise footprint →</a>
+                    <p class="co2-teaser-note">Uses the same methodology as the SeaDays app. Estimates only — not certified measurements.</p>
                 </div>
             </div>
         </section>
@@ -3764,5 +3928,73 @@ window.__SEADAYS_GA_READY__ = true;
     </script>
     <script src="https://unpkg.com/lucide@0.487.0/dist/umd/lucide.min.js" defer></script>
     <script>window.addEventListener('load', function(){ if(typeof lucide!=='undefined') lucide.createIcons(); });</script>
+
+    <!-- Homepage CO₂ teaser calculator -->
+    <script>
+    (function () {
+      'use strict';
+      // Same methodology as src/utils/carbonFootprintCalculator.ts
+      // Factors: 0.4 kg CO2e/passenger/nm * 60%, 0.15t/day * 30%, 0.05t/port * 10%
+      function calcHP(nm, days) {
+        var ports = Math.round(days * 0.7); // sensible default ratio
+        var distTons = (nm * 0.4) / 1000;
+        var durTons  = days * 0.15;
+        var portTons = ports * 0.05;
+        return Math.max(0.1, (distTons * 0.6) + (durTons * 0.3) + (portTons * 0.1));
+      }
+      function fmtLarge(n) {
+        if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+        if (n >= 1000)    return Math.round(n / 1000) + 'k';
+        return String(n);
+      }
+
+      var hpDays    = document.getElementById('hpDays');
+      var hpDist    = document.getElementById('hpDist');
+      var hpDaysVal = document.getElementById('hpDaysVal');
+      var hpDistVal = document.getElementById('hpDistVal');
+      var hpResult  = document.getElementById('hpResultTons');
+      var hpTrees   = document.getElementById('hpTrees');
+      var hpCar     = document.getElementById('hpCar');
+      var hpPhone   = document.getElementById('hpPhone');
+      var hpCo2Cta  = document.getElementById('hpCo2Cta');
+
+      if (!hpDays || !hpDist) return;
+
+      function update() {
+        var days = parseInt(hpDays.value, 10) || 7;
+        var nm   = parseInt(hpDist.value, 10) || 2500;
+        hpDaysVal.textContent = days;
+        hpDistVal.textContent = nm.toLocaleString();
+        hpDays.setAttribute('aria-valuenow', days);
+        hpDist.setAttribute('aria-valuenow', nm);
+
+        var tons = calcHP(nm, days);
+        hpResult.textContent = tons.toFixed(2);
+
+        var trees = Math.round(tons * 48);
+        var carMonths = Math.round((tons / 0.38) * 10) / 10;
+        var phoneCharges = Math.round(tons / 0.00005);
+
+        hpTrees.textContent = trees.toLocaleString();
+        hpCar.textContent   = carMonths;
+        hpPhone.textContent = fmtLarge(phoneCharges);
+      }
+
+      hpDays.addEventListener('input', update);
+      hpDist.addEventListener('input', update);
+
+      if (hpCo2Cta) {
+        hpCo2Cta.addEventListener('click', function () {
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'co2_homepage_cta_clicked', { send_to: 'G-WSQDQ33QZD' });
+            }
+          } catch(e) {}
+        });
+      }
+
+      update();
+    })();
+    </script>
 </body>
 </html>
