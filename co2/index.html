@@ -500,8 +500,47 @@ window.__SEADAYS_GA_READY__ = true;
     }
     .calc-input:focus { border-color: rgba(61, 220, 151, 0.5); }
     .calc-input[type="range"] {
-      min-height: auto; padding: 0; background: transparent; border: none;
-      cursor: pointer; accent-color: var(--eco-green);
+      min-height: 44px;
+      height: 44px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      accent-color: var(--eco-green);
+      appearance: auto;
+      -webkit-appearance: slider-horizontal;
+      touch-action: pan-x;
+      width: 100%;
+    }
+    .calc-input[type="range"]::-webkit-slider-runnable-track {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+    }
+    .calc-input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      margin-top: -8px;
+      border-radius: 50%;
+      background: var(--eco-green);
+      box-shadow: 0 0 0 2px rgba(5, 8, 5, 0.85);
+      cursor: pointer;
+    }
+    .calc-input[type="range"]::-moz-range-track {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      border: none;
+    }
+    .calc-input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border: none;
+      border-radius: 50%;
+      background: var(--eco-green);
+      cursor: pointer;
     }
     .calc-range-val {
       display: flex; justify-content: space-between; align-items: baseline;
@@ -1681,16 +1720,23 @@ window.__SEADAYS_GA_READY__ = true;
     }
 
     // ── Range inputs ──
-    daysInput.addEventListener('input', function () {
-      calcState.days = parseInt(this.value, 10) || 7;
+    function bindRangeInput(input, onChange) {
+      if (!input) return;
+      var handler = function () { onChange(input); };
+      input.addEventListener('input', handler);
+      input.addEventListener('change', handler);
+    }
+
+    bindRangeInput(daysInput, function (input) {
+      calcState.days = parseInt(input.value, 10) || 7;
       daysVal.textContent = calcState.days;
-      daysInput.setAttribute('aria-valuenow', calcState.days);
+      input.setAttribute('aria-valuenow', calcState.days);
       updateResult();
     });
-    distInput.addEventListener('input', function () {
-      calcState.nm = parseInt(this.value, 10) || 2500;
+    bindRangeInput(distInput, function (input) {
+      calcState.nm = parseInt(input.value, 10) || 2500;
       distVal.textContent = calcState.nm.toLocaleString();
-      distInput.setAttribute('aria-valuenow', calcState.nm);
+      input.setAttribute('aria-valuenow', calcState.nm);
       updateResult();
     });
 
