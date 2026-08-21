@@ -1361,6 +1361,7 @@ const PUBLIC_STATIC_SITEMAP_PAGES = [
   { loc: '/gdpr.html', file: 'gdpr.html' },
   { loc: '/press/', file: 'press/index.html' },
   { loc: '/download/', file: 'download/index.html' },
+  { loc: '/meet-saili/', file: 'meet-saili/index.html' },
 ];
 
 function publicStaticSitemapUrls(repoRoot) {
