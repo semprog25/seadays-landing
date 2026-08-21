@@ -2358,8 +2358,11 @@ window.__SEADAYS_GA_READY__ = true;
             min-height: 0;
             height: auto;
             max-height: none;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
-            padding: 48px 0 20px;
+            align-items: stretch;
+            padding: clamp(28px, 4vh, 48px) 0 clamp(16px, 2.5vh, 24px);
             overflow: visible;
             scroll-snap-align: none;
             scroll-snap-stop: normal;
@@ -2369,6 +2372,22 @@ window.__SEADAYS_GA_READY__ = true;
         .site-close #press-media .container.press-panel {
             max-height: none;
             width: 100%;
+            max-width: min(1400px, 100%);
+            flex: 1 1 auto;
+            align-content: center;
+            align-items: center;
+            column-gap: clamp(28px, 4vw, 56px);
+            grid-template-columns: minmax(240px, 0.88fr) minmax(320px, 1.22fr);
+        }
+        .site-close #press-media .press-banner-thumb {
+            width: 100%;
+            max-width: none;
+        }
+        .site-close #press-media .press-banner-thumb img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
         }
         .story-band .container {
             max-width: 1200px;
@@ -2715,12 +2734,16 @@ window.__SEADAYS_GA_READY__ = true;
                     "copy"
                     "banner"
                     "cta";
-                justify-items: center;
+                justify-items: stretch;
                 text-align: center;
             }
             .press-copy { text-align: center; }
             .press-panel .panel-copy { margin-left: auto; margin-right: auto; }
-            .press-banner-thumb { width: 100%; max-width: 640px; }
+            .press-banner-thumb { width: 100%; max-width: none; }
+            .site-close #press-media .container.press-panel {
+                grid-template-columns: 1fr;
+                justify-items: stretch;
+            }
             .press-panel .panel-cta { justify-self: center; }
             .trust-strip {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
