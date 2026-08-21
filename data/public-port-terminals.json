@@ -5,7 +5,9 @@
     "portCount": 26,
     "source": "public.port_terminals (anon select)",
     "note": "Phase 1 enrichment merged additional researched terminals for priority ports",
-    "phase1CorrectionPassAt": "2026-08-11T21:41:35.430Z"
+    "phase1CorrectionPassAt": "2026-08-11T21:41:35.430Z",
+    "kielEnrichmentAt": "2026-08-21T10:06:47.570Z",
+    "kielSource": "PORT OF KIEL official terminal pages (portofkiel.com)"
   },
   "byPortId": {
     "barcelona": [
@@ -1471,6 +1473,98 @@
         "is_primary": false,
         "sort_order": 20,
         "country_id": "spain"
+      }
+    ],
+    "kiel": [
+      {
+        "name": "Ostseekai Terminal 27",
+        "slug": "ostseekai-terminal-27",
+        "description": "City-centre cruise terminal building at Ostseekai berth 27. PORT OF KIEL lists ~300 m to the city centre, shore power, and a cruise passenger capacity of 6,500 for this berth facility.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "waiting areas",
+          "luggage handling",
+          "shore power",
+          "boarding bridge"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "local bus",
+          "Hauptbahnhof nearby"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "germany"
+      },
+      {
+        "name": "Ostseekai Terminal 28",
+        "slug": "ostseekai-terminal-28",
+        "description": "Second city-centre Ostseekai cruise terminal at berth 28 (paired with Terminal 27). PORT OF KIEL lists cruise passenger capacity of 4,500 for this facility and quay length of 285 m.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "waiting areas",
+          "luggage handling",
+          "shore power",
+          "boarding bridge"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "local bus",
+          "Hauptbahnhof nearby"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "germany"
+      },
+      {
+        "name": "Ostuferhafen Berth No. 1",
+        "slug": "ostuferhafen-berth-1",
+        "description": "Cruise berth on the east bank designed for large ships. PORT OF KIEL lists ~8 km to the city centre, 395 m quay length, and capacity of 6,000 passengers—plan transport into town.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal",
+          "baggage drop-off",
+          "mobile gangway",
+          "shore power"
+        ],
+        "distance_to_city_center_km": 8,
+        "transport_options": [
+          "cruise shuttle",
+          "taxi",
+          "public transport"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "germany"
+      },
+      {
+        "name": "Norwegenkai (berth 22)",
+        "slug": "norwegenkai-berth-22",
+        "description": "City-centre terminal (~300 m to downtown per PORT OF KIEL) primarily known for Color Line Kiel–Oslo ferry service; also listed in the port’s cruise-terminal overview with berth 22.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger facilities",
+          "boarding bridge"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "local bus"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "germany"
       }
     ]
   }

@@ -2425,7 +2425,9 @@ ${getFaviconHeadHtml()}
 }
 
 async function buildHomePageBlogCards(articles) {
-  if (articles.length === 0) return '<div id="blogGrid" class="blog-section-grid" style="display:none;"></div>\n                <div id="blogEmpty" class="blog-empty" style="display:block;">No posts yet. Check back soon for stories and tips.</div>';
+  if (articles.length === 0) {
+    return '<div id="blogGrid" class="blog-section-grid" style="display:none;"></div>';
+  }
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
@@ -2445,7 +2447,7 @@ async function buildHomePageBlogCards(articles) {
   return (
     '<div id="blogGrid" class="blog-section-grid">' +
     cards.join('\n                ') +
-    '</div>\n                <div id="blogEmpty" class="blog-empty" style="display:none;">No posts yet. Check back soon for stories and tips.</div>'
+    '</div>'
   );
 }
 

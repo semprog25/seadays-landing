@@ -21,17 +21,63 @@ function hasText(v) {
   return typeof v === 'string' && v.trim().length > 0;
 }
 
+/** Generic filler that must never render as if it were destination-specific fact. */
+const PORT_GUIDE_BOILERPLATE_RE = [
+  /^Established as a port in historical times$/i,
+  /^An important maritime destination$/i,
+  /^Handles cruise passengers and cargo vessels$/i,
+  /^Handles cruise passengers and yachts$/i,
+  /^Handles cruise passengers$/i,
+  /^Welcomes cruise passengers throughout the year$/i,
+  /^Welcomes cruise passengers during summer months$/i,
+  /^Growing cruise destination$/i,
+  /^Varies by location$/i,
+  /^Major metropolitan city$/i,
+  /^Major city$/i,
+  /^Medium-sized (city|town)$/i,
+  /^Small town$/i,
+  /^Capital city$/i,
+  /^Located in /i,
+  /^Cruise terminal provides access to the local area$/i,
+  /^Varies by terminal location$/i,
+  /^10-30 minutes depending on terminal$/i,
+  /^Taxis available at terminal$/i,
+  /^Local transport options available$/i,
+  /^Historic port area$/i,
+  /^Local cultural attractions$/i,
+  /^Scenic waterfront$/i,
+  /^Rich local heritage$/i,
+  /^Traditional architecture$/i,
+  /^Cultural landmarks$/i,
+];
+
+function isPortGuideBoilerplate(value) {
+  const s = String(value || '').trim();
+  if (!s) return true;
+  return PORT_GUIDE_BOILERPLATE_RE.some((re) => re.test(s));
+}
+
+function honestFactValue(value) {
+  if (value == null) return '';
+  if (typeof value === 'number' && Number.isFinite(value)) return String(value);
+  const s = String(value).trim();
+  if (!s || isPortGuideBoilerplate(s)) return '';
+  return s;
+}
+
 function listItems(arr) {
   if (!Array.isArray(arr) || !arr.length) return '';
   return arr
-    .filter((x) => hasText(x))
+    .filter((x) => hasText(x) && !isPortGuideBoilerplate(x))
     .map((x) => `<li>${escapeHtml(x)}</li>`)
     .join('');
 }
 
 function dlRow(label, value) {
-  if (!hasText(value) && value !== 0) return '';
-  return `<div class="pg-fact"><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(String(value))}</dd></div>`;
+  const shown = honestFactValue(value);
+  if (!shown && value !== 0) return '';
+  if (value === 0) return `<div class="pg-fact"><dt>${escapeHtml(label)}</dt><dd>0</dd></div>`;
+  return `<div class="pg-fact"><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(shown)}</dd></div>`;
 }
 
 function section(title, inner, id) {
@@ -165,7 +211,8 @@ function buildFactsSection(guide) {
     (notable ? `<p class="pg-label">Notable features</p><ul>${notable}</ul>` : '') +
     (cultural ? `<p class="pg-label">Cultural context</p><ul>${cultural}</ul>` : '');
   if (!rows && !lists) return '';
-  return section('Facts', `<dl class="pg-facts">${rows}</dl>${lists}`, 'facts');
+  const dl = rows ? `<dl class="pg-facts">${rows}</dl>` : '';
+  return section('Facts', `${dl}${lists}`, 'facts');
 }
 
 /**

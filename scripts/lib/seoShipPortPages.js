@@ -71,6 +71,27 @@ function parseOptionalInt(value) {
   return Math.max(0, Math.round(n));
 }
 
+/** Avoid "Kiel, Germany, Germany" when dataset names already include the country. */
+function stripCountrySuffixFromPortLabel(label, country) {
+  const l = String(label || '').trim();
+  const c = String(country || '').trim();
+  if (!c || !l) return l;
+  const suffix = ', ' + c;
+  if (l.toLowerCase().endsWith(suffix.toLowerCase())) return l.slice(0, -suffix.length).trim();
+  return l;
+}
+
+function formatPortPlaceLabel(port) {
+  const country = String(port?.country || '').trim();
+  const name = stripCountrySuffixFromPortLabel(port?.name, country);
+  if (country && name) return `${name}, ${country}`;
+  return name || country || '';
+}
+
+function formatPortCoreName(port) {
+  return stripCountrySuffixFromPortLabel(port?.name, port?.country) || String(port?.name || '').trim();
+}
+
 function pickFirstFiniteNumber(...values) {
   for (const v of values) {
     const n = parseOptionalNumber(v);
@@ -299,7 +320,8 @@ function budgetShipTriple(ship) {
 
 function buildOverridePortProse(port, seed) {
   const overviewSentences = uniqueSentences([port.description], 5);
-  const place = port.country ? `${port.name}, ${port.country}` : port.name;
+  const coreName = formatPortCoreName(port);
+  const place = formatPortPlaceLabel(port) || coreName;
   const overview =
     overviewSentences.length > 0
       ? overviewSentences.join(' ')
@@ -307,21 +329,21 @@ function buildOverridePortProse(port, seed) {
   const whatToDo = uniqueSentences(
     [
       ...(port.highlights || []),
-      `For a shore day in ${port.name}, choose one main activity first, then keep time for meals, walking, and the return to the pier.`,
-      `SeaDays helps travelers compare ${port.name} with nearby ports so the itinerary feels organized before the ship arrives.`,
+      `For a shore day in ${coreName}, choose one main activity first, then keep time for meals, walking, and the return to the pier.`,
+      `SeaDays helps travelers compare ${coreName} with nearby ports so the itinerary feels organized before the ship arrives.`,
     ],
     4
   ).join(' ');
   const cruiseRelevance = uniqueSentences(
     [
-      `${port.name} matters to cruise planning because port time, transport distance, and all-aboard timing shape how much of the destination you can realistically enjoy.`,
+      `${coreName} matters to cruise planning because port time, transport distance, and all-aboard timing shape how much of the destination you can realistically enjoy.`,
       fillPortVars(pickAt(PORT_CRUISE_RELEVANCE, seed, 'cru'), port),
     ],
     3
   ).join(' ');
   const tips = uniqueSentences(
     [
-      `Before leaving the ship in ${port.name}, save the pier location, ship time, and any shuttle details offline.`,
+      `Before leaving the ship in ${coreName}, save the pier location, ship time, and any shuttle details offline.`,
       fillPortVars(pickAt(PORT_TIPS, seed, 'tip'), port),
     ],
     3
@@ -372,9 +394,10 @@ function fillShipVars(t, ship) {
 }
 
 function fillPortVars(t, port) {
-  const place = port.country ? `${port.name}, ${port.country}` : port.name;
+  const coreName = formatPortCoreName(port);
+  const place = formatPortPlaceLabel(port) || coreName;
   return t
-    .replace(/\{name\}/g, port.name)
+    .replace(/\{name\}/g, coreName)
     .replace(/\{country\}/g, port.country || 'this region')
     .replace(/\{place\}/g, place)
     .replace(/\{region\}/g, port.region || 'this cruising region');
@@ -486,8 +509,9 @@ function buildSeoPortRecords(rawList) {
   const usedSlugs = new Set();
   for (let i = 0; i < rawList.length; i++) {
     const raw = rawList[i] || {};
-    const name = raw.portName || raw.name || `Port ${i + 1}`;
     const country = raw.country || raw.countryName || '';
+    const rawName = raw.portName || raw.name || `Port ${i + 1}`;
+    const name = stripCountrySuffixFromPortLabel(rawName, country) || rawName;
     const id = String(raw.id ?? raw.portId ?? slugify(name)).replace(/[^a-zA-Z0-9_-]/g, '-');
     const baseLabel = country ? `${name} ${country}` : name;
     let slug = raw.slug ? String(raw.slug).trim() : slugify(baseLabel);
@@ -569,9 +593,9 @@ const PORT_WHAT_TO_DO = [
 
 const PORT_CRUISE_RELEVANCE = [
   '{name} matters to cruisers because it often sets tone for the itinerary: first impressions, jet-lag recovery, or a final day before flying home.',
-  'Lines routing through {name} usually align ship size with berth constraints—larger vessels may use alternate piers or tenders.',
+  'Lines routing through {name} usually align ship size with berth constraints—larger vessels may use alternate piers depending on the call.',
   'Embarkation from {name} can simplify flight planning when airports and hotels align; compare total trip cost versus other homeports.',
-  'For {region} sailings, {name} frequently appears as a marquee stop—worth researching shore power, walk-off distance, and typical tender odds.',
+  'For {region} sailings, {name} frequently appears as a marquee stop—worth researching shore power, walk-off distance, and pier logistics for your sailing.',
 ];
 
 const PORT_TIPS = [
@@ -584,9 +608,9 @@ const PORT_TIPS = [
 const PORT_LIST_ONLY_ACTIONS = [
   'Start with one anchor sight, then leave room for spontaneity around {name}.',
   'Screenshot ship departure time and pier map before you lose signal.',
-  'Ask crew about tender priority if {name} is a tender port on your sailing.',
   'Pair a light breakfast on the ship with a local lunch ashore to maximize exploration time.',
   'Check whether your line offers shuttle pricing before you commit to taxis at {name}.',
+  'Confirm your assigned pier and all-aboard time before leaving the ship at {name}.',
 ];
 
 function splitIntoParagraphs(longText) {
@@ -792,7 +816,7 @@ function buildShipMetaDescription(ship) {
 function buildPortMetaDescription(port, h1) {
   const custom = port.metaDescription && String(port.metaDescription).trim();
   if (custom) return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
-  const c = port.country ? `${port.name} (${port.country})` : port.name;
+  const c = h1 || formatPortPlaceLabel(port) || formatPortCoreName(port);
   const raw = `${c} cruise port: shore tips, best time to visit, cruise relevance & things to do—SeaDays guide.`;
   return raw.length <= 160 ? raw : raw.slice(0, 157) + '…';
 }
@@ -1047,7 +1071,10 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)} cruise ship guide</a></li>`)
     .join('');
   const relatedPortLinks = portPick
-    .map((p) => `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(p.name)}${p.country ? `, ${escapeHtml(p.country)}` : ''}</a></li>`)
+    .map((p) => {
+      const label = formatPortPlaceLabel(p) || p.name;
+      return `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(label)}</a></li>`;
+    })
     .join('');
   const blogCards = buildArticleCards(blogPick, 'Cruise guide');
 
@@ -1195,8 +1222,9 @@ ${getFaviconHeadHtml()}
 function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opts) {
   const BASE_URL = opts.baseUrl;
   const canonical = `${BASE_URL}/ports/${port.slug}/`;
-  const h1 = port.country ? `${port.name}, ${port.country}` : port.name;
-  const title = `${port.name} Cruise Port Guide: Terminals, Tips & Things to Do`;
+  const coreName = formatPortCoreName(port);
+  const h1 = formatPortPlaceLabel(port) || coreName;
+  const title = `${coreName} Cruise Port Guide: Terminals, Tips & Things to Do`;
   const prose = budgetPortProse(port);
   const overviewParas = splitIntoParagraphs(prose.overview);
   const whatParas = splitIntoParagraphs(prose.whatToDo);
@@ -1210,12 +1238,12 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       appRoot: opts.appRoot,
       slugToAppPortId: opts.slugToAppPortId,
       knownPortIds: opts.knownAffiliatePortIds,
-      destinationLabel: port.name,
+      destinationLabel: coreName,
     });
 
   let metaDesc = buildPortMetaDescription(port, h1);
   if (guide?.portInfo?.description) {
-    const enriched = `${port.name} cruise port guide: terminals, getting there, climate, entry tips, and shore-day ideas. ${guide.portInfo.description}`;
+    const enriched = `${coreName} cruise port guide: terminals, getting there, climate, entry tips, and shore-day ideas. ${guide.portInfo.description}`;
     metaDesc = enriched.length <= 160 ? enriched : enriched.slice(0, 157) + '…';
   }
   const ogImage = port.image_url || opts.defaultImage;
@@ -1253,7 +1281,10 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const visualPanel = buildFunVisualPanel('port', port, blogPick);
 
   const relatedPortLinks = portPick
-    .map((p) => `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(p.name)}${p.country ? `, ${escapeHtml(p.country)}` : ''}</a></li>`)
+    .map((p) => {
+      const label = formatPortPlaceLabel(p) || p.name;
+      return `<li><a href="/ports/${escapeHtml(p.slug)}/">${escapeHtml(label)}</a></li>`;
+    })
     .join('');
   const relatedShipLinks = shipPick
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a> <span style="color:rgba(255,255,255,0.45)">(${escapeHtml(s.cruise_line)})</span></li>`)
@@ -1300,7 +1331,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
   const breadcrumbLd = buildBreadcrumbJsonLd(port, canonical);
-  const faqItems = collectPortFaqItems(guide, port.name);
+  const faqItems = collectPortFaqItems(guide, coreName);
   const faqLd = faqItems.length
     ? {
         '@context': 'https://schema.org',
