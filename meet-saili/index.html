@@ -97,10 +97,10 @@ window.__SEADAYS_GA_READY__ = true;
             class="ms-hero-video"
             muted
             playsinline
-            preload="metadata"
+            preload="auto"
             poster="/images/saili/saili-hero-poster.jpg"
           >
-            <source src="/images/saili/saili-hero.mp4" type="video/mp4">
+            <source src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Saili.mp4" type="video/mp4">
           </video>
           <img
             class="ms-hero-fallback"
@@ -328,32 +328,111 @@ window.__SEADAYS_GA_READY__ = true;
       var hero = document.querySelector('.ms-hero');
       var video = document.querySelector('.ms-hero-video');
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var canPointerScrub = window.matchMedia &&
+        window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-      if (hero && reduceMotion) {
-        hero.classList.add('is-reduced-motion');
-        if (video) {
-          video.removeAttribute('autoplay');
-          video.pause();
-          video.removeAttribute('src');
-          while (video.firstChild) video.removeChild(video.firstChild);
-          video.load();
-        }
-      } else if (video) {
-        video.setAttribute('autoplay', '');
-        var playOnce = function () {
-          var playPromise = video.play();
-          if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(function () {});
+      function clamp(value, min, max) {
+        return Math.min(max, Math.max(min, value));
+      }
+
+      function setNeutralFrame(el) {
+        if (!el || !isFinite(el.duration) || el.duration <= 0) return;
+        try {
+          el.pause();
+          el.currentTime = el.duration / 2;
+        } catch (e) {}
+      }
+
+      function initSailiScrub(el) {
+        var SENSITIVITY = 0.8;
+        var prevX = window.innerWidth / 2;
+        var targetTime = 0;
+        var isSeeking = false;
+        var ready = false;
+
+        function performSeek() {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) return;
+          isSeeking = true;
+          try {
+            el.currentTime = targetTime;
+          } catch (e) {
+            isSeeking = false;
           }
-        };
-        if (video.readyState >= 2) playOnce();
-        else video.addEventListener('loadeddata', playOnce, { once: true });
-        video.addEventListener('ended', function () {
-          try { video.currentTime = video.duration; } catch (e) {}
-        });
-        video.addEventListener('error', function () {
+        }
+
+        function requestSeek(nextTime) {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) return;
+          targetTime = clamp(nextTime, 0, el.duration);
+          if (isSeeking) return;
+          performSeek();
+        }
+
+        function onSeeked() {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) {
+            isSeeking = false;
+            return;
+          }
+          if (Math.abs(el.currentTime - targetTime) > 0.01) {
+            performSeek();
+          } else {
+            isSeeking = false;
+          }
+        }
+
+        function onMouseMove(event) {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) return;
+          var currentX = event.clientX;
+          var delta = currentX - prevX;
+          prevX = currentX;
+          if (delta === 0) return;
+          var timeOffset = (delta / window.innerWidth) * SENSITIVITY * el.duration;
+          requestSeek(el.currentTime + timeOffset);
+        }
+
+        function onReady() {
+          if (ready) return;
+          if (!isFinite(el.duration) || el.duration <= 0) return;
+          ready = true;
+          el.pause();
+          targetTime = el.duration / 2;
+          try {
+            el.currentTime = targetTime;
+          } catch (e) {}
+          window.addEventListener('mousemove', onMouseMove, { passive: true });
+        }
+
+        el.removeAttribute('autoplay');
+        el.muted = true;
+        el.playsInline = true;
+        el.pause();
+        el.addEventListener('seeked', onSeeked);
+        el.addEventListener('error', function () {
           if (hero) hero.classList.add('is-reduced-motion');
+          window.removeEventListener('mousemove', onMouseMove);
         });
+
+        if (el.readyState >= 1) onReady();
+        else el.addEventListener('loadedmetadata', onReady, { once: true });
+      }
+
+      if (video) {
+        video.removeAttribute('autoplay');
+        video.muted = true;
+        video.playsInline = true;
+        video.pause();
+
+        if (reduceMotion) {
+          if (hero) hero.classList.add('is-reduced-motion');
+        } else if (!canPointerScrub) {
+          var setStatic = function () { setNeutralFrame(video); };
+          if (video.readyState >= 1) setStatic();
+          else video.addEventListener('loadedmetadata', setStatic, { once: true });
+          video.addEventListener('error', function () {
+            if (hero) hero.classList.add('is-reduced-motion');
+          });
+        } else {
+          initSailiScrub(video);
+        }
       }
 
       var nodes = document.querySelectorAll('.ms-reveal');
