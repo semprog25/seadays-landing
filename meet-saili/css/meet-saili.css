@@ -712,9 +712,9 @@ body.meet-saili-page {
     overflow: hidden;
   }
 
-  /* Meet Saili mobile header — transparent, sits on the same hero field */
+  /* Meet Saili mobile header — pinned to hero top, scrolls away with the hero */
   body.meet-saili-page .content-layer > header.header.site-header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
