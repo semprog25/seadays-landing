@@ -71,11 +71,11 @@
       id: 'port',
       name: 'Port Saili',
       file: 'saili-port.png',
-      image: SAILI_PUBLIC_BASE + '/saili-port.png',
-      alt: 'Saili exploring a cruise port',
+      image: SAILI_PUBLIC_BASE + '/saili-port.png?v=20260822',
+      alt: 'Saili at a cruise port with a map, PORT flag, and explore signpost',
       eyebrow: 'Port',
       title: 'First steps ashore.',
-      body: 'Boarding pass in hand and eyes on the pier — Port Saili lives for that first moment when the cruise becomes real.'
+      body: 'Map in hand and eyes on the pier — Port Saili lives for that first moment when the cruise becomes real.'
     },
     {
       id: 'captain',
