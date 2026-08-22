@@ -126,26 +126,32 @@ window.__SEADAYS_GA_READY__ = true;
         </div>
       </section>
 
-      <section class="ms-section ms-intro" aria-labelledby="saili-intro-title">
+            <section class="ms-section ms-intro" aria-labelledby="saili-intro-title">
         <div class="ms-wrap ms-intro-grid">
-          <div class="ms-reveal">
+          <div class="ms-intro-copy ms-reveal">
             <h2 id="saili-intro-title">Okay, but who is Saili?</h2>
-            <p class="ms-section-copy">Saili is SeaDays’ curious little travel companion. He loves ships, discovering new places, and being part of the journey — from the moment you start planning to the moment you step back ashore.</p>
+            <div class="ms-intro-prose">
+              <p class="ms-intro-lead">Saili is SeaDays’ curious little travel companion. He loves ships, discovering new places, and being part of the journey — from the moment you start planning to the moment you step back ashore.</p>
+              <p>He’s the kind of companion who gets excited about finding a new port, enjoys exploring every corner of a ship, and somehow always remembers the little things that are easy to forget before a holiday. A packing list, a port you wanted to explore, a place you wanted to visit, or a memory worth keeping — Saili is there for all of it.</p>
+              <p>But Saili isn’t here to tell you how to cruise. He’s here to help you make your cruise your own. Whether you’re carefully planning every day, travelling with family, discovering your first ship, or simply enjoying a quiet sea day with nowhere to be, Saili is along for the ride.</p>
+              <p>That’s what Saili represents at SeaDays: curiosity, preparation, discovery and a little bit of fun. Because a cruise is more than an itinerary. It’s the places you discover, the moments you share, the things you learn along the way — and the memories you bring home.</p>
+              <p class="ms-intro-closing">Wherever your next voyage takes you, Saili is ready to come along.</p>
+            </div>
           </div>
-          <div class="ms-visual ms-reveal">
+          <div class="ms-visual ms-visual--saili ms-reveal">
             <img
-              src="/images/saili/saili-portrait.jpg"
-              alt="Saili, the SeaDays mascot, waving in a branded hoodie and backpack"
-              width="1280"
-              height="720"
-              loading="lazy"
+              data-saili="meet"
+              data-saili-eager="true"
+              alt="Saili, the SeaDays travel companion, waving in a branded hoodie and cap"
+              width="1024"
+              height="1024"
               decoding="async"
             >
           </div>
         </div>
       </section>
 
-      <section class="ms-section ms-personality" aria-labelledby="saili-personality-title">
+<section class="ms-section ms-personality" aria-labelledby="saili-personality-title">
         <div class="ms-wrap">
           <div class="ms-personality-head ms-reveal">
             <h2 id="saili-personality-title">He’s got a few things figured out.</h2>
@@ -169,6 +175,17 @@ window.__SEADAYS_GA_READY__ = true;
               <p>Ships, ports, new places — Saili is happiest when he’s exploring.</p>
             </article>
           </div>
+        </div>
+      </section>
+
+
+      <section class="ms-section ms-chapters" aria-labelledby="saili-chapters-title">
+        <div class="ms-wrap">
+          <div class="ms-chapters-head ms-reveal">
+            <h2 id="saili-chapters-title">Every side of Saili</h2>
+            <p class="ms-section-copy">Eight moods. One curious cruise companion — from the first plan to the celebration at sea.</p>
+          </div>
+          <div id="saili-chapters-mount" class="ms-chapters-list"></div>
         </div>
       </section>
 
@@ -200,12 +217,12 @@ window.__SEADAYS_GA_READY__ = true;
               <p>Because the best journeys deserve to be remembered.</p>
             </article>
           </div>
-          <div class="ms-journey-visual ms-reveal">
+          <div class="ms-journey-visual ms-journey-visual--saili ms-reveal">
             <img
-              src="/images/saili/saili-moment.jpg"
-              alt="Saili standing ready for the next cruise adventure"
-              width="1280"
-              height="720"
+              data-saili="cute"
+              alt="Saili resting in a SeaDays hoodie and cap"
+              width="1024"
+              height="1024"
               loading="lazy"
               decoding="async"
             >
@@ -217,12 +234,12 @@ window.__SEADAYS_GA_READY__ = true;
         <div class="ms-wrap ms-moment-inner ms-reveal">
           <h2 id="saili-moment-title" class="ms-moment-statement">Every journey needs a little <span>Saili</span>.</h2>
           <p class="ms-moment-sub">From your first cruise to your fiftieth, he’s coming along for the ride.</p>
-          <div class="ms-moment-visual">
+          <div class="ms-moment-visual ms-moment-visual--saili">
             <img
-              src="/images/saili/saili-hero-poster.jpg"
-              alt="Close-up of Saili, SeaDays’ travel companion"
-              width="1280"
-              height="720"
+              data-saili="celebration"
+              alt="Saili celebrating with cruise rewards"
+              width="1024"
+              height="1024"
               loading="lazy"
               decoding="async"
             >
@@ -322,8 +339,15 @@ window.__SEADAYS_GA_READY__ = true;
         <!-- seadays-site-shell:footer-end seadays-site-shell -->
   </div>
 
+  <script src="/meet-saili/js/saili-characters.js"></script>
   <script>
     (function () {
+
+      if (typeof applySailiImages === 'function') applySailiImages(document);
+      if (typeof renderSailiChapters === 'function') {
+        renderSailiChapters(document.getElementById('saili-chapters-mount'));
+      }
+
       var hero = document.querySelector('.ms-hero');
       var video = document.querySelector('.ms-hero-video');
       var fallback = document.querySelector('.ms-hero-fallback');
