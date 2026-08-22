@@ -92,35 +92,37 @@ window.__SEADAYS_GA_READY__ = true;
 
     <main id="main-content">
       <section class="ms-hero" aria-labelledby="saili-hero-title">
-        <div class="ms-hero-media" aria-hidden="true">
-          <video
-            class="ms-hero-video"
-            muted
-            playsinline
-            preload="auto"
-          ></video>
-          <img
-            class="ms-hero-fallback"
-            src="/images/saili/saili-hero-poster.jpg"
-            alt=""
-            width="1280"
-            height="720"
-            decoding="async"
-          >
-        </div>
-        <div class="ms-hero-scrim" aria-hidden="true"></div>
-        <div class="ms-hero-inner">
-          <div class="ms-hero-copy">
-            <p class="ms-eyebrow">Meet Saili</p>
-            <h1 id="saili-hero-title">Your new cruise companion.</h1>
-            <p class="ms-hero-lede">Every great voyage needs a little adventure buddy.</p>
-            <p class="ms-hero-body">Meet Saili — the little SeaDays explorer who’s always ready for the next adventure.</p>
-            <div class="ms-hero-actions">
-              <a class="btn-primary" href="/">Explore SeaDays</a>
-              <a class="btn-secondary" href="/download/?utm_source=seadays_web&amp;utm_medium=meet_saili&amp;utm_campaign=organic_web">Get SeaDays</a>
-            </div>
+        <div class="ms-hero-pin">
+          <div class="ms-hero-media" aria-hidden="true">
+            <video
+              class="ms-hero-video"
+              muted
+              playsinline
+              preload="auto"
+            ></video>
+            <img
+              class="ms-hero-fallback"
+              src="/images/saili/saili-hero-poster.jpg"
+              alt=""
+              width="1280"
+              height="720"
+              decoding="async"
+            >
           </div>
-          <div class="ms-hero-spacer" aria-hidden="true"></div>
+          <div class="ms-hero-scrim" aria-hidden="true"></div>
+          <div class="ms-hero-inner">
+            <div class="ms-hero-copy">
+              <p class="ms-eyebrow">Meet Saili</p>
+              <h1 id="saili-hero-title">Your new cruise companion.</h1>
+              <p class="ms-hero-lede">Every great voyage needs a little adventure buddy.</p>
+              <p class="ms-hero-body">Meet Saili — the little SeaDays explorer who’s always ready for the next adventure.</p>
+              <div class="ms-hero-actions">
+                <a class="btn-primary" href="/">Explore SeaDays</a>
+                <a class="btn-secondary" href="/download/?utm_source=seadays_web&amp;utm_medium=meet_saili&amp;utm_campaign=organic_web">Get SeaDays</a>
+              </div>
+            </div>
+            <div class="ms-hero-spacer" aria-hidden="true"></div>
+          </div>
         </div>
       </section>
 
@@ -435,18 +437,149 @@ window.__SEADAYS_GA_READY__ = true;
         else el.addEventListener('loadedmetadata', onReady, { once: true });
       }
 
+      function initMobilePortraitScroll(el, section) {
+        var MOBILE_SCROLL_SENSITIVITY = 1.55;
+        el.muted = true;
+        el.playsInline = true;
+        el.removeAttribute('autoplay');
+        el.removeAttribute('loop');
+        el.loop = false;
+        el.pause();
+
+        var ready = false;
+        var rafId = 0;
+        var scrollIdleTimer = 0;
+        var isScrollActive = false;
+        var targetTime = 0;
+        var isSeeking = false;
+        var SEEK_EPSILON = 0.008;
+
+        function getScrollProgress() {
+          var rect = section.getBoundingClientRect();
+          var height = section.offsetHeight;
+          if (height <= 0) return 0;
+          return clamp(-rect.top / height, 0, 1);
+        }
+
+        function getTargetTime() {
+          if (!isFinite(el.duration) || el.duration <= 0) return 0;
+          return clamp(getScrollProgress() * MOBILE_SCROLL_SENSITIVITY, 0, 1) * el.duration;
+        }
+
+        function performSeek() {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) return;
+          isSeeking = true;
+          try {
+            el.currentTime = targetTime;
+          } catch (e) {
+            isSeeking = false;
+          }
+        }
+
+        function requestSeek(nextTime) {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) return;
+          targetTime = clamp(nextTime, 0, el.duration);
+          if (isSeeking) return;
+          if (Math.abs(el.currentTime - targetTime) < SEEK_EPSILON) return;
+          performSeek();
+        }
+
+        function onSeeked() {
+          if (!ready || !isFinite(el.duration) || el.duration <= 0) {
+            isSeeking = false;
+            return;
+          }
+          if (Math.abs(el.currentTime - targetTime) > SEEK_EPSILON) {
+            performSeek();
+          } else {
+            isSeeking = false;
+            if (isScrollActive) scheduleTick();
+          }
+        }
+
+        function tick() {
+          rafId = 0;
+          if (!ready) return;
+          requestSeek(getTargetTime());
+          if (isScrollActive) {
+            rafId = window.requestAnimationFrame(tick);
+          }
+        }
+
+        function scheduleTick() {
+          if (rafId) return;
+          rafId = window.requestAnimationFrame(tick);
+        }
+
+        function onScroll() {
+          isScrollActive = true;
+          clearTimeout(scrollIdleTimer);
+          scrollIdleTimer = window.setTimeout(function () {
+            isScrollActive = false;
+          }, 140);
+          scheduleTick();
+        }
+
+        function onReady() {
+          if (ready) return;
+          if (!isFinite(el.duration) || el.duration <= 0) return;
+          ready = true;
+          targetTime = 0;
+          try {
+            el.currentTime = 0;
+          } catch (e) {}
+          el.addEventListener('seeked', onSeeked);
+          requestSeek(getTargetTime());
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onScroll, { passive: true });
+        }
+
+        function teardown() {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+          el.removeEventListener('seeked', onSeeked);
+          clearTimeout(scrollIdleTimer);
+          if (rafId) window.cancelAnimationFrame(rafId);
+          rafId = 0;
+          isScrollActive = false;
+          isSeeking = false;
+        }
+
+        el.addEventListener('error', function () {
+          if (hero) hero.classList.add('is-reduced-motion');
+          teardown();
+        });
+
+        if (el.readyState >= 1) onReady();
+        else el.addEventListener('loadedmetadata', onReady, { once: true });
+      }
+
       if (video) {
         applyHeroAssets(video);
-        video.removeAttribute('autoplay');
         video.muted = true;
         video.playsInline = true;
-        video.pause();
 
         var useScrub = canPointerScrub && !isMobileVisual() && !reduceMotion;
+        var useMobileScroll = isMobileVisual() && !reduceMotion;
 
         if (useScrub) {
+          video.removeAttribute('autoplay');
+          video.removeAttribute('loop');
+          video.loop = false;
+          video.pause();
           initSailiScrub(video);
+        } else if (useMobileScroll && hero) {
+          hero.classList.add('is-mobile-scroll');
+          video.removeAttribute('autoplay');
+          video.removeAttribute('loop');
+          video.loop = false;
+          video.pause();
+          initMobilePortraitScroll(video, hero);
         } else {
+          video.removeAttribute('autoplay');
+          video.removeAttribute('loop');
+          video.loop = false;
+          video.pause();
           var setStatic = function () { setNeutralFrame(video); };
           if (video.readyState >= 1) setStatic();
           else video.addEventListener('loadedmetadata', setStatic, { once: true });

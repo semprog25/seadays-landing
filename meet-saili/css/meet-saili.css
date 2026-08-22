@@ -206,7 +206,7 @@ body.meet-saili-page {
 .ms-hero.is-mobile-visual .ms-hero-media video,
 .ms-hero.is-mobile-visual .ms-hero-media .ms-hero-fallback {
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center 62%;
 }
 
 .ms-hero-scrim {
@@ -291,6 +291,11 @@ body.meet-saili-page {
 
 .ms-hero-spacer {
   min-height: 280px;
+}
+
+/* Transparent wrapper on desktop — children keep existing layout */
+.ms-hero-pin {
+  display: contents;
 }
 
 /* Shared section chrome */
@@ -609,18 +614,81 @@ body.meet-saili-page {
     position: relative;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 108px 0 72px;
+    padding: 108px 0 24px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     overflow: hidden;
   }
 
   /*
-   * Keep Saili as a viewport background layer on mobile.
-   * Do not place the video in document flow (that pushed content down).
+   * Scroll-scrub: hero scrolls as one block (video + copy + buttons move together).
+   * Vertical scroll maps to portrait video.currentTime — no sticky/fixed pin.
    */
-  .ms-hero-media {
+  .ms-hero.is-mobile-scroll {
+    display: block;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    background: var(--neon-red);
+  }
+
+  .ms-hero.is-mobile-scroll .ms-hero-pin {
+    display: block;
+    position: relative;
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+    background: var(--neon-red);
+  }
+
+  .ms-hero.is-mobile-scroll .ms-hero-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background: var(--neon-red);
+  }
+
+  .ms-hero.is-mobile-scroll .ms-hero-scrim {
+    position: absolute;
+    inset: 0;
+    display: block;
+    z-index: 1;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 0, 51, 0.94) 0%,
+        rgba(255, 0, 51, 0.72) 28%,
+        rgba(255, 0, 51, 0.12) 52%,
+        rgba(255, 0, 51, 0.08) 68%,
+        rgba(255, 0, 51, 0.55) 100%
+      );
+  }
+
+  .ms-hero.is-mobile-scroll .ms-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    width: 100%;
+    padding: 108px 0 24px;
+    box-sizing: border-box;
+    background: transparent;
+  }
+
+  /*
+   * Static mobile hero (reduced motion): fixed Saili background layer.
+   */
+  .ms-hero.is-mobile-visual:not(.is-mobile-scroll) .ms-hero-media {
     position: fixed;
     inset: 0;
     width: 100%;
@@ -629,27 +697,56 @@ body.meet-saili-page {
     height: 100dvh;
     z-index: 0;
     pointer-events: none;
+    background: var(--neon-red);
   }
 
-  .ms-hero-scrim {
+  .ms-hero.is-mobile-visual:not(.is-mobile-scroll) .ms-hero-scrim {
+    position: fixed;
+    inset: 0;
     display: block;
     z-index: 1;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 0, 51, 0.94) 0%,
+        rgba(255, 0, 51, 0.72) 28%,
+        rgba(255, 0, 51, 0.12) 52%,
+        rgba(255, 0, 51, 0.08) 68%,
+        rgba(255, 0, 51, 0.55) 100%
+      );
   }
 
   .ms-hero-inner {
     position: relative;
     z-index: 2;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     width: 100%;
-    padding: 0 0 8px;
+    min-height: calc(100dvh - 108px - 24px);
+    padding: 0;
     background: transparent;
   }
 
   .ms-hero-copy {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: calc(100dvh - 108px - 24px);
     max-width: none;
     width: min(var(--max), calc(100% - 40px));
     margin: 0 auto;
-    padding-bottom: 20px;
+    padding-bottom: 0;
+  }
+
+  .ms-hero-body {
+    margin-bottom: 0;
+  }
+
+  .ms-hero-actions {
+    margin-top: auto;
+    padding-top: 20px;
+    padding-bottom: 12px;
   }
 
   .ms-hero-spacer {
@@ -659,7 +756,7 @@ body.meet-saili-page {
   .ms-hero-media video,
   .ms-hero-media img {
     object-fit: contain;
-    object-position: center bottom;
+    object-position: center 62%;
   }
 
   /* Keep later page content above the fixed Saili layer while scrolling */
