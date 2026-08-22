@@ -205,8 +205,9 @@ body.meet-saili-page {
 
 .ms-hero.is-mobile-visual .ms-hero-media video,
 .ms-hero.is-mobile-visual .ms-hero-media .ms-hero-fallback {
-  object-fit: contain;
-  object-position: center 62%;
+  /* contain letterboxed a darker video frame (~75px gaps); cover fills the hero */
+  object-fit: cover;
+  object-position: center center;
   background: var(--neon-red);
 }
 
@@ -799,8 +800,8 @@ body.meet-saili-page {
 
   .ms-hero-media video,
   .ms-hero-media img {
-    object-fit: contain;
-    object-position: center 62%;
+    object-fit: cover;
+    object-position: center center;
   }
 
   /* Keep later page content above the fixed Saili layer while scrolling */
