@@ -98,10 +98,7 @@ window.__SEADAYS_GA_READY__ = true;
             muted
             playsinline
             preload="auto"
-            poster="/images/saili/saili-hero-poster.jpg"
-          >
-            <source src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Saili.mp4" type="video/mp4">
-          </video>
+          ></video>
           <img
             class="ms-hero-fallback"
             src="/images/saili/saili-hero-poster.jpg"
@@ -327,9 +324,32 @@ window.__SEADAYS_GA_READY__ = true;
     (function () {
       var hero = document.querySelector('.ms-hero');
       var video = document.querySelector('.ms-hero-video');
+      var fallback = document.querySelector('.ms-hero-fallback');
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var canPointerScrub = window.matchMedia &&
         window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var mobileMq = window.matchMedia('(max-width: 860px)');
+      var DESKTOP_VIDEO = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Saili.mp4';
+      var MOBILE_VIDEO = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Saili_portrait.mp4';
+      var DESKTOP_POSTER = '/images/saili/saili-hero-poster.jpg';
+      var MOBILE_POSTER = '/images/saili/saili-hero-poster-portrait.jpg';
+
+      function isMobileVisual() {
+        return mobileMq.matches;
+      }
+
+      function applyHeroAssets(el) {
+        var mobile = isMobileVisual();
+        if (hero) hero.classList.toggle('is-mobile-visual', mobile);
+        if (!el) return;
+        el.src = mobile ? MOBILE_VIDEO : DESKTOP_VIDEO;
+        el.poster = mobile ? MOBILE_POSTER : DESKTOP_POSTER;
+        if (fallback) {
+          fallback.src = mobile ? MOBILE_POSTER : DESKTOP_POSTER;
+          fallback.width = mobile ? 720 : 1280;
+          fallback.height = mobile ? 1280 : 720;
+        }
+      }
 
       function clamp(value, min, max) {
         return Math.min(max, Math.max(min, value));
@@ -344,7 +364,7 @@ window.__SEADAYS_GA_READY__ = true;
       }
 
       function initSailiScrub(el) {
-        var SENSITIVITY = 0.8;
+        var SENSITIVITY = 1.25;
         var prevX = window.innerWidth / 2;
         var targetTime = 0;
         var isSeeking = false;
@@ -416,22 +436,23 @@ window.__SEADAYS_GA_READY__ = true;
       }
 
       if (video) {
+        applyHeroAssets(video);
         video.removeAttribute('autoplay');
         video.muted = true;
         video.playsInline = true;
         video.pause();
 
-        if (reduceMotion) {
-          if (hero) hero.classList.add('is-reduced-motion');
-        } else if (!canPointerScrub) {
+        var useScrub = canPointerScrub && !isMobileVisual() && !reduceMotion;
+
+        if (useScrub) {
+          initSailiScrub(video);
+        } else {
           var setStatic = function () { setNeutralFrame(video); };
           if (video.readyState >= 1) setStatic();
           else video.addEventListener('loadedmetadata', setStatic, { once: true });
           video.addEventListener('error', function () {
             if (hero) hero.classList.add('is-reduced-motion');
           });
-        } else {
-          initSailiScrub(video);
         }
       }
 
