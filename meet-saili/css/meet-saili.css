@@ -550,16 +550,8 @@ body.meet-saili-page {
   position: relative;
 }
 
-.ms-stages::before {
-  content: '';
-  position: absolute;
-  top: 34px;
-  left: 6%;
-  right: 6%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 0, 51, 0.55), transparent);
-  pointer-events: none;
-}
+/* No cross-card timeline rule — a ::before line showed through translucent
+   stage badges as a red strike-through on 01–04 (desktop only). */
 
 .ms-stage {
   position: relative;
@@ -926,10 +918,6 @@ body.meet-saili-page {
   .ms-traits,
   .ms-stages {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .ms-stages::before {
-    display: none;
   }
 }
 
