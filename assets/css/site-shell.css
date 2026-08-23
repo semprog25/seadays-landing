@@ -110,6 +110,17 @@ body:not(:has(.fullpage-section)) > main.content-layer {
   flex: 1 0 auto;
 }
 
+/*
+ * Absolute site header does not consume layout space. Blog articles use
+ * main.container as the first content block; without top clearance,
+ * Back to Blog and breadcrumbs sit under the nav.
+ * !important beats later page rules such as .container { padding: 0 20px }.
+ * Matches apply-site-shell.js site-shell-page-pad (88px).
+ */
+body:not(:has(.fullpage-section)) > .content-layer > main.container {
+  padding-top: 88px !important;
+}
+
 .footer-shell {
   display: grid;
   grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);

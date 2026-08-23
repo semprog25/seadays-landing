@@ -2058,8 +2058,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .header-nav { display: flex; gap: 30px; align-items: center; }
 .header-nav a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500; font-size: 15px; }
 .header-nav a:hover { color: white; }
-.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-.article-hero { padding: 60px 20px 40px; }
+.container { max-width: 800px; margin: 0 auto; padding: 88px 20px 0; }
+.article-hero { padding: 28px 20px 40px; }
 .article-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 16px; }
 .article-breadcrumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
 .article-breadcrumbs a:hover { color: #fff; text-decoration: underline; }
@@ -2112,7 +2112,7 @@ ${getAdSlotCss()}
 .more-card-body { padding: 20px; }
 .more-card-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .more-card-excerpt { font-size: 13px; color: rgba(255, 255, 255, 0.6); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.back-to-blog { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 15px; margin-bottom: 24px; }
+.back-to-blog { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 15px; margin: 0 0 12px; }
 .back-to-blog:hover { color: white; }
 footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
 /* Footer column layout is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
