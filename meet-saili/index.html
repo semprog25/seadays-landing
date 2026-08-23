@@ -98,6 +98,7 @@ window.__SEADAYS_GA_READY__ = true;
               class="ms-hero-video"
               muted
               playsinline
+              webkit-playsinline
               preload="auto"
             ></video>
             <img
@@ -389,6 +390,51 @@ window.__SEADAYS_GA_READY__ = true;
         } catch (e) {}
       }
 
+      function configureInlineVideo(el) {
+        if (!el) return;
+        el.muted = true;
+        el.defaultMuted = true;
+        el.playsInline = true;
+        el.setAttribute('playsinline', '');
+        el.setAttribute('webkit-playsinline', '');
+        el.setAttribute('muted', '');
+      }
+
+      /**
+       * iOS Safari often leaves paused videos blank until play() has run once.
+       * Scroll/mouse scrub only seeks while paused — prime a short play/pause so frames paint.
+       */
+      function primeVideoFrame(el) {
+        configureInlineVideo(el);
+        var playResult;
+        try {
+          playResult = el.play();
+        } catch (e) {
+          return Promise.resolve(false);
+        }
+        if (!playResult || typeof playResult.then !== 'function') {
+          try { el.pause(); } catch (e2) {}
+          return Promise.resolve(true);
+        }
+        return playResult.then(function () {
+          try { el.pause(); } catch (e3) {}
+          return true;
+        }).catch(function () {
+          return false;
+        });
+      }
+
+      function markHeroVideoReady() {
+        if (hero) hero.classList.add('is-video-ready');
+      }
+
+      function markHeroPosterOnly() {
+        if (hero) {
+          hero.classList.add('is-reduced-motion');
+          hero.classList.remove('is-video-ready');
+        }
+      }
+
       function initSailiScrub(el) {
         var SENSITIVITY = 1.25;
         var prevX = window.innerWidth / 2;
@@ -435,11 +481,10 @@ window.__SEADAYS_GA_READY__ = true;
           requestSeek(el.currentTime + timeOffset);
         }
 
-        function onReady() {
+        function startScrub() {
           if (ready) return;
-          if (!isFinite(el.duration) || el.duration <= 0) return;
           ready = true;
-          el.pause();
+          markHeroVideoReady();
           targetTime = el.duration / 2;
           try {
             el.currentTime = targetTime;
@@ -447,13 +492,25 @@ window.__SEADAYS_GA_READY__ = true;
           window.addEventListener('mousemove', onMouseMove, { passive: true });
         }
 
+        function onReady() {
+          if (ready) return;
+          if (!isFinite(el.duration) || el.duration <= 0) return;
+          primeVideoFrame(el).then(function (primed) {
+            if (ready) return;
+            if (!primed) {
+              markHeroPosterOnly();
+              return;
+            }
+            startScrub();
+          });
+        }
+
         el.removeAttribute('autoplay');
-        el.muted = true;
-        el.playsInline = true;
+        configureInlineVideo(el);
         el.pause();
         el.addEventListener('seeked', onSeeked);
         el.addEventListener('error', function () {
-          if (hero) hero.classList.add('is-reduced-motion');
+          markHeroPosterOnly();
           window.removeEventListener('mousemove', onMouseMove);
         });
 
@@ -463,8 +520,7 @@ window.__SEADAYS_GA_READY__ = true;
 
       function initMobilePortraitScroll(el, section) {
         var MOBILE_SCROLL_SENSITIVITY = 1.55;
-        el.muted = true;
-        el.playsInline = true;
+        configureInlineVideo(el);
         el.removeAttribute('autoplay');
         el.removeAttribute('loop');
         el.loop = false;
@@ -544,18 +600,31 @@ window.__SEADAYS_GA_READY__ = true;
           scheduleTick();
         }
 
-        function onReady() {
+        function startScrollScrub() {
           if (ready) return;
-          if (!isFinite(el.duration) || el.duration <= 0) return;
           ready = true;
+          markHeroVideoReady();
           targetTime = 0;
+          el.addEventListener('seeked', onSeeked);
           try {
             el.currentTime = 0;
           } catch (e) {}
-          el.addEventListener('seeked', onSeeked);
           requestSeek(getTargetTime());
           window.addEventListener('scroll', onScroll, { passive: true });
           window.addEventListener('resize', onScroll, { passive: true });
+        }
+
+        function onReady() {
+          if (ready) return;
+          if (!isFinite(el.duration) || el.duration <= 0) return;
+          primeVideoFrame(el).then(function (primed) {
+            if (ready) return;
+            if (!primed) {
+              markHeroPosterOnly();
+              return;
+            }
+            startScrollScrub();
+          });
         }
 
         function teardown() {
@@ -570,7 +639,7 @@ window.__SEADAYS_GA_READY__ = true;
         }
 
         el.addEventListener('error', function () {
-          if (hero) hero.classList.add('is-reduced-motion');
+          markHeroPosterOnly();
           teardown();
         });
 
@@ -580,8 +649,7 @@ window.__SEADAYS_GA_READY__ = true;
 
       if (video) {
         applyHeroAssets(video);
-        video.muted = true;
-        video.playsInline = true;
+        configureInlineVideo(video);
 
         var useScrub = canPointerScrub && !isMobileVisual() && !reduceMotion;
         var useMobileScroll = isMobileVisual() && !reduceMotion;
@@ -604,11 +672,20 @@ window.__SEADAYS_GA_READY__ = true;
           video.removeAttribute('loop');
           video.loop = false;
           video.pause();
-          var setStatic = function () { setNeutralFrame(video); };
+          var setStatic = function () {
+            primeVideoFrame(video).then(function (primed) {
+              if (!primed) {
+                markHeroPosterOnly();
+                return;
+              }
+              setNeutralFrame(video);
+              markHeroVideoReady();
+            });
+          };
           if (video.readyState >= 1) setStatic();
           else video.addEventListener('loadedmetadata', setStatic, { once: true });
           video.addEventListener('error', function () {
-            if (hero) hero.classList.add('is-reduced-motion');
+            markHeroPosterOnly();
           });
         }
       }

@@ -187,20 +187,40 @@ body.meet-saili-page {
   display: block;
 }
 
-.ms-hero-media video {
+.ms-hero-media video,
+.ms-hero-media .ms-hero-fallback {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
 }
 
+.ms-hero-media video {
+  z-index: 1;
+}
+
+/* Poster stays visible until iOS/Safari has painted a real frame (paused seek is blank). */
 .ms-hero-fallback {
-  display: none;
+  display: block;
+  z-index: 0;
+}
+
+.ms-hero:not(.is-video-ready):not(.is-reduced-motion) .ms-hero-video {
+  opacity: 0;
+}
+
+.ms-hero.is-video-ready .ms-hero-fallback {
+  opacity: 0;
 }
 
 .ms-hero.is-reduced-motion .ms-hero-video {
   display: none;
+  opacity: 0;
 }
 
 .ms-hero.is-reduced-motion .ms-hero-fallback {
   display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 .ms-hero.is-mobile-visual .ms-hero-media video,
