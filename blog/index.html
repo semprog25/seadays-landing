@@ -157,9 +157,9 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
     <section class="blog-hero">
       <div class="container">
         <h1>SeaDays cruise blog</h1>
-        <p>Stories, tips, and experiences shared by the SeaDays community.</p>
+        <p>Cruise tips, ship and port guides published by SeaDays to help you plan before you book.</p>
         <div class="hero-actions">
-          <a class="hero-btn hero-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog">Get SeaDays</a>
+          <a class="hero-btn hero-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog">Download SeaDays</a>
           <a class="hero-btn" href="/ships/">Explore ships</a>
           <a class="hero-btn" href="/ports/">Explore ports</a>
         </div>
@@ -1568,7 +1568,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         e.stopPropagation()
         seoD.open = true
         syncSeoBtn()
-        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'auto', block: 'nearest' }) } catch(x) {}
+        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'smooth', block: 'nearest' }) } catch(x) {}
       })
       seoD.addEventListener('toggle', syncSeoBtn)
       syncSeoBtn()
