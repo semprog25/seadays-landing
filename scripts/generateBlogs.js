@@ -45,6 +45,14 @@ const {
   buildShipLinksFromSeoShips,
 } = require('./lib/seoKeywordLinks');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
+const {
+  buildArticleAuthorJsonLd,
+  articleAuthorDisplayName,
+  articleAuthorBylineLabel,
+  fixArticleJsonLdObject,
+  getPublisherJsonLd,
+  PUBLISHER_NAME,
+} = require('./lib/publicationSchema');
 const { getFaviconHeadHtml } = require('./lib/faviconHead');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
 const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
@@ -1225,26 +1233,6 @@ function formatIsoDate(ts) {
   return d.toISOString().split('T')[0];
 }
 
-function isGenericBrandAuthor(name) {
-  const n = String(name || '').trim().toLowerCase().replace(/\s+/g, '');
-  if (!n) return true;
-  return n === 'anonymous' || n === 'seadays' || n === 'seaday' || n === 'seastories' || n === 'portside' || n === 'admin' || n === 'editor' || n === 'staff';
-}
-
-function buildArticleAuthorJsonLd(article) {
-  const name = String(article && article.author ? article.author : '').trim();
-  if (!isGenericBrandAuthor(name)) {
-    return { '@type': 'Person', name };
-  }
-  return { '@type': 'Organization', name: 'SeaDays' };
-}
-
-function articleAuthorDisplayName(article) {
-  const name = String(article && article.author ? article.author : '').trim();
-  if (!isGenericBrandAuthor(name)) return name;
-  return 'SeaDays';
-}
-
 function fileLastmodIso(filePath) {
   try {
     const d = fs.statSync(filePath).mtime;
@@ -1282,7 +1270,58 @@ function diskArticleSitemapLastmod(repoRoot, slug) {
   }
 }
 
-function rewriteBrandAuthorsOnDisk(repoRoot) {
+function patchArticleHtmlPublicationMetadata(html) {
+  if (!html || typeof html !== 'string') return html;
+  const canonicalMatch = html.match(/<link rel="canonical" href="([^"]+)"/i);
+  const canonicalUrl = canonicalMatch ? canonicalMatch[1] : '';
+
+  let next = html.replace(
+    /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside|Admin|Editor|Staff)<\/span>/gi,
+    `<span class="author">Published by ${PUBLISHER_NAME}</span>`
+  );
+  next = next.replace(
+    /<span class="author">(?!By |Published by )([a-z][a-z0-9._-]*)<\/span>/gi,
+    '<span class="author">By $1</span>'
+  );
+
+  const blockRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
+  const replacements = [];
+  let articleJson = null;
+  let match;
+  while ((match = blockRe.exec(html)) !== null) {
+    const raw = match[1];
+    let replacement = match[0];
+    try {
+      const data = JSON.parse(raw);
+      if (data['@type'] === 'Article') {
+        if (!articleJson) {
+          articleJson = fixArticleJsonLdObject(data, canonicalUrl || data.mainEntityOfPage || '');
+          replacement = `<script type="application/ld+json">${JSON.stringify(articleJson)}</script>`;
+        } else {
+          replacement = '';
+        }
+      }
+    } catch {
+      // keep invalid blocks unchanged
+    }
+    replacements.push({ start: match.index, end: match.index + match[0].length, replacement });
+  }
+
+  if (replacements.length) {
+    let patched = '';
+    let cursor = 0;
+    for (const part of replacements) {
+      patched += next.slice(cursor, part.start) + part.replacement;
+      cursor = part.end;
+    }
+    patched += next.slice(cursor);
+    next = patched;
+  }
+
+  return next;
+}
+
+function rewritePublicationMetadataOnDisk(repoRoot) {
   let changed = 0;
   for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
     const p = path.join(repoRoot, 'blog', slug, 'index.html');
@@ -1293,21 +1332,32 @@ function rewriteBrandAuthorsOnDisk(repoRoot) {
     } catch {
       continue;
     }
-    const next = html
-      .replace(
-        /"author":\{"@type":"Person","name":"(?:Seadays|SeaDays|Anonymous)"\}/g,
-        '"author":{"@type":"Organization","name":"SeaDays"}'
-      )
-      .replace(
-        /<span class="author">(?:Seadays|Anonymous)<\/span>/g,
-        '<span class="author">SeaDays</span>'
-      );
+    const next = patchArticleHtmlPublicationMetadata(html);
     if (next !== html) {
       fs.writeFileSync(p, next, 'utf8');
       changed += 1;
     }
   }
-  console.log(`[generateBlogs] patched brand JSON-LD author on ${changed} on-disk articles`);
+
+  const blogIndexPath = path.join(repoRoot, 'blog', 'index.html');
+  if (fs.existsSync(blogIndexPath)) {
+    let indexHtml = fs.readFileSync(blogIndexPath, 'utf8');
+    const indexNext = indexHtml
+      .replace(
+        /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside)<\/span>/gi,
+        `<span class="author">Published by ${PUBLISHER_NAME}</span>`
+      )
+      .replace(
+        /"name":"SeaDays Blog","description":"([^"]+)","url":"https:\/\/seadays\.app\/blog\/","isPartOf":\{"@id":"https:\/\/seadays\.app\/#website"\}/,
+        '"name":"SeaDays Blog","description":"$1","url":"https://seadays.app/blog/","publisher":{"@id":"https://seadays.app/#organization"},"isPartOf":{"@id":"https://seadays.app/#website"}'
+      );
+    if (indexNext !== indexHtml) {
+      fs.writeFileSync(blogIndexPath, indexNext, 'utf8');
+      changed += 1;
+    }
+  }
+
+  console.log(`[generateBlogs] patched publication metadata on ${changed} on-disk blog files`);
 }
 
 function loadArticleStubsFromDisk(repoRoot) {
@@ -2320,7 +2370,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
   const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
   const authorJsonLd = buildArticleAuthorJsonLd(article);
-  const authorNamePlain = articleAuthorDisplayName(article);
+  const authorByline = articleAuthorBylineLabel(article);
   const articleBodyText = stripHtmlToPlainText(bodyHtml, 5000);
   const keywords = Array.isArray(article.tags) && article.tags.length
     ? article.tags.map((t) => (typeof t === 'string' ? t : t?.name)).filter(Boolean)
@@ -2336,14 +2386,10 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     description: rawMetaDescription || articleBodyText.slice(0, 160) || undefined,
     image: [ogImage],
     author: authorJsonLd,
-    publisher: {
-      '@type': 'Organization',
-      name: 'SeaDays',
-      logo: { '@type': 'ImageObject', url: LOGO_URL },
-    },
+    publisher: getPublisherJsonLd(),
     datePublished: publishedIso || undefined,
     dateModified: modifiedIso || publishedIso || undefined,
-    mainEntityOfPage: canonicalUrl,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     ...(articleBodyText ? { articleBody: articleBodyText } : {}),
     ...(keywords.length ? { keywords: keywords.slice(0, 10).join(', ') } : {}),
   };
@@ -2376,6 +2422,9 @@ ${getFaviconHeadHtml()}
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="${ogImage}">
+  ${publishedIso ? `<meta property="article:published_time" content="${publishedIso}">` : ''}
+  ${modifiedIso ? `<meta property="article:modified_time" content="${modifiedIso}">` : ''}
+  <meta property="article:author" content="${escapeHtml(articleAuthorDisplayName(article))}">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="${canonicalUrl}">
   <meta property="twitter:title" content="${title}">
@@ -2398,8 +2447,9 @@ ${getFaviconHeadHtml()}
         <div class="article-hero">
           <h1>${escapeHtml(article.title || 'Untitled')}</h1>
           <div class="article-meta">
-            <span class="author">${escapeHtml(authorNamePlain)}</span>
+            <span class="author">${escapeHtml(authorByline)}</span>
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
+            ${modifiedIso && modifiedIso !== publishedIso ? `<span>Updated ${formatDate(article.updatedAt)}</span>` : ''}
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
           ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
@@ -2457,7 +2507,7 @@ function buildIndexArticleCardHtml(a, imageBundle, eager) {
         <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
         <p class="article-card-excerpt">${escapeHtml(excerpt)}</p>
         <div class="article-card-meta">
-          <span class="author">${escapeHtml(a.author || 'Anonymous')}</span>
+          <span class="author">${escapeHtml(articleAuthorBylineLabel(a))}</span>
           <span>${formatDate(a.publishedAt || a.timestamp || a.updatedAt)}</span>
           ${a.readTime ? '<span>' + escapeHtml(String(a.readTime)) + ' min read</span>' : ''}
         </div>
@@ -2543,6 +2593,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         name: 'SeaDays Blog',
         description: 'Cruise tips, ship and port guides, and planning advice from SeaDays.',
         url: BASE_URL + '/blog/',
+        publisher: { '@id': BASE_URL + '/#organization' },
         isPartOf: { '@id': BASE_URL + '/#website' },
       },
       {
@@ -2565,7 +2616,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
     <section class="blog-hero">
       <div class="container">
         <h1>SeaDays cruise blog</h1>
-        <p>Stories, tips, and experiences shared by the SeaDays community.</p>
+        <p>Cruise tips, ship and port guides published by SeaDays to help you plan before you book.</p>
         <div class="hero-actions">
           <a class="hero-btn hero-btn-primary" href="/#download">Download SeaDays</a>
           <a class="hero-btn" href="/ships/">Explore ships</a>
@@ -3324,7 +3375,7 @@ async function main() {
   }
 
   if (skipBlogRewrite) {
-    if (mode.blogs) rewriteBrandAuthorsOnDisk(repoRoot);
+    if (mode.blogs) rewritePublicationMetadataOnDisk(repoRoot);
   } else {
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
@@ -3496,6 +3547,9 @@ module.exports = {
   formatIsoDate,
   buildArticleAuthorJsonLd,
   articleAuthorDisplayName,
+  articleAuthorBylineLabel,
+  patchArticleHtmlPublicationMetadata,
+  rewritePublicationMetadataOnDisk,
   extractArticleLastmodFromHtml,
   publicStaticSitemapUrls,
   buildSitemapXml,

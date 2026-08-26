@@ -26,6 +26,8 @@
     "test-image-pipeline": "node scripts/test-image-pipeline.js",
     "test-seo-phase1": "node scripts/test-seo-remediation.js",
     "test-seo-remediation": "node scripts/test-seo-remediation.js",
+    "test-publication-metadata": "node scripts/test-publication-metadata.js",
+    "patch-publication-metadata": "node scripts/patch-publication-metadata.js",
     "test-port-seo-redirects": "node scripts/test-port-seo-redirects.js",
     "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
     "upload-press-marketing": "node scripts/upload-press-marketing.js",
