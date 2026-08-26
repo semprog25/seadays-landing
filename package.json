@@ -35,7 +35,9 @@
     "upload-press-screenshots": "node scripts/upload-press-screenshots.js",
     "upload-press-marketing": "node scripts/upload-press-marketing.js",
     "regenerate-ports-index": "node scripts/regenerate-ports-index.js",
-    "fix-featured-guide-thumbnails": "node scripts/fix-featured-guide-thumbnails.js"
+    "fix-featured-guide-thumbnails": "node scripts/fix-featured-guide-thumbnails.js",
+    "test-publication-metadata": "node scripts/test-publication-metadata.js",
+    "patch-publication-metadata": "node scripts/patch-publication-metadata.js"
   },
   "engines": {
     "node": ">=18"

@@ -14,7 +14,6 @@
  *        node scripts/generateBlogs.js --ports-only
  *        node scripts/generateBlogs.js --ships-only
  *        node scripts/generateBlogs.js --catalogue-only
- *        node scripts/generateBlogs.js --ships-only --only=celebrity-solstice
  *        node scripts/generateBlogs.js --sitemap-only   (rebuild sitemap from disk; no Supabase write)
  *        node scripts/generateBlogs.js --full --allow-orphan-cleanup
  * Default (no flags) regenerates blogs + ships + ports but does NOT delete catalogue folders.
@@ -46,6 +45,14 @@ const {
   buildShipLinksFromSeoShips,
 } = require('./lib/seoKeywordLinks');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
+const {
+  buildArticleAuthorJsonLd,
+  articleAuthorDisplayName,
+  articleAuthorBylineLabel,
+  fixArticleJsonLdObject,
+  getPublisherJsonLd,
+  PUBLISHER_NAME,
+} = require('./lib/publicationSchema');
 const { getFaviconHeadHtml } = require('./lib/faviconHead');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
 const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
@@ -1226,26 +1233,6 @@ function formatIsoDate(ts) {
   return d.toISOString().split('T')[0];
 }
 
-function isGenericBrandAuthor(name) {
-  const n = String(name || '').trim().toLowerCase().replace(/\s+/g, '');
-  if (!n) return true;
-  return n === 'anonymous' || n === 'seadays' || n === 'seaday' || n === 'seastories' || n === 'portside' || n === 'admin' || n === 'editor' || n === 'staff';
-}
-
-function buildArticleAuthorJsonLd(article) {
-  const name = String(article && article.author ? article.author : '').trim();
-  if (!isGenericBrandAuthor(name)) {
-    return { '@type': 'Person', name };
-  }
-  return { '@type': 'Organization', name: 'SeaDays' };
-}
-
-function articleAuthorDisplayName(article) {
-  const name = String(article && article.author ? article.author : '').trim();
-  if (!isGenericBrandAuthor(name)) return name;
-  return 'SeaDays';
-}
-
 function fileLastmodIso(filePath) {
   try {
     const d = fs.statSync(filePath).mtime;
@@ -1283,7 +1270,58 @@ function diskArticleSitemapLastmod(repoRoot, slug) {
   }
 }
 
-function rewriteBrandAuthorsOnDisk(repoRoot) {
+function patchArticleHtmlPublicationMetadata(html) {
+  if (!html || typeof html !== 'string') return html;
+  const canonicalMatch = html.match(/<link rel="canonical" href="([^"]+)"/i);
+  const canonicalUrl = canonicalMatch ? canonicalMatch[1] : '';
+
+  let next = html.replace(
+    /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside|Admin|Editor|Staff)<\/span>/gi,
+    `<span class="author">Published by ${PUBLISHER_NAME}</span>`
+  );
+  next = next.replace(
+    /<span class="author">(?!By |Published by )([a-z][a-z0-9._-]*)<\/span>/gi,
+    '<span class="author">By $1</span>'
+  );
+
+  const blockRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
+  const replacements = [];
+  let articleJson = null;
+  let match;
+  while ((match = blockRe.exec(html)) !== null) {
+    const raw = match[1];
+    let replacement = match[0];
+    try {
+      const data = JSON.parse(raw);
+      if (data['@type'] === 'Article') {
+        if (!articleJson) {
+          articleJson = fixArticleJsonLdObject(data, canonicalUrl || data.mainEntityOfPage || '');
+          replacement = `<script type="application/ld+json">${JSON.stringify(articleJson)}</script>`;
+        } else {
+          replacement = '';
+        }
+      }
+    } catch {
+      // keep invalid blocks unchanged
+    }
+    replacements.push({ start: match.index, end: match.index + match[0].length, replacement });
+  }
+
+  if (replacements.length) {
+    let patched = '';
+    let cursor = 0;
+    for (const part of replacements) {
+      patched += next.slice(cursor, part.start) + part.replacement;
+      cursor = part.end;
+    }
+    patched += next.slice(cursor);
+    next = patched;
+  }
+
+  return next;
+}
+
+function rewritePublicationMetadataOnDisk(repoRoot) {
   let changed = 0;
   for (const slug of listPublishedBlogSlugsForSitemap(repoRoot)) {
     const p = path.join(repoRoot, 'blog', slug, 'index.html');
@@ -1294,21 +1332,32 @@ function rewriteBrandAuthorsOnDisk(repoRoot) {
     } catch {
       continue;
     }
-    const next = html
-      .replace(
-        /"author":\{"@type":"Person","name":"(?:Seadays|SeaDays|Anonymous)"\}/g,
-        '"author":{"@type":"Organization","name":"SeaDays"}'
-      )
-      .replace(
-        /<span class="author">(?:Seadays|Anonymous)<\/span>/g,
-        '<span class="author">SeaDays</span>'
-      );
+    const next = patchArticleHtmlPublicationMetadata(html);
     if (next !== html) {
       fs.writeFileSync(p, next, 'utf8');
       changed += 1;
     }
   }
-  console.log(`[generateBlogs] patched brand JSON-LD author on ${changed} on-disk articles`);
+
+  const blogIndexPath = path.join(repoRoot, 'blog', 'index.html');
+  if (fs.existsSync(blogIndexPath)) {
+    let indexHtml = fs.readFileSync(blogIndexPath, 'utf8');
+    const indexNext = indexHtml
+      .replace(
+        /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside)<\/span>/gi,
+        `<span class="author">Published by ${PUBLISHER_NAME}</span>`
+      )
+      .replace(
+        /"name":"SeaDays Blog","description":"([^"]+)","url":"https:\/\/seadays\.app\/blog\/","isPartOf":\{"@id":"https:\/\/seadays\.app\/#website"\}/,
+        '"name":"SeaDays Blog","description":"$1","url":"https://seadays.app/blog/","publisher":{"@id":"https://seadays.app/#organization"},"isPartOf":{"@id":"https://seadays.app/#website"}'
+      );
+    if (indexNext !== indexHtml) {
+      fs.writeFileSync(blogIndexPath, indexNext, 'utf8');
+      changed += 1;
+    }
+  }
+
+  console.log(`[generateBlogs] patched publication metadata on ${changed} on-disk blog files`);
 }
 
 function loadArticleStubsFromDisk(repoRoot) {
@@ -1360,8 +1409,6 @@ const PUBLIC_STATIC_SITEMAP_PAGES = [
   { loc: '/cookies.html', file: 'cookies.html' },
   { loc: '/gdpr.html', file: 'gdpr.html' },
   { loc: '/press/', file: 'press/index.html' },
-  { loc: '/download/', file: 'download/index.html' },
-  { loc: '/meet-saili/', file: 'meet-saili/index.html' },
 ];
 
 function publicStaticSitemapUrls(repoRoot) {
@@ -1430,9 +1477,9 @@ function buildAppDownloadCtaSection() {
   return (
     '<section class="app-download-cta" aria-label="Download SeaDays">' +
     '<div class="app-download-cta-inner">' +
-    '<div><strong>Planning your first cruise? Start with SeaDays.</strong>' +
-    '<span>Keep itinerary, packing, and port days in one app — free on iOS and Android.</span></div>' +
-    '<a href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog" class="explore-seadays-link">Get SeaDays</a>' +
+    '<div><strong>Plan smarter. Meet your roll call. Track your budget.</strong>' +
+    '<span>Download SeaDays free on iOS and Android.</span></div>' +
+    '<a href="/#download" class="explore-seadays-link">Download SeaDays Free</a>' +
     '</div></section>'
   );
 }
@@ -1894,7 +1941,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         <h1 id="ships-title">Cruise ships</h1>
         <p>Pick a cruise line, then open a ship guide for verified catalog facts. Guest reviews live in the SeaDays app when travelers have submitted them.</p>
         <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=ship_guide&amp;utm_campaign=ship_guide">Get SeaDays</a>
+          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
           <a class="directory-btn" href="/blog/">Read cruise guides</a>
         </div>
       </div>
@@ -1920,7 +1967,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
           <strong>Want the full reviews?</strong>
           <span>Download SeaDays to read and leave reviews for ships and ports.</span>
         </div>
-        <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=ship_guide&amp;utm_campaign=ship_guide">Get SeaDays</a>
+        <a class="directory-btn directory-btn-primary" href="/#download">Get the app</a>
       </div>
     </section>
     <section class="featured-guides" aria-label="Popular cruise guides">
@@ -2047,7 +2094,7 @@ function buildPortsIndexHtml({ ports, articles, featuredGuideCardsHtml }) {
 const ARTICLE_STYLES = `
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; }
-html { scroll-behavior: auto; }
+html { scroll-behavior: smooth; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark-bg); color: white; line-height: 1.6; overflow-x: hidden; }
 .starfield { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); overflow: hidden; }
 .star { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,0.5); border-radius: 50%; animation: twinkle 3s infinite ease-in-out; }
@@ -2058,8 +2105,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .header-nav { display: flex; gap: 30px; align-items: center; }
 .header-nav a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500; font-size: 15px; }
 .header-nav a:hover { color: white; }
-.container { max-width: 800px; margin: 0 auto; padding: 88px 20px 0; }
-.article-hero { padding: 28px 20px 40px; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.article-hero { padding: 60px 20px 40px; }
 .article-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 16px; }
 .article-breadcrumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
 .article-breadcrumbs a:hover { color: #fff; text-decoration: underline; }
@@ -2112,7 +2159,7 @@ ${getAdSlotCss()}
 .more-card-body { padding: 20px; }
 .more-card-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .more-card-excerpt { font-size: 13px; color: rgba(255, 255, 255, 0.6); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.back-to-blog { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 15px; margin: 0 0 12px; }
+.back-to-blog { display: inline-flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 15px; margin-bottom: 24px; }
 .back-to-blog:hover { color: white; }
 footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
 /* Footer column layout is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
@@ -2323,7 +2370,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
   const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
   const authorJsonLd = buildArticleAuthorJsonLd(article);
-  const authorNamePlain = articleAuthorDisplayName(article);
+  const authorByline = articleAuthorBylineLabel(article);
   const articleBodyText = stripHtmlToPlainText(bodyHtml, 5000);
   const keywords = Array.isArray(article.tags) && article.tags.length
     ? article.tags.map((t) => (typeof t === 'string' ? t : t?.name)).filter(Boolean)
@@ -2339,14 +2386,10 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
     description: rawMetaDescription || articleBodyText.slice(0, 160) || undefined,
     image: [ogImage],
     author: authorJsonLd,
-    publisher: {
-      '@type': 'Organization',
-      name: 'SeaDays',
-      logo: { '@type': 'ImageObject', url: LOGO_URL },
-    },
+    publisher: getPublisherJsonLd(),
     datePublished: publishedIso || undefined,
     dateModified: modifiedIso || publishedIso || undefined,
-    mainEntityOfPage: canonicalUrl,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     ...(articleBodyText ? { articleBody: articleBodyText } : {}),
     ...(keywords.length ? { keywords: keywords.slice(0, 10).join(', ') } : {}),
   };
@@ -2379,6 +2422,9 @@ ${getFaviconHeadHtml()}
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="${ogImage}">
+  ${publishedIso ? `<meta property="article:published_time" content="${publishedIso}">` : ''}
+  ${modifiedIso ? `<meta property="article:modified_time" content="${modifiedIso}">` : ''}
+  <meta property="article:author" content="${escapeHtml(articleAuthorDisplayName(article))}">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="${canonicalUrl}">
   <meta property="twitter:title" content="${title}">
@@ -2401,8 +2447,9 @@ ${getFaviconHeadHtml()}
         <div class="article-hero">
           <h1>${escapeHtml(article.title || 'Untitled')}</h1>
           <div class="article-meta">
-            <span class="author">${escapeHtml(authorNamePlain)}</span>
+            <span class="author">${escapeHtml(authorByline)}</span>
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
+            ${modifiedIso && modifiedIso !== publishedIso ? `<span>Updated ${formatDate(article.updatedAt)}</span>` : ''}
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
           ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
@@ -2426,9 +2473,7 @@ ${getFaviconHeadHtml()}
 }
 
 async function buildHomePageBlogCards(articles) {
-  if (articles.length === 0) {
-    return '<div id="blogGrid" class="blog-section-grid" style="display:none;"></div>';
-  }
+  if (articles.length === 0) return '<div id="blogGrid" class="blog-section-grid" style="display:none;"></div>\n                <div id="blogEmpty" class="blog-empty" style="display:block;">No posts yet. Check back soon for stories and tips.</div>';
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
     const a = articles[i];
@@ -2448,7 +2493,7 @@ async function buildHomePageBlogCards(articles) {
   return (
     '<div id="blogGrid" class="blog-section-grid">' +
     cards.join('\n                ') +
-    '</div>'
+    '</div>\n                <div id="blogEmpty" class="blog-empty" style="display:none;">No posts yet. Check back soon for stories and tips.</div>'
   );
 }
 
@@ -2462,7 +2507,7 @@ function buildIndexArticleCardHtml(a, imageBundle, eager) {
         <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
         <p class="article-card-excerpt">${escapeHtml(excerpt)}</p>
         <div class="article-card-meta">
-          <span class="author">${escapeHtml(a.author || 'Anonymous')}</span>
+          <span class="author">${escapeHtml(articleAuthorBylineLabel(a))}</span>
           <span>${formatDate(a.publishedAt || a.timestamp || a.updatedAt)}</span>
           ${a.readTime ? '<span>' + escapeHtml(String(a.readTime)) + ' min read</span>' : ''}
         </div>
@@ -2548,6 +2593,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         name: 'SeaDays Blog',
         description: 'Cruise tips, ship and port guides, and planning advice from SeaDays.',
         url: BASE_URL + '/blog/',
+        publisher: { '@id': BASE_URL + '/#organization' },
         isPartOf: { '@id': BASE_URL + '/#website' },
       },
       {
@@ -2570,9 +2616,9 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
     <section class="blog-hero">
       <div class="container">
         <h1>SeaDays cruise blog</h1>
-        <p>Stories, tips, and experiences shared by the SeaDays community.</p>
+        <p>Cruise tips, ship and port guides published by SeaDays to help you plan before you book.</p>
         <div class="hero-actions">
-          <a class="hero-btn hero-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog">Get SeaDays</a>
+          <a class="hero-btn hero-btn-primary" href="/#download">Download SeaDays</a>
           <a class="hero-btn" href="/ships/">Explore ships</a>
           <a class="hero-btn" href="/ports/">Explore ports</a>
         </div>
@@ -2667,7 +2713,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
         e.stopPropagation()
         seoD.open = true
         syncSeoBtn()
-        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'auto', block: 'nearest' }) } catch(x) {}
+        try { seoD.querySelector('.seo-details-body') && seoD.querySelector('.seo-details-body').scrollIntoView({ behavior: 'smooth', block: 'nearest' }) } catch(x) {}
       })
       seoD.addEventListener('toggle', syncSeoBtn)
       syncSeoBtn()
@@ -2926,11 +2972,7 @@ async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = []
 async function main() {
   const repoRoot = path.join(__dirname, '..');
   const mode = parseGenerateMode(process.argv);
-  const onlySlugSet = new Set(mode.onlySlugs || []);
   console.log(`[generateBlogs] generation mode: ${mode.label}`);
-  if (onlySlugSet.size) {
-    console.log(`[generateBlogs] scoped rewrite: ${[...onlySlugSet].join(', ')}`);
-  }
   if (mode.sitemapOnly) {
     writeSitemapSnapshotFromDisk(repoRoot);
     console.log('Done.');
@@ -3163,7 +3205,6 @@ async function main() {
 
   if (mode.ships) {
   for (const ship of seoShips) {
-    if (onlySlugSet.size && !onlySlugSet.has(ship.slug)) continue;
     const dir = path.join(repoRoot, 'ships', ship.slug);
     fs.mkdirSync(dir, { recursive: true });
     const relShips = pickRelatedShips(seoShips, ship, 5);
@@ -3183,7 +3224,6 @@ async function main() {
   const unpublishedPortSlugs = new Set();
   if (mode.ports) {
   for (const port of seoPorts) {
-    if (onlySlugSet.size && !onlySlugSet.has(port.slug)) continue;
     if (unpublishedPortSlugs.has(port.slug)) {
       const orphan = path.join(repoRoot, 'ports', port.slug);
       if (fs.existsSync(orphan)) fs.rmSync(orphan, { recursive: true, force: true });
@@ -3244,7 +3284,7 @@ async function main() {
   } else {
     console.log('[generateBlogs] skipping orphan catalogue cleanup');
   }
-  if (mode.ports && !onlySlugSet.size) {
+  if (mode.ports) {
     const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
     console.log(
       `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
@@ -3308,7 +3348,7 @@ async function main() {
     return pickBlogArticlesForEntity(articles, ['cruise ports', 'shore days', ...topRegionTokens], 6).slice(0, 6);
   }
 
-  if (mode.ships && !onlySlugSet.size) {
+  if (mode.ships) {
     const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ships', 'index.html'),
@@ -3318,7 +3358,7 @@ async function main() {
       'utf8'
     );
   }
-  if (mode.ports && !onlySlugSet.size) {
+  if (mode.ports) {
     const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ports', 'index.html'),
@@ -3335,7 +3375,7 @@ async function main() {
   }
 
   if (skipBlogRewrite) {
-    if (mode.blogs) rewriteBrandAuthorsOnDisk(repoRoot);
+    if (mode.blogs) rewritePublicationMetadataOnDisk(repoRoot);
   } else {
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
@@ -3442,12 +3482,9 @@ async function main() {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
 
-  const dupNoindexAlways = onlySlugSet.size ? 0 : noindexDuplicateBlogFolders(repoRoot);
+  const dupNoindexAlways = noindexDuplicateBlogFolders(repoRoot);
   if (dupNoindexAlways) console.log(`[generateBlogs] noindexed ${dupNoindexAlways} duplicate blog slug(s) (*-1)`);
 
-  if (onlySlugSet.size) {
-    console.log('[generateBlogs] skipping sitemap/ads.txt rewrite for --only=');
-  } else {
   const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
     articles,
     seoShips: mode.ships ? seoShips : [],
@@ -3474,7 +3511,6 @@ async function main() {
         'Provide ca-pub-… client ID and ad unit slot ID before deploy.'
     );
   }
-  }
   if (!isAdSenseConfigured()) {
     console.warn('[adsense] Blog mid-article slots will not be emitted until AdSense is configured.');
   }
@@ -3485,8 +3521,8 @@ async function main() {
     blogDir,
     repoRoot,
     mode.blogs ? articles : [],
-    mode.ships ? (onlySlugSet.size ? seoShips.filter((s) => onlySlugSet.has(s.slug)) : seoShips) : [],
-    mode.ports ? (onlySlugSet.size ? seoPorts.filter((p) => onlySlugSet.has(p.slug)) : seoPorts) : []
+    mode.ships ? seoShips : [],
+    mode.ports ? seoPorts : []
   );
 
   console.log('Done.');
@@ -3511,6 +3547,9 @@ module.exports = {
   formatIsoDate,
   buildArticleAuthorJsonLd,
   articleAuthorDisplayName,
+  articleAuthorBylineLabel,
+  patchArticleHtmlPublicationMetadata,
+  rewritePublicationMetadataOnDisk,
   extractArticleLastmodFromHtml,
   publicStaticSitemapUrls,
   buildSitemapXml,
