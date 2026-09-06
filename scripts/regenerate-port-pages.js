@@ -39,6 +39,11 @@ const {
   getAliasRedirectTarget,
   writePortSeoRedirectPages,
 } = require('./lib/portSeoRedirects');
+const {
+  loadLandingCruiseContentOverrides,
+  applyPortContentOverride,
+  applyShipContentOverride,
+} = require('./lib/landingCruiseContentOverrides');
 
 const BASE_URL = 'https://seadays.app';
 const DEFAULT_FAVICON =
@@ -188,6 +193,7 @@ function main() {
   const terminals = loadTerminals(repoRoot);
   const articles = loadBlogArticlesFromDisk(repoRoot);
   const portSlugToReviewKey = buildPortSlugToReviewKeyMap(appRoot, APP_ALL_PORTS);
+  const overrides = loadLandingCruiseContentOverrides();
 
   const rawPorts = APP_ALL_PORTS.map((p) => {
     const slug = String(p.slug || '').trim();
@@ -207,7 +213,9 @@ function main() {
       highlights: [],
     };
   });
-  const seoPorts = buildSeoPortRecords(rawPorts);
+  const seoPorts = buildSeoPortRecords(rawPorts).map((p) =>
+    applyPortContentOverride(p, overrides.ports[p.slug])
+  );
   const seoShips = buildSeoShipRecords(
     APP_ALL_SHIPS.map((s) => ({
       id: s.slug,
@@ -217,7 +225,7 @@ function main() {
       description: '',
       highlights: [],
     }))
-  );
+  ).map((s) => applyShipContentOverride(s, overrides.ships[s.slug]));
 
   const slugToAppPortId = buildSlugToAppPortIdMap(
     seoPorts,
@@ -246,7 +254,12 @@ function main() {
     const dir = path.join(repoRoot, 'ports', port.slug);
     fs.mkdirSync(dir, { recursive: true });
     const appPortId = slugToAppPortId[port.slug] || '';
-    const portGuide = (appPortId && guides.byAppPortId[appPortId]) || null;
+    // Cross-country guides are already filtered by buildSlugToAppPortIdMap.
+    // Editorial overrides must not inherit another place's climate/politics sections.
+    const portGuide =
+      port.hasContentOverride
+        ? null
+        : (appPortId && guides.byAppPortId[appPortId]) || null;
     const portTerminals = (appPortId && terminals.byPortId && terminals.byPortId[appPortId]) || [];
     const affiliate = resolvePortAffiliateCta(
       { ...port, appPortId },
@@ -260,10 +273,21 @@ function main() {
     );
     if (portGuide) {
       withGuide += 1;
-      if (portGuide.portInfo && portGuide.portInfo.description) {
+      // Prefer editorial overrides; never clobber unique port prose with guide blurbs.
+      if (
+        portGuide.portInfo &&
+        portGuide.portInfo.description &&
+        !port.hasContentOverride &&
+        !String(port.description || '').trim()
+      ) {
         port.description = portGuide.portInfo.description;
       }
-      if (portGuide.climate && portGuide.climate.bestMonths && portGuide.climate.bestMonths.length) {
+      if (
+        portGuide.climate &&
+        portGuide.climate.bestMonths &&
+        portGuide.climate.bestMonths.length &&
+        !port.hasContentOverride
+      ) {
         port.popularMonths = portGuide.climate.bestMonths;
       }
     }
