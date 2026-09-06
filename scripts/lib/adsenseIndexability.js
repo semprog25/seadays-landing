@@ -10,11 +10,23 @@ const MIN_SHIP_CONFIDENCE = 0.7;
 const MIN_PORT_DESCRIPTION_CHARS = 360;
 
 /**
- * @param {{ description?: string, confidenceScore?: number, hasContentOverride?: boolean }} ship
+ * Sister-ship near-duplicates that remain indexable under length/confidence gates
+ * but fail uniqueness (production Jaccard >0.90 after name stripping).
+ * Keep one representative per class indexable; noindex the rest.
+ */
+const SHIP_NEAR_DUPLICATE_NOINDEX = new Set([
+  'le-champlain',
+  'le-bellot',
+]);
+
+/**
+ * @param {{ description?: string, confidenceScore?: number, hasContentOverride?: boolean, slug?: string }} ship
  * @returns {boolean}
  */
 function isShipDetailIndexable(ship) {
   if (!ship || typeof ship !== 'object') return false;
+  const slug = String(ship.slug || '').trim().toLowerCase();
+  if (slug && SHIP_NEAR_DUPLICATE_NOINDEX.has(slug)) return false;
   const description = String(ship.description || '').trim();
   const confidence = Number(ship.confidenceScore);
   const hasOverride = Boolean(ship.hasContentOverride);
@@ -70,6 +82,7 @@ module.exports = {
   MIN_SHIP_DESCRIPTION_CHARS,
   MIN_SHIP_CONFIDENCE,
   MIN_PORT_DESCRIPTION_CHARS,
+  SHIP_NEAR_DUPLICATE_NOINDEX,
   isShipDetailIndexable,
   isPortDetailIndexable,
   replaceRobotsMeta,

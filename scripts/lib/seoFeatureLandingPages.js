@@ -48,7 +48,7 @@ const FEATURE_PAGES_RAW = [
   },
   {
     slug: 'cruise-planner',
-    title: 'Cruise Planner App',
+    title: 'Cruise Planner — Itineraries, Excursions & Sea Days',
     h1: 'Plan Every Day of Your Cruise in One Place',
     subtitle:
       'Organize itineraries, excursions, shows, and sea days with a cruise planning app built for passengers—not spreadsheets scattered across group chats.',

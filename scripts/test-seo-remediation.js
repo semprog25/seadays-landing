@@ -332,8 +332,16 @@ async function main() {
   });
 
   test('ads.txt is the authorized Google publisher line', () => {
-    const adsTxt = fs.readFileSync(path.join(root, 'ads.txt'), 'utf8');
-    assert.strictEqual(adsTxt.trim(), 'google.com, pub-3084834499411817, DIRECT, f08c47fec0942fa0');
+    const adsTxt = fs.readFileSync(path.join(root, 'ads.txt'), 'utf8').trim();
+    const lines = adsTxt.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    assert.ok(
+      lines.includes('google.com, pub-3084834499411817, DIRECT, f08c47fec0942fa0'),
+      'ads.txt must include Google publisher authorization line'
+    );
+    assert.ok(
+      lines.includes('ownerdomain=seadays.app'),
+      'ads.txt must declare ownerdomain=seadays.app'
+    );
   });
 
   test('shared head snippet associates AdSense without loading ads', () => {

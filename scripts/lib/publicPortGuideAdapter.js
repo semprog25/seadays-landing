@@ -273,6 +273,69 @@ function resolveGuideId(candidate, guidesById) {
 }
 
 /**
+ * Normalize country labels so UK/United Kingdom, USA/United States, etc. match.
+ * Returns empty string when unknown.
+ */
+function normalizeCountryKey(country) {
+  const raw = String(country || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\./g, '')
+    .replace(/\s+/g, ' ');
+  if (!raw) return '';
+  const aliases = {
+    uk: 'united kingdom',
+    'u k': 'united kingdom',
+    'united kingdom': 'united kingdom',
+    'great britain': 'united kingdom',
+    england: 'united kingdom',
+    scotland: 'united kingdom',
+    wales: 'united kingdom',
+    'northern ireland': 'united kingdom',
+    usa: 'united states',
+    'u s': 'united states',
+    'u s a': 'united states',
+    'united states': 'united states',
+    'united states of america': 'united states',
+    uae: 'united arab emirates',
+    'u a e': 'united arab emirates',
+    'united arab emirates': 'united arab emirates',
+    'st maarten': 'sint maarten',
+    'st. maarten': 'sint maarten',
+    'sint maarten': 'sint maarten',
+    'saint maarten': 'sint maarten',
+    'st lucia': 'saint lucia',
+    'st. lucia': 'saint lucia',
+    'saint lucia': 'saint lucia',
+  };
+  if (aliases[raw]) return aliases[raw];
+  return raw;
+}
+
+/**
+ * True when port and guide countries are compatible (or either side is unknown).
+ * Prevents cross-country guide attachment (e.g. Falmouth Jamaica ← Cornish UK guide).
+ */
+function countriesCompatible(portCountry, guideCountry) {
+  const a = normalizeCountryKey(portCountry);
+  const b = normalizeCountryKey(guideCountry);
+  if (!a || !b) return true;
+  if (a === b) return true;
+  if (a.includes(b) || b.includes(a)) return true;
+  // Martinique / Guadeloupe are French overseas departments — allow France guides.
+  if ((a === 'martinique' || a === 'guadeloupe') && b === 'france') return true;
+  if ((b === 'martinique' || b === 'guadeloupe') && a === 'france') return true;
+  return false;
+}
+
+function acceptGuideId(guideId, guidesById, portCountry) {
+  if (!guideId || !guidesById || !guidesById[guideId]) return '';
+  const guideCountry = guidesById[guideId].country || '';
+  if (!countriesCompatible(portCountry, guideCountry)) return '';
+  return guideId;
+}
+
+/**
  * Name variants for matching when review keys are unavailable (CI has no app checkout).
  * e.g. "Rome (Civitavecchia)" → also try "civitavecchia".
  */
@@ -301,7 +364,7 @@ function extractPortNameCandidates(name) {
  * before the thin stub `palma`, and `rome-civitavecchia-italy` hits `civitavecchia`
  * (CI cannot use app review-key maps).
  */
-function resolveGuideIdFromSlugTokens(slug, guidesById) {
+function resolveGuideIdFromSlugTokens(slug, guidesById, portCountry) {
   const parts = String(slug || '')
     .toLowerCase()
     .split('-')
@@ -311,7 +374,7 @@ function resolveGuideIdFromSlugTokens(slug, guidesById) {
   for (let len = parts.length; len >= 1; len--) {
     for (let i = 0; i + len <= parts.length; i++) {
       const candidate = parts.slice(i, i + len).join('-');
-      const hit = resolveGuideId(candidate, guidesById);
+      const hit = acceptGuideId(resolveGuideId(candidate, guidesById), guidesById, portCountry);
       if (hit) return hit;
     }
   }
@@ -327,9 +390,14 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
   const byName = new Map();
   for (const id of guideIds) {
     const g = guidesById[id];
-    const key = `${String(g.portName || '').toLowerCase()}|${String(g.country || '').toLowerCase()}`;
-    byName.set(key, id);
-    byName.set(String(g.portName || '').toLowerCase(), id);
+    const guideCountryRaw = String(g.country || '').toLowerCase();
+    const guideCountryNorm = normalizeCountryKey(g.country || '');
+    const portNameKey = String(g.portName || '').toLowerCase();
+    byName.set(`${portNameKey}|${guideCountryRaw}`, id);
+    if (guideCountryNorm && guideCountryNorm !== guideCountryRaw) {
+      byName.set(`${portNameKey}|${guideCountryNorm}`, id);
+    }
+    byName.set(portNameKey, id);
     // Also index common English aliases for German/legacy portName values
     if (id === 'genua') {
       byName.set('genoa|italy', id);
@@ -339,38 +407,49 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
   for (const port of seoPorts || []) {
     const slug = String(port.slug || '').trim();
     if (!slug) continue;
+    const country = String(port.country || '').trim();
     const reviewKey =
       portSlugToReviewKey && typeof portSlugToReviewKey.get === 'function'
         ? portSlugToReviewKey.get(slug)
         : portSlugToReviewKey
           ? portSlugToReviewKey[slug]
           : '';
-    const fromReview = resolveGuideId(reviewKey, guidesById);
+    const fromReview = acceptGuideId(resolveGuideId(reviewKey, guidesById), guidesById, country);
     if (fromReview) {
       out[slug] = fromReview;
       continue;
     }
-    const fromSlug = resolveGuideId(slug, guidesById);
+    const fromSlug = acceptGuideId(resolveGuideId(slug, guidesById), guidesById, country);
     if (fromSlug) {
       out[slug] = fromSlug;
       continue;
     }
     const name = String(port.name || '').trim().toLowerCase();
-    const country = String(port.country || '').trim().toLowerCase();
+    const countryKey = normalizeCountryKey(country);
     const nameCandidates = extractPortNameCandidates(name);
     let hit = '';
     for (const cand of nameCandidates) {
-      hit =
-        byName.get(`${cand}|${country}`) ||
-        byName.get(cand) ||
+      const withCountry =
+        byName.get(`${cand}|${String(country).toLowerCase()}`) ||
+        (countryKey ? byName.get(`${cand}|${countryKey}`) : '') ||
         '';
-      if (hit) break;
+      const acceptedCountry = acceptGuideId(withCountry, guidesById, country);
+      if (acceptedCountry) {
+        hit = acceptedCountry;
+        break;
+      }
+      // Name-only fallback only when country-compatible (blocks Jamaica←UK Falmouth).
+      const nameOnly = acceptGuideId(byName.get(cand) || '', guidesById, country);
+      if (nameOnly) {
+        hit = nameOnly;
+        break;
+      }
     }
     if (hit) {
       out[slug] = hit;
       continue;
     }
-    const fromTokens = resolveGuideIdFromSlugTokens(slug, guidesById);
+    const fromTokens = resolveGuideIdFromSlugTokens(slug, guidesById, country);
     if (fromTokens) out[slug] = fromTokens;
   }
   return out;
@@ -402,4 +481,6 @@ module.exports = {
   toPublicGuide,
   resolveGuideIdFromSlugTokens,
   extractPortNameCandidates,
+  normalizeCountryKey,
+  countriesCompatible,
 };

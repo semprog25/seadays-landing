@@ -12,6 +12,12 @@ assert.strictEqual(isShipDetailIndexable({
   hasContentOverride: true,
 }), true);
 assert.strictEqual(isShipDetailIndexable({
+  slug: 'le-champlain',
+  description: 'x'.repeat(400),
+  confidenceScore: 0.9,
+  hasContentOverride: true,
+}), false);
+assert.strictEqual(isShipDetailIndexable({
   description: 'short',
   confidenceScore: 0.9,
   hasContentOverride: true,

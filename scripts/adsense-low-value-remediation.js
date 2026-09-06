@@ -43,6 +43,7 @@ function applyShipIndexability() {
     }
     const ov = ships[slug] || {};
     const ship = {
+      slug,
       description: ov.description || '',
       confidenceScore: ov.confidenceScore,
       hasContentOverride: Boolean(ov.description),

@@ -1231,7 +1231,8 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const canonical = `${BASE_URL}/ports/${port.slug}/`;
   const coreName = formatPortCoreName(port);
   const h1 = formatPortPlaceLabel(port) || coreName;
-  const title = `${coreName} Cruise Port Guide: Terminals, Tips & Things to Do`;
+  const titleBase = formatPortPlaceLabel(port) || coreName;
+  const title = `${titleBase} Cruise Port Guide: Terminals, Tips & Things to Do`;
   const prose = budgetPortProse(port);
   const overviewParas = splitIntoParagraphs(prose.overview);
   const whatParas = splitIntoParagraphs(prose.whatToDo);
