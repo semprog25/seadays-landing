@@ -14,6 +14,10 @@ const {
   getSiteShellCssLinkHtml,
 } = require('./siteShell');
 const {
+  isShipDetailIndexable,
+  isPortDetailIndexable,
+} = require('./adsenseIndexability');
+const {
   PORT_GUIDE_STYLES,
   buildPortGuideEarlySectionsHtml,
   buildPortGuideLateSectionsHtml,
@@ -422,6 +426,7 @@ function buildSeoShipRecords(rawList) {
     const rating = pickFirstFiniteNumber(raw.rating, raw.avgRating, raw.averageRating, raw.stars);
     const reviewCount = parseOptionalInt(raw.reviewCount ?? raw.reviewsCount ?? raw.totalReviews ?? raw.count);
     const metaDescription = raw.metaDescription || raw.meta_description || '';
+    const confidenceScore = pickFirstFiniteNumber(raw.confidenceScore, raw.confidence);
     out.push({
       id,
       slug,
@@ -434,6 +439,7 @@ function buildSeoShipRecords(rawList) {
       experience: raw.experience || raw.vibe || '',
       metaDescription: String(metaDescription).trim(),
       hasContentOverride: Boolean(raw.hasContentOverride),
+      confidenceScore: Number.isFinite(confidenceScore) ? confidenceScore : undefined,
       rating,
       reviewCount,
       // Pass-2 verified catalog specs (optional; Key facts / JSON-LD)
@@ -1148,6 +1154,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const notableHtml = notableParas.length
     ? `<h2>What makes this ship notable</h2><article class="seo-body">${notableParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>`
     : '';
+  const robots = isShipDetailIndexable(ship) ? 'index, follow' : 'noindex, follow';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -1155,7 +1162,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   <meta charset="UTF-8">
 ${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${robots}">
   <meta name="description" content="${escapeHtml(metaDesc)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">
@@ -1347,6 +1354,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const heroImg = port.image_url
     ? `<img class="seo-hero-img" src="${escapeHtml(port.image_url)}" alt="${escapeHtml(h1)}" width="800" height="420" loading="eager" decoding="async">`
     : '';
+  const robots = isPortDetailIndexable(port, guide) ? 'index, follow' : 'noindex, follow';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -1354,7 +1362,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   <meta charset="UTF-8">
 ${getAnalyticsHeadHtml()}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${robots}">
   <meta name="description" content="${escapeHtml(metaDesc)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${canonical}">

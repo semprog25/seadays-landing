@@ -3,12 +3,13 @@
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
 const { getFaviconHeadHtml } = require('./faviconHead');
 const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath } = require('./storeLinks');
+const { GUIDE_BY_SLUG } = require('./featureLandingGuideContent');
 const BASE_URL = 'https://seadays.app';
 const LOGO_URL = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png';
 const FAVICON_URL = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
 const OG_IMAGE = 'https://seadays.app/og-image.png';
 
-const FEATURE_PAGES = [
+const FEATURE_PAGES_RAW = [
   {
     slug: 'cruise-roll-calls',
     title: 'Cruise Roll Call App',
@@ -191,6 +192,11 @@ const FEATURE_PAGES = [
   },
 ];
 
+const FEATURE_PAGES = FEATURE_PAGES_RAW.map((page) => ({
+  ...page,
+  guideSections: GUIDE_BY_SLUG[page.slug] || [],
+}));
+
 function escapeHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -259,6 +265,29 @@ function buildFeatureLandingPageHtml(page) {
     )
     .join('\n          ')
     .replace(/<\/motion>/g, '</div>');
+  const guideHtml = Array.isArray(page.guideSections)
+    ? page.guideSections
+        .map((section) => {
+          const blocks = (section.blocks || [])
+            .map((block) => {
+              if (block.type === 'p') return `<p>${escapeHtml(block.text)}</p>`;
+              if (block.type === 'h3') return `<h3>${escapeHtml(block.text)}</h3>`;
+              if (block.type === 'ul' || block.type === 'ol') {
+                const tag = block.type;
+                const items = (block.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+                return `<${tag}>${items}</${tag}>`;
+              }
+              if (block.type === 'callout') {
+                return `<div class="guide-callout"><p>${escapeHtml(block.text)}</p></div>`;
+              }
+              return '';
+            })
+            .join('\n          ');
+          return `<section class="guide-section" aria-labelledby="guide-${escapeHtml(section.id)}"><h2 id="guide-${escapeHtml(section.id)}">${escapeHtml(section.heading)}</h2>\n          ${blocks}\n        </section>`;
+        })
+        .join('\n        ')
+    : '';
+
   const relatedHtml = page.related
     .map((r) => `<li><a href="${escapeHtml(r.href)}">${escapeHtml(r.label)}</a></li>`)
     .join('\n              ');
@@ -304,6 +333,14 @@ ${getFaviconHeadHtml()}
     .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,0,51,0.2); border-radius: 16px; padding: 28px; }
     .feature-card ul { margin: 0; padding-left: 20px; color: var(--text-gray); }
     .feature-card li { margin-bottom: 10px; }
+    .guide-section { margin: 36px 0; text-align: left; }
+    .guide-section h2 { font-size: 26px; margin-bottom: 14px; }
+    .guide-section h3 { font-size: 18px; margin: 18px 0 8px; }
+    .guide-section p, .guide-section li { color: var(--text-gray); font-size: 16px; line-height: 1.7; }
+    .guide-section p { margin-bottom: 12px; }
+    .guide-section ul, .guide-section ol { margin: 0 0 14px; padding-left: 22px; }
+    .guide-section li { margin-bottom: 8px; }
+    .guide-callout { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
     .faq-section { margin: 48px 0; }
     .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
     .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
@@ -341,6 +378,7 @@ ${getFaviconHeadHtml()}
         </ul>
       </article>
     </section>
+    ${guideHtml}
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
           ${faqHtml}

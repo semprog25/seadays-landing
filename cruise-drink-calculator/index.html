@@ -47,7 +47,7 @@ window.__SEADAYS_GA_READY__ = true;
   <meta name="twitter:title" content="SeaDays – Cruise Drink Package Calculator">
   <meta name="twitter:description" content="Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.">
   <meta name="twitter:image" content="https://seadays.app/og-image.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Drink Package Calculator","description":"Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.","url":"https://seadays.app/cruise-drink-calculator/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-drink-calculator/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/de/app/seadays/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a cruise drink package calculator work?","acceptedAnswer":{"@type":"Answer","text":"You enter sailing length, typical drinks per day, and package price. The calculator estimates break-even servings and whether the package beats buying drinks individually."}},{"@type":"Question","name":"Do all cruise lines price packages the same?","acceptedAnswer":{"@type":"Answer","text":"No. Lines and regions price packages differently. SeaDays models common package tiers so you can sanity-check the upsell at booking or embarkation."}},{"@type":"Question","name":"Where do drink costs fit in my overall budget?","acceptedAnswer":{"@type":"Answer","text":"Add calculator results to Voyage Analytics in SeaDays to see drinks alongside excursions, dining, and onboard spending."}}],"url":"https://seadays.app/cruise-drink-calculator/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Drink Package Calculator","description":"Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.","url":"https://seadays.app/cruise-drink-calculator/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-drink-calculator/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/app/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does a cruise drink package calculator work?","acceptedAnswer":{"@type":"Answer","text":"You enter sailing length, typical drinks per day, and package price. The calculator estimates break-even servings and whether the package beats buying drinks individually."}},{"@type":"Question","name":"Do all cruise lines price packages the same?","acceptedAnswer":{"@type":"Answer","text":"No. Lines and regions price packages differently. SeaDays models common package tiers so you can sanity-check the upsell at booking or embarkation."}},{"@type":"Question","name":"Where do drink costs fit in my overall budget?","acceptedAnswer":{"@type":"Answer","text":"Add calculator results to Voyage Analytics in SeaDays to see drinks alongside excursions, dining, and onboard spending."}}],"url":"https://seadays.app/cruise-drink-calculator/"}]}</script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; --text-light: #fff; --text-gray: rgba(255,255,255,0.72); }
@@ -62,6 +62,14 @@ window.__SEADAYS_GA_READY__ = true;
     .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,0,51,0.2); border-radius: 16px; padding: 28px; }
     .feature-card ul { margin: 0; padding-left: 20px; color: var(--text-gray); }
     .feature-card li { margin-bottom: 10px; }
+    .guide-section { margin: 36px 0; text-align: left; }
+    .guide-section h2 { font-size: 26px; margin-bottom: 14px; }
+    .guide-section h3 { font-size: 18px; margin: 18px 0 8px; }
+    .guide-section p, .guide-section li { color: var(--text-gray); font-size: 16px; line-height: 1.7; }
+    .guide-section p { margin-bottom: 12px; }
+    .guide-section ul, .guide-section ol { margin: 0 0 14px; padding-left: 22px; }
+    .guide-section li { margin-bottom: 8px; }
+    .guide-callout { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
     .faq-section { margin: 48px 0; }
     .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
     .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
@@ -83,23 +91,8 @@ window.__SEADAYS_GA_READY__ = true;
     .store-row a { color: rgba(255,255,255,0.85); font-size: 14px; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
-  <link rel="stylesheet" href="/assets/css/site-shell.css">
-  <style id="site-shell-page-pad">body > .container, body > .content-layer { padding-top: 88px; }</style>
 </head>
 <body>
-<!-- seadays-site-shell:header -->
-        <header class="header site-header">
-            <nav class="header-nav" aria-label="Main navigation">
-                <a href="/#cruise-planning-tools">Features</a>
-                <a href="/ships/">Ships</a>
-                <a href="/ports/">Ports</a>
-                <a href="/blog/">Blog</a>
-                <a href="/press/">Press</a>
-                <a href="/download/?utm_source=seadays_web&amp;utm_medium=nav&amp;utm_campaign=organic_nav">Get SeaDays</a>
-            </nav>
-        </header>
-        <!-- seadays-site-shell:header-end seadays-site-shell -->
-
   <div class="container">
     <a href="/" class="back-link" aria-label="Back to SeaDays home">← Back to Home</a>
     <header class="header">
@@ -117,6 +110,26 @@ window.__SEADAYS_GA_READY__ = true;
         </ul>
       </article>
     </section>
+    <section class="guide-section" aria-labelledby="guide-breakeven"><h2 id="guide-breakeven">How drink package break-even math works</h2>
+          <p>A cruise drink package is worth it when your expected prepaid package cost is lower than buying the same drinks individually—including gratuities and the “I might as well” effect that appears after day two.</p>
+          <ol><li>Note package price per person, per day (and whether gratuities are included)</li><li>List your realistic drinks: coffee specialty, soda, beer, cocktails, mocktails, bottled water</li><li>Multiply by sailing nights (not calendar days ashore)</li><li>Add a small buffer for celebration nights and sea-day boredom</li><li>Compare package total to à la carte total</li></ol>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-when-skip"><h2 id="guide-when-skip">When you should skip the package</h2>
+          <ul><li>You mostly drink free water, regular coffee, and one soft drink with lunch</li><li>You spend most days on long independent excursions and return late</li><li>One person in the cabin drinks heavily and the other barely drinks (some lines require cabin-wide purchase)</li><li>You prefer a few premium pours rather than volume</li></ul>
+          <div class="guide-callout"><p>Break-even is personal. Two couples on the same ship can correctly reach opposite answers.</p></div>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-line-differences"><h2 id="guide-line-differences">Why line and region pricing changes the answer</h2>
+          <p>Package menus, excluded top-shelf brands, specialty coffee rules, and kids soda packages differ by cruise line and sailing region. Always verify the current inclusions for your booking—do not reuse last year’s forum math.</p>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-habits"><h2 id="guide-habits">Translate habits into servings</h2>
+          <p>People undercount specialty coffee, bottled water on hot port returns, and welcome-drink culture. Count what you actually consume on vacation, not what you drink on a work Tuesday.</p>
+          <ul><li>Sea-day baseline: morning coffee + lunch drink + late-afternoon cocktail + evening pour</li><li>Port-day baseline: often fewer ship drinks, more ashore purchases (usually outside the package)</li><li>Celebration nights: birthday, formal night, or finale dinner can double evening volume</li></ul>
+          <p>If your package excludes certain premium brands you always order, those drinks do not help break-even—price them separately.</p>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-gratuities"><h2 id="guide-gratuities">Gratuities and cabin rules</h2>
+          <p>Some lines auto-add gratuities to package prices; others do not. Some require every adult in a cabin to buy the same package. Those two rules change break-even more than a single cocktail price on the bar menu.</p>
+          <div class="guide-callout"><p>Always confirm current cabin-wide purchase rules for your sailing before you trust a generic calculator result.</p></div>
+        </section>
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
           <div class="faq-item"><h3>How does a cruise drink package calculator work?</h3><p>You enter sailing length, typical drinks per day, and package price. The calculator estimates break-even servings and whether the package beats buying drinks individually.</p></div>
@@ -133,99 +146,17 @@ window.__SEADAYS_GA_READY__ = true;
     </section>
     <section class="cta-section" aria-label="Download SeaDays">
       <h2>Calculate Drink Package Value</h2>
-      <p>Download SeaDays free on iOS and Android—the modern all-in-one cruise planner and roll call app.</p>
+      <p>Get SeaDays free on iOS and Android — the cruise planner with ship and port guides, packing, and crew tools.</p>
       <div class="cta-row">
-        <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Download SeaDays Free</a>
+        <a class="cta-button" href="/download/?utm_source=seadays_web&utm_medium=feature&utm_campaign=feature_landing">Get SeaDays</a>
         <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
       </div>
       <div class="store-row">
-        <a href="https://apps.apple.com/de/app/seadays/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
+        <a href="https://apps.apple.com/app/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
         <span aria-hidden="true">·</span>
         <a href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Google Play</a>
       </div>
     </section>
   </div>
-<p class="seadays-contextual-cta"><a href="/download/?utm_source=seadays_web&amp;utm_medium=feature&amp;utm_campaign=feature_landing">Plan this cruise in SeaDays.</a></p>
-<!-- seadays-site-shell:footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-shell">
-                    <div class="footer-brand">
-                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
-                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
-                        </a>
-                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
-                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
-                        <ul class="footer-social">
-                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-content">
-                        <div class="footer-section">
-                            <h4>Explore</h4>
-                            <ul>
-                                <li><a href="/ships/">Ships</a></li>
-                                <li><a href="/ports/">Ports</a></li>
-                                <li><a href="/blog/">Blog</a></li>
-                                <li><a href="/press/">Press</a></li>
-                                <li><a href="/#blog">SeaStories</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Plan</h4>
-                            <ul>
-                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
-                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
-                                <li><a href="/cruise-community/">Cruise Community</a></li>
-                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
-                                <li><a href="/download/?utm_source=seadays_web&amp;utm_medium=footer&amp;utm_campaign=organic_web">Get SeaDays</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>SeaDays</h4>
-                            <ul>
-                                <li><a href="/about.html">About</a></li>
-                                <li><a href="/help.html">Help</a></li>
-                                <li><a href="/faq.html">FAQ</a></li>
-                                <li><a href="/contact.html">Contact</a></li>
-                                <li><a href="/meet-saili/">Meet Saili</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Sustainability</h4>
-                            <ul>
-                                <li><a href="/co2/">CO₂ Contribution</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section footer-section--legal">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="/privacy.html">Privacy</a></li>
-                                <li><a href="/security.html">Security</a></li>
-                                <li><a href="/terms.html">Terms</a></li>
-                                <li><a href="/cookies.html">Cookie Policy</a></li>
-                                <li><a href="/gdpr.html">GDPR</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-mobile-brand">
-                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
-                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
-                    </a>
-                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
-                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>© 2026 SeaDays. All rights reserved.</p>
-                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
-                </div>
-            </div>
-        </footer>
-        <!-- seadays-site-shell:footer-end seadays-site-shell -->
 </body>
 </html>

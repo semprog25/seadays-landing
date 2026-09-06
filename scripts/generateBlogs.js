@@ -1416,6 +1416,10 @@ function publicStaticSitemapUrls(repoRoot) {
   for (const page of PUBLIC_STATIC_SITEMAP_PAGES) {
     const filePath = path.join(repoRoot, page.file);
     if (!fs.existsSync(filePath)) continue;
+    const html = fs.readFileSync(filePath, 'utf8');
+    if (/name=["']robots["'][^>]*noindex|content=["'][^"']*noindex[^"']*["'][^>]*name=["']robots["']/i.test(html)) {
+      continue;
+    }
     out.push({
       loc: BASE_URL + page.loc,
       changefreq: 'monthly',

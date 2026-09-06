@@ -47,7 +47,7 @@ window.__SEADAYS_GA_READY__ = true;
   <meta name="twitter:title" content="SeaDays – Cruise Planner App">
   <meta name="twitter:description" content="Plan cruise itineraries, excursions, reservations, and sea days with SeaDays—the cruise planner app that keeps your whole voyage organized.">
   <meta name="twitter:image" content="https://seadays.app/og-image.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Planner App","description":"Plan cruise itineraries, excursions, reservations, and sea days with SeaDays—the cruise planner app that keeps your whole voyage organized.","url":"https://seadays.app/cruise-planner/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-planner/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/de/app/seadays/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should a cruise planner app include?","acceptedAnswer":{"@type":"Answer","text":"A strong cruise planner covers daily schedules, port days, bookings, packing, and shared planning for travel companions—without forcing you to juggle multiple apps."}},{"@type":"Question","name":"Can I share my cruise plan with family?","acceptedAnswer":{"@type":"Answer","text":"Yes. SeaDays Plan supports shared workspaces so everyone sees the same itinerary, packing list, and to-dos in real time."}},{"@type":"Question","name":"Does SeaDays work offline on the ship?","acceptedAnswer":{"@type":"Answer","text":"SeaDays caches key trip data for weak onboard Wi‑Fi, so your itinerary and notes stay available when connectivity drops at sea."}}],"url":"https://seadays.app/cruise-planner/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Planner App","description":"Plan cruise itineraries, excursions, reservations, and sea days with SeaDays—the cruise planner app that keeps your whole voyage organized.","url":"https://seadays.app/cruise-planner/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-planner/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/app/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What should a cruise planner app include?","acceptedAnswer":{"@type":"Answer","text":"A strong cruise planner covers daily schedules, port days, bookings, packing, and shared planning for travel companions—without forcing you to juggle multiple apps."}},{"@type":"Question","name":"Can I share my cruise plan with family?","acceptedAnswer":{"@type":"Answer","text":"Yes. SeaDays Plan supports shared workspaces so everyone sees the same itinerary, packing list, and to-dos in real time."}},{"@type":"Question","name":"Does SeaDays work offline on the ship?","acceptedAnswer":{"@type":"Answer","text":"SeaDays caches key trip data for weak onboard Wi‑Fi, so your itinerary and notes stay available when connectivity drops at sea."}}],"url":"https://seadays.app/cruise-planner/"}]}</script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; --text-light: #fff; --text-gray: rgba(255,255,255,0.72); }
@@ -62,6 +62,14 @@ window.__SEADAYS_GA_READY__ = true;
     .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,0,51,0.2); border-radius: 16px; padding: 28px; }
     .feature-card ul { margin: 0; padding-left: 20px; color: var(--text-gray); }
     .feature-card li { margin-bottom: 10px; }
+    .guide-section { margin: 36px 0; text-align: left; }
+    .guide-section h2 { font-size: 26px; margin-bottom: 14px; }
+    .guide-section h3 { font-size: 18px; margin: 18px 0 8px; }
+    .guide-section p, .guide-section li { color: var(--text-gray); font-size: 16px; line-height: 1.7; }
+    .guide-section p { margin-bottom: 12px; }
+    .guide-section ul, .guide-section ol { margin: 0 0 14px; padding-left: 22px; }
+    .guide-section li { margin-bottom: 8px; }
+    .guide-callout { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
     .faq-section { margin: 48px 0; }
     .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
     .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
@@ -83,23 +91,8 @@ window.__SEADAYS_GA_READY__ = true;
     .store-row a { color: rgba(255,255,255,0.85); font-size: 14px; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
-  <link rel="stylesheet" href="/assets/css/site-shell.css">
-  <style id="site-shell-page-pad">body > .container, body > .content-layer { padding-top: 88px; }</style>
 </head>
 <body>
-<!-- seadays-site-shell:header -->
-        <header class="header site-header">
-            <nav class="header-nav" aria-label="Main navigation">
-                <a href="/#cruise-planning-tools">Features</a>
-                <a href="/ships/">Ships</a>
-                <a href="/ports/">Ports</a>
-                <a href="/blog/">Blog</a>
-                <a href="/press/">Press</a>
-                <a href="/download/?utm_source=seadays_web&amp;utm_medium=nav&amp;utm_campaign=organic_nav">Get SeaDays</a>
-            </nav>
-        </header>
-        <!-- seadays-site-shell:header-end seadays-site-shell -->
-
   <div class="container">
     <a href="/" class="back-link" aria-label="Back to SeaDays home">← Back to Home</a>
     <header class="header">
@@ -117,6 +110,30 @@ window.__SEADAYS_GA_READY__ = true;
         </ul>
       </article>
     </section>
+    <section class="guide-section" aria-labelledby="guide-what-to-plan"><h2 id="guide-what-to-plan">What a useful cruise plan actually includes</h2>
+          <p>A cruise plan is not a packing list with a prettier title. It is a day-by-day operating picture of your voyage: embarkation logistics, sea-day rhythm, port timing, reservations, and the shared decisions that usually live in five different chat threads.</p>
+          <ul><li>Embarkation day: arrival window, luggage tags, muster, first dinner timing</li><li>Sea days: spa holds, entertainment holds, laundry, quiet recovery blocks</li><li>Port days: tender or dock status, independent vs excursion timing, back-onboard buffer</li><li>Shared logistics: who holds tickets, who tracks reservations, who owns the “leave for all-aboard” alarm</li></ul>
+          <div class="guide-callout"><p>Rule of thumb: if a detail would cause stress when Wi‑Fi drops, it belongs in the plan before you sail—not in a last-minute group chat at sea.</p></div>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-sea-vs-port"><h2 id="guide-sea-vs-port">How to balance sea days and port days</h2>
+          <p>Port-heavy itineraries make the ship a hotel with excellent food. Sea-day-heavy itineraries make the ship the destination. Your planner should reflect which trip you bought.</p>
+          <h3>Port-heavy voyages</h3>
+          <p>Prioritize walking distances from the berth, tender queues, and a hard all-aboard buffer. Keep evening plans light on days with long coach returns.</p>
+          <h3>Sea-day-heavy voyages</h3>
+          <p>Block “protected quiet time” and entertainment holds early. Crowding patterns matter more than port maps when you live onboard for multiple consecutive sea days.</p>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-checklist"><h2 id="guide-checklist">Pre-cruise planning checklist</h2>
+          <ol><li>Confirm ship, sail date, cabin category, and dining style in one shared place</li><li>List prepaid items vs pay-as-you-go (Wi‑Fi, drinks, specialty dining, photos)</li><li>Draft one shore plan and one weather backup for every port day</li><li>Assign owners for documents, boarding passes, and medical notes</li><li>Decide which plans must work offline once the ship leaves dock</li></ol>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-common-mistakes"><h2 id="guide-common-mistakes">Common cruise planning mistakes</h2>
+          <p>Most planning failures are timing failures. Guests overbook port mornings, under-buffer tender returns, and forget that specialty dining on embarkation night collides with muster and luggage delays.</p>
+          <ul><li>Treating every port like a full destination day when the call is only five hours</li><li>Leaving no recovery block after late arrivals or overnight flights</li><li>Planning independent taxis without a cash/card backup when ship Wi‑Fi fails</li><li>Keeping the only copy of reservations inside a messaging app that needs connectivity</li></ul>
+          <p>A durable plan stores the decision and the owner. “Someone will figure out transfers” is not a plan; “Alex holds train tickets; we leave the hotel at 08:10” is.</p>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-offline"><h2 id="guide-offline">Planning for weak onboard Wi‑Fi</h2>
+          <p>Assume connectivity will be slow on sea days. Download boarding documents, excursion vouchers, offline maps for walking ports, and your day plan before the ship casts off. Shared plans should still be readable when the group chat stalls.</p>
+          <div class="guide-callout"><p>If a detail only exists in a cloud tab you cannot open at the gangway, it is not part of your cruise plan yet.</p></div>
+        </section>
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
           <div class="faq-item"><h3>What should a cruise planner app include?</h3><p>A strong cruise planner covers daily schedules, port days, bookings, packing, and shared planning for travel companions—without forcing you to juggle multiple apps.</p></div>
@@ -133,99 +150,17 @@ window.__SEADAYS_GA_READY__ = true;
     </section>
     <section class="cta-section" aria-label="Download SeaDays">
       <h2>Start Planning Your Cruise</h2>
-      <p>Download SeaDays free on iOS and Android—the modern all-in-one cruise planner and roll call app.</p>
+      <p>Get SeaDays free on iOS and Android — the cruise planner with ship and port guides, packing, and crew tools.</p>
       <div class="cta-row">
-        <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Download SeaDays Free</a>
+        <a class="cta-button" href="/download/?utm_source=seadays_web&utm_medium=feature&utm_campaign=feature_landing">Get SeaDays</a>
         <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
       </div>
       <div class="store-row">
-        <a href="https://apps.apple.com/de/app/seadays/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
+        <a href="https://apps.apple.com/app/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
         <span aria-hidden="true">·</span>
         <a href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Google Play</a>
       </div>
     </section>
   </div>
-<p class="seadays-contextual-cta"><a href="/download/?utm_source=seadays_web&amp;utm_medium=feature&amp;utm_campaign=feature_landing">Plan this cruise in SeaDays.</a></p>
-<!-- seadays-site-shell:footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-shell">
-                    <div class="footer-brand">
-                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
-                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
-                        </a>
-                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
-                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
-                        <ul class="footer-social">
-                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-content">
-                        <div class="footer-section">
-                            <h4>Explore</h4>
-                            <ul>
-                                <li><a href="/ships/">Ships</a></li>
-                                <li><a href="/ports/">Ports</a></li>
-                                <li><a href="/blog/">Blog</a></li>
-                                <li><a href="/press/">Press</a></li>
-                                <li><a href="/#blog">SeaStories</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Plan</h4>
-                            <ul>
-                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
-                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
-                                <li><a href="/cruise-community/">Cruise Community</a></li>
-                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
-                                <li><a href="/download/?utm_source=seadays_web&amp;utm_medium=footer&amp;utm_campaign=organic_web">Get SeaDays</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>SeaDays</h4>
-                            <ul>
-                                <li><a href="/about.html">About</a></li>
-                                <li><a href="/help.html">Help</a></li>
-                                <li><a href="/faq.html">FAQ</a></li>
-                                <li><a href="/contact.html">Contact</a></li>
-                                <li><a href="/meet-saili/">Meet Saili</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Sustainability</h4>
-                            <ul>
-                                <li><a href="/co2/">CO₂ Contribution</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section footer-section--legal">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="/privacy.html">Privacy</a></li>
-                                <li><a href="/security.html">Security</a></li>
-                                <li><a href="/terms.html">Terms</a></li>
-                                <li><a href="/cookies.html">Cookie Policy</a></li>
-                                <li><a href="/gdpr.html">GDPR</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-mobile-brand">
-                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
-                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
-                    </a>
-                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
-                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>© 2026 SeaDays. All rights reserved.</p>
-                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
-                </div>
-            </div>
-        </footer>
-        <!-- seadays-site-shell:footer-end seadays-site-shell -->
 </body>
 </html>

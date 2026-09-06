@@ -47,7 +47,7 @@ window.__SEADAYS_GA_READY__ = true;
   <meta name="twitter:title" content="SeaDays – Cruise Community App">
   <meta name="twitter:description" content="Meet people on cruises, join roll calls, read ship and port reviews, and chat with fellow cruisers in the SeaDays cruise community app.">
   <meta name="twitter:image" content="https://seadays.app/og-image.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Community App","description":"Meet people on cruises, join roll calls, read ship and port reviews, and chat with fellow cruisers in the SeaDays cruise community app.","url":"https://seadays.app/cruise-community/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-community/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/de/app/seadays/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I meet people on a cruise?","acceptedAnswer":{"@type":"Answer","text":"Join your sailing roll call in SeaDays, introduce yourself in chat, and coordinate meetups for port days or onboard events before you board."}},{"@type":"Question","name":"Are SeaDays reviews from passengers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ship and port reviews come from cruisers sharing honest experiences about cabins, dining, entertainment, and things to do ashore."}},{"@type":"Question","name":"Is the community public?","acceptedAnswer":{"@type":"Answer","text":"Community features are designed for cruise passengers planning or taking a voyage. Use roll calls and chat for your specific ship and dates."}}],"url":"https://seadays.app/cruise-community/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Community App","description":"Meet people on cruises, join roll calls, read ship and port reviews, and chat with fellow cruisers in the SeaDays cruise community app.","url":"https://seadays.app/cruise-community/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-community/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/app/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I meet people on a cruise?","acceptedAnswer":{"@type":"Answer","text":"Join your sailing roll call in SeaDays, introduce yourself in chat, and coordinate meetups for port days or onboard events before you board."}},{"@type":"Question","name":"Are SeaDays reviews from passengers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ship and port reviews come from cruisers sharing honest experiences about cabins, dining, entertainment, and things to do ashore."}},{"@type":"Question","name":"Is the community public?","acceptedAnswer":{"@type":"Answer","text":"Community features are designed for cruise passengers planning or taking a voyage. Use roll calls and chat for your specific ship and dates."}}],"url":"https://seadays.app/cruise-community/"}]}</script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; --text-light: #fff; --text-gray: rgba(255,255,255,0.72); }
@@ -62,6 +62,14 @@ window.__SEADAYS_GA_READY__ = true;
     .feature-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,0,51,0.2); border-radius: 16px; padding: 28px; }
     .feature-card ul { margin: 0; padding-left: 20px; color: var(--text-gray); }
     .feature-card li { margin-bottom: 10px; }
+    .guide-section { margin: 36px 0; text-align: left; }
+    .guide-section h2 { font-size: 26px; margin-bottom: 14px; }
+    .guide-section h3 { font-size: 18px; margin: 18px 0 8px; }
+    .guide-section p, .guide-section li { color: var(--text-gray); font-size: 16px; line-height: 1.7; }
+    .guide-section p { margin-bottom: 12px; }
+    .guide-section ul, .guide-section ol { margin: 0 0 14px; padding-left: 22px; }
+    .guide-section li { margin-bottom: 8px; }
+    .guide-callout { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
     .faq-section { margin: 48px 0; }
     .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
     .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
@@ -83,23 +91,8 @@ window.__SEADAYS_GA_READY__ = true;
     .store-row a { color: rgba(255,255,255,0.85); font-size: 14px; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
-  <link rel="stylesheet" href="/assets/css/site-shell.css">
-  <style id="site-shell-page-pad">body > .container, body > .content-layer { padding-top: 88px; }</style>
 </head>
 <body>
-<!-- seadays-site-shell:header -->
-        <header class="header site-header">
-            <nav class="header-nav" aria-label="Main navigation">
-                <a href="/#cruise-planning-tools">Features</a>
-                <a href="/ships/">Ships</a>
-                <a href="/ports/">Ports</a>
-                <a href="/blog/">Blog</a>
-                <a href="/press/">Press</a>
-                <a href="/download/?utm_source=seadays_web&amp;utm_medium=nav&amp;utm_campaign=organic_nav">Get SeaDays</a>
-            </nav>
-        </header>
-        <!-- seadays-site-shell:header-end seadays-site-shell -->
-
   <div class="container">
     <a href="/" class="back-link" aria-label="Back to SeaDays home">← Back to Home</a>
     <header class="header">
@@ -117,6 +110,24 @@ window.__SEADAYS_GA_READY__ = true;
         </ul>
       </article>
     </section>
+    <section class="guide-section" aria-labelledby="guide-why-cruise-community"><h2 id="guide-why-cruise-community">Why cruise communities beat generic travel forums</h2>
+          <p>Cruise advice is ship-class and itinerary specific. A tip that works on a mega-ship Caribbean week can fail on a small-ship expedition or a port-intensive Mediterranean run. Useful communities organize around ships, ports, and sailings—not endless generic threads.</p>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-reviews"><h2 id="guide-reviews">How to read ship and port reviews critically</h2>
+          <ul><li>Weight recent sailings higher than five-year-old refit memories</li><li>Separate “I dislike crowds” opinions from operational facts (tendering, walk-off berths)</li><li>Look for repeated cabin noise patterns near venues or crew access corridors</li><li>Treat one viral complaint as a prompt to verify—not as proof</li></ul>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-share-well"><h2 id="guide-share-well">How to share tips other passengers can actually use</h2>
+          <p>Include ship name, month, and sailing region. Say what you paid for (or skipped), how long queues took, and whether mobility constraints mattered. Specifics help the next guest; vibes alone do not.</p>
+          <div class="guide-callout"><p>The best community posts answer: who this tip is for, when it applied, and what tradeoff it created.</p></div>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-first-timer"><h2 id="guide-first-timer">First-timer questions worth asking the community</h2>
+          <ul><li>Which cabins on this class are quiet on late-night sailings?</li><li>Is this port a walk-off berth or a long transfer?</li><li>Which specialty venues book out first on this ship?</li><li>What would you prepaid again—and what would you skip?</li></ul>
+          <p>Good answers cite ship class, month, and sailing region. If a reply lacks those anchors, treat it as opinion until corroborated.</p>
+        </section>
+        <section class="guide-section" aria-labelledby="guide-after"><h2 id="guide-after">After the cruise: reviews that help the next guest</h2>
+          <p>Post while details are fresh: embarkation timing, cabin noise, dining wait patterns, and whether independent port plans beat shore excursions for your mobility level. Include what you spent in broad ranges so budget readers can calibrate.</p>
+          <p>Photos help when they show walking distances, tender platforms, or venue layouts—not only sunsets. Operational visuals make community knowledge reusable.</p>
+        </section>
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
           <div class="faq-item"><h3>How do I meet people on a cruise?</h3><p>Join your sailing roll call in SeaDays, introduce yourself in chat, and coordinate meetups for port days or onboard events before you board.</p></div>
@@ -133,99 +144,17 @@ window.__SEADAYS_GA_READY__ = true;
     </section>
     <section class="cta-section" aria-label="Download SeaDays">
       <h2>Download SeaDays Free</h2>
-      <p>Download SeaDays free on iOS and Android—the modern all-in-one cruise planner and roll call app.</p>
+      <p>Get SeaDays free on iOS and Android — the cruise planner with ship and port guides, packing, and crew tools.</p>
       <div class="cta-row">
-        <a class="cta-button" href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Download SeaDays Free</a>
+        <a class="cta-button" href="/download/?utm_source=seadays_web&utm_medium=feature&utm_campaign=feature_landing">Get SeaDays</a>
         <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
       </div>
       <div class="store-row">
-        <a href="https://apps.apple.com/de/app/seadays/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
+        <a href="https://apps.apple.com/app/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
         <span aria-hidden="true">·</span>
         <a href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Google Play</a>
       </div>
     </section>
   </div>
-<p class="seadays-contextual-cta"><a href="/download/?utm_source=seadays_web&amp;utm_medium=feature&amp;utm_campaign=feature_landing">Plan this cruise in SeaDays.</a></p>
-<!-- seadays-site-shell:footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-shell">
-                    <div class="footer-brand">
-                        <a class="footer-brand-logo" href="/" aria-label="SeaDays home">
-                            <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
-                        </a>
-                        <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
-                        <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
-                        <ul class="footer-social">
-                            <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-content">
-                        <div class="footer-section">
-                            <h4>Explore</h4>
-                            <ul>
-                                <li><a href="/ships/">Ships</a></li>
-                                <li><a href="/ports/">Ports</a></li>
-                                <li><a href="/blog/">Blog</a></li>
-                                <li><a href="/press/">Press</a></li>
-                                <li><a href="/#blog">SeaStories</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Plan</h4>
-                            <ul>
-                                <li><a href="/cruise-planner/">Cruise Planner</a></li>
-                                <li><a href="/cruise-roll-calls/">Roll Calls</a></li>
-                                <li><a href="/cruise-community/">Cruise Community</a></li>
-                                <li><a href="/#cruise-passport">Cruise Passport</a></li>
-                                <li><a href="/download/?utm_source=seadays_web&amp;utm_medium=footer&amp;utm_campaign=organic_web">Get SeaDays</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>SeaDays</h4>
-                            <ul>
-                                <li><a href="/about.html">About</a></li>
-                                <li><a href="/help.html">Help</a></li>
-                                <li><a href="/faq.html">FAQ</a></li>
-                                <li><a href="/contact.html">Contact</a></li>
-                                <li><a href="/meet-saili/">Meet Saili</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>Sustainability</h4>
-                            <ul>
-                                <li><a href="/co2/">CO₂ Contribution</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section footer-section--legal">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="/privacy.html">Privacy</a></li>
-                                <li><a href="/security.html">Security</a></li>
-                                <li><a href="/terms.html">Terms</a></li>
-                                <li><a href="/cookies.html">Cookie Policy</a></li>
-                                <li><a href="/gdpr.html">GDPR</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-mobile-brand">
-                    <a class="footer-logo-mobile" href="/" aria-label="SeaDays home">
-                        <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
-                    </a>
-                    <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
-                    <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>© 2026 SeaDays. All rights reserved.</p>
-                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
-                </div>
-            </div>
-        </footer>
-        <!-- seadays-site-shell:footer-end seadays-site-shell -->
 </body>
 </html>
