@@ -83,6 +83,7 @@ function getSiteFooterHtml() {
                         <ul class="footer-social">
                             <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                             <li><a href="https://www.tiktok.com/@seadaysapp" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+                            <li><a href="https://x.com/SeadaysApp" target="_blank" rel="noopener noreferrer">X</a></li>
                         </ul>
                     </div>
 

@@ -60,6 +60,7 @@ const STATIC_SHELL_PAGES = [
   'terms.html',
   'cookies.html',
   'gdpr.html',
+  'security.html',
   'community.html',
 ];
 
