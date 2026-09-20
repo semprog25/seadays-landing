@@ -149,9 +149,32 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
     '/terms.html',
     '/help.html',
     '© 2026 SeaDays',
+    'https://www.instagram.com/seadaysapp/',
+    'https://www.tiktok.com/@seadaysapp',
+    'https://x.com/SeadaysApp',
   ]) {
     assert.match(footer, new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), needle);
   }
+  assert.match(
+    footer,
+    /href="https:\/\/x\.com\/SeadaysApp" target="_blank" rel="noopener noreferrer">X<\/a>/
+  );
+});
+
+test('homepage Organization JSON-LD sameAs includes Instagram, TikTok, and X', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const script = html.match(
+    /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/
+  );
+  assert.ok(script, 'homepage JSON-LD');
+  const data = JSON.parse(script[1]);
+  const org = (data['@graph'] || []).find((node) => node['@type'] === 'Organization');
+  assert.ok(org, 'Organization node');
+  assert.deepStrictEqual(org.sameAs, [
+    'https://www.instagram.com/seadaysapp/',
+    'https://www.tiktok.com/@seadaysapp',
+    'https://x.com/SeadaysApp',
+  ]);
 });
 
 test('canonical footer destinations exist as public files', () => {
