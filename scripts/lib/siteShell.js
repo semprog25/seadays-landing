@@ -31,11 +31,12 @@ function getSiteNavLinks(opts = {}) {
 
   // Homepage hero already has store badges; do not add a sixth header item there.
   // Inner pages send Get SeaDays to /download/ (not #download) so campaign tracking works.
+  // Blog leads so reviewers see a publisher destination before product links.
   const links = [
+    { href: '/blog/', label: 'Blog' },
     { href: featuresHref, label: 'Features' },
     { href: '/ships/', label: 'Ships' },
     { href: '/ports/', label: 'Ports' },
-    { href: '/blog/', label: 'Blog' },
     { href: '/press/', label: 'Press' },
   ];
   if (page !== 'home') {
@@ -203,6 +204,14 @@ header.header.site-header .header-nav a {
 header.header.site-header .header-nav a:hover {
   color: white;
   text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
+}
+
+/* Blog is the primary content destination. order:-1 keeps it first on pages
+   generated before the nav source order changed. */
+header.header.site-header .header-nav a[href="/blog/"] {
+  order: -1;
+  color: #fff;
+  font-weight: 700;
 }
 
 /* Get SeaDays is a download CTA, not a content destination. Campaign URLs stay on /download/. */
@@ -482,8 +491,10 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
 }
 
 @media (max-width: 480px) {
-  /* Match homepage: hide text nav on small phones; keep Get SeaDays as a CTA */
+  /* Keep Blog readable on small phones. Other text links hide so the row does not overflow.
+     Get SeaDays stays as the download CTA on inner pages. */
   header.header.site-header .header-nav a { display: none; }
+  header.header.site-header .header-nav a[href="/blog/"] { display: inline-flex; }
   header.header.site-header .header-nav a[href*="/download/"] { display: inline-flex; }
   footer:has(.footer-shell),
   footer.site-footer {

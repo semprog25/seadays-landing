@@ -18,11 +18,55 @@
 .download-main {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 28px;
   padding: 120px 24px 80px;
   position: relative;
   z-index: 1;
+}
+
+.download-reading {
+  width: min(720px, 100%);
+  text-align: left;
+  padding-top: 8px;
+}
+
+.download-reading .product-kicker {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.download-reading h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.download-reading p {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.download-reading ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.download-reading li {
+  margin: 8px 0;
+}
+
+.download-reading a {
+  color: #fff;
+  font-weight: 600;
 }
 
 .download-card {

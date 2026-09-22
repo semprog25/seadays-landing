@@ -4,6 +4,7 @@ const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
 const { getFaviconHeadHtml } = require('./faviconHead');
 const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath } = require('./storeLinks');
 const { GUIDE_BY_SLUG } = require('./featureLandingGuideContent');
+const { getSiteHeaderHtml, getSiteFooterHtml, getSiteShellCssLinkHtml } = require('./siteShell');
 const BASE_URL = 'https://seadays.app';
 const LOGO_URL = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png';
 const FAVICON_URL = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
@@ -16,6 +17,10 @@ const FEATURE_PAGES_RAW = [
     h1: 'Join Your Sailing Roll Call Before You Board',
     subtitle:
       'Find cruisers on your exact ship and sail date, introduce yourself, coordinate excursions, and meet fellow guests with the SeaDays cruise roll call app.',
+    readingLead: [
+      'A cruise roll call is a group for one ship on one sail date. It is where you introduce yourself, ask a question someone on that week can answer, and agree on a meetup before the pier gets loud. It is not the cruise line’s official channel, and it is not a place to post cabin numbers or booking codes.',
+      'The notes below are the parts that make a roll call useful: what to say first, what to settle before money changes hands, and how to keep a shared excursion from missing all-aboard. You can follow them in any group chat. SeaDays is one place that keeps the thread attached to the sailing.',
+    ],
     primaryKeyword: 'cruise roll call app',
     metaDescription:
       'Join cruise roll calls by ship and sailing date. Meet fellow cruisers, plan meetups, and coordinate excursions with SeaDays—the modern cruise roll call app.',
@@ -52,6 +57,10 @@ const FEATURE_PAGES_RAW = [
     h1: 'Plan Every Day of Your Cruise in One Place',
     subtitle:
       'Organize itineraries, excursions, shows, and sea days with a cruise planning app built for passengers—not spreadsheets scattered across group chats.',
+    readingLead: [
+      'A cruise plan is the operating picture of the voyage: embarkation timing, which days are at sea, which ports are too short for a countryside tour, and who is holding the tickets. If that picture only lives in a group chat, it disappears the moment the ship Wi-Fi stalls.',
+      'Use the sections on this page to decide what belongs in the plan before you sail. The checklist works on paper. The app is optional storage for the same decisions — itinerary, reservations, and the offline copy you still need at the gangway.',
+    ],
     primaryKeyword: 'cruise planner app',
     metaDescription:
       'Plan cruise itineraries, excursions, reservations, and sea days with SeaDays—the cruise planner app that keeps your whole voyage organized.',
@@ -88,6 +97,10 @@ const FEATURE_PAGES_RAW = [
     h1: 'Track Your Cruise Budget Before and During the Voyage',
     subtitle:
       'See the real cost of your cruise—fare, excursions, drinks, gratuities, and onboard spending—in one cruise budget planner made for vacationers.',
+    readingLead: [
+      'The fare on the booking page is not the cost of the trip. Gratuities, Wi-Fi, drinks, excursions, transfers, and port-day cash sit in different places, and the cabin folio only shows the charges you put on the ship after you board.',
+      'The method below separates those stacks so a calm folio does not hide a prepaid package or a single expensive port. Prices vary by line and sailing — use your own booking, not a sample total from someone else’s week.',
+    ],
     primaryKeyword: 'cruise budget planner',
     metaDescription:
       'Track cruise expenses, excursions, onboard spending, and trip budgets with SeaDays Voyage Analytics—the cruise budget planner for smarter spending.',
@@ -124,6 +137,10 @@ const FEATURE_PAGES_RAW = [
     h1: 'See If Your Cruise Drink Package Is Worth It',
     subtitle:
       'Run real break-even math for your cruise line, sailing length, and drinking habits—so you skip the package when pay-as-you-go wins.',
+    readingLead: [
+      'A drink package is worth it only when the prepaid total is lower than what you will actually order à la carte, including gratuities and the drinks the package does not cover. That answer changes with the line, the number of sea days, and whether every adult in the cabin must buy in.',
+      'Work the steps on this page with the prices on your booking. Do not copy a break-even number from a forum. The calculator in SeaDays is a place to store that personal math; the worksheet stands without it.',
+    ],
     primaryKeyword: 'cruise drink calculator',
     metaDescription:
       'Calculate cruise drink package break-even by line and habits. SeaDays shows when a beverage package saves money—and when to skip it.',
@@ -160,6 +177,10 @@ const FEATURE_PAGES_RAW = [
     h1: 'Meet Cruisers, Share Tips, and Plan Together',
     subtitle:
       'Connect with fellow cruise passengers through roll calls, ship and port reviews, and chat—built for cruise vacations, not generic social networks.',
+    readingLead: [
+      'Cruise advice is only useful when it names the ship, the month, and the region. A buffet complaint from a holiday mega-ship does not tell you how a small ship handles the same port, and a five-year-old review does not describe a ship that has been refit.',
+      'Read the sections below before you treat a thread as a reason to change cabins or skip a port. Community tools in SeaDays are for passengers on a voyage. The reading here is the filter you should apply in any forum.',
+    ],
     primaryKeyword: 'cruise community app',
     metaDescription:
       'Meet people on cruises, join roll calls, read ship and port reviews, and chat with fellow cruisers in the SeaDays cruise community app.',
@@ -280,6 +301,15 @@ function buildFeatureLandingPageHtml(page) {
               if (block.type === 'callout') {
                 return `<div class="guide-callout"><p>${escapeHtml(block.text)}</p></div>`;
               }
+              if (block.type === 'links') {
+                const items = (block.items || [])
+                  .map(
+                    (item) =>
+                      `<li><a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a></li>`
+                  )
+                  .join('');
+                return `<ul class="guide-links">${items}</ul>`;
+              }
               return '';
             })
             .join('\n          ');
@@ -287,6 +317,10 @@ function buildFeatureLandingPageHtml(page) {
         })
         .join('\n        ')
     : '';
+
+  const leadHtml = (page.readingLead || [])
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join('\n      ');
 
   const relatedHtml = page.related
     .map((r) => `<li><a href="${escapeHtml(r.href)}">${escapeHtml(r.label)}</a></li>`)
@@ -319,6 +353,8 @@ ${getFaviconHeadHtml()}
   <meta name="twitter:description" content="${escapeHtml(page.metaDescription)}">
   <meta name="twitter:image" content="${OG_IMAGE}">
   <script type="application/ld+json">${jsonLd}</script>
+  ${getSiteShellCssLinkHtml()}
+  <style id="site-shell-page-pad">body > .container, body > .content-layer { padding-top: 88px; }</style>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; --text-light: #fff; --text-gray: rgba(255,255,255,0.72); }
@@ -340,7 +376,13 @@ ${getFaviconHeadHtml()}
     .guide-section p { margin-bottom: 12px; }
     .guide-section ul, .guide-section ol { margin: 0 0 14px; padding-left: 22px; }
     .guide-section li { margin-bottom: 8px; }
+    .reading-lead { text-align: left; margin: 8px 0 28px; }
+    .reading-lead p { color: var(--text-gray); font-size: 17px; line-height: 1.7; margin-bottom: 14px; }
     .guide-callout { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
+    .guide-links { margin: 8px 0 0; padding-left: 22px; }
+    .guide-links a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+    .guide-links a:hover { text-decoration: underline; }
+    .product-note { margin: 28px 0 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; }
     .faq-section { margin: 48px 0; }
     .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
     .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
@@ -351,34 +393,34 @@ ${getFaviconHeadHtml()}
     .related-links ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 20px; }
     .related-links a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
-    .cta-section { background: rgba(255,0,51,0.12); border: 1px solid rgba(255,0,51,0.35); border-radius: 16px; padding: 44px 32px; text-align: center; margin-top: 40px; }
-    .cta-section h2 { font-size: 30px; margin-bottom: 12px; }
-    .cta-section p { color: var(--text-gray); margin-bottom: 24px; font-size: 17px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-    .cta-button { display: inline-block; padding: 16px 36px; background: var(--neon-red); color: #fff; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 17px; min-height: 44px; }
-    .cta-button:hover { background: #cc0029; transform: translateY(-2px); }
-    .cta-button-secondary { background: transparent; border: 2px solid rgba(255,255,255,0.25); }
-    .store-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 18px; }
-    .store-row a { color: rgba(255,255,255,0.85); font-size: 14px; }
+    .cta-section { border-top: 1px solid rgba(255,255,255,0.08); padding: 28px 0 8px; margin-top: 12px; text-align: left; }
+    .cta-section h2 { font-size: 20px; margin-bottom: 8px; font-weight: 700; }
+    .cta-section p { color: var(--text-gray); margin-bottom: 12px; font-size: 16px; }
+    .cta-text-link { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
 </head>
 <body>
+  ${getSiteHeaderHtml({ page: 'default' })}
   <div class="container">
     <a href="/" class="back-link" aria-label="Back to SeaDays home">← Back to Home</a>
     <header class="header">
       <h1>${escapeHtml(page.h1)}</h1>
       <p class="subtitle">${escapeHtml(page.subtitle)}</p>
     </header>
-    <section class="features-grid" aria-label="Key features">
+    <section class="reading-lead">
+      ${leadHtml}
+    </section>
+    ${guideHtml}
+    <p class="product-note">In the SeaDays app</p>
+    <section class="features-grid" aria-label="What the app stores">
       <article class="feature-card">
-        <h2 class="visually-hidden">Features</h2>
+        <h2 class="visually-hidden">What the app stores</h2>
         <ul>
               ${bulletHtml}
         </ul>
       </article>
     </section>
-    ${guideHtml}
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
           ${faqHtml}
@@ -389,20 +431,13 @@ ${getFaviconHeadHtml()}
               ${relatedHtml}
       </ul>
     </section>
-    <section class="cta-section" aria-label="Download SeaDays">
-      <h2>${escapeHtml(page.ctaLabel)}</h2>
-      <p>Get SeaDays free on iOS and Android — the cruise planner with ship and port guides, packing, and crew tools.</p>
-      <div class="cta-row">
-        <a class="cta-button" href="${downloadPagePath({ source: 'seadays_web', medium: 'feature', campaign: 'feature_landing' })}">Get SeaDays</a>
-        <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
-      </div>
-      <div class="store-row">
-        <a href="${APP_STORE_URL}" rel="noopener noreferrer" target="_blank">App Store</a>
-        <span aria-hidden="true">·</span>
-        <a href="${PLAY_STORE_URL}" rel="noopener noreferrer" target="_blank">Google Play</a>
-      </div>
+    <section class="cta-section" aria-label="SeaDays app">
+      <h2>Optional: keep this in SeaDays</h2>
+      <p>The guide above stands on its own. When you want the itinerary, notes, and roll call in one place, open the app.</p>
+      <p><a class="cta-text-link" href="${downloadPagePath({ source: 'seadays_web', medium: 'feature', campaign: 'feature_landing' })}">${escapeHtml(page.ctaLabel)}</a></p>
     </section>
   </div>
+  ${getSiteFooterHtml()}
 </body>
 </html>`;
 }

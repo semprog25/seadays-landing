@@ -239,7 +239,7 @@ test('inner page families do not leak homepage snap into their HTML', () => {
   assert.deepStrictEqual(leaked, []);
 });
 
-test('press kit snaps by section and does not auto-scroll', () => {
+test('press kit uses document scroll and does not auto-scroll', () => {
   const html = fs.readFileSync(path.join(ROOT, 'press/index.html'), 'utf8');
   const css = fs.readFileSync(path.join(ROOT, 'press/css/press.css'), 'utf8');
   const js = fs.readFileSync(path.join(ROOT, 'press/js/press-app.js'), 'utf8');
@@ -250,12 +250,11 @@ test('press kit snaps by section and does not auto-scroll', () => {
   assert.doesNotMatch(js, /function renderFooter\(/);
   assert.doesNotMatch(js, /behavior:\s*['"]smooth['"]/);
   assert.match(js, /behavior:\s*'auto'/);
-  assert.match(css, /html:has\(body\.press-kit\) \{[\s\S]*?scroll-snap-type:\s*y\s+mandatory/);
+  assert.doesNotMatch(css, /html:has\(body\.press-kit\)[\s\S]*scroll-snap-type:\s*y\s+mandatory/);
+  assert.doesNotMatch(css, /\.press-section\.press-snap-section[\s\S]*max-height:\s*100dvh/);
   const hero = css.match(/\.press-hero \{[^}]+\}/);
   assert.ok(hero, 'press-hero rule');
   assert.match(hero[0], /min-height:\s*100dvh/);
-  assert.match(css, /\.press-snap-section \{[\s\S]*?scroll-snap-align:\s*start/);
-  assert.match(css, /footer:has\(\.footer-shell\) \{[\s\S]*?scroll-snap-align:\s*none/);
 });
 
 test('homepage close pane does not snap the footer as its own full viewport', () => {

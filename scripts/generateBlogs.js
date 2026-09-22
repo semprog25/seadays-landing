@@ -1479,12 +1479,10 @@ function findSameTagArticles(article, allArticles, maxCount = 5) {
 
 function buildAppDownloadCtaSection() {
   return (
-    '<section class="app-download-cta" aria-label="Download SeaDays">' +
-    '<div class="app-download-cta-inner">' +
-    '<div><strong>Plan smarter. Meet your roll call. Track your budget.</strong>' +
-    '<span>Download SeaDays free on iOS and Android.</span></div>' +
-    '<a href="/#download" class="explore-seadays-link">Download SeaDays Free</a>' +
-    '</div></section>'
+    '<section class="app-download-cta" aria-label="SeaDays">' +
+    '<p class="app-download-cta-note">Finished the guide? SeaDays can hold the itinerary, spending notes, and roll call for this sailing. ' +
+    '<a href="/download/?utm_source=seadays_web&amp;utm_medium=blog&amp;utm_campaign=blog">Open the app</a> when you are ready — the article stands on its own.</p>' +
+    '</section>'
   );
 }
 
@@ -2110,14 +2108,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .header-nav a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500; font-size: 15px; }
 .header-nav a:hover { color: white; }
 .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
-.article-hero { padding: 60px 20px 40px; }
-.article-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 16px; }
+.article-hero { padding: 4px 0 8px; }
+.article-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 12px; }
 .article-breadcrumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
 .article-breadcrumbs a:hover { color: #fff; text-decoration: underline; }
-.article-hero h1 { font-size: 42px; font-weight: 900; margin-bottom: 20px; letter-spacing: -0.5px; line-height: 1.2; }
-.article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: rgba(255, 255, 255, 0.6); margin-bottom: 32px; }
-.article-meta .author { color: rgba(255, 255, 255, 0.8); }
-.article-hero-image { width: 100%; max-height: 400px; object-fit: cover; object-position: top center; border-radius: 16px; margin-bottom: 40px; background: rgba(255, 255, 255, 0.05); }
+.article-hero h1 { font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; line-height: 1.2; }
+.article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; color: rgba(255, 255, 255, 0.72); margin-bottom: 14px; }
+.article-meta .author { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+.article-hero-image { width: 100%; height: 160px; max-height: 160px; object-fit: cover; object-position: top center; border-radius: 12px; margin-bottom: 16px; background: rgba(255, 255, 255, 0.05); }
 .article-body { font-size: 18px; line-height: 1.75; color: rgba(255, 255, 255, 0.9); padding-bottom: 48px; }
 .article-body h2 { font-size: 28px; margin: 40px 0 16px; font-weight: 700; }
 .article-body h3 { font-size: 22px; margin: 32px 0 12px; font-weight: 600; }
@@ -2134,10 +2132,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
 .article-body .contextual-link:hover { text-decoration: underline; }
 ${getAdSlotCss()}
-.app-download-cta { margin: 36px 0 28px; padding: 20px 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,0,51,0.08); }
-.app-download-cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-.app-download-cta strong { display: block; font-size: 16px; margin-bottom: 4px; }
-.app-download-cta span { display: block; font-size: 14px; color: rgba(255,255,255,0.68); }
+.app-download-cta { margin: 8px 0 4px; padding: 0; border: 0; border-radius: 0; background: transparent; }
+.app-download-cta-note { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.62); font-weight: 400; }
+.app-download-cta-note a { color: rgba(255,255,255,0.88); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 .explore-seadays { margin: 40px 0; padding: 28px 24px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 0, 51, 0.06); }
 .explore-seadays h2 { font-size: 22px; margin-bottom: 16px; font-weight: 800; }
 .explore-seadays-list { list-style: none; margin: 0; padding: 0; }
@@ -2474,6 +2471,43 @@ ${getFaviconHeadHtml()}
   ${RUNTIME_GUARD_SCRIPT}
 </body>
 </html>`;
+}
+
+const HOME_BLOG_CARD_COUNT = 8;
+const HOME_BLOG_PREFERRED_SLUGS = [
+  'pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up',
+  'what-to-post-in-a-cruise-roll-call-first-besides-hi',
+  'cruise-packing-list-what-to-assign-before-anyone-buys-a-second-power-strip',
+  'cruise-drink-calculator-when-the-beverage-package-actually-loses-money',
+  'first-time-cruise-mistakes-that-cost-money-and-how-to-avoid-them',
+  'cruise-planning-tips-a-90-day-timeline-that-reduces-embarkation-stress',
+  'caribbean-vs-mediterranean-cruise-which-should-you-choose-for-your-first-trip',
+  'luxury-vs-budget-cruises-is-the-price-difference-worth-it-in-2026',
+];
+
+function selectHomepageBlogArticles(articles) {
+  const list = Array.isArray(articles) ? articles : [];
+  const bySlug = new Map();
+  for (const article of list) {
+    if (!article || !article.slug || /-1$/.test(article.slug)) continue;
+    if (!bySlug.has(article.slug)) bySlug.set(article.slug, article);
+  }
+  const picked = [];
+  const used = new Set();
+  for (const slug of HOME_BLOG_PREFERRED_SLUGS) {
+    const article = bySlug.get(slug);
+    if (!article) continue;
+    picked.push(article);
+    used.add(article.slug);
+    if (picked.length >= HOME_BLOG_CARD_COUNT) return picked;
+  }
+  for (const article of list) {
+    if (!article || !article.slug || used.has(article.slug) || /-1$/.test(article.slug)) continue;
+    picked.push(article);
+    used.add(article.slug);
+    if (picked.length >= HOME_BLOG_CARD_COUNT) break;
+  }
+  return picked;
 }
 
 async function buildHomePageBlogCards(articles) {
@@ -3456,7 +3490,7 @@ async function main() {
 
   const indexPath = path.join(repoRoot, 'index.html');
   if (fs.existsSync(indexPath)) {
-    const homeCardsHtml = await buildHomePageBlogCards(articles.slice(0, 4));
+    const homeCardsHtml = await buildHomePageBlogCards(selectHomepageBlogArticles(articles));
     let homeHtml = fs.readFileSync(indexPath, 'utf8');
     const startMarker = '<!-- INJECT_BLOG_CARDS_START -->';
     const endMarker = '<!-- INJECT_BLOG_CARDS_END -->';
@@ -3562,5 +3596,7 @@ module.exports = {
   loadBlogCanonicalMap,
   isBlogCanonicalRedirectSlug,
   noindexDuplicateBlogFolders,
+  selectHomepageBlogArticles,
+  HOME_BLOG_PREFERRED_SLUGS,
   SITE_OG_IMAGE,
 };

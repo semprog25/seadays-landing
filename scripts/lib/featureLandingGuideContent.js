@@ -108,6 +108,27 @@ const GUIDE_BY_SLUG = {
           "text": "If a detail only exists in a cloud tab you cannot open at the gangway, it is not part of your cruise plan yet."
         }
       ]
+    },
+    {
+      "id": "port-timing",
+      "heading": "Port-day timing that breaks otherwise good plans",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Most missed ships are not dramatic. They are a five-hour call treated like a full day, a tender queue nobody budgeted, or a coach that returns twenty minutes before all-aboard. Write the ship’s all-aboard time, then subtract a buffer you will actually keep: at least 60 minutes for a docked walk-off port, and longer when you depend on a tender or a ship excursion that does not control traffic."
+        },
+        {
+          "type": "p",
+          "text": "For every port, note three facts before you book anything else: whether you dock or tender, how far the berth is from the sights you care about, and the last time you can be moving back toward the ship. A short call with a long transfer is a ship-excursion day or a nearby walk, not a countryside tour. Put the backup plan in the same place as the primary plan so a closed museum does not turn into an unplanned taxi race."
+        },
+        {
+          "type": "links",
+          "items": [
+            { "href": "/blog/cruise-port-days-how-to-make-the-most-of-your-time-ashore/", "label": "How to use a short port day" },
+            { "href": "/blog/cruise-planning-tips-a-90-day-timeline-that-reduces-embarkation-stress/", "label": "A 90-day planning timeline" }
+          ]
+        }
+      ]
     }
   ],
   "cruise-budget-planner": [
@@ -210,6 +231,27 @@ const GUIDE_BY_SLUG = {
           ]
         }
       ]
+    },
+    {
+      "id": "folio-vs-trip",
+      "heading": "The folio is not the vacation total",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The cabin folio starts empty on embarkation and only records what you charge to the ship: drinks, specialty dining, Wi-Fi, spa, photos, casino, and auto-gratuities. Flights, hotels, insurance, prepaid packages, and many excursions never appear there. If you only watch the folio, you will feel disciplined about a small onboard number while the money that locked weeks earlier stays invisible."
+        },
+        {
+          "type": "p",
+          "text": "Split the trip into three timing stacks and keep them in one note: pre-cruise lock-ins (anything you would still lose if you cancelled tomorrow), onboard drip (daily cabin-card charges), and port-day swing (cash, pier tours, taxis, lunches ashore). Review the onboard account every other day, not on the morning you leave the ship. One expensive port should not be allowed to hide inside a week of “we barely spent.”"
+        },
+        {
+          "type": "links",
+          "items": [
+            { "href": "/blog/pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up/", "label": "Where the folio actually blows up" },
+            { "href": "/blog/cruise-budget-planner-the-categories-most-spreadsheets-forget/", "label": "Budget categories spreadsheets forget" }
+          ]
+        }
+      ]
     }
   ],
   "cruise-drink-calculator": [
@@ -297,6 +339,27 @@ const GUIDE_BY_SLUG = {
           "text": "Always confirm current cabin-wide purchase rules for your sailing before you trust a generic calculator result."
         }
       ]
+    },
+    {
+      "id": "worksheet",
+      "heading": "A worksheet you can finish before you buy",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Do not reuse a dollar figure from a forum. Use the prices on your booking. Write package price per person per day, note whether gratuity is inside that price, and multiply by the number of nights the package actually covers. Then price your real order à la carte: specialty coffee, the soda you drink at lunch, beer or cocktails in the evening, and bottled water after a hot port. Ashore drinks usually do not count toward a ship package."
+        },
+        {
+          "type": "p",
+          "text": "Compare those two totals for your habits, not for a hypothetical heavy drinker. If one adult in the cabin barely drinks and the line requires every adult to buy the package, run the math for the cabin, not for the person who wants it. Skip the package when the à la carte total is clearly lower, when most of your days are long independent excursions, or when the brands you actually order are excluded. Buy it when you already drink enough, on enough sea days, that the prepaid total is the smaller number."
+        },
+        {
+          "type": "links",
+          "items": [
+            { "href": "/blog/cruise-drink-calculator-when-the-beverage-package-actually-loses-money/", "label": "When the beverage package loses money" },
+            { "href": "/blog/the-real-cost-of-cruise-drink-packages-is-it-worth-it/", "label": "What drink packages really cost" }
+          ]
+        }
+      ]
     }
   ],
   "cruise-roll-calls": [
@@ -375,6 +438,27 @@ const GUIDE_BY_SLUG = {
           "text": "If someone is late, the group should already know whether to wait five minutes or proceed. Ambiguity creates pier drama."
         }
       ]
+    },
+    {
+      "id": "first-post",
+      "heading": "What belongs in the first post",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A first post that only says hello rarely gets a useful reply. Name the ship and the sail date in the first line so people on a different week do not answer you. Add who is traveling with you (couple, kids and ages, solo, multi-gen), the kind of cabin neighborhood you booked if you want neighbors, and one concrete question. Leave out cabin numbers, full legal names, and flight confirmation codes."
+        },
+        {
+          "type": "p",
+          "text": "Good first questions are answerable: which side of this class is quieter on late nights, whether a specific port is a tender, or who wants a walking tour with a hard return time. Post that before embarkation week, when people are still planning transfers and excursions. After you board, the same thread is for meetup times in ship time, not for restarting introductions."
+        },
+        {
+          "type": "links",
+          "items": [
+            { "href": "/blog/what-to-post-in-a-cruise-roll-call-first-besides-hi/", "label": "What to post in a roll call first" },
+            { "href": "/blog/how-cruise-roll-calls-help-you-meet-people-before-embarkation-day/", "label": "How roll calls work before embarkation" }
+          ]
+        }
+      ]
     }
   ],
   "cruise-community": [
@@ -447,6 +531,28 @@ const GUIDE_BY_SLUG = {
         {
           "type": "p",
           "text": "Photos help when they show walking distances, tender platforms, or venue layouts—not only sunsets. Operational visuals make community knowledge reusable."
+        }
+      ]
+    },
+    {
+      "id": "ship-class",
+      "heading": "Ship class changes the advice",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A tip from a 5,000-guest ship does not transfer cleanly to a 700-guest ship. Crowd flow, tender operations, specialty dining reservations, and whether you can walk off the pier are class-specific. When you read or write a review, name the ship class or the ship, the month, and the region. “The buffet was chaotic” means something different on a holiday week in the Caribbean than on a shoulder-season Mediterranean sailing."
+        },
+        {
+          "type": "p",
+          "text": "Use community threads to check operational facts you can verify: walk-off versus tender, how early specialty venues book, which cabin neighborhoods pick up theater noise. Treat one angry post as a question, not a verdict, until a second recent sailing describes the same pattern. If the thread never names the ship, it is not yet evidence you should rebook around."
+        },
+        {
+          "type": "links",
+          "items": [
+            { "href": "/blog/how-to-meet-people-on-a-cruise-without-forcing-friendships-at-the-buffet/", "label": "Meeting people without the buffet introduction" },
+            { "href": "/ships/", "label": "Browse ship guides" },
+            { "href": "/blog/", "label": "Cruise tips and guides" }
+          ]
         }
       ]
     }

@@ -206,4 +206,80 @@ test('inner-page headers that include Get SeaDays still point at /download/', ()
   }
 });
 
+test('Blog is the first header destination and stays visible on small phones', () => {
+  const css = getSiteShellCss();
+  assert.match(css, /a\[href="\/blog\/"\] \{\s*order:\s*-1/);
+  assert.match(css, /a\[href="\/blog\/"\] \{ display: inline-flex;/);
+  const home = getSiteHeaderHtml({ page: 'home' });
+  const inner = getSiteHeaderHtml({ page: 'default' });
+  assert.match(home, /<nav[\s\S]*?<a href="\/blog\/">Blog<\/a>/);
+  assert.match(inner, /<nav[\s\S]*?<a href="\/blog\/">Blog<\/a>/);
+  const homeHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const nav = homeHtml.match(/<nav class="header-nav"[\s\S]*?<\/nav>/);
+  assert.ok(nav, 'homepage nav');
+  assert.match(nav[0], /<a href="\/blog\/">Blog<\/a>\s*<a href="#cruise-planning-tools">/);
+});
+
+test('homepage shows eight crawlable blog cards before the product journey', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const blogAt = html.indexOf('id="blog"');
+  const journeyAt = html.indexOf('id="cruise-planning-tools"');
+  assert.ok(blogAt > 0 && journeyAt > blogAt, 'blog section follows the hero and precedes the journey');
+  const cards = html.match(/<a href="https:\/\/seadays\.app\/blog\/[^"]+\/" class="blog-card">/g) || [];
+  assert.strictEqual(cards.length, 8);
+  assert.match(html, /Cruise tips &amp; guides/);
+  assert.match(html, /From the blog/);
+  assert.match(html, /class="blog-card-excerpt"/);
+  assert.doesNotMatch(html, /portside-articles\?limit=/);
+  assert.doesNotMatch(html, /\.blog-card-excerpt \{\s*display:\s*none/);
+  for (const slug of [
+    'pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up',
+    'what-to-post-in-a-cruise-roll-call-first-besides-hi',
+    'cruise-packing-list-what-to-assign-before-anyone-buys-a-second-power-strip',
+    'cruise-drink-calculator-when-the-beverage-package-actually-loses-money',
+    'first-time-cruise-mistakes-that-cost-money-and-how-to-avoid-them',
+  ]) {
+    assert.match(html, new RegExp(`/blog/${slug}/`));
+    assert.ok(fs.existsSync(path.join(ROOT, 'blog', slug, 'index.html')), slug);
+  }
+});
+
+test('article pages keep one soft lower CTA, a visible byline, and at most one ad slot', () => {
+  const sample = fs.readFileSync(
+    path.join(ROOT, 'blog/pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up/index.html'),
+    'utf8'
+  );
+  assert.match(sample, /<span class="author">/);
+  assert.match(sample, /Sep 11, 2026/);
+  assert.match(sample, /Finished the guide\?/);
+  assert.doesNotMatch(sample, /Download SeaDays Free/);
+  assert.match(sample, /max-height: 160px/);
+  const slots = sample.match(/<aside\b[^>]*seadays-ad-slot/gi) || [];
+  assert.strictEqual(slots.length, 1);
+});
+
+test('feature guides lead with reading and do not carry ad slots', () => {
+  for (const rel of [
+    'cruise-planner/index.html',
+    'cruise-budget-planner/index.html',
+    'cruise-drink-calculator/index.html',
+    'cruise-roll-calls/index.html',
+    'cruise-community/index.html',
+  ]) {
+    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    assert.match(html, /class="reading-lead"/, rel);
+    assert.match(html, /class="guide-section"/, rel);
+    assert.match(html, /Optional: keep this in SeaDays/, rel);
+    assert.doesNotMatch(html, /<ins class="adsbygoogle"/, rel);
+    assert.doesNotMatch(html, /cta-button/, rel);
+    const leadAt = html.indexOf('class="reading-lead"');
+    const productAt = html.indexOf('In the SeaDays app');
+    assert.ok(leadAt > 0 && productAt > leadAt, rel);
+  }
+  const download = fs.readFileSync(path.join(ROOT, 'download/index.html'), 'utf8');
+  assert.match(download, /Product download/);
+  assert.match(download, /href="\/blog\/"/);
+  assert.doesNotMatch(download, /<ins class="adsbygoogle"/);
+});
+
 console.log(`Scanned ${publicFiles.length} HTML files`);

@@ -85,15 +85,10 @@ function rewriteHtml(html, rel) {
     /href=(["'])https:\/\/seadays\.app\/?#download\1/g,
     `href="${quoted}"`
   );
-  if (rel.startsWith('blog/') && /app-download-cta/.test(next)) {
-    next = next.replace(
-      /<strong>Plan smarter\.[^<]*<\/strong>/g,
-      '<strong>Planning your first cruise? Start with SeaDays.</strong>'
-    );
-    next = next.replace(
-      /<strong>Planning this cruise\?[^<]*<\/strong>/g,
-      '<strong>Planning your first cruise? Start with SeaDays.</strong>'
-    );
+  if (rel.startsWith('blog/') && /<section class="app-download-cta"/.test(next)) {
+    const soft =
+      `<section class="app-download-cta" aria-label="SeaDays"><p class="app-download-cta-note">Finished the guide? SeaDays can hold the itinerary, spending notes, and roll call for this sailing. <a href="${quoted}">Open the app</a> when you are ready — the article stands on its own.</p></section>`;
+    next = next.replace(/<section class="app-download-cta"[\s\S]*?<\/section>/, soft);
   }
   if (!/seadays-contextual-cta/.test(next)) {
     const block = contextualBlock(rel, quoted);
