@@ -558,8 +558,10 @@ window.__SEADAYS_GA_READY__ = true;
 
         .header-nav {
             display: flex;
+            flex-wrap: wrap;
             gap: 30px;
             align-items: center;
+            justify-content: flex-end;
         }
 
         .header-nav a {
@@ -568,6 +570,12 @@ window.__SEADAYS_GA_READY__ = true;
             font-weight: 500;
             font-size: 15px;
             transition: all 0.3s ease;
+        }
+
+        .header-nav a[href="/blog/"] {
+            order: -1;
+            color: #fff;
+            font-weight: 700;
         }
 
         .header-nav a:hover {
@@ -1110,32 +1118,49 @@ window.__SEADAYS_GA_READY__ = true;
             letter-spacing: 0.5px;
         }
 
-        /* Blog section – 2x2 that fills the cards, centered, not full-bleed wide */
+        /* From the blog — reading cards, not a store wall. Grows past one viewport so every card is on the page scroll. */
+        .blog-kicker {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+        }
         .blog-section-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
             margin: 12px auto 0;
             width: 100%;
-            max-width: 1020px;
+            max-width: 1120px;
         }
-        #blog.fullpage-section {
-            padding: 40px 0 28px;
-            justify-content: center;
+        #blog.from-the-blog.fullpage-section {
+            height: auto;
+            max-height: none;
+            min-height: 0;
+            overflow: visible;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            justify-content: flex-start;
+            padding: 96px 0 56px;
         }
-        #blog.fullpage-section > .container {
+        #blog.from-the-blog.fullpage-section > .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 0;
-            max-height: 100%;
+            max-height: none;
+            overflow: visible;
         }
         #blog .section-title {
-            font-size: 36px;
+            font-size: clamp(28px, 4vw, 40px);
             margin-bottom: 8px;
         }
         #blog .section-subtitle {
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            max-width: 40rem;
         }
         .blog-card {
             background: rgba(255, 255, 255, 0.03);
@@ -1169,14 +1194,25 @@ window.__SEADAYS_GA_READY__ = true;
         }
         .blog-card-body { padding: 14px 16px 16px; }
         .blog-card-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             margin-bottom: 8px;
             line-height: 1.3;
             color: white;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         .blog-card-excerpt {
-            display: none;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-size: 13px;
+            line-height: 1.45;
+            color: rgba(255, 255, 255, 0.68);
+            margin: 0;
         }
         .blog-section-cta { text-align: center; margin-top: 10px; }
         .blog-loading, .blog-empty { text-align: center; padding: 24px; color: rgba(255, 255, 255, 0.5); }
@@ -3019,9 +3055,21 @@ window.__SEADAYS_GA_READY__ = true;
             }
         }
 
+        @media (max-width: 1100px) {
+            .blog-section-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 640px) {
+            .blog-section-grid { grid-template-columns: 1fr; }
+            .blog-card-excerpt { -webkit-line-clamp: 4; }
+        }
         @media (max-width: 480px) {
             .header-nav a {
                 display: none;
+            }
+            .header-nav a[href="/blog/"] {
+                display: inline-flex;
+                align-items: center;
+                min-height: 44px;
             }
 
             .tagline {
@@ -3050,12 +3098,12 @@ window.__SEADAYS_GA_READY__ = true;
             .featured-tool-bullets { display: flex; flex-direction: column; align-items: flex-start; padding-left: 0; width: 100%; max-width: 28rem; margin-left: auto; margin-right: auto; }
             .featured-tool-bullets li { font-size: 14px; overflow-wrap: break-word; word-break: break-word; max-width: 100%; width: 100%; text-align: left; }
             .featured-carousel-wrap { min-height: auto; padding: 0 0 24px; }
-            .blog-section-grid { grid-template-columns: 1fr 1fr; gap: 12px; max-width: none; }
+            .blog-section-grid { grid-template-columns: 1fr; gap: 12px; max-width: none; }
             .blog-card-image,
-            .blog-card-image-placeholder { aspect-ratio: 3 / 2; }
-            .blog-card-excerpt { display: none; }
+            .blog-card-image-placeholder { aspect-ratio: 16 / 9; }
+            .blog-card-excerpt { display: -webkit-box; -webkit-line-clamp: 3; }
             .blog-card-body { padding: 12px 14px; }
-            .blog-card-title { font-size: 14px; margin-bottom: 0; }
+            .blog-card-title { font-size: 16px; margin-bottom: 6px; }
             .carousel-visual { order: -1; min-height: 160px; max-height: 180px; }
             .featured-tool-bullets { display: none; }
             /* Mobile footer: compact 2-col nav */
@@ -3250,8 +3298,8 @@ window.__SEADAYS_GA_READY__ = true;
             .featured-tool-bullets { display: none; }
             .carousel-visual { min-height: 140px; max-height: 160px; }
             .blog-card-body { padding: 12px 14px; }
-            .blog-card-title { font-size: 14px; margin-bottom: 0; }
-            .blog-card-excerpt { display: none; }
+            .blog-card-title { font-size: 16px; margin-bottom: 6px; }
+            .blog-card-excerpt { display: -webkit-box; -webkit-line-clamp: 3; }
         }
         @media (max-width: 360px) {
             .footer-shell .footer-content {
@@ -3440,10 +3488,10 @@ window.__SEADAYS_GA_READY__ = true;
 <!-- seadays-site-shell:header -->
         <header class="header site-header">
             <nav class="header-nav" aria-label="Main navigation">
+                <a href="/blog/">Blog</a>
                 <a href="#cruise-planning-tools">Features</a>
                 <a href="/ships/">Ships</a>
                 <a href="/ports/">Ports</a>
-                <a href="/blog/">Blog</a>
                 <a href="/press/">Press</a>
             </nav>
         </header>
@@ -3483,7 +3531,78 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
 
             <!-- Scroll Indicator -->
-            <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to features" onclick="document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'auto', block: 'start'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('cruise-planning-tools').scrollIntoView({behavior: 'auto', block: 'start'});}"></div>
+            <div class="scroll-indicator" role="button" tabindex="0" aria-label="Scroll to cruise tips and guides" onclick="document.getElementById('blog').scrollIntoView({behavior: 'auto', block: 'start'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();document.getElementById('blog').scrollIntoView({behavior: 'auto', block: 'start'});}"></div>
+        </section>
+
+        <!-- From the blog — cruise tips and guides -->
+        <section id="blog" class="from-the-blog fullpage-section band-stars" aria-labelledby="from-the-blog-title">
+            <div class="container">
+                <p class="blog-kicker">Cruise tips &amp; guides</p>
+                <h2 id="from-the-blog-title" class="section-title">From the blog</h2>
+                <p class="section-subtitle">Reading for cruisers: folio math, roll calls, packing, drink packages, and first-timer guides. The articles stand on their own.</p>
+                <!-- INJECT_BLOG_CARDS_START -->
+                <div id="blogGrid" class="blog-section-grid"><a href="https://seadays.app/blog/pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_7ca24c8e-97d6-4dcb-bed8-15bc8b-f98845fa63414982.jpg" alt="Pre-Cruise vs Onboard Spending: Where the Folio Actually Blows Up" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Pre-Cruise vs Onboard Spending: Where the Folio Actually Blows Up</h3>
+                        <p class="blog-card-excerpt">Your final folio is not your vacation cost. See when money locks (pre-cruise), drips (onboard), and swings (port days)—plus a simple split rule and common timing mistakes.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/what-to-post-in-a-cruise-roll-call-first-besides-hi/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_c6aae584-ac05-4669-b613-3c1dbd-0718b31ac84de0e4.jpg" alt="What to Post in a Cruise Roll Call First (Besides Hi)" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">What to Post in a Cruise Roll Call First (Besides Hi)</h3>
+                        <p class="blog-card-excerpt">Skip the silent &#39;hi everyone.&#39; Five first-post templates that make replies easier in your sailing roll call—plus what to leave out, timing tips, and privacy norms.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/cruise-packing-list-what-to-assign-before-anyone-buys-a-second-power-strip/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_02624ba5-0ffd-4034-95fe-25163e-2d51047e27fb3d00.jpg" alt="Cruise Packing List: What to Assign Before Anyone Buys a Second Power Strip" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Cruise Packing List: What to Assign Before Anyone Buys a Second Power Strip</h3>
+                        <p class="blog-card-excerpt">Group cruises often end with duplicate chargers, forgotten formal shoes, and four people packing the same “essential” item. A shared packing list inside SeaDays Plan helps travel groups organize gear before embarkation day instead of discovering problems inside the cabin.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/cruise-drink-calculator-when-the-beverage-package-actually-loses-money/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_3cc11198-1307-4e65-a185-9340e2-384f91101ae2cb1d.jpg" alt="Cruise Drink Calculator: When the Beverage Package Actually Loses Money" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Cruise Drink Calculator: When the Beverage Package Actually Loses Money</h3>
+                        <p class="blog-card-excerpt">Cruise drink packages are designed to sound like easy savings at embarkation, but the math often tells a different story. Calculate the real break-even point for your sailing, drinking habits, and cruise line before paying for unlimited beverages you may never fully use.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/first-time-cruise-mistakes-that-cost-money-and-how-to-avoid-them/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_3623fd5c-2a66-4ce1-8937-b09374-fa15151966d98ed4.jpg" alt="First-Time Cruise Mistakes That Cost Money (and How to Avoid Them)" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">First-Time Cruise Mistakes That Cost Money (and How to Avoid Them)</h3>
+                        <p class="blog-card-excerpt">First cruises often come with avoidable mistakes that quietly increase stress and spending. Flight timing, surprise onboard charges, missed planning opportunities, and poor preparation catch many new passengers off guard. These are the mistakes experienced cruisers learn to avoid early.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/cruise-planning-tips-a-90-day-timeline-that-reduces-embarkation-stress/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_404112b0-a819-42c9-bb3e-cb104b-c0e14014c6c27f3f.jpg" alt="Cruise Planning Tips: A 90-Day Timeline That Reduces Embarkation Stress" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Cruise Planning Tips: A 90-Day Timeline That Reduces Embarkation Stress</h3>
+                        <p class="blog-card-excerpt">Cruise vacations feel far smoother when the important decisions happen before embarkation week. Flights, excursions, dining reservations, and packing plans can become stressful quickly when left until the last minute. A simple 90-day cruise planning timeline helps passengers stay organized before the countdown reaches zero.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/caribbean-vs-mediterranean-cruise-which-should-you-choose-for-your-first-trip/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_93bc725b-bdca-45ff-95fd-4e76d6-2c0d08c5562e6a68.jpg" alt="Caribbean vs Mediterranean Cruise: Which Should You Choose for Your First Trip?" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Caribbean vs Mediterranean Cruise: Which Should You Choose for Your First Trip?</h3>
+                        <p class="blog-card-excerpt">First-time cruisers often narrow the world to two iconic regions—the warm, beach-forward Caribbean or the culture-dense Mediterranean. Neither is “better”; they solve different travel appetites. This comparison covers climate, costs, crowds, excursions, flight logistics, and who thrives in each region so you can book with confidence.</p>
+                    </div>
+                </a>
+                <a href="https://seadays.app/blog/luxury-vs-budget-cruises-is-the-price-difference-worth-it-in-2026/" class="blog-card">
+                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_13a2b409-75e7-4bbe-b80c-5651bd-8dcec003e580e7ba.jpg" alt="Luxury vs Budget Cruises: Is the Price Difference Worth It in 2026?" width="400" height="180" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Luxury vs Budget Cruises: Is the Price Difference Worth It in 2026?</h3>
+                        <p class="blog-card-excerpt">Sticker shock is easy; value is harder. This breakdown compares what budget and luxury cruises include, where hidden costs flip the math, and how to decide whether premium fares buy time, space, and peace—or just prettier brochures.</p>
+                    </div>
+                </a></div>
+                <div id="blogEmpty" class="blog-empty" style="display:none;">No posts yet. Check back soon for stories and tips.</div>
+                <!-- INJECT_BLOG_CARDS_END -->
+                <div class="blog-section-cta">
+                    <a href="/blog/" class="btn-secondary" style="text-decoration:none;">Read all cruise guides</a>
+                </div>
+            </div>
         </section>
 
         <!-- Voyage journey (compact interactive) -->
@@ -3705,47 +3824,6 @@ window.__SEADAYS_GA_READY__ = true;
             </div>
         </section>
 
-        <!-- Latest from SeaDays (blog) - full viewport, scroll-snap -->
-        <section id="blog" class="fullpage-section band-stars">
-            <div class="container">
-                <h2 class="section-title">Latest from SeaDays</h2>
-                <p class="section-subtitle">Cruise guides, tips, tools, and insights from SeaDays.</p>
-                <!-- INJECT_BLOG_CARDS_START -->
-                <div id="blogGrid" class="blog-section-grid"><a href="https://seadays.app/blog/pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up/" class="blog-card">
-                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_7ca24c8e-97d6-4dcb-bed8-15bc8b-f98845fa63414982.jpg" alt="Pre-Cruise vs Onboard Spending: Where the Folio Actually Blows Up" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">Pre-Cruise vs Onboard Spending: Where the Folio Actually Blows Up</h3>
-                        <p class="blog-card-excerpt">Your final folio is not your vacation cost. See when money locks (pre-cruise), drips (onboard), and swings (port days)—plus a simple split rule and common timing mistakes....</p>
-                    </div>
-                </a>
-                <a href="https://seadays.app/blog/what-to-post-in-a-cruise-roll-call-first-besides-hi/" class="blog-card">
-                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_c6aae584-ac05-4669-b613-3c1dbd-0718b31ac84de0e4.jpg" alt="What to Post in a Cruise Roll Call First (Besides Hi)" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="eager" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">What to Post in a Cruise Roll Call First (Besides Hi)</h3>
-                        <p class="blog-card-excerpt">Skip the silent &#39;hi everyone.&#39; Five first-post templates that make replies easier in your sailing roll call—plus what to leave out, timing tips, and privacy norms....</p>
-                    </div>
-                </a>
-                <a href="https://seadays.app/blog/complete-guide-to-budget-cruise-vs-luxury-cruise/" class="blog-card">
-                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_67b49623-b989-4a31-8f42-1a23ac-c85e4a1e66a766ee.jpg" alt="Complete Guide to Budget Cruise Vs Luxury Cruise" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">Complete Guide to Budget Cruise Vs Luxury Cruise</h3>
-                        <p class="blog-card-excerpt">If budget cruise vs luxury cruise is what you are trying to plan around, treat it as a bundle of decisions—cabin, route timing, and port-day realism—rather than a single “best list” answer. It matters most for families when you are choosing a...</p>
-                    </div>
-                </a>
-                <a href="https://seadays.app/blog/how-cruise-roll-calls-help-you-meet-people-before-embarkation-day/" class="blog-card">
-                    <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_58722fd9-c75d-49f9-aa62-72f5fd-a64dce794f1e54a3.jpg" alt="How Cruise Roll Calls Help You Meet People Before Embarkation Day" width="400" height="230" class="blog-card-image img-loading" data-img-source="thumbnail" data-img-type="supabase" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'" onload="this.classList.remove('img-loading')">
-                    <div class="blog-card-body">
-                        <h3 class="blog-card-title">How Cruise Roll Calls Help You Meet People Before Embarkation Day</h3>
-                        <p class="blog-card-excerpt">Cruise roll calls connect you with passengers sailing on the exact same ship and departure date. Here is how to find your group, what to post, and why SeaDays keeps voyage conversations organized instead of buried inside massive cruise forums....</p>
-                    </div>
-                </a></div>
-                <div id="blogEmpty" class="blog-empty" style="display:none;">No posts yet. Check back soon for stories and tips.</div>
-                <!-- INJECT_BLOG_CARDS_END -->
-                <div class="blog-section-cta">
-                    <a href="/blog/" class="btn-secondary" style="text-decoration:none;">View all articles</a>
-                </div>
-            </div>
-        </section>
 
         <!-- Featured Tools carousel - full viewport, scroll-snap -->
         <section id="featured-tools" class="fullpage-section band-solid">
@@ -4544,117 +4622,6 @@ window.__SEADAYS_GA_READY__ = true;
             document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
         })();
 
-    </script>
-    <script>
-        (function () {
-            var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvcWtncmZ6bHVld3B1aWd1eXBtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2MjM3MDMsImV4cCI6MjA3NzE5OTcwM30.PJOgXC4sXdjcGuQ99uw38eXwD9Jss-6tggHeUemXqZI';
-            var EDGE = 'https://soqkgrfzluewpuiguypm.supabase.co/functions/v1/make-server-51d3ca8d';
-            var FB = 'https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
-            function run() {
-                var grid = document.getElementById('blogGrid');
-                if (!grid) return;
-                function articleSortMs(a) {
-                    var t = a.publishedAt || a.timestamp || a.updatedAt || 0;
-                    if (typeof t === 'number') return t < 10000000000 ? t * 1000 : t;
-                    return Date.parse(t) || 0;
-                }
-                function showStaticOrEmpty() {
-                    if (grid.querySelector('a.blog-card')) {
-                        grid.style.display = '';
-                        return;
-                    }
-                    grid.style.display = 'none';
-                }
-                function escapeHtml(s) {
-                    return String(s)
-                        .replace(/&/g, '&amp;')
-                        .replace(/</g, '&lt;')
-                        .replace(/>/g, '&gt;')
-                        .replace(/"/g, '&quot;');
-                }
-                function safeHttpsUrl(url, fallback) {
-                    try {
-                        var u = new URL(String(url || ''), 'https://seadays.app');
-                        if (u.protocol !== 'https:') return fallback;
-                        var host = u.hostname;
-                        if (
-                            host === 'seadays.app' ||
-                            host === 'auth.seadays.app' ||
-                            host === 'soqkgrfzluewpuiguypm.supabase.co' ||
-                            host.endsWith('.supabase.co')
-                        ) {
-                            return u.href;
-                        }
-                    } catch (e) {}
-                    return fallback;
-                }
-                fetch(EDGE + '/portside-articles?limit=100&forWebsite=1', {
-                    headers: { apikey: ANON, Authorization: 'Bearer ' + ANON }
-                })
-                    .then(function (r) {
-                        return r.json();
-                    })
-                    .then(function (d) {
-                        var raw = (d && d.articles) ? d.articles : [];
-                        var articles = raw.filter(function (a) {
-                            return a && a.isDraft !== true && a.showOnWebsite !== false;
-                        });
-                        articles.sort(function (a, b) {
-                            return articleSortMs(b) - articleSortMs(a);
-                        });
-                        articles = articles.slice(0, 4);
-                        if (!articles.length) {
-                            showStaticOrEmpty();
-                            return;
-                        }
-                        grid.innerHTML = articles
-                            .map(function (a) {
-                                var slug = String(a.slug || '').trim() || 'post';
-                                var img = safeHttpsUrl(a.thumbnailUrl || a.heroImageUrl || '', FB);
-                                var title = escapeHtml(a.title || 'Article');
-                                var ex = escapeHtml(
-                                    String(a.excerpt || '')
-                                        .replace(/<[^>]+>/g, ' ')
-                                        .replace(/\s+/g, ' ')
-                                        .trim()
-                                        .slice(0, 140)
-                                );
-                                if (ex) ex += '…';
-                                return (
-                                    '<a href="https://seadays.app/blog/' +
-                                    encodeURIComponent(slug) +
-                                    '/" class="blog-card">' +
-                                    '<img class="blog-card-image" src="' +
-                                    escapeHtml(img) +
-                                    '" alt="' +
-                                    escapeHtml(title) +
-                                    '" loading="lazy" decoding="async" width="400" height="230" onerror="this.onerror=null;this.src=\'' +
-                                    FB +
-                                    '\'">' +
-                                    '<div class="blog-card-body">' +
-                                    '<h3 class="blog-card-title">' +
-                                    title +
-                                    '</h3>' +
-                                    '<p class="blog-card-excerpt">' +
-                                    ex +
-                                    '</p>' +
-                                    '</div></a>'
-                                );
-                            })
-                            .join('');
-                        grid.style.display = 'grid';
-                        if (empty) empty.style.display = 'none';
-                    })
-                    .catch(function () {
-                        showStaticOrEmpty();
-                    });
-            }
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', run);
-            } else {
-                run();
-            }
-        })();
     </script>
     <script>
         (function initHomepageFaqSlide() {

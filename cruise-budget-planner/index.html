@@ -48,6 +48,8 @@ window.__SEADAYS_GA_READY__ = true;
   <meta name="twitter:description" content="Track cruise expenses, excursions, onboard spending, and trip budgets with SeaDays Voyage Analytics—the cruise budget planner for smarter spending.">
   <meta name="twitter:image" content="https://seadays.app/og-image.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"SeaDays","url":"https://seadays.app/","logo":"https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadays.png"},{"@type":"WebPage","name":"Cruise Budget Planner","description":"Track cruise expenses, excursions, onboard spending, and trip budgets with SeaDays Voyage Analytics—the cruise budget planner for smarter spending.","url":"https://seadays.app/cruise-budget-planner/","isPartOf":{"@type":"WebSite","name":"SeaDays","url":"https://seadays.app/"}},{"@type":"MobileApplication","name":"SeaDays","applicationCategory":"TravelApplication","operatingSystem":"iOS, Android","url":"https://seadays.app/cruise-budget-planner/","downloadUrl":"https://play.google.com/store/apps/details?id=com.seadays.app","installUrl":"https://apps.apple.com/app/id6759758357","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What cruise costs should I budget for?","acceptedAnswer":{"@type":"Answer","text":"Include fare, taxes, gratuities, excursions, specialty dining, drinks, Wi‑Fi, spa, and souvenirs. SeaDays helps you capture categories most spreadsheets miss."}},{"@type":"Question","name":"Can SeaDays help with drink package math?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the drink package calculator landing page and Voyage Analytics together to decide whether a package beats pay-as-you-go for your habits."}},{"@type":"Question","name":"Is this a bank or accounting app?","acceptedAnswer":{"@type":"Answer","text":"No. SeaDays is a cruise vacation planner for passengers. Budget tools are designed for trip planning, not corporate accounting."}}],"url":"https://seadays.app/cruise-budget-planner/"}]}</script>
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <style id="site-shell-page-pad">body > .container, body > .content-layer { padding-top: 88px; }</style>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root { --dark-bg: #0a0a0a; --neon-red: #FF0033; --text-light: #fff; --text-gray: rgba(255,255,255,0.72); }
@@ -69,7 +71,13 @@ window.__SEADAYS_GA_READY__ = true;
     .guide-section p { margin-bottom: 12px; }
     .guide-section ul, .guide-section ol { margin: 0 0 14px; padding-left: 22px; }
     .guide-section li { margin-bottom: 8px; }
+    .reading-lead { text-align: left; margin: 8px 0 28px; }
+    .reading-lead p { color: var(--text-gray); font-size: 17px; line-height: 1.7; margin-bottom: 14px; }
     .guide-callout { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
+    .guide-links { margin: 8px 0 0; padding-left: 22px; }
+    .guide-links a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+    .guide-links a:hover { text-decoration: underline; }
+    .product-note { margin: 28px 0 8px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 700; }
     .faq-section { margin: 48px 0; }
     .faq-section h2 { font-size: 28px; margin-bottom: 20px; }
     .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; }
@@ -80,50 +88,35 @@ window.__SEADAYS_GA_READY__ = true;
     .related-links ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 20px; }
     .related-links a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
     .related-links a:hover { text-decoration: underline; }
-    .cta-section { background: rgba(255,0,51,0.12); border: 1px solid rgba(255,0,51,0.35); border-radius: 16px; padding: 44px 32px; text-align: center; margin-top: 40px; }
-    .cta-section h2 { font-size: 30px; margin-bottom: 12px; }
-    .cta-section p { color: var(--text-gray); margin-bottom: 24px; font-size: 17px; }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-    .cta-button { display: inline-block; padding: 16px 36px; background: var(--neon-red); color: #fff; text-decoration: none; border-radius: 30px; font-weight: 700; font-size: 17px; min-height: 44px; }
-    .cta-button:hover { background: #cc0029; transform: translateY(-2px); }
-    .cta-button-secondary { background: transparent; border: 2px solid rgba(255,255,255,0.25); }
-    .store-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 18px; }
-    .store-row a { color: rgba(255,255,255,0.85); font-size: 14px; }
+    .cta-section { border-top: 1px solid rgba(255,255,255,0.08); padding: 28px 0 8px; margin-top: 12px; text-align: left; }
+    .cta-section h2 { font-size: 20px; margin-bottom: 8px; font-weight: 700; }
+    .cta-section p { color: var(--text-gray); margin-bottom: 12px; font-size: 16px; }
+    .cta-text-link { color: #fff; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
-  <link rel="stylesheet" href="/assets/css/site-shell.css">
-  <style id="site-shell-page-pad">body > .container, body > .content-layer { padding-top: 88px; }</style>
 </head>
 <body>
-<!-- seadays-site-shell:header -->
+  <!-- seadays-site-shell:header -->
         <header class="header site-header">
             <nav class="header-nav" aria-label="Main navigation">
+                <a href="/blog/">Blog</a>
                 <a href="/#cruise-planning-tools">Features</a>
                 <a href="/ships/">Ships</a>
                 <a href="/ports/">Ports</a>
-                <a href="/blog/">Blog</a>
                 <a href="/press/">Press</a>
                 <a href="/download/?utm_source=seadays_web&amp;utm_medium=nav&amp;utm_campaign=organic_nav">Get SeaDays</a>
             </nav>
         </header>
         <!-- seadays-site-shell:header-end seadays-site-shell -->
-
   <div class="container">
     <a href="/" class="back-link" aria-label="Back to SeaDays home">← Back to Home</a>
     <header class="header">
       <h1>Track Your Cruise Budget Before and During the Voyage</h1>
       <p class="subtitle">See the real cost of your cruise—fare, excursions, drinks, gratuities, and onboard spending—in one cruise budget planner made for vacationers.</p>
     </header>
-    <section class="features-grid" aria-label="Key features">
-      <article class="feature-card">
-        <h2 class="visually-hidden">Features</h2>
-        <ul>
-              <li>Trip-level and daily spending visibility</li>
-              <li>Excursion and onboard purchase tracking</li>
-              <li>Compare budget vs. actual before you overspend</li>
-              <li>Works alongside drink package planning tools</li>
-        </ul>
-      </article>
+    <section class="reading-lead">
+      <p>The fare on the booking page is not the cost of the trip. Gratuities, Wi-Fi, drinks, excursions, transfers, and port-day cash sit in different places, and the cabin folio only shows the charges you put on the ship after you board.</p>
+      <p>The method below separates those stacks so a calm folio does not hide a prepaid package or a single expensive port. Prices vary by line and sailing — use your own booking, not a sample total from someone else’s week.</p>
     </section>
     <section class="guide-section" aria-labelledby="guide-real-cost"><h2 id="guide-real-cost">The real cost categories most cruisers forget</h2>
           <p>Brochure fare is rarely the trip total. A useful cruise budget separates fixed voyage costs from optional onboard spend so you can decide where upgrades actually improve the vacation.</p>
@@ -149,6 +142,23 @@ window.__SEADAYS_GA_READY__ = true;
           <p>Pick two prepaid joys and one flexible category. Example: lock specialty dining and a landmark excursion; keep drinks flexible. Rigid zero-spend goals usually fail on evening four and then overshoot.</p>
           <ul><li>Review the onboard account every 48 hours</li><li>Cap souvenir spend per port before you walk the pier shops</li><li>Decide photo package policy on day one, not at the last gallery pitch</li></ul>
         </section>
+        <section class="guide-section" aria-labelledby="guide-folio-vs-trip"><h2 id="guide-folio-vs-trip">The folio is not the vacation total</h2>
+          <p>The cabin folio starts empty on embarkation and only records what you charge to the ship: drinks, specialty dining, Wi-Fi, spa, photos, casino, and auto-gratuities. Flights, hotels, insurance, prepaid packages, and many excursions never appear there. If you only watch the folio, you will feel disciplined about a small onboard number while the money that locked weeks earlier stays invisible.</p>
+          <p>Split the trip into three timing stacks and keep them in one note: pre-cruise lock-ins (anything you would still lose if you cancelled tomorrow), onboard drip (daily cabin-card charges), and port-day swing (cash, pier tours, taxis, lunches ashore). Review the onboard account every other day, not on the morning you leave the ship. One expensive port should not be allowed to hide inside a week of “we barely spent.”</p>
+          <ul class="guide-links"><li><a href="/blog/pre-cruise-vs-onboard-spending-where-the-folio-actually-blows-up/">Where the folio actually blows up</a></li><li><a href="/blog/cruise-budget-planner-the-categories-most-spreadsheets-forget/">Budget categories spreadsheets forget</a></li></ul>
+        </section>
+    <p class="product-note">In the SeaDays app</p>
+    <section class="features-grid" aria-label="What the app stores">
+      <article class="feature-card">
+        <h2 class="visually-hidden">What the app stores</h2>
+        <ul>
+              <li>Trip-level and daily spending visibility</li>
+              <li>Excursion and onboard purchase tracking</li>
+              <li>Compare budget vs. actual before you overspend</li>
+              <li>Works alongside drink package planning tools</li>
+        </ul>
+      </article>
+    </section>
     <section class="faq-section" aria-labelledby="faq-heading">
       <h2 id="faq-heading">Frequently asked questions</h2>
           <div class="faq-item"><h3>What cruise costs should I budget for?</h3><p>Include fare, taxes, gratuities, excursions, specialty dining, drinks, Wi‑Fi, spa, and souvenirs. SeaDays helps you capture categories most spreadsheets miss.</p></div>
@@ -163,21 +173,13 @@ window.__SEADAYS_GA_READY__ = true;
               <li><a href="/ports/">Port guides</a></li>
       </ul>
     </section>
-    <section class="cta-section" aria-label="Download SeaDays">
-      <h2>Track Your Cruise Budget</h2>
-      <p>Get SeaDays free on iOS and Android — the cruise planner with ship and port guides, packing, and crew tools.</p>
-      <div class="cta-row">
-        <a class="cta-button" href="/download/?utm_source=seadays_web&utm_medium=feature&utm_campaign=feature_landing">Get SeaDays</a>
-        <a class="cta-button cta-button-secondary" href="/#cruise-planning-tools">Explore Features</a>
-      </div>
-      <div class="store-row">
-        <a href="https://apps.apple.com/app/id6759758357" rel="noopener noreferrer" target="_blank">App Store</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://play.google.com/store/apps/details?id=com.seadays.app" rel="noopener noreferrer" target="_blank">Google Play</a>
-      </div>
+    <section class="cta-section" aria-label="SeaDays app">
+      <h2>Optional: keep this in SeaDays</h2>
+      <p>The guide above stands on its own. When you want the itinerary, notes, and roll call in one place, open the app.</p>
+      <p><a class="cta-text-link" href="/download/?utm_source=seadays_web&utm_medium=feature&utm_campaign=feature_landing">Track Your Cruise Budget</a></p>
     </section>
   </div>
-<!-- seadays-site-shell:footer -->
+  <!-- seadays-site-shell:footer -->
         <footer>
             <div class="container">
                 <div class="footer-shell">

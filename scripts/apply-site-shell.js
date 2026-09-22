@@ -62,6 +62,8 @@ const STATIC_SHELL_PAGES = [
   'gdpr.html',
   'security.html',
   'community.html',
+  'delete-account.html',
+  'manage-app-data.html',
 ];
 
 function walkHtmlFiles(dir, out = []) {
@@ -85,7 +87,7 @@ function isFeatureLandingPage(filePath) {
 }
 
 function isSiteChromeHeader(html) {
-  return /<header\s+class="header"[^>]*>\s*(?:<a[^>]*class="header-brand"[^>]*>[\s\S]*?<\/a>\s*)?<nav\s+class="header-nav"/i.test(
+  return /<header\s+class="header(?:\s+site-header)?"[^>]*>\s*(?:<a[^>]*class="header-brand"[^>]*>[\s\S]*?<\/a>\s*)?<nav\s+class="header-nav"/i.test(
     html
   );
 }
@@ -334,6 +336,20 @@ function applyFeatureLanding(filePath) {
 }
 
 function main() {
+  const onlyArg = process.argv.find((arg) => arg.startsWith('--only='));
+  if (onlyArg) {
+    const rels = onlyArg
+      .slice('--only='.length)
+      .split(',')
+      .map((item) => item.trim())
+      .filter(Boolean);
+    for (const rel of rels) {
+      const result = applyStaticDocumentPage(rel);
+      console.log(rel, result.changed ? 'updated' : result.reason || 'unchanged');
+    }
+    return;
+  }
+
   const cssPath = writeCss();
   console.log(`${DRY_RUN ? '[dry-run] ' : ''}Wrote ${path.relative(ROOT, cssPath)}`);
 
