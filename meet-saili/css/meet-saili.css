@@ -362,7 +362,8 @@ body.meet-saili-page {
   .btn-primary:hover,
   .btn-secondary:hover,
   .ms-trait:hover,
-  .ms-stage:hover {
+  .ms-stage:hover,
+  .ms-checklist-card:not(.ms-checklist-card--soon):hover {
     transform: none;
   }
 }
@@ -882,6 +883,148 @@ body.meet-saili-page {
 @media (min-width: 861px) {
   .ms-chapter-media {
     width: 100%;
+  }
+}
+
+
+/* Free checklists (lead magnets) */
+.ms-checklists {
+  background: linear-gradient(180deg, #0a0a0a 0%, #101010 100%);
+}
+
+.ms-checklists-head {
+  max-width: 620px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.ms-checklist-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.ms-checklist-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ms-checklist-card:not(.ms-checklist-card--soon):hover {
+  border-color: rgba(255, 0, 51, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(255, 0, 51, 0.12);
+}
+
+.ms-checklist-card-link,
+.ms-checklist-card-inner {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+}
+
+.ms-checklist-cover {
+  width: 88px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ms-checklist-cover--placeholder {
+  aspect-ratio: 640 / 905;
+  background:
+    linear-gradient(145deg, rgba(255, 0, 51, 0.18), rgba(255, 255, 255, 0.04));
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+}
+
+.ms-checklist-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.ms-checklist-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neon-red);
+  margin-bottom: 8px;
+}
+
+.ms-checklist-card--soon .ms-checklist-pill {
+  color: var(--text-muted);
+}
+
+.ms-checklist-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.12rem;
+  letter-spacing: 0.02em;
+  color: var(--text-light);
+}
+
+.ms-checklist-card p {
+  margin: 0 0 14px;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ms-checklist-cta {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--neon-red);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.88rem;
+}
+
+.ms-checklist-pdf {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.ms-checklist-pdf a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ms-checklist-pdf a:hover {
+  color: var(--neon-red);
+}
+
+.ms-checklist-card--soon {
+  opacity: 0.72;
+}
+
+.ms-checklist-card--soon .ms-checklist-card-inner {
+  cursor: default;
+}
+
+@media (max-width: 1024px) {
+  .ms-checklist-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-checklist-card:not(.ms-checklist-card--soon):hover {
+    transform: none;
   }
 }
 
