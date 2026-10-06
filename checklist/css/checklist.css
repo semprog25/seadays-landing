@@ -1,0 +1,152 @@
+/* SeaDays free checklist pages (/checklist/). Mobile-first, one column. Uses site-shell header/footer. */
+.checklist-page { background: #0a0a0a; color: #fff; }
+.checklist-main {
+  position: relative;
+  z-index: 1;
+  width: min(640px, 100%);
+  margin: 0 auto;
+  padding: 88px 16px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.cl-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: 26px 22px 0;
+  background: linear-gradient(135deg, #FF0033 0%, #B00024 100%);
+  color: #fff;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.cl-hero-text { position: relative; z-index: 2; max-width: 60%; }
+.cl-pill {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.cl-hero h1 {
+  margin: 14px 0 10px;
+  font-size: clamp(30px, 8vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.cl-hero .cl-sub { margin: 0 0 22px; font-size: 16px; line-height: 1.45; color: rgba(255, 255, 255, 0.92); }
+.cl-hero-saili {
+  position: absolute;
+  right: 6px;
+  bottom: 0;
+  width: 38%;
+  max-width: 210px;
+  height: auto;
+  z-index: 1;
+}
+.cl-cta { display: flex; flex-direction: column; gap: 8px; }
+.cl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: #fff;
+  color: #B00024;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(255, 0, 51, 0.25);
+}
+.cl-btn:hover { background: #ffe9ee; }
+.cl-btn:focus-visible { outline: 3px solid #FF0033; outline-offset: 3px; }
+.cl-meta { margin: 0; text-align: center; font-size: 13px; color: rgba(255, 255, 255, 0.55); }
+.cl-inside {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+.cl-cover {
+  display: block;
+  width: 64%;
+  max-width: 260px;
+  height: auto;
+  margin: 4px auto 0;
+  border-radius: 10px;
+  transform: rotate(-3deg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+.cl-inside h2, .cl-app h2 { margin: 0 0 10px; font-size: 22px; line-height: 1.25; }
+.cl-inside ul { margin: 0; padding: 0; list-style: none; }
+.cl-inside li {
+  position: relative;
+  padding: 8px 0 8px 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.cl-inside li:last-child { border-bottom: 0; }
+.cl-inside li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #FF0033;
+  border-radius: 4px;
+}
+.cl-app {
+  padding: 24px 22px;
+  border-radius: 20px;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.cl-app p { margin: 0 0 4px; font-size: 16px; line-height: 1.55; color: rgba(255, 255, 255, 0.78); }
+.cl-app .download-store-row { justify-content: flex-start; margin-top: 18px; }
+.cl-app .download-store-row a { flex: 1 1 140px; justify-content: center; }
+.cl-qrs { display: none; gap: 18px; margin-top: 20px; }
+.cl-qr { text-align: center; font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+.cl-qr img { display: block; width: 120px; height: 120px; padding: 8px; background: #fff; border-radius: 12px; margin-bottom: 6px; image-rendering: pixelated; }
+.cl-cards { display: grid; gap: 14px; }
+.cl-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  text-decoration: none;
+}
+.cl-card:hover { border-color: rgba(255, 0, 51, 0.6); }
+.cl-card img { width: 92px; height: auto; border-radius: 8px; flex-shrink: 0; }
+.cl-card h2 { margin: 0 0 6px; font-size: 19px; }
+.cl-card p { margin: 0 0 10px; font-size: 14px; line-height: 1.45; color: rgba(255, 255, 255, 0.72); }
+.cl-card .cl-get { display: inline-block; padding: 6px 14px; border-radius: 999px; background: #FF0033; font-weight: 800; font-size: 14px; }
+.cl-fine { margin: 4px 0 0; font-size: 13px; line-height: 1.5; color: rgba(255, 255, 255, 0.45); text-align: center; }
+@media (max-width: 420px) {
+  .cl-hero { padding-bottom: 0; }
+  .cl-hero .cl-sub { font-size: 15px; }
+}
+@media (min-width: 700px) {
+  .checklist-main { padding-top: 104px; gap: 26px; }
+  .cl-hero { padding: 34px 32px 0; min-height: 340px; }
+  .cl-inside { grid-template-columns: 220px 1fr; }
+  .cl-cover { width: 100%; margin: 0; }
+}
+@media (min-width: 900px) and (hover: hover) {
+  .cl-qrs { display: flex; }
+}
