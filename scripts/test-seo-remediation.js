@@ -352,6 +352,7 @@ async function main() {
     } = require('./lib/analyticsSnippet');
     const snippet = getAnalyticsHeadHtml();
     assert.match(snippet, /<meta name="google-adsense-account" content="ca-pub-3084834499411817">/);
+    assert.match(snippet, /<meta name="apple-itunes-app" content="app-id=6759758357">/);
     assert.match(snippet, /seadays-download\.js/);
     assert.doesNotMatch(snippet, /adsbygoogle\.js/);
     assert.doesNotMatch(snippet, /enable_page_level_ads/);
@@ -379,6 +380,7 @@ async function main() {
       assert.strictEqual(matches.length, 1, `${rel} adsense meta count ${matches.length}`);
       assert.match(matches[0], /content=["']ca-pub-3084834499411817["']/);
       assert.doesNotMatch(html, /enable_page_level_ads/);
+      assert.match(html, /<meta name="apple-itunes-app" content="app-id=6759758357">/, rel);
     }
   });
 

@@ -86,7 +86,13 @@
       return { source: 'seadays_web', medium: 'hero', campaign: 'organic_hero' };
     }
     if (path.indexOf('/download') === 0) {
-      return { source: 'seadays_web', medium: 'download', campaign: 'organic_web' };
+      return {
+        source: 'seadays_web',
+        medium: 'download_page',
+        campaign: 'download',
+        appleCt: 'download_page',
+        includeMt: false
+      };
     }
     if (path.indexOf('/blog/') === 0) {
       return { source: 'seadays_web', medium: 'blog', campaign: 'blog' };
@@ -143,10 +149,10 @@
     url.searchParams.set('utm_source', t.source);
     url.searchParams.set('utm_medium', t.medium);
     url.searchParams.set('utm_campaign', t.campaign);
-    url.searchParams.set('ct', t.campaign);
-    url.searchParams.set('mt', '8');
-    if (t.applePt) url.searchParams.set('pt', t.applePt);
     if (t.content) url.searchParams.set('utm_content', t.content);
+    url.searchParams.set('ct', t.appleCt || t.campaign);
+    if (t.includeMt !== false) url.searchParams.set('mt', '8');
+    if (t.applePt) url.searchParams.set('pt', t.applePt);
     return url.toString();
   }
 
@@ -163,14 +169,24 @@
       var a = anchors[i];
       var href = a.getAttribute('href') || '';
       if (!isStoreHref(href)) continue;
+      if (a.getAttribute('data-seadays-fixed-store') === '1') continue;
+      if (a.closest && a.closest('[data-seadays-fixed-store="1"]')) continue;
       if (/play\.google\.com/i.test(href)) a.setAttribute('href', play);
       else a.setAttribute('href', apple);
     }
 
     var playNodes = document.querySelectorAll('[data-seadays-store="play"]');
-    for (var p = 0; p < playNodes.length; p++) playNodes[p].setAttribute('href', play);
+    for (var p = 0; p < playNodes.length; p++) {
+      if (playNodes[p].getAttribute('data-seadays-fixed-store') === '1') continue;
+      if (playNodes[p].closest && playNodes[p].closest('[data-seadays-fixed-store="1"]')) continue;
+      playNodes[p].setAttribute('href', play);
+    }
     var appleNodes = document.querySelectorAll('[data-seadays-store="apple"]');
-    for (var q = 0; q < appleNodes.length; q++) appleNodes[q].setAttribute('href', apple);
+    for (var q = 0; q < appleNodes.length; q++) {
+      if (appleNodes[q].getAttribute('data-seadays-fixed-store') === '1') continue;
+      if (appleNodes[q].closest && appleNodes[q].closest('[data-seadays-fixed-store="1"]')) continue;
+      appleNodes[q].setAttribute('href', apple);
+    }
   }
 
   function applyPlatformUi(platform) {

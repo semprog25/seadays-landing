@@ -55,6 +55,7 @@ const {
 } = require('./lib/publicationSchema');
 const { getFaviconHeadHtml } = require('./lib/faviconHead');
 const { insertArticleMidAdSlot, getAdSlotCss } = require('./lib/adsenseArticleSlot');
+const { applyBlogStoreCtasToHtml, getBlogStoreCtaCss } = require('./lib/blogStoreCta');
 const { getAdsTxtFileContents, isAdSenseConfigured } = require('./lib/adsenseConfig');
 const {
   getSiteHeaderHtml,
@@ -2168,6 +2169,7 @@ footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); 
 @media (max-width: 768px) { .article-hero h1 { font-size: 28px; } }
 img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
+${getBlogStoreCtaCss()}
 `;
 
 const INDEX_STYLES = `
@@ -2407,7 +2409,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   };
   const breadcrumbLdStr = JSON.stringify(breadcrumbLd);
 
-  return `<!DOCTYPE html>
+  const pageHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -2471,6 +2473,7 @@ ${getFaviconHeadHtml()}
   ${RUNTIME_GUARD_SCRIPT}
 </body>
 </html>`;
+  return applyBlogStoreCtasToHtml(pageHtml, article.slug);
 }
 
 const HOME_BLOG_CARD_COUNT = 8;

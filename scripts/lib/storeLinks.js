@@ -39,8 +39,42 @@ function sanitizeToken(value, max = 64) {
     .trim()
     .slice(0, max);
   if (!raw) return '';
-  if (!/^[A-Za-z0-9._-]{1,64}$/.test(raw)) return '';
+  if (!/^[A-Za-z0-9._-]{1,160}$/.test(raw)) return '';
   return raw;
+}
+
+/**
+ * Campaign values that must keep hyphens (blog slugs). Underscore campaigns
+ * still go through sanitizeCampaign.
+ */
+function sanitizePreservedCampaign(value, fallback = 'organic_web') {
+  const input = String(value || '');
+  if (/[<>]|javascript:/i.test(input)) return fallback;
+  const raw = input
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 120);
+  if (/^[a-z0-9][a-z0-9_-]{0,119}$/.test(raw)) return raw;
+  return fallback;
+}
+
+/**
+ * Real App Store Connect provider token only. Placeholder prose in the
+ * acquisition file is not a token, so `pt` stays off the URL.
+ */
+function loadAppleProviderToken() {
+  const fromConst = sanitizeToken(DEFAULT_APPLE_PROVIDER_TOKEN, 20);
+  if (fromConst) return fromConst;
+  try {
+    const data = require('../../data/acquisition-campaigns.json');
+    const raw = data && typeof data.appleProviderToken === 'string' ? data.appleProviderToken.trim() : '';
+    if (!raw || /\s/.test(raw)) return '';
+    return sanitizeToken(raw, 20);
+  } catch (err) {
+    return '';
+  }
 }
 
 /**
@@ -49,11 +83,14 @@ function sanitizeToken(value, max = 64) {
 function normalizeTracking(opts = {}) {
   const source = sanitizeToken(opts.utm_source || opts.source, 40) || 'seadays_web';
   const medium = sanitizeToken(opts.utm_medium || opts.medium, 40) || 'web';
-  const campaign = sanitizeCampaign(opts.utm_campaign || opts.campaign, 'organic_web');
+  const campaign = opts.preserveCampaign
+    ? sanitizePreservedCampaign(opts.utm_campaign || opts.campaign, 'organic_web')
+    : sanitizeCampaign(opts.utm_campaign || opts.campaign, 'organic_web');
   const content = sanitizeToken(opts.utm_content || opts.content, 64);
   const term = sanitizeToken(opts.utm_term || opts.term, 64);
-  const applePt = sanitizeToken(opts.pt || opts.apple_pt, 20) || DEFAULT_APPLE_PROVIDER_TOKEN;
-  const appleCt = sanitizeToken(opts.ct || campaign, 40) || campaign;
+  const applePt = sanitizeToken(opts.pt || opts.apple_pt, 20) || loadAppleProviderToken();
+  const ctMax = opts.ct ? 160 : 40;
+  const appleCt = sanitizeToken(opts.ct || campaign, ctMax) || sanitizeToken(campaign, 160) || campaign;
   return { source, medium, campaign, content, term, applePt, appleCt };
 }
 
@@ -99,12 +136,59 @@ function appStoreUrl(opts = {}) {
     utm_source: t.source,
     utm_medium: t.medium,
     utm_campaign: t.campaign,
-    ct: t.appleCt,
-    mt: '8',
   };
-  if (t.applePt) params.pt = t.applePt;
   if (t.content) params.utm_content = t.content;
+  params.ct = t.appleCt;
+  if (opts.includeMt !== false) params.mt = '8';
+  if (t.applePt) params.pt = t.applePt;
   return appendQuery(APP_STORE_URL, params);
+}
+
+/**
+ * Blog inline store badges. Apple `pt` is included only when a real provider
+ * token is already in the repo. `ct` is blog_<slug>. Play uses referrer plus
+ * the same utm_* query style as the homepage badges.
+ * @param {string} slug
+ * @param {'intro' | 'end'} placement
+ */
+function blogStoreUrls(slug, placement) {
+  const content = placement === 'end' ? 'end' : 'intro';
+  const campaign = sanitizePreservedCampaign(slug, 'blog_post');
+  const ct = `blog_${campaign}`;
+  const tracking = {
+    source: 'seadays_blog',
+    medium: 'blog_cta',
+    campaign,
+    content,
+    ct,
+    preserveCampaign: true,
+    includeMt: false,
+  };
+  return {
+    campaign,
+    content,
+    ct,
+    play: playStoreUrl(tracking),
+    apple: appStoreUrl(tracking),
+  };
+}
+
+/**
+ * Default /download/ store badges when the page has no inbound campaign.
+ * Play referrer carries the same utm values. iOS campaign token is ct=download_page.
+ */
+function downloadPageStoreUrls() {
+  const tracking = {
+    source: 'seadays_web',
+    medium: 'download_page',
+    campaign: 'download',
+    ct: 'download_page',
+    includeMt: false,
+  };
+  return {
+    play: playStoreUrl(tracking),
+    apple: appStoreUrl(tracking),
+  };
 }
 
 /**
@@ -178,9 +262,13 @@ module.exports = {
   ALLOWED_CAMPAIGN_RE,
   sanitizeCampaign,
   sanitizeToken,
+  sanitizePreservedCampaign,
+  loadAppleProviderToken,
   normalizeTracking,
   playStoreUrl,
   appStoreUrl,
+  blogStoreUrls,
+  downloadPageStoreUrls,
   downloadPagePath,
   downloadPageUrl,
   stripRedundantCampaignParamsInHtml,

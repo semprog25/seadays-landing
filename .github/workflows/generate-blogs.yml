@@ -7,6 +7,8 @@ on:
     paths:
       - 'scripts/generateBlogs.js'
       - 'scripts/lib/adsenseArticleSlot.js'
+      - 'scripts/lib/blogStoreCta.js'
+      - 'scripts/inject-blog-store-ctas.js'
       - 'scripts/lib/adsenseConfig.js'
       - 'scripts/lib/analyticsSnippet.js'
       - 'scripts/lib/faviconHead.js'
