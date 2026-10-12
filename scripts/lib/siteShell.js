@@ -7,6 +7,7 @@
 'use strict';
 
 const { downloadPagePath } = require('./storeLinks');
+const { getBlogStoreCtaCss } = require('./blogStoreCta');
 
 const SITE_SHELL_CSS_HREF = '/assets/css/site-shell.css';
 const SITE_SHELL_MARKER_START = '<!-- seadays-site-shell';
@@ -522,7 +523,7 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
   margin: 0;
   padding: 0;
 }
-`;
+` + '\n' + getBlogStoreCtaCss();
 }
 
 /**

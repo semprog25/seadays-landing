@@ -8,6 +8,8 @@
 const { getAdsenseAccountMetaHtml } = require('./adsenseConfig');
 
 const GA_MEASUREMENT_ID = 'G-WSQDQ33QZD';
+const APPLE_ITUNES_APP_META = '<meta name="apple-itunes-app" content="app-id=6759758357">';
+const APPLE_ITUNES_APP_META_RE = /<meta\s+name=["']apple-itunes-app["'][^>]*>\s*/gi;
 const ANALYTICS_SCRIPT_SRC = '/assets/js/seadays-analytics.js';
 const DOWNLOAD_SCRIPT_SRC = '/assets/js/seadays-download.js';
 const ADSENSE_ACCOUNT_META_RE =
@@ -21,7 +23,8 @@ const ADSENSE_ACCOUNT_META_RE =
 function getAnalyticsHeadHtml() {
   const adsenseMeta = getAdsenseAccountMetaHtml();
   return `<!-- SeaDays analytics: GA4 ${GA_MEASUREMENT_ID} + Consent Mode v2 -->
-${adsenseMeta ? `${adsenseMeta}\n` : ''}<script>
+${adsenseMeta ? `${adsenseMeta}\n` : ''}${APPLE_ITUNES_APP_META}
+<script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
@@ -44,6 +47,23 @@ window.__SEADAYS_GA_READY__ = true;
 
 function countAdsenseAccountMeta(html) {
   return (String(html || '').match(/<meta\s+name=["']google-adsense-account["']/gi) || []).length;
+}
+
+/**
+ * Smart App Banner meta. Idempotent. Does not touch Consent Mode or AdSense slots.
+ * @param {string} html
+ */
+function ensureAppleItunesAppMeta(html) {
+  if (!html || typeof html !== 'string') return html;
+  const tags = html.match(/<meta\s+name=["']apple-itunes-app["'][^>]*>/gi) || [];
+  if (tags.length === 1 && tags[0] === APPLE_ITUNES_APP_META) return html;
+  const next = html.replace(APPLE_ITUNES_APP_META_RE, '');
+  const adsense = next.match(/<meta\s+name=["']google-adsense-account["'][^>]*>/i);
+  if (adsense && adsense.index != null) {
+    const at = adsense.index + adsense[0].length;
+    return next.slice(0, at) + '\n' + APPLE_ITUNES_APP_META + next.slice(at);
+  }
+  return insertAfterCharsetOrHead(next, APPLE_ITUNES_APP_META);
 }
 
 function insertAfterCharsetOrHead(html, snippet) {
@@ -111,7 +131,7 @@ function injectAnalyticsHead(html) {
   const configCount = (html.match(/gtag\(\s*['"]config['"]/g) || []).length;
 
   if (hasSharedScript && hasConsentDefault && configCount === 1) {
-    let next = ensureAdsenseAccountMeta(html);
+    let next = ensureAppleItunesAppMeta(ensureAdsenseAccountMeta(html));
     if (!next.includes(DOWNLOAD_SCRIPT_SRC)) {
       next = next.replace(
         /<script src="\/assets\/js\/seadays-analytics\.js" defer><\/script>/g,
@@ -124,15 +144,17 @@ function injectAnalyticsHead(html) {
   let next = stripAnalyticsFromHtml(html);
   next = next.replace(ADSENSE_ACCOUNT_META_RE, '');
   const snippet = getAnalyticsHeadHtml();
-  return insertAfterCharsetOrHead(next, snippet);
+  return ensureAppleItunesAppMeta(insertAfterCharsetOrHead(next, snippet));
 }
 
 module.exports = {
   GA_MEASUREMENT_ID,
   ANALYTICS_SCRIPT_SRC,
+  APPLE_ITUNES_APP_META,
   getAnalyticsHeadHtml,
   stripAnalyticsFromHtml,
   injectAnalyticsHead,
   ensureAdsenseAccountMeta,
+  ensureAppleItunesAppMeta,
   countAdsenseAccountMeta,
 };

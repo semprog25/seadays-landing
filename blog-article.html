@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 <!-- SeaDays analytics: GA4 G-WSQDQ33QZD + Consent Mode v2 -->
 <meta name="google-adsense-account" content="ca-pub-3084834499411817">
+<meta name="apple-itunes-app" content="app-id=6759758357">
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -643,6 +644,37 @@ window.__SEADAYS_GA_READY__ = true;
                 return d.innerHTML;
             }
 
+            function blogStoreCtaHtml(slug, placement) {
+                var content = placement === 'end' ? 'end' : 'intro';
+                var campaign = String(slug || '').trim().toLowerCase();
+                var ct = 'blog_' + campaign;
+                var referrer = 'utm_source=seadays_blog&utm_medium=blog_cta&utm_campaign=' + encodeURIComponent(campaign) + '&utm_content=' + encodeURIComponent(content);
+                var play = 'https://play.google.com/store/apps/details?id=com.seadays.app&utm_source=seadays_blog&utm_medium=blog_cta&utm_campaign=' + encodeURIComponent(campaign) + '&utm_content=' + encodeURIComponent(content) + '&referrer=' + encodeURIComponent(referrer);
+                var apple = 'https://apps.apple.com/app/id6759758357?utm_source=seadays_blog&utm_medium=blog_cta&utm_campaign=' + encodeURIComponent(campaign) + '&utm_content=' + encodeURIComponent(content) + '&ct=' + encodeURIComponent(ct);
+                return '<aside class="get-seadays-cta" data-seadays-blog-cta="' + content + '" data-seadays-fixed-store="1" aria-label="Get SeaDays">' +
+                    '<p class="get-seadays-cta-title">Get SeaDays</p>' +
+                    '<div class="get-seadays-cta-badges">' +
+                    '<a href="' + apple.replace(/&/g, '&amp;') + '" data-seadays-fixed-store="1" target="_blank" rel="noopener noreferrer">' +
+                    '<img src="/assets/img/badges/app-store.svg" alt="Download SeaDays on the App Store" width="135" height="40" loading="lazy" decoding="async"></a>' +
+                    '<a href="' + play.replace(/&/g, '&amp;') + '" data-seadays-fixed-store="1" target="_blank" rel="noopener noreferrer">' +
+                    '<img src="/assets/img/badges/google-play.svg" alt="Get SeaDays on Google Play" width="146" height="40" loading="lazy" decoding="async"></a>' +
+                    '</div></aside>';
+            }
+
+            function insertBlogStoreCtas(slug) {
+                var bodyEl = document.getElementById('articleBody');
+                if (!bodyEl || !slug) return;
+                if (!bodyEl.querySelector('[data-seadays-blog-cta="intro"]')) {
+                    var intro = blogStoreCtaHtml(slug, 'intro');
+                    var firstP = bodyEl.querySelector('p');
+                    if (firstP) firstP.insertAdjacentHTML('afterend', intro);
+                    else bodyEl.insertAdjacentHTML('afterbegin', intro);
+                }
+                if (!document.querySelector('[data-seadays-blog-cta="end"]')) {
+                    bodyEl.insertAdjacentHTML('afterend', blogStoreCtaHtml(slug, 'end'));
+                }
+            }
+
             async function fetchJson(url) {
                 const res = await fetch(url);
                 if (!res.ok) throw new Error('Fetch failed');
@@ -731,6 +763,7 @@ window.__SEADAYS_GA_READY__ = true;
                         } catch (e) { /* ignore */ }
                     }
                     bodyEl.innerHTML = (bodyHtml && bodyHtml.trim()) ? bodyHtml : '<p>No content available.</p>';
+                    insertBlogStoreCtas(article.slug || articleId);
 
                     var idx = allArticles.findIndex(function(a) { return a.id === article.id || a.slug === article.slug; });
                     var prevArticle = idx > 0 ? allArticles[idx - 1] : null;

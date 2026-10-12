@@ -18,6 +18,8 @@ const FULL_PATTERNS = [
 
 const BLOG_PATTERNS = [
   /^scripts\/lib\/adsenseArticleSlot\.js$/,
+  /^scripts\/lib\/blogStoreCta\.js$/,
+  /^scripts\/inject-blog-store-ctas\.js$/,
   /^scripts\/lib\/adsenseConfig\.js$/,
   /^scripts\/lib\/seoKeywordLinks\.js$/,
   /^scripts\/inject-blog-ad-slots\.js$/,
