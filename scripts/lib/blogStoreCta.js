@@ -8,8 +8,9 @@
 
 const { blogStoreUrls } = require('./storeLinks');
 
-const APP_STORE_BADGE_SRC = '/assets/img/badges/app-store.svg';
-const PLAY_BADGE_SRC = '/assets/img/badges/google-play.svg';
+// Raster PNG, not SVG. generateBlogs post-build validation rejects every <img src> that ends in .svg.
+const APP_STORE_BADGE_SRC = '/assets/img/badges/app-store.png';
+const PLAY_BADGE_SRC = '/assets/img/badges/google-play.png';
 
 const ARTICLE_BODY_RE =
   /(<div class="article-body">)([\s\S]*?)(<\/div>\s*(?=<section class="same-topic-section"|<section class="app-download-cta"|<section class="explore-seadays"|<nav class="article-nav"|<section class="more-to-read"|<\/article>))/;
