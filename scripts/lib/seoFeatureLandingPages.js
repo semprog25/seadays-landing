@@ -99,7 +99,7 @@ const FEATURE_PAGES_RAW = [
     subtitle:
       'See the real cost of your cruise—fare, excursions, drinks, and onboard spending—in one cruise budget planner made for vacationers.',
     readingLead: [
-      'The fare on the booking page is not the cost of the trip. Gratuities, Wi-Fi, drinks, excursions, transfers, and port-day cash sit in different places, and the cabin folio only shows the charges you put on the ship after you board.',
+      'The fare on the booking page is not the cost of the trip. Wi-Fi, drinks, excursions, transfers, and port-day cash sit in different places, and the cabin folio only shows the charges you put on the ship after you board.',
       'The method below separates those stacks so a calm folio does not hide a prepaid package or a single expensive port. Prices vary by line and sailing — use your own booking, not a sample total from someone else’s week.',
     ],
     primaryKeyword: 'cruise budget planner',

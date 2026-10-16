@@ -10,6 +10,16 @@
 const BANNED_TOPIC =
   /\b(?:tipping|gratuities|gratuity|auto-gratuities|auto gratuities|service charges?|service-charges?)\b/i;
 
+// Money-sense tips only. Advice uses of "tips" (cruise tips, share tips) stay.
+const MONEY_TIP =
+  /\b(?:cash for tips|taxis,\s*tips|tips for staff|small bills for tips|bills for tips|rely on tips|tip extra|tipping expectations)\b/i;
+
+const LEFTOVER_TIP =
+  /often go to these teams|pooled systems|cash envelopes|compensation design|budget cash for exceptional|prepaid or added daily|often automatic but add up|\$15[–-]20 per person per day|that auto-post|Watch automatic\b|are real money whether|round up in Italy|culture varies|how you handle\s*,|how you handle\s+and where you eat|delivery\s+vary\b|promotion stacks\s+and drinks|or\s+on many lines|beverage and\s+models|where and beverages|Understood About\b|Fees, and [“"]Base Fare|for and caps|spa\s+added at checkout|debates online often ignore|follow each brand[’']s policies|automatic\s+vary|Crew and guides appreciate cash|Extra cash for exceptional|^Cruise costs include this\.?$/i;
+
+const DROP_SENTENCE =
+  /often go to these teams|pooled systems|cash envelopes|compensation design|budget cash for exceptional|prepaid or added daily|often automatic but add up|\$15[–-]20 per person per day|are real money whether|round up in Italy|culture varies|automatic\s+vary|Crew and guides appreciate cash|Extra cash for exceptional|Do crew members rely on tips|should I tip extra|^Cruise costs include this\.?$/i;
+
 const SUMMARY_TEMPLATE =
   /([^<>\n"]+?): practical cruise advice covering [^<>\n"]+?, and real scenarios\. Written for travelers who want useful details, not generic tips\./g;
 
@@ -77,6 +87,97 @@ function tidyPunctuation(text) {
     .trim();
 }
 
+function rewriteKnownPhrases(text) {
+  let s = String(text || '');
+  const reps = [
+    [/cash for taxis,\s*tips,\s*or small purchases/gi, 'cash for taxis and small purchases'],
+    [/taxis,\s*tips,\s*and small vendors/gi, 'taxis and small vendors'],
+    [/\s*\(\s*small cash for tips helps\s*\)/gi, ''],
+    [/cash for tips assigned to/gi, 'cash assigned to'],
+    [
+      /Bring small bills for tips on excursions and in port\s*\.\s*Crew and guides appreciate cash\s*\.\s*(?:Cruise travel(?!\s+[A-Za-z])\s*)?/gi,
+      'Bring small bills if a port vendor or taxi does not take cards. ',
+    ],
+    [/Bring small bills on excursions and in port\s*\.\s*/gi, 'Bring small bills if a port vendor or taxi does not take cards. '],
+    [/small bills for tips/gi, 'small bills'],
+    [/Tipping expectations,\s*terminal/g, 'Terminal'],
+    [/Tipping expectations,\s*/gi, ''],
+    [/once gratuities and /gi, 'once '],
+    [/Gratuities added automatically to packages also increase the true daily cost\.\s*/g, ''],
+    [/Automatic gratuities,\s*specialty/g, 'Specialty'],
+    [/Automatic gratuities,\s*/gi, ''],
+    [/What Crew Wish First-Time Cruisers Understood About/g, 'What Crew Wish First-Time Cruisers Understood'],
+    [/Fees, and “Base Fare”/g, 'Fees and “Base Fare”'],
+    [/Fees, and "Base Fare"/g, 'Fees and "Base Fare"'],
+    [
+      /Budget for\s*\.\s*They(?:'|’)re often automatic but add up\s*\.\s*Plan for \$15[–-]20 per person per day on many cruise lines\s*\.\s*(?:Cruise costs include this\s*\.\s*)?(?:Cruise budget tip: factor it in upfront\s*\.\s*)?/g,
+      'Budget for the extras that sit outside the fare: drinks, Wi-Fi, excursions, and specialty dining. ',
+    ],
+    [
+      /They(?:'|’)re often automatic but add up\s*\.\s*Plan for \$15[–-]20 per person per day on many cruise lines\s*\.\s*(?:Cruise costs include this\s*\.\s*)?(?:Cruise budget tip: factor it in upfront\s*\.\s*)?/g,
+      'Budget for the extras that sit outside the fare: drinks, Wi-Fi, excursions, and specialty dining. ',
+    ],
+    [/Cruise budget tip: factor it in upfront\s*\.?/g, 'Budget for the extras that sit outside the fare: drinks, Wi-Fi, excursions, and specialty dining.'],
+    [/\bgratuities and beverages\b/gi, 'beverages'],
+    [/\bGratuities,\s+/g, ''],
+    [/\bgratuities,\s+/g, ''],
+  ];
+  for (const [pattern, replacement] of reps) s = s.replace(pattern, replacement);
+  return s;
+}
+
+function shouldDropSentence(sentence) {
+  return DROP_SENTENCE.test(sentence);
+}
+
+function fixFragments(sentence) {
+  let s = String(sentence || '');
+  s = s.replace(/\bhow you handle\s*,?\s*and where you eat/gi, 'and where you eat');
+  s = s.replace(/\bpromotion stacks\s+and drinks/gi, 'promotion stacks drinks');
+  s = s.replace(/\bbeverages or\s+on many lines/gi, 'beverages on many lines');
+  s = s.replace(/\bbeverage and\s+models/gi, 'beverage models');
+  s = s.replace(/\bdelivery\s+vary\b/gi, 'delivery times vary');
+  s = s.replace(/\bfor and caps\b/gi, 'for package caps');
+  s = s.replace(/\bWatch automatic\s+on beverages/gi, 'Watch beverage charges');
+  s = s.replace(/\bspa\s+added at checkout/gi, 'spa extras added at checkout');
+  s = s.replace(/\bthat auto-post,?\s*/gi, '');
+  s = s.replace(/\bdebates online often ignore/gi, 'Online debates often ignore');
+  s = s.replace(/\bwhere\s+and\s+beverages\b/gi, 'where beverages');
+  s = s.replace(/\.\s+cruise drink packages\b/g, '. Cruise drink packages');
+  s = s.replace(/^\s*and\s+/, '');
+  s = s.replace(/,\s*,+/g, ',');
+  s = s.replace(/^\s*,\s*/, '');
+  s = s.replace(/:\s*,\s*/g, ': ');
+  s = s.replace(/\s+,/g, ',');
+  s = s.replace(/\(\s*\)/g, '');
+  s = s.replace(/,\s*\)/g, ')');
+  s = s.replace(/\(\s*,/g, '(');
+  return s.trim();
+}
+
+function cleanSentence(part) {
+  let s = String(part || '').trim();
+  if (!s) return null;
+  s = fixFragments(rewriteKnownPhrases(s));
+  if (/service charges follow each brand/i.test(s) && /prepay/i.test(s) && /lock rates/i.test(s)) {
+    return 'Prepay during promotions to lock rates and avoid surprises at disembarkation.';
+  }
+  if (shouldDropSentence(s)) return null;
+  if (BANNED_TOPIC.test(s) || MONEY_TIP.test(s)) {
+    const cleaned = removeBannedClauses(s);
+    if (!cleaned || shouldDropSentence(cleaned) || isBrokenAfterRemoval(s, cleaned)) return null;
+    if (BANNED_TOPIC.test(cleaned) || MONEY_TIP.test(cleaned)) return null;
+    s = fixFragments(cleaned);
+  }
+  if (!s || shouldDropSentence(s)) return null;
+  if (BANNED_TOPIC.test(s) || MONEY_TIP.test(s)) return null;
+  return s;
+}
+
+function needsSentencePass(text) {
+  return BANNED_TOPIC.test(text) || MONEY_TIP.test(text) || LEFTOVER_TIP.test(text);
+}
+
 function removeBannedClauses(sentence) {
   let s = sentence;
   s = s.replace(/\s*\((?:[^()]*)\b(?:gratuities|gratuity|tipping|service charges?|service-charges?|auto-gratuities)\b[^()]*\)/gi, '');
@@ -117,21 +218,77 @@ function isBrokenAfterRemoval(original, cleaned) {
  */
 function stripBannedTopicText(input) {
   const text = String(input || '');
-  if (!BANNED_TOPIC.test(text)) return text;
-  const parts = text.split(/(?<=[.!?])\s+/);
+  const rewritten = rewriteKnownPhrases(text);
+  if (!needsSentencePass(rewritten)) return rewritten;
+  const parts = rewritten.split(/(?<=[.!?])\s+/);
   const kept = [];
+  let changed = rewritten !== text;
   for (const part of parts) {
-    if (!BANNED_TOPIC.test(part)) {
-      if (part.trim()) kept.push(part.trim());
+    if (/^some lines auto-add\b/i.test(part) || /\bauto-add gratuities\b/i.test(part)) {
+      changed = true;
       continue;
     }
-    if (/^some lines auto-add\b/i.test(part) || /\bauto-add gratuities\b/i.test(part)) continue;
-    const cleaned = removeBannedClauses(part);
-    if (isBrokenAfterRemoval(part, cleaned)) continue;
-    if (BANNED_TOPIC.test(cleaned)) continue;
+    const cleaned = cleanSentence(part);
+    if (cleaned == null) {
+      changed = true;
+      continue;
+    }
+    if (cleaned !== part.trim()) changed = true;
     kept.push(cleaned);
   }
+  if (!changed) return text;
   return tidyPunctuation(kept.join(' '));
+}
+
+function plainOf(html) {
+  return String(html || '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function removeEmptyStrong(html) {
+  return String(html || '')
+    .replace(/,\s*<strong>\s*<\/strong>\s*,/gi, ',')
+    .replace(/<strong>\s*<\/strong>\s*,\s*/gi, '')
+    .replace(/,\s*<strong>\s*<\/strong>/gi, '')
+    .replace(/<strong>\s*<\/strong>/gi, '');
+}
+
+function blockStillBad(block) {
+  const plain = plainOf(block);
+  return BANNED_TOPIC.test(plain) || MONEY_TIP.test(plain) || LEFTOVER_TIP.test(plain);
+}
+
+function flattenBlock(block) {
+  const openMatch = String(block).match(/^<(p|li|h[1-4])\b[^>]*>/i);
+  if (!openMatch) return block;
+  const open = openMatch[0];
+  const tag = openMatch[1].toLowerCase();
+  const inner = block.slice(open.length, block.length - (tag.length + 3));
+  if (/<(?:a|img|figure|aside)\b/i.test(inner)) return open + removeEmptyStrong(inner) + `</${tag}>`;
+  const cleaned = stripBannedTopicText(plainOf(inner));
+  if (!cleaned) return '';
+  const safe = cleaned.replace(/&(?![a-z]+;|#\d+;)/gi, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return `${open}${safe}</${tag}>`;
+}
+
+function repairMoneyTipMarkup(html) {
+  const source = String(html || '');
+  if (
+    !/<strong>\s*<\/strong>|service\s*charges?|gratuit|cash for tips|taxis,\s*tips|bills for tips|rely on tips|tip extra|tipping expectations|\$15[–-]20 per person|Understood About|Fees, and [“"]Base Fare/i.test(
+      source
+    )
+  ) {
+    return source;
+  }
+  let out = removeEmptyStrong(source);
+  out = out.replace(/(\.\s*(?:<\/strong>\s*)*)<strong>cruise drink packages/gi, '$1<strong>Cruise drink packages');
+  out = out.replace(/<(p|li|h[1-4])\b[^>]*>[\s\S]*?<\/\1>/gi, (block) =>
+    blockStillBad(block) ? flattenBlock(block) : block
+  );
+  return out;
 }
 
 /**
@@ -204,12 +361,13 @@ function applyEditorialCopyToHtml(html) {
           return JSON.stringify(next);
         });
       }
-      let out = part.replace(
+      let out = repairMoneyTipMarkup(part);
+      out = out.replace(
         /(\b(?:content|alt|aria-label)=["'])([\s\S]*?)(["'])/gi,
         (_m, pre, value, post) => pre + applyEditorialCopyToText(value) + post
       );
       out = out.replace(/>([^<]+)</g, (_m, text) => `>${applyEditorialCopyToText(text)}<`);
-      return out;
+      return removeEmptyStrong(out);
     })
     .join('');
 }

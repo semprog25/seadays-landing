@@ -68,7 +68,7 @@ Title
 Cruise Budget Planner: The Categories Most Spreadsheets Forget
 
 Excerpt
-Cruise fares are only part of the total vacation cost. Gratuities, Wi-Fi, excursions, transportation, and small onboard purchases add up quickly. This guide covers the budget categories SeaDays Voyage Analytics is designed to track before and during your sailing.
+Cruise fares are only part of the total vacation cost. Wi-Fi, excursions, transportation, and small onboard purchases add up quickly. This guide covers the budget categories SeaDays Voyage Analytics is designed to track before and during your sailing.
 
 Section 1 (H2): Pre-cruise costs passengers underestimate
 Many cruise passengers compare voyages using only the advertised fare, but the real vacation budget starts growing long before embarkation day.
@@ -130,7 +130,7 @@ The break-even number is the point where the total value of the drinks you actua
 
 The calculation sounds simple: divide the daily package cost by the average cost of the drinks you realistically order during the day. The result tells you how many drinks per day you need before the package becomes financially worth it.
 
-For many passengers, the required number is higher than expected once gratuities and taxes are included. Travelers who only drink wine at dinner or a few cocktails by the pool often discover they would spend less paying individually instead of buying unlimited access.
+For many passengers, the required number is higher than expected once taxes are included. Travelers who only drink wine at dinner or a few cocktails by the pool often discover they would spend less paying individually instead of buying unlimited access.
 
 In those situations, the package becomes more about convenience and less about saving money.
 
@@ -139,7 +139,7 @@ Drink-package math changes depending on the cruise line, itinerary, and travel s
 
 Longer sailings, European itineraries, and cruises with multiple port days usually reduce onboard drink consumption because passengers spend less time on the ship itself. Short Caribbean sailings with more sea days often create the opposite effect.
 
-Gratuities added automatically to packages also increase the true daily cost. Regional pricing, specialty coffee habits, bottled water purchases, energy drinks, and premium cocktails all affect the final numbers differently depending on the cruise line.
+Regional pricing, specialty coffee habits, bottled water purchases, energy drinks, and premium cocktails all affect the final numbers differently depending on the cruise line.
 
 A seven-night Caribbean sailing can produce completely different drink-package math compared to a fourteen-night Mediterranean itinerary, even on the same cruise brand.
 
@@ -361,7 +361,7 @@ Packing prohibited items also catches many first-time passengers by surprise. Su
 Section 2 (H2): Onboard spending surprises
 Many first-time cruisers focus heavily on the cabin fare while overlooking how quickly onboard purchases can increase the total vacation cost.
 
-Automatic gratuities, specialty dining, casino spending, Wi-Fi packages, bottled water, premium coffee, room-service fees, and spa treatments all add to the final onboard account. ATM withdrawal fees at sea can also be significantly higher than passengers expect.
+Specialty dining, casino spending, Wi-Fi packages, bottled water, premium coffee, room-service fees, and spa treatments all add to the final onboard account. ATM withdrawal fees at sea can also be significantly higher than passengers expect.
 
 Because charges accumulate gradually throughout the sailing, many travelers do not realize how much they spent until after disembarkation. Tracking expenses in a budget view during the cruise creates far better awareness than reviewing bank notifications after the vacation ends.
 
@@ -473,7 +473,7 @@ MSC pricing can vary significantly depending on the region, promotional package,
 
 Some fares include beverage packages, Wi-Fi, or onboard credit, while others separate nearly every upgrade into optional add-ons after booking. Specialty dining, premium drinks, internet packages, and wellness experiences can quickly increase the total cruise budget if passengers only focus on the base fare initially.
 
-Comparing package inclusions before booking is usually more valuable than reacting to onboard promotions later. Two MSC sailings with similar advertised prices may end up costing very different amounts once internet access, beverage plans, gratuities, and dining upgrades are added.
+Comparing package inclusions before booking is usually more valuable than reacting to onboard promotions later. Two MSC sailings with similar advertised prices may end up costing very different amounts once internet access, beverage plans, and dining upgrades are added.
 
 Careful planning early in the booking process often creates the best value on MSC voyages.
 
@@ -482,7 +482,7 @@ MSC sailings feel noticeably different depending on whether the voyage departs f
 
 European embarkation ports like Barcelona and Genoa often involve multiple embarkation stops during the itinerary, multilingual announcements, and different dining rhythms compared to Caribbean sailings from Miami or Port Canaveral. Excursions in Europe also tend to involve more walking, public transportation, and independent exploration.
 
-Tipping expectations, terminal flow, dining schedules, and onboard crowd behavior can vary significantly between regions. Planning each port individually instead of treating an entire Europe itinerary as one experience usually creates smoother travel days and more realistic expectations.
+Terminal flow, dining schedules, and onboard crowd behavior can vary significantly between regions. Planning each port individually instead of treating an entire Europe itinerary as one experience usually creates smoother travel days and more realistic expectations.
 
 Passengers who research each stop separately tend to feel far more prepared once the cruise begins.
 
@@ -498,7 +498,7 @@ The earlier travelers join the conversation, the easier it becomes to find compa
 Section 4 (H2): Use SeaDays for MSC voyages
 MSC itineraries often involve multiple ports, long excursion days, and complex planning details, especially on Mediterranean sailings.
 
-SeaDays helps passengers organize itineraries, budget categories, excursion schedules, embarkation details, and voyage discussions inside one connected workspace. Travelers can also track MSC-specific spending like beverage packages, internet plans, gratuities, and specialty dining upgrades more clearly throughout the trip.
+SeaDays helps passengers organize itineraries, budget categories, excursion schedules, embarkation details, and voyage discussions inside one connected workspace. Travelers can also track MSC-specific spending like beverage packages, internet plans, and specialty dining upgrades more clearly throughout the trip.
 
 Passengers can browse MSC ship
  reviews from travelers who sailed the same class and use voyage-planning tools to keep schedules, port research, and roll-call conversations connected before embarkation day.
