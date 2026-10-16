@@ -83,12 +83,17 @@ window.__SEADAYS_GA_READY__ = true;
           {
             "@type": "Question",
             "name": "How much CO₂ does a cruise produce?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Published cruise-industry and academic averages suggest roughly 0.4 kg CO₂e per passenger per nautical mile. For a typical 7-night Caribbean cruise covering around 2,500 nautical miles and 5 port calls, the SeaDays calculator estimates about 0.94 tonnes CO₂e per passenger. Results vary by ship type, fuel, and route." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Estimated factors based on industry averages use roughly 0.4 kg CO₂e per passenger per nautical mile. The estimate weights distance at 60%, so it is an approximation. For a typical 7-night Caribbean cruise covering around 2,500 nautical miles and 5 port calls, the SeaDays calculator estimates about 0.94 tonnes CO₂e per passenger. A Mediterranean 10-night voyage of about 3,000 nautical miles and 6 port calls estimates about 1.2 tonnes. Results vary by ship type, fuel, and route." }
           },
           {
             "@type": "Question",
             "name": "How we estimate your voyage footprint",
-            "acceptedAnswer": { "@type": "Answer", "text": "SeaDays combines distance sailed (nautical miles), cruise duration (days), and number of port calls with published cruise-industry emission factors to produce an approximate per-passenger CO₂e estimate. These figures are for understanding scale, not certified measurements." }
+            "acceptedAnswer": { "@type": "Answer", "text": "SeaDays combines distance sailed (nautical miles), cruise duration (days), and number of port calls with estimated factors based on industry averages to produce an approximate per-passenger CO₂e estimate. Distance is weighted at 60%, so the result is an approximation. These figures are for understanding scale, not certified measurements." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do footprint pledges reduce emissions?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pledges can use any SeaDays Points, including Points bought in the app. A pledge does not currently fund any project or reduce emissions. Right now, pledges are a record only. No money or Points have gone to any environmental project yet." }
           }
         ]
       }
@@ -323,7 +328,7 @@ window.__SEADAYS_GA_READY__ = true;
       text-transform: uppercase; color: var(--eco-green); margin-bottom: 16px;
     }
     .community-stats-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
     }
     .community-stat strong {
       display: block; font-size: clamp(18px, 3.5vw, 24px); font-weight: 800;
@@ -953,7 +958,7 @@ window.__SEADAYS_GA_READY__ = true;
       .calc-grid { grid-template-columns: 1fr; gap: 16px; }
       .equiv-grid { grid-template-columns: repeat(2, 1fr); }
       .explain-grid { grid-template-columns: 1fr; }
-      .community-stats-grid { grid-template-columns: repeat(3, 1fr); }
+      .community-stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
       .calc-card { padding: 24px 18px; }
@@ -1003,9 +1008,9 @@ window.__SEADAYS_GA_READY__ = true;
 
       <section class="co2-hero" aria-labelledby="co2-hero-title">
         <p class="hero-eyebrow">Sustainability</p>
-        <h1 id="co2-hero-title" class="hero-title">Your cruising can contribute to something positive</h1>
+        <h1 id="co2-hero-title" class="hero-title">Estimate your voyage footprint</h1>
         <p class="hero-sub">
-          SeaDays estimates the footprint of your voyage and gives cruisers a way to turn that journey into a positive contribution. As our community grows, so will our impact.
+          SeaDays estimates the footprint of your voyage and lets cruisers record a Points pledge against that estimate. As our community grows, so will the pledges we record.
         </p>
 
         <div class="meter-stage" id="co2Meter" data-target="0" aria-live="polite">
@@ -1015,27 +1020,25 @@ window.__SEADAYS_GA_READY__ = true;
             <div class="bubbles" id="co2Bubbles"></div>
           </div>
           <div class="meter-readout">
-            <div class="meter-value" id="co2Value" data-scale="short">0.00</div>
-            <span class="meter-exact" id="co2Exact">0.00 tonnes CO₂e</span>
-            <div class="meter-unit">tonnes CO₂e</div>
+            <div class="meter-value" id="co2Value" data-scale="short">0</div>
+            <span class="meter-exact" id="co2Exact">0 Points pledged</span>
+            <div class="meter-unit">Points pledged</div>
           </div>
         </div>
 
-        <p class="meter-caption" id="co2Caption">Loading community contribution total…</p>
+        <p class="meter-caption" id="co2Caption">Loading pledges…</p>
+        <p class="meter-caption">Right now, pledges are a record only. No money or Points have gone to any environmental project yet.</p>
+        <p class="meter-caption">Pledges can use any SeaDays Points, including Points bought in the app. A pledge does not currently fund any project or reduce emissions.</p>
         <div class="community-stats" id="co2Meta" hidden>
           <p class="community-stats-label">SeaDays Community</p>
           <div class="community-stats-grid">
             <div class="community-stat">
-              <strong id="co2Count">0</strong>
-              <span id="co2CountLabel">contributions</span>
-            </div>
-            <div class="community-stat">
               <strong id="co2Points">0</strong>
-              <span>Points contributed</span>
+              <span>Points pledged</span>
             </div>
             <div class="community-stat">
-              <strong id="co2TonsStat">0.00</strong>
-              <span>tonnes CO₂e</span>
+              <strong id="co2Count">0</strong>
+              <span id="co2CountLabel">pledges</span>
             </div>
           </div>
         </div>
@@ -1044,17 +1047,17 @@ window.__SEADAYS_GA_READY__ = true;
       <section class="section" id="what-it-means">
         <h2>What this number represents</h2>
         <p class="lead">
-          This is the growing total of CO₂e contributions recorded by the SeaDays community against estimated cruise footprints.
+          This is the total of SeaDays Points pledged against estimated cruise footprints, and how many pledges have been recorded.
         </p>
         <p>
-          Every contribution starts with a voyage: its distance, duration and port calls help us estimate the journey’s footprint. Cruisers can then use SeaDays Points to make a contribution against that estimate.
+          Every pledge starts with a voyage: its distance, duration and port calls help estimate the journey’s footprint. Cruisers can then record a Points pledge against that estimate. Pledges can use any SeaDays Points, including Points bought in the app. A pledge does not currently fund any project or reduce emissions.
         </p>
       </section>
 
       <section class="section" id="how-calculated">
         <h2>How we estimate your voyage footprint</h2>
         <p class="lead">
-          SeaDays uses three parts of your voyage to create an estimate: distance travelled, time at sea and port calls.
+          SeaDays uses three parts of your voyage to create an estimate: distance travelled, time at sea and port calls. The estimate weights distance at 60%, so it is an approximation. Factors are estimated from industry averages.
         </p>
         <div class="card-grid">
           <article class="info-card">
@@ -1081,7 +1084,7 @@ window.__SEADAYS_GA_READY__ = true;
               <li>~0.4 kg CO₂e per passenger per nautical mile</li>
               <li>~0.15 tonnes per day for time at sea</li>
               <li>~0.05 tonnes per port call</li>
-              <li>Weighted together as 60% distance, 30% time at sea, 10% ports</li>
+              <li>Weighted together as 60% distance, 30% time at sea, 10% ports. Distance is weighted at 60%, so this is an approximation.</li>
               <li>A small minimum so short or incomplete itineraries still produce a usable figure</li>
             </ul>
           </div>
@@ -1206,34 +1209,34 @@ window.__SEADAYS_GA_READY__ = true;
           <div class="explain-card">
             <h3><span class="e-icon">🗺️</span> Distance sailed</h3>
             <p>The single biggest driver. A transatlantic crossing covers 3,000+ nautical miles; a short Caribbean loop might be under 1,000. More miles means more fuel burned — roughly 0.4 kg CO₂e per passenger per nautical mile.</p>
-            <span class="impact-tag impact-high">Highest impact</span>
+            <span class="impact-tag impact-high">Largest share</span>
           </div>
           <div class="explain-card">
             <h3><span class="e-icon">⏱ </span> Days at sea</h3>
             <p>A ship burning fuel to maintain power, heating, cooling, and hotel services adds around 0.15 tonnes per day regardless of how far it travels. Longer cruises accumulate this base load even on sea days.</p>
-            <span class="impact-tag impact-med">Moderate impact</span>
+            <span class="impact-tag impact-med">Smaller share</span>
           </div>
           <div class="explain-card">
             <h3><span class="e-icon">⚓</span> Port calls</h3>
             <p>Each port stop involves manoeuvring, docking, and auxiliary power while in harbour. The estimate adds around 0.05 tonnes per port call. A port-heavy itinerary will be slightly higher than the distance alone suggests.</p>
-            <span class="impact-tag impact-low">Lower impact</span>
+            <span class="impact-tag impact-low">Smallest share</span>
           </div>
         </div>
         <div class="methodology-box" style="margin-top:28px;">
           <details>
             <summary>Full methodology and assumptions</summary>
             <div class="methodology-body">
-              <p>The SeaDays cruise CO₂ estimator uses the following published average factors:</p>
+              <p>The SeaDays cruise CO₂ estimator uses the following estimated factors based on industry averages:</p>
               <ul>
                 <li><strong>Distance-based:</strong> ~0.4 kg CO₂e per passenger per nautical mile</li>
                 <li><strong>Duration-based:</strong> ~0.15 tonnes CO₂e per day of cruise operation</li>
                 <li><strong>Port-based:</strong> ~0.05 tonnes CO₂e per port call</li>
-                <li>Combined as: 60% distance + 30% duration + 10% port calls</li>
+                <li>Combined as: 60% distance + 30% duration + 10% port calls. Distance is weighted at 60%, so this is an approximation.</li>
                 <li>A minimum of 0.1 tonnes ensures short or incomplete itineraries still produce a usable figure</li>
                 <li>This is a per-passenger estimate; actual ship emissions are significantly larger</li>
               </ul>
-              <p style="margin-top:14px;">These factors are drawn from cruise industry research and academic literature. They represent an average across vessel types, fuel grades, and operating conditions. Actual emissions will vary by ship age, fuel type (HFO vs. LNG vs. VLSFO), load factor, weather, and route.</p>
-              <p style="margin-top:10px;">SeaDays does not claim to provide certified, verified, or offset emissions measurements. The estimates are for personal understanding only.</p>
+              <p style="margin-top:14px;">These are estimated factors based on industry averages. They represent an average across vessel types, fuel grades, and operating conditions. Actual emissions will vary by ship age, fuel type (HFO vs. LNG vs. VLSFO), load factor, weather, and route.</p>
+              <p style="margin-top:10px;">SeaDays does not claim these are certified or verified emissions measurements. The estimates are for personal understanding only.</p>
               <p style="margin-top:10px;font-size:14px;color:var(--text-muted);">Distance units: NM = nautical miles · km = kilometres · mi = miles. SeaDays uses nautical miles internally for cruise-distance calculations.</p>
             </div>
           </details>
@@ -1248,8 +1251,8 @@ window.__SEADAYS_GA_READY__ = true;
         <p>The footprint covers the journey itself: the nautical miles sailed, the days at sea, and the port operations. It does not typically include the passenger's flights to and from the embarkation port, which can add substantially to the overall travel footprint.</p>
 
         <h3>How much CO₂ does a cruise produce?</h3>
-        <p>Research consistently finds that cruising is among the more carbon-intensive forms of holiday travel on a per-passenger-kilometre basis. Published figures from cruise industry research and academic studies suggest roughly 0.4 kg CO₂e per passenger per nautical mile as a working average across fleet types, though this varies considerably by ship age and fuel.</p>
-        <p>For a typical 7-night Caribbean cruise covering around 2,500 nautical miles and calling at 5 ports, the SeaDays calculator estimates about <strong>0.94 tonnes CO₂e per passenger</strong>. A longer voyage — say, a 14-night transatlantic crossing covering 4,000+ nautical miles — might reach <strong>1.3–1.6 tonnes per passenger</strong>.</p>
+        <p>Estimated factors based on industry averages use roughly 0.4 kg CO₂e per passenger per nautical mile as a working average across fleet types, though this varies considerably by ship age and fuel. The estimate weights distance at 60%, so it is an approximation.</p>
+        <p>For a typical 7-night Caribbean cruise covering around 2,500 nautical miles and calling at 5 ports, the SeaDays calculator estimates about <strong>0.94 tonnes CO₂e per passenger</strong>. A Mediterranean 10-night voyage of about 3,000 nautical miles and 6 port calls estimates about <strong>1.2 tonnes</strong>. A 14-night transatlantic crossing of 4,000–4,200 nautical miles and 2 port calls estimates about <strong>1.60–1.65 tonnes per passenger</strong>.</p>
 
         <table class="compare-table" aria-label="Typical cruise footprints by voyage type">
           <thead>
@@ -1261,12 +1264,12 @@ window.__SEADAYS_GA_READY__ = true;
             </tr>
           </thead>
           <tbody>
-            <tr><td>Short Caribbean loop</td><td>1,200</td><td>5 nights</td><td>~0.40 t</td></tr>
+            <tr><td>Short Caribbean loop</td><td>1,200</td><td>5 nights, 3 ports</td><td>~0.53 t</td></tr>
             <tr><td>Caribbean 7-night</td><td>2,500</td><td>7 nights, 5 ports</td><td>~0.94 t</td></tr>
-            <tr><td>Mediterranean 10-night</td><td>3,000</td><td>10 nights</td><td>~0.90 t</td></tr>
-            <tr><td>Norway fjords 14-night</td><td>3,800</td><td>14 nights</td><td>~1.15 t</td></tr>
-            <tr><td>Transatlantic crossing</td><td>4,200</td><td>14 nights</td><td>~1.30 t</td></tr>
-            <tr><td>World voyage (segment)</td><td>8,000</td><td>28 nights</td><td>~2.50 t</td></tr>
+            <tr><td>Mediterranean 10-night</td><td>3,000</td><td>10 nights, 6 ports</td><td>~1.20 t</td></tr>
+            <tr><td>Norway fjords 14-night</td><td>3,800</td><td>14 nights, 10 ports</td><td>~1.59 t</td></tr>
+            <tr><td>Transatlantic crossing</td><td>4,200</td><td>14 nights, 2 ports</td><td>~1.65 t</td></tr>
+            <tr><td>World voyage (segment)</td><td>8,000</td><td>28 nights, 12 ports</td><td>~3.24 t</td></tr>
           </tbody>
         </table>
       </section>
@@ -1279,10 +1282,10 @@ window.__SEADAYS_GA_READY__ = true;
         </p>
 
         <h3>Cruise vs. driving a car</h3>
-        <p>The average petrol car emits roughly 4.6 tonnes of CO₂ per year, or about 0.38 tonnes per month. A 7-night cruise footprint of ~0.94 tonnes is therefore equivalent to approximately <strong>2.5 months of average car use</strong>. A short 5-night cruise (~0.40 t) is closer to one month of driving.</p>
+        <p>The average petrol car emits roughly 4.6 tonnes of CO₂ per year, or about 0.38 tonnes per month. A 7-night cruise footprint of ~0.94 tonnes is therefore equivalent to approximately <strong>2.5 months of average car use</strong>. A short Caribbean loop (1,200 nm, 5 nights, 3 ports, ~0.53 t) is closer to about 1.4 months of driving.</p>
 
         <h3>Cruise vs. flying</h3>
-        <p>A typical short-haul flight produces around 0.2 tonnes of CO₂e per passenger, while a long-haul intercontinental flight might produce 1.0–1.5 tonnes. Most 7-night cruises fall somewhere in between — meaning the voyage itself produces roughly the same footprint as <strong>three to four short-haul flights</strong>.</p>
+        <p>A typical short-haul flight produces around 0.2 tonnes of CO₂e per passenger, while a long-haul intercontinental flight might produce 1.0–1.5 tonnes. A 7-night cruise footprint of ~0.94 tonnes is roughly the same as <strong>about four to five short-haul flights</strong>.</p>
 
         <h3>Cruise vs. everyday activities</h3>
         <p>A cruise footprint of 0.94 tonnes is equivalent to:</p>
@@ -1291,7 +1294,7 @@ window.__SEADAYS_GA_READY__ = true;
           <li>Leaving an LED lightbulb on for roughly <strong>1.88 million hours</strong> (about 215 years continuous)</li>
           <li>The annual CO₂ absorption of approximately <strong>45 mature trees</strong></li>
         </ul>
-        <p>These comparisons illustrate scale — they are not suggestions that planting trees or changing lightbulbs offsets a cruise.</p>
+        <p>These comparisons illustrate scale. They are not a reduction in the cruise footprint, and they are not a claim that trees have been planted.</p>
       </section>
 
       <!-- ── Ad slot 2: after educational section ── -->
@@ -1313,13 +1316,19 @@ window.__SEADAYS_GA_READY__ = true;
         <p class="lead">Individual choices around a cruise can shift the total footprint in meaningful ways.</p>
         <ul>
           <li><strong>Choose a newer ship:</strong> Modern vessels are significantly more fuel-efficient than older fleets. Choosing a ship built in the last decade makes a real difference.</li>
-          <li><strong>Prefer LNG-powered ships:</strong> Liquefied natural gas produces roughly 20–25% less CO₂ per unit of energy than heavy fuel oil.</li>
+          <li><strong>Prefer LNG-powered ships:</strong> Liquefied natural gas produces roughly 20–25% less CO₂ per unit of energy than heavy fuel oil. Methane slip from some LNG engines can reduce or cancel the CO₂e benefit.</li>
           <li><strong>Shorter itineraries:</strong> A 5-night cruise has a meaningfully smaller footprint than a 14-night voyage — even if the per-day rate is similar.</li>
           <li><strong>Walk or use public transport at ports:</strong> The biggest post-voyage variable is what you do in port. Walking tours and local buses have a far smaller footprint than private taxis and excursion coaches.</li>
           <li><strong>Combine cruise and fly smart:</strong> Taking the train to the embarkation port, or choosing a port close to home, removes a substantial source of travel emissions from the equation.</li>
           <li><strong>Choose itineraries with fewer sea days:</strong> Sea days accumulate duration-based emissions; a port-heavy itinerary at a similar distance can produce a slightly lower overall estimate.</li>
-          <li><strong>Consider a carbon contribution:</strong> Inside the SeaDays app, you can use SeaDays Points to make a contribution against your estimated voyage footprint. This is recorded in the community total and is intended to prompt reflection, not as a certified carbon offset.</li>
         </ul>
+      </section>
+
+      <section class="seo-section" aria-labelledby="pledges-heading" id="footprint-pledges">
+        <h2 id="pledges-heading">Footprint pledges (not a reduction)</h2>
+        <p class="lead">A Points pledge is a record of an estimated voyage footprint. It is not one of the reduction steps above.</p>
+        <p>Inside the SeaDays app, you can use SeaDays Points to record a pledge against your estimated voyage footprint. Pledges can use any SeaDays Points, including Points bought in the app. A pledge does not currently fund any project or reduce emissions.</p>
+        <p>Right now, pledges are a record only. No money or Points have gone to any environmental project yet.</p>
       </section>
 
       <!-- ── CTA ── -->
@@ -1335,38 +1344,35 @@ window.__SEADAYS_GA_READY__ = true;
       <!-- ── Community story (closing chapter) ── -->
       <section class="community-story" aria-labelledby="where-heading" id="community-story">
         <div class="community-story-inner">
-          <p class="community-story-eyebrow">Our journey</p>
+          <p class="community-story-eyebrow">Pledges</p>
 
           <article class="story-chapter">
-            <h2 id="where-heading">Turning voyages into positive action</h2>
+            <h2 id="where-heading">Footprint pledges</h2>
             <p class="lead">
-              Cruising creates memories, connects people and moves us around the world. We want SeaDays to help give something back.
+              Cruising creates memories, connects people and moves us around the world. SeaDays estimates a voyage footprint and lets cruisers record a Points pledge against that estimate.
             </p>
             <p>
-              We’re currently working on the right environmental initiative to support with our growing community contribution. When that partnership is in place, we’ll share it openly here and across our social channels.
-            </p>
-          </article>
-
-          <article class="story-chapter">
-            <h3>Where we’re heading</h3>
-            <p>
-              SeaDays is building a community contribution that can support meaningful environmental action.
-            </p>
-            <p>
-              As the community grows, we’re working toward choosing an environmental initiative that aligns with the values behind SeaDays: protecting the places we travel to and helping make future journeys more responsible.
-            </p>
-            <p>
-              We’ll announce the initiative publicly once it is confirmed.
+              Right now, pledges are a record only. No money or Points have gone to any environmental project yet.
             </p>
           </article>
 
           <article class="story-chapter">
-            <h3 id="follow-journey">Follow the journey</h3>
+            <h3>What a pledge records</h3>
             <p>
-              Want to know where the contribution goes next? Follow SeaDays on social media. We’ll share the partnership and progress as soon as it’s ready.
+              Pledges can use any SeaDays Points, including Points bought in the app. A pledge does not currently fund any project or reduce emissions.
+            </p>
+            <p>
+              As our community grows, so will the pledges we record.
+            </p>
+          </article>
+
+          <article class="story-chapter">
+            <h3 id="follow-journey">Follow SeaDays</h3>
+            <p>
+              Follow SeaDays on social media for updates.
             </p>
             <p class="story-follow-callout">
-              Follow SeaDays to see where we go next.
+              Follow SeaDays on Instagram and TikTok.
             </p>
             <div class="social-row">
               <a class="social-chip" href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -1375,15 +1381,15 @@ window.__SEADAYS_GA_READY__ = true;
           </article>
 
           <p class="note" id="transparency-note">
-            SeaDays currently records community contributions against estimated voyage footprints. The environmental initiative supported by these contributions will be announced once confirmed.
+            Right now, pledges are a record only. No money or Points have gone to any environmental project yet.
           </p>
 
           <div class="cta-band cta-band--community">
-            <h2>Make your next voyage count</h2>
-            <p>Plan your cruise, estimate your footprint, and join the SeaDays community.</p>
+            <h2>Understand your next voyage</h2>
+            <p>Plan your cruise and estimate its footprint.</p>
             <div class="btn-row">
               <a class="btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=web&amp;utm_campaign=organic_web">Download SeaDays</a>
-              <a class="btn-secondary" href="#follow-journey">Follow our journey</a>
+              <a class="btn-secondary" href="#follow-journey">Follow SeaDays</a>
             </div>
           </div>
         </div>
@@ -1518,45 +1524,30 @@ window.__SEADAYS_GA_READY__ = true;
     var countEl = document.getElementById('co2Count');
     var countLabelEl = document.getElementById('co2CountLabel');
     var pointsEl = document.getElementById('co2Points');
-    var tonsStatEl = document.getElementById('co2TonsStat');
     var meter = document.getElementById('co2Meter');
     var meterAnimated = false;
     var ABBREV_THRESHOLD = 10000000;
+    var UPDATED_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-    function formatExactTons(n) {
-      if (!isFinite(n)) return '0.00';
-      return n.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
-    }
-
-    function formatDisplayTons(n) {
+    function formatPoints(n) {
       if (!isFinite(n) || n < 0) n = 0;
-      if (n >= ABBREV_THRESHOLD) {
-        var millions = n / 1000000;
+      var rounded = Math.round(n);
+      if (rounded >= ABBREV_THRESHOLD) {
+        var millions = rounded / 1000000;
         var digits = millions >= 100 ? 0 : 1;
         return millions.toLocaleString(undefined, {
           minimumFractionDigits: digits,
           maximumFractionDigits: digits
         }) + 'M';
       }
-      if (n >= 1000) {
-        return n.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        });
-      }
-      if (n >= 100) {
-        return n.toLocaleString(undefined, {
-          minimumFractionDigits: 1,
-          maximumFractionDigits: 2
-        });
-      }
-      return n.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
+      return rounded.toLocaleString();
+    }
+
+    function formatLastUpdated(iso) {
+      if (!iso) return '';
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return '';
+      return 'Last updated ' + d.getUTCDate() + ' ' + UPDATED_MONTHS[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
     }
 
     function scaleForDisplay(text) {
@@ -1571,30 +1562,18 @@ window.__SEADAYS_GA_READY__ = true;
     function renderMeterValue(n, isFinal, targetHint) {
       if (!valueEl || !meter) return;
       var target = isFinite(targetHint) ? targetHint : Number(meter.getAttribute('data-target'));
-      var display;
-      if (isFinite(target) && target >= ABBREV_THRESHOLD) {
-        var millions = n / 1000000;
-        var digits = (target / 1000000) >= 100 ? 0 : 1;
-        display = millions.toLocaleString(undefined, {
-          minimumFractionDigits: digits,
-          maximumFractionDigits: digits
-        }) + 'M';
-      } else {
-        display = formatDisplayTons(n);
-      }
+      var display = formatPoints(n);
       var exactSource = isFinal ? n : (isFinite(target) ? target : n);
-      var exact = formatExactTons(exactSource);
+      var exact = formatPoints(exactSource);
       valueEl.textContent = display;
       valueEl.setAttribute('data-scale', scaleForDisplay(display));
-      if (exactEl) exactEl.textContent = exact + ' tonnes CO₂e';
-      valueEl.setAttribute('aria-label', exact + ' tonnes CO₂e');
-      if (tonsStatEl && isFinal) tonsStatEl.textContent = formatExactTons(n);
+      if (exactEl) exactEl.textContent = exact + ' Points pledged';
+      valueEl.setAttribute('aria-label', exact + ' Points pledged');
     }
 
     function animateMeterTo(target) {
       if (meterAnimated || !meter) return;
       meterAnimated = true;
-      if (tonsStatEl) tonsStatEl.textContent = formatExactTons(target);
       if (reduceMotion) {
         renderMeterValue(target, true, target);
         return;
@@ -1612,42 +1591,31 @@ window.__SEADAYS_GA_READY__ = true;
       requestAnimationFrame(frame);
     }
 
-    function demoOverrideTons() {
-      try {
-        var params = new URLSearchParams(window.location.search);
-        var raw = params.get('demoTons');
-        if (raw === null || raw === '') return null;
-        var n = Number(raw);
-        return isFinite(n) && n >= 0 ? n : null;
-      } catch (e) {
-        return null;
-      }
-    }
-
     function applyCommunityPayload(data) {
       if (!meter || !captionEl) return;
-      var tons = Number(data && data.totalTonsOffset);
-      if (!isFinite(tons) || tons < 0) tons = 0;
-      var demo = demoOverrideTons();
-      if (demo !== null) tons = demo;
+      // totalTonsPledged is the recorded estimate. The counter does not display it.
+      var pledgedTons = Number(data && data.totalTonsPledged);
+      if (!isFinite(pledgedTons) || pledgedTons < 0) pledgedTons = 0;
+      var points = Number(data && data.totalPointsSpent);
+      if (!isFinite(points) || points < 0) points = 0;
 
-      meter.setAttribute('data-target', String(tons));
-      captionEl.textContent = 'Community contribution total';
+      meter.setAttribute('data-target', String(points));
+      captionEl.textContent = formatLastUpdated(data && data.updatedAt) || 'Last updated unavailable';
 
       if (metaEl) {
         metaEl.hidden = false;
         var count = Number((data && data.contributionCount) || 0);
+        if (!isFinite(count) || count < 0) count = 0;
         if (countEl) countEl.textContent = String(count);
-        if (countLabelEl) countLabelEl.textContent = count === 1 ? 'contribution' : 'contributions';
-        if (pointsEl) pointsEl.textContent = Number((data && data.totalPointsSpent) || 0).toLocaleString();
-        if (tonsStatEl) tonsStatEl.textContent = formatExactTons(tons);
+        if (countLabelEl) countLabelEl.textContent = count === 1 ? 'pledge' : 'pledges';
+        if (pointsEl) pointsEl.textContent = formatPoints(points);
       }
 
       var kicked = false;
       function kickAnimation() {
         if (kicked) return;
         kicked = true;
-        animateMeterTo(tons);
+        animateMeterTo(points);
       }
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
@@ -1672,16 +1640,7 @@ window.__SEADAYS_GA_READY__ = true;
       })
       .then(applyCommunityPayload)
       .catch(function () {
-        var demo = demoOverrideTons();
-        if (demo !== null) {
-          applyCommunityPayload({
-            totalTonsOffset: demo,
-            contributionCount: 0,
-            totalPointsSpent: 0
-          });
-          return;
-        }
-        if (captionEl) captionEl.textContent = 'Contribution total unavailable right now.';
+        if (captionEl) captionEl.textContent = 'Pledges unavailable right now.';
         renderMeterValue(0, true);
       });
 
