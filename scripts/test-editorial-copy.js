@@ -61,6 +61,48 @@ test('normalizes AIDAcosma and the article before AIDA and Oceania', () => {
   );
 });
 
+test('rewrites money-sense tips and leaves advice tips alone', () => {
+  assert.strictEqual(
+    stripBannedTopicText('In others, cash for taxis, tips, or small purchases makes the day smoother.'),
+    'In others, cash for taxis and small purchases makes the day smoother.'
+  );
+  assert.strictEqual(
+    stripBannedTopicText('Having some cash can help with taxis, tips, and small vendors.'),
+    'Having some cash can help with taxis and small vendors.'
+  );
+  assert.strictEqual(
+    stripBannedTopicText('Hand off checked luggage near the entrance (small cash for tips helps). Keep documents with you.'),
+    'Hand off checked luggage near the entrance. Keep documents with you.'
+  );
+  assert.strictEqual(
+    stripBannedTopicText('cash for tips assigned to the person doing airport transport'),
+    'cash assigned to the person doing airport transport'
+  );
+  assert.strictEqual(stripBannedTopicText('Share tips with your roll call before you sail.'), 'Share tips with your roll call before you sail.');
+  assert.strictEqual(stripBannedTopicText('First-time cruise tips to know before you go.'), 'First-time cruise tips to know before you go.');
+  assert.doesNotMatch(
+    stripBannedTopicText('The fare is not the cost. Gratuities, Wi-Fi, drinks, excursions, transfers, and port-day cash sit elsewhere.'),
+    /gratuit/i
+  );
+});
+
+test('drops leftover tipping sentences and repairs list holes in HTML', () => {
+  const html = [
+    '<p><strong>Cruise travel</strong> has its own rules: <strong>all-aboard times</strong>, <strong></strong>, <strong>cruise cabin</strong> locations.</p>',
+    '<p><strong></strong> <strong>and</strong> <strong>service</strong> <strong>charges</strong> <strong>follow</strong> <strong>each</strong> <strong>brand’s</strong> <strong>policies</strong>—<strong>prepay</strong> <strong>during</strong> <strong>promotions</strong> <strong>to</strong> <strong>lock</strong> <strong>rates</strong> and avoid surprises at disembarkation.</p>',
+    '<p><strong>Q5: Do crew members rely on tips—and should I tip extra?</strong> Extra cash for exceptional service is often appreciated.</p>',
+    '<p>Bring small bills for tips on excursions and in port. Crew and guides appreciate cash.</p>',
+  ].join('');
+  const actual = applyEditorialCopyToHtml(html);
+  assert.doesNotMatch(actual, /<strong>\s*<\/strong>/);
+  assert.doesNotMatch(actual, /gratuit|service charge|for tips|tip extra|appreciate cash/i);
+  assert.match(actual, /all-aboard times/);
+  assert.match(actual, /cruise cabin/);
+  assert.match(actual, /Prepay during promotions to lock rates/);
+  assert.match(actual, /port vendor or taxi does not take cards/);
+  assert.doesNotMatch(actual, /Q5:/);
+});
+
 test('cleans banned wording inside FAQ JSON-LD without breaking the script', () => {
   const html =
     '<script type="application/ld+json">{"text":"Include fare, taxes, gratuities, and drinks."}</script><p>Include fare, taxes, gratuities, and drinks.</p>';
