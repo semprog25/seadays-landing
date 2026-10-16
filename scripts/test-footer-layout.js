@@ -159,6 +159,8 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
     footer,
     /href="https:\/\/x\.com\/SeadaysApp" target="_blank" rel="noopener noreferrer">X<\/a>/
   );
+  assert.doesNotMatch(footer, /left:\s*-9999px/);
+  assert.doesNotMatch(footer, /SeaDays Cruise Planner/);
 });
 
 test('homepage Organization JSON-LD sameAs includes Instagram, TikTok, and X', () => {

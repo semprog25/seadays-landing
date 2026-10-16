@@ -153,7 +153,6 @@ function getSiteFooterHtml() {
 
                 <div class="footer-bottom">
                     <p>© 2026 SeaDays. All rights reserved.</p>
-                    <a href="https://seadays.app/" style="position:absolute; left:-9999px;">SeaDays Cruise Planner</a>
                 </div>
             </div>
         </footer>
