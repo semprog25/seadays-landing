@@ -144,7 +144,7 @@ const GUIDE_BY_SLUG = {
           "type": "ul",
           "items": [
             "Fixed: fare, taxes/fees, transfers, hotels before/after, travel insurance",
-            "Semi-fixed: gratuities, Wi‑Fi packages, specialty dining reservations",
+            "Semi-fixed: Wi‑Fi packages, specialty dining reservations",
             "Variable: drinks, excursions, spa, casino, souvenirs, laundry",
             "Hidden friction: paid photo packages, late-night room service fees, lost-port taxis"
           ]
@@ -194,7 +194,7 @@ const GUIDE_BY_SLUG = {
         },
         {
           "type": "p",
-          "text": "Model gratuities, one specialty dinner, moderate drinks, two paid excursions, and Wi‑Fi for one person. If that stack approaches the price gap to a more inclusive fare, compare both totals side by side before you buy add-ons."
+          "text": "Model one specialty dinner, moderate drinks, two paid excursions, and Wi‑Fi for one person. If that stack approaches the price gap to a more inclusive fare, compare both totals side by side before you buy add-ons."
         },
         {
           "type": "h3",
@@ -238,7 +238,7 @@ const GUIDE_BY_SLUG = {
       "blocks": [
         {
           "type": "p",
-          "text": "The cabin folio starts empty on embarkation and only records what you charge to the ship: drinks, specialty dining, Wi-Fi, spa, photos, casino, and auto-gratuities. Flights, hotels, insurance, prepaid packages, and many excursions never appear there. If you only watch the folio, you will feel disciplined about a small onboard number while the money that locked weeks earlier stays invisible."
+          "text": "The cabin folio starts empty on embarkation and only records what you charge to the ship: drinks, specialty dining, Wi-Fi, spa, photos, and casino. Flights, hotels, insurance, prepaid packages, and many excursions never appear there. If you only watch the folio, you will feel disciplined about a small onboard number while the money that locked weeks earlier stays invisible."
         },
         {
           "type": "p",
@@ -261,12 +261,12 @@ const GUIDE_BY_SLUG = {
       "blocks": [
         {
           "type": "p",
-          "text": "A cruise drink package is worth it when your expected prepaid package cost is lower than buying the same drinks individually—including gratuities and the “I might as well” effect that appears after day two."
+          "text": "A cruise drink package is worth it when your expected prepaid package cost is lower than buying the same drinks individually—including the “I might as well” effect that appears after day two."
         },
         {
           "type": "ol",
           "items": [
-            "Note package price per person, per day (and whether gratuities are included)",
+            "Note package price per person, per day",
             "List your realistic drinks: coffee specialty, soda, beer, cocktails, mocktails, bottled water",
             "Multiply by sailing nights (not calendar days ashore)",
             "Add a small buffer for celebration nights and sea-day boredom",
@@ -327,12 +327,12 @@ const GUIDE_BY_SLUG = {
       ]
     },
     {
-      "id": "gratuities",
-      "heading": "Gratuities and cabin rules",
+      "id": "cabin-rules",
+      "heading": "Cabin rules",
       "blocks": [
         {
           "type": "p",
-          "text": "Some lines auto-add gratuities to package prices; others do not. Some require every adult in a cabin to buy the same package. Those two rules change break-even more than a single cocktail price on the bar menu."
+          "text": "Some lines require every adult in a cabin to buy the same package. That rule changes break-even more than a single cocktail price on the bar menu."
         },
         {
           "type": "callout",
@@ -346,7 +346,7 @@ const GUIDE_BY_SLUG = {
       "blocks": [
         {
           "type": "p",
-          "text": "Do not reuse a dollar figure from a forum. Use the prices on your booking. Write package price per person per day, note whether gratuity is inside that price, and multiply by the number of nights the package actually covers. Then price your real order à la carte: specialty coffee, the soda you drink at lunch, beer or cocktails in the evening, and bottled water after a hot port. Ashore drinks usually do not count toward a ship package."
+          "text": "Do not reuse a dollar figure from a forum. Use the prices on your booking. Write package price per person per day and multiply by the number of nights the package actually covers. Then price your real order à la carte: specialty coffee, the soda you drink at lunch, beer or cocktails in the evening, and bottled water after a hot port. Ashore drinks usually do not count toward a ship package."
         },
         {
           "type": "p",

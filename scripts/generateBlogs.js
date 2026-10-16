@@ -62,6 +62,7 @@ const {
   getSiteFooterHtml,
   getSiteShellCssLinkHtml,
 } = require('./lib/siteShell');
+const { applyEditorialCopyToHtml, sanitizeArticleCopy } = require('./lib/editorialCopy');
 const {
   buildSeoShipRecords,
   buildSeoPortRecords,
@@ -1175,21 +1176,21 @@ async function getArticleBodyHtml(article) {
   if (overrideSlug) {
     const overridePath = path.join(__dirname, '..', 'data', 'blog-body-overrides', `${overrideSlug}.html`);
     if (fs.existsSync(overridePath)) {
-      return fs.readFileSync(overridePath, 'utf8').trim();
+      return applyEditorialCopyToHtml(fs.readFileSync(overridePath, 'utf8').trim());
     }
   }
   let html = await structuredContentToHtml(article);
   if (html) {
     html = await replaceBase64ImagesInHtml(html, article.id || 'unknown');
-    return html;
+    return applyEditorialCopyToHtml(html);
   }
 
   const content = article.content;
   if (content && typeof content === 'string' && content.trim()) {
     if (content.trim().startsWith('<')) {
-      return await replaceBase64ImagesInHtml(content, article.id || 'unknown');
+      return applyEditorialCopyToHtml(await replaceBase64ImagesInHtml(content, article.id || 'unknown'));
     }
-    return rewriteCdnImgSrcAttributes(formatContentToHtml(content));
+    return applyEditorialCopyToHtml(rewriteCdnImgSrcAttributes(formatContentToHtml(content)));
   }
   return '<p>No content available.</p>';
 }
@@ -1410,6 +1411,8 @@ const PUBLIC_STATIC_SITEMAP_PAGES = [
   { loc: '/cookies.html', file: 'cookies.html' },
   { loc: '/gdpr.html', file: 'gdpr.html' },
   { loc: '/press/', file: 'press/index.html' },
+  { loc: '/checklist/', file: 'checklist/index.html' },
+  { loc: '/checklist/port/', file: 'checklist/port/index.html' },
 ];
 
 function publicStaticSitemapUrls(repoRoot) {
@@ -3418,6 +3421,7 @@ async function main() {
   if (skipBlogRewrite) {
     if (mode.blogs) rewritePublicationMetadataOnDisk(repoRoot);
   } else {
+  for (const article of articles) sanitizeArticleCopy(article);
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
     const full = await fetchFullArticle(article.id);
@@ -3431,6 +3435,7 @@ async function main() {
       if ((!article.heroImageUrl || isGradientSvgDataUrl(article.heroImageUrl)) && full.heroImageUrl && !isGradientSvgDataUrl(full.heroImageUrl))
         article.heroImageUrl = full.heroImageUrl;
     }
+    sanitizeArticleCopy(article);
     let bodyHtml = await getArticleBodyHtml(article);
     const canonicalTarget = isBlogCanonicalRedirectSlug(article.slug, repoRoot)
       ? loadBlogCanonicalMap(repoRoot)[article.slug] || String(article.slug).replace(/-1$/, '')

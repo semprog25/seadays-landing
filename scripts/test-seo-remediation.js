@@ -60,8 +60,9 @@ test('ship HTML uses guide titles and WebPage schema, never Product-by-default',
     indexStyles: '',
     runtimeGuardScript: '',
   });
-  assert.match(html, /<title>AIDACosma Cruise Ship Guide \| AIDA Cruises<\/title>/);
-  assert.match(html, /<h1>AIDACosma Cruise Ship Guide<\/h1>/);
+  assert.match(html, /<title>AIDAcosma Cruise Ship Guide \| AIDA Cruises<\/title>/);
+  assert.match(html, /<h1>AIDAcosma Cruise Ship Guide<\/h1>/);
+  assert.doesNotMatch(html, /AIDACosma/);
   assert.doesNotMatch(html, /aggregateRating/);
   assert.doesNotMatch(html, /"@type":"Product"/);
   assert.match(html, /"@type":"WebPage"/);

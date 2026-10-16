@@ -88,10 +88,50 @@ function findIntroInsertIndex(body) {
  * @param {string} html
  * @param {string} slug
  */
+/**
+ * Locate article-body when an end CTA sits between the body and the next section.
+ * @param {string} html
+ * @returns {{ index: number, 1: string, 2: string, 3: string, 0: string } | null}
+ */
+function matchArticleBody(html) {
+  const regexMatch = html.match(ARTICLE_BODY_RE);
+  if (regexMatch && regexMatch.index != null) return regexMatch;
+  const open = '<div class="article-body">';
+  const start = html.indexOf(open);
+  if (start < 0) return null;
+  let depth = 0;
+  let i = start;
+  while (i < html.length) {
+    if (html.startsWith('<div', i)) {
+      depth += 1;
+      i += 4;
+      continue;
+    }
+    if (html.startsWith('</div>', i)) {
+      depth -= 1;
+      const closeAt = i + 6;
+      i = closeAt;
+      if (depth === 0) {
+        const full = html.slice(start, closeAt);
+        return {
+          0: full,
+          1: open,
+          2: html.slice(start + open.length, closeAt - 6),
+          3: '</div>',
+          index: start,
+        };
+      }
+      continue;
+    }
+    i += 1;
+  }
+  return null;
+}
+
 function applyBlogStoreCtasToHtml(html, slug) {
   if (!html || typeof html !== 'string' || !slug) return html;
   if (!html.includes('<div class="article-body">')) return html;
-  const match = html.match(ARTICLE_BODY_RE);
+  const match = matchArticleBody(html);
   if (!match || match.index == null) return html;
 
   let body = match[2];

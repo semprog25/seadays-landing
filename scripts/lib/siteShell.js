@@ -81,6 +81,8 @@ function getSiteFooterHtml() {
                             <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="180" height="40" decoding="async">
                         </a>
                         <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                        <p class="footer-brand-desc">Some illustrations and characters, including Saili, are created with AI tools.</p>
+                        <p class="footer-brand-desc">SeaDays is independent and not affiliated with or endorsed by any cruise line. Ship and cruise line names are trademarks of their owners.</p>
                         <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
                         <ul class="footer-social">
                             <li><a href="https://www.instagram.com/seadaysapp/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -144,6 +146,8 @@ function getSiteFooterHtml() {
                         <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
                     </a>
                     <p class="footer-brand-desc">SeaDays is a cruise planning and community app for smarter voyages.</p>
+                    <p class="footer-brand-desc">Some illustrations and characters, including Saili, are created with AI tools.</p>
+                    <p class="footer-brand-desc">SeaDays is independent and not affiliated with or endorsed by any cruise line. Ship and cruise line names are trademarks of their owners.</p>
                     <p class="footer-brand-meta">made with love from the port city of <span class="footer-hamburg">Hamburg <span aria-hidden="true">⚓</span></span></p>
                 </div>
 

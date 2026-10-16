@@ -259,6 +259,13 @@ function indefiniteArticleFor(text) {
   return /^[aeiou]/.test(first) ? 'an' : 'a';
 }
 
+function finishPublicCopyHtml(html) {
+  return String(html || '')
+    .replace(/\bAIDACosma\b/g, 'AIDAcosma')
+    .replace(/\ba AIDA\b/g, 'an AIDA')
+    .replace(/\ba Oceania\b/g, 'an Oceania');
+}
+
 function firstSentence(text, fallback) {
   const sentence = splitSentences(text)[0];
   return sentence || fallback;
@@ -1156,7 +1163,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
     : '';
   const robots = isShipDetailIndexable(ship) ? 'index, follow' : 'noindex, follow';
 
-  return `<!DOCTYPE html>
+  return finishPublicCopyHtml(`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1223,7 +1230,7 @@ ${getFaviconHeadHtml()}
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   ${opts.runtimeGuardScript}
 </body>
-</html>`;
+</html>`);
 }
 
 function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opts) {
@@ -1357,7 +1364,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     : '';
   const robots = isPortDetailIndexable(port, guide) ? 'index, follow' : 'noindex, follow';
 
-  return `<!DOCTYPE html>
+  return finishPublicCopyHtml(`<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1421,7 +1428,7 @@ ${getFaviconHeadHtml()}
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
   ${opts.runtimeGuardScript}
 </body>
-</html>`;
+</html>`);
 }
 
 module.exports = {
