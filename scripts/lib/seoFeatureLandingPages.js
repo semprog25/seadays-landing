@@ -19,6 +19,7 @@ const FEATURE_PAGES_RAW = [
       'Find cruisers on your exact ship and sail date, introduce yourself, coordinate excursions, and meet fellow guests with the SeaDays cruise roll call app.',
     readingLead: [
       'A cruise roll call is a group for one ship on one sail date. It is where you introduce yourself, ask a question someone on that week can answer, and agree on a meetup before the pier gets loud. It is not the cruise line’s official channel, and it is not a place to post cabin numbers or booking codes.',
+      'Roll calls and Crew Chat are free for everyone on SeaDays.',
       'The notes below are the parts that make a roll call useful: what to say first, what to settle before money changes hands, and how to keep a shared excursion from missing all-aboard. You can follow them in any group chat. SeaDays is one place that keeps the thread attached to the sailing.',
     ],
     primaryKeyword: 'cruise roll call app',
@@ -96,7 +97,7 @@ const FEATURE_PAGES_RAW = [
     title: 'Cruise Budget Planner',
     h1: 'Track Your Cruise Budget Before and During the Voyage',
     subtitle:
-      'See the real cost of your cruise—fare, excursions, drinks, gratuities, and onboard spending—in one cruise budget planner made for vacationers.',
+      'See the real cost of your cruise—fare, excursions, drinks, and onboard spending—in one cruise budget planner made for vacationers.',
     readingLead: [
       'The fare on the booking page is not the cost of the trip. Gratuities, Wi-Fi, drinks, excursions, transfers, and port-day cash sit in different places, and the cabin folio only shows the charges you put on the ship after you board.',
       'The method below separates those stacks so a calm folio does not hide a prepaid package or a single expensive port. Prices vary by line and sailing — use your own booking, not a sample total from someone else’s week.',
@@ -114,7 +115,7 @@ const FEATURE_PAGES_RAW = [
     faq: [
       {
         q: 'What cruise costs should I budget for?',
-        a: 'Include fare, taxes, gratuities, excursions, specialty dining, drinks, Wi‑Fi, spa, and souvenirs. SeaDays helps you capture categories most spreadsheets miss.',
+        a: 'Include fare, taxes, excursions, specialty dining, drinks, Wi‑Fi, spa, and souvenirs. SeaDays helps you capture categories most spreadsheets miss.',
       },
       {
         q: 'Can SeaDays help with drink package math?',
@@ -138,7 +139,7 @@ const FEATURE_PAGES_RAW = [
     subtitle:
       'Run real break-even math for your cruise line, sailing length, and drinking habits—so you skip the package when pay-as-you-go wins.',
     readingLead: [
-      'A drink package is worth it only when the prepaid total is lower than what you will actually order à la carte, including gratuities and the drinks the package does not cover. That answer changes with the line, the number of sea days, and whether every adult in the cabin must buy in.',
+      'A drink package is worth it only when the prepaid total is lower than what you will actually order à la carte, including the drinks the package does not cover. That answer changes with the line, the number of sea days, and whether every adult in the cabin must buy in.',
       'Work the steps on this page with the prices on your booking. Do not copy a break-even number from a forum. The calculator in SeaDays is a place to store that personal math; the worksheet stands without it.',
     ],
     primaryKeyword: 'cruise drink calculator',
@@ -434,6 +435,7 @@ ${getFaviconHeadHtml()}
     <section class="cta-section" aria-label="SeaDays app">
       <h2>Optional: keep this in SeaDays</h2>
       <p>The guide above stands on its own. When you want the itinerary, notes, and roll call in one place, open the app.</p>
+      <p>Free to use, with optional paid upgrades.</p>
       <p><a class="cta-text-link" href="${downloadPagePath({ source: 'seadays_web', medium: 'feature', campaign: 'feature_landing' })}">${escapeHtml(page.ctaLabel)}</a></p>
     </section>
   </div>

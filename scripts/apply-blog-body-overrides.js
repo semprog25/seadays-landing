@@ -8,6 +8,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { applyBlogStoreCtasToHtml } = require('./lib/blogStoreCta');
 
 const ROOT = path.join(__dirname, '..');
 const OVERRIDE_DIR = path.join(ROOT, 'data', 'blog-body-overrides');
@@ -34,6 +35,37 @@ function escapeAttr(s) {
   return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+/**
+ * Replace the article-body element, including nested divs such as store CTAs.
+ * @param {string} html
+ * @param {string} body
+ * @returns {string}
+ */
+function replaceArticleBody(html, body) {
+  const open = '<div class="article-body">';
+  const start = html.indexOf(open);
+  if (start < 0) return '';
+  let depth = 0;
+  let i = start;
+  while (i < html.length) {
+    if (html.startsWith('<div', i)) {
+      depth += 1;
+      i += 4;
+      continue;
+    }
+    if (html.startsWith('</div>', i)) {
+      depth -= 1;
+      i += 6;
+      if (depth === 0) {
+        return `${html.slice(0, start)}${open}${body}</div>${html.slice(i)}`;
+      }
+      continue;
+    }
+    i += 1;
+  }
+  return '';
+}
+
 function applyOverride(slug, meta) {
   const body = fs.readFileSync(path.join(OVERRIDE_DIR, `${slug}.html`), 'utf8').trim();
   const indexPath = path.join(ROOT, 'blog', slug, 'index.html');
@@ -41,13 +73,11 @@ function applyOverride(slug, meta) {
     throw new Error(`Missing ${indexPath}`);
   }
   let html = fs.readFileSync(indexPath, 'utf8');
-  if (!/<div class="article-body">[\s\S]*?<\/div>\s*<section class="same-topic-section"/i.test(html)) {
+  const next = replaceArticleBody(html, body);
+  if (!next) {
     throw new Error(`Could not find article-body block in ${slug}`);
   }
-  html = html.replace(
-    /<div class="article-body">[\s\S]*?<\/div>\s*(<section class="same-topic-section")/i,
-    `<div class="article-body">${body}</div>\n        $1`
-  );
+  html = next;
   const plain = stripHtmlToPlainText(body, 5000);
   const desc = meta && meta.description ? String(meta.description) : '';
   if (desc) {
@@ -77,6 +107,7 @@ function applyOverride(slug, meta) {
     /("articleBody":")((?:\\.|[^"\\])*)(")/,
     (_m, pre, _old, post) => pre + JSON.stringify(plain).slice(1, -1) + post
   );
+  html = applyBlogStoreCtasToHtml(html, slug);
   fs.writeFileSync(indexPath, html, 'utf8');
   return { slug, words: plain.split(/\s+/).filter(Boolean).length };
 }

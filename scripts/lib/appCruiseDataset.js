@@ -5,7 +5,7 @@
 export const allShips = [
   {
     "slug": "aidacosma",
-    "name": "AIDACosma",
+    "name": "AIDAcosma",
     "cruiseLine": "AIDA Cruises",
     "appId": "cosma",
     "lineId": "aida",

@@ -391,7 +391,7 @@ function main() {
     } else stats.skipped += 1;
   }
 
-  const dirs = ['blog', 'ships', 'ports', 'download', 'meet-saili'].map((d) => path.join(ROOT, d));
+  const dirs = ['blog', 'ships', 'ports', 'download', 'meet-saili', 'checklist'].map((d) => path.join(ROOT, d));
   for (const dir of dirs) {
     for (const file of walkHtmlFiles(dir)) {
       if (isFeatureLandingPage(file)) continue;
