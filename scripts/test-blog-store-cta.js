@@ -81,8 +81,20 @@ assert.strictEqual((withCta.match(/example\.jpg/g) || []).length, 1);
 const cta = buildBlogStoreCtaHtml(slug, 'intro');
 assert.ok(!cta.includes('seadays-ad-slot'));
 assert.ok(!cta.includes('adsbygoogle'));
+assert.ok(cta.includes('/assets/img/badges/app-store.png'));
+assert.ok(cta.includes('/assets/img/badges/google-play.png'));
+assert.strictEqual([...cta.matchAll(/<img\b[^>]*src="([^"]*\.svg[^"]*)"[^>]*>/gi)].length, 0);
+const endCta = buildBlogStoreCtaHtml(slug, 'end');
+assert.ok(endCta.includes('utm_content=end'));
+assert.ok(endCta.includes('/assets/img/badges/app-store.png'));
+assert.strictEqual([...endCta.matchAll(/<img\b[^>]*src="([^"]*\.svg[^"]*)"[^>]*>/gi)].length, 0);
 
 const root = path.join(__dirname, '..');
+const articleTemplate = fs.readFileSync(path.join(root, 'blog-article.html'), 'utf8');
+assert.ok(articleTemplate.includes('/assets/img/badges/app-store.png'));
+assert.ok(articleTemplate.includes('/assets/img/badges/google-play.png'));
+assert.ok(!articleTemplate.includes('/assets/img/badges/app-store.svg'));
+assert.ok(!articleTemplate.includes('/assets/img/badges/google-play.svg'));
 const samplePath = path.join(root, 'blog', slug, 'index.html');
 if (fs.existsSync(samplePath)) {
   const live = fs.readFileSync(samplePath, 'utf8');
