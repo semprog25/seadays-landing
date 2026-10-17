@@ -154,7 +154,7 @@ function getSiteFooterHtml() {
 
                 <div class="footer-bottom">
                     <p>© 2026 SeaDays. All rights reserved.</p>
-                    <p class="footer-developer">Developed by SEMPROG</p>
+                    <p class="footer-developer">Developed and built by <a href="https://semprog.de" target="_blank" rel="noopener">SEMPROG</a></p>
                 </div>
             </div>
         </footer>
@@ -419,6 +419,17 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.footer-developer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-developer a:hover,
+.footer-developer a:focus {
+  color: inherit;
 }
 
 .footer-mobile-brand { display: none; }

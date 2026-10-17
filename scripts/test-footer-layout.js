@@ -151,7 +151,8 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
     '/impressum.html',
     'Impressum',
     '© 2026 SeaDays',
-    'Developed by SEMPROG',
+    'Developed and built by',
+    'https://semprog.de',
     'https://www.instagram.com/seadaysapp/',
     'https://www.tiktok.com/@seadaysapp',
     'https://x.com/SeadaysApp',
@@ -164,8 +165,18 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
   );
   assert.doesNotMatch(footer, /left:\s*-9999px/);
   assert.doesNotMatch(footer, /SeaDays Cruise Planner/);
-  assert.match(footer, /<p class="footer-developer">Developed by SEMPROG<\/p>/);
-  assert.doesNotMatch(footer, /<a[^>]*>\s*Developed by SEMPROG\s*<\/a>/);
+  assert.match(
+    footer,
+    /<p class="footer-developer">Developed and built by <a href="https:\/\/semprog\.de" target="_blank" rel="noopener">SEMPROG<\/a><\/p>/
+  );
+  assert.match(
+    footer,
+    /<div class="footer-bottom">\s*<p>© 2026 SeaDays\. All rights reserved\.<\/p>\s*<p class="footer-developer">/
+  );
+  assert.doesNotMatch(footer, /<a[^>]*>\s*Developed and built by SEMPROG\s*<\/a>/);
+  const css = getSiteShellCss();
+  assert.match(css, /\.footer-developer \{\s*margin: 0;\s*color: rgba\(255, 255, 255, 0\.55\);/);
+  assert.match(css, /\.footer-developer a \{\s*color: inherit;/);
 });
 
 test('homepage Organization JSON-LD sameAs includes Instagram, TikTok, and X', () => {
@@ -230,15 +241,16 @@ test('every public page footer links to Impressum', () => {
   assert.deepStrictEqual(missing, []);
 });
 
-test('every public page footer credits SEMPROG in plain text', () => {
+test('every public page footer credits SEMPROG with a link on the name only', () => {
+  const credit =
+    /<p class="footer-developer">Developed and built by <a href="https:\/\/semprog\.de" target="_blank" rel="noopener">SEMPROG<\/a><\/p>/;
   const missing = [];
   for (const file of publicFiles) {
     const rel = path.relative(ROOT, file);
     const html = fs.readFileSync(file, 'utf8');
     const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i);
-    if (!footer || !/<p class="footer-developer">Developed by SEMPROG<\/p>/.test(footer[0])) {
-      missing.push(rel);
-    }
+    if (!footer || !credit.test(footer[0])) missing.push(rel);
+    else if (!/<p>© 2026 SeaDays\. All rights reserved\.<\/p>/.test(footer[0])) missing.push(rel + ' copyright');
   }
   assert.deepStrictEqual(missing, []);
 });
