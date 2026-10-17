@@ -66,6 +66,9 @@ GDPR & LEGAL
 - The Privacy Policy and Terms & Conditions have been updated with your contact
   details (privacy@seadays.app, legal@seadays.app).
 - Ensure you monitor these email addresses for data requests.
+- The street address on impressum.html, privacy.html, and gdpr.html stays
+  Lincolnstraße 27, 20359 Hamburg until Sharan has a virtual office address.
+  See docs/LEGAL_TODO.md for every file and line that must be swapped.
 
 --------------------------------------------------------------------------------
 IMAGES

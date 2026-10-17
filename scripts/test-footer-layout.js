@@ -68,7 +68,7 @@ function classify(rel) {
   if (rel.startsWith('ships/')) return 'ship-guide';
   if (rel === 'ports/index.html') return 'ports-index';
   if (rel.startsWith('ports/')) return 'port-guide';
-  if (/^(about|help|faq|contact|privacy|terms|cookies|gdpr|security|community)\.html$/.test(rel)) {
+  if (/^(about|help|faq|contact|privacy|terms|cookies|gdpr|impressum|security|community)\.html$/.test(rel)) {
     return 'legal-company';
   }
   if (rel === 'co2/index.html') return 'sustainability';
@@ -119,7 +119,7 @@ test('shared footer owns .container width so download/legal pages cannot leak pa
 });
 
 test('legal pages do not publish placeholder Inc. or EU address copy', () => {
-  const files = ['gdpr.html', 'privacy.html', 'terms.html', 'cookies.html', 'security.html'];
+  const files = ['gdpr.html', 'privacy.html', 'terms.html', 'cookies.html', 'security.html', 'impressum.html'];
   const leaks = [];
   for (const rel of files) {
     const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -130,6 +130,31 @@ test('legal pages do not publish placeholder Inc. or EU address copy', () => {
   assert.match(gdpr, /class="content-layer"/);
   assert.match(gdpr, /class="container legal-article"/);
   assert.doesNotMatch(gdpr, /body\s*\{[^}]*padding:\s*40px 20px/);
+});
+
+test('impressum Kontakt is email plus the existing contact form, with no phone number', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'impressum.html'), 'utf8');
+  assert.match(
+    html,
+    /<h2>Kontakt<\/h2>\s*<p>E-Mail: <a href="mailto:info@semprog\.de">info@semprog\.de<\/a><\/p>\s*<p><a href="https:\/\/seadays\.app\/contact\.html">Kontaktformular<\/a><\/p>/
+  );
+  assert.ok(fs.existsSync(path.join(ROOT, 'contact.html')));
+  const hits = [];
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'test-footer-layout.js') continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!/\.(html|js|json|xml|txt|md)$/.test(entry.name)) continue;
+      const text = fs.readFileSync(full, 'utf8');
+      if (/55370971|tel:\+4917655370971|Telefon:/i.test(text)) hits.push(path.relative(ROOT, full));
+    }
+  }
+  walk(ROOT);
+  assert.deepStrictEqual(hits, []);
 });
 
 test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', () => {
@@ -148,7 +173,11 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
     '/privacy.html',
     '/terms.html',
     '/help.html',
+    '/impressum.html',
+    'Impressum',
     '© 2026 SeaDays',
+    'Developed and built by',
+    'https://semprog.de',
     'https://www.instagram.com/seadaysapp/',
     'https://www.tiktok.com/@seadaysapp',
     'https://x.com/SeadaysApp',
@@ -161,6 +190,18 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
   );
   assert.doesNotMatch(footer, /left:\s*-9999px/);
   assert.doesNotMatch(footer, /SeaDays Cruise Planner/);
+  assert.match(
+    footer,
+    /<p class="footer-developer">Developed and built by <a href="https:\/\/semprog\.de" target="_blank" rel="noopener">SEMPROG<\/a><\/p>/
+  );
+  assert.match(
+    footer,
+    /<div class="footer-bottom">\s*<p>© 2026 SeaDays\. All rights reserved\.<\/p>\s*<p class="footer-developer">/
+  );
+  assert.doesNotMatch(footer, /<a[^>]*>\s*Developed and built by SEMPROG\s*<\/a>/);
+  const css = getSiteShellCss();
+  assert.match(css, /\.footer-developer \{\s*margin: 0;\s*color: rgba\(255, 255, 255, 0\.55\);/);
+  assert.match(css, /\.footer-developer a \{\s*color: inherit;/);
 });
 
 test('homepage Organization JSON-LD sameAs includes Instagram, TikTok, and X', () => {
@@ -210,6 +251,33 @@ for (const file of publicFiles) {
 test('public content pages include exactly one footer', () => {
   assert.deepStrictEqual(missingFooter, []);
   assert.deepStrictEqual(duplicateFooter, []);
+});
+
+test('every public page footer links to Impressum', () => {
+  const missing = [];
+  for (const file of publicFiles) {
+    const rel = path.relative(ROOT, file);
+    const html = fs.readFileSync(file, 'utf8');
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i);
+    if (!footer || !/href="\/impressum\.html"[^>]*>Impressum<\/a>/.test(footer[0])) {
+      missing.push(rel);
+    }
+  }
+  assert.deepStrictEqual(missing, []);
+});
+
+test('every public page footer credits SEMPROG with a link on the name only', () => {
+  const credit =
+    /<p class="footer-developer">Developed and built by <a href="https:\/\/semprog\.de" target="_blank" rel="noopener">SEMPROG<\/a><\/p>/;
+  const missing = [];
+  for (const file of publicFiles) {
+    const rel = path.relative(ROOT, file);
+    const html = fs.readFileSync(file, 'utf8');
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i);
+    if (!footer || !credit.test(footer[0])) missing.push(rel);
+    else if (!/<p>© 2026 SeaDays\. All rights reserved\.<\/p>/.test(footer[0])) missing.push(rel + ' copyright');
+  }
+  assert.deepStrictEqual(missing, []);
 });
 
 test('homepage footer is a sibling of Press, not a nested fullpage snap section', () => {

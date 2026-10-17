@@ -136,6 +136,7 @@ function getSiteFooterHtml() {
                                 <li><a href="/terms.html">Terms</a></li>
                                 <li><a href="/cookies.html">Cookie Policy</a></li>
                                 <li><a href="/gdpr.html">GDPR</a></li>
+                                <li><a href="/impressum.html">Impressum</a></li>
                             </ul>
                         </div>
                     </div>
@@ -153,6 +154,7 @@ function getSiteFooterHtml() {
 
                 <div class="footer-bottom">
                     <p>© 2026 SeaDays. All rights reserved.</p>
+                    <p class="footer-developer">Developed and built by <a href="https://semprog.de" target="_blank" rel="noopener">SEMPROG</a></p>
                 </div>
             </div>
         </footer>
@@ -403,10 +405,31 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
   color: rgba(255, 255, 255, 0.32);
   font-size: 14px;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   text-align: left;
+}
+
+.footer-developer {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.footer-developer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-developer a:hover,
+.footer-developer a:focus {
+  color: inherit;
 }
 
 .footer-mobile-brand { display: none; }
@@ -487,6 +510,7 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
   }
   .footer-hamburg { display: inline; }
   .footer-bottom {
+    align-items: center;
     justify-content: center;
     text-align: center;
     margin-top: 24px;
