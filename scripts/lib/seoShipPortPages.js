@@ -29,6 +29,13 @@ const {
 } = require('./portGuideSections');
 const { resolvePortAffiliateCta } = require('./viatorAffiliate');
 const {
+  stripWikiCitationMarkers,
+  stripMarkersOutsideScripts,
+  loadWikipediaAttribution,
+  wikipediaAttributionHtml,
+  rewriteCdnThumbnailUrl,
+} = require('./portCopyHygiene');
+const {
   pickRelatedShips,
   pickRelatedPorts,
   pickPortsForShipPage,
@@ -760,14 +767,12 @@ function extractArticleCardImageFromHtml(html) {
 
 function pickArticleImage(article) {
   if (!article) return '';
-  if (isUsableArticleImage(article.thumbnailUrl) && !isGenericMarketingImage(article.thumbnailUrl)) {
-    return article.thumbnailUrl;
-  }
-  if (isUsableArticleImage(article.heroImageUrl) && !isGenericMarketingImage(article.heroImageUrl)) {
-    return article.heroImageUrl;
-  }
-  if (isUsableArticleImage(article.ogImage) && !isGenericMarketingImage(article.ogImage)) {
-    return article.ogImage;
+  const candidates = [article.thumbnailUrl, article.heroImageUrl, article.ogImage];
+  for (const candidate of candidates) {
+    const url = rewriteCdnThumbnailUrl(candidate);
+    if (isUsableArticleImage(url) && !isGenericMarketingImage(url) && !/cdn\.seadays\.app/i.test(url)) {
+      return url;
+    }
   }
   return '';
 }
@@ -1264,11 +1269,11 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const ogImage = port.image_url || opts.defaultImage;
   const things = buildPortThingsBullets(port);
   const richThingsHtml = hasRichThingsToDo(guide) ? buildThingsToDoSection(guide) : '';
-  const thingsBlock = richThingsHtml
+  const thingsBlock = stripMarkersOutsideScripts(richThingsHtml
     ? richThingsHtml
     : `<h2>Things to do</h2>
-      <article class="seo-body">${whatParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
-      <ul>${things}</ul>`;
+      <article class="seo-body">${whatParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}</article>
+      <ul>${things}</ul>`);
   const bestTimeFromGuide =
     guide?.climate?.bestMonths && guide.climate.bestMonths.length
       ? guide.climate.bestMonths.join(', ')
@@ -1305,16 +1310,16 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a> <span style="color:rgba(255,255,255,0.45)">(${escapeHtml(s.cruise_line)})</span></li>`)
     .join('');
   const blogCards = buildArticleCards(blogPick, 'Port guide');
-  const earlyGuide = buildPortGuideEarlySectionsHtml({
+  const earlyGuide = stripMarkersOutsideScripts(buildPortGuideEarlySectionsHtml({
     port,
     guide,
     terminals,
     affiliate,
-  });
-  const lateGuide = buildPortGuideLateSectionsHtml({
+  }));
+  const lateGuide = stripMarkersOutsideScripts(buildPortGuideLateSectionsHtml({
     port,
     guide,
-  });
+  }));
 
   const bodyForLd = [
     guide?.portInfo?.description || '',
@@ -1405,16 +1410,17 @@ ${getFaviconHeadHtml()}
       ${earlyGuide}
       <h2>Overview</h2>
       <article class="seo-body">
-        ${overviewParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
+        ${overviewParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}
+        ${wikipediaAttributionHtml(loadWikipediaAttribution()[port.slug])}
       </article>
       ${thingsBlock}
       ${lateGuide}
       <h2>Cruise relevance</h2>
-      <article class="seo-body">${cruiseParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
+      <article class="seo-body">${cruiseParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}</article>
       <h2>Best time to visit</h2>
-      <p class="seo-body">${escapeHtml(bestTime)}</p>
+      <p class="seo-body">${escapeHtml(stripWikiCitationMarkers(bestTime))}</p>
       <h2>Tips for travelers</h2>
-      <article class="seo-body">${tipsParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
+      <article class="seo-body">${tipsParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}</article>
       <h2>Related ports</h2>
       <ul class="seo-cross-list">${relatedPortLinks || '<li><a href="/ports/">Browse ports</a></li>'}</ul>
       <h2>Ships to explore</h2>

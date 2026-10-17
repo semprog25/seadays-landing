@@ -4,9 +4,7 @@ The public street address stays **Lincolnstraße 27, 20359 Hamburg** until Shara
 
 When that address exists, replace Lincolnstraße 27, 20359 Hamburg on `impressum.html`, `privacy.html`, and `gdpr.html`.
 
-## Where the address appears in this branch
-
-`privacy.html` and `gdpr.html` do not print this street address yet. The lines below are the only occurrences.
+## Where the address appears
 
 | File | Line | Text |
 | --- | --- | --- |
@@ -15,5 +13,8 @@ When that address exists, replace Lincolnstraße 27, 20359 Hamburg on `impressum
 | `impressum.html` | 47 | `twitter:description`, same sentence |
 | `impressum.html` | 320 | `Lincolnstraße 27` |
 | `impressum.html` | 321 | `20359 Hamburg` |
+| `privacy.html` | 453 | The controller is Sharan Gangadharan, Lincolnstraße 27, 20359 Hamburg, Deutschland. |
+| `gdpr.html` | 426 | The controller is Sharan Gangadharan, Lincolnstraße 27, 20359 Hamburg, Deutschland. |
+| `scripts/test-audit2-fixes.js` | 70 | Test assertion of the controller sentence. Not a published page. |
 
-Update this list in the same change that adds or moves the address, including any test that asserts the controller sentence.
+Update this list in the same change that adds or moves the address.
