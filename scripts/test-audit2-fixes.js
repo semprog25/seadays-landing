@@ -113,6 +113,11 @@ test('CO2 tip, port weight, phone, and LED comparisons match the calculator', ()
   assert.match(html, /tons \/ 0\.0000036/);
   assert.match(html, /12\.4 g of CO₂ \(US EPA 2024\)/);
   assert.match(html, /9 W LED/);
+  assert.match(html, /0\.05 tonne port-call allowance/);
+  assert.match(html, /no published emissions study/);
+  assert.match(html, /https:\/\/www\.epa\.gov\/energy\/greenhouse-gas-equivalencies-calculator-calculations-and-references/);
+  assert.match(html, /https:\/\/www\.epa\.gov\/ghgemissions\/assumptions-and-references-household-carbon-footprint-calculator/);
+  assert.match(html, /3\.94 × 10⁻⁴ metric tons/);
   assert.match(html, /75,800 times/);
   assert.match(html, /261,000 hours/);
   assert.doesNotMatch(html, /port-heavy itinerary at a similar distance can produce a slightly lower/);

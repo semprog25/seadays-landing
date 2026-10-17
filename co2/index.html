@@ -870,6 +870,8 @@ window.__SEADAYS_GA_READY__ = true;
       padding: 0 20px 20px; color: var(--text-gray); font-size: 15px;
     }
     .methodology-body ul { margin: 12px 0 0 1.1em; display: grid; gap: 8px; }
+    .source-cite { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+    .source-cite a { color: var(--eco-green); }
 
     /* ─── CTA band ─── */
     .cta-band {
@@ -1219,6 +1221,7 @@ window.__SEADAYS_GA_READY__ = true;
           <div class="explain-card">
             <h3><span class="e-icon">⚓</span> Port calls</h3>
             <p>Each port stop involves manoeuvring, docking, and auxiliary power while in harbour. The estimate gives port calls a small weight; each port adds about 0.005 tonnes. More port calls add a little. They do not lower the estimate.</p>
+            <p class="source-cite">How 0.005 tonnes is derived: the estimator uses a 0.05 tonne port-call allowance and a 10% port weight, so each port adds 0.05 × 0.10 = 0.005 tonnes. The 0.05 tonne allowance and the 10% weight are SeaDays estimates. There is no published emissions study behind them.</p>
             <span class="impact-tag impact-low">Smallest share</span>
           </div>
         </div>
@@ -1230,7 +1233,7 @@ window.__SEADAYS_GA_READY__ = true;
               <ul>
                 <li><strong>Distance-based:</strong> ~0.4 kg CO₂e per passenger per nautical mile</li>
                 <li><strong>Duration-based:</strong> ~0.15 tonnes CO₂e per day of cruise operation</li>
-                <li><strong>Port-based:</strong> ~0.05 tonnes CO₂e per port call, weighted at 10%, so each port adds about 0.005 tonnes to the total</li>
+                <li><strong>Port-based:</strong> ~0.05 tonnes CO₂e per port call, weighted at 10%, so each port adds about 0.005 tonnes to the total. The 0.05 tonne allowance and the 10% weight are SeaDays estimates, not a published emissions factor.</li>
                 <li>Combined as: 60% distance + 30% duration + 10% port calls. Distance is weighted at 60%, so this is an approximation.</li>
                 <li>A minimum of 0.1 tonnes ensures short or incomplete itineraries still produce a usable figure</li>
                 <li>This is a per-passenger estimate; actual ship emissions are significantly larger</li>
@@ -1294,6 +1297,8 @@ window.__SEADAYS_GA_READY__ = true;
           <li>Leaving a 9 W LED bulb on for roughly <strong>261,000 hours</strong> (about 30 years; about 3.6 g of CO₂ per hour at 0.4 kg CO₂/kWh)</li>
           <li>The annual CO₂ absorption of approximately <strong>45 mature trees</strong></li>
         </ul>
+        <p class="source-cite">Smartphone: 12.4 g CO₂ per charge is the US EPA Greenhouse Gas Equivalencies Calculator figure, 1.24 × 10⁻⁵ metric tons CO₂ per smartphone charged. <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references">EPA calculations and references</a>.</p>
+        <p class="source-cite">LED: the 9 W wattage is the LED bulb in the US EPA household calculator (ENERGY STAR lighting example). One hour uses 0.009 kWh. The 0.4 kg CO₂/kWh grid factor rounds the EPA eGRID 2022 U.S. annual average for delivered electricity, 3.94 × 10⁻⁴ metric tons CO₂ per kWh. 0.009 × 0.4 = 3.6 g CO₂ per hour. <a href="https://www.epa.gov/ghgemissions/assumptions-and-references-household-carbon-footprint-calculator">EPA household calculator assumptions</a> · <a href="https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator-calculations-and-references">EPA electricity factor</a>.</p>
         <p>These comparisons illustrate scale. They are not a reduction in the cruise footprint, and they are not a claim that trees have been planted.</p>
       </section>
 
@@ -1697,14 +1702,14 @@ window.__SEADAYS_GA_READY__ = true;
           value: fmtLarge(phoneCharges),
           unit: 'phone charges',
           label: 'Smartphone charges',
-          detail: 'Charging your smartphone ' + phoneCharges.toLocaleString() + ' times produces the same amount of CO₂. Each charge is about 12.4 g of CO₂ (US EPA 2024). That\'s like charging your phone every day for about ' + Math.round(phoneCharges / 365) + ' years.'
+          detail: 'Charging your smartphone ' + phoneCharges.toLocaleString() + ' times produces the same amount of CO₂. Each charge is about 12.4 g of CO₂ (US EPA 2024), from the EPA Greenhouse Gas Equivalencies Calculator. That\'s like charging your phone every day for about ' + Math.round(phoneCharges / 365) + ' years.'
         },
         {
           icon: '💡',
           value: fmtLarge(lbHours),
           unit: 'LED hours',
           label: 'LED lightbulb energy',
-          detail: 'A 9 W LED bulb left on for ' + lbHours.toLocaleString() + ' hours (' + lbDays.toLocaleString() + ' days) would produce the same CO₂, about 3.6 g of CO₂ per hour at 0.4 kg CO₂/kWh.'
+          detail: 'A 9 W LED bulb left on for ' + lbHours.toLocaleString() + ' hours (' + lbDays.toLocaleString() + ' days) would produce the same CO₂, about 3.6 g of CO₂ per hour. The 9 W wattage is the EPA household calculator LED, and 0.4 kg CO₂/kWh rounds the EPA eGRID 2022 delivered-electricity average of 3.94 × 10⁻⁴ metric tons per kWh.'
         }
       ];
     }
