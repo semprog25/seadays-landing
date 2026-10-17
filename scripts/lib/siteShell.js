@@ -136,6 +136,7 @@ function getSiteFooterHtml() {
                                 <li><a href="/terms.html">Terms</a></li>
                                 <li><a href="/cookies.html">Cookie Policy</a></li>
                                 <li><a href="/gdpr.html">GDPR</a></li>
+                                <li><a href="/impressum.html">Impressum</a></li>
                             </ul>
                         </div>
                     </div>

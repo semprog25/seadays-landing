@@ -68,7 +68,7 @@ function classify(rel) {
   if (rel.startsWith('ships/')) return 'ship-guide';
   if (rel === 'ports/index.html') return 'ports-index';
   if (rel.startsWith('ports/')) return 'port-guide';
-  if (/^(about|help|faq|contact|privacy|terms|cookies|gdpr|security|community)\.html$/.test(rel)) {
+  if (/^(about|help|faq|contact|privacy|terms|cookies|gdpr|impressum|security|community)\.html$/.test(rel)) {
     return 'legal-company';
   }
   if (rel === 'co2/index.html') return 'sustainability';
@@ -119,7 +119,7 @@ test('shared footer owns .container width so download/legal pages cannot leak pa
 });
 
 test('legal pages do not publish placeholder Inc. or EU address copy', () => {
-  const files = ['gdpr.html', 'privacy.html', 'terms.html', 'cookies.html', 'security.html'];
+  const files = ['gdpr.html', 'privacy.html', 'terms.html', 'cookies.html', 'security.html', 'impressum.html'];
   const leaks = [];
   for (const rel of files) {
     const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -148,6 +148,8 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
     '/privacy.html',
     '/terms.html',
     '/help.html',
+    '/impressum.html',
+    'Impressum',
     '© 2026 SeaDays',
     'https://www.instagram.com/seadaysapp/',
     'https://www.tiktok.com/@seadaysapp',
@@ -210,6 +212,19 @@ for (const file of publicFiles) {
 test('public content pages include exactly one footer', () => {
   assert.deepStrictEqual(missingFooter, []);
   assert.deepStrictEqual(duplicateFooter, []);
+});
+
+test('every public page footer links to Impressum', () => {
+  const missing = [];
+  for (const file of publicFiles) {
+    const rel = path.relative(ROOT, file);
+    const html = fs.readFileSync(file, 'utf8');
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i);
+    if (!footer || !/href="\/impressum\.html"[^>]*>Impressum<\/a>/.test(footer[0])) {
+      missing.push(rel);
+    }
+  }
+  assert.deepStrictEqual(missing, []);
 });
 
 test('homepage footer is a sibling of Press, not a nested fullpage snap section', () => {

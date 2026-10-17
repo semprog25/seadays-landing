@@ -1410,6 +1410,7 @@ const PUBLIC_STATIC_SITEMAP_PAGES = [
   { loc: '/terms.html', file: 'terms.html' },
   { loc: '/cookies.html', file: 'cookies.html' },
   { loc: '/gdpr.html', file: 'gdpr.html' },
+  { loc: '/impressum.html', file: 'impressum.html' },
   { loc: '/press/', file: 'press/index.html' },
   { loc: '/checklist/', file: 'checklist/index.html' },
   { loc: '/checklist/port/', file: 'checklist/port/index.html' },
