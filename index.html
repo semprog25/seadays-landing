@@ -2896,10 +2896,19 @@ window.__SEADAYS_GA_READY__ = true;
             color: rgba(255, 255, 255, 0.32);
             font-size: 14px;
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 12px;
+            gap: 8px;
             text-align: left;
+        }
+        .footer-developer {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.5;
         }
         .footer-mobile-brand {
             display: none;
@@ -3209,7 +3218,7 @@ window.__SEADAYS_GA_READY__ = true;
                 align-items: center;
                 justify-content: center;
                 text-align: center;
-                gap: 0;
+                gap: 8px;
                 margin-top: 16px;
                 padding-top: 20px;
             }
@@ -4222,6 +4231,7 @@ window.__SEADAYS_GA_READY__ = true;
 
                 <div class="footer-bottom">
                     <p>© 2026 SeaDays. All rights reserved.</p>
+                    <p class="footer-developer">Developed by SEMPROG</p>
                 </div>
             </div>
         </footer>

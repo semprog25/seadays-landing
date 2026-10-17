@@ -151,6 +151,7 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
     '/impressum.html',
     'Impressum',
     '© 2026 SeaDays',
+    'Developed by SEMPROG',
     'https://www.instagram.com/seadaysapp/',
     'https://www.tiktok.com/@seadaysapp',
     'https://x.com/SeadaysApp',
@@ -163,6 +164,8 @@ test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', 
   );
   assert.doesNotMatch(footer, /left:\s*-9999px/);
   assert.doesNotMatch(footer, /SeaDays Cruise Planner/);
+  assert.match(footer, /<p class="footer-developer">Developed by SEMPROG<\/p>/);
+  assert.doesNotMatch(footer, /<a[^>]*>\s*Developed by SEMPROG\s*<\/a>/);
 });
 
 test('homepage Organization JSON-LD sameAs includes Instagram, TikTok, and X', () => {
@@ -221,6 +224,19 @@ test('every public page footer links to Impressum', () => {
     const html = fs.readFileSync(file, 'utf8');
     const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i);
     if (!footer || !/href="\/impressum\.html"[^>]*>Impressum<\/a>/.test(footer[0])) {
+      missing.push(rel);
+    }
+  }
+  assert.deepStrictEqual(missing, []);
+});
+
+test('every public page footer credits SEMPROG in plain text', () => {
+  const missing = [];
+  for (const file of publicFiles) {
+    const rel = path.relative(ROOT, file);
+    const html = fs.readFileSync(file, 'utf8');
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i);
+    if (!footer || !/<p class="footer-developer">Developed by SEMPROG<\/p>/.test(footer[0])) {
       missing.push(rel);
     }
   }
