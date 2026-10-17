@@ -88,7 +88,11 @@ function main() {
   }
 
   assert(Object.keys(PORT_STANDALONE_REDIRECTS).length === 1, 'exactly one standalone redirect');
-  assert(Object.keys(PORT_ALIAS_REDIRECTS).length === 6, 'exactly six alias redirects');
+  assert(Object.keys(PORT_ALIAS_REDIRECTS).length === 21, 'alias redirects for duplicate port pages');
+  assert(PORT_ALIAS_REDIRECTS['goa-india'] === 'mormugao-port-goa-india', 'goa docks at mormugao');
+  assert(PORT_ALIAS_REDIRECTS['rostock-germany'] === 'warnemunde-berlin-germany', 'rostock docks at warnemunde');
+  assert(PORT_ALIAS_REDIRECTS['gran-canaria-spain'] === 'las-palmas-spain', 'gran canaria docks at las palmas');
+  assert(PORT_ALIAS_REDIRECTS['port-of-aqaba-jordan'] === 'aqaba-jordan', 'aqaba keeps the town page');
 
   fs.rmSync(tmp, { recursive: true, force: true });
   console.log('OK port SEO redirects survive orphan cleanup');

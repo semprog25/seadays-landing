@@ -108,24 +108,101 @@ function buildWebAffiliateCampaign(portId) {
   return `seadays-web-p${port}`.slice(0, 200);
 }
 
+function buildWebSearchCampaign(portId) {
+  const port = sanitizeCampaignToken(portId, 40);
+  return `seadays-web-s${port}`.slice(0, 200);
+}
+
+const PRIVATE_ISLAND_NAME_RE =
+  /\b(perfect day at cococay|castaway cay|half moon cay|great stirrup cay|ocean cay|labadee)\b/i;
+
+function loadViatorSearchOverrides() {
+  const candidates = [
+    path.join(process.cwd(), 'data', 'viator-search-overrides.json'),
+    path.join(__dirname, '..', '..', 'data', 'viator-search-overrides.json'),
+  ];
+  for (const jsonPath of candidates) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+      if (raw && typeof raw === 'object' && !Array.isArray(raw)) return raw;
+    } catch {
+      // try next
+    }
+  }
+  return {};
+}
+
 /**
- * @returns {{ show: boolean, url: string|null, destinationLabel: string, portId: string, reason: string }}
+ * Search text for a Viator deep link.
+ * "City (Port)" keeps the tourist city outside the brackets.
+ * "A/B (C)" keeps the first city. State codes and a few port-name suffixes drop.
+ */
+function cleanViatorSearchTerm(name) {
+  let s = String(name || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!s) return '';
+  const wrapped = s.match(/^(.+?)\s*\([^)]*\)\s*$/);
+  if (wrapped) s = wrapped[1].trim();
+  else s = s.replace(/\s*\([^)]*\)/g, ' ').trim();
+  if (s.includes('/')) s = s.split('/')[0].trim();
+  s = s.replace(/,\s*[A-Z]{2}\s*$/g, '').trim();
+  s = s.replace(
+    /,\s*(United States|United Kingdom|United Arab Emirates|USA|Canada|Spain|Italy|France|Greece|Turkey|Norway|Germany|Portugal|Japan|Australia|New Zealand|Mexico|Bahamas|Jamaica|Croatia|Denmark|Sweden|Finland|Iceland|Netherlands|Ireland|Brazil|Argentina|Egypt|Israel|Thailand|Vietnam|Singapore|Hong Kong)\s*$/i,
+    ''
+  ).trim();
+  s = s
+    .replace(/\bCruise Terminal\b/gi, '')
+    .replace(/\bIslamic Port\b/gi, '')
+    .replace(/\bReserve\b/gi, '')
+    .replace(/\bMSC\b/g, '');
+  return s.replace(/\s+/g, ' ').replace(/^[,.\s]+|[,.\s]+$/g, '').trim();
+}
+
+function lookupSearchOverride(port, overrides) {
+  const slug = String(port?.slug || '')
+    .trim()
+    .toLowerCase();
+  if (slug && Object.prototype.hasOwnProperty.call(overrides, slug)) return overrides[slug];
+  return undefined;
+}
+
+/**
+ * @returns {{ show: boolean, url: string|null, destinationLabel: string, portId: string, reason: string, mode?: string, privateIsland?: boolean }}
  */
 function resolvePortAffiliateCta(port, opts = {}) {
   const known = opts.knownPortIds || loadKnownAffiliatePortIds(opts.appRoot);
   const portId = resolveAffiliatePortId(port, opts.slugToAppPortId);
-  const destinationLabel =
+  const overrides = opts.searchOverrides || loadViatorSearchOverrides();
+  const override = lookupSearchOverride(port, overrides);
+  const rawLabel =
     opts.destinationLabel ||
     (port?.name ? String(port.name).trim() : '') ||
     destinationLabelFromPortId(portId);
-  if (!isKnownAffiliatePortId(portId, known)) {
-    return { show: false, url: null, destinationLabel, portId, reason: 'unknown_port' };
+  const privateByName = PRIVATE_ISLAND_NAME_RE.test(rawLabel) || PRIVATE_ISLAND_NAME_RE.test(port?.name || '');
+  if (override === null || (override === undefined && privateByName)) {
+    return {
+      show: false,
+      url: null,
+      destinationLabel: '',
+      portId,
+      reason: 'private_island',
+      privateIsland: true,
+      mode: 'private_island',
+    };
   }
+  const destinationLabel =
+    (typeof override === 'string' && override.trim()) || cleanViatorSearchTerm(rawLabel) || cleanViatorSearchTerm(port?.name);
+  if (!destinationLabel) {
+    return { show: false, url: null, destinationLabel: '', portId, reason: 'invalid_input' };
+  }
+  const knownPort = isKnownAffiliatePortId(portId, known);
+  const mode = knownPort ? 'known' : 'search';
   const config = opts.config || getViatorConfigFromEnv();
   if (!config.configured) {
-    return { show: true, url: null, destinationLabel, portId, reason: 'not_configured' };
+    return { show: true, url: null, destinationLabel, portId, reason: 'not_configured', mode };
   }
-  const campaign = buildWebAffiliateCampaign(portId);
+  const campaign = knownPort ? buildWebAffiliateCampaign(portId) : buildWebSearchCampaign(portId);
   const built = buildViatorDestinationUrl({
     pid: config.pid,
     mcid: config.mcid,
@@ -134,9 +211,9 @@ function resolvePortAffiliateCta(port, opts = {}) {
     campaign,
   });
   if (!built.ok) {
-    return { show: true, url: null, destinationLabel, portId, reason: built.code };
+    return { show: true, url: null, destinationLabel, portId, reason: built.code, mode };
   }
-  return { show: true, url: built.url, destinationLabel, portId, reason: 'ok' };
+  return { show: true, url: built.url, destinationLabel, portId, reason: 'ok', mode };
 }
 
 module.exports = {
@@ -148,5 +225,8 @@ module.exports = {
   buildViatorDestinationUrl,
   resolveAffiliatePortId,
   buildWebAffiliateCampaign,
+  buildWebSearchCampaign,
+  cleanViatorSearchTerm,
+  loadViatorSearchOverrides,
   resolvePortAffiliateCta,
 };

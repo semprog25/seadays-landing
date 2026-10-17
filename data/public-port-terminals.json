@@ -1,20 +1,21 @@
 {
   "meta": {
     "generatedAt": "2026-08-11T21:25:10.692Z",
-    "count": 62,
+    "count": 74,
     "portCount": 26,
     "source": "public.port_terminals (anon select)",
     "note": "Phase 1 enrichment merged additional researched terminals for priority ports",
     "phase1CorrectionPassAt": "2026-08-11T21:41:35.430Z",
     "kielEnrichmentAt": "2026-08-21T10:06:47.570Z",
-    "kielSource": "PORT OF KIEL official terminal pages (portofkiel.com)"
+    "kielSource": "PORT OF KIEL official terminal pages (portofkiel.com)",
+    "terminalNote": "Barcelona distances follow the February 2025 Port of Barcelona brochure. Port Canaveral addresses follow the port directions page. Vigo lists one Trasatlánticos station."
   },
   "byPortId": {
     "barcelona": [
       {
         "name": "Moll Adossat Terminal A",
         "slug": "adossat-terminal-a",
-        "description": "Southern Adossat cruise pier; shuttle bus often required from terminal area to city bus hub.",
+        "description": "Southern Adossat berth. About 2 km from the center.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -22,7 +23,7 @@
           "baggage",
           "check-in"
         ],
-        "distance_to_city_center_km": 4.5,
+        "distance_to_city_center_km": 2,
         "transport_options": [
           "Blue Port shuttle",
           "taxi at Moll",
@@ -35,7 +36,7 @@
       {
         "name": "Moll Adossat Terminal B",
         "slug": "adossat-terminal-b",
-        "description": "Mid-Adossat cruise terminal; follow pier assignment for your ship.",
+        "description": "Adossat berth beside Terminal A. About 2 km from the center.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -43,7 +44,7 @@
           "seating",
           "retail"
         ],
-        "distance_to_city_center_km": 4.5,
+        "distance_to_city_center_km": 2,
         "transport_options": [
           "Blue Port shuttle",
           "taxi",
@@ -56,7 +57,7 @@
       {
         "name": "Moll Adossat Terminal C",
         "slug": "adossat-terminal-c",
-        "description": "Mid-north Adossat berth; shared passenger-processing patterns with A/B.",
+        "description": "Adossat berth. About 2.5 km from the center.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -64,7 +65,7 @@
           "check-in",
           "seating"
         ],
-        "distance_to_city_center_km": 4.5,
+        "distance_to_city_center_km": 2.5,
         "transport_options": [
           "shuttle",
           "taxi"
@@ -76,14 +77,14 @@
       {
         "name": "Moll Adossat Terminal D",
         "slug": "adossat-terminal-d",
-        "description": "Northern Adossat cruise pier; farthest from Columbus column—allow transfer time.",
+        "description": "Palacruceros berth on Adossat. About 2.5 km from the center.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
           "terminal building",
           "baggage"
         ],
-        "distance_to_city_center_km": 4.5,
+        "distance_to_city_center_km": 2.5,
         "transport_options": [
           "Blue Port shuttle",
           "taxi"
@@ -95,7 +96,7 @@
       {
         "name": "World Trade Center (WTC) Cruise Pier",
         "slug": "world-trade-center-pier",
-        "description": "Near-city-center cruise pier at Port Vell; shortest walk to Rambla and Drassanes.",
+        "description": "Port Vell pier. About 400 m from the center.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -103,7 +104,7 @@
           "baggage",
           "taxi rank"
         ],
-        "distance_to_city_center_km": 0.8,
+        "distance_to_city_center_km": 0.4,
         "transport_options": [
           "Drassanes L3 Metro",
           "walking",
@@ -111,6 +112,24 @@
         ],
         "is_primary": false,
         "sort_order": 50,
+        "country_id": "spain"
+      },
+      {
+        "name": "Moll Adossat Terminal E (Helix)",
+        "slug": "adossat-terminal-e",
+        "description": "Helix terminal on Adossat. About 3 km from the center.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": 3,
+        "transport_options": [
+          "shuttle",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 45,
         "country_id": "spain"
       }
     ],
@@ -310,68 +329,102 @@
       {
         "name": "Cruise Center HafenCity",
         "slug": "cruise-center-hafencity",
-        "description": "HafenCity cruise terminal near Überseequartier; modern passenger facilities and city-side access.",
+        "description": "Passenger check-in is at Überseeboulevard 7, inside Westfield Hamburg-Überseequartier, since spring 2025. This terminal has two berths. U4 Überseequartier is in the same complex, one stop from Jungfernstieg. The garage is reached from Osakaallee.",
+        "address": "Überseeboulevard 7, 20457 Hamburg",
+        "latitude": 53.5397349,
+        "longitude": 9.9991553,
+        "berth_count": 2,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
           "check-in hall",
-          "retail",
           "taxi",
-          "Überseequartier U4"
+          "parking via Osakaallee",
+          "U4 Überseequartier"
         ],
-        "distance_to_city_center_km": 2.8,
+        "distance_to_city_center_km": null,
         "transport_options": [
-          "U-Bahn U4 Überseequartier",
+          "S-Bahn to Hauptbahnhof",
+          "U4 Überseequartier",
           "bus",
-          "taxi",
-          "walking to HafenCity"
+          "taxi"
         ],
         "is_primary": true,
-        "sort_order": 20,
+        "sort_order": 10,
         "country_id": "germany"
       },
       {
         "name": "Cruise Center Altona",
         "slug": "cruise-center-altona",
-        "description": "Western Elbe cruise berth in Altona; bus and taxi links toward city center and Altona station.",
+        "description": "The terminal at Van-der-Smissen-Straße 5 has one berth. HADAG ferry 62 from Landungsbrücken stops at Dockland next to the pier, and bus 111 stops at Große Elbstraße.",
+        "address": "Van-der-Smissen-Straße 5, 22767 Hamburg",
+        "latitude": 53.5436585,
+        "longitude": 9.9370696,
+        "berth_count": 1,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
-          "baggage handling",
+          "passenger hall",
           "taxi rank",
-          "coach parking",
-          "passenger hall"
+          "HADAG ferry 62",
+          "bus 111"
         ],
-        "distance_to_city_center_km": 6.5,
+        "distance_to_city_center_km": null,
         "transport_options": [
-          "S-Bahn Altona (~2 km)",
-          "bus",
-          "taxi",
-          "shuttle"
+          "HADAG ferry 62",
+          "bus 111",
+          "taxi"
         ],
         "is_primary": false,
-        "sort_order": 10,
+        "sort_order": 20,
         "country_id": "germany"
       },
       {
         "name": "Cruise Center Steinwerder",
         "slug": "cruise-center-steinwerder",
-        "description": "Kaiser-Wilhelm-Hafen / Kronprinzkai facility for large cruise vessels; industrial-port routing by road.",
+        "description": "The large-ship terminal at Buchheisterstraße 16 has one berth and two halls, and it has taken cruise calls since June 2015. Ferry 73 runs on weekdays from Argentinienbrücke toward Landungsbrücken. Check the HVV timetable before relying on a bus, because those routes follow harbour shift times.",
+        "address": "Buchheisterstraße 16, 20457 Hamburg",
+        "latitude": 53.5294471,
+        "longitude": 9.9612949,
+        "berth_count": 1,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
-          "passenger terminal building",
-          "coach parking",
-          "baggage"
-        ],
-        "distance_to_city_center_km": 4.2,
-        "transport_options": [
-          "shuttle",
+          "two terminal halls",
           "taxi",
-          "charter bus"
+          "coach parking"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "ferry 73 on weekdays",
+          "taxi"
         ],
         "is_primary": false,
         "sort_order": 30,
+        "country_id": "germany"
+      },
+      {
+        "name": "Baakenhöft",
+        "slug": "baakenhoeft",
+        "description": "Baakenhöft 1, in eastern HafenCity, is an extra berth for smaller and medium ships. It has one berth, a quay of about 230 metres, and a maximum draught of about 7 metres.",
+        "address": "Baakenhöft 1, 20457 Hamburg",
+        "latitude": 53.5378455,
+        "longitude": 10.0057058,
+        "berth_count": 1,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger hall",
+          "taxi",
+          "short-term parking"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "bus"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
         "country_id": "germany"
       }
     ],
@@ -530,64 +583,129 @@
       {
         "name": "Port Canaveral Cruise Terminal 1",
         "slug": "cruise-terminal-1",
-        "description": "North cargo/cruise side terminal; used by assigned lines (e.g. Disney).",
+        "description": "Cruise Terminal 1 is on the B side at 9050 Discovery Rd, Cape Canaveral, FL 32920. From State Road 528, use Exit 54B.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
           "baggage",
-          "security",
-          "parking nearby"
+          "security"
         ],
-        "distance_to_city_center_km": 8,
+        "distance_to_city_center_km": null,
         "transport_options": [
-          "shuttle",
           "taxi",
-          "rideshare",
-          "rental car"
+          "rideshare"
         ],
         "is_primary": true,
         "sort_order": 10,
         "country_id": "usa"
       },
       {
-        "name": "Port Canaveral Cruise Terminal 3",
-        "slug": "cruise-terminal-3",
-        "description": "Dedicated cruise terminal on the port; modern embarkation flow.",
+        "name": "Port Canaveral Cruise Terminal 2",
+        "slug": "cruise-terminal-2",
+        "description": "Cruise Terminal 2 is listed at 180 Christopher Columbus Dr, Cape Canaveral. Confirm this terminal on the boarding pass before traveling.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
-          "multi-level terminal",
-          "baggage",
-          "parking"
+          "passenger terminal"
         ],
-        "distance_to_city_center_km": 8,
+        "distance_to_city_center_km": null,
         "transport_options": [
           "taxi",
-          "rideshare",
-          "shuttle"
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 15,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 3",
+        "slug": "cruise-terminal-3",
+        "description": "Cruise Terminal 3 is on the B side at 220 Christopher Columbus Dr. From State Road 528, use Exit 54B.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "baggage",
+          "security"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
         ],
         "is_primary": false,
         "sort_order": 20,
         "country_id": "usa"
       },
       {
-        "name": "Port Canaveral Cruise Terminal 6",
-        "slug": "cruise-terminal-6",
-        "description": "Western cruise terminal berth; follow Charles Rowland Dr routing.",
+        "name": "Port Canaveral Cruise Terminal 5",
+        "slug": "cruise-terminal-5",
+        "description": "The port lists 9245 Charles Rowland Dr with the north-side terminals reached by Exit 54A, which it groups as terminals 5, 6, 8, and 10. Treat that address as Cruise Terminal 5 only after the boarding pass confirms it.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
-          "check-in",
-          "baggage",
-          "parking"
+          "passenger terminal"
         ],
-        "distance_to_city_center_km": 8,
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 25,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 6",
+        "slug": "cruise-terminal-6",
+        "description": "Cruise Terminal 6 is on the north side. From State Road 528, use Exit 54A. The port directions page does not print a street address for this building.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
         "transport_options": [
           "taxi",
           "rideshare"
         ],
         "is_primary": false,
         "sort_order": 30,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 8",
+        "slug": "cruise-terminal-8",
+        "description": "Cruise Terminal 8 is on the north side. From State Road 528, use Exit 54A. The port directions page does not print a street address for this building.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 35,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 10",
+        "slug": "cruise-terminal-10",
+        "description": "Cruise Terminal 10 is on the north side. From State Road 528, use Exit 54A. The port directions page does not print a street address for this building.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
         "country_id": "usa"
       }
     ],
@@ -816,9 +934,9 @@
     ],
     "vigo": [
       {
-        "name": "Vigo Cruise Terminal (Alberto Durán / Trasatlánticos)",
+        "name": "Alberto Durán maritime station (Muelle de Trasatlánticos)",
         "slug": "vigo-cruise-terminal-trasatlanticos",
-        "description": "One of two concessioned cruise terminal operators inside the historic Alberto Durán Maritime Station on Muelle de Trasatlánticos (not a separate pier from Atlantic Vigo). City-center waterfront with passenger processing and tourist information; Casco Vello is a short walk.",
+        "description": "Cruise ships use the Alberto Durán maritime station on Muelle de Trasatlánticos. Two concessionaires share this one building, so it is a single station rather than two piers. Casco Vello is a short walk.",
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -837,27 +955,6 @@
         ],
         "is_primary": true,
         "sort_order": 10,
-        "country_id": "spain"
-      },
-      {
-        "name": "Atlantic Vigo Cruise Terminal (Alberto Durán / Trasatlánticos)",
-        "slug": "atlantic-vigo-cruise-terminal",
-        "description": "Second concessioned cruise terminal operator also housed in the Alberto Durán Maritime Station on Muelle de Trasatlánticos. Same waterfront complex as Vigo Cruise Terminal—different operator/facility rooms, not a distant second pier. Your ship’s agent assigns which concession handles the call.",
-        "terminal_type": "both",
-        "terminal_status": "active",
-        "facilities": [
-          "passenger processing",
-          "security screening",
-          "baggage handling"
-        ],
-        "distance_to_city_center_km": 0.4,
-        "transport_options": [
-          "walking",
-          "taxi",
-          "city bus"
-        ],
-        "is_primary": false,
-        "sort_order": 20,
         "country_id": "spain"
       },
       {

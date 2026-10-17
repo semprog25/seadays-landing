@@ -216,14 +216,50 @@ function scorePortForShip(port, ship) {
   return score;
 }
 
-function rankByScore(items, scoreFn) {
+function hashSeed(value) {
+  let h = 2166136261;
+  const str = String(value || '');
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function haversineKm(a, b) {
+  const coords = [a && a.latitude, a && a.longitude, b && b.latitude, b && b.longitude];
+  if (!coords.every((n) => typeof n === 'number' && Number.isFinite(n))) return null;
+  const toRad = (n) => (n * Math.PI) / 180;
+  const dLat = toRad(b.latitude - a.latitude);
+  const dLon = toRad(b.longitude - a.longitude);
+  const lat1 = toRad(a.latitude);
+  const lat2 = toRad(b.latitude);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+/**
+ * Tie-break: nearer port when both have coordinates, else a shuffle seeded by
+ * the current page slug. Alphabetical order is not a tie-break.
+ */
+function rankByScore(items, scoreFn, tie) {
+  const seed = tie && tie.seed ? String(tie.seed) : '';
+  const origin = tie && tie.origin ? tie.origin : null;
   return items
     .map((item) => ({ item, score: scoreFn(item) }))
     .sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;
-      const as = String(a.item.slug || '');
-      const bs = String(b.item.slug || '');
-      return as.localeCompare(bs);
+      if (origin) {
+        const da = haversineKm(origin, a.item);
+        const db = haversineKm(origin, b.item);
+        if (da != null && db != null && da !== db) return da - db;
+      }
+      const ah = hashSeed(`${seed}|${a.item.slug || ''}`);
+      const bh = hashSeed(`${seed}|${b.item.slug || ''}`);
+      if (ah !== bh) return ah - bh;
+      return String(a.item.slug || '').length - String(b.item.slug || '').length;
     })
     .map((x) => x.item);
 }
@@ -231,7 +267,7 @@ function rankByScore(items, scoreFn) {
 function pickPortsForShipPage(allPorts, ship, max = 5) {
   const others = (allPorts || []).filter((p) => p && p.slug);
   if (!others.length) return [];
-  const ranked = rankByScore(others, (p) => scorePortForShip(p, ship));
+  const ranked = rankByScore(others, (p) => scorePortForShip(p, ship), { seed: ship.slug, origin: ship });
   const positive = ranked.filter((p) => scorePortForShip(p, ship) > 0);
   const pool = positive.length >= Math.min(2, max) ? positive : ranked;
   return pool.slice(0, max);
@@ -244,10 +280,19 @@ function scoreShipForPort(ship, port) {
 function pickShipsForPortPage(allShips, port, max = 4) {
   const others = (allShips || []).filter((s) => s && s.slug);
   if (!others.length) return [];
-  const ranked = rankByScore(others, (s) => scoreShipForPort(s, port));
+  const ranked = rankByScore(others, (s) => scoreShipForPort(s, port), { seed: port && port.slug, origin: port });
   const positive = ranked.filter((s) => scoreShipForPort(s, port) > 0);
   const pool = positive.length >= Math.min(2, max) ? positive : ranked;
-  return pool.slice(0, max);
+  const out = [];
+  const lines = new Set();
+  for (const ship of pool) {
+    const line = norm(ship.cruise_line || ship.cruiseLine);
+    if (line && lines.has(line)) continue;
+    if (line) lines.add(line);
+    out.push(ship);
+    if (out.length >= max) break;
+  }
+  return out;
 }
 
 function classKey(s) {
@@ -281,17 +326,21 @@ function pickRelatedShips(all, current, max = 6) {
   return [...sameLineSameClass, ...sameLineOtherClass, ...sameClassOtherLine, ...rest].slice(0, max);
 }
 
-function pickRelatedPorts(all, current, max = 5) {
+function pickRelatedPorts(all, current, max = 4) {
   const others = (all || []).filter((p) => p && p.slug && p.slug !== current.slug);
   const region = norm(current.region);
   const country = norm(current.country);
-  return rankByScore(others, (p) => {
-    let score = 0;
-    if (region && norm(p.region) === region) score += 100;
-    else if (region && norm(p.region).includes(region)) score += 40;
-    if (country && norm(p.country) === country) score += 60;
-    return score;
-  }).slice(0, max);
+  return rankByScore(
+    others,
+    (p) => {
+      let score = 0;
+      if (region && norm(p.region) === region) score += 100;
+      else if (region && norm(p.region).includes(region)) score += 40;
+      if (country && norm(p.country) === country) score += 60;
+      return score;
+    },
+    { seed: current && current.slug, origin: current }
+  ).slice(0, max);
 }
 
 module.exports = {

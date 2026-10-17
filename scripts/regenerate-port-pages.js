@@ -18,9 +18,11 @@ const {
   buildSeoPortRecords,
   buildSeoShipRecords,
   buildPortDetailHtml,
+  buildShipDetailHtml,
   pickRelatedPorts,
   pickShipsForPortPage,
   pickBlogArticlesForEntity,
+  extractArticleCardImageFromHtml,
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const {
@@ -37,6 +39,8 @@ const {
 const { getAppRepoRoot, buildPortSlugToReviewKeyMap } = require('./lib/reviewAggregateMerge');
 const {
   getAliasRedirectTarget,
+  isPortSplitSlug,
+  isPortSeoRedirectSlug,
   writePortSeoRedirectPages,
 } = require('./lib/portSeoRedirects');
 const {
@@ -90,11 +94,14 @@ function loadBlogArticlesFromDisk(repoRoot) {
     const title = (titleMatch && titleMatch[1] ? titleMatch[1] : ent.name)
       .replace(/\s*\|\s*SeaDays.*$/i, '')
       .trim();
+    const image = extractArticleCardImageFromHtml(html);
     out.push({
       slug: ent.name,
       title,
       excerpt: (descMatch && descMatch[1]) || '',
-      thumbnailUrl: '',
+      thumbnailUrl: image,
+      heroImageUrl: image,
+      ogImage: image,
     });
   }
   return out;
@@ -131,6 +138,15 @@ function patchPortsIndexCards(repoRoot, seoPorts) {
               blurb.length >= 120 ? '…' : ''
             }</span>`
         );
+      }
+      if (slug === 'marigot-st-maarten') {
+        next = next
+          .replace('data-country="st maarten"', 'data-country="saint-martin"')
+          .replace('>St. Maarten · Caribbean<', '>Saint-Martin · Caribbean<')
+          .replace(
+            /<span class="seo-grid-card-desc">[\s\S]*?<\/span>/,
+            '<span class="seo-grid-card-desc">Marigot is the capital of the French side of the island, in Saint-Martin.</span>'
+          );
       }
       if (port.hasBookableExperiences && !/seo-grid-card-bookable/.test(next)) {
         next = next.replace(
@@ -173,8 +189,33 @@ function patchPortsIndexCards(repoRoot, seoPorts) {
     (_m, pre, _signed, post) => `${pre}${publicFallbacks[fb++ % publicFallbacks.length]}${post}`
   );
 
+  html = html.replace(
+    /<a href="\/ports\/([^"]+)\/" class="seo-grid-card[\s\S]*?<\/a>\n?/g,
+    (full, slug) => (isPortSeoRedirectSlug(slug) ? '' : full)
+  );
+
   fs.writeFileSync(indexPath, html, 'utf8');
   return true;
+}
+
+function patchShipIndexCard(repoRoot, ship) {
+  const indexPath = path.join(repoRoot, 'ships', 'index.html');
+  if (!fs.existsSync(indexPath)) return;
+  let html = fs.readFileSync(indexPath, 'utf8');
+  const card = new RegExp(
+    `(<a href="/ships/${ship.slug}/" class="seo-grid-card[\\s\\S]*?<span class="seo-grid-card-title">)[\\s\\S]*?(</span><span class="seo-grid-card-meta">)[\\s\\S]*?(</span>)`
+  );
+  if (!card.test(html)) return;
+  const name = String(ship.name || '').replace(/</g, '');
+  const line = String(ship.cruise_line || '').replace(/</g, '');
+  html = html.replace(card, `$1${name}$2${line}$3`);
+  if (ship.slug === 'celebrity-xpedition') {
+    html = html.replace(
+      'data-group="Celebrity Cruises" data-item="celebrity-xpedition"',
+      'data-group="Lindblad Expeditions" data-item="celebrity-xpedition"'
+    );
+  }
+  fs.writeFileSync(indexPath, html, 'utf8');
 }
 
 function main() {
@@ -222,8 +263,20 @@ function main() {
       slug: s.slug,
       name: s.name,
       cruise_line: s.cruiseLine,
-      description: '',
+      description: s.description || '',
       highlights: [],
+      shipClass: s.shipClass || '',
+      capacity: s.capacity,
+      capacityMax: s.capacityMax,
+      capacityBasis: s.capacityBasis,
+      crew: s.crew,
+      yearBuilt: s.yearBuilt,
+      tonnage: s.tonnage,
+      length: s.length,
+      beam: s.beam,
+      status: s.status || '',
+      appId: s.appId || '',
+      lineId: s.lineId || '',
     }))
   ).map((s) => applyShipContentOverride(s, overrides.ships[s.slug]));
 
@@ -250,16 +303,13 @@ function main() {
 
   for (const port of seoPorts) {
     // Browse-hidden aliases: publish as noindex redirects (batch-written below).
-    if (getAliasRedirectTarget(port.slug)) continue;
+    if (getAliasRedirectTarget(port.slug) || isPortSplitSlug(port.slug)) continue;
     const dir = path.join(repoRoot, 'ports', port.slug);
     fs.mkdirSync(dir, { recursive: true });
     const appPortId = slugToAppPortId[port.slug] || '';
     // Cross-country guides are already filtered by buildSlugToAppPortIdMap.
     // Editorial overrides must not inherit another place's climate/politics sections.
-    const portGuide =
-      port.hasContentOverride
-        ? null
-        : (appPortId && guides.byAppPortId[appPortId]) || null;
+    const portGuide = (appPortId && guides.byAppPortId[appPortId]) || null;
     const portTerminals = (appPortId && terminals.byPortId && terminals.byPortId[appPortId]) || [];
     const affiliate = resolvePortAffiliateCta(
       { ...port, appPortId },
@@ -316,6 +366,26 @@ function main() {
     `[regenerate-port-pages] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
   );
 
+  let shipPages = 0;
+  for (const ship of seoShips) {
+    if (ship.status && ship.status !== 'active') continue;
+    const dir = path.join(repoRoot, 'ships', ship.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    const blogs = pickBlogArticlesForEntity(
+      articles,
+      [ship.name, ship.cruise_line, 'cruise ship'],
+      6
+    );
+    fs.writeFileSync(
+      path.join(dir, 'index.html'),
+      buildShipDetailHtml(ship, [], [], blogs, spOpts),
+      'utf8'
+    );
+    if (ship.slug === 'celebrity-xpedition') patchShipIndexCard(repoRoot, ship);
+    shipPages += 1;
+  }
+  console.log(`[regenerate-port-pages] wrote ${shipPages} ship pages`);
+
   const patchedIndex = patchPortsIndexCards(repoRoot, seoPorts);
   console.log(
     `[regenerate-port-pages] wrote ${seoPorts.length} port pages (guides=${withGuide}, terminals=${withTerminals}, affiliateShown=${withAffiliate}, indexPatched=${patchedIndex})`
@@ -330,14 +400,11 @@ function main() {
     }
     const html = fs.readFileSync(p, 'utf8');
     const checks = [
-      'Cruise terminals',
       'Getting there',
       'Bookable Experiences',
       'Traveler questions',
-      'Reviews',
-      'Port information',
-      'Climate',
-      'Facts',
+      'id="plan-port-day"',
+      'Quick facts',
     ];
     const missing = checks.filter((c) => !html.includes(c));
     console.log(`[verify] /ports/${slug}/ missing=[${missing.join(', ') || 'none'}]`);

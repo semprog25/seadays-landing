@@ -1103,21 +1103,21 @@ export const allShips = [
   },
   {
     "slug": "celebrity-xpedition",
-    "name": "Celebrity Xpedition",
-    "cruiseLine": "Celebrity Cruises",
+    "name": "National Geographic Gemini",
+    "cruiseLine": "Lindblad Expeditions",
     "appId": "xpedition",
     "lineId": "celebrity",
     "status": "active",
     "capacity": 48,
     "capacityMax": null,
     "capacityBasis": "lower_berth",
-    "crew": 60,
+    "crew": 57,
     "yearBuilt": 2001,
-    "tonnage": 32000,
-    "length": 190,
+    "tonnage": null,
+    "length": 90,
     "beam": 24,
-    "shipClass": "Xpedition",
-    "description": "Small Celebrity expedition ship historically used for Galapagos sailings. Confirm current deployment before relying on this profile."
+    "shipClass": "Expedition",
+    "description": "National Geographic Gemini is an expedition ship operated by Lindblad Expeditions, listed at 48 guests and 90 metres. The ship previously sailed as Celebrity Xpedition. Lindblad's public ship page does not print gross tonnage."
   },
   {
     "slug": "celebrity-millennium",
@@ -3250,16 +3250,16 @@ export const allShips = [
     "appId": "le-commandant-charcot",
     "lineId": "ponant",
     "status": "active",
-    "capacity": 245,
+    "capacity": 270,
     "capacityMax": null,
     "capacityBasis": "lower_berth",
     "crew": 215,
     "yearBuilt": 2021,
-    "tonnage": 40000,
-    "length": 229,
+    "tonnage": 31283,
+    "length": 149.9,
     "beam": 26,
     "shipClass": "Charcot",
-    "description": "Operated by Ponant; entered service 2021; 40,000 GT; approx. 245 guests."
+    "description": "Le Commandant Charcot is a Ponant polar ship listed by the builder at 31,283 gross tons and 149.9 metres. Published guest figures are about 270."
   },
   {
     "slug": "le-bellot",
@@ -3273,11 +3273,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 110,
     "yearBuilt": 2020,
-    "tonnage": 37000,
-    "length": 217,
+    "tonnage": 9976,
+    "length": 131.5,
     "beam": 25,
     "shipClass": "Explorer",
-    "description": "Operated by Ponant; entered service 2020; 37,000 GT; approx. 184 guests."
+    "description": "Operated by Ponant; entered service 2020; Explorer-class; builder figures for the class are 9,976 GT and 131.5 m, about 184 guests."
   },
   {
     "slug": "le-jacques-cartier",
@@ -3291,11 +3291,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 110,
     "yearBuilt": 2020,
-    "tonnage": 37000,
-    "length": 217,
+    "tonnage": 9976,
+    "length": 131.5,
     "beam": 25,
     "shipClass": "Explorer",
-    "description": "Operated by Ponant; entered service 2020; 37,000 GT; approx. 184 guests."
+    "description": "Operated by Ponant; entered service 2020; Explorer-class; builder figures for the class are 9,976 GT and 131.5 m, about 184 guests."
   },
   {
     "slug": "le-bougainville",
@@ -3309,11 +3309,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 110,
     "yearBuilt": 2019,
-    "tonnage": 37000,
-    "length": 217,
+    "tonnage": 9976,
+    "length": 131.5,
     "beam": 25,
     "shipClass": "Explorer",
-    "description": "Operated by Ponant; entered service 2019; 37,000 GT; approx. 184 guests."
+    "description": "Operated by Ponant; entered service 2019; Explorer-class; builder figures for the class are 9,976 GT and 131.5 m, about 184 guests."
   },
   {
     "slug": "le-dumont-d-urville",
@@ -3327,11 +3327,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 110,
     "yearBuilt": 2019,
-    "tonnage": 37000,
-    "length": 217,
+    "tonnage": 9976,
+    "length": 131.5,
     "beam": 25,
     "shipClass": "Explorer",
-    "description": "Operated by Ponant; entered service 2019; 37,000 GT; approx. 184 guests."
+    "description": "Operated by Ponant; entered service 2019; Explorer-class; builder figures for the class are 9,976 GT and 131.5 m, about 184 guests."
   },
   {
     "slug": "le-champlain",
@@ -3345,11 +3345,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 110,
     "yearBuilt": 2018,
-    "tonnage": 37000,
-    "length": 217,
+    "tonnage": 9976,
+    "length": 131.5,
     "beam": 25,
     "shipClass": "Explorer",
-    "description": "Operated by Ponant; entered service 2018; 37,000 GT; approx. 184 guests."
+    "description": "Operated by Ponant; entered service 2018; Explorer-class; builder figures for the class are 9,976 GT and 131.5 m, about 184 guests."
   },
   {
     "slug": "le-laperouse",
@@ -3363,11 +3363,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 110,
     "yearBuilt": 2018,
-    "tonnage": 37000,
-    "length": 217,
+    "tonnage": 9976,
+    "length": 131.5,
     "beam": 25,
     "shipClass": "Explorer",
-    "description": "Operated by Ponant; entered service 2018; 37,000 GT; approx. 184 guests."
+    "description": "Operated by Ponant; entered service 2018; Explorer-class; builder figures for the class are 9,976 GT and 131.5 m, about 184 guests."
   },
   {
     "slug": "star-princess",
@@ -5181,11 +5181,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 190,
     "yearBuilt": 1992,
-    "tonnage": 42000,
-    "length": 242,
+    "tonnage": 12995,
+    "length": 159,
     "beam": 27,
     "shipClass": "Star Plus",
-    "description": "Operated by Windstar Cruises; entered service 1992; 42,000 GT; approx. 312 guests."
+    "description": "Operated by Windstar Cruises; entered service 1992; all-suite yacht; 12,995 GT, 159 m, about 312 guests."
   },
   {
     "slug": "wind-surf",
@@ -5199,11 +5199,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 190,
     "yearBuilt": 1990,
-    "tonnage": 44000,
-    "length": 248,
+    "tonnage": 14745,
+    "length": 187,
     "beam": 27,
     "shipClass": "Wind",
-    "description": "Operated by Windstar Cruises; entered service 1990; 44,000 GT; approx. 342 guests."
+    "description": "Operated by Windstar Cruises; entered service 1990; sailing yacht; 14,745 GT, 187 m including the bowsprit, about 342 guests."
   },
   {
     "slug": "star-breeze",
@@ -5217,11 +5217,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 190,
     "yearBuilt": 1989,
-    "tonnage": 42000,
-    "length": 242,
+    "tonnage": 12995,
+    "length": 159,
     "beam": 27,
     "shipClass": "Star Plus",
-    "description": "Operated by Windstar Cruises; entered service 1989; 42,000 GT; approx. 312 guests."
+    "description": "Operated by Windstar Cruises; entered service 1989; all-suite yacht; 12,995 GT, 159 m, about 312 guests."
   },
   {
     "slug": "star-pride",
@@ -5235,11 +5235,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 190,
     "yearBuilt": 1988,
-    "tonnage": 42000,
-    "length": 242,
+    "tonnage": 12995,
+    "length": 159,
     "beam": 27,
     "shipClass": "Star Plus",
-    "description": "Operated by Windstar Cruises; entered service 1988; 42,000 GT; approx. 312 guests."
+    "description": "Operated by Windstar Cruises; entered service 1988; all-suite yacht; 12,995 GT, 159 m, about 312 guests."
   },
   {
     "slug": "wind-spirit",
@@ -5253,11 +5253,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 90,
     "yearBuilt": 1988,
-    "tonnage": 36000,
-    "length": 210,
+    "tonnage": 5736,
+    "length": 134,
     "beam": 25,
     "shipClass": "Wind",
-    "description": "Operated by Windstar Cruises; entered service 1988; 36,000 GT; approx. 148 guests."
+    "description": "Operated by Windstar Cruises; entered service 1988; sailing yacht; 5,736 GT, 134 m including the bowsprit, about 148 guests."
   },
   {
     "slug": "wind-star",
@@ -5271,11 +5271,11 @@ export const allShips = [
     "capacityBasis": "lower_berth",
     "crew": 90,
     "yearBuilt": 1986,
-    "tonnage": 36000,
-    "length": 210,
+    "tonnage": 5736,
+    "length": 134,
     "beam": 25,
     "shipClass": "Wind",
-    "description": "Operated by Windstar Cruises; entered service 1986; 36,000 GT; approx. 148 guests."
+    "description": "Operated by Windstar Cruises; entered service 1986; sailing yacht; 5,736 GT, 134 m including the bowsprit, about 148 guests."
   }
 ];
 
@@ -6650,9 +6650,9 @@ export const allPorts = [
   },
   {
     "slug": "marigot-st-maarten",
-    "name": "Marigot, St. Maarten",
+    "name": "Marigot",
     "region": "Caribbean",
-    "country": "St. Maarten"
+    "country": "Saint-Martin"
   },
   {
     "slug": "marseille-provence-france",

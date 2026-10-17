@@ -2140,7 +2140,7 @@
       "portName": "Barcelona",
       "country": "Spain",
       "portInfo": {
-        "description": "Barcelona is one of Europe’s busiest cruise homeports and a major Western Mediterranean turnaround city. Most large ships berth on Moll Adossat (Terminals A–D), with a shorter walk from the World Trade Center pier at Port Vell. Shore days typically combine Gothic Quarter lanes, Gaudí landmarks, and the beachfront before returning via the Blue Port shuttle or taxi.",
+        "description": "Barcelona is one of Europe’s busiest cruise homeports and a major Western Mediterranean turnaround city. Most large ships berth on Moll Adossat (Terminals A–E). The World Trade Center pier at Port Vell is the short walk, about 400 m in the port brochure. Shore days typically combine Gothic Quarter lanes, Gaudí landmarks, and the beachfront before returning via the Blue Port shuttle or taxi.",
         "location": "Northeast Spain on the Mediterranean (Catalonia); cruise piers at Port Vell / Moll Adossat",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish and Catalan; English widely used in tourist areas",
@@ -2196,10 +2196,10 @@
           "City bus connections",
           "Walking from WTC pier"
         ],
-        "distanceToCity": "Moll Adossat roughly 3–5 km from central Ramblas / Gothic Quarter; WTC pier under 1 km",
+        "distanceToCity": "Adossat is about 2–3 km from the center and the World Trade Center pier is about 400 m",
         "walkingTime": "WTC pier: often 10–20 minutes toward Drassanes/Ramblas. Adossat: walking is long—use shuttle/taxi",
         "taxiInfo": "Taxi ranks operate at the cruise piers; confirm fare estimate or meter use before departure",
-        "publicTransport": "Port shuttle links Adossat with the city-side bus hub; metro and buses serve central districts once you leave the pier zone Ship-to-terminal assignment (Adossat A–D vs WTC) depends on your sailing—check the daily program. For a 6–8 hour call, prioritize one cluster (Gothic Quarter/Ramblas or a pre-booked Gaudí timed ticket) and return with shuttle/taxi buffer."
+        "publicTransport": "The port shuttle links Adossat with the city bus hub, then metro and buses cover the center. Check the daily program for your pier."
       },
       "thingsToDo": {
         "intro": "Barcelona rewards a focused plan: Adossat berths need a shuttle or taxi into town, while the World Trade Center pier is closer to Port Vell. Pick one district cluster rather than racing across the city.",
@@ -7995,8 +7995,20 @@
       "appPortId": "hamburg",
       "portName": "Hamburg",
       "country": "Germany",
+      "shorePlansFirst": true,
+      "hero": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Hamburg%2C_Hafen%2C_Elbphilharmonie_--_2016_--_3129.jpg/1280px-Hamburg%2C_Hafen%2C_Elbphilharmonie_--_2016_--_3129.jpg",
+        "alt": "Hamburg harbour and the Elbphilharmonie concert hall",
+        "author": "Dietmar Rabich",
+        "authorUrl": "https://commons.wikimedia.org/wiki/User:XRay",
+        "sourceName": "Wikimedia Commons",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamburg,_Hafen,_Elbphilharmonie_--_2016_--_3129.jpg",
+        "title": "Hamburg, Hafen, Elbphilharmonie -- 2016 -- 3129",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
       "portInfo": {
-        "description": "Germany's largest port and second-largest city, known for its maritime heritage, canals, and modern HafenCity district.",
+        "description": "Hamburg is a major German cruise turnaround on the Elbe, with four passenger terminals run by Cruise Gate Hamburg.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "German",
@@ -8019,9 +8031,10 @@
       },
       "size": {
         "portCapacity": "One of Europe's largest cruise ports",
-        "terminalCount": 3,
+        "terminalCount": 4,
         "berthCount": 5,
-        "annualVisitors": "Approximately 800,000 cruise passengers annually",
+        "annualVisitors": "1,416,715 cruise passengers in the 2025 season",
+        "publishedPassengers": "1,416,715 in the 2025 season",
         "citySize": "Hamburg: Population approximately 1.9 million"
       },
       "climate": {
@@ -8045,19 +8058,22 @@
         "entryRequirements": "Valid passport required, EU citizens need ID card"
       },
       "gettingThere": {
-        "fromTerminal": "Hamburg Cruise Center (multiple terminals)",
+        "fromTerminal": "Cruise Gate Hamburg operates HafenCity, Altona, Steinwerder, and Baakenhöft",
         "transportation": [
-          "U-Bahn (subway)",
-          "Ferry",
-          "Bus"
+          "S-Bahn",
+          "U4",
+          "HADAG ferry",
+          "Bus",
+          "Taxi"
         ],
-        "distanceToCity": "Terminals located in port area, close to city center",
-        "walkingTime": "Varies by terminal, 10-30 minutes to public transport",
-        "taxiInfo": "Taxis available at all terminals",
-        "publicTransport": "Excellent U-Bahn, bus, and ferry connections"
+        "distanceToCity": "The four terminals are spread along the harbour, so there is no single walk to the centre.",
+        "distanceAnswer": "HafenCity is inside the Überseequartier complex, while Altona, Steinwerder, and Baakenhöft are separate berths along the Elbe.",
+        "walkingTime": "From U4 Überseequartier the HafenCity terminal is a short walk inside the complex. The other terminals are not a walk from the centre.",
+        "taxiInfo": "Taxis are available at each terminal.",
+        "publicTransport": "For HafenCity, take the S-Bahn to Hamburg Hauptbahnhof, change to the U4 at Hauptbahnhof Nord, and ride two stops to Überseequartier."
       },
       "thingsToDo": {
-        "intro": "Hamburg’s cruise terminals sit on the Elbe—Cruise Center HafenCity is closest to HafenCity and the Speicherstadt, while Altona and Steinwerder need a bus or taxi first. Pick one waterfront cluster rather than racing the whole city.",
+        "intro": "Pick one waterfront cluster. Cruise Center HafenCity is the berth beside Speicherstadt. Altona, Steinwerder, and Baakenhöft each need a transfer before you start sightseeing.",
         "topThings": [
           "HafenCity waterfront walk and Elbphilharmonie plaza views",
           "Speicherstadt canals and warehouse district (UNESCO)",
@@ -8065,10 +8081,10 @@
           "Landungsbrücken and harbour ferries for an Elbe overview",
           "St. Michaelis Church tower or Jungfernstieg / city-centre streets on lighter days"
         ],
-        "shortCall": "From Cruise Center HafenCity, stay in HafenCity: waterfront promenade, Elbphilharmonie exterior plaza, and a Speicherstadt canal loop. Skip Miniatur Wunderland and Altona transfers on a tight 4–5 hour call.",
-        "standardCall": "Choose one realistic combination—not everything. (A) HafenCity + Speicherstadt + a café return toward the pier, or (B) timed Miniatur Wunderland plus a short HafenCity walk. From Altona or Steinwerder, budget transfer both ways before adding a second major stop.",
-        "longerCall": "With 8+ hours or an overnight, you can pair Speicherstadt/HafenCity with either Miniatur Wunderland or a Landungsbrücken harbour stretch—and still keep buffer for Elbe traffic and terminal security. A full city-centre shopping loop plus Miniatur Wunderland plus Altona is usually too much for one cruise call.",
-        "practicalTip": "Confirm which Hamburg Cruise Center your ship uses (HafenCity vs Altona vs Steinwerder) before planning a walk. HafenCity is the only berth where a walk-off Speicherstadt day is routinely realistic."
+        "shortCall": "From Cruise Center HafenCity, stay in HafenCity: waterfront promenade, Elbphilharmonie exterior plaza, and a Speicherstadt canal loop. Skip Miniatur Wunderland on a tight 4–5 hour call.",
+        "standardCall": "Choose one realistic combination, not everything. Stay with the HafenCity waterfront and Speicherstadt, or book a timed Miniatur Wunderland visit plus a short promenade. From Altona, Steinwerder, or Baakenhöft, budget the transfer both ways before a second stop.",
+        "longerCall": "With 8 or more hours, pair Speicherstadt with either Miniatur Wunderland or the Landungsbrücken harbour stretch, and keep a buffer for Elbe traffic and terminal security. A shopping loop plus Miniatur Wunderland plus a cross-harbour transfer is usually too much for one call.",
+        "practicalTip": "Check the pier name on your ticket before you leave the ship. A Speicherstadt walk is realistic from the HafenCity berth. Baakenhöft is a separate smaller-ship berth, not the Überseequartier terminal."
       }
     },
     "hanga-roa": {
@@ -17961,7 +17977,7 @@
       "portName": "Port Canaveral",
       "country": "USA",
       "portInfo": {
-        "description": "One of the busiest cruise ports in the world, located near Orlando and Kennedy Space Center.",
+        "description": "Port Canaveral is one of the busiest cruise ports in the world, near Orlando and Kennedy Space Center. Passenger terminals sit on the north side (Exit 54A) and the B side (Exit 54B).",
         "location": "",
         "timezone": "EST (UTC-5) / EDT (UTC-4)",
         "language": "English",
@@ -26292,7 +26308,7 @@
       "portName": "Vigo",
       "country": "Spain",
       "portInfo": {
-        "description": "Vigo is Galicia’s principal Atlantic cruise call. Ships dock on the city waterfront at Muelle de Trasatlánticos—where the Alberto Durán Maritime Station hosts two concessioned terminals (Vigo Cruise Terminal and Atlantic Vigo Cruise Terminal)—and on multi-ship days at Muelle de Comercio (El Tinglado). Casco Vello, oyster bars, and the promenade are a short walk away.",
+        "description": "Vigo is Galicia’s principal Atlantic cruise call. Ships dock at the Alberto Durán maritime station on Muelle de Trasatlánticos, one building shared by two concessionaires, and on multi-ship days at Muelle de Comercio (El Tinglado). Casco Vello, oyster bars, and the promenade are a short walk away.",
         "location": "Northwest Spain (Galicia) on the Ría de Vigo",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish and Galician; some English in tourist services",

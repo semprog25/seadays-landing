@@ -181,6 +181,7 @@ test('overlapping port descriptions attribute Wikipedia and drop citation marker
   const marked = [];
   for (const slug of slugs) {
     const html = read(path.join('ports', slug, 'index.html'));
+    if (/http-equiv=["']refresh/i.test(html)) continue;
     const expected = wikipediaAttributionHtml(attribution[slug]);
     if (!html.includes(expected)) missing.push(slug);
     const visible = html.replace(/<script[\s\S]*?<\/script>/gi, '');

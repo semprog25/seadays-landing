@@ -17,24 +17,25 @@ const {
   isShipDetailIndexable,
   isPortDetailIndexable,
 } = require('./adsenseIndexability');
+const { shipOverviewHiddenByAudit } = require('./auditHoldback');
 const {
   PORT_GUIDE_STYLES,
-  buildPortGuideEarlySectionsHtml,
-  buildPortGuideLateSectionsHtml,
-  buildThingsToDoSection,
-  hasRichThingsToDo,
+  buildPhase1GuideHtml,
   buildBreadcrumbsHtml,
   buildBreadcrumbJsonLd,
   collectPortFaqItems,
+  portCallsAsHomeport,
 } = require('./portGuideSections');
-const { resolvePortAffiliateCta } = require('./viatorAffiliate');
 const {
-  stripWikiCitationMarkers,
-  stripMarkersOutsideScripts,
-  loadWikipediaAttribution,
-  wikipediaAttributionHtml,
+  isBoilerplateDescription,
+  cleanPortCopy,
   rewriteCdnThumbnailUrl,
+  filterHighlightList,
+  dedupeRepeatedCommaPhrase,
+  isDanglingSentence,
 } = require('./portCopyHygiene');
+const { resolvePortAffiliateCta } = require('./viatorAffiliate');
+const { applyPortPageOverrides } = require('./portPageOverrides');
 const {
   pickRelatedShips,
   pickRelatedPorts,
@@ -489,6 +490,12 @@ function formatCapacityLabel(ship) {
   return `${n} (lower berth / double occupancy)`;
 }
 
+function formatMeters(n) {
+  const rounded = Math.round(Number(n) * 10) / 10;
+  if (!Number.isFinite(rounded)) return '';
+  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+}
+
 function buildShipKeyFactsHtml(ship) {
   const rows = [];
   rows.push(`<dt>Cruise line</dt><dd>${escapeHtml(ship.cruise_line)}</dd>`);
@@ -512,8 +519,8 @@ function buildShipKeyFactsHtml(ship) {
   if (Number.isFinite(ship.crew)) {
     rows.push(`<dt>Crew</dt><dd>${escapeHtml(Math.round(ship.crew).toLocaleString('en-US'))}</dd>`);
   }
-  if (Number.isFinite(ship.length)) {
-    rows.push(`<dt>Length</dt><dd>${escapeHtml(String(Math.round(ship.length)))} m</dd>`);
+    if (Number.isFinite(ship.length)) {
+    rows.push(`<dt>Length</dt><dd>${escapeHtml(formatMeters(ship.length))} m</dd>`);
   }
   if (Number.isFinite(ship.beam)) {
     rows.push(`<dt>Beam</dt><dd>${escapeHtml(String(Math.round(ship.beam)))} m</dd>`);
@@ -622,7 +629,7 @@ const PORT_TIPS = [
   'Carry ship time, local cash where cards lag, offline maps, and pier-to-town taxi notes before leaving {name}.',
   'Book independent tours with verified reviews and clear meeting points; screenshot confirmations in case connectivity fails.',
   'Respect all-aboard; pier traffic and security lines at {name} can consume more minutes than maps suggest.',
-  'Hydrate and pace walking in heat; schedule meals so you are not rushing back from distant districts.',
+  'Check the forecast for this port before you pack a shore layer; heat, rain, and wind are not the same from one region to the next.',
 ];
 
 const PORT_LIST_ONLY_ACTIONS = [
@@ -757,9 +764,10 @@ function extractArticleCardImageFromHtml(html) {
     if (m[1]) candidates.push(m[1]);
   }
   for (const c of candidates) {
-    const url = String(c || '').trim();
+    const url = rewriteCdnThumbnailUrl(String(c || '').trim());
     if (!isUsableArticleImage(url)) continue;
     if (isGenericMarketingImage(url)) continue;
+    if (/cdn\.seadays\.app/i.test(url)) continue;
     return url;
   }
   return '';
@@ -777,15 +785,47 @@ function pickArticleImage(article) {
   return '';
 }
 
+const PORT_JUMP_LABELS = {
+  'quick-facts': 'Quick facts',
+  'bookable-experiences': 'Experiences',
+  'getting-there': 'Terminals',
+  'things-to-do': 'Things to do',
+  'weather-best-time': 'Weather',
+  'entry-requirements': 'Entry',
+  'traveler-questions': 'Questions',
+  'plan-port-day': 'App',
+  'related-ports': 'Related ports',
+  'ships-calling': 'Ships',
+  'more-reading': 'Reading',
+};
+
+function buildPortJumpNav(html) {
+  const src = String(html || '');
+  const links = [];
+  const seen = new Set();
+  const re = /id="([a-z0-9-]+)"/g;
+  let match;
+  while ((match = re.exec(src))) {
+    const id = match[1];
+    if (!PORT_JUMP_LABELS[id] || seen.has(id)) continue;
+    seen.add(id);
+    links.push([id, PORT_JUMP_LABELS[id]]);
+  }
+  if (!links.length) return '';
+  return `<nav class="port-jump" aria-label="On this page">${links
+    .map(([id, label]) => `<a href="#${id}">${escapeHtml(label)}</a>`)
+    .join('')}</nav>`;
+}
+
 function buildArticleCards(articles, label = 'Read more') {
   const cards = articles
     .filter((a) => a && a.slug)
     .slice(0, 6)
-    .map((a, i) => {
+    .map((a) => {
       const img = pickArticleImage(a);
       const visual = img
-        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png'">`
-        : `<div class="seo-article-fallback seo-article-fallback-${(i % 4) + 1}"><span>${escapeHtml(label)}</span></div>`;
+        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" width="640" height="150" loading="eager" decoding="async" onerror="this.onerror=null;this.remove()">`
+        : '';
       const excerpt = trimWords(String(a.excerpt || a.seoDescription || a.metaDescription || 'Cruise planning guide from SeaDays.').replace(/\s+/g, ' ').trim(), 20);
       return `<a class="seo-article-card" href="/blog/${escapeHtml(a.slug)}/">${visual}<span class="seo-article-kicker">${escapeHtml(label)}</span><strong>${escapeHtml(a.title || 'SeaDays guide')}</strong><small>${escapeHtml(excerpt)}</small></a>`;
     })
@@ -833,7 +873,10 @@ function buildShipMetaDescription(ship) {
 
 function buildPortMetaDescription(port, h1) {
   const custom = port.metaDescription && String(port.metaDescription).trim();
-  if (custom) return custom.length <= 160 ? custom : custom.slice(0, 157) + '…';
+  if (custom) {
+    const deduped = dedupeRepeatedCommaPhrase(custom);
+    return deduped.length <= 160 ? deduped : deduped.slice(0, 157) + '…';
+  }
   const c = h1 || formatPortPlaceLabel(port) || formatPortCoreName(port);
   const raw = `${c} cruise port: shore tips, best time to visit, cruise relevance & things to do—SeaDays guide.`;
   return raw.length <= 160 ? raw : raw.slice(0, 157) + '…';
@@ -853,26 +896,15 @@ function isLowValueShipHighlight(text, ship) {
   return false;
 }
 
-function buildShipWhyBullets(ship) {
+function buildShipWhyBullets(ship, overviewText) {
+  const overview = String(overviewText || '');
   const highlights = (Array.isArray(ship.highlights) ? ship.highlights : [])
-    .map((t) => String(t || '').trim())
-    .filter((t) => t && !isLowValueShipHighlight(t, ship));
-  if (highlights.length >= 2) {
-    return highlights.slice(0, 8).map((t) => `<li>${escapeHtml(t)}</li>`).join('');
-  }
-  const fromDesc = uniqueSentences([ship.description, ship.experience], 4)
-    .filter((t) => !isLowValueShipHighlight(t, ship));
-  if (fromDesc.length >= 2) {
-    return fromDesc.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
-  }
-  const facts = [];
-  if (ship.shipClass) facts.push(`${ship.name} is ${indefiniteArticleFor(shipClassNounPhrase(ship))} ${shipClassNounPhrase(ship)} in the ${ship.cruise_line} fleet.`);
-  if (Number.isFinite(ship.yearBuilt)) facts.push(`Entered service in ${Math.round(ship.yearBuilt)}.`);
-  if (Number.isFinite(ship.capacity)) facts.push(`Lower-berth capacity about ${formatCapacityLabel(ship)}.`);
-  if (!facts.length) {
-    facts.push(`Compare ${ship.name} with other ${ship.cruise_line} ships in the SeaDays directory before you book.`);
-  }
-  return facts.map((t) => `<li>${escapeHtml(t)}</li>`).join('');
+    .map((t) => cleanPortCopy(t))
+    .filter((t) => t && !isLowValueShipHighlight(t, ship) && !isDanglingSentence(t))
+    .filter((t) => !isCruiseLineSalesCopy(t) && shipOverviewMatchesSubject(ship, t))
+    .filter((t) => !overview || !overview.includes(t));
+  if (highlights.length < 2) return '';
+  return highlights.slice(0, 8).map((t) => `<li>${escapeHtml(t)}</li>`).join('');
 }
 
 function buildShipFaqItems(ship) {
@@ -896,11 +928,11 @@ function buildShipFaqItems(ship) {
   if (Number.isFinite(ship.capacity)) {
     items.push({
       q: `How many passengers does ${ship.name} carry?`,
-      a: `Catalog capacity is ${formatCapacityLabel(ship)}${
+      a: `Catalog capacity for ${ship.name} is ${formatCapacityLabel(ship)}${
         Number.isFinite(ship.capacityMax) && ship.capacityMax !== ship.capacity
           ? `, with a listed maximum of ${Math.round(ship.capacityMax).toLocaleString('en-US')}`
           : ''
-      }. Figures can vary by cabin configuration.`,
+      }, and cabin configuration can change that figure.`,
     });
   }
   if (Number.isFinite(ship.tonnage) || Number.isFinite(ship.length)) {
@@ -915,7 +947,7 @@ function buildShipFaqItems(ship) {
   }
   items.push({
     q: `Does SeaDays publish passenger reviews for ${ship.name}?`,
-    a: `This page is a catalog guide, not a review. Community reviews live in the SeaDays app when guests have submitted them.`,
+    a: `This catalog page for ${ship.name} is not a passenger review, and community reviews stay in the SeaDays app when guests have submitted them.`,
   });
   return items.filter((item) => item.q && item.a).slice(0, 6);
 }
@@ -1009,6 +1041,18 @@ function moreOnSeaDaysInline(kind) {
 
 const PAGE_STYLES = `
 .seo-detail { max-width: 800px; margin: 0 auto; padding: 40px 20px 80px; }
+.seo-detail-wide { max-width: 1120px; }
+.seo-hero { margin: 0 0 22px; }
+.seo-hero .seo-hero-img { display: block; margin: 0; }
+.seo-hero figcaption { margin-top: 8px; font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.62); }
+.seo-hero figcaption a { color: rgba(255,255,255,0.82); }
+@media (min-width: 1100px) {
+  .seo-detail-wide .pg-facts,
+  .seo-detail-wide .pg-quick,
+  .seo-detail-wide .pg-terminal-grid,
+  .seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .seo-detail-wide .seo-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 .seo-detail h1 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
 .seo-detail .lead { font-size: 18px; color: rgba(255,255,255,0.75); margin-bottom: 28px; }
 .seo-detail .seo-body p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.88); margin-bottom: 18px; }
@@ -1039,7 +1083,8 @@ const PAGE_STYLES = `
 .seo-article-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 14px 0 30px; }
 .seo-article-card { display: grid; gap: 9px; min-height: 100%; overflow: hidden; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.055); text-decoration: none; color: #fff; box-shadow: 0 14px 35px rgba(0,0,0,0.2); transition: transform 0.18s ease, border-color 0.18s ease; }
 .seo-article-card:hover { transform: translateY(-2px); border-color: rgba(255,0,51,0.48); }
-.seo-article-img, .seo-article-fallback { width: 100%; height: 150px; object-fit: cover; background: rgba(255,255,255,0.08); }
+.seo-article-img { width: 100%; height: 150px; object-fit: cover; display: block; background: transparent; }
+.seo-article-fallback { width: 100%; height: 150px; object-fit: cover; background: rgba(255,255,255,0.08); }
 .seo-article-fallback { display: flex; align-items: end; padding: 14px; background: linear-gradient(135deg, rgba(255,0,51,0.42), rgba(0,194,255,0.24)); }
 .seo-article-fallback-2 { background: linear-gradient(135deg, rgba(0,194,255,0.34), rgba(255,184,0,0.26)); }
 .seo-article-fallback-3 { background: linear-gradient(135deg, rgba(126,87,194,0.42), rgba(255,0,51,0.28)); }
@@ -1065,19 +1110,47 @@ function buildDirectoryHeaderNav() {
   return getSiteHeaderHtml({ page: 'default' });
 }
 
+function shipOverviewMatchesSubject(ship, text) {
+  const name = String(ship && ship.name ? ship.name : '').trim();
+  const line = String(ship && ship.cruise_line ? ship.cruise_line : '').trim();
+  const body = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!name || !line || !body) return false;
+  const first = body.split(/(?<=[.!?])\s+/)[0] || body;
+  const probe = first.toLowerCase();
+  if (
+    /may refer to|disambiguation|\bis an? (?:[\w'-]+\s+){0,4}(town|city|village|municipality|district|commune)\b/.test(
+      probe
+    )
+  ) {
+    return false;
+  }
+  const nameOk = probe.includes(name.toLowerCase());
+  const lineOk = probe.includes(line.toLowerCase());
+  return nameOk && lineOk;
+}
+
+function isCruiseLineSalesCopy(text) {
+  return /\b(book your|cruise today|don['’]t miss|unforgettable|award-winning|sail away)\b/i.test(String(text || ''));
+}
+
+function publishableShipOverview(ship) {
+  if (shipOverviewHiddenByAudit(ship && ship.slug)) return '';
+  const text = cleanPortCopy(ship && ship.description);
+  if (!text || isCruiseLineSalesCopy(text) || !shipOverviewMatchesSubject(ship, text)) return '';
+  return text;
+}
+
 function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opts) {
   const BASE_URL = opts.baseUrl;
   const canonical = `${BASE_URL}/ships/${ship.slug}/`;
-  const introParas = buildShipIntroParagraphs(ship);
-  const planningParas = buildShipPlanningParagraphs(ship);
-  const notableSource = uniqueSentences([ship.description, ship.experience], 4).join(' ');
-  const notableParas = notableSource ? splitIntoParagraphs(notableSource) : [];
+  const overviewText = publishableShipOverview(ship);
+  const introParas = overviewText ? splitIntoParagraphs(overviewText) : [];
   const shipClass = shipClassNounPhrase(ship);
   const title = `${ship.name} Cruise Ship Guide | ${ship.cruise_line}`;
   const h1 = `${ship.name} Cruise Ship Guide`;
   const metaDesc = buildShipMetaDescription(ship);
   const ogImage = ship.image_url || opts.defaultImage;
-  const whyBullets = buildShipWhyBullets(ship);
+  const whyBullets = buildShipWhyBullets(ship, overviewText);
   const faqItems = buildShipFaqItems(ship);
 
   const shipPick = relatedShips.slice(0, 6);
@@ -1146,7 +1219,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   }
   if (additionalProperty.length) vehicle.additionalProperty = additionalProperty;
 
-  const jsonLdDesc = introParas.join(' ').slice(0, 500);
+  const jsonLdDesc = (introParas.join(' ') || metaDesc).slice(0, 500);
   const aggregateRating = buildShipAggregateRatingJsonLd(ship);
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -1163,8 +1236,11 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const heroImg = ship.image_url
     ? `<img class="seo-hero-img" src="${escapeHtml(ship.image_url)}" alt="${escapeHtml(ship.name)} cruise ship" width="800" height="420" loading="eager" decoding="async">`
     : '';
-  const notableHtml = notableParas.length
-    ? `<h2>What makes this ship notable</h2><article class="seo-body">${notableParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>`
+  const overviewHtml = introParas.length
+    ? `<h2>Overview</h2><article class="seo-body">${introParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>`
+    : '';
+  const highlightsHtml = whyBullets
+    ? `<h2>Highlights</h2><ul>${whyBullets}</ul>`
     : '';
   const robots = isShipDetailIndexable(ship) ? 'index, follow' : 'noindex, follow';
 
@@ -1206,26 +1282,13 @@ ${getFaviconHeadHtml()}
       <h1>${escapeHtml(h1)}</h1>
       <p class="lead">${escapeHtml(ship.cruise_line)} · ${escapeHtml(shipClass)}</p>
       ${visualPanel}
-      <h2>Overview</h2>
-      <article class="seo-body">
-        ${introParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}
-      </article>
+      ${overviewHtml}
       <h2>Key facts</h2>
       <dl class="seo-keyfacts">
         ${buildShipKeyFactsHtml(ship)}
       </dl>
-      ${notableHtml}
-      <h2>Highlights</h2>
-      <ul>${whyBullets}</ul>
-      <h2>Practical planning</h2>
-      <article class="seo-body">${planningParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>
+      ${highlightsHtml}
       ${buildShipFaqHtml(faqItems)}
-      <h2>Related ships</h2>
-      <ul class="seo-cross-list">${relatedShipLinks || '<li><a href="/ships/">Browse ships</a></li>'}</ul>
-      <h2>Related ports</h2>
-      <ul class="seo-cross-list">
-        ${relatedPortLinks || '<li><a href="/ports/">Browse ports</a></li>'}
-      </ul>
       ${moreOnSeaDaysInline('ship')}
       <h2>More reading</h2>
       ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
@@ -1238,6 +1301,36 @@ ${getFaviconHeadHtml()}
 </html>`);
 }
 
+function buildLicensedHero(guide, fallbackAlt) {
+  const hero = guide && guide.hero;
+  if (!hero || typeof hero !== 'object') return { html: '', url: '' };
+  const url = String(hero.url || '').trim();
+  const author = String(hero.author || '').trim();
+  const license = String(hero.license || '').trim();
+  const licenseUrl = String(hero.licenseUrl || '').trim();
+  if (!url || !author || !license || !licenseUrl) return { html: '', url: '' };
+  const alt = String(hero.alt || fallbackAlt || 'Cruise port').trim();
+  const authorHtml = hero.authorUrl
+    ? `<a href="${escapeHtml(hero.authorUrl)}">${escapeHtml(author)}</a>`
+    : escapeHtml(author);
+  const sourceHtml = hero.sourceName
+    ? (hero.sourceUrl
+      ? `<a href="${escapeHtml(hero.sourceUrl)}">${escapeHtml(hero.sourceName)}</a>`
+      : escapeHtml(hero.sourceName))
+    : '';
+  const titleHtml = hero.title ? `“${escapeHtml(hero.title)}”` : '';
+  const licenseHtml = `<a href="${escapeHtml(licenseUrl)}">${escapeHtml(license)}</a>`;
+  const caption = ['Photo:', authorHtml, sourceHtml, titleHtml, licenseHtml].filter(Boolean).join(' / ').replace(/^Photo: \/ /, 'Photo: ');
+  return {
+    url,
+    html:
+      `<figure class="seo-hero">` +
+      `<img class="seo-hero-img" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" width="1280" loading="eager" decoding="async">` +
+      `<figcaption>${caption}</figcaption>` +
+      `</figure>`,
+  };
+}
+
 function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opts) {
   const BASE_URL = opts.baseUrl;
   const canonical = `${BASE_URL}/ports/${port.slug}/`;
@@ -1245,11 +1338,6 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const h1 = formatPortPlaceLabel(port) || coreName;
   const titleBase = formatPortPlaceLabel(port) || coreName;
   const title = `${titleBase} Cruise Port Guide: Terminals, Tips & Things to Do`;
-  const prose = budgetPortProse(port);
-  const overviewParas = splitIntoParagraphs(prose.overview);
-  const whatParas = splitIntoParagraphs(prose.whatToDo);
-  const cruiseParas = splitIntoParagraphs(prose.cruiseRelevance);
-  const tipsParas = splitIntoParagraphs(prose.tips);
   const guide = opts.portGuide || null;
   const terminals = Array.isArray(opts.portTerminals) ? opts.portTerminals : [];
   const affiliate =
@@ -1260,45 +1348,32 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       knownPortIds: opts.knownAffiliatePortIds,
       destinationLabel: coreName,
     });
+  const cleanedDescription = cleanPortCopy(port.description);
+  const overviewText =
+    cleanedDescription && !isBoilerplateDescription(cleanedDescription)
+      ? trimWords(cleanedDescription, 70)
+      : '';
 
-  let metaDesc = buildPortMetaDescription(port, h1);
+  let metaDesc = dedupeRepeatedCommaPhrase(buildPortMetaDescription(port, h1));
   if (guide?.portInfo?.description) {
-    const enriched = `${coreName} cruise port guide: terminals, getting there, climate, entry tips, and shore-day ideas. ${guide.portInfo.description}`;
+    const enriched = `${coreName} cruise port guide: terminals, getting there, weather, and shore-day ideas.`;
     metaDesc = enriched.length <= 160 ? enriched : enriched.slice(0, 157) + '…';
   }
-  const ogImage = port.image_url || opts.defaultImage;
-  const things = buildPortThingsBullets(port);
-  const richThingsHtml = hasRichThingsToDo(guide) ? buildThingsToDoSection(guide) : '';
-  const thingsBlock = stripMarkersOutsideScripts(richThingsHtml
-    ? richThingsHtml
-    : `<h2>Things to do</h2>
-      <article class="seo-body">${whatParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}</article>
-      <ul>${things}</ul>`);
-  const bestTimeFromGuide =
-    guide?.climate?.bestMonths && guide.climate.bestMonths.length
-      ? guide.climate.bestMonths.join(', ')
-      : '';
-  const bestTime =
-    bestTimeFromGuide ||
-    (port.popularMonths && port.popularMonths.length
-      ? port.popularMonths.join(', ')
-      : fillPortVars(
-          pickAt(
-            [
-              'Late spring through early fall suits many {region} itineraries touching {name}; verify local holidays and heat.',
-              'Shoulder seasons often balance crowds and pricing for cruises calling {name}.',
-              'Year-round sailings exist for some regions—check storm seasons and school breaks before booking {name}.',
-            ],
-            port.id,
-            'bt'
-          ),
-          port
-        ));
 
-  const portPick = relatedPorts.slice(0, 2);
-  const shipPick = relatedShips.slice(0, 4);
-  const blogPick = blogArticles.slice(0, 6);
-  const visualPanel = buildFunVisualPanel('port', port, blogPick);
+  const relations = applyPortPageOverrides(port, relatedPorts, relatedShips);
+  const portPick = relations.relatedPorts.slice(0, 4);
+  const shipPick = relations.hideCallingShips ? [] : relations.relatedShips.slice(0, 4);
+  const blogPick = blogArticles.slice(0, 3).map((article) => ({
+    ...article,
+    excerpt: trimWords(String(article.excerpt || article.seoDescription || article.metaDescription || ''), 8),
+    seoDescription: '',
+    metaDescription: '',
+  }));
+  const articleImages = new Set(blogPick.map((a) => pickArticleImage(a)).filter(Boolean));
+  const licensedHero = buildLicensedHero(guide, h1);
+  const ownImage =
+    licensedHero.url || (port.image_url && !articleImages.has(port.image_url) ? port.image_url : '');
+  const ogImage = ownImage || opts.defaultImage;
 
   const relatedPortLinks = portPick
     .map((p) => {
@@ -1310,25 +1385,28 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     .map((s) => `<li><a href="/ships/${escapeHtml(s.slug)}/">${escapeHtml(s.name)}</a> <span style="color:rgba(255,255,255,0.45)">(${escapeHtml(s.cruise_line)})</span></li>`)
     .join('');
   const blogCards = buildArticleCards(blogPick, 'Port guide');
-  const earlyGuide = stripMarkersOutsideScripts(buildPortGuideEarlySectionsHtml({
-    port,
+  const guideHtml = buildPhase1GuideHtml({
+    port: {
+      ...port,
+      overviewText,
+      highlights: filterHighlightList(port.highlights, port.description),
+    },
     guide,
     terminals,
     affiliate,
-  }));
-  const lateGuide = stripMarkersOutsideScripts(buildPortGuideLateSectionsHtml({
-    port,
-    guide,
-  }));
+  });
+  const relatedHtml = [
+    relations.hideRelatedPorts
+      ? ''
+      : `<section class="seo-cross-block" id="related-ports" data-related="curated"><h2>Related ports</h2><ul class="seo-cross-list">${relatedPortLinks}</ul></section>`,
+    relations.hideCallingShips
+      ? ''
+      : `<section class="seo-cross-block" id="ships-calling" data-related="itinerary"><h2>Ships calling here</h2><ul class="seo-cross-list">${relatedShipLinks}</ul></section>`,
+    `<section class="seo-cross-block" id="more-reading"><h2>More reading</h2>${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}</section>`,
+  ].filter(Boolean).join('\n');
+  const jumpNav = buildPortJumpNav(`${guideHtml}\n${relatedHtml}`);
 
-  const bodyForLd = [
-    guide?.portInfo?.description || '',
-    prose.overview,
-    prose.whatToDo,
-    prose.cruiseRelevance,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  const bodyForLd = [guide?.portInfo?.description || '', overviewText].filter(Boolean).join(' ');
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
   const lat = pickFirstFiniteNumber(port.latitude, port.lat);
   const lng = pickFirstFiniteNumber(port.longitude, port.lng);
@@ -1351,7 +1429,9 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
   const breadcrumbLd = buildBreadcrumbJsonLd(port, canonical);
-  const faqItems = collectPortFaqItems(guide, coreName);
+  const faqItems = collectPortFaqItems(guide, coreName).filter((item) =>
+    guideHtml.includes(escapeHtml(item.q))
+  );
   const faqLd = faqItems.length
     ? {
         '@context': 'https://schema.org',
@@ -1364,9 +1444,12 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       }
     : null;
 
-  const heroImg = port.image_url
-    ? `<img class="seo-hero-img" src="${escapeHtml(port.image_url)}" alt="${escapeHtml(h1)}" width="800" height="420" loading="eager" decoding="async">`
-    : '';
+  const heroImg = licensedHero.html
+    ? licensedHero.html
+    : ownImage
+      ? `<img class="seo-hero-img" src="${escapeHtml(ownImage)}" alt="${escapeHtml(h1)}" width="800" height="420" loading="eager" decoding="async">`
+      : '';
+  const callSummary = portCallsAsHomeport(port, terminals) ? 'Home port' : 'Port call';
   const robots = isPortDetailIndexable(port, guide) ? 'index, follow' : 'noindex, follow';
 
   return finishPublicCopyHtml(`<!DOCTYPE html>
@@ -1401,33 +1484,14 @@ ${getFaviconHeadHtml()}
   <div class="grid-overlay"></div>
   <div class="content-layer">
     ${buildDirectoryHeaderNav()}
-    <main class="seo-detail container">
+    <main class="seo-detail seo-detail-wide container">
       ${buildBreadcrumbsHtml(port)}
-      ${heroImg}
       <h1>${escapeHtml(h1)} Cruise Port Guide</h1>
-      <p class="lead">${escapeHtml(port.region || 'Cruise destination')}${port.country ? ` · ${escapeHtml(port.country)}` : ''}</p>
-      ${visualPanel}
-      ${earlyGuide}
-      <h2>Overview</h2>
-      <article class="seo-body">
-        ${overviewParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}
-        ${wikipediaAttributionHtml(loadWikipediaAttribution()[port.slug])}
-      </article>
-      ${thingsBlock}
-      ${lateGuide}
-      <h2>Cruise relevance</h2>
-      <article class="seo-body">${cruiseParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}</article>
-      <h2>Best time to visit</h2>
-      <p class="seo-body">${escapeHtml(stripWikiCitationMarkers(bestTime))}</p>
-      <h2>Tips for travelers</h2>
-      <article class="seo-body">${tipsParas.map((p) => `<p>${escapeHtml(stripWikiCitationMarkers(p))}</p>`).join('\n')}</article>
-      <h2>Related ports</h2>
-      <ul class="seo-cross-list">${relatedPortLinks || '<li><a href="/ports/">Browse ports</a></li>'}</ul>
-      <h2>Ships to explore</h2>
-      <ul class="seo-cross-list">${relatedShipLinks || '<li><a href="/ships/">Browse ships</a></li>'}</ul>
-      ${moreOnSeaDaysInline('port')}
-      <h2>More reading</h2>
-      ${blogCards || '<ul class="seo-cross-list"><li><a href="/blog/">SeaDays blog</a></li></ul>'}
+      <p class="lead">${escapeHtml(callSummary)}${port.country ? ` in ${escapeHtml(port.country)}` : ''}</p>
+      ${heroImg}
+      ${jumpNav}
+      ${guideHtml}
+      ${relatedHtml}
     </main>
     ${getSiteFooterHtml()}
   </div>
