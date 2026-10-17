@@ -233,6 +233,10 @@ window.__SEADAYS_GA_READY__ = true;
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
+                        <div class="hp-field" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
+                            <label for="website">Leave this field empty</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                     <p class="email-alt">Or write to us at <a href="mailto:support@seadays.app">support@seadays.app</a></p>
@@ -364,6 +368,7 @@ window.__SEADAYS_GA_READY__ = true;
                         feedbackType: 'feedback',
                         subject: form.subject.options[form.subject.selectedIndex].text || subject,
                         message: message,
+                        website: form.website ? form.website.value : '',
                         rating: 0,
                     }),
                 });
