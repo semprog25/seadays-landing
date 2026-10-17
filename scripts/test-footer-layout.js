@@ -132,6 +132,31 @@ test('legal pages do not publish placeholder Inc. or EU address copy', () => {
   assert.doesNotMatch(gdpr, /body\s*\{[^}]*padding:\s*40px 20px/);
 });
 
+test('impressum Kontakt is email plus the existing contact form, with no phone number', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'impressum.html'), 'utf8');
+  assert.match(
+    html,
+    /<h2>Kontakt<\/h2>\s*<p>E-Mail: <a href="mailto:info@semprog\.de">info@semprog\.de<\/a><\/p>\s*<p><a href="https:\/\/seadays\.app\/contact\.html">Kontaktformular<\/a><\/p>/
+  );
+  assert.ok(fs.existsSync(path.join(ROOT, 'contact.html')));
+  const hits = [];
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'test-footer-layout.js') continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!/\.(html|js|json|xml|txt|md)$/.test(entry.name)) continue;
+      const text = fs.readFileSync(full, 'utf8');
+      if (/55370971|tel:\+4917655370971|Telefon:/i.test(text)) hits.push(path.relative(ROOT, full));
+    }
+  }
+  walk(ROOT);
+  assert.deepStrictEqual(hits, []);
+});
+
 test('canonical footer contains brand, nav, Get SeaDays, legal, and copyright', () => {
   const footer = getSiteFooterHtml();
   for (const needle of [
