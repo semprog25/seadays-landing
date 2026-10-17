@@ -99,7 +99,7 @@ function getSiteFooterHtml() {
                                 <li><a href="/ports/">Ports</a></li>
                                 <li><a href="/blog/">Blog</a></li>
                                 <li><a href="/press/">Press</a></li>
-                                <li><a href="/#blog">SeaStories</a></li>
+                                <li><a href="/#blog">From the blog</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">

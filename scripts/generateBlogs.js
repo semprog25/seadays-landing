@@ -1411,7 +1411,11 @@ const PUBLIC_STATIC_SITEMAP_PAGES = [
   { loc: '/cookies.html', file: 'cookies.html' },
   { loc: '/gdpr.html', file: 'gdpr.html' },
   { loc: '/impressum.html', file: 'impressum.html' },
-  { loc: '/press/', file: 'press/index.html' },
+  { loc: '/security.html', file: 'security.html' },
+  { loc: '/delete-account.html', file: 'delete-account.html' },
+  { loc: '/manage-app-data.html', file: 'manage-app-data.html' },
+  { loc: '/meet-saili/', file: 'meet-saili/index.html' },
+  { loc: '/download/', file: 'download/index.html' },
   { loc: '/checklist/', file: 'checklist/index.html' },
   { loc: '/checklist/port/', file: 'checklist/port/index.html' },
 ];

@@ -1218,7 +1218,7 @@ window.__SEADAYS_GA_READY__ = true;
           </div>
           <div class="explain-card">
             <h3><span class="e-icon">⚓</span> Port calls</h3>
-            <p>Each port stop involves manoeuvring, docking, and auxiliary power while in harbour. The estimate adds around 0.05 tonnes per port call. A port-heavy itinerary will be slightly higher than the distance alone suggests.</p>
+            <p>Each port stop involves manoeuvring, docking, and auxiliary power while in harbour. The estimate gives port calls a small weight; each port adds about 0.005 tonnes. More port calls add a little. They do not lower the estimate.</p>
             <span class="impact-tag impact-low">Smallest share</span>
           </div>
         </div>
@@ -1230,7 +1230,7 @@ window.__SEADAYS_GA_READY__ = true;
               <ul>
                 <li><strong>Distance-based:</strong> ~0.4 kg CO₂e per passenger per nautical mile</li>
                 <li><strong>Duration-based:</strong> ~0.15 tonnes CO₂e per day of cruise operation</li>
-                <li><strong>Port-based:</strong> ~0.05 tonnes CO₂e per port call</li>
+                <li><strong>Port-based:</strong> ~0.05 tonnes CO₂e per port call, weighted at 10%, so each port adds about 0.005 tonnes to the total</li>
                 <li>Combined as: 60% distance + 30% duration + 10% port calls. Distance is weighted at 60%, so this is an approximation.</li>
                 <li>A minimum of 0.1 tonnes ensures short or incomplete itineraries still produce a usable figure</li>
                 <li>This is a per-passenger estimate; actual ship emissions are significantly larger</li>
@@ -1290,8 +1290,8 @@ window.__SEADAYS_GA_READY__ = true;
         <h3>Cruise vs. everyday activities</h3>
         <p>A cruise footprint of 0.94 tonnes is equivalent to:</p>
         <ul>
-          <li>Charging your smartphone approximately <strong>18,800 times</strong></li>
-          <li>Leaving an LED lightbulb on for roughly <strong>1.88 million hours</strong> (about 215 years continuous)</li>
+          <li>Charging your smartphone approximately <strong>75,800 times</strong> (about 12.4 g of CO₂ per charge, US EPA 2024)</li>
+          <li>Leaving a 9 W LED bulb on for roughly <strong>261,000 hours</strong> (about 30 years; about 3.6 g of CO₂ per hour at 0.4 kg CO₂/kWh)</li>
           <li>The annual CO₂ absorption of approximately <strong>45 mature trees</strong></li>
         </ul>
         <p>These comparisons illustrate scale. They are not a reduction in the cruise footprint, and they are not a claim that trees have been planted.</p>
@@ -1320,7 +1320,7 @@ window.__SEADAYS_GA_READY__ = true;
           <li><strong>Shorter itineraries:</strong> A 5-night cruise has a meaningfully smaller footprint than a 14-night voyage — even if the per-day rate is similar.</li>
           <li><strong>Walk or use public transport at ports:</strong> The biggest post-voyage variable is what you do in port. Walking tours and local buses have a far smaller footprint than private taxis and excursion coaches.</li>
           <li><strong>Combine cruise and fly smart:</strong> Taking the train to the embarkation port, or choosing a port close to home, removes a substantial source of travel emissions from the equation.</li>
-          <li><strong>Choose itineraries with fewer sea days:</strong> Sea days accumulate duration-based emissions; a port-heavy itinerary at a similar distance can produce a slightly lower overall estimate.</li>
+          <li><strong>Choose itineraries with less distance:</strong> distance is the biggest driver in the estimate. More port calls add a little to the estimate; they don't lower it.</li>
         </ul>
       </section>
 
@@ -1423,7 +1423,7 @@ window.__SEADAYS_GA_READY__ = true;
                                 <li><a href="/ports/">Ports</a></li>
                                 <li><a href="/blog/">Blog</a></li>
                                 <li><a href="/press/">Press</a></li>
-                                <li><a href="/#blog">SeaStories</a></li>
+                                <li><a href="/#blog">From the blog</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">
@@ -1667,8 +1667,8 @@ window.__SEADAYS_GA_READY__ = true;
       var trees = Math.round(tons * 48);
       var carMonths = Math.round((tons / 0.38) * 10) / 10;
       var carDays  = Math.round(carMonths * 30);
-      var phoneCharges = Math.round(tons / 0.00005);
-      var lbHours = Math.round(tons / 0.0000005);
+      var phoneCharges = Math.round(tons / 0.0000124);
+      var lbHours = Math.round(tons / 0.0000036);
       var lbDays  = Math.round(lbHours / 24);
 
       function fmtLarge(n) {
@@ -1697,14 +1697,14 @@ window.__SEADAYS_GA_READY__ = true;
           value: fmtLarge(phoneCharges),
           unit: 'phone charges',
           label: 'Smartphone charges',
-          detail: 'Charging your smartphone ' + phoneCharges.toLocaleString() + ' times produces the same amount of CO₂. Each charge uses about 0.00005 tonnes (50 g) of CO₂ depending on your local power grid. That\'s like charging your phone every day for about ' + Math.round(phoneCharges / 365) + ' years.'
+          detail: 'Charging your smartphone ' + phoneCharges.toLocaleString() + ' times produces the same amount of CO₂. Each charge is about 12.4 g of CO₂ (US EPA 2024). That\'s like charging your phone every day for about ' + Math.round(phoneCharges / 365) + ' years.'
         },
         {
           icon: '💡',
           value: fmtLarge(lbHours),
           unit: 'LED hours',
           label: 'LED lightbulb energy',
-          detail: 'An energy-efficient LED bulb left on for ' + lbHours.toLocaleString() + ' hours (' + lbDays.toLocaleString() + ' days) would produce the same CO₂. LEDs use very little power — about 0.0000005 tonnes per hour — so this comparison shows just how large voyage emissions are relative to everyday electricity use.'
+          detail: 'A 9 W LED bulb left on for ' + lbHours.toLocaleString() + ' hours (' + lbDays.toLocaleString() + ' days) would produce the same CO₂, about 3.6 g of CO₂ per hour at 0.4 kg CO₂/kWh.'
         }
       ];
     }

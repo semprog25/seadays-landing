@@ -305,7 +305,7 @@ window.__SEADAYS_GA_READY__ = true;
                     </svg>
                 </div>
                 <h1>Privacy Policy</h1>
-                <p class="last-updated">Last Updated: August 11, 2026</p>
+                <p class="last-updated">Last Updated: October 17, 2026</p>
             </div>
 
             <div class="content">
@@ -339,7 +339,7 @@ window.__SEADAYS_GA_READY__ = true;
                     <ul>
                         <li>Provide and improve our cruise planning services</li>
                         <li>Personalize your experience</li>
-                        <li>Process subscriptions and payments</li>
+                        <li>Manage subscriptions bought through the App Store or Google Play</li>
                         <li>Send important updates and notifications</li>
                         <li>Enable social features and crew collaboration</li>
                         <li>Track XP, points, and achievements</li>
@@ -355,23 +355,28 @@ window.__SEADAYS_GA_READY__ = true;
                     <p>We may share your data with:</p>
                     <ul>
                         <li><strong>Crew Members:</strong> Information you share within crew groups</li>
-                        <li><strong>Service Providers:</strong> Cloud hosting, payment processors, analytics</li>
+                        <li><strong>Service Providers:</strong> Cloud hosting, analytics, advertising, and subscription management (RevenueCat). Payments are processed by Apple (App Store) or Google (Google Play); we never see your card details.</li>
                         <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
                     </ul>
                 </div>
 
                 <div class="section">
                     <h2>Third-Party Services</h2>
-                    <p>We use the following third-party services to provide and improve our app and website:</p>
+                    <p>App and account services:</p>
                     <ul>
-                        <li><strong>Supabase:</strong> Cloud database and authentication services</li>
-                        <li><strong>Sentry:</strong> Error tracking and crash reporting to help us identify and fix issues</li>
-                        <li><strong>Google Analytics 4 (GA4):</strong> Website analytics on seadays.app (see Website Analytics below)</li>
-                        <li><strong>Google AdSense:</strong> Display advertising on selected seadays.app blog articles when you consent to advertising cookies (see Advertising below)</li>
-                        <li><strong>Google AdMob:</strong> Advertising platform in the mobile app (for free tier users)</li>
-                        <li><strong>RevenueCat:</strong> Subscription and in-app purchase management</li>
+                        <li><strong>Supabase:</strong> Database, authentication, and file storage</li>
+                        <li><strong>RevenueCat:</strong> Subscription and in-app purchase management. Payments are processed by Apple (App Store) or Google (Google Play).</li>
+                        <li><strong>Google AdMob:</strong> Advertising in the mobile app for free-tier users</li>
+                        <li><strong>Google Firebase Analytics:</strong> In-app analytics</li>
+                        <li><strong>Sentry:</strong> Error tracking and crash reporting</li>
+                        <li><strong>Sign in with Apple:</strong> Account sign-in</li>
                     </ul>
-                    <p>These services may collect technical data (device information, error logs, usage analytics) to help us improve app stability and performance. Sentry collects error reports and crash data to help us fix bugs quickly. This data is anonymized and does not include personal information unless an error occurs during a user action.</p>
+                    <p>Website (seadays.app), hosted on <strong>GitHub Pages</strong>:</p>
+                    <ul>
+                        <li><strong>Google Analytics 4 (GA4):</strong> Website analytics, with Consent Mode v2. Analytics storage stays denied until you accept analytics.</li>
+                        <li><strong>Google AdSense:</strong> Display ads on selected blog articles, only after you accept advertising cookies</li>
+                    </ul>
+                    <p>These services may collect technical data (device information, error logs, usage analytics) to help us improve stability and performance. Sentry receives error reports and crash data, which can include technical details from the session where the error happened. We do not claim that every report is anonymized.</p>
                 </div>
 
                 <div class="section">
@@ -390,7 +395,7 @@ window.__SEADAYS_GA_READY__ = true;
                     <p><strong>Your choices:</strong></p>
                     <ul>
                         <li><strong>On the website:</strong> Use the cookie banner choices (<strong>Decline all</strong>, <strong>Accept analytics</strong>, or <strong>Accept analytics &amp; ads</strong>), or reopen them from the <a href="/cookies.html" style="color: var(--neon-red);">Cookie Policy</a> page.</li>
-                        <li><strong>In the app:</strong> Open <strong>Profile → Settings → Ad privacy options</strong> at any time to review or change your ad consent preferences.</li>
+                        <li><strong>In the app:</strong> Open <strong>Profile → Settings → Privacy &amp; Data → Ad privacy options</strong> at any time to review or change your ad consent preferences.</li>
                         <li><strong>On iOS:</strong> You may also see Apple’s App Tracking Transparency (ATT) prompt. You can change tracking permission later in iOS Settings → Privacy &amp; Security → Tracking.</li>
                     </ul>
                     <p>For more information about how Google uses data in advertising, see <a href="https://policies.google.com/technologies/ads" style="color: var(--neon-red);">Google’s Advertising &amp; Privacy page</a>.</p>
@@ -398,13 +403,7 @@ window.__SEADAYS_GA_READY__ = true;
 
                 <div class="section">
                     <h2>Data Security</h2>
-                    <p>We implement industry-standard security measures including:</p>
-                    <ul>
-                        <li>Encryption of data in transit and at rest</li>
-                        <li>Secure authentication and password hashing</li>
-                        <li>Regular security audits and updates</li>
-                        <li>Limited employee access to personal data</li>
-                    </ul>
+                    <p>Data is encrypted in transit (HTTPS/TLS). Sign-in uses Supabase Auth, and our database uses row-level security so you can only reach your own private data. We do not claim encryption at rest or third-party certification. Details are on our <a href="/security.html">Security</a> page.</p>
                 </div>
 
                 <div class="section">
@@ -414,9 +413,9 @@ window.__SEADAYS_GA_READY__ = true;
                         <li><strong>Access:</strong> Request a copy of your data</li>
                         <li><strong>Correction:</strong> Update inaccurate information</li>
                         <li><strong>Deletion:</strong> Request deletion of your account and data</li>
-                        <li><strong>Export:</strong> Download your data in a portable format</li>
+                        <li><strong>Export:</strong> Request a copy of your data in a portable format (Profile → Settings → Privacy &amp; Data)</li>
                         <li><strong>Opt-Out:</strong> Unsubscribe from marketing emails</li>
-                        <li><strong>Ad choices (app):</strong> Manage personalized ad consent in the app under <strong>Ad privacy options</strong> (Profile → Settings)</li>
+                        <li><strong>Ad choices (app):</strong> Manage personalized ad consent in the app under <strong>Profile → Settings → Privacy &amp; Data → Ad privacy options</strong></li>
                         <li><strong>Website analytics &amp; advertising:</strong> Choose Decline all, Accept analytics, or Accept analytics &amp; ads on seadays.app via the cookie banner, or reopen choices from the Cookie Policy page</li>
                     </ul>
                     <p>To exercise these rights, contact us at privacy@seadays.app</p>
@@ -431,12 +430,12 @@ window.__SEADAYS_GA_READY__ = true;
                         <li>Provide personalized content</li>
                         <li>Measure website traffic on seadays.app with GA4 when you consent</li>
                     </ul>
-                    <p>You can manage cookie preferences in your device settings. On the website, use the cookie banner (or Cookie Policy controls) for GA4 analytics and AdSense advertising consent. In the mobile app, use <strong>Ad privacy options</strong> in Settings to manage advertising consent where applicable. When SeaDays opens this Privacy Policy from inside the iOS/Android app, marketing cookie and advertising consent banners are not shown (app-client mode), so App Tracking Transparency choices are not overridden by a second website cookie prompt.</p>
+                    <p>You can manage cookie preferences in your device settings. On the website, use the cookie banner (or Cookie Policy controls) for GA4 analytics and AdSense advertising consent. In the mobile app, open <strong>Profile → Settings → Privacy &amp; Data → Ad privacy options</strong> to manage advertising consent where applicable. When SeaDays opens this Privacy Policy from inside the iOS/Android app, marketing cookie and advertising consent banners are not shown (app-client mode), so App Tracking Transparency choices are not overridden by a second website cookie prompt.</p>
                 </div>
 
                 <div class="section">
                     <h2>Children's Privacy</h2>
-                    <p>SeaDays is not intended for children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us immediately.</p>
+                    <p>You must be at least 16 to use SeaDays. We do not knowingly collect personal data from anyone under 16. If we learn that we have, we delete it.</p>
                 </div>
 
                 <div class="section">
@@ -450,6 +449,8 @@ window.__SEADAYS_GA_READY__ = true;
                 </div>
 
                 <div class="section">
+                    <h2>Controller</h2>
+                    <p>The controller is Sharan Gangadharan, Lincolnstraße 27, 20359 Hamburg, Deutschland. Email: <a href="mailto:info@semprog.de">info@semprog.de</a>. See the <a href="/impressum.html">Impressum</a>.</p>
                     <h2>Contact Us</h2>
                     <p>If you have questions about this privacy policy or our data practices, contact us:</p>
                     <div class="contact-info">
@@ -488,7 +489,7 @@ window.__SEADAYS_GA_READY__ = true;
                                 <li><a href="/ports/">Ports</a></li>
                                 <li><a href="/blog/">Blog</a></li>
                                 <li><a href="/press/">Press</a></li>
-                                <li><a href="/#blog">SeaStories</a></li>
+                                <li><a href="/#blog">From the blog</a></li>
                             </ul>
                         </div>
                         <div class="footer-section">
