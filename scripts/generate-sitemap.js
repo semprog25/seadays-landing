@@ -11,6 +11,7 @@ require('dotenv').config();
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { filterSitemapXml } = require('./lib/sitemapIndexability');
 
 const SUPABASE_URL = 'https://soqkgrfzluewpuiguypm.supabase.co/functions/v1/make-server-51d3ca8d';
 const BLOG_PATH = '/portside-articles?limit=500&forWebsite=1';
@@ -87,6 +88,10 @@ fetchBlog().then((data) => {
   xml += '</urlset>';
 
   const outPath = path.join(__dirname, '..', 'sitemap.xml');
+  // Never list pages that carry noindex or are redirect stubs.
+  const filtered = filterSitemapXml(path.join(__dirname, '..'), xml);
+  xml = filtered.xml;
+  if (filtered.dropped.length) console.log('Left out', filtered.dropped.length, 'non-indexable URL(s)');
   fs.writeFileSync(outPath, xml, 'utf8');
   console.log('Wrote sitemap.xml with', staticUrls.length, 'static +', articles.filter((a) => a && a.id && a.isDraft !== true && a.showOnWebsite !== false).length, 'articles');
 });

@@ -78,6 +78,7 @@ const {
   extractArticleCardImageFromHtml,
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
+const { filterSitemapXml } = require('./lib/sitemapIndexability');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
 const {
@@ -984,7 +985,18 @@ function buildSitemapXml(repoRoot, { articles = [], seoShips = [], seoPorts = []
     sitemap += sitemapUrlLine(url, 'monthly', '0.65', fileLastmodIso(path.join(repoRoot, 'ports', slug, 'index.html')));
   }
   sitemap += '</urlset>';
-  return { xml: sitemap, count: seenUrls.size };
+  // Follow each page's own robots meta: noindex pages, redirect stubs and missing
+  // files never go into the sitemap, whatever list the URLs came from.
+  const { xml: filtered, dropped } = filterSitemapXml(repoRoot, sitemap);
+  if (dropped.length) {
+    const byReason = {};
+    for (const d of dropped) byReason[d.reason] = (byReason[d.reason] || 0) + 1;
+    console.log(
+      `[sitemap] left out ${dropped.length} non-indexable URL(s): ` +
+        Object.entries(byReason).map(([k, v]) => `${k}=${v}`).join(', ')
+    );
+  }
+  return { xml: filtered, count: seenUrls.size - dropped.length, dropped };
 }
 
 function writeSitemapSnapshotFromDisk(repoRoot) {
