@@ -80,6 +80,20 @@ const {
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { filterSitemapXml } = require('./lib/sitemapIndexability');
 const { fixBlogTitle, fixShipName, applyTitleFixesToText } = require('./lib/titleFixes');
+const BLOG_OVERRIDE_META_PATH = path.join(__dirname, '..', 'data', 'blog-body-overrides', 'meta.json');
+let blogOverrideMetaCache = null;
+/** Editorial description/dateModified for posts with a local body override (data/blog-body-overrides/meta.json). */
+function blogOverrideMeta(slug) {
+  if (!blogOverrideMetaCache) {
+    try {
+      blogOverrideMetaCache = JSON.parse(fs.readFileSync(BLOG_OVERRIDE_META_PATH, 'utf8')) || {};
+    } catch {
+      blogOverrideMetaCache = {};
+    }
+  }
+  const entry = blogOverrideMetaCache[String(slug || '')];
+  return entry && typeof entry === 'object' ? entry : {};
+}
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
 const {
@@ -3090,11 +3104,15 @@ async function main() {
       n++;
     }
     slugMap.set(slug, true);
+    const editorialMeta = blogOverrideMeta(slug);
     articles.push({
       ...a,
       slug,
       title: a.title ? fixBlogTitle(a.title) : a.title,
       seoTitle: a.seoTitle ? fixBlogTitle(a.seoTitle) : a.seoTitle,
+      ...(editorialMeta.description ? { seoDescription: editorialMeta.description } : {}),
+      ...(editorialMeta.dateModified ? { updatedAt: editorialMeta.dateModified } : {}),
+      ...(editorialMeta.readMins ? { readTime: editorialMeta.readMins } : {}),
     });
   }
   articles.sort((a, b) => {
