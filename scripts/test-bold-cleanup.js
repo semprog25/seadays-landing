@@ -39,4 +39,16 @@ for (const slug of SLUGS) {
   const stats = boldStats(body);
   assert.ok(stats.tagsPer100 <= 3, `${slug} has ${stats.tagsPer100} bold per 100 words`);
 }
+// The generator injects its own "Related:" line, so override bodies must not carry one.
+const overrideDir = path.join(root, 'data', 'blog-body-overrides');
+for (const name of fs.readdirSync(overrideDir).filter((n) => n.endsWith('.html'))) {
+  const body = fs.readFileSync(path.join(overrideDir, name), 'utf8');
+  assert.ok(!/class="related-inline">Related:/.test(body), `${name} has a baked-in Related: line`);
+}
+for (const slug of fs.readdirSync(path.join(root, 'blog'))) {
+  const file = path.join(root, 'blog', slug, 'index.html');
+  if (!fs.existsSync(file)) continue;
+  const n = (fs.readFileSync(file, 'utf8').match(/class="related-inline">Related:/g) || []).length;
+  assert.ok(n <= 1, `${slug} has ${n} Related: lines`);
+}
 console.log(`bold cleanup ok (${SLUGS.length} posts)`);

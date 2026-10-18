@@ -64,7 +64,8 @@ function main() {
     const after = boldStats(prose(cleanedWithCtas));
     fs.writeFileSync(
       path.join(ROOT, 'data', 'blog-body-overrides', `${slug}.html`),
-      `${stripStoreCtas(cleanedWithCtas).trim()}\n`,
+      // The generator adds its own "Related:" line to every body, so keep it out of the override.
+      `${stripStoreCtas(cleanedWithCtas).replace(/<p class="related-inline">Related:[\s\S]*?<\/p>/gi, '').trim()}\n`,
       'utf8'
     );
     fs.writeFileSync(file, html.slice(0, r.innerStart) + cleanedWithCtas + html.slice(r.innerEnd), 'utf8');
