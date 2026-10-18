@@ -26,6 +26,16 @@ if [[ "${CHANNEL}" == "ports" || "${CHANNEL}" == "ships" || "${CHANNEL}" == "cat
   node scripts/guard-featured-thumbs.js
 fi
 
+# Hand-written, fact-checked bodies (data/editorial-pages) replace the generated ones,
+# then the publish gate re-applies noindex to failing port/ship pages. Without these
+# steps a ports/ships/full run would undo both and put noindex pages back in sitemap.xml.
+echo "[ci-run-channel] applying editorial page bodies"
+node scripts/apply-editorial-pages.js
+if [[ "${CHANNEL}" == "ports" || "${CHANNEL}" == "ships" || "${CHANNEL}" == "catalogue" || "${CHANNEL}" == "full" ]]; then
+  echo "[ci-run-channel] applying publish gate"
+  node scripts/apply-publish-gate.js
+fi
+
 echo "[ci-run-channel] restore acquisition download CTAs"
 node scripts/rewrite-download-ctas.js
 node scripts/inject-analytics-head.js
