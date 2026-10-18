@@ -49,6 +49,8 @@ const {
   buildArticleAuthorJsonLd,
   articleAuthorDisplayName,
   articleAuthorBylineLabel,
+  articleAuthorBylineHtml,
+  loadSiteAuthor,
   fixArticleJsonLdObject,
   getPublisherJsonLd,
   PUBLISHER_NAME,
@@ -1304,14 +1306,23 @@ function patchArticleHtmlPublicationMetadata(html) {
   const canonicalMatch = html.match(/<link rel="canonical" href="([^"]+)"/i);
   const canonicalUrl = canonicalMatch ? canonicalMatch[1] : '';
 
-  let next = html.replace(
-    /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside|Admin|Editor|Staff)<\/span>/gi,
-    `<span class="author">Published by ${PUBLISHER_NAME}</span>`
-  );
-  next = next.replace(
-    /<span class="author">(?!By |Published by )([a-z][a-z0-9._-]*)<\/span>/gi,
-    '<span class="author">By $1</span>'
-  );
+  let next;
+  if (loadSiteAuthor()) {
+    // One byline on every post, linked to the author profile.
+    next = html.replace(
+      /<span class="author">(?:(?!<\/span>)[\s\S])*?(?:<a [^>]*>[^<]*<\/a>)?<\/span>/gi,
+      `<span class="author">${articleAuthorBylineHtml(null)}</span>`
+    );
+  } else {
+    next = html.replace(
+      /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside|Admin|Editor|Staff)<\/span>/gi,
+      `<span class="author">Published by ${PUBLISHER_NAME}</span>`
+    );
+    next = next.replace(
+      /<span class="author">(?!By |Published by )([a-z][a-z0-9._-]*)<\/span>/gi,
+      '<span class="author">By $1</span>'
+    );
+  }
 
   const blockRe = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
   const replacements = [];
@@ -1373,8 +1384,12 @@ function rewritePublicationMetadataOnDisk(repoRoot) {
     let indexHtml = fs.readFileSync(blogIndexPath, 'utf8');
     const indexNext = indexHtml
       .replace(
-        /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside)<\/span>/gi,
-        `<span class="author">Published by ${PUBLISHER_NAME}</span>`
+        loadSiteAuthor()
+          ? /<span class="author">(?:(?!<\/span>)[\s\S])*?(?:<a [^>]*>[^<]*<\/a>)?<\/span>/gi
+          : /<span class="author">(?:By |Published by )?(?:Seadays|SeaDays|Anonymous|SeaStories|Portside)<\/span>/gi,
+        loadSiteAuthor()
+          ? `<span class="author">${escapeHtml(articleAuthorBylineLabel(null))}</span>`
+          : `<span class="author">Published by ${PUBLISHER_NAME}</span>`
       )
       .replace(
         /"name":"SeaDays Blog","description":"([^"]+)","url":"https:\/\/seadays\.app\/blog\/","isPartOf":\{"@id":"https:\/\/seadays\.app\/#website"\}/,
@@ -2151,6 +2166,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-hero h1 { font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; line-height: 1.2; }
 .article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; color: rgba(255, 255, 255, 0.72); margin-bottom: 14px; }
 .article-meta .author { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+.article-meta .author a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .article-hero-image { width: 100%; height: 160px; max-height: 160px; object-fit: cover; object-position: top center; border-radius: 12px; margin-bottom: 16px; background: rgba(255, 255, 255, 0.05); }
 .article-body { font-size: 18px; line-height: 1.75; color: rgba(255, 255, 255, 0.9); padding-bottom: 48px; }
 .article-body h2 { font-size: 28px; margin: 40px 0 16px; font-weight: 700; }
@@ -2408,7 +2424,6 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
   const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
   const authorJsonLd = buildArticleAuthorJsonLd(article);
-  const authorByline = articleAuthorBylineLabel(article);
   const articleBodyText = stripHtmlToPlainText(bodyHtml, 5000);
   const keywords = Array.isArray(article.tags) && article.tags.length
     ? article.tags.map((t) => (typeof t === 'string' ? t : t?.name)).filter(Boolean)
@@ -2485,7 +2500,7 @@ ${getFaviconHeadHtml()}
         <div class="article-hero">
           <h1>${escapeHtml(article.title || 'Untitled')}</h1>
           <div class="article-meta">
-            <span class="author">${escapeHtml(authorByline)}</span>
+            <span class="author">${articleAuthorBylineHtml(article)}</span>
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${modifiedIso && modifiedIso !== publishedIso ? `<span>Updated ${formatDate(article.updatedAt)}</span>` : ''}
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
