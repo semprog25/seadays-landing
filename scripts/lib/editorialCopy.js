@@ -1,5 +1,7 @@
 'use strict';
 
+const { applyTitleFixesToText } = require('./titleFixes');
+
 /**
  * Section A copy rules that must survive the next blog generation:
  * roll calls stay free, tipping/gratuity/service-charge copy is removed,
@@ -325,7 +327,7 @@ function applyRollCallFreeCopy(input) {
  * @returns {string}
  */
 function applyNameFixes(input) {
-  return String(input || '')
+  return applyTitleFixesToText(String(input || ''))
     .replace(/\bAIDACosma\b/g, 'AIDAcosma')
     .replace(/\ba AIDA\b/g, 'an AIDA')
     .replace(/\ba Oceania\b/g, 'an Oceania');
