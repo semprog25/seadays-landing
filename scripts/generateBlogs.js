@@ -79,6 +79,7 @@ const {
 } = require('./lib/seoShipPortPages');
 const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const { filterSitemapXml } = require('./lib/sitemapIndexability');
+const { fixBlogTitle, fixShipName, applyTitleFixesToText } = require('./lib/titleFixes');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
 const {
@@ -3089,7 +3090,12 @@ async function main() {
       n++;
     }
     slugMap.set(slug, true);
-    articles.push({ ...a, slug });
+    articles.push({
+      ...a,
+      slug,
+      title: a.title ? fixBlogTitle(a.title) : a.title,
+      seoTitle: a.seoTitle ? fixBlogTitle(a.seoTitle) : a.seoTitle,
+    });
   }
   articles.sort((a, b) => {
     const ta = a.publishedAt || a.timestamp || a.updatedAt || 0;
@@ -3159,7 +3165,7 @@ async function main() {
     const base = {
       id: slug,
       slug,
-      name: s.name || slug,
+      name: fixShipName(s.name) || slug,
       cruise_line: s.cruiseLine || 'Major cruise line',
       lineId: s.lineId || '',
       description: s.description || '',
