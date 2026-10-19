@@ -141,6 +141,15 @@ function main() {
     assert.strictEqual(cvs.length, 0, 'cvs title still on a port or ship page');
   }
 
+  // CI regeneration must re-apply the gate after the last HTML rewrite, or a
+  // rebuild re-indexes pages that fail it (5e5e9881 re-indexed 122 ports).
+  const runner = fs.readFileSync(path.join(root, 'scripts/ci-run-channel.sh'), 'utf8');
+  const gateAt = runner.lastIndexOf('node scripts/apply-publish-gate.js');
+  assert.ok(gateAt > 0, 'ci-run-channel.sh does not run apply-publish-gate.js');
+  for (const step of ['node scripts/generateBlogs.js', 'node scripts/rewrite-download-ctas.js', 'node scripts/inject-analytics-head.js']) {
+    assert.ok(runner.lastIndexOf(step) < gateAt, `apply-publish-gate.js must run after ${step}`);
+  }
+
   console.log(
     `publish gate ok (indexed ports ${indexedPorts}, indexed ships ${indexedShips}, failing ${failing}, sitemap ${locs.size})`
   );

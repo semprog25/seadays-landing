@@ -29,3 +29,8 @@ fi
 echo "[ci-run-channel] restore acquisition download CTAs"
 node scripts/rewrite-download-ctas.js
 node scripts/inject-analytics-head.js
+
+# Publish gate last, after every HTML rewrite above: pages that fail the gate go
+# back to noindex and leave sitemap.xml, so a CI rebuild cannot re-index them.
+echo "[ci-run-channel] applying publish gate"
+node scripts/apply-publish-gate.js
