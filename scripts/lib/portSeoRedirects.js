@@ -13,6 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 const { DIRECTORY_ALIAS_TO_CANONICAL } = require('./portsDirectoryIndex');
+const { getSiteFooterHtml } = require('./siteShell');
 
 const BASE_URL = 'https://seadays.app';
 
@@ -31,6 +32,34 @@ const PORT_STANDALONE_REDIRECTS = {
 const PORT_ALIAS_REDIRECTS = {
   ...DIRECTORY_ALIAS_TO_CANONICAL,
   'doha-port-qatar': 'doha-qatar',
+  'doha-cruise-terminal-qatar': 'doha-qatar',
+  'port-of-aqaba-jordan': 'aqaba-jordan',
+  'port-of-ashdod-israel': 'ashdod-israel',
+  'port-of-haifa-israel': 'haifa-israel',
+  'dubai-cruise-terminal-united-arab-emirates': 'dubai-united-arab-emirates',
+  'port-zayed-abu-dhabi-united-arab-emirates': 'abu-dhabi-united-arab-emirates',
+  'port-sultan-qaboos-muscat-oman': 'muscat-oman',
+  'jeddah-islamic-port-saudi-arabia': 'jeddah-saudi-arabia',
+  'mina-salman-manama-bahrain': 'manama-bahrain',
+  'goa-india': 'mormugao-port-goa-india',
+  'gran-canaria-spain': 'las-palmas-spain',
+  'rostock-germany': 'warnemunde-berlin-germany',
+  'rugen-germany': 'sassnitz-mukran-germany',
+  'glasgow-united-kingdom': 'greenock-united-kingdom',
+  'nordkapp-norway': 'honningsvag-norway',
+};
+
+/** One URL that names two different dock towns. No single 301 target. */
+const PORT_SPLIT_PAGES = {
+  'venice-ravenna-trieste-italy': {
+    title: 'Venice cruise calls',
+    body:
+      'Cruise calls marketed as Venice use different docks. Ships berth at Ravenna or at Trieste, not at one shared Venice pier.',
+    links: [
+      { slug: 'ravenna-italy', label: 'Ravenna, Italy' },
+      { slug: 'trieste-italy', label: 'Trieste, Italy' },
+    ],
+  },
 };
 
 function escapeHtml(s) {
@@ -71,9 +100,43 @@ function getAliasRedirectTarget(slug) {
   return PORT_ALIAS_REDIRECTS[String(slug || '').trim()] || null;
 }
 
+function isPortSplitSlug(slug) {
+  return Boolean(PORT_SPLIT_PAGES[String(slug || '').trim()]);
+}
+
+function buildPortSplitHtml(slug) {
+  const page = PORT_SPLIT_PAGES[slug];
+  const canonical = `${BASE_URL}/ports/${encodeURI(slug)}/`;
+  const links = (page.links || [])
+    .map(
+      (link) =>
+        `<li><a href="/ports/${escapeHtml(link.slug)}/">${escapeHtml(link.label)}</a></li>`
+    )
+    .join('');
+  return (
+    '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+    '<meta name="robots" content="noindex,follow">' +
+    '<link rel="canonical" href="' +
+    escapeHtml(canonical) +
+    '">' +
+    '<title>' +
+    escapeHtml(page.title) +
+    '</title></head><body>' +
+    '<h1>' +
+    escapeHtml(page.title) +
+    '</h1><p>' +
+    escapeHtml(page.body) +
+    '</p><ul>' +
+    links +
+    '</ul>' +
+    getSiteFooterHtml() +
+    '</body></html>\n'
+  );
+}
+
 function isPortSeoRedirectSlug(slug) {
   const s = String(slug || '').trim();
-  return Boolean(PORT_STANDALONE_REDIRECTS[s] || PORT_ALIAS_REDIRECTS[s]);
+  return Boolean(PORT_STANDALONE_REDIRECTS[s] || PORT_ALIAS_REDIRECTS[s] || PORT_SPLIT_PAGES[s]);
 }
 
 /** Slugs that must not be deleted by orphan cleanup even when absent from seoPorts. */
@@ -114,6 +177,13 @@ function writePortSeoRedirectPages(repoRoot, seoPorts = []) {
     written.push(slug);
   }
 
+  for (const slug of Object.keys(PORT_SPLIT_PAGES)) {
+    const dir = path.join(repoRoot, 'ports', slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), buildPortSplitHtml(slug), 'utf8');
+    written.push(slug);
+  }
+
   for (const [aliasSlug, targetSlug] of Object.entries(PORT_ALIAS_REDIRECTS)) {
     const dir = path.join(repoRoot, 'ports', aliasSlug);
     fs.mkdirSync(dir, { recursive: true });
@@ -139,8 +209,11 @@ module.exports = {
   BASE_URL,
   PORT_STANDALONE_REDIRECTS,
   PORT_ALIAS_REDIRECTS,
+  PORT_SPLIT_PAGES,
   buildPortRedirectHtml,
+  buildPortSplitHtml,
   getAliasRedirectTarget,
+  isPortSplitSlug,
   isPortSeoRedirectSlug,
   getPreservedPortDirectorySlugs,
   writePortSeoRedirectPages,

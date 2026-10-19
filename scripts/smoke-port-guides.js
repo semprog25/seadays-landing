@@ -10,8 +10,9 @@ for (const slug of samples) {
   assert.ok(html.includes(`https://seadays.app/ports/${slug}/`), `${slug} canonical`);
   assert.ok(html.includes('Bookable Experiences'), `${slug} booking`);
   assert.ok(html.includes('Traveler questions'), `${slug} questions`);
-  assert.ok(html.includes('Reviews'), `${slug} reviews`);
-  assert.ok(html.includes('Download on the App Store') || html.includes('Google Play'), `${slug} app cta`);
+  assert.ok(html.includes('id="plan-port-day"'), `${slug} single app prompt`);
+  assert.ok(!html.includes('<h2>Reviews</h2>'), `${slug} no empty reviews section`);
+  assert.ok(html.includes('Google Play'), `${slug} app cta`);
   assert.ok(!html.includes('service_role'), `${slug} no secrets`);
 }
 assert.ok(fs.existsSync(path.join(root, 'data', 'public-port-guides.json')));
@@ -33,10 +34,19 @@ assert.ok(ham.includes('Standard call (about 6–8 hours ashore)'), 'hamburg 6-8
 assert.ok(ham.includes('Short call (about 4–5 hours ashore)'), 'hamburg short call');
 assert.ok(ham.includes('HafenCity') || ham.includes('Speicherstadt'), 'hamburg destination-specific');
 assert.ok(!ham.includes('Photography, markets, and neighborhood walks near'), 'hamburg no SEO template');
-assert.ok(/working Elbe port/i.test(ham), 'hamburg cruise-specific overview');
+assert.ok(/Cruise Gate Hamburg/i.test(ham) && /Elbe/i.test(ham), 'hamburg cruise-specific overview');
 assert.ok(!/Free and Hanseatic City of Hamburg/i.test(ham), 'hamburg no wikipedia overview');
 assert.ok((ham.match(/class="seo-article-card"/g) || []).length >= 3, 'hamburg more-reading cards');
 assert.ok((ham.match(/<img\b[^>]*class="seo-article-img"/g) || []).length >= 1, 'hamburg related thumbnails');
+assert.ok((ham.match(/<details class="pg-terminal-card" open>/g) || []).length >= 4, 'hamburg terminal cards open');
+assert.ok(ham.includes('Van-der-Smissen-Straße 5'), 'hamburg altona address');
+assert.ok(ham.includes('Buchheisterstraße 16'), 'hamburg steinwerder address');
+assert.ok(ham.includes('Baakenhöft 1, 20457 Hamburg'), 'hamburg baakenhoeft address');
+assert.ok(ham.includes('Transport: HADAG ferry 62, bus 111, taxi'), 'hamburg altona transport');
+assert.ok(!/visa-free for many nationalities/.test(ham), 'hamburg unsourced visa line removed');
+assert.ok(ham.includes('https://www.auswaertiges-amt.de/en/visa-service'), 'hamburg foreign office source');
+assert.ok(ham.includes('loading="eager"'), 'hamburg reading images eager');
+assert.ok(!/<div class="seo-article-fallback/.test(ham), 'hamburg no blank reading fallback');
 assert.ok(/href="\/blog\/[^"]+\//.test(ham), 'hamburg related blog links');
 
 const portsIndex = fs.readFileSync(path.join(root, 'ports', 'index.html'), 'utf8');
@@ -53,7 +63,7 @@ assert.ok(
 
 const civ = fs.readFileSync(path.join(root, 'ports', 'rome-civitavecchia-italy', 'index.html'), 'utf8');
 assert.ok(civ.includes('https://seadays.app/ports/rome-civitavecchia-italy/'), 'civitavecchia canonical url');
-assert.ok(/Cruise terminals|id="cruise-terminals"/i.test(civ), 'civitavecchia terminals section');
+assert.ok(/Getting there|id="getting-there"|Cruise terminals|id="cruise-terminals"/i.test(civ), 'civitavecchia terminals section');
 assert.ok(civ.includes('Terminal Donato Bramante'), 'civitavecchia canonical Bramante');
 assert.ok(civ.includes('Terminal 10'), 'civitavecchia Terminal 10');
 assert.ok(civ.includes('Terminal 25 South'), 'civitavecchia Terminal 25 South');

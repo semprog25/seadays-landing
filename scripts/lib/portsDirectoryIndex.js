@@ -131,14 +131,7 @@ function stripTrailingCountry(name, country) {
   return label;
 }
 
-function isBoilerplateDescription(text) {
-  const t = String(text || '').toLowerCase();
-  if (!t) return true;
-  if (t.includes('cruise port profile in the seadays directory')) return true;
-  if (/^[^.]+\s+is a cruise port in\s+[^.]+\.?$/.test(t) && t.length < 120) return true;
-  if (/, [^,]+, [^,]+ is a cruise port profile/.test(t)) return true;
-  return false;
-}
+const { isBoilerplateDescription } = require('./portCopyHygiene');
 
 function shortDirectoryBlurb(description) {
   const raw = String(description || '')
@@ -290,9 +283,11 @@ function buildPortCardsHtml(directoryPorts) {
     })
     .map((port) => {
       const fr = formatDirectoryRating(port.rating);
-      const ratingHtml = fr.display
-        ? buildDirectoryRatingVisualHtml(fr.display, fr.numeric)
-        : `<span class="rating-pill rating-pill-muted">In-app rating</span>`;
+      const reviewCountNum = Number(port.reviewCount);
+      const ratingHtml =
+        fr.display && Number.isFinite(reviewCountNum) && reviewCountNum > 0
+          ? `<span class="rating-pill">${escapeHtml(fr.display)} ★ · ${escapeHtml(String(Math.round(reviewCountNum)))} review${reviewCountNum === 1 ? '' : 's'}</span>`
+          : '';
       const blurbHtml = port.shortBlurb
         ? `<span class="seo-grid-card-desc">${escapeHtml(port.shortBlurb)}</span>`
         : '';

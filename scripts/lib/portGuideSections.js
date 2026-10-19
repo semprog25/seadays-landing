@@ -5,7 +5,15 @@
  * Information depth mirrors the app PortDetail guide; UI is web-editorial.
  */
 
-const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath } = require('./storeLinks');
+const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath, playStoreUrl, appStoreUrl } = require('./storeLinks');
+const {
+  cleanPortCopy,
+  createSentenceGate,
+  filterHighlightList,
+  splitSentences,
+  loadWikipediaAttribution,
+  wikipediaAttributionHtml,
+} = require('./portCopyHygiene');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -282,55 +290,169 @@ function formatTerminalType(t) {
   return t || '';
 }
 
-function buildTerminalsSection(terminals) {
-  if (!Array.isArray(terminals) || !terminals.length) return '';
+function terminalDistanceLabel(km) {
+  const n = Number(km);
+  if (!Number.isFinite(n)) return '';
+  return `${n} km from city center`;
+}
+
+/**
+ * A distance shared by two or more terminals is unverified as a per-terminal fact.
+ * Omit it. A distance that appears once can stay on that card.
+ */
+function distanceFrequency(terminals) {
+  const counts = new Map();
+  for (const t of terminals) {
+    const label = terminalDistanceLabel(t && t.distance_to_city_center_km);
+    if (!label) continue;
+    counts.set(label, (counts.get(label) || 0) + 1);
+  }
+  return counts;
+}
+
+function terminalPin(t) {
+  const lat = Number(t && (t.latitude != null ? t.latitude : t.lat));
+  const lon = Number(t && (t.longitude != null ? t.longitude : t.lon));
+  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+  const label =
+    `<strong>${escapeHtml(t.name || 'Cruise terminal')}</strong>` +
+    (hasText(t.address) ? `<br>${escapeHtml(t.address)}` : '');
+  return { lat, lon, label };
+}
+
+function buildOsmTerminalMap(terminals) {
+  const pins = (Array.isArray(terminals) ? terminals : []).map(terminalPin).filter(Boolean);
+  if (!pins.length) return '';
+  const payload = JSON.stringify(pins).replace(/</g, '\\u003c');
+  return (
+    `<div id="port-terminal-map" class="port-terminal-map" role="region" aria-label="Map of cruise terminals"></div>` +
+    `<p class="pg-map-credit">Map data © <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">OpenStreetMap</a> contributors</p>` +
+    `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">` +
+    `<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous"></script>` +
+    `<script>(function(){` +
+    `var el=document.getElementById('port-terminal-map');` +
+    `if(!window.L||!el||el.dataset.ready)return;` +
+    `el.dataset.ready='1';` +
+    `var pins=${payload};` +
+    `var icon=L.icon({iconUrl:'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',iconRetinaUrl:'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',shadowUrl:'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',iconSize:[25,41],iconAnchor:[12,41],popupAnchor:[1,-34],shadowSize:[41,41]});` +
+    `var map=L.map(el,{scrollWheelZoom:false});` +
+    `L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);` +
+    `var bounds=[];` +
+    `pins.forEach(function(p){L.marker([p.lat,p.lon],{icon:icon}).addTo(map).bindPopup(p.label);bounds.push([p.lat,p.lon]);});` +
+    `if(bounds.length===1)map.setView(bounds[0],14);else map.fitBounds(bounds,{padding:[28,28]});` +
+    `})();</script>`
+  );
+}
+
+function berthLabel(t) {
+  const n = Number(t && t.berth_count);
+  if (!Number.isInteger(n) || n < 1) return '';
+  return `${n} berth${n === 1 ? '' : 's'}`;
+}
+
+function transportOptions(t) {
+  return (Array.isArray(t && t.transport_options) ? t.transport_options : [])
+    .map((item) => String(item || '').trim())
+    .filter(Boolean);
+}
+
+function terminalCardIsFilled(t, descText) {
+  return hasText(t && t.address) || Boolean(berthLabel(t)) || transportOptions(t).length > 0 || hasText(descText);
+}
+
+function buildTerminalsSection(terminals, opts = {}) {
+  if (!Array.isArray(terminals) || !terminals.length) {
+    if (!hasText(opts.logistics)) return '';
+    return section(
+      'Getting there & terminals',
+      `<p class="pg-prose">${escapeHtml(opts.logistics)}</p>`,
+      'getting-there'
+    );
+  }
+  const freq = distanceFrequency(terminals);
+  const gate = typeof opts.gate === 'function' ? opts.gate : (s) => s;
   const cards = terminals
     .map((t) => {
-      const facilities = Array.isArray(t.facilities)
-        ? t.facilities.filter((x) => typeof x === 'string').slice(0, 8)
-        : [];
-      const dist =
-        t.distance_to_city_center_km != null && Number.isFinite(Number(t.distance_to_city_center_km))
-          ? `${Number(t.distance_to_city_center_km)} km from city center`
-          : '';
-      const facHtml = facilities.length
-        ? `<ul class="pg-tags">${facilities.map((f) => `<li>${escapeHtml(f)}</li>`).join('')}</ul>`
+      const distLabel = terminalDistanceLabel(t.distance_to_city_center_km);
+      const showDist = distLabel && freq.get(distLabel) === 1;
+      const descText = gate(cleanPortCopy(t.description || ''));
+      if (!terminalCardIsFilled(t, descText)) return '';
+      const desc = hasText(descText) ? `<p>${escapeHtml(descText)}</p>` : '';
+      const primary = t.is_primary ? ` <span class="pg-pill">Primary</span>` : '';
+      const meta = [formatTerminalType(t.terminal_type), berthLabel(t), showDist ? distLabel : ''].filter(Boolean).join(' · ');
+      const address = hasText(t.address) ? `<p class="pg-meta">${escapeHtml(t.address)}</p>` : '';
+      const transport = transportOptions(t);
+      const transportHtml = transport.length
+        ? `<p class="pg-meta">Transport: ${escapeHtml(transport.join(', '))}</p>`
         : '';
-      const desc = hasText(t.description) ? `<p>${escapeHtml(t.description)}</p>` : '';
-      const primary = t.is_primary ? `<span class="pg-pill">Primary</span>` : '';
       return (
-        `<article class="pg-terminal-card">` +
-        `<header><h3>${escapeHtml(t.name || 'Cruise terminal')}</h3>${primary}</header>` +
-        `<p class="pg-meta">${escapeHtml(formatTerminalType(t.terminal_type))}${dist ? ` · ${escapeHtml(dist)}` : ''}</p>` +
+        `<details class="pg-terminal-card" open>` +
+        `<summary><span>${escapeHtml(t.name || 'Cruise terminal')}</span>${primary}</summary>` +
+        (meta ? `<p class="pg-meta">${escapeHtml(meta)}</p>` : '') +
+        address +
+        transportHtml +
         desc +
-        facHtml +
-        `</article>`
+        `</details>`
       );
     })
+    .filter(Boolean)
     .join('');
-  return section('Cruise terminals', `<div class="pg-terminal-grid">${cards}</div>`, 'cruise-terminals');
+  const logisticsHtml = hasText(opts.logistics) ? `<p class="pg-prose">${escapeHtml(opts.logistics)}</p>` : '';
+  const mapHtml = buildOsmTerminalMap(terminals);
+  return section(
+    'Getting there & terminals',
+    `${logisticsHtml}${mapHtml}<div class="pg-terminal-grid">${cards}</div>`,
+    'getting-there'
+  );
+}
+
+function prefixEachSentence(place, text, lead) {
+  const clean = cleanPortCopy(text);
+  if (!clean) return '';
+  if (!place) return clean;
+  const needle = String(place).toLowerCase();
+  return splitSentences(clean)
+    .map((sentence) => {
+      if (sentence.toLowerCase().includes(needle)) return sentence;
+      const body =
+        lead === 'In' ? sentence.charAt(0).toLowerCase() + sentence.slice(1) : sentence;
+      return `${lead} ${place}, ${body}`;
+    })
+    .join(' ');
+}
+
+function namedForPort(portName, text) {
+  return prefixEachSentence(portName, text, 'For');
 }
 
 function collectPortFaqItems(guide, portName) {
   const questions = [];
-  if (guide?.gettingThere?.distanceToCity) {
+  if (guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) {
     questions.push({
       q: `How far is ${portName} cruise terminal from the city center?`,
-      a: guide.gettingThere.distanceToCity,
+      a: namedForPort(portName, guide.gettingThere.distanceAnswer || guide.gettingThere.distanceToCity),
     });
   }
   if (guide?.gettingThere?.publicTransport || (guide?.gettingThere?.transportation || []).length) {
     questions.push({
       q: `What transport options are available from the ${portName} cruise port?`,
-      a:
+      a: namedForPort(
+        portName,
         guide.gettingThere.publicTransport ||
-        (guide.gettingThere.transportation || []).join(', '),
+          (guide.gettingThere.transportation || []).join(', ')
+      ),
     });
   }
-  if (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements) {
+  if (
+    portName !== 'Hamburg' &&
+    (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements)
+  ) {
     questions.push({
       q: `What are the entry or visa requirements for ${portName}?`,
-      a: [guide.politics.visaRequirements, guide.politics.entryRequirements].filter(Boolean).join(' '),
+      a: namedForPort(
+        portName,
+        [guide.politics.visaRequirements, guide.politics.entryRequirements].filter(Boolean).join(' ')
+      ),
     });
   }
   if (guide?.climate?.bestMonths?.length) {
@@ -348,41 +470,40 @@ function collectPortFaqItems(guide, portName) {
     .slice(0, 6);
 }
 
-function buildTravelerQuestionsSection(guide, portName) {
-  const questions = collectPortFaqItems(guide, portName);
+function clipFaqAnswer(text) {
+  const clean = cleanPortCopy(text);
+  const first = clean.split(/(?<=[.!?])\s+/)[0] || clean;
+  if (first.length <= 160) return first;
+  return `${first.slice(0, 157).replace(/\s+\S*$/, '').trim()}…`;
+}
+
+function buildTravelerQuestionsSection(guide, portName, opts = {}) {
+  const gate = typeof opts.gate === 'function' ? opts.gate : (s) => s;
+  const questions = collectPortFaqItems(guide, portName)
+    .map((item) => {
+      const clipped = clipFaqAnswer(item.a);
+      return { q: item.q, a: gate(clipped) };
+    })
+    .filter((item) => item.q && item.a)
+    .slice(0, 3);
   if (!questions.length) {
-    return (
-      section(
-        'Traveler questions',
-        `<p class="pg-prose">Cruisers ask about walking distance, taxis, and shore-day timing for ${escapeHtml(portName)}.</p>` +
-          buildAppCommunityCta({
-            title: 'Want to answer traveler questions?',
-            body: 'Continue in the SeaDays app to join the conversation and help fellow cruisers.',
-          }),
-        'traveler-questions'
-      )
+    return section(
+      'Traveler questions',
+      `<p class="pg-prose">Cruisers ask about walking distance, taxis, and shore-day timing for ${escapeHtml(portName)}.</p>`,
+      'traveler-questions'
     );
   }
   const cards = questions
-    .slice(0, 6)
+    .slice(0, 4)
     .map(
       (item) =>
         `<article class="pg-qa-card">` +
         `<h3>${escapeHtml(item.q)}</h3>` +
         `<p>${escapeHtml(item.a)}</p>` +
-        `<p class="pg-meta">Guide answer</p>` +
         `</article>`
     )
     .join('');
-  return section(
-    'Traveler questions',
-    `<div class="pg-qa-grid">${cards}</div>` +
-      buildAppCommunityCta({
-        title: 'Want to answer this question?',
-        body: 'Continue in the SeaDays app to share tips and join the port conversation.',
-      }),
-    'traveler-questions'
-  );
+  return section('Traveler questions', `<div class="pg-qa-grid">${cards}</div>`, 'traveler-questions');
 }
 
 function buildReviewsSection(port) {
@@ -422,9 +543,19 @@ const PORT_GUIDE_STYLES = `
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
 .pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
-.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; }
 .pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
-.pg-terminal-card header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.pg-terminal-card > p { display: block; margin-top: 10px; }
+.pg-terminal-card summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font-weight: 800; color: #fff; list-style: none; }
+.pg-terminal-card summary::-webkit-details-marker { display: none; }
+.pg-terminal-card summary span { font-size: 17px; }
+.port-jump { position: sticky; top: 58px; z-index: 4; display: flex; gap: 14px; overflow-x: auto; margin: 0 0 18px; padding: 8px 0; background: rgba(10,10,10,0.94); }
+.port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.port-jump a:hover { color: #fff; }
+.pg-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
+.pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
+.pg-map-credit a { color: rgba(255,255,255,0.78); }
 .pg-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 10px; }
 .pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }
 .pg-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
@@ -457,36 +588,270 @@ const PORT_GUIDE_STYLES = `
 }
 `;
 
-function buildPortGuideEarlySectionsHtml({ port, guide, terminals, affiliate }) {
-  const name = port?.name || guide?.portName || 'Port';
+function firstSentence(text, maxLen) {
+  const cleaned = cleanPortCopy(text);
+  const sentence = cleaned.split(/(?<=[.!?])\s+/)[0] || '';
+  if (!maxLen || sentence.length <= maxLen) return sentence;
+  return `${sentence.slice(0, maxLen - 1).trim()}…`;
+}
+
+function wordList(text) {
+  return String(text || '')
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function cityLabel(name) {
+  const cleaned = String(name || '')
+    .replace(/\s*\([^)]*\)\s*/g, ' ')
+    .split('/')[0]
+    .replace(/,\s*[A-Z]{2}\s*$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return cleaned || String(name || 'this port').trim();
+}
+
+function terminalBerthTotal(terminals) {
+  if (!Array.isArray(terminals) || !terminals.length) return '';
+  let sum = 0;
+  for (const t of terminals) {
+    const n = Number(t && t.berth_count);
+    if (!Number.isInteger(n) || n < 1) return '';
+    sum += n;
+  }
+  return String(sum);
+}
+
+function buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }) {
+  const filter = typeof gate === 'function' ? gate : (s) => s;
+  const info = (guide && guide.portInfo) || {};
+  const climate = (guide && guide.climate) || {};
+  const months = Array.isArray(climate.bestMonths) && climate.bestMonths.length
+    ? climate.bestMonths.join(', ')
+    : Array.isArray(port?.popularMonths) && port.popularMonths.length
+      ? port.popularMonths.join(', ')
+      : '';
+  const getting = filter(firstSentence(guide?.gettingThere?.distanceToCity || guide?.gettingThere?.fromTerminal || '', 180));
+  const passengers = honestFactValue(guide?.size?.publishedPassengers || '');
+  const rows = [
+    ['Port type', isHomeport ? 'Home port' : 'Port call'],
+    ['Country', port?.country || ''],
+    ['Region', port?.region || ''],
+    ['Terminals', Array.isArray(terminals) && terminals.length ? String(terminals.length) : ''],
+    ['Berths', terminalBerthTotal(terminals)],
+    ['Cruise passengers', passengers],
+    ['Getting to the city', getting],
+    ['Currency', info.currency || ''],
+    ['Language', info.language || ''],
+    ['Best months', months],
+  ]
+    .filter(([, value]) => hasText(value))
+    .map(
+      ([label, value]) =>
+        `<div class="pg-fact"><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`
+    )
+    .join('');
+  if (!rows) return '';
+  return section('Quick facts', `<dl class="pg-facts pg-quick">${rows}</dl>`, 'quick-facts');
+}
+
+function buildPrivateIslandNote() {
+  return (
+    `<section class="pg-section pg-booking" id="bookable-experiences" aria-label="Shore excursions">` +
+    `<h2>Shore excursions</h2>` +
+    `<p class="pg-prose">Excursions are sold by your cruise line.</p>` +
+    `</section>`
+  );
+}
+
+function buildExperiencesSection(affiliate, portName) {
+  if (affiliate && affiliate.privateIsland) return buildPrivateIslandNote();
+  return buildBookableExperiencesBanner(affiliate, portName);
+}
+
+const THINGS_PROSE_WORD_CAP = 80;
+
+function buildCappedThingsSection(guide, port, gate) {
+  const filter = typeof gate === 'function' ? gate : (s) => s;
+  const city = cityLabel(port?.name || guide?.portName || 'this port');
+  const t = guide && guide.thingsToDo && typeof guide.thingsToDo === 'object' ? guide.thingsToDo : null;
+  const blocks = [];
+  if (t) {
+    const labeled = [
+      { priority: 3, order: 1, label: '', text: t.intro },
+      { priority: 2, order: 3, label: 'Short call (about 4–5 hours ashore)', text: t.shortCall },
+      { priority: 1, order: 4, label: 'Standard call (about 6–8 hours ashore)', text: t.standardCall },
+      { priority: 5, order: 5, label: 'Longer call (8+ hours or overnight)', text: t.longerCall },
+      { priority: 4, order: 6, label: 'Practical cruise tip', text: t.practicalTip },
+    ];
+    const chosen = [];
+    let words = 0;
+    const uncapped = guide && guide.shorePlansFirst === true;
+    for (const block of labeled.slice().sort((a, b) => a.priority - b.priority)) {
+      const raw = cleanPortCopy(block.text || '');
+      const count = wordList(raw).length;
+      if (!count) continue;
+      if (!uncapped && words + count > THINGS_PROSE_WORD_CAP) continue;
+      const text = filter(raw);
+      if (!text) continue;
+      words += wordList(text).length;
+      chosen.push({ ...block, text });
+    }
+    chosen.sort((a, b) => a.order - b.order);
+    for (const block of chosen) {
+      if (block.label) blocks.push(`<p class="pg-label">${escapeHtml(block.label)}</p>`);
+      blocks.push(`<p class="pg-prose">${escapeHtml(block.text)}</p>`);
+    }
+    const bullets = (Array.isArray(t.topThings) ? t.topThings : [])
+      .map((item) => filter(cleanPortCopy(item)))
+      .filter((item) => hasText(item) && !/^[.]$/.test(item));
+    if (bullets.length) {
+      blocks.push(
+        `<p class="pg-label">Top things to do</p><ul>${bullets
+          .slice(0, 6)
+          .map((item) => `<li>${escapeHtml(item)}</li>`)
+          .join('')}</ul>`
+      );
+    }
+  }
+  if (!blocks.length) {
+    const highlights = filterHighlightList(port?.highlights, port?.description)
+      .map((item) => filter(item))
+      .filter((item) => hasText(item))
+      .slice(0, 6);
+    const fallback = filter(`For a shore day in ${city}, choose one main activity and leave time to get back to the ship.`);
+    if (fallback) blocks.push(`<p class="pg-prose">${escapeHtml(fallback)}</p>`);
+    if (highlights.length) {
+      blocks.push(`<ul>${highlights.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`);
+    }
+  }
+  if (!blocks.length) return '';
+  return section('Things to do', blocks.join('\n'), 'things-to-do');
+}
+
+function buildWeatherMergedSection(guide, port, gate) {
+  const filter = typeof gate === 'function' ? gate : (s) => s;
+  const c = guide && guide.climate ? guide.climate : null;
+  const months =
+    c && Array.isArray(c.bestMonths) && c.bestMonths.length
+      ? c.bestMonths.join(', ')
+      : Array.isArray(port?.popularMonths) && port.popularMonths.length
+        ? port.popularMonths.join(', ')
+        : '';
+  const rawDesc = c ? cleanPortCopy(c.description || '') : '';
+  const city = cityLabel(port?.name || (guide && guide.portName) || '');
+  const desc = rawDesc ? filter(prefixEachSentence(city, rawDesc, 'In')) : '';
+  const temp =
+    c && hasText(c.averageTemp)
+      ? filter(
+          city ? `Average temperature in ${city}: ${c.averageTemp}.` : `Average temperature: ${c.averageTemp}.`
+        )
+      : '';
+  const monthLine = months ? filter(`Best months: ${months}.`) : '';
+  const prose = [desc, temp, monthLine].filter(Boolean);
+  if (!prose.length && !months) return '';
+  const rows =
+    (c && hasText(c.type) ? `<div class="pg-fact"><dt>Climate</dt><dd>${escapeHtml(c.type)}</dd></div>` : '') +
+    (months ? `<div class="pg-fact"><dt>Best months</dt><dd>${escapeHtml(months)}</dd></div>` : '');
+  const paras = prose.map((p) => `<p class="pg-prose">${escapeHtml(p)}</p>`).join('');
+  const dl = rows ? `<dl class="pg-facts">${rows}</dl>` : '';
+  return section('Weather & best time', `${paras}${dl}`, 'weather-best-time');
+}
+
+function buildEntryCollapsedSection(guide, gate, cityName, port) {
+  if (port && port.slug === 'hamburg-germany') {
+    return section(
+      'Entry & documents',
+      `<p class="pg-prose">Germany is in the Schengen Area. Which passport or visa you need depends on your nationality. SeaDays does not set those rules. Check the <a href="https://www.auswaertiges-amt.de/en/visa-service" target="_blank" rel="noopener noreferrer">German Federal Foreign Office</a> and the <a href="https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en" target="_blank" rel="noopener noreferrer">European Commission visa policy</a> page before you travel.</p>`,
+      'entry-requirements'
+    );
+  }
+  const filter = typeof gate === 'function' ? gate : (s) => s;
+  const p = guide && guide.politics ? guide.politics : null;
+  if (!p) return '';
+  const city = cityLabel(cityName || '');
+  const withCity = (text) => prefixEachSentence(city, text, 'For');
+  const visa = filter(withCity(p.visaRequirements || ''));
+  const entry = filter(withCity(p.entryRequirements || ''));
+  const parts = [visa, entry].filter(Boolean);
+  if (!parts.length) return '';
+  const body = parts.map((part) => `<p class="pg-prose">${escapeHtml(part)}</p>`).join('');
+  return section(
+    'Entry & documents',
+    `<details class="pg-terminal-card"><summary><span>Documents and entry rules</span></summary>${body}</details>`,
+    'entry-requirements'
+  );
+}
+
+function buildSinglePortAppPrompt(city) {
+  const label = cityLabel(city);
+  const tracking = {
+    source: 'seadays_web',
+    medium: 'port_guide',
+    campaign: 'port_single_cta',
+    content: 'port_single_cta',
+  };
+  const apple = appStoreUrl(tracking);
+  const play = playStoreUrl(tracking);
+  return (
+    `<aside class="pg-app-cta" id="plan-port-day" aria-label="Plan this port day in SeaDays">` +
+    `<div class="pg-app-cta-copy"><strong>Plan your ${escapeHtml(label)} port day in SeaDays.</strong>` +
+    `<p>Read cruiser reviews, ask questions and save this port to your voyage. Free to use, with optional paid upgrades.</p></div>` +
+    `<div class="pg-app-cta-actions">` +
+    `<a class="pg-btn" href="${escapeHtml(apple)}" target="_blank" rel="noopener noreferrer">App Store</a>` +
+    `<a class="pg-btn pg-btn-ghost" href="${escapeHtml(play)}" target="_blank" rel="noopener noreferrer">Google Play</a>` +
+    `</div></aside>`
+  );
+}
+
+function portCallsAsHomeport(port, terminals) {
+  if (port && port.isHomeport === true) return true;
+  return (Array.isArray(terminals) ? terminals : []).some((t) => {
+    const type = String(t && t.terminal_type ? t.terminal_type : '').toLowerCase();
+    return type === 'homeport' || type === 'both' || type.includes('embark');
+  });
+}
+
+function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
+  const name = port?.name || (guide && guide.portName) || 'Port';
+  const city = cityLabel(name);
+  const gate = createSentenceGate();
+  const isHomeport = portCallsAsHomeport(port, terminals);
+  const lead = gate(cleanPortCopy((guide && guide.portInfo && guide.portInfo.description) || ''));
+  const extra = gate(cleanPortCopy(port?.overviewText || ''));
+  const attribution =
+    lead || extra ? wikipediaAttributionHtml(loadWikipediaAttribution()[port && port.slug]) : '';
+  const logistics = gate(
+    isHomeport
+      ? `Embarkation from ${city} can simplify flight planning when airports and hotels align.`
+      : `On a call at ${city}, confirm the pier, shuttle, and all-aboard time before you leave the ship.`
+  );
+  const things = buildCappedThingsSection(guide, port, gate);
+  const shoreFirst = Boolean(guide && guide.shorePlansFirst);
   return [
-    buildGuideOverviewLead(guide),
-    buildBookableExperiencesBanner(affiliate, name),
-    buildWeatherBestSeasonBlock(guide),
-    buildPortInfoSection(guide),
-    buildTerminalsSection(terminals),
-    buildGettingThereSection(guide),
+    lead ? `<p class="pg-prose pg-lead-guide">${escapeHtml(lead)}</p>` : '',
+    extra ? `<p class="pg-prose">${escapeHtml(extra)}</p>` : '',
+    attribution,
+    shoreFirst ? things : '',
+    buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }),
+    buildExperiencesSection(affiliate, city),
+    buildTerminalsSection(terminals, { gate, logistics }),
+    shoreFirst ? '' : things,
+    buildWeatherMergedSection(guide, port, gate),
+    buildEntryCollapsedSection(guide, gate, city, port),
+    buildTravelerQuestionsSection(guide, city, { gate }),
+    buildSinglePortAppPrompt(city),
   ]
     .filter(Boolean)
     .join('\n');
 }
 
-function buildPortGuideLateSectionsHtml({ port, guide }) {
-  const name = port?.name || guide?.portName || 'Port';
-  return [
-    buildClimateSection(guide),
-    buildPoliticsSection(guide),
-    buildFactsSection(guide),
-    buildSizeSection(guide),
-    buildTravelerQuestionsSection(guide, name),
-    buildReviewsSection(port),
-    buildAppCommunityCta({
-      title: 'Plan this port day in SeaDays',
-      body: 'Use the full Port Guide, community tips, and voyage tools in the SeaDays app.',
-    }),
-  ]
-    .filter(Boolean)
-    .join('\n');
+function buildPortGuideEarlySectionsHtml(args) {
+  return buildPhase1GuideHtml(args);
+}
+
+function buildPortGuideLateSectionsHtml() {
+  return '';
 }
 
 function buildPortGuideSectionsHtml(args) {
@@ -528,4 +893,9 @@ module.exports = {
   buildThingsToDoSection,
   hasRichThingsToDo,
   collectPortFaqItems,
+  buildPhase1GuideHtml,
+  buildSinglePortAppPrompt,
+  portCallsAsHomeport,
+  cityLabel,
+  distanceFrequency,
 };

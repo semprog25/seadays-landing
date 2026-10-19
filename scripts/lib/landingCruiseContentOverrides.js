@@ -40,7 +40,7 @@ function applyShipContentOverride(record, override) {
   const experience = pickString(override.experience);
   const shipClass = pickString(override.shipClass);
   const metaDescription = pickString(override.metaDescription);
-  const highlights = pickStringArray(override.highlights);
+  const highlights = Array.isArray(override.highlights) ? pickStringArray(override.highlights) : null;
   return {
     ...record,
     hasContentOverride: true,
@@ -48,7 +48,7 @@ function applyShipContentOverride(record, override) {
     ...(experience ? { experience } : {}),
     ...(shipClass ? { shipClass } : {}),
     ...(metaDescription ? { metaDescription } : {}),
-    ...(highlights.length ? { highlights } : {}),
+    ...(highlights ? { highlights } : {}),
   };
 }
 
