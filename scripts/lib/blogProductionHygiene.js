@@ -54,7 +54,6 @@ const SD28_KNOWN_HOLDBACK_SLUGS = new Set([
   'best-cruise-health-cost-planning-2026-guide',
   'luxury-cruise-cost-guide-mistakes-to-avoid',
   'budget-cruise-lines-compared-carnival-vs-msc-vs-norwegian',
-  'disney-cruise-line-vs-royal-caribbean-best-for-families',
   'budget-cruise-vs-luxury-cruise-what-to-choose',
   'complete-guide-to-budget-cruise-vs-luxury-cruise',
   'complete-guide-to-solo-cruise-vs-group-cruise',
