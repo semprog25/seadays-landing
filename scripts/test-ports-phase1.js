@@ -28,6 +28,11 @@ function visibleMain(html) {
   const main = String(html || '').match(/<main\b[\s\S]*?<\/main>/i);
   let src = main ? main[0] : String(html || '');
   src = src.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ');
+  // Collapsed <details> body is not user-visible; keep summary text only.
+  src = src.replace(/<details(?![^>]*\bopen\b)[^>]*>[\s\S]*?<\/details>/gi, (block) => {
+    const sum = block.match(/<summary[^>]*>([\s\S]*?)<\/summary>/i);
+    return sum ? `<details><summary>${sum[1]}</summary></details>` : '';
+  });
   return src
     .replace(/<[^>]+>/g, ' ')
     .replace(/&amp;/g, '&')
@@ -232,11 +237,23 @@ for (const [set, count] of shipSetCounts) {
 
 const barcelona = published.find((p) => p.slug === 'barcelona-spain');
 assert.ok(barcelona, 'barcelona page');
+const barcelonaMain = barcelona.html.match(/<main\b[\s\S]*?<\/main>/i);
+const barcelonaMainHtml = barcelonaMain ? barcelonaMain[0] : barcelona.html;
 const barcelonaChars = visibleMain(barcelona.html).length;
 assert.ok(barcelonaChars <= 5000, `barcelona visible chars ${barcelonaChars}`);
+assert.ok(barcelonaMainHtml.includes('id="things-to-do"'), 'barcelona things-to-do');
+assert.ok(barcelonaMainHtml.includes('id="getting-there"'), 'barcelona terminals section');
+assert.ok(barcelonaMainHtml.includes('id="plan-port-day"'), 'barcelona plan port day');
+const barcelonaTerminals = barcelonaMainHtml.match(/id="getting-there"[\s\S]*?<\/section>/i);
+assert.ok(barcelonaTerminals, 'barcelona getting-there section');
+assert.strictEqual((barcelonaTerminals[0].match(/class="pg-terminal-card"/g) || []).length, 6, 'barcelona terminal cards');
+assert.ok(barcelonaMainHtml.includes('Moll Adossat Terminal E (Helix)'), 'barcelona terminal E');
+assert.ok(barcelonaMainHtml.includes('Transport: Drassanes L3 Metro'), 'barcelona WTC transport');
 assert.ok(barcelona.html.includes('Standard call (about 6–8 hours ashore)'));
 assert.ok(!barcelona.html.includes('4.5 km from city center'));
 assert.ok(barcelona.html.includes('0.4 km from city center'));
+assert.ok(!barcelona.html.includes('id="ships-calling"'), 'barcelona no ships block');
+assert.ok(!barcelona.html.includes('id="related-ports"'), 'barcelona no related ports block');
 
 const portsIndex = fs.readFileSync(path.join(root, 'ports', 'index.html'), 'utf8');
 const shipsIndex = fs.readFileSync(path.join(root, 'ships', 'index.html'), 'utf8');
