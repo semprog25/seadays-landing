@@ -386,3 +386,16 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
   .get-seadays-cta-badges{flex-direction:column;}
   .get-seadays-cta img,.article-body .get-seadays-cta img{height:48px;}
 }
+
+/* SD-34: blog hero crop — overrides legacy 160px strip in per-page inline styles */
+.article-hero-image {
+  width: 100% !important;
+  max-height: min(56vw, 400px) !important;
+  height: auto !important;
+  aspect-ratio: 3 / 2 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}

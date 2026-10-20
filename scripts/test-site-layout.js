@@ -253,7 +253,8 @@ test('article pages keep one soft lower CTA, a visible byline, and at most one a
   assert.match(sample, /Sep 11, 2026/);
   assert.match(sample, /Finished the guide\?/);
   assert.doesNotMatch(sample, /Download SeaDays Free/);
-  assert.match(sample, /max-height: 160px/);
+  const siteShell = fs.readFileSync(path.join(ROOT, 'assets/css/site-shell.css'), 'utf8');
+  assert.match(siteShell, /\.article-hero-image[\s\S]*max-height:\s*min\(56vw,\s*400px\)/);
   const slots = sample.match(/<aside\b[^>]*seadays-ad-slot/gi) || [];
   assert.strictEqual(slots.length, 1);
 });

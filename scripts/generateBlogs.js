@@ -63,6 +63,7 @@ const {
   getSiteShellCssLinkHtml,
 } = require('./lib/siteShell');
 const { applyEditorialCopyToHtml, sanitizeArticleCopy } = require('./lib/editorialCopy');
+const { applyBlogProductionHygieneToHtml } = require('./lib/blogProductionHygiene');
 const {
   buildSeoShipRecords,
   buildSeoPortRecords,
@@ -745,10 +746,18 @@ function escapeHtml(s) {
 /** Same inline rules as paragraph bodies: escape first, then ** __ * */
 function inlineMarkdownToHtml(s) {
   if (s == null || s === '') return '';
-  let t = escapeHtml(String(s));
+  let t = String(s);
+  t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
+    return `<a href="${escapeHtml(String(url).trim())}">${escapeHtml(label)}</a>`;
+  });
+  const chunks = t.split(/(<a href="[^"]*">[^<]*<\/a>)/g);
+  t = chunks
+    .map((chunk) => (chunk.startsWith('<a href="') ? chunk : escapeHtml(chunk)))
+    .join('');
   t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   t = t.replace(/__([^_]+)__/g, '<u>$1</u>');
   t = t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  t = t.replace(/\*\*/g, '');
   return t;
 }
 
@@ -823,6 +832,26 @@ function listDirectoryIndexSlugs(repoRoot, segment, { skipNoindex = false } = {}
  * Blog folder slugs for sitemap: includes on-disk posts not necessarily returned by CMS fetch.
  * Omits `*-1` duplicates when the primary slug folder exists (canonical consolidation).
  */
+function loadBlogArticleCorrections(repoRoot) {
+  const file = path.join(repoRoot, 'data', 'blog-article-corrections.json');
+  if (!fs.existsSync(file)) return { slugRenames: {}, titleBySourceSlug: {} };
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return {
+      slugRenames: parsed.slugRenames && typeof parsed.slugRenames === 'object' ? parsed.slugRenames : {},
+      titleBySourceSlug:
+        parsed.titleBySourceSlug && typeof parsed.titleBySourceSlug === 'object' ? parsed.titleBySourceSlug : {},
+    };
+  } catch {
+    return { slugRenames: {}, titleBySourceSlug: {} };
+  }
+}
+
+function resolveBlogPublishSlug(sourceSlug, corrections) {
+  const s = String(sourceSlug || '').trim();
+  return corrections.slugRenames[s] || s;
+}
+
 function loadBlogCanonicalMap(repoRoot) {
   const mapPath = path.join(repoRoot, 'data', 'blog-canonical-clusters.json');
   if (!fs.existsSync(mapPath)) return {};
@@ -1188,21 +1217,27 @@ async function getArticleBodyHtml(article) {
   if (overrideSlug) {
     const overridePath = path.join(__dirname, '..', 'data', 'blog-body-overrides', `${overrideSlug}.html`);
     if (fs.existsSync(overridePath)) {
-      return applyEditorialCopyToHtml(fs.readFileSync(overridePath, 'utf8').trim());
+      return applyBlogProductionHygieneToHtml(
+        applyEditorialCopyToHtml(fs.readFileSync(overridePath, 'utf8').trim())
+      );
     }
   }
   let html = await structuredContentToHtml(article);
   if (html) {
     html = await replaceBase64ImagesInHtml(html, article.id || 'unknown');
-    return applyEditorialCopyToHtml(html);
+    return applyBlogProductionHygieneToHtml(applyEditorialCopyToHtml(html));
   }
 
   const content = article.content;
   if (content && typeof content === 'string' && content.trim()) {
     if (content.trim().startsWith('<')) {
-      return applyEditorialCopyToHtml(await replaceBase64ImagesInHtml(content, article.id || 'unknown'));
+      return applyBlogProductionHygieneToHtml(
+        applyEditorialCopyToHtml(await replaceBase64ImagesInHtml(content, article.id || 'unknown'))
+      );
     }
-    return applyEditorialCopyToHtml(rewriteCdnImgSrcAttributes(formatContentToHtml(content)));
+    return applyBlogProductionHygieneToHtml(
+      applyEditorialCopyToHtml(rewriteCdnImgSrcAttributes(formatContentToHtml(content)))
+    );
   }
   return '<p>No content available.</p>';
 }
@@ -2141,7 +2176,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-hero h1 { font-size: clamp(28px, 4vw, 36px); font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; line-height: 1.2; }
 .article-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; color: rgba(255, 255, 255, 0.72); margin-bottom: 14px; }
 .article-meta .author { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
-.article-hero-image { width: 100%; height: 160px; max-height: 160px; object-fit: cover; object-position: top center; border-radius: 12px; margin-bottom: 16px; background: rgba(255, 255, 255, 0.05); }
+.article-hero-image { width: 100%; max-height: min(56vw, 400px); height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: center; border-radius: 12px; margin-bottom: 16px; background: rgba(255, 255, 255, 0.05); }
 .article-body { font-size: 18px; line-height: 1.75; color: rgba(255, 255, 255, 0.9); padding-bottom: 48px; }
 .article-body h2 { font-size: 28px; margin: 40px 0 16px; font-weight: 700; }
 .article-body h3 { font-size: 22px; margin: 32px 0 12px; font-weight: 600; }
@@ -2357,8 +2392,17 @@ const RUNTIME_GUARD_SCRIPT = `<script>
 })();
 </script>`;
 
-async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, moreArticles, sameTagArticles = []) {
-  const title = escapeHtml(article.seoTitle || article.title || 'Article');
+async function buildArticleHtml(
+  article,
+  bodyHtml,
+  prevArticle,
+  nextArticle,
+  moreArticles,
+  sameTagArticles = [],
+  { publishSlug = '', sourceSlug = '', titleOverride = '' } = {}
+) {
+  const slugForUrls = publishSlug || article.slug;
+  const title = escapeHtml(titleOverride || article.seoTitle || article.title || 'Article');
   const description = escapeHtml(
     (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
     stripHtmlToPlainText(article.content || bodyHtml, 160)
@@ -2368,7 +2412,7 @@ async function buildArticleHtml(article, bodyHtml, prevArticle, nextArticle, mor
   // og:image: prefer Supabase storage URL for og:image; external is also accepted
   const ogImage = validateImageUrl(pickedHeroUrl) || DEFAULT_FAVICON;
   const heroImg = pickedHeroUrl || null;
-  const canonicalUrl = blogCanonicalUrl(article.slug);
+  const canonicalUrl = blogCanonicalUrl(slugForUrls);
 
   let navHtml = '';
   if (prevArticle) {
@@ -3443,9 +3487,13 @@ async function main() {
   if (skipBlogRewrite) {
     if (mode.blogs) rewritePublicationMetadataOnDisk(repoRoot);
   } else {
+  const blogCorrections = loadBlogArticleCorrections(repoRoot);
   for (const article of articles) sanitizeArticleCopy(article);
   for (let i = 0; i < articles.length; i++) {
     const article = articles[i];
+    const sourceSlug = article.slug;
+    const publishSlug = resolveBlogPublishSlug(sourceSlug, blogCorrections);
+    const titleOverride = blogCorrections.titleBySourceSlug[sourceSlug] || '';
     const full = await fetchFullArticle(article.id);
     if (full) {
       article.content = full.content;
@@ -3489,16 +3537,29 @@ async function main() {
     const relatedForInjection = findRelatedArticles(article, articles, excludeIds, 4);
     bodyHtml = injectContextualLinks(bodyHtml, relatedForInjection, 4);
     bodyHtml = rewriteCdnImgSrcAttributes(bodyHtml);
+    bodyHtml = applyBlogProductionHygieneToHtml(bodyHtml);
     const sameTagArticles = findSameTagArticles(article, articles, 6);
     const html = replaceSignedStorageImgSrcInHtml(
-      await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles)
+      await buildArticleHtml(article, bodyHtml, prev, next, more, sameTagArticles, {
+        publishSlug,
+        sourceSlug,
+        titleOverride,
+      })
     );
-    const articleDir = path.join(blogDir, article.slug);
+    const articleDir = path.join(blogDir, publishSlug);
     const indexPath = path.join(articleDir, 'index.html');
-    const redirectPath = path.join(blogDir, article.slug + '.html');
+    const redirectPath = path.join(blogDir, publishSlug + '.html');
     fs.mkdirSync(articleDir, { recursive: true });
     fs.writeFileSync(indexPath, html, 'utf8');
-    fs.writeFileSync(redirectPath, buildRedirectPage(article.slug), 'utf8');
+    fs.writeFileSync(redirectPath, buildRedirectPage(publishSlug), 'utf8');
+    if (publishSlug !== sourceSlug) {
+      const stub = buildBlogDuplicateRedirectHtml(publishSlug, titleOverride || article.title || publishSlug);
+      const legacyDir = path.join(blogDir, sourceSlug);
+      fs.mkdirSync(legacyDir, { recursive: true });
+      fs.writeFileSync(path.join(legacyDir, 'index.html'), stub, 'utf8');
+      fs.writeFileSync(path.join(blogDir, sourceSlug + '.html'), stub, 'utf8');
+      console.log(`  redirect blog/${sourceSlug}/ → /blog/${publishSlug}/`);
+    }
     const sizeBytes = Buffer.byteLength(html, 'utf8');
     const sizeKb = Math.round(sizeBytes / 1024);
     if (sizeBytes > SIZE_WARN_KB * 1024) {
