@@ -4,7 +4,7 @@ Local only. No push, merge, or deploy.
 
 - Branch: `fix/adsense-content-recovery`
 - Base: `39352dfd2` (`fix/sd28-prima-edge-rewrite`, Norwegian Prima vs Celebrity Edge)
-- HEAD: `6a5e28a3a`
+- HEAD: `26af78dd0` (tracker). Content tip before this file: `6a5e28a3a`
 - Prior local work kept: `f85a24097` SD-25/26/34, `e557d5463` SD-07, `948a93ecc` SD-28 debris, `39352dfd2` Prima/Edge
 - Tests this session: `node scripts/test-blog-production-hygiene.js` PASS after each batch. `npm run test:ci-channels` not re-run (no shared generator behavior change beyond a slug filter on the override applier and holdback removals).
 - Browser: Disney comparison and Carnival/MSC/Norwegian comparison on `http://127.0.0.1:8765`, 390x844 and 1440x900. Article columns do not overflow. Pre-existing starfield layer is wider than 390.
