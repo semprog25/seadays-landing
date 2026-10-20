@@ -9,6 +9,9 @@ const {
   stripLeakedProductionNotes,
   applyBlogProductionHygieneToHtml,
   patchArticleHeroImageCss,
+  extractArticleBodyFromPage,
+  measureInlineBoldDensity,
+  reduceExcessiveInlineBold,
 } = require('./lib/blogProductionHygiene');
 
 const ROOT = path.join(__dirname, '..');
@@ -28,13 +31,12 @@ test('removes primary-keyword production sentence', () => {
   assert.match(actual, /Real planning still matters/);
 });
 
-test('preserves spaces around inline strong tags in article body', () => {
-  const { applyBlogProductionHygieneToHtml } = require('./lib/blogProductionHygiene');
+test('preserves spaces when SD-07 unwraps single-word strong tags', () => {
   const sample =
     '<p>step onto a balcony, and the <strong>horizon</strong> does the therapy your <strong>Slack</strong> cannot afford.</p>';
   const out = applyBlogProductionHygieneToHtml(sample);
-  assert.match(out, /the <strong>horizon<\/strong> does/);
-  assert.match(out, /your <strong>Slack<\/strong> cannot/);
+  assert.match(out, /the horizon does the therapy your Slack cannot afford/);
+  assert.doesNotMatch(out, /<strong\b/i);
 });
 
 test('converts markdown links in article body html', () => {
@@ -51,7 +53,20 @@ test('hero css patch removes 160px strip rule', () => {
   assert.match(actual, /aspect-ratio:\s*3\s*\/\s*2/);
 });
 
-function indexableBlogBodies() {
+function articleBodyFromPage(html) {
+  const slot = extractArticleBodyFromPage(html);
+  return slot ? slot.body : null;
+}
+
+function normalizeArticlePlainText(html) {
+  return String(html || '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function indexableBlogArticleBodies() {
   const bodies = [];
   for (const ent of fs.readdirSync(BLOG, { withFileTypes: true })) {
     if (!ent.isDirectory()) continue;
@@ -59,10 +74,14 @@ function indexableBlogBodies() {
     if (!fs.existsSync(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
     if (!/content="index,\s*follow"/i.test(html.slice(0, 5000))) continue;
-    const m = html.match(/<div class="article-body">([\s\S]*?)<\/div>\s*<aside class="get-seadays-cta"/);
-    if (m) bodies.push({ slug: ent.name, text: m[1].replace(/<[^>]+>/g, ' ') });
+    const body = articleBodyFromPage(html);
+    if (body) bodies.push({ slug: ent.name, html: body, text: body.replace(/<[^>]+>/g, ' ') });
   }
   return bodies;
+}
+
+function indexableBlogBodies() {
+  return indexableBlogArticleBodies().map(({ slug, text }) => ({ slug, text }));
 }
 
 test('no indexable blog body contains leaked editorial phrases', () => {
@@ -72,6 +91,99 @@ test('no indexable blog body contains leaked editorial phrases', () => {
     if (/\]\(\//.test(text)) failures.push(`${slug}:raw-md`);
     if (/\bcvs Celebrity\b/i.test(text)) failures.push(`${slug}:cvs-title`);
     if (/\bCrusies\b/.test(text)) failures.push(`${slug}:crusies`);
+  }
+  assert.deepStrictEqual(failures, [], failures.join(', '));
+});
+
+test('extractArticleBodyFromPage includes content after intro Get SeaDays CTA', () => {
+  const page =
+    '<div class="article-body"><p>Intro</p><aside class="get-seadays-cta" data-seadays-blog-cta="intro"></aside><p>After CTA</p></div><section class="same-topic-section"></section>';
+  const slot = extractArticleBodyFromPage(page);
+  assert.ok(slot);
+  assert.match(slot.body, /After CTA/);
+  assert.doesNotMatch(slot.body, /same-topic-section/);
+});
+
+test('SD-07 reduceExcessiveInlineBold is idempotent', () => {
+  const sample =
+    '<p>' +
+    Array.from({ length: 20 }, (_, i) => `<strong>word${i}</strong>`).join(' ') +
+    ' closing.</p>';
+  const once = reduceExcessiveInlineBold(sample);
+  const twice = reduceExcessiveInlineBold(once);
+  assert.strictEqual(once, twice);
+});
+
+test('SD-07 removes adjacent word-by-word strong markup without losing words', () => {
+  const sample =
+    '<p><strong>Civitavecchia</strong> <strong>lies</strong> <strong>~70</strong> <strong>km</strong> northwest of <strong>Rome</strong>.</p>';
+  const actual = reduceExcessiveInlineBold(sample);
+  assert.doesNotMatch(actual, /<strong>\s*Civitavecchia\s*<\/strong>/);
+  assert.match(actual, /Civitavecchia lies ~70 km northwest of Rome/);
+  assert.doesNotMatch(actual, /Civitavecchialies/);
+});
+
+test('SD-07 keeps sparse multi-word emphasis when density stays at or below 3 per 100 words', () => {
+  const filler = Array.from({ length: 34 }, (_, i) => `topic${i}`).join(' ');
+  const sample = `<p>On <strong>port days</strong>, ${filler}. On <strong>sea days</strong>, ${filler}.</p>`;
+  const actual = reduceExcessiveInlineBold(sample);
+  assert.match(actual, /<strong>port days<\/strong>/);
+  assert.match(actual, /<strong>sea days<\/strong>/);
+  assert.ok(measureInlineBoldDensity(actual).per100 <= 3);
+});
+
+test('SD-07 strips keyword-stuffed phrase bold when density exceeds 3 per 100 words', () => {
+  const chunks = [];
+  for (let i = 0; i < 12; i += 1) {
+    chunks.push(`<strong>keyword phrase ${i}</strong> `);
+  }
+  const sample = `<p>${chunks.join('')}with normal closing text.</p>`;
+  const actual = reduceExcessiveInlineBold(sample);
+  assert.doesNotMatch(actual, /<strong\b/i);
+  assert.match(actual, /keyword phrase 0/);
+  assert.match(actual, /normal closing text/);
+});
+
+test('no indexable blog body exceeds 3 inline strong tags per 100 words (SD-07)', () => {
+  const failures = [];
+  for (const { slug, html } of indexableBlogArticleBodies()) {
+    const { per100, strong } = measureInlineBoldDensity(html);
+    if (per100 > 3) failures.push(`${slug}:${strong}:${per100.toFixed(1)}`);
+  }
+  assert.deepStrictEqual(failures, [], failures.join(', '));
+});
+
+test('SD-07 corrected articles preserve plain text, links, and page chrome', () => {
+  const { execSync } = require('child_process');
+  const REF = 'f85a24097';
+  const failures = [];
+  for (const { slug, html } of indexableBlogArticleBodies()) {
+    let basePage;
+    try {
+      basePage = execSync(`git show ${REF}:blog/${slug}/index.html`, { encoding: 'utf8' });
+    } catch {
+      continue;
+    }
+    const baseBody = articleBodyFromPage(basePage);
+    if (!baseBody || measureInlineBoldDensity(baseBody).per100 <= 3) continue;
+    const nowPage = fs.readFileSync(path.join(BLOG, slug, 'index.html'), 'utf8');
+    const plainBase = normalizeArticlePlainText(baseBody);
+    const plainNow = normalizeArticlePlainText(html);
+    if (plainBase !== plainNow) failures.push(`${slug}:plain-text`);
+    const hrefBase = (baseBody.match(/href="[^"]+"/g) || []).sort().join('|');
+    const hrefNow = (html.match(/href="[^"]+"/g) || []).sort().join('|');
+    if (hrefBase !== hrefNow) failures.push(`${slug}:href`);
+    if (!/same-topic-section|explore-more-section|more-to-read-section/.test(nowPage)) {
+      if (/same-topic-section|explore-more-section|more-to-read-section/.test(basePage)) {
+        failures.push(`${slug}:chrome`);
+      }
+    }
+    const canonBase = (basePage.match(/<link rel="canonical" href="[^"]+"/) || [])[0];
+    const canonNow = (nowPage.match(/<link rel="canonical" href="[^"]+"/) || [])[0];
+    if (canonBase && canonBase !== canonNow) failures.push(`${slug}:canonical`);
+    const robotsBase = (basePage.match(/content="index,\s*follow"/i) || [])[0];
+    const robotsNow = (nowPage.match(/content="index,\s*follow"/i) || [])[0];
+    if (robotsBase !== robotsNow) failures.push(`${slug}:robots`);
   }
   assert.deepStrictEqual(failures, [], failures.join(', '));
 });

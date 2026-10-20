@@ -3,20 +3,27 @@
 
 const fs = require('fs');
 const path = require('path');
-const { applyBlogProductionHygieneToHtml } = require('./lib/blogProductionHygiene');
+const {
+  extractArticleBodyFromPage,
+  replaceArticleBodyInPage,
+  measureInlineBoldDensity,
+  reduceExcessiveInlineBold,
+} = require('./lib/blogProductionHygiene');
 
 const ROOT = path.join(__dirname, '..');
 const BLOG = path.join(ROOT, 'blog');
 
 function patchBlogArticleFile(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');
-  const next = raw.replace(
-    /<div class="article-body">([\s\S]*?)<\/div>\s*<aside class="get-seadays-cta"/,
-    (_m, body) =>
-      `<div class="article-body">${applyBlogProductionHygieneToHtml(body)}</div><aside class="get-seadays-cta"`
-  );
-  if (next !== raw) fs.writeFileSync(filePath, next, 'utf8');
-  return next !== raw;
+  const slot = extractArticleBodyFromPage(raw);
+  if (!slot) return false;
+  if (measureInlineBoldDensity(slot.body).per100 <= 3) return false;
+  const nextBody = reduceExcessiveInlineBold(slot.body);
+  if (nextBody === slot.body) return false;
+  const next = replaceArticleBodyInPage(raw, nextBody);
+  if (next === raw) return false;
+  fs.writeFileSync(filePath, next, 'utf8');
+  return true;
 }
 
 function main() {
@@ -27,7 +34,7 @@ function main() {
     if (!fs.existsSync(index)) continue;
     if (patchBlogArticleFile(index)) patched += 1;
   }
-  console.log(`[apply-blog-production-hygiene-disk] patched ${patched} article bodies`);
+  console.log(`[apply-blog-production-hygiene-disk] SD-07 patched ${patched} article bodies`);
 }
 
 main();
