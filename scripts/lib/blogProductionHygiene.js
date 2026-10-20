@@ -47,12 +47,7 @@ const SD28_TEMPLATE_TEST_RE = new RegExp(
  * or owner-approved noindex/merge — then remove the slug from this set.
  */
 const SD28_KNOWN_HOLDBACK_SLUGS = new Set([
-  'the-hidden-stress-of-cruise-travel-and-how-to-avoid-it',
   'why-your-cruise-feels-chaotic-without-a-planning-app',
-  'budget-cruise-vs-luxury-cruise-what-to-choose',
-  'complete-guide-to-budget-cruise-vs-luxury-cruise',
-  'complete-guide-to-solo-cruise-vs-group-cruise',
-  'cruise-tips-vs-cruise-hacks-what-to-choose',
 ]);
 
 function splitSentences(text) {
