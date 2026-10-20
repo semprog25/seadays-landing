@@ -1810,6 +1810,14 @@ function buildDirectoryRatingVisualHtml(displayStr, numeric) {
   );
 }
 
+/** Public ships directory: show ratings only when aggregate data exists (matches ports index). */
+function buildShipDirectoryRatingHtml(ship) {
+  const fr = formatDirectoryRating(ship && ship.rating);
+  const reviewCountNum = Number(ship && ship.reviewCount);
+  if (!fr.display || !Number.isFinite(reviewCountNum) || reviewCountNum <= 0) return '';
+  return buildDirectoryRatingVisualHtml(fr.display, fr.numeric);
+}
+
 function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
   const canonical = `${BASE_URL}/ships/`;
   const title = 'Cruise Ships Directory | SeaDays';
@@ -1848,10 +1856,7 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
     })
     .map((ship) => {
       const line = normalizeKey(ship.cruise_line);
-      const fr = formatDirectoryRating(ship.rating);
-      const ratingHtml = fr.display
-        ? buildDirectoryRatingVisualHtml(fr.display, fr.numeric)
-        : `<span class="rating-pill rating-pill-muted">In-app rating</span>`;
+      const ratingHtml = buildShipDirectoryRatingHtml(ship);
       return (
         `<a href="/ships/${escapeHtml(ship.slug)}/" class="seo-grid-card directory-card" ` +
         `data-group="${escapeHtml(line)}" data-item="${escapeHtml(ship.slug)}">` +
@@ -3599,6 +3604,8 @@ if (require.main === module) {
 }
 
 module.exports = {
+  buildShipDirectoryRatingHtml,
+  buildShipsIndexHtml,
   isSignedStorageUrl,
   classifyImageUrl,
   validateImageUrl,
