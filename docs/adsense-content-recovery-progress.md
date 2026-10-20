@@ -7,7 +7,8 @@ Local only. No push, merge, or deploy.
 - Content commits after the last tracker: `e5fb58338`, `5a88fdfa5`, `7f3e2543b`, plus the stress word bump in the commit that adds this file
 - HEAD in this file is the tracker commit itself once committed
 - Full `npm run test:ci-channels` is the final checkpoint after this file
-- 2026-10-20 later: visible titles corrected for the trip-cost, 30-day, and top-10 pages. Slugs and canonicals unchanged. Chaotic-planning page now points at the stress guide and stays a merge proposal, not a repaired article. SD-28 holdback set is empty because the template phrase is gone; the duplicate is still not approved. CMS id map: `docs/cms-reconciliation-dry-run.md`. Two override slugs were absent from the public feed.
+- 2026-10-20 later: visible titles corrected for the trip-cost, 30-day, and top-10 pages. Slugs and canonicals unchanged. Chaotic-planning page now points at the stress guide and stays a merge proposal, not a repaired article. SD-28 holdback set is empty because the template phrase is gone; the duplicate is still not approved. CMS id map: `docs/cms-reconciliation-dry-run.md`. Two override slugs were absent from the public feed (`how-to-travel-with-kids-on-a-cruise-without-losing-your-mind`, `why-your-cruise-feels-chaotic-without-a-planning-app`).
+- Resume: articles still marked `Still requiring action` in the table below have not had an editorial read. Do not mark them acceptable from hygiene. Next batch: dollar-claim articles that were flagged, then the short posts, then the rest of that table.
 
 ## Counts against 113 indexable Appendix B articles
 
@@ -85,11 +86,11 @@ No change to ads.txt, consent, or the AdSense client/slot. Mid-article slots on 
 | complete-guide-to-budget-cruise-vs-luxury-cruise | Merge proposed | Owner must approve a real 301. No HTML stub. |
 | complete-guide-to-solo-cruise-vs-group-cruise | Merge proposed | Owner must approve a real 301. No HTML stub. |
 | cruise-tips-vs-cruise-hacks-what-to-choose | Merge proposed | Owner must approve a real 301. No HTML stub. |
-| why-your-cruise-feels-chaotic-without-a-planning-app | Merge proposed | Owner must approve a real 301. No HTML stub. |
+| why-your-cruise-feels-chaotic-without-a-planning-app | Merge proposed | Template copy removed. Page points at the stress guide. Not a repaired article. | Owner must approve a real 301. No HTML stub. |
 | 12-cruise-ship-secrets-the-crew-wont-tell-you-but-you-should-know | Still requiring action | Indexable body about 393 words. Not expanded without a source. |
 | 7-cruise-passenger-mistakes-that-cost-you-time-and-money | Still requiring action | Indexable body about 573 words. Not expanded without a source. |
 | 7-days-of-pure-fun-why-a-mediterranean-cruise-is-the-ultimate-feel-good-trip | Still requiring action | Indexable body about 320 words. Not expanded without a source. |
-| 7-ways-planning-your-cruise-properly-saves-you-money | Still requiring action | Indexable body about 289 words. Not expanded without a source. |
+| 7-ways-planning-your-cruise-properly-saves-you-money | Already acceptable | Read 2026-10-20. Planning habits, no invented saving. | Indexable body about 289 words. Not expanded without a source. |
 | aida-cruises-secrets-10-things-regular-guests-know-but-newcomers-dont | Still requiring action | Indexable body about 479 words. Not expanded without a source. |
 | alaska-cruise-planning-2026-inside-passage-routes-excursions-and-packing | Still requiring action | Indexable body about 555 words. Not expanded without a source. |
 | are-cruises-actually-cheaper-than-hotels-real-cost-breakdown | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
@@ -128,7 +129,7 @@ No change to ads.txt, consent, or the AdSense client/slot. Mid-article slots on 
 | first-time-cruise-mistakes-that-cost-money-and-how-to-avoid-them | Still requiring action | Indexable body about 472 words. Not expanded without a source. |
 | first-time-cruise-tips-what-to-know-before-you-go | Still requiring action | Indexable body about 498 words. Not expanded without a source. |
 | from-party-ships-to-zen-cruises-finding-your-vibe | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
-| how-better-planning-reduces-cruise-expenses-instantly | Still requiring action | Indexable body about 253 words. Not expanded without a source. |
+| how-better-planning-reduces-cruise-expenses-instantly | Already acceptable | Read 2026-10-20. Planning habits, no invented saving. | Indexable body about 253 words. Not expanded without a source. |
 | how-cruise-roll-calls-help-you-meet-people-before-embarkation-day | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | how-to-avoid-getting-sick-on-a-cruise-ship | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | how-to-build-a-shared-packing-list-in-seadays-plan-that-ends-duplicate-suitcases-for-good | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
@@ -160,13 +161,13 @@ No change to ads.txt, consent, or the AdSense client/slot. Mid-article slots on 
 | the-dark-side-of-cruises-what-cruise-lines-dont-tell-you | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | the-future-of-cruise-dining-specialty-boom-flex-dining-and-dietary-needs-at-sea | Still requiring action | Indexable body about 480 words. Not expanded without a source. |
 | the-future-of-cruising-ai-smart-ships-floating-cities | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
-| the-hidden-costs-of-not-using-a-cruise-planning-app | Still requiring action | Indexable body about 386 words. Not expanded without a source. |
+| the-hidden-costs-of-not-using-a-cruise-planning-app | Already acceptable | Read 2026-10-20. Planning habits, no invented saving. | Indexable body about 386 words. Not expanded without a source. |
 | the-most-extreme-cruise-experiences-in-the-world | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | the-most-overrated-cruise-destinations-and-better-alternatives | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | the-psychology-of-cruises-why-people-get-addicted | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | the-real-cost-of-cruise-drink-packages-is-it-worth-it | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | the-rise-of-digital-nomads-on-cruise-ships-hype-reality-and-wifi-economics | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
-| the-seadays-drink-package-calculator-math-that-tells-you-when-to-skip-the-package-entirely | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
+| the-seadays-drink-package-calculator-math-that-tells-you-when-to-skip-the-package-entirely | Targeted correction completed | Sample Royal Caribbean and Virgin prices removed. Method kept. | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | what-a-10000-cruise-actually-gets-you | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | what-happens-if-you-miss-your-cruise-ship | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
 | what-is-a-sea-day-on-a-cruise | Still requiring action | Not editorially re-read in this programme. Hygiene pass is not approval. |
