@@ -28,6 +28,40 @@ const LEAKED_EDITORIAL_TEST_RE = new RegExp(
   'i'
 );
 
+/** SD-28 generated-template fingerprints (audit Oct 19). Detection only unless scrubbed below. */
+const SD28_TEMPLATE_MARKERS = [
+  /\bstarts with honest constraints\b/i,
+  /\bFraming the Issue:/i,
+  /\btreat it as a bundle of decisions\b/i,
+  /\bpassengers notice first\b/i,
+];
+
+const SD28_TEMPLATE_TEST_RE = new RegExp(
+  SD28_TEMPLATE_MARKERS.map((r) => r.source).join('|'),
+  'i'
+);
+
+/**
+ * Indexable posts with known SD-28 template quality debt (audit Oct 19).
+ * CI allows SD28_TEMPLATE markers only on these slugs until each is rewritten from sources
+ * or owner-approved noindex/merge — then remove the slug from this set.
+ */
+const SD28_KNOWN_HOLDBACK_SLUGS = new Set([
+  'the-hidden-stress-of-cruise-travel-and-how-to-avoid-it',
+  'why-your-cruise-feels-chaotic-without-a-planning-app',
+  'cruise-health-vs-travel-wellness-what-to-know',
+  'how-to-use-cruise-packing-list-for-caribbean',
+  'best-cruise-health-cost-planning-2026-guide',
+  'luxury-cruise-cost-guide-mistakes-to-avoid',
+  'budget-cruise-lines-compared-carnival-vs-msc-vs-norwegian',
+  'cvs-celebrity-edge-modern-cruise-ship-comparison',
+  'disney-cruise-line-vs-royal-caribbean-best-for-families',
+  'budget-cruise-vs-luxury-cruise-what-to-choose',
+  'complete-guide-to-budget-cruise-vs-luxury-cruise',
+  'complete-guide-to-solo-cruise-vs-group-cruise',
+  'cruise-tips-vs-cruise-hacks-what-to-choose',
+]);
+
 function splitSentences(text) {
   return String(text || '')
     .split(/(?<=[.!?])\s+(?=[A-Z"“‘(])/g)
@@ -109,9 +143,31 @@ function scrubBatchClausesInHtml(inner) {
   return s;
 }
 
+/**
+ * Remove objectively broken SD-28 template debris (not substantive rewrites).
+ * @param {string} input
+ * @returns {string}
+ */
+function scrubSd28TemplateDebris(input) {
+  let out = String(input || '');
+  out = out.replace(/\bFraming the Issue:\s*/gi, '');
+  out = out.replace(
+    /[,;]?\s*which\s+(?:(?:<a\b[^>]*>[\s\S]*?<\/a>)|[^.<])+?\s+passengers notice first\.?/gi,
+    '.'
+  );
+  out = out.replace(/\s+\./g, '.');
+  if (/\bstarts with honest constraints\b/i.test(out)) {
+    const parts = splitSentences(out);
+    if (parts.length <= 1) return '';
+    out = parts.filter((p) => !/\bstarts with honest constraints\b/i.test(p)).join(' ');
+  }
+  return out.replace(/\s{2,}/g, ' ');
+}
+
 function applyBlogProductionHygieneToText(text) {
   let out = scrubInlineProductionClauses(text);
   out = stripLeakedProductionNotes(out);
+  out = scrubSd28TemplateDebris(out);
   out = applyTypoFixes(out);
   out = repairResidualMarkdown(out);
   return out;
@@ -221,6 +277,10 @@ function reduceExcessiveInlineBold(html) {
 function applyBlogProductionHygieneToHtml(html) {
   let out = String(html || '');
   out = out.replace(/<(p|li|h[2-4])\b([^>]*)>([\s\S]*?)<\/\1>/gi, (full, tag, attrs, inner) => {
+    const plainInner = inner.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (plainInner && /\bstarts with honest constraints\b/i.test(plainInner)) {
+      return '';
+    }
     const hasInlineTags = /<[a-z][^>]*>/i.test(inner);
     if (!hasInlineTags) {
       const next = applyBlogProductionHygieneToText(inner);
@@ -231,6 +291,10 @@ function applyBlogProductionHygieneToHtml(html) {
       return full;
     }
     let next = scrubBatchClausesInHtml(inner);
+    next = next.replace(
+      /[,;]?\s*which\s+(?:(?:<a\b[^>]*>[\s\S]*?<\/a>)|[^.<])+?\s+passengers notice first\.?/gi,
+      '.'
+    );
     if (/\[[^\]]+\]\([^)]+\)/.test(next)) next = repairResidualMarkdown(next);
     next = next.replace(/\bCrusies\b/g, 'Cruises');
     if (next !== inner) return `<${tag}${attrs}>${next}</${tag}>`;
@@ -241,6 +305,7 @@ function applyBlogProductionHygieneToHtml(html) {
     if (next === text) return match;
     return `>${next}<`;
   });
+  out = out.replace(/([a-z0-9])(<a\s)/gi, '$1 $2');
   return reduceExcessiveInlineBold(out);
 }
 
@@ -258,7 +323,11 @@ function patchArticleHeroImageCss(html) {
 module.exports = {
   LEAKED_EDITORIAL_PATTERNS,
   LEAKED_EDITORIAL_TEST_RE,
+  SD28_TEMPLATE_MARKERS,
+  SD28_TEMPLATE_TEST_RE,
+  SD28_KNOWN_HOLDBACK_SLUGS,
   stripLeakedProductionNotes,
+  scrubSd28TemplateDebris,
   scrubInlineProductionClauses,
   applyTypoFixes,
   repairResidualMarkdown,

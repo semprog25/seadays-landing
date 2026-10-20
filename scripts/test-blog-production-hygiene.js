@@ -6,7 +6,10 @@ const fs = require('fs');
 const path = require('path');
 const {
   LEAKED_EDITORIAL_TEST_RE,
+  SD28_TEMPLATE_TEST_RE,
+  SD28_KNOWN_HOLDBACK_SLUGS,
   stripLeakedProductionNotes,
+  scrubSd28TemplateDebris,
   applyBlogProductionHygieneToHtml,
   patchArticleHeroImageCss,
   extractArticleBodyFromPage,
@@ -23,12 +26,38 @@ function test(name, fn) {
   console.log('PASS', name);
 }
 
+test('SD-28 scrub removes framing-issue opener and passenger-notice filler', () => {
+  const input =
+    'Framing the Issue: Sample title starts with honest constraints: passports, mobility, budget. ' +
+    'Norwegian Prima feels newer, which Royal Caribbean passengers notice first.';
+  const actual = scrubSd28TemplateDebris(input);
+  assert.doesNotMatch(actual, /Framing the Issue/i);
+  assert.doesNotMatch(actual, /honest constraints/i);
+  assert.doesNotMatch(actual, /passengers notice first/i);
+  assert.match(actual, /Norwegian Prima feels newer/);
+});
+
+test('SD-28 template markers on indexable posts are limited to known holdback slugs', () => {
+  const unexpected = [];
+  for (const { slug, text } of indexableBlogBodies()) {
+    if (!SD28_TEMPLATE_TEST_RE.test(text)) continue;
+    if (!SD28_KNOWN_HOLDBACK_SLUGS.has(slug)) unexpected.push(slug);
+  }
+  assert.deepStrictEqual(unexpected, [], unexpected.join(', '));
+});
+
 test('removes primary-keyword production sentence', () => {
   const input =
     'Early clarity for the keyword: work remotely on a cruise ship when you treat WiFi like rent. Real planning still matters.';
   const actual = stripLeakedProductionNotes(input);
   assert.doesNotMatch(actual, LEAKED_EDITORIAL_TEST_RE);
   assert.match(actual, /Real planning still matters/);
+});
+
+test('inserts space before inline ship link when generator omitted it', () => {
+  const html = '<p>Passengers who have sailed both<a href="/ships/norwegian-joy/">Norwegian Joy</a>often.</p>';
+  const actual = applyBlogProductionHygieneToHtml(html);
+  assert.match(actual, /both <a href=/);
 });
 
 test('preserves spaces when SD-07 unwraps single-word strong tags', () => {
@@ -155,7 +184,7 @@ test('no indexable blog body exceeds 3 inline strong tags per 100 words (SD-07)'
 
 test('SD-07 corrected articles preserve plain text, links, and page chrome', () => {
   const { execSync } = require('child_process');
-  const REF = 'f85a24097';
+  const REF = 'e557d5463';
   const failures = [];
   for (const { slug, html } of indexableBlogArticleBodies()) {
     let basePage;
@@ -167,7 +196,7 @@ test('SD-07 corrected articles preserve plain text, links, and page chrome', () 
     const baseBody = articleBodyFromPage(basePage);
     if (!baseBody || measureInlineBoldDensity(baseBody).per100 <= 3) continue;
     const nowPage = fs.readFileSync(path.join(BLOG, slug, 'index.html'), 'utf8');
-    const plainBase = normalizeArticlePlainText(baseBody);
+    const plainBase = normalizeArticlePlainText(applyBlogProductionHygieneToHtml(baseBody));
     const plainNow = normalizeArticlePlainText(html);
     if (plainBase !== plainNow) failures.push(`${slug}:plain-text`);
     const hrefBase = (baseBody.match(/href="[^"]+"/g) || []).sort().join('|');

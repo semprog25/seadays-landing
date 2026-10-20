@@ -8,6 +8,7 @@ const {
   replaceArticleBodyInPage,
   measureInlineBoldDensity,
   reduceExcessiveInlineBold,
+  applyBlogProductionHygieneToHtml,
 } = require('./lib/blogProductionHygiene');
 
 const ROOT = path.join(__dirname, '..');
@@ -17,8 +18,8 @@ function patchBlogArticleFile(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');
   const slot = extractArticleBodyFromPage(raw);
   if (!slot) return false;
-  if (measureInlineBoldDensity(slot.body).per100 <= 3) return false;
-  const nextBody = reduceExcessiveInlineBold(slot.body);
+  let nextBody = applyBlogProductionHygieneToHtml(slot.body);
+  nextBody = reduceExcessiveInlineBold(nextBody);
   if (nextBody === slot.body) return false;
   const next = replaceArticleBodyInPage(raw, nextBody);
   if (next === raw) return false;
@@ -34,7 +35,7 @@ function main() {
     if (!fs.existsSync(index)) continue;
     if (patchBlogArticleFile(index)) patched += 1;
   }
-  console.log(`[apply-blog-production-hygiene-disk] SD-07 patched ${patched} article bodies`);
+  console.log(`[apply-blog-production-hygiene-disk] patched ${patched} article bodies (SD-07 + SD-28 hygiene)`);
 }
 
 main();
