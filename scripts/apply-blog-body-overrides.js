@@ -121,9 +121,11 @@ function main() {
   if (fs.existsSync(META_PATH)) {
     metaAll = JSON.parse(fs.readFileSync(META_PATH, 'utf8'));
   }
+  const only = process.argv.slice(2);
   const files = fs.readdirSync(OVERRIDE_DIR).filter((f) => f.endsWith('.html'));
   for (const file of files) {
     const slug = file.replace(/\.html$/, '');
+    if (only.length && !only.includes(slug)) continue;
     const result = applyOverride(slug, metaAll[slug] || {});
     console.log(`applied override ${result.slug} (${result.words} words)`);
   }

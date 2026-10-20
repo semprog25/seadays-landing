@@ -49,11 +49,6 @@ const SD28_TEMPLATE_TEST_RE = new RegExp(
 const SD28_KNOWN_HOLDBACK_SLUGS = new Set([
   'the-hidden-stress-of-cruise-travel-and-how-to-avoid-it',
   'why-your-cruise-feels-chaotic-without-a-planning-app',
-  'cruise-health-vs-travel-wellness-what-to-know',
-  'how-to-use-cruise-packing-list-for-caribbean',
-  'best-cruise-health-cost-planning-2026-guide',
-  'luxury-cruise-cost-guide-mistakes-to-avoid',
-  'budget-cruise-lines-compared-carnival-vs-msc-vs-norwegian',
   'budget-cruise-vs-luxury-cruise-what-to-choose',
   'complete-guide-to-budget-cruise-vs-luxury-cruise',
   'complete-guide-to-solo-cruise-vs-group-cruise',
