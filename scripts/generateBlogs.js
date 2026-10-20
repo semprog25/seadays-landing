@@ -832,6 +832,17 @@ function listDirectoryIndexSlugs(repoRoot, segment, { skipNoindex = false } = {}
  * Blog folder slugs for sitemap: includes on-disk posts not necessarily returned by CMS fetch.
  * Omits `*-1` duplicates when the primary slug folder exists (canonical consolidation).
  */
+function loadBlogOverrideMeta(repoRoot) {
+  const file = path.join(repoRoot, 'data', 'blog-body-overrides', 'meta.json');
+  if (!fs.existsSync(file)) return {};
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
 function loadBlogArticleCorrections(repoRoot) {
   const file = path.join(repoRoot, 'data', 'blog-article-corrections.json');
   if (!fs.existsSync(file)) return { slugRenames: {}, titleBySourceSlug: {} };
@@ -2402,11 +2413,17 @@ async function buildArticleHtml(
   { publishSlug = '', sourceSlug = '', titleOverride = '' } = {}
 ) {
   const slugForUrls = publishSlug || article.slug;
-  const title = escapeHtml(titleOverride || article.seoTitle || article.title || 'Article');
-  const description = escapeHtml(
-    (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
-    stripHtmlToPlainText(article.content || bodyHtml, 160)
-  );
+  const overrideMeta = loadBlogOverrideMeta(path.join(__dirname, '..'))[article.slug] || {};
+  const rawTitle = titleOverride || overrideMeta.title || article.seoTitle || article.title || 'Article';
+  const title = escapeHtml(rawTitle);
+  const rawDescription = (
+    overrideMeta.description ||
+    article.seoDescription ||
+    article.excerpt ||
+    article.metaDescription ||
+    ''
+  ).trim() || stripHtmlToPlainText(article.content || bodyHtml, 160);
+  const description = escapeHtml(rawDescription);
   const { url: pickedHeroUrl, source: heroSource, type: heroType } = await pickCardImage(article, 'article-hero');
   logImageResolution(article, heroSource, heroType, pickedHeroUrl);
   // og:image: prefer Supabase storage URL for og:image; external is also accepted
@@ -2429,7 +2446,10 @@ async function buildArticleHtml(
       const a = moreArticles[i];
       const { url: moreImgUrl, source: moreSource, type: moreType } = await pickCardImage(a, 'more-' + i);
       const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, a.title || 'Related article', 'more-card-image', { width: 400, height: 160 });
-      moreCards.push(`<a href="${blogRelPath(a.slug)}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(a.title || 'Untitled')}</h3><p class="more-card-excerpt">${escapeHtml(a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 120) : '') || '')}</p></div></a>`);
+      const relatedMeta = loadBlogOverrideMeta(path.join(__dirname, '..'))[a.slug] || {};
+      const relatedTitle = loadBlogArticleCorrections(path.join(__dirname, '..')).titleBySourceSlug[a.slug] || relatedMeta.title || a.title || 'Untitled';
+      const relatedExcerpt = relatedMeta.description || a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 180) : '') || '';
+      moreCards.push(`<a href="${blogRelPath(a.slug)}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(relatedTitle)}</h3><p class="more-card-excerpt">${escapeHtml(relatedExcerpt)}</p></div></a>`);
     }
     moreHtml = '<section class="more-to-read"><h2>More to Read</h2><div class="more-to-read-grid" data-shuffle-more>' + moreCards.join('') + '</div></section>';
   }
@@ -2447,15 +2467,11 @@ async function buildArticleHtml(
   const keywords = Array.isArray(article.tags) && article.tags.length
     ? article.tags.map((t) => (typeof t === 'string' ? t : t?.name)).filter(Boolean)
     : (article.keywords && Array.isArray(article.keywords) ? article.keywords : []);
-  const rawMetaDescription = (
-    (article.seoDescription || article.excerpt || article.metaDescription || '').trim() ||
-    stripHtmlToPlainText(article.content || bodyHtml, 160)
-  );
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: article.title || 'Article',
-    description: rawMetaDescription || articleBodyText.slice(0, 160) || undefined,
+    headline: rawTitle,
+    description: rawDescription || articleBodyText.slice(0, 160) || undefined,
     image: [ogImage],
     author: authorJsonLd,
     publisher: getPublisherJsonLd(),
@@ -2473,7 +2489,7 @@ async function buildArticleHtml(
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL + '/' },
       { '@type': 'ListItem', position: 2, name: 'Blog', item: BASE_URL + '/blog/' },
-      { '@type': 'ListItem', position: 3, name: article.title || 'Article', item: canonicalUrl },
+      { '@type': 'ListItem', position: 3, name: rawTitle, item: canonicalUrl },
     ],
   };
   const breadcrumbLdStr = JSON.stringify(breadcrumbLd);
@@ -2515,16 +2531,16 @@ ${getFaviconHeadHtml()}
     <main class="container">
       <article>
         <a href="/blog/" class="back-to-blog">← Back to Blog</a>
-        <nav class="article-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span>${escapeHtml(article.title || 'Article')}</span></nav>
+        <nav class="article-breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/blog/">Blog</a> / <span>${title}</span></nav>
         <div class="article-hero">
-          <h1>${escapeHtml(article.title || 'Untitled')}</h1>
+          <h1>${title}</h1>
           <div class="article-meta">
             <span class="author">${escapeHtml(authorByline)}</span>
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
             ${modifiedIso && modifiedIso !== publishedIso ? `<span>Updated ${formatDate(article.updatedAt)}</span>` : ''}
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
-          ${buildImgTag(heroImg, heroSource, heroType, article.title || 'Article', 'article-hero-image', { eager: true, width: 800, height: 400 })}
+          ${buildImgTag(heroImg, heroSource, heroType, rawTitle, 'article-hero-image', { eager: true, width: 800, height: 400 })}
         </div>
         <div class="article-body">${bodyWithAdSlot}</div>
         ${sameTopicHtml}

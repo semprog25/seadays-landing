@@ -228,4 +228,24 @@ test('cvs comparison keeps production slug with corrected Prima vs Edge title', 
   assert.doesNotMatch(html, /cvs Celebrity/i);
 });
 
+test('legacy slugs keep canonicals when visible titles drop unsupported claims', () => {
+  const cases = [
+    ['trip-cost-analytics-in-seadays-where-cruisers-actually-leak-300800-per-voyage', /How to Read Where the Money Went/, /\$300/],
+    ['i-tried-living-on-a-cruise-ship-for-30-days-heres-what-happened', /What to Check Before a 30-Day/, /I Tried Living/],
+    ['top-10-cruise-ships-for-2026-features-reviews-and-experiences', /Cruise Ships to Compare in 2026/, /Top 10 Cruise Ships/],
+  ];
+  for (const [slug, titleRe, bannedRe] of cases) {
+    const html = fs.readFileSync(path.join(BLOG, slug, 'index.html'), 'utf8');
+    const h1 = (html.match(/<h1>([^<]*)<\/h1>/) || [])[1] || '';
+    assert.match(h1, titleRe, slug);
+    assert.doesNotMatch(h1, bannedRe, slug);
+    assert.match(html, new RegExp(`<link rel="canonical" href="https://seadays.app/blog/${slug}/">`));
+    assert.match(html, /content="index,\s*follow"/i);
+  }
+  const chaotic = fs.readFileSync(path.join(BLOG, 'why-your-cruise-feels-chaotic-without-a-planning-app', 'index.html'), 'utf8');
+  assert.doesNotMatch(chaotic, /Framing the Issue/);
+  assert.match(chaotic, /the-hidden-stress-of-cruise-travel-and-how-to-avoid-it/);
+  assert.match(chaotic, /content="index,\s*follow"/i);
+});
+
 console.log('OK blog production hygiene');

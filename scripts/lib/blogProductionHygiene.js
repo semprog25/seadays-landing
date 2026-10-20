@@ -47,7 +47,6 @@ const SD28_TEMPLATE_TEST_RE = new RegExp(
  * or owner-approved noindex/merge — then remove the slug from this set.
  */
 const SD28_KNOWN_HOLDBACK_SLUGS = new Set([
-  'why-your-cruise-feels-chaotic-without-a-planning-app',
 ]);
 
 function splitSentences(text) {

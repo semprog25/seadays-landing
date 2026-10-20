@@ -7,6 +7,7 @@ Local only. No push, merge, or deploy.
 - Content commits after the last tracker: `e5fb58338`, `5a88fdfa5`, `7f3e2543b`, plus the stress word bump in the commit that adds this file
 - HEAD in this file is the tracker commit itself once committed
 - Full `npm run test:ci-channels` is the final checkpoint after this file
+- 2026-10-20 later: visible titles corrected for the trip-cost, 30-day, and top-10 pages. Slugs and canonicals unchanged. Chaotic-planning page now points at the stress guide and stays a merge proposal, not a repaired article. SD-28 holdback set is empty because the template phrase is gone; the duplicate is still not approved. CMS id map: `docs/cms-reconciliation-dry-run.md`. Two override slugs were absent from the public feed.
 
 ## Counts against 113 indexable Appendix B articles
 
