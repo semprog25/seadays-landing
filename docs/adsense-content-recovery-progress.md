@@ -138,7 +138,7 @@ No change to ads.txt, consent, or the AdSense client/slot. Mid-article slots on 
 | how-to-meet-people-on-a-cruise-without-forcing-friendships-at-the-buffet | Already acceptable | Reviewed 2026-10-21. No unsupported price, time, size, or ranking figure. Not padded and not rewritten. |
 | how-to-save-money-on-shore-excursions-without-missing-out | Already acceptable | Reviewed 2026-10-21. No unsupported price, time, size, or ranking figure. Not padded and not rewritten. |
 | how-to-travel-with-kids-on-a-cruise-without-losing-your-mind | Already acceptable | Reviewed 2026-10-21. No unsupported price, time, size, or ranking figure. Not padded and not rewritten. |
-| is-the-port-of-miami-the-best-cruise-hub-full-review | Targeted correction completed | Removed the 15–45 and 45–90 minute transfer times. Visible title is PortMiami as a hub. Slug unchanged. |
+| is-the-port-of-miami-the-best-cruise-hub-full-review | Targeted correction completed | Removed the 15–45, 45–90, and FLL 30–60 minute transfer times, plus the noon-flight rule. Visible title is PortMiami as a hub. Slug unchanged. |
 | is-unlimited-food-on-cruises-really-unlimited-what-the-buffets-dont-advertise | Already acceptable | Reviewed 2026-10-21. No unsupported price, time, size, or ranking figure. Not padded and not rewritten. |
 | luxury-cruises-comparing-royal-caribbeans-oasis-class-ships | Already acceptable | Reviewed 2026-10-21. No unsupported price, time, size, or ranking figure. Not padded and not rewritten. |
 | luxury-vs-adventure-cruises-which-experience-is-right-for-you | Already acceptable | Reviewed 2026-10-21. No unsupported price, time, size, or ranking figure. Not padded and not rewritten. |
