@@ -189,6 +189,11 @@ for (const { slug, html } of published) {
   }
   if (visuals.length) bad.push(`${slug} blog visual panel`);
   const visible = visibleMain(html);
+  const robotsHead = String(html || '').slice(0, 4000).match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
+  const indexable = robotsHead && robotsHead[1].toLowerCase().startsWith('index');
+  if (indexable && /Visa-free for US citizens and many others/i.test(html)) {
+    bad.push(`${slug} definitive canada visa boilerplate`);
+  }
   if (/\b(\w[\w ]+), \1 is a cruise port/.test(visible)) bad.push(`${slug} doubled country`);
   for (const sentence of sentencesOf(visible)) {
     if (isDanglingSentence(sentence) || DANGLING_SENTENCE_RE.test(sentence)) bad.push(`${slug} dangling`);
