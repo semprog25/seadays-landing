@@ -25,6 +25,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { filterSitemapXml } = require('./lib/sitemapIndexability');
 
 const API_BASE = 'https://seadays.com/api/blog';
 const BASE_URL = 'https://seadays.app';
@@ -340,6 +341,7 @@ function writeSitemap(blogDirPath, repoRootPath) {
   }
 
   xml += '</urlset>';
+  xml = filterSitemapXml(repoRootPath, xml).xml;
   fs.writeFileSync(path.join(repoRootPath, 'sitemap.xml'), xml, 'utf8');
   console.log('Wrote sitemap.xml');
 }
