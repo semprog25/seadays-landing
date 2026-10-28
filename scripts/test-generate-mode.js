@@ -69,6 +69,11 @@ test('--only= scopes catalogue rewrites without changing channel flags', () => {
   assert.deepStrictEqual(mode.onlySlugs, ['celebrity-solstice', 'molde-norway']);
 });
 
+test('--only= with --full is rejected by validateTargetedOnlyMode', () => {
+  const mode = parseGenerateMode(['node', 'x', '--full', '--only=celebrity-solstice']);
+  assert.throws(() => require('./lib/generateMode').validateTargetedOnlyMode(mode));
+});
+
 test('--allow-orphan-cleanup is the only way to enable destructive cleanup', () => {
   const src = require('fs').readFileSync(require('path').join(__dirname, 'generateBlogs.js'), 'utf8');
   if (!src.includes('if (mode.allowOrphanCleanup)')) {
