@@ -71,6 +71,15 @@ test('catalogue-only with two slugs resolves ship and port', () => {
   );
 });
 
+test('repair CLI parseSlugsArg splits explicit port list', () => {
+  const { parseSlugsArg } = require('./repair-broken-related-reading-excerpts');
+  assert.deepStrictEqual(
+    parseSlugsArg(['node', 'repair', '--slugs=halifax-ns-canada,dubai-united-arab-emirates']),
+    ['halifax-ns-canada', 'dubai-united-arab-emirates']
+  );
+  assert.deepStrictEqual(parseSlugsArg(['node', 'repair']), []);
+});
+
 if (process.exitCode) {
   process.exit(process.exitCode);
 }

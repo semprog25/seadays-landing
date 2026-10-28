@@ -82,6 +82,19 @@ test('relatedReadingCardExcerpt — Skagway cruise-tips card is complete (no bun
   assert.match(out, /[.!?…]["']?\s*$/);
 });
 
+test('relatedReadingCardExcerpt rejects lowercase mid-sentence dash fragments (Norwegian fjords)', () => {
+  const article = {
+    slug: 'norwegian-fjords-cruise-guide-best-season-key-ports-and-scenic-cruising',
+    title: 'Norwegian Fjords Cruise Guide: Best Season, Key Ports, and Scenic Cruising',
+    metaDescription:
+      'Sailing Norway’s fjords is a masterclass in vertical geography—waterfalls ribbon down cliffs, villages cling to impossible slopes, and light behaves differently by latitude and season. This article explains when to go, which ports anchor typical itineraries, how weather shapes your packing, and why scenic cruising days matter as much as time ashore.',
+  };
+  const out = relatedReadingCardExcerpt(article, 20);
+  assert.doesNotMatch(out, /^waterfalls ribbon down cliffs/i);
+  assert.match(out, /^[A-Z]/);
+  assert.ok(isCompleteRelatedReadingExcerpt(out), `incomplete excerpt: ${out}`);
+});
+
 test('buildPortDetailHtml more-reading cards have readable excerpts', () => {
   const port = {
     slug: 'nassau-bahamas',
