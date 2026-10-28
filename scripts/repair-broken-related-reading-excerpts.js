@@ -9,6 +9,7 @@
  *   node scripts/repair-broken-related-reading-excerpts.js           # re-fix slugs changed vs origin/main
  *   node scripts/repair-broken-related-reading-excerpts.js --baseline # initial fix from origin/main audit set
  *   node scripts/repair-broken-related-reading-excerpts.js --dry-run
+ *   node scripts/repair-broken-related-reading-excerpts.js --slugs=halifax-ns-canada,dubai-united-arab-emirates
  */
 
 const fs = require('fs');
@@ -24,6 +25,19 @@ const {
 const repoRoot = path.join(__dirname, '..');
 const dryRun = process.argv.includes('--dry-run');
 const baselineMode = process.argv.includes('--baseline');
+
+function parseSlugsArg(argv) {
+  const raw = argv.find((a) => a.startsWith('--slugs='));
+  if (!raw) return [];
+  return raw
+    .slice('--slugs='.length)
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+const explicitPortSlugs = parseSlugsArg(process.argv);
+const slugsMode = explicitPortSlugs.length > 0;
 
 function escapeHtml(s) {
   return String(s || '')
@@ -131,7 +145,14 @@ function patchPortHtml(html, mainHtml, stubs, mode) {
   const diffSlugs = mainHtml ? sprintRepairedBlogSlugs(mainHtml, html) : new Set();
   let changed = 0;
   const next = html.replace(CARD_SMALL_RE, (full, pre, slug, text, post) => {
-    if (mode === 'baseline') {
+    if (mode === 'slugs') {
+      if (!needsExcerptRepair(text)) {
+        const stubPreview = stubs.get(slug);
+        if (!stubPreview) return full;
+        const excerpt = escapeHtml(relatedReadingCardExcerpt(stubPreview, 20));
+        if (excerpt === text) return full;
+      }
+    } else if (mode === 'baseline') {
       if (!isBaselineAuditBrokenCard(text)) return full;
     } else if (diffSlugs.size > 0) {
       if (!diffSlugs.has(slug)) return full;
@@ -149,10 +170,18 @@ function patchPortHtml(html, mainHtml, stubs, mode) {
 }
 
 function main() {
+  if (slugsMode && baselineMode) {
+    console.error('[repair-broken-related-reading-excerpts] --slugs= cannot be combined with --baseline');
+    process.exitCode = 1;
+    return;
+  }
+
   const stubs = loadBlogStubs();
-  const sprintPorts = baselineMode
-    ? listSprintPortSlugsFromBaselineAudit()
-    : listSprintPortSlugsFromDiff();
+  const sprintPorts = slugsMode
+    ? explicitPortSlugs
+    : baselineMode
+      ? listSprintPortSlugsFromBaselineAudit()
+      : listSprintPortSlugsFromDiff();
   if (!sprintPorts.length) {
     console.log('[repair-broken-related-reading-excerpts] no sprint port slugs to process');
     return;
@@ -160,13 +189,16 @@ function main() {
 
   let filesPatched = 0;
   let excerptsFixed = 0;
-  const mode = baselineMode ? 'baseline' : 'diff';
+  const mode = slugsMode ? 'slugs' : baselineMode ? 'baseline' : 'diff';
 
   for (const slug of sprintPorts) {
     const file = path.join(repoRoot, 'ports', slug, 'index.html');
-    if (!fs.existsSync(file)) continue;
+    if (!fs.existsSync(file)) {
+      console.warn(`[repair-broken-related-reading-excerpts] missing port page: ${slug}`);
+      continue;
+    }
     let mainHtml = '';
-    if (!baselineMode) {
+    if (!baselineMode && !slugsMode) {
       try {
         mainHtml = execSync(`git show origin/main:ports/${slug}/index.html`, {
           cwd: repoRoot,
@@ -189,4 +221,8 @@ function main() {
   );
 }
 
-main();
+module.exports = { parseSlugsArg, needsExcerptRepair };
+
+if (require.main === module) {
+  main();
+}

@@ -277,6 +277,7 @@ const INCOMPLETE_EXCERPT_TAIL_RE =
 function isCompleteRelatedReadingExcerpt(text) {
   const t = String(text || '').replace(/\s+/g, ' ').trim();
   if (!t || isBrokenRelatedReadingExcerpt(t)) return false;
+  if (/^[a-z(]/.test(t)) return false;
   if (!/[.!?…]["']?\s*$/.test(t)) return false;
   if (INCOMPLETE_EXCERPT_TAIL_RE.test(t)) return false;
   if (/,\s*$/.test(t)) return false;
