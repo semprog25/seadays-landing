@@ -42,7 +42,8 @@
     "patch-publication-metadata": "node scripts/patch-publication-metadata.js",
     "adsense:remediate": "node scripts/adsense-low-value-remediation.js",
     "test:adsense-indexability": "node scripts/test-adsense-indexability.js",
-    "test:guest-reviews-section": "node scripts/test-guest-reviews-section.js"
+    "test:guest-reviews-section": "node scripts/test-guest-reviews-section.js",
+    "test:ci-generation-release-guard": "node scripts/test-ci-generation-release-guard.js"
   },
   "engines": {
     "node": ">=18"
