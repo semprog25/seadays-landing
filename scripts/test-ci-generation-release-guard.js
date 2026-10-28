@@ -40,9 +40,12 @@ function withTempGuard(body, fn) {
   const guardDir = path.join(dir, '.github');
   fs.mkdirSync(guardDir, { recursive: true });
   fs.writeFileSync(path.join(guardDir, 'ci-generation-release-guard.json'), JSON.stringify(body, null, 2));
+  const prev = process.cwd();
   try {
+    process.chdir(dir);
     fn(dir);
   } finally {
+    process.chdir(prev);
     fs.rmSync(dir, { recursive: true, force: true });
   }
 }
