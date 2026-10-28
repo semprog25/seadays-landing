@@ -37,4 +37,15 @@ assert.strictEqual(
 );
 assert.strictEqual(map['falmouth-united-kingdom'], 'falmouth');
 
+const islandGuides = {
+  marigot: { portName: 'Marigot', country: 'Saint-Martin', portInfo: { description: 'French side' } },
+  'st-maarten': { portName: 'St Maarten', country: 'Sint Maarten', portInfo: { description: 'Dutch side' } },
+};
+const islandMap = buildSlugToAppPortIdMap(
+  [{ slug: 'marigot-st-maarten', name: 'Marigot', country: 'Saint-Martin' }],
+  null,
+  islandGuides
+);
+assert.strictEqual(islandMap['marigot-st-maarten'], 'marigot', 'Marigot slug must not attach Dutch st-maarten guide');
+
 console.log('test-port-guide-country-guard: PASS');

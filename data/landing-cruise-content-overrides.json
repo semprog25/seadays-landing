@@ -7532,13 +7532,20 @@
       ]
     },
     "marigot-st-maarten": {
-      "description": "Marigot is the capital of the French collectivity of Saint-Martin, on the west side of the island shared with Dutch Sint Maarten.",
-      "highlights": [],
-      "metaDescription": "Marigot, Saint-Martin cruise port: the French-side capital on the island shared with Sint Maarten.",
-      "rewrittenAt": "2026-05-21T23:35:51.785Z",
-      "model": "deterministic-facts-only",
-      "confidenceScore": 0.298,
+      "description": "Marigot is the French-side capital of Saint-Martin. Cruise calls here use Port of Saint-Martin anchorage and tender landings—not Philipsburg on Dutch Sint Maarten. Confirm your sailing's arrival details, then plan a compact waterfront day or the uphill walk to Fort Louis with time to get back to the ship.",
+      "highlights": [
+        "French-side Marigot versus Dutch-side Philipsburg cruise piers",
+        "Port of Saint-Martin anchorage and tender landings (about 10 minutes from central Marigot per the port authority)",
+        "Marigot waterfront, Marina Fort Louis, and Fort Louis viewpoints",
+        "Euro currency on the French side; English common in tourism",
+        "Inter-island ferries only when schedules and all-aboard time allow"
+      ],
+      "metaDescription": "Marigot, Saint-Martin cruise port: French-side tender calls, Marigot vs Philipsburg, Fort Louis, and shore-day tips.",
+      "rewrittenAt": "2026-10-28T08:15:00.000Z",
+      "model": "manual-port-guide-enrichment-phase1",
+      "confidenceScore": 0.85,
       "sourcesUsed": [
+        "portdemarigot.com-en-home-2026",
         "seadays-structured-fallback"
       ]
     },

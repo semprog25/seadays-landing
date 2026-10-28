@@ -259,6 +259,8 @@ const APP_PORT_ID_ALIASES = {
   genoa: 'genua',
   // English SEO names that differ from app guide keys
   'genoa-italy': 'genua',
+  // French-side Marigot page must not attach the Dutch Sint Maarten (Philipsburg) guide.
+  'marigot-st-maarten': 'marigot',
 };
 
 function resolveGuideId(candidate, guidesById) {

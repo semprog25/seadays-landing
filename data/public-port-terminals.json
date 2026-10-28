@@ -1,8 +1,8 @@
 {
   "meta": {
     "generatedAt": "2026-08-11T21:25:10.692Z",
-    "count": 74,
-    "portCount": 26,
+    "count": 75,
+    "portCount": 27,
     "source": "public.port_terminals (anon select)",
     "note": "Phase 1 enrichment merged additional researched terminals for priority ports",
     "phase1CorrectionPassAt": "2026-08-11T21:41:35.430Z",
@@ -1662,6 +1662,28 @@
         "is_primary": false,
         "sort_order": 40,
         "country_id": "germany"
+      }
+    ],
+    "marigot": [
+      {
+        "name": "Cruise anchorage and tender landings (Port of Saint-Martin)",
+        "slug": "marigot-cruise-anchorage-landings",
+        "description": "Port of Saint-Martin (portdemarigot.com) describes cruise operations as anchorage and landings—not the same pier setup as Philipsburg on Dutch Sint Maarten. The port authority cites about 10 minutes from the center of Marigot after landing. Confirm your ship's tender point and gangway instructions each call.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "tender operations",
+          "waterfront access",
+          "port coordination (VHF channel 16)"
+        ],
+        "transport_options": [
+          "ship's tender",
+          "walking",
+          "taxi"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "saint-martin"
       }
     ]
   }
