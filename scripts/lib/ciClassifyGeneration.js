@@ -9,6 +9,7 @@
  */
 
 const { commitMessageForChannel } = require('./generateMode');
+const { evaluatePushReleaseGuard } = require('./ciGenerationReleaseGuard');
 
 const FULL_PATTERNS = [
   /^scripts\/generateBlogs\.js$/,
@@ -203,6 +204,16 @@ function resolveGenerationPlan({
       return planForChannel('blogs');
     }
     return planForChannel(requested, { allowOrphanCleanup });
+  }
+
+  if (event === 'push') {
+    const guardVerdict = evaluatePushReleaseGuard(changedFiles);
+    if (guardVerdict?.action === 'reject') {
+      throw new Error(`[ci-generation-release-guard] ${guardVerdict.reason}`);
+    }
+    if (guardVerdict?.action === 'suppress') {
+      return emptyPlan('skip');
+    }
   }
 
   return classifyChangedFiles(changedFiles);

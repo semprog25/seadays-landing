@@ -1,0 +1,22 @@
+{
+  "profile": "guest-reviews-code-only",
+  "description": "Suppress automatic bulk generation for one push whose changed-file set equals exactly this list (typical squash-merge of the Guest Reviews + CI guard PR). Any other push uses normal ciClassifyGeneration rules.",
+  "exactPaths": [
+    ".github/ci-generation-release-guard.json",
+    "package.json",
+    "ports/halifax-ns-canada/index.html",
+    "scripts/generateBlogs.js",
+    "scripts/lib/ciClassifyGeneration.js",
+    "scripts/lib/ciGenerationReleaseGuard.js",
+    "scripts/lib/generateMode.js",
+    "scripts/lib/guestReviewsSection.js",
+    "scripts/lib/portGuideSections.js",
+    "scripts/lib/seoShipPortPages.js",
+    "scripts/test-ci-classify-generation.js",
+    "scripts/test-ci-generation-release-guard.js",
+    "scripts/test-generate-mode.js",
+    "scripts/test-generate-only-slugs.js",
+    "scripts/test-guest-reviews-section.js",
+    "ships/celebrity-solstice/index.html"
+  ]
+}

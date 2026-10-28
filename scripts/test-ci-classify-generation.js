@@ -90,4 +90,19 @@ test('generated content paths do not themselves trigger regeneration', () => {
   assert.strictEqual(plan.skip, true);
 });
 
+test('guest reviews exact push set suppresses when guard file present at HEAD', () => {
+  const fs = require('fs');
+  const os = require('os');
+  const path = require('path');
+  const exact = require('./lib/ciGenerationReleaseGuard').loadReleaseGuard;
+  const repoRoot = process.cwd();
+  const loaded = exact(repoRoot);
+  assert.ok(loaded && !loaded.error, 'integration worktree must ship ci-generation-release-guard.json');
+  const plan = resolveGenerationPlan({
+    eventName: 'push',
+    changedFiles: loaded.exactPaths,
+  });
+  assert.strictEqual(plan.skip, true);
+});
+
 console.log('ci-classify tests passed');
