@@ -94,6 +94,67 @@ function generateArgsForChannel(channel, { allowOrphanCleanup = false } = {}) {
   }
 }
 
+/**
+ * Fail closed: --only= must not run blog/sitemap/orphan paths that touch unrelated files.
+ */
+function validateTargetedOnlyMode(mode) {
+  if (!mode || !mode.onlySlugs || !mode.onlySlugs.length) return;
+  if (mode.blogs) {
+    throw new Error(
+      '[generateBlogs] --only= cannot be combined with blog generation (--full or --blogs-only). Use --ships-only, --ports-only, or --catalogue-only.'
+    );
+  }
+  if (!mode.ships && !mode.ports) {
+    throw new Error(
+      '[generateBlogs] --only= requires ship and/or port generation (--ships-only, --ports-only, or --catalogue-only).'
+    );
+  }
+  if (mode.allowOrphanCleanup) {
+    throw new Error('[generateBlogs] --only= cannot be combined with --allow-orphan-cleanup.');
+  }
+  if (mode.sitemapOnly) {
+    throw new Error('[generateBlogs] --only= cannot be combined with --sitemap-only.');
+  }
+}
+
+function assertOnlySlugsResolvable(mode, shipSlugSet, portSlugSet) {
+  if (!mode || !mode.onlySlugs || !mode.onlySlugs.length) return;
+  validateTargetedOnlyMode(mode);
+  for (const raw of mode.onlySlugs) {
+    const slug = String(raw || '').trim();
+    if (!slug) {
+      throw new Error('[generateBlogs] --only= contains an empty slug.');
+    }
+    const isShip = shipSlugSet.has(slug);
+    const isPort = portSlugSet.has(slug);
+    if (!isShip && !isPort) {
+      throw new Error(`[generateBlogs] --only=${slug} is not a known ship or port slug in the catalogue dataset.`);
+    }
+    if (isShip && !mode.ships) {
+      throw new Error(`[generateBlogs] --only=${slug} is a ship slug but --ships-only / catalogue ships are disabled.`);
+    }
+    if (isPort && !mode.ports) {
+      throw new Error(`[generateBlogs] --only=${slug} is a port slug but --ports-only / catalogue ports are disabled.`);
+    }
+  }
+}
+
+function isTargetedCatalogueMode(mode) {
+  return Boolean(mode && mode.onlySlugs && mode.onlySlugs.length);
+}
+
+function shouldWriteShipDetail(mode, shipSlug) {
+  if (!mode.ships) return false;
+  if (!isTargetedCatalogueMode(mode)) return true;
+  return mode.onlySlugs.includes(String(shipSlug || '').trim());
+}
+
+function shouldWritePortDetail(mode, portSlug) {
+  if (!mode.ports) return false;
+  if (!isTargetedCatalogueMode(mode)) return true;
+  return mode.onlySlugs.includes(String(portSlug || '').trim());
+}
+
 function commitMessageForChannel(channel) {
   switch (String(channel || '').trim()) {
     case 'sitemap':
@@ -118,4 +179,9 @@ module.exports = {
   parseOnlySlugs,
   generateArgsForChannel,
   commitMessageForChannel,
+  validateTargetedOnlyMode,
+  assertOnlySlugsResolvable,
+  isTargetedCatalogueMode,
+  shouldWriteShipDetail,
+  shouldWritePortDetail,
 };

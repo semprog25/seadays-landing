@@ -42,6 +42,7 @@ const {
   pickPortsForShipPage,
   pickShipsForPortPage,
 } = require('./shipPortRelevance');
+const { buildGuestReviewsSectionHtml, GUEST_REVIEWS_SECTION_CSS } = require('./guestReviewsSection');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -787,6 +788,7 @@ function pickArticleImage(article) {
 
 const PORT_JUMP_LABELS = {
   'quick-facts': 'Quick facts',
+  'guest-reviews': 'Guest reviews',
   'bookable-experiences': 'Experiences',
   'getting-there': 'Terminals',
   'things-to-do': 'Things to do',
@@ -1104,7 +1106,7 @@ const PAGE_STYLES = `
 .seo-faq-item p { margin: 10px 0 0; color: rgba(255,255,255,0.86); line-height: 1.65; }
 /* Site chrome header/footer styles come from /assets/css/site-shell.css */
 @media (max-width: 720px) { .seo-visual-panel, .seo-article-grid { grid-template-columns: 1fr; } .seo-visual-copy { padding: 0 20px 22px; } .seo-visual-img, .seo-visual-art { min-height: 190px; height: 190px; } }
-` + PORT_GUIDE_STYLES;
+` + GUEST_REVIEWS_SECTION_CSS + PORT_GUIDE_STYLES;
 
 function buildDirectoryHeaderNav() {
   return getSiteHeaderHtml({ page: 'default' });
@@ -1287,6 +1289,7 @@ ${getFaviconHeadHtml()}
       <dl class="seo-keyfacts">
         ${buildShipKeyFactsHtml(ship)}
       </dl>
+      ${buildGuestReviewsSectionHtml(ship)}
       ${highlightsHtml}
       ${buildShipFaqHtml(faqItems)}
       ${moreOnSeaDaysInline('ship')}

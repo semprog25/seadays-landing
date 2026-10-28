@@ -110,7 +110,7 @@ const {
   resolvePortAffiliateCta,
   getViatorConfigFromEnv,
 } = require('./lib/viatorAffiliate');
-const { parseGenerateMode } = require('./lib/generateMode');
+const { parseGenerateMode, validateTargetedOnlyMode, assertOnlySlugsResolvable, isTargetedCatalogueMode, shouldWriteShipDetail, shouldWritePortDetail } = require('./lib/generateMode');
 const https = require('https');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -1026,6 +1026,7 @@ function buildSitemapXml(repoRoot, { articles = [], seoShips = [], seoPorts = []
   }
   sitemap += '</urlset>';
   // Follow each page's own robots meta: noindex pages, redirect stubs and missing
+  // Follow each page's own robots meta: noindex pages, redirect stubs and missing
   // files never go into the sitemap, whatever list the URLs came from.
   const { xml: filtered, dropped } = filterSitemapXml(repoRoot, sitemap);
   if (dropped.length) {
@@ -1826,6 +1827,40 @@ async function fetchReviewsShipsPorts() {
     reviewsShipsPortsCache = { ships: [], ports: [] };
     return reviewsShipsPortsCache;
   }
+}
+
+/**
+ * Local QA only: merge fixture aggregates when --only= is set (never on full/catalogue bulk).
+ */
+function applyReviewAggregatesFixture(base, mode) {
+  if (!isTargetedCatalogueMode(mode)) return base;
+  const fixturePath = String(process.env.SEADAYS_LANDING_REVIEW_FIXTURE || '').trim();
+  if (!fixturePath) return base;
+  let fixture;
+  try {
+    fixture = JSON.parse(fs.readFileSync(fixturePath, 'utf8'));
+  } catch (e) {
+    throw new Error(`[generateBlogs] SEADAYS_LANDING_REVIEW_FIXTURE unreadable: ${e?.message || e}`);
+  }
+  const ships = Array.isArray(base.ships) ? [...base.ships] : [];
+  const ports = Array.isArray(base.ports) ? [...base.ports] : [];
+  const onlySet = new Set(mode.onlySlugs.map((s) => String(s).trim()).filter(Boolean));
+  for (const row of Array.isArray(fixture.ships) ? fixture.ships : []) {
+    const id = String(row.id || row.slug || '').trim();
+    const slug = String(row.slug || row.id || '').trim();
+    if (!id || (!onlySet.has(id) && !onlySet.has(slug))) continue;
+    ships.push(row);
+  }
+  for (const row of Array.isArray(fixture.ports) ? fixture.ports : []) {
+    const id = String(row.id || row.slug || '').trim();
+    const slug = String(row.slug || row.id || '').trim();
+    if (!id || (!onlySet.has(id) && !onlySet.has(slug))) continue;
+    ports.push(row);
+  }
+  console.log(
+    `[generateBlogs] merged review fixture for targeted slugs (${mode.onlySlugs.join(', ')}) from ${fixturePath}`
+  );
+  return { ships, ports };
 }
 
 function buildDirectoryHeaderNav() {
@@ -3098,7 +3133,9 @@ async function runPostBuildValidation(blogDir, repoRoot, articles, seoShips = []
 async function main() {
   const repoRoot = path.join(__dirname, '..');
   const mode = parseGenerateMode(process.argv);
-  console.log(`[generateBlogs] generation mode: ${mode.label}`);
+  validateTargetedOnlyMode(mode);
+  const targetedOnly = isTargetedCatalogueMode(mode);
+  console.log(`[generateBlogs] generation mode: ${mode.label}${targetedOnly ? ` (targeted: ${mode.onlySlugs.join(', ')})` : ''}`);
   if (mode.sitemapOnly) {
     writeSitemapSnapshotFromDisk(repoRoot);
     console.log('Done.');
@@ -3179,8 +3216,9 @@ async function main() {
   if (mode.ships || mode.ports) {
     console.log('Fetching ships & ports for programmatic SEO pages...');
     const fetched = await fetchReviewsShipsPorts();
-    rawShips = fetched.ships || [];
-    rawPorts = fetched.ports || [];
+    const merged = applyReviewAggregatesFixture(fetched, mode);
+    rawShips = merged.ships || [];
+    rawPorts = merged.ports || [];
   } else {
     console.log('[generateBlogs] skipping live ship/port review fetch');
   }
@@ -3275,6 +3313,10 @@ async function main() {
   const seoPorts = buildSeoPortRecords(fullPortRawList);
   applyPortGeoFromApiRows(seoPorts, rawPorts, portSlugToReviewKey);
 
+  const shipSlugSet = new Set(seoShips.map((s) => String(s.slug || '').trim()).filter(Boolean));
+  const portSlugSet = new Set(seoPorts.map((p) => String(p.slug || '').trim()).filter(Boolean));
+  assertOnlySlugsResolvable(mode, shipSlugSet, portSlugSet);
+
   const publicGuides = (mode.ships || mode.ports)
     ? ensurePublicPortGuides(repoRoot, appRoot)
     : (loadPublicPortGuidesFile(repoRoot) || { byAppPortId: {} });
@@ -3330,7 +3372,9 @@ async function main() {
   }
 
   if (mode.ships) {
+  let shipsWritten = 0;
   for (const ship of seoShips) {
+    if (!shouldWriteShipDetail(mode, ship.slug)) continue;
     const dir = path.join(repoRoot, 'ships', ship.slug);
     fs.mkdirSync(dir, { recursive: true });
     const relShips = pickRelatedShips(seoShips, ship, 5);
@@ -3345,11 +3389,17 @@ async function main() {
     ];
     const blogs = withRelatedCardImages(pickBlogArticlesForEntity(articles, tokens, 6));
     fs.writeFileSync(path.join(dir, 'index.html'), buildShipDetailHtml(ship, relShips, destPorts, blogs, spOpts), 'utf8');
+    shipsWritten += 1;
+  }
+  if (targetedOnly) {
+    console.log(`[generateBlogs] targeted ship detail pages written: ${shipsWritten}`);
   }
   }
   const unpublishedPortSlugs = new Set();
   if (mode.ports) {
+  let portsWritten = 0;
   for (const port of seoPorts) {
+    if (!shouldWritePortDetail(mode, port.slug)) continue;
     if (unpublishedPortSlugs.has(port.slug)) {
       const orphan = path.join(repoRoot, 'ports', port.slug);
       if (fs.existsSync(orphan)) fs.rmSync(orphan, { recursive: true, force: true });
@@ -3401,6 +3451,10 @@ async function main() {
       }),
       'utf8'
     );
+    portsWritten += 1;
+  }
+  if (targetedOnly) {
+    console.log(`[generateBlogs] targeted port detail pages written: ${portsWritten}`);
   }
   }
 
@@ -3410,7 +3464,7 @@ async function main() {
   } else {
     console.log('[generateBlogs] skipping orphan catalogue cleanup');
   }
-  if (mode.ports) {
+  if (mode.ports && !targetedOnly) {
     const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
     console.log(
       `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
@@ -3474,7 +3528,7 @@ async function main() {
     return pickBlogArticlesForEntity(articles, ['cruise ports', 'shore days', ...topRegionTokens], 6).slice(0, 6);
   }
 
-  if (mode.ships) {
+  if (mode.ships && !targetedOnly) {
     const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ships', 'index.html'),
@@ -3484,7 +3538,7 @@ async function main() {
       'utf8'
     );
   }
-  if (mode.ports) {
+  if (mode.ports && !targetedOnly) {
     const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ports', 'index.html'),
@@ -3495,8 +3549,18 @@ async function main() {
     );
   }
   if (mode.ships || mode.ports) {
+    const shipCount = targetedOnly
+      ? mode.onlySlugs.filter((s) => shipSlugSet.has(s)).length
+      : mode.ships
+        ? seoShips.length
+        : 0;
+    const portCount = targetedOnly
+      ? mode.onlySlugs.filter((s) => portSlugSet.has(s)).length
+      : mode.ports
+        ? seoPorts.length
+        : 0;
     console.log(
-      `  wrote ${mode.ships ? seoShips.length : 0} ship + ${mode.ports ? seoPorts.length : 0} port detail pages + indexes`
+      `  wrote ${shipCount} ship + ${portCount} port detail pages${targetedOnly ? ' (targeted --only=)' : ' + indexes'}`
     );
   }
 
@@ -3627,7 +3691,7 @@ async function main() {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
 
-  const dupNoindexAlways = noindexDuplicateBlogFolders(repoRoot);
+  const dupNoindexAlways = targetedOnly ? 0 : noindexDuplicateBlogFolders(repoRoot);
   if (dupNoindexAlways) console.log(`[generateBlogs] noindexed ${dupNoindexAlways} duplicate blog slug(s) (*-1)`);
 
   const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
@@ -3635,14 +3699,20 @@ async function main() {
     seoShips: mode.ships ? seoShips : [],
     seoPorts: mode.ports ? seoPorts : [],
   });
-  fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
-  const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
-  if (!sitemapValid) console.warn('[warn] sitemap.xml may be invalid');
-  console.log('Wrote sitemap.xml with', sitemapCount, 'URLs (no duplicates)');
+  if (targetedOnly) {
+    console.log('[generateBlogs] targeted --only= mode: preserving existing sitemap.xml (not rewritten)');
+  } else {
+    fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
+    const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
+    if (!sitemapValid) console.warn('[warn] sitemap.xml may be invalid');
+    console.log('Wrote sitemap.xml with', sitemapCount, 'URLs (no duplicates)');
+  }
 
   const adsTxtBody = getAdsTxtFileContents();
   const adsTxtPath = path.join(repoRoot, 'ads.txt');
-  if (adsTxtBody) {
+  if (targetedOnly) {
+    console.log('[generateBlogs] targeted --only= mode: preserving existing ads.txt');
+  } else if (adsTxtBody) {
     fs.writeFileSync(adsTxtPath, adsTxtBody, 'utf8');
     console.log('Wrote ads.txt (AdSense configured)');
   } else if (fs.existsSync(adsTxtPath)) {
@@ -3662,12 +3732,24 @@ async function main() {
 
   // Scan every generated file for CDN URLs, SVG thumbnails, nested anchors,
   // and HTTP reachability. Throws on any violation — build fails loudly.
+  const validationShips =
+    mode.ships && targetedOnly
+      ? seoShips.filter((s) => shouldWriteShipDetail(mode, s.slug))
+      : mode.ships
+        ? seoShips
+        : [];
+  const validationPorts =
+    mode.ports && targetedOnly
+      ? seoPorts.filter((p) => shouldWritePortDetail(mode, p.slug))
+      : mode.ports
+        ? seoPorts
+        : [];
   await runPostBuildValidation(
     blogDir,
     repoRoot,
     mode.blogs ? articles : [],
-    mode.ships ? seoShips : [],
-    mode.ports ? seoPorts : []
+    validationShips,
+    validationPorts
   );
 
   console.log('Done.');

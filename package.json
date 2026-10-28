@@ -41,7 +41,8 @@
     "test-publication-metadata": "node scripts/test-publication-metadata.js",
     "patch-publication-metadata": "node scripts/patch-publication-metadata.js",
     "adsense:remediate": "node scripts/adsense-low-value-remediation.js",
-    "test:adsense-indexability": "node scripts/test-adsense-indexability.js"
+    "test:adsense-indexability": "node scripts/test-adsense-indexability.js",
+    "test:guest-reviews-section": "node scripts/test-guest-reviews-section.js"
   },
   "engines": {
     "node": ">=18"

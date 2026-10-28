@@ -14,6 +14,7 @@ const {
   loadWikipediaAttribution,
   wikipediaAttributionHtml,
 } = require('./portCopyHygiene');
+const { buildGuestReviewsSectionHtml } = require('./guestReviewsSection');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -834,6 +835,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
     attribution,
     shoreFirst ? things : '',
     buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }),
+    buildGuestReviewsSectionHtml(port),
     buildExperiencesSection(affiliate, city),
     buildTerminalsSection(terminals, { gate, logistics }),
     shoreFirst ? '' : things,
