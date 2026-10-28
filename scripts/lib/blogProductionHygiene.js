@@ -151,6 +151,21 @@ function scrubSd28TemplateDebris(input) {
   return out.replace(/\s{2,}/g, ' ');
 }
 
+/**
+ * Visible title for ship/port related-reading cards (slug + approved corrections unchanged).
+ * @param {{ slug?: string, title?: string }} article
+ * @param {Record<string, string>} [titleBySourceSlug]
+ * @returns {string}
+ */
+function resolveRelatedReadingCardTitle(article, titleBySourceSlug) {
+  const slug = String(article?.slug || '').trim();
+  const map = titleBySourceSlug && typeof titleBySourceSlug === 'object' ? titleBySourceSlug : {};
+  if (slug && map[slug]) return String(map[slug]).trim();
+  const raw = String(article?.title || '').trim();
+  const hygiened = applyTypoFixes(raw).trim();
+  return hygiened || 'SeaDays guide';
+}
+
 function applyBlogProductionHygieneToText(text) {
   let out = scrubInlineProductionClauses(text);
   out = stripLeakedProductionNotes(out);
@@ -317,6 +332,7 @@ module.exports = {
   scrubSd28TemplateDebris,
   scrubInlineProductionClauses,
   applyTypoFixes,
+  resolveRelatedReadingCardTitle,
   repairResidualMarkdown,
   applyBlogProductionHygieneToText,
   applyBlogProductionHygieneToHtml,
