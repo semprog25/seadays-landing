@@ -263,6 +263,109 @@ function trimWords(text, maxWords) {
   return w.slice(0, maxWords).join(' ').replace(/\s+[.,;:!?]?$/, '') + (text.match(/[.!?]$/) ? '' : '.');
 }
 
+function isBrokenRelatedReadingExcerpt(text) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!t) return true;
+  if (/^\s*if\s+.+\s+is\s+what\.?\s*$/i.test(t)) return true;
+  if (/\bis what\.\s*$/i.test(t) && wordCount(t) <= 10) return true;
+  return false;
+}
+
+const INCOMPLETE_EXCERPT_TAIL_RE =
+  /\b(of|and|or|the|a|an|to|for|with|as|when you are|are trying|entertainment|rapidly|scale|they|you|are)\s*[,;]?\s*$/i;
+
+function isCompleteRelatedReadingExcerpt(text) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!t || isBrokenRelatedReadingExcerpt(t)) return false;
+  if (!/[.!?…]["']?\s*$/.test(t)) return false;
+  if (INCOMPLETE_EXCERPT_TAIL_RE.test(t)) return false;
+  if (/,\s*$/.test(t)) return false;
+  return true;
+}
+
+function relatedReadingTitleFallback(article) {
+  const title = String(article.title || '').trim();
+  if (title) return `${title} — SeaDays cruise planning guide.`;
+  return 'Cruise planning guide from SeaDays.';
+}
+
+/** Prefer card copy that reads as a standalone blurb, not a subordinate tail clause. */
+function relatedReadingStandaloneScore(text) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!t) return -100;
+  let score = 0;
+  if (/^rather than\b/i.test(t)) score -= 40;
+  if (/^cabin, route timing/i.test(t)) score -= 35;
+  if (/^if\s+.+\s+is what you are trying/i.test(t)) score -= 15;
+  if (/ — SeaDays cruise planning guide\.\s*$/.test(t)) score += 25;
+  if (/^treat it as a bundle of decisions/i.test(t)) score += 20;
+  if (/^[A-Z]/.test(t) && !/^If cruise tips vs cruise hacks is what/i.test(t)) score += 8;
+  if (wordCount(t) >= 10) score += 4;
+  return score;
+}
+
+function compareRelatedReadingCandidates(a, b) {
+  const scoreDiff = relatedReadingStandaloneScore(b) - relatedReadingStandaloneScore(a);
+  if (scoreDiff !== 0) return scoreDiff;
+  return wordCount(b) - wordCount(a);
+}
+
+function relatedReadingExcerptCandidates(sourceText) {
+  const normalized = String(sourceText || '').replace(/\s+/g, ' ').trim();
+  if (!normalized) return [];
+  const out = [];
+  const seen = new Set();
+  const push = (value) => {
+    const t = String(value || '').replace(/\s+/g, ' ').trim();
+    if (!t || seen.has(t)) return;
+    seen.add(t);
+    out.push(t);
+  };
+  push(normalized);
+  for (const sentence of splitSentences(normalized)) {
+    push(sentence);
+    const dashParts = sentence.split(/\s*—\s*/);
+    if (dashParts.length > 1) {
+      let acc = '';
+      for (const part of dashParts) {
+        acc = acc ? `${acc} — ${part}` : part;
+        push(acc);
+      }
+      for (const part of dashParts) push(part);
+    }
+  }
+  return out;
+}
+
+function pickRelatedReadingCardExcerptFromSources(article, maxWords) {
+  const fieldValues = [article.metaDescription, article.seoDescription, article.excerpt];
+  for (const field of fieldValues) {
+    const candidates = relatedReadingExcerptCandidates(field);
+    const complete = candidates.filter((c) => isCompleteRelatedReadingExcerpt(c));
+    const withinBudget = complete.filter((c) => wordCount(c) <= maxWords);
+    if (withinBudget.length) {
+      withinBudget.sort(compareRelatedReadingCandidates);
+      const best = withinBudget[0];
+      if (relatedReadingStandaloneScore(best) < 0) {
+        const fallback = relatedReadingTitleFallback(article);
+        if (isCompleteRelatedReadingExcerpt(fallback) && wordCount(fallback) <= maxWords) {
+          return fallback;
+        }
+      }
+      return best;
+    }
+    if (complete.length) {
+      complete.sort((a, b) => wordCount(a) - wordCount(b));
+      return complete[0];
+    }
+  }
+  return relatedReadingTitleFallback(article);
+}
+
+function relatedReadingCardExcerpt(article, maxWords = 20) {
+  return pickRelatedReadingCardExcerptFromSources(article, maxWords).replace(/\s+/g, ' ').trim();
+}
+
 function indefiniteArticleFor(text) {
   const first = String(text || '').trim().charAt(0).toLowerCase();
   return /^[aeiou]/.test(first) ? 'an' : 'a';
@@ -828,7 +931,7 @@ function buildArticleCards(articles, label = 'Read more') {
       const visual = img
         ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" width="640" height="150" loading="eager" decoding="async" onerror="this.onerror=null;this.remove()">`
         : '';
-      const excerpt = trimWords(String(a.excerpt || a.seoDescription || a.metaDescription || 'Cruise planning guide from SeaDays.').replace(/\s+/g, ' ').trim(), 20);
+      const excerpt = relatedReadingCardExcerpt(a, 20);
       return `<a class="seo-article-card" href="/blog/${escapeHtml(a.slug)}/">${visual}<span class="seo-article-kicker">${escapeHtml(label)}</span><strong>${escapeHtml(a.title || 'SeaDays guide')}</strong><small>${escapeHtml(excerpt)}</small></a>`;
     })
     .join('');
@@ -1366,12 +1469,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const relations = applyPortPageOverrides(port, relatedPorts, relatedShips);
   const portPick = relations.relatedPorts.slice(0, 4);
   const shipPick = relations.hideCallingShips ? [] : relations.relatedShips.slice(0, 4);
-  const blogPick = blogArticles.slice(0, 3).map((article) => ({
-    ...article,
-    excerpt: trimWords(String(article.excerpt || article.seoDescription || article.metaDescription || ''), 8),
-    seoDescription: '',
-    metaDescription: '',
-  }));
+  const blogPick = blogArticles.slice(0, 3);
   const articleImages = new Set(blogPick.map((a) => pickArticleImage(a)).filter(Boolean));
   const licensedHero = buildLicensedHero(guide, h1);
   const ownImage =
@@ -1521,6 +1619,9 @@ module.exports = {
   extractArticleCardImageFromHtml,
   pickArticleImage,
   buildArticleCards,
+  relatedReadingCardExcerpt,
+  isBrokenRelatedReadingExcerpt,
+  isCompleteRelatedReadingExcerpt,
   buildShipBreadcrumbJsonLd,
   buildShipBreadcrumbsHtml,
   buildShipAggregateRatingJsonLd,
