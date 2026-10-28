@@ -9,6 +9,11 @@ const {
   buildArticleCards,
   buildPortDetailHtml,
 } = require('./lib/seoShipPortPages');
+const { resolveRelatedReadingCardTitle } = require('./lib/blogProductionHygiene');
+const {
+  patchRelatedReadingCardTitleInPage,
+  CMS_RAW_TITLES_BY_SLUG,
+} = require('./repair-related-reading-cms-card-titles');
 
 test('isBrokenRelatedReadingExcerpt flags template fragment', () => {
   assert.equal(isBrokenRelatedReadingExcerpt('If cruise packing list for caribbean is what.'), true);
@@ -119,4 +124,52 @@ test('buildPortDetailHtml more-reading cards have readable excerpts', () => {
   });
   assert.match(html, /id="more-reading"/);
   assert.doesNotMatch(html, /is what\./i);
+});
+
+test('resolveRelatedReadingCardTitle applies corrections and typo hygiene', () => {
+  const map = {
+    'cvs-celebrity-edge-modern-cruise-ship-comparison':
+      'Norwegian Prima vs Celebrity Edge: Modern Cruise Ship Comparison',
+    'top-10-cruise-ships-for-2026-features-reviews-and-experiences': 'Cruise Ships to Compare in 2026',
+  };
+  const raw = {
+    slug: 'cvs-celebrity-edge-modern-cruise-ship-comparison',
+    title: 'cvs Celebrity Edge: Modern Cruise Ship Comparison',
+  };
+  assert.equal(
+    resolveRelatedReadingCardTitle(raw, map),
+    'Norwegian Prima vs Celebrity Edge: Modern Cruise Ship Comparison'
+  );
+});
+
+test('buildArticleCards uses corrected display title and escapes HTML', () => {
+  const cards = buildArticleCards(
+    [
+      {
+        slug: 'cvs-celebrity-edge-modern-cruise-ship-comparison',
+        title: 'cvs Celebrity Edge: Modern Cruise Ship Comparison',
+        metaDescription: 'Norwegian Prima vs Celebrity Edge: detailed comparison.',
+      },
+    ],
+    'Cruise guide'
+  );
+  assert.match(cards, /href="\/blog\/cvs-celebrity-edge-modern-cruise-ship-comparison\/"/);
+  assert.doesNotMatch(cards, /cvs Celebrity Edge/);
+  assert.match(
+    cards,
+    /<strong>Norwegian Prima vs Celebrity Edge: Modern Cruise Ship Comparison<\/strong>/
+  );
+});
+
+test('patchRelatedReadingCardTitleInPage is href-scoped and idempotent', () => {
+  const slug = 'cvs-celebrity-edge-modern-cruise-ship-comparison';
+  const wrong = CMS_RAW_TITLES_BY_SLUG[slug];
+  const correct = 'Norwegian Prima vs Celebrity Edge: Modern Cruise Ship Comparison';
+  const sample = `<div class="seo-article-grid"><a class="seo-article-card" href="/blog/${slug}/"><img alt="${wrong}" /><strong>${wrong}</strong><small>excerpt</small></a></div><p>${wrong} mentioned elsewhere</p>`;
+  const first = patchRelatedReadingCardTitleInPage(sample, slug, wrong, correct);
+  assert.equal(first.changed, true);
+  assert.doesNotMatch(first.html, /<strong>cvs Celebrity Edge/);
+  assert.ok(first.html.includes(`<p>${wrong} mentioned elsewhere</p>`));
+  const second = patchRelatedReadingCardTitleInPage(first.html, slug, wrong, correct);
+  assert.equal(second.changed, false);
 });

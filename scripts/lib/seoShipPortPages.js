@@ -43,6 +43,27 @@ const {
   pickShipsForPortPage,
 } = require('./shipPortRelevance');
 const { buildGuestReviewsSectionHtml, GUEST_REVIEWS_SECTION_CSS } = require('./guestReviewsSection');
+const fs = require('fs');
+const path = require('path');
+const {
+  applyTypoFixes,
+  resolveRelatedReadingCardTitle,
+} = require('./blogProductionHygiene');
+
+let cachedBlogTitleBySourceSlug = null;
+
+function getBlogTitleBySourceSlug() {
+  if (cachedBlogTitleBySourceSlug) return cachedBlogTitleBySourceSlug;
+  const file = path.join(__dirname, '../../data/blog-article-corrections.json');
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    cachedBlogTitleBySourceSlug =
+      parsed.titleBySourceSlug && typeof parsed.titleBySourceSlug === 'object' ? parsed.titleBySourceSlug : {};
+  } catch {
+    cachedBlogTitleBySourceSlug = {};
+  }
+  return cachedBlogTitleBySourceSlug;
+}
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -285,8 +306,8 @@ function isCompleteRelatedReadingExcerpt(text) {
 }
 
 function relatedReadingTitleFallback(article) {
-  const title = String(article.title || '').trim();
-  if (title) return `${title} — SeaDays cruise planning guide.`;
+  const title = resolveRelatedReadingCardTitle(article, getBlogTitleBySourceSlug());
+  if (title && title !== 'SeaDays guide') return `${title} — SeaDays cruise planning guide.`;
   return 'Cruise planning guide from SeaDays.';
 }
 
@@ -928,12 +949,13 @@ function buildArticleCards(articles, label = 'Read more') {
     .filter((a) => a && a.slug)
     .slice(0, 6)
     .map((a) => {
+      const displayTitle = resolveRelatedReadingCardTitle(a, getBlogTitleBySourceSlug());
       const img = pickArticleImage(a);
       const visual = img
-        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(a.title || 'SeaDays guide')}" width="640" height="150" loading="eager" decoding="async" onerror="this.onerror=null;this.remove()">`
+        ? `<img class="seo-article-img" src="${escapeHtml(img)}" alt="${escapeHtml(displayTitle)}" width="640" height="150" loading="eager" decoding="async" onerror="this.onerror=null;this.remove()">`
         : '';
       const excerpt = relatedReadingCardExcerpt(a, 20);
-      return `<a class="seo-article-card" href="/blog/${escapeHtml(a.slug)}/">${visual}<span class="seo-article-kicker">${escapeHtml(label)}</span><strong>${escapeHtml(a.title || 'SeaDays guide')}</strong><small>${escapeHtml(excerpt)}</small></a>`;
+      return `<a class="seo-article-card" href="/blog/${escapeHtml(a.slug)}/">${visual}<span class="seo-article-kicker">${escapeHtml(label)}</span><strong>${escapeHtml(displayTitle)}</strong><small>${escapeHtml(excerpt)}</small></a>`;
     })
     .join('');
   return cards ? `<div class="seo-article-grid">${cards}</div>` : '';
@@ -1620,6 +1642,8 @@ module.exports = {
   extractArticleCardImageFromHtml,
   pickArticleImage,
   buildArticleCards,
+  getBlogTitleBySourceSlug,
+  resolveRelatedReadingCardTitle,
   relatedReadingCardExcerpt,
   isBrokenRelatedReadingExcerpt,
   isCompleteRelatedReadingExcerpt,
