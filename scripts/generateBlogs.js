@@ -110,7 +110,15 @@ const {
   resolvePortAffiliateCta,
   getViatorConfigFromEnv,
 } = require('./lib/viatorAffiliate');
-const { parseGenerateMode, validateTargetedOnlyMode, assertOnlySlugsResolvable, isTargetedCatalogueMode, shouldWriteShipDetail, shouldWritePortDetail } = require('./lib/generateMode');
+const {
+  parseGenerateMode,
+  validateTargetedOnlyMode,
+  assertOnlySlugsResolvable,
+  isTargetedCatalogueMode,
+  shouldWriteShipDetail,
+  shouldWritePortDetail,
+  assertTargetedPortAffiliateWritable,
+} = require('./lib/generateMode');
 const https = require('https');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -3441,6 +3449,7 @@ async function main() {
       port.description = portGuide.portInfo.description;
     }
     port.hasBookableExperiences = Boolean(affiliate.show);
+    assertTargetedPortAffiliateWritable(mode, affiliate, port.slug);
     fs.writeFileSync(
       path.join(dir, 'index.html'),
       buildPortDetailHtml(port, relPorts, destShips, blogs, {

@@ -155,6 +155,20 @@ function shouldWritePortDetail(mode, portSlug) {
   return mode.onlySlugs.includes(String(portSlug || '').trim());
 }
 
+/**
+ * Targeted --only= port writes must not downgrade bookable experiences to the app-download fallback.
+ */
+function assertTargetedPortAffiliateWritable(mode, affiliate, portSlug) {
+  if (!isTargetedCatalogueMode(mode) || !mode.ports) return;
+  if (!affiliate || affiliate.privateIsland || !affiliate.show) return;
+  if (affiliate.url) return;
+  const slug = String(portSlug || '').trim() || 'unknown';
+  throw new Error(
+    `[generateBlogs] Refusing targeted write for port "${slug}": bookable experiences require a Viator affiliate URL. ` +
+      'Set VIATOR_AFFILIATE_PID and VIATOR_AFFILIATE_MCID in the environment (GitHub Actions secrets for CI), or run without --only=.'
+  );
+}
+
 function commitMessageForChannel(channel) {
   switch (String(channel || '').trim()) {
     case 'sitemap':
@@ -184,4 +198,5 @@ module.exports = {
   isTargetedCatalogueMode,
   shouldWriteShipDetail,
   shouldWritePortDetail,
+  assertTargetedPortAffiliateWritable,
 };

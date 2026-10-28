@@ -240,6 +240,15 @@ for (const [set, count] of shipSetCounts) {
   assert.ok(count <= 10, `related ships ${set} on ${count} pages`);
 }
 
+const halifax = published.find((p) => p.slug === 'halifax-ns-canada');
+assert.ok(halifax, 'halifax page');
+assert.ok(halifax.html.includes('id="guest-reviews"'));
+assert.ok(halifax.html.includes('href="#guest-reviews"'));
+assert.ok(halifax.html.includes('viator.com'));
+assert.ok(halifax.html.includes('campaign=seadays-web-phalifax'));
+assert.ok(halifax.html.includes('Secure checkout · Partner handled'));
+assert.ok(!halifax.html.includes('Continue in SeaDays →'));
+
 const barcelona = published.find((p) => p.slug === 'barcelona-spain');
 assert.ok(barcelona, 'barcelona page');
 const barcelonaMain = barcelona.html.match(/<main\b[\s\S]*?<\/main>/i);
