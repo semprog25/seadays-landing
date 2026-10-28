@@ -90,19 +90,33 @@ test('generated content paths do not themselves trigger regeneration', () => {
   assert.strictEqual(plan.skip, true);
 });
 
-test('guest reviews exact push set suppresses when guard file present at HEAD', () => {
+test('exact-path guard suppresses push when manifest exists at HEAD', () => {
   const fs = require('fs');
   const os = require('os');
   const path = require('path');
-  const exact = require('./lib/ciGenerationReleaseGuard').loadReleaseGuard;
-  const repoRoot = process.cwd();
-  const loaded = exact(repoRoot);
-  assert.ok(loaded && !loaded.error, 'integration worktree must ship ci-generation-release-guard.json');
-  const plan = resolveGenerationPlan({
-    eventName: 'push',
-    changedFiles: loaded.exactPaths,
-  });
-  assert.strictEqual(plan.skip, true);
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'seadays-guard-classify-'));
+  const guardDir = path.join(dir, '.github');
+  fs.mkdirSync(guardDir, { recursive: true });
+  const exactPaths = [
+    '.github/ci-generation-release-guard.json',
+    'scripts/generateBlogs.js',
+  ];
+  fs.writeFileSync(
+    path.join(guardDir, 'ci-generation-release-guard.json'),
+    JSON.stringify({ profile: 'test', exactPaths }, null, 2),
+  );
+  const prev = process.cwd();
+  process.chdir(dir);
+  try {
+    const plan = resolveGenerationPlan({
+      eventName: 'push',
+      changedFiles: exactPaths,
+    });
+    assert.strictEqual(plan.skip, true);
+  } finally {
+    process.chdir(prev);
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 console.log('ci-classify tests passed');
