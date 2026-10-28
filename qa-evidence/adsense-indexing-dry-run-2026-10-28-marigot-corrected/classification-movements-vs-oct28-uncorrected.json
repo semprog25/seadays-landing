@@ -1,0 +1,20 @@
+{
+  "baseline_csv": "qa-evidence/adsense-indexing-dry-run-2026-10-28-marigot-corrected/inputs/oct28-uncorrected-baseline.csv",
+  "movements": [
+    {
+      "key": "port:marigot-st-maarten",
+      "oldRec": "IMPROVE",
+      "newRec": "KEEP_INDEX"
+    }
+  ],
+  "counts_before": {
+    "KEEP_INDEX": 53,
+    "IMPROVE": 79,
+    "NOINDEX_CANDIDATE": 120
+  },
+  "counts_after": {
+    "KEEP_INDEX": 54,
+    "IMPROVE": 78,
+    "NOINDEX_CANDIDATE": 120
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "generated": "2026-10-28",
+  "production_base": "369b39db215bac6119543b37fe5cfab25b1e93e9",
+  "counts_uncorrected_oct28": {
+    "KEEP_INDEX": 53,
+    "IMPROVE": 79,
+    "NOINDEX_CANDIDATE": 120
+  },
+  "baseline_csv_readonly": "qa-evidence/adsense-indexing-dry-run-2026-10-28-marigot-corrected/inputs/oct28-uncorrected-baseline.csv",
+  "sweep_file": "qa-evidence/adsense-indexing-dry-run-2026-10-28-marigot-corrected/inputs/sd_sweep-live-2026-10-28.json",
+  "classifier_script": "scripts/qa/adsense-port-ship-indexing-dry-run.js",
+  "classifier_command": "node scripts/qa/adsense-port-ship-indexing-dry-run.js --sweep <sweep.json> --out-dir qa-evidence/adsense-indexing-dry-run-2026-10-28-marigot-corrected",
+  "sitemap_url_count": 250,
+  "sweep_limitations": "389 live URLs; 7 blog fetch errors in original capture; 250/250 port/ship detail rows present after klaipeda-lithuania retry (see inputs/sweep-provenance.json)",
+  "evidence": [
+    "data/public-port-guides.json",
+    "data/landing-cruise-content-overrides.json",
+    "scripts/lib/publishGate.js",
+    "scripts/lib/adsenseIndexability.js",
+    "docs/port-ship-content-recovery-progress.md",
+    "docs/adsense-content-recovery-progress.md"
+  ],
+  "repo_root": "/Users/sharanestone/Semprog/seadays-landing-chore-adsense-marigot-classification-refresh",
+  "total_urls": 252,
+  "counts": {
+    "KEEP_INDEX": 54,
+    "IMPROVE": 78,
+    "NOINDEX_CANDIDATE": 120
+  },
+  "ports": {
+    "KEEP_INDEX": 26,
+    "IMPROVE": 78,
+    "NOINDEX_CANDIDATE": 117
+  },
+  "ships": {
+    "KEEP_INDEX": 28,
+    "IMPROVE": 0,
+    "NOINDEX_CANDIDATE": 3
+  }
+}

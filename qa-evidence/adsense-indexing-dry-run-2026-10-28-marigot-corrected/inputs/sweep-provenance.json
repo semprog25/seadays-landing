@@ -1,0 +1,20 @@
+{
+  "capture_date": "2026-10-28",
+  "source_of_truth_sweep": "Seadays-trust-boundary/qa-evidence/adsense-indexing-dry-run-2026-10-28/sd_sweep-live-2026-10-28.json",
+  "source_of_truth_baseline_csv": "Seadays-trust-boundary/qa-evidence/adsense-indexing-dry-run-2026-10-28/port-ship-classification.csv",
+  "sources_unmodified_on_copy": true,
+  "bundled_sweep": "inputs/sd_sweep-live-2026-10-28.json",
+  "bundled_baseline_csv": "inputs/oct28-uncorrected-baseline.csv",
+  "sha256_sweep": "8d87d49905ce789746f0fb29486c1bb83e4116805cf0d1318c5b8b988cf0f03c",
+  "sha256_baseline_csv": "f2fdd69a2429a2860bfd70fdcbc039240dbdc1147ddfcc05d8cbc64de0d31cab",
+  "byte_size_sweep": 2022824,
+  "url_rows": 389,
+  "sweep_ok": 382,
+  "sweep_errors": 7,
+  "sweep_error_scope": "blog URLs only (SSL/read timeouts); no port/ship detail failures",
+  "detail_urls_in_sitemap": 250,
+  "detail_urls_with_sweep_rows": 250,
+  "manual_retry_note": "klaipeda-lithuania added after batch timeout in original capture",
+  "production_base_at_capture": "369b39db215bac6119543b37fe5cfab25b1e93e9",
+  "word_count_model": "live article/main text (same model as Oct 27 /tmp/sdsweep.py)"
+}
