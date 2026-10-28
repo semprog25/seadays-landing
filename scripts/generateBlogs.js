@@ -2666,15 +2666,36 @@ async function buildHomePageBlogCards(articles) {
   );
 }
 
-function buildIndexArticleCardHtml(a, imageBundle, eager) {
+function resolveBlogIndexCardFields(article, repoRoot) {
+  const root = repoRoot || path.join(__dirname, '..');
+  const slug = article && article.slug ? String(article.slug) : '';
+  const corrections = loadBlogArticleCorrections(root);
+  const overrideMeta = (slug && loadBlogOverrideMeta(root)[slug]) || {};
+  const cardTitle =
+    (slug && corrections.titleBySourceSlug[slug]) ||
+    overrideMeta.title ||
+    article.title ||
+    'Untitled';
+  const cardExcerpt =
+    (
+      overrideMeta.description ||
+      article.excerpt ||
+      ''
+    ).trim() ||
+    (article.content ? String(article.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') ||
+    '';
+  return { cardTitle: String(cardTitle), cardExcerpt: String(cardExcerpt) };
+}
+
+function buildIndexArticleCardHtml(a, imageBundle, eager, repoRoot) {
   const { url: imgUrl, source, type } = imageBundle;
-  const excerpt = a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 150) : '') || '';
-  const imgTag = buildImgTag(imgUrl, source, type, a.title || 'Article', 'article-card-image', { eager, width: 400, height: 230 });
+  const { cardTitle, cardExcerpt } = resolveBlogIndexCardFields(a, repoRoot);
+  const imgTag = buildImgTag(imgUrl, source, type, cardTitle || 'Article', 'article-card-image', { eager, width: 400, height: 230 });
   return `<a href="${BASE_URL}/blog/${a.slug}/" class="article-card">
       ${imgTag}
       <div class="article-card-body">
-        <h3 class="article-card-title">${escapeHtml(a.title || 'Untitled')}</h3>
-        <p class="article-card-excerpt">${escapeHtml(excerpt)}</p>
+        <h3 class="article-card-title">${escapeHtml(cardTitle || 'Untitled')}</h3>
+        <p class="article-card-excerpt">${escapeHtml(cardExcerpt)}</p>
         <div class="article-card-meta">
           <span class="author">${escapeHtml(articleAuthorBylineLabel(a))}</span>
           <span>${formatDate(a.publishedAt || a.timestamp || a.updatedAt)}</span>
@@ -2720,17 +2741,19 @@ async function buildIndexHtml(articles, featuredSlugList = []) {
     .map((u) => `  <link rel="preload" as="image" href="${escapeHtml(u)}">`)
     .join('\n');
 
+  const repoRoot = path.join(__dirname, '..');
+
   const featuredCardsHtml = featuredArticles
     .map((fa) => {
       const idx = articles.indexOf(fa);
       const bundle = idx >= 0 ? imageResults[idx] : imageResults[0];
-      return buildIndexArticleCardHtml(fa, bundle, true);
+      return buildIndexArticleCardHtml(fa, bundle, true, repoRoot);
     })
     .join('\n');
 
   const cards = [];
   for (let i = 0; i < articles.length; i++) {
-    cards.push(buildIndexArticleCardHtml(articles[i], imageResults[i], i < 3));
+    cards.push(buildIndexArticleCardHtml(articles[i], imageResults[i], i < 3, repoRoot));
   }
 
   return `<!DOCTYPE html>
@@ -3799,4 +3822,6 @@ module.exports = {
   selectHomepageBlogArticles,
   HOME_BLOG_PREFERRED_SLUGS,
   SITE_OG_IMAGE,
+  resolveBlogIndexCardFields,
+  buildIndexArticleCardHtml,
 };
