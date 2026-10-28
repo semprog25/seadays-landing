@@ -1302,6 +1302,22 @@ function formatIsoDate(ts) {
   return d.toISOString().split('T')[0];
 }
 
+/** Editorial meta.json dateModified wins when valid; otherwise CMS/article timestamps. */
+function resolveArticleModifiedIso(article, overrideMeta) {
+  const editorialRaw = overrideMeta && overrideMeta.dateModified;
+  if (editorialRaw != null && editorialRaw !== '') {
+    const editorial = formatIsoDate(editorialRaw);
+    if (editorial) return editorial;
+  }
+  return formatIsoDate(article && (article.updatedAt || article.publishedAt || article.timestamp));
+}
+
+function resolveArticlePublicationDates(article, overrideMeta) {
+  const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
+  const modifiedIso = resolveArticleModifiedIso(article, overrideMeta);
+  return { publishedIso, modifiedIso };
+}
+
 function fileLastmodIso(filePath) {
   try {
     const d = fs.statSync(filePath).mtime;
@@ -1460,9 +1476,9 @@ function loadArticleStubsFromDisk(repoRoot) {
 }
 
 function articleSitemapLastmod(article, repoRoot) {
-  const fromSource = formatIsoDate(
-    article && (article.updatedAt || article.publishedAt || article.timestamp || article.createdAt)
-  );
+  const slug = article && article.slug ? String(article.slug) : '';
+  const overrideMeta = slug ? loadBlogOverrideMeta(repoRoot)[slug] || {} : {};
+  const fromSource = resolveArticleModifiedIso(article, overrideMeta);
   if (fromSource) return fromSource;
   if (!article || !article.slug) return '';
   return diskArticleSitemapLastmod(repoRoot, article.slug);
@@ -2502,8 +2518,7 @@ async function buildArticleHtml(
   const exploreHtml = buildExploreSeaDaysSection();
   const bodyWithAdSlot = insertArticleMidAdSlot(bodyHtml);
 
-  const publishedIso = formatIsoDate(article.publishedAt || article.timestamp || article.createdAt);
-  const modifiedIso = formatIsoDate(article.updatedAt || article.publishedAt || article.timestamp);
+  const { publishedIso, modifiedIso } = resolveArticlePublicationDates(article, overrideMeta);
   const authorJsonLd = buildArticleAuthorJsonLd(article);
   const authorByline = articleAuthorBylineLabel(article);
   const articleBodyText = stripHtmlToPlainText(bodyHtml, 5000);
@@ -2580,7 +2595,7 @@ ${getFaviconHeadHtml()}
           <div class="article-meta">
             <span class="author">${escapeHtml(authorByline)}</span>
             <span>${formatDate(article.publishedAt || article.timestamp || article.updatedAt)}</span>
-            ${modifiedIso && modifiedIso !== publishedIso ? `<span>Updated ${formatDate(article.updatedAt)}</span>` : ''}
+            ${modifiedIso && modifiedIso !== publishedIso ? `<span>Updated ${formatDate(modifiedIso)}</span>` : ''}
             ${article.readTime ? `<span>${escapeHtml(String(article.readTime))} min read</span>` : ''}
           </div>
           ${buildImgTag(heroImg, heroSource, heroType, rawTitle, 'article-hero-image', { eager: true, width: 800, height: 400 })}
@@ -3806,6 +3821,8 @@ module.exports = {
   pickCardImage,
   materializeSignedImageToPublic,
   formatIsoDate,
+  resolveArticleModifiedIso,
+  resolveArticlePublicationDates,
   buildArticleAuthorJsonLd,
   articleAuthorDisplayName,
   articleAuthorBylineLabel,
