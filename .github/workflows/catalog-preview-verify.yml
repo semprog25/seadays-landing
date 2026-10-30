@@ -15,7 +15,9 @@ on:
       - 'scripts/test-catalog-image-parity-d2.js'
       - 'scripts/test-catalog-mock-preview.js'
       - 'scripts/test-catalog-verified-preview.js'
+      - 'scripts/test-jekyll-qa-evidence-exclude.js'
       - 'scripts/lib/catalogImage/**'
+      - '_config.yml'
 
 permissions:
   contents: read
@@ -33,6 +35,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Jekyll qa-evidence exclusion (publication scope)
+        run: node scripts/test-jekyll-qa-evidence-exclude.js
 
       - name: Catalog image parity (D2)
         run: npm run test:catalog-image-parity-d2
