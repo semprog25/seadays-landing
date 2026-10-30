@@ -1,0 +1,109 @@
+{
+  "contractRevision": "1.1-d1",
+  "description": "Shared validator parity fixtures for app (Vitest) and website (Node test) in D2.",
+  "cases": [
+    {
+      "id": "port-destination-verified",
+      "kvKey": "port:image:destination:hamburg-germany",
+      "shipKeyBinding": null,
+      "record": {
+        "v": 1,
+        "status": "verified",
+        "role": "destinationHero",
+        "entity": { "kind": "port", "canonicalSlug": "hamburg-germany", "appIds": ["hamburg"] },
+        "commons": {
+          "file": "Hamburg_Cruise_Center.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Hamburg_Cruise_Center.jpg"
+        },
+        "media": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hamburg_Cruise_Center.jpg/1280px-Hamburg_Cruise_Center.jpg",
+          "alt": "Hamburg cruise port"
+        },
+        "attribution": {
+          "creator": "Example Photographer",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "review": {
+          "reviewedAt": "2026-01-01T00:00:00.000Z",
+          "reviewedBy": "operator@example.com"
+        }
+      },
+      "expectBindingOk": true,
+      "expectDisplay": true
+    },
+    {
+      "id": "ship-hero-verified",
+      "kvKey": "ship:image:wonder-of-the-seas",
+      "shipKeyBinding": "canonicalSlugHero",
+      "record": {
+        "v": 1,
+        "status": "verified",
+        "role": "hero",
+        "entity": { "kind": "ship", "canonicalSlug": "wonder-of-the-seas", "appIds": ["wonder-seas"] },
+        "commons": {
+          "file": "Wonder_of_the_Seas.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Wonder_of_the_Seas.jpg"
+        },
+        "media": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Wonder_of_the_Seas.jpg/1280px-Wonder_of_the_Seas.jpg",
+          "alt": "Wonder of the Seas"
+        },
+        "attribution": {
+          "creator": "Example Photographer",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "review": {
+          "reviewedAt": "2026-01-01T00:00:00.000Z",
+          "reviewedBy": "operator@example.com"
+        }
+      },
+      "expectBindingOk": true,
+      "expectDisplay": true
+    },
+    {
+      "id": "wrong-role-on-destination-key",
+      "kvKey": "port:image:destination:hamburg-germany",
+      "shipKeyBinding": null,
+      "record": {
+        "v": 1,
+        "status": "verified",
+        "role": "portInfrastructure",
+        "entity": { "kind": "port", "canonicalSlug": "hamburg-germany" },
+        "commons": {
+          "file": "X.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:X.jpg"
+        },
+        "media": {
+          "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/X.jpg/800px-X.jpg",
+          "alt": "x"
+        },
+        "attribution": {
+          "creator": "A",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "review": { "reviewedAt": "2026-01-01T00:00:00.000Z", "reviewedBy": "op" }
+      },
+      "expectBindingOk": false,
+      "expectDisplay": false
+    },
+    {
+      "id": "legacy-port-plain-url",
+      "kvKey": "port:image:hamburg",
+      "shipKeyBinding": null,
+      "rawLegacyUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/example.jpg/800px-example.jpg",
+      "expectBindingOk": true,
+      "expectDisplay": true
+    },
+    {
+      "id": "plain-url-rejected-on-canonical-port-key",
+      "kvKey": "port:image:destination:hamburg-germany",
+      "shipKeyBinding": null,
+      "rawLegacyUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/example.jpg/800px-example.jpg",
+      "expectBindingOk": false,
+      "expectDisplay": false
+    }
+  ]
+}

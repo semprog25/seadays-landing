@@ -1,0 +1,52 @@
+name: Catalog preview verify
+
+# Read-only PR checks for Wikimedia catalogue preview tooling. No deploy, generate, or commits.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/catalog-preview-verify.yml'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'data/catalog-image-mock/**'
+      - 'data/catalog-image-verified-fixtures/**'
+      - 'data/catalog-image-parity-fixtures.json'
+      - 'scripts/buildCatalogMockPreviewPages.js'
+      - 'scripts/buildCatalogVerifiedPreviewPages.js'
+      - 'scripts/test-catalog-image-parity-d2.js'
+      - 'scripts/test-catalog-mock-preview.js'
+      - 'scripts/test-catalog-verified-preview.js'
+      - 'scripts/test-jekyll-qa-evidence-exclude.js'
+      - 'scripts/lib/catalogImage/**'
+      - '_config.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Jekyll qa-evidence exclusion (publication scope)
+        run: node scripts/test-jekyll-qa-evidence-exclude.js
+
+      - name: Catalog image parity (D2)
+        run: npm run test:catalog-image-parity-d2
+
+      - name: Mock catalog preview tests
+        run: npm run test:catalog-mock-preview
+
+      - name: Verified catalog preview tests
+        run: npm run test:catalog-verified-preview
+
+      - name: CI generation release guard
+        run: npm run test:ci-generation-release-guard

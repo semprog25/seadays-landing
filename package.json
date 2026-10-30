@@ -43,7 +43,12 @@
     "adsense:remediate": "node scripts/adsense-low-value-remediation.js",
     "test:adsense-indexability": "node scripts/test-adsense-indexability.js",
     "test:guest-reviews-section": "node scripts/test-guest-reviews-section.js",
-    "test:ci-generation-release-guard": "node scripts/test-ci-generation-release-guard.js"
+    "test:ci-generation-release-guard": "node scripts/test-ci-generation-release-guard.js",
+    "build:catalog-mock-preview": "node scripts/buildCatalogMockPreviewPages.js",
+    "test:catalog-mock-preview": "node scripts/test-catalog-mock-preview.js",
+    "build:catalog-verified-preview": "node scripts/buildCatalogVerifiedPreviewPages.js",
+    "test:catalog-verified-preview": "node scripts/test-catalog-verified-preview.js",
+    "test:catalog-image-parity-d2": "node scripts/test-catalog-image-parity-d2.js"
   },
   "engines": {
     "node": ">=18"
