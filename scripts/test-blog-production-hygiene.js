@@ -230,9 +230,9 @@ test('cvs comparison keeps production slug with corrected Prima vs Edge title', 
 
 test('legacy slugs keep canonicals when visible titles drop unsupported claims', () => {
   const cases = [
-    ['trip-cost-analytics-in-seadays-where-cruisers-actually-leak-300800-per-voyage', /How to Read Where the Money Went/, /\$300/],
-    ['i-tried-living-on-a-cruise-ship-for-30-days-heres-what-happened', /What to Check Before a 30-Day/, /I Tried Living/],
-    ['top-10-cruise-ships-for-2026-features-reviews-and-experiences', /Cruise Ships to Compare in 2026/, /Top 10 Cruise Ships/],
+    ['trip-cost-analytics-in-seadays-where-cruisers-actually-leak-300800-per-voyage', /Cruise Spending Analytics: Where Your Money Goes on Board/, /\$300/],
+    ['i-tried-living-on-a-cruise-ship-for-30-days-heres-what-happened', /Living on a Cruise Ship for 30 Days: What to Know Before You Book/, /I Tried Living/],
+    ['top-10-cruise-ships-for-2026-features-reviews-and-experiences', /10 Cruise Ships to Consider in 2026: Features and Experiences Compared/, /Top 10 Cruise Ships/],
   ];
   for (const [slug, titleRe, bannedRe] of cases) {
     const html = fs.readFileSync(path.join(BLOG, slug, 'index.html'), 'utf8');
