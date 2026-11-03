@@ -428,6 +428,46 @@
         "country_id": "germany"
       }
     ],
+    "istanbul": [
+      {
+        "name": "Galataport İstanbul Cruise Terminal",
+        "slug": "galataport-istanbul",
+        "description": "Main Istanbul cruise terminal and homeport on the Karaköy waterfront. Passenger and luggage flows are underground beneath the promenade (Galataport hatch system). When your ship uses the terminal building, official visitor access is via Block D. Galataport publishes design capacity of up to three ships alongside. Confirm your pier and entrance daily—SeaDays does not assign berths.",
+        "address": "Kılıçali Paşa Mah., Meclis-i Mebusan Cad. No: 8, İç Kapı No: 102, 34433 Beyoğlu, İstanbul",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "underground passport control",
+          "customs and baggage",
+          "Block D passenger entrance",
+          "surface promenade"
+        ],
+        "transport_options": [
+          "Karaköy T1 tram",
+          "F2 Tünel funicular",
+          "Taxi via underground road access",
+          "Ship shuttle or tour coach"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "turkey"
+      },
+      {
+        "name": "Salıpazarı / Sarayburnu (overflow berths)",
+        "slug": "salipazari-sarayburnu",
+        "description": "Some sailings reference Salıpazarı or Sarayburnu when the main Galataport quay is busy. These are nearby waterfront berths on the European side—not a different city. Confirm walking route, security exit, and meeting point with crew; do not assume the same Block D path as the main terminal.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "transport_options": [
+          "Confirm pier with ship staff",
+          "Karaköy T1 when pier is near Galata",
+          "Taxi from official ranks"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "turkey"
+      }
+    ],
     "miami": [
       {
         "name": "PortMiami Cruise Terminal D",

@@ -1484,7 +1484,8 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       : '';
 
   let metaDesc = dedupeRepeatedCommaPhrase(buildPortMetaDescription(port, h1));
-  if (guide?.portInfo?.description) {
+  const customPortMeta = port.metaDescription && String(port.metaDescription).trim();
+  if (guide?.portInfo?.description && !customPortMeta) {
     const enriched = `${coreName} cruise port guide: terminals, getting there, weather, and shore-day ideas.`;
     metaDesc = enriched.length <= 160 ? enriched : enriched.slice(0, 157) + '…';
   }
