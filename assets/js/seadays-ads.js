@@ -23,6 +23,9 @@
 
   function hasAdvertisingConsent() {
     try {
+      if (typeof window.seadaysHasAdvertisingConsent === 'function') {
+        return window.seadaysHasAdvertisingConsent();
+      }
       if (typeof window.seadaysGetConsentPrefs === 'function') {
         var prefs = window.seadaysGetConsentPrefs();
         return prefs && prefs.advertising === 'granted';
@@ -105,7 +108,11 @@
     // Custom cookie banner is not an IAB TCF CMP. Until a Google-certified TCF
     // CMP is installed, request non-personalized ads only (EEA/UK policy-safe).
     window.adsbygoogle = window.adsbygoogle || [];
-    if (typeof window.__tcfapi !== 'function') {
+    if (typeof window.seadaysShouldRequestNonPersonalizedAds === 'function') {
+      if (window.seadaysShouldRequestNonPersonalizedAds()) {
+        window.adsbygoogle.requestNonPersonalizedAds = 1;
+      }
+    } else if (typeof window.__tcfapi !== 'function') {
       window.adsbygoogle.requestNonPersonalizedAds = 1;
     }
 

@@ -19,6 +19,10 @@
   var MEASUREMENT_ID = 'G-WSQDQ33QZD';
   var BANNER_ID = 'seadays-consent-banner';
   var ADS_SCRIPT_SRC = '/assets/js/seadays-ads.js';
+  var GOOGLE_CMP_SCRIPT_SRC = '/assets/js/seadays-google-cmp.js';
+  /** Set true only after AdSense Privacy & messaging is published (see docs/GOOGLE_CMP_INTEGRATION.md). */
+  var GOOGLE_CMP_ENABLED = window.__SEADAYS_GOOGLE_CMP_INTEGRATION__ === true;
+  var cmpInitDone = false;
 
   function normalizeChoice(v) {
     return v === 'granted' || v === 'denied' ? v : null;
@@ -58,6 +62,13 @@
       analytics: normalizeChoice(prefs && prefs.analytics) || 'denied',
       advertising: normalizeChoice(prefs && prefs.advertising) || 'denied'
     };
+    if (
+      GOOGLE_CMP_ENABLED &&
+      typeof window.seadaysGoogleCmpShouldDeferLocalStorageWrite === 'function' &&
+      window.seadaysGoogleCmpShouldDeferLocalStorageWrite()
+    ) {
+      return next;
+    }
     try {
       localStorage.setItem(PREFS_KEY, JSON.stringify(next));
       localStorage.setItem(LEGACY_ANALYTICS_KEY, next.analytics);
@@ -116,11 +127,43 @@
     if (typeof window.seadaysSyncAdSlots === 'function') window.seadaysSyncAdSlots();
   }
 
-  function getConsentPrefs() {
+  function getEffectivePrefs() {
+    if (
+      GOOGLE_CMP_ENABLED &&
+      typeof window.seadaysGoogleCmpResolveEffectivePrefs === 'function'
+    ) {
+      var resolved = window.seadaysGoogleCmpResolveEffectivePrefs(readPrefs(), isAppClientOpen());
+      if (resolved) return resolved;
+    }
     return readPrefs();
   }
 
+  function getConsentPrefs() {
+    return getEffectivePrefs();
+  }
+
   window.seadaysGetConsentPrefs = getConsentPrefs;
+
+  window.seadaysHasAdvertisingConsent = function () {
+    if (
+      GOOGLE_CMP_ENABLED &&
+      typeof window.seadaysGoogleCmpHasAdvertisingConsent === 'function'
+    ) {
+      return window.seadaysGoogleCmpHasAdvertisingConsent(readPrefs(), isAppClientOpen());
+    }
+    var p = getEffectivePrefs();
+    return p && p.advertising === 'granted';
+  };
+
+  window.seadaysShouldRequestNonPersonalizedAds = function () {
+    if (
+      GOOGLE_CMP_ENABLED &&
+      typeof window.seadaysGoogleCmpShouldRequestNpa === 'function'
+    ) {
+      return window.seadaysGoogleCmpShouldRequestNpa(readPrefs(), isAppClientOpen());
+    }
+    return typeof window.__tcfapi !== 'function';
+  };
 
   function isRedirectOnlyPage() {
     if (document.querySelector('meta[http-equiv="refresh" i]')) return true;
@@ -272,6 +315,15 @@
   }
 
   function openConsentSettings() {
+    if (
+      GOOGLE_CMP_ENABLED &&
+      typeof window.seadaysGoogleCmpShowRevocation === 'function' &&
+      window.seadaysGoogleCmpShowRevocation()
+    ) {
+      applyPrefs({ analytics: 'denied', advertising: 'denied' });
+      if (typeof window.seadaysSyncAdSlots === 'function') window.seadaysSyncAdSlots();
+      return;
+    }
     clearPrefs();
     applyPrefs({ analytics: 'denied', advertising: 'denied' });
     showBanner();
@@ -289,29 +341,87 @@
     }
   }
 
-  function init() {
-    // Opened from the SeaDays native app (SFSafariViewController / Custom Tab):
-    // never show marketing cookie / advertising consent UI, and keep Consent Mode denied
-    // for ad storage so ATT "Ask App Not to Track" is not undermined by a second cookie prompt.
+  function runConsentInit() {
+    if (cmpInitDone) return;
+    cmpInitDone = true;
+
     if (isAppClientOpen()) {
       applyPrefs({ analytics: 'denied', advertising: 'denied' });
       bindClickTracking();
       return;
     }
 
-    var prefs = readPrefs();
-    var hasDecision = prefs.analytics === 'granted' || prefs.analytics === 'denied';
+    var stored = readPrefs();
+    var prefs = getEffectivePrefs();
+    var showCustom = true;
+    if (GOOGLE_CMP_ENABLED) {
+      showCustom =
+        typeof window.seadaysGoogleCmpShouldShowCustomBanner === 'function' &&
+        window.seadaysGoogleCmpShouldShowCustomBanner(isAppClientOpen());
+    }
+
+    if (GOOGLE_CMP_ENABLED && typeof window.seadaysGoogleCmpGetState === 'function') {
+      var cmpState = window.seadaysGoogleCmpGetState();
+      if (cmpState && cmpState.regulated && cmpState.consentModeValues) {
+        applyPrefs(prefs);
+        bindClickTracking();
+        return;
+      }
+    }
+
+    var hasDecision = stored.analytics === 'granted' || stored.analytics === 'denied';
     if (hasDecision) {
       prefs = writePrefs({
-        analytics: prefs.analytics || 'denied',
-        advertising: prefs.advertising || 'denied'
+        analytics: stored.analytics || 'denied',
+        advertising: stored.advertising || 'denied'
       });
-      applyPrefs(prefs);
+      applyPrefs(getEffectivePrefs());
     } else {
       applyPrefs({ analytics: 'denied', advertising: 'denied' });
-      showBanner();
+      if (showCustom) showBanner();
     }
     bindClickTracking();
+  }
+
+  function initWithGoogleCmp() {
+    applyPrefs({ analytics: 'denied', advertising: 'denied' });
+    window.seadaysOnGoogleCmpReady = function () {
+      if (!cmpInitDone) {
+        runConsentInit();
+        return;
+      }
+      applyPrefs(getEffectivePrefs());
+      if (typeof window.seadaysSyncAdSlots === 'function') window.seadaysSyncAdSlots();
+    };
+    if (typeof window.seadaysGoogleCmpGetState === 'function') {
+      var st = window.seadaysGoogleCmpGetState();
+      if (st && st.ready) runConsentInit();
+    }
+  }
+
+  function loadGoogleCmpBridgeThenInit() {
+    if (document.querySelector('script[src="' + GOOGLE_CMP_SCRIPT_SRC + '"]')) {
+      initWithGoogleCmp();
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = GOOGLE_CMP_SCRIPT_SRC;
+    s.defer = true;
+    s.onload = initWithGoogleCmp;
+    s.onerror = function () {
+      applyPrefs({ analytics: 'denied', advertising: 'denied' });
+      bindClickTracking();
+      cmpInitDone = true;
+    };
+    document.head.appendChild(s);
+  }
+
+  function init() {
+    if (GOOGLE_CMP_ENABLED) {
+      loadGoogleCmpBridgeThenInit();
+      return;
+    }
+    runConsentInit();
   }
 
   if (document.readyState === 'loading') {
