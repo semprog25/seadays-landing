@@ -61,6 +61,9 @@
   function start() {
     if (!ENABLED) return;
     bootstrapGoogleFcCallbacks();
+    if (window.__SEADAYS_GOOGLE_CMP_CONSENT_MODE_READY__) {
+      refreshFromGoogleFc();
+    }
     window.setTimeout(function () {
       if (!state.ready) markLoadFailed();
     }, LOAD_TIMEOUT_MS);

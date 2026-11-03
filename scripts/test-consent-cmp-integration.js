@@ -181,4 +181,11 @@ test('production assets keep CMP integration flag off by default', () => {
   assert.doesNotMatch(analytics, /__SEADAYS_GOOGLE_CMP_INTEGRATION__ = true/);
 });
 
+test('head bootstrap path exists in analytics snippet generator', () => {
+  const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
+  const snippet = getAnalyticsHeadHtml();
+  assert.match(snippet, /__SEADAYS_GOOGLE_CMP_HEAD_BOOTSTRAP__/);
+  assert.match(snippet, /pauseAdRequests/);
+});
+
 console.log('\nAll consent CMP integration tests passed.');

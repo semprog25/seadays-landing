@@ -16,6 +16,36 @@ gtag('consent', 'default', {
   wait_for_update: 500
 });
 </script>
+<script>
+(function(){
+  if (window.__SEADAYS_GOOGLE_CMP_INTEGRATION__ !== true) return;
+  window.__SEADAYS_GOOGLE_CMP_HEAD_BOOTSTRAP__ = true;
+  window.googlefc = window.googlefc || {};
+  window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+  window.googlefc.callbackQueue.push({
+    CONSENT_MODE_DATA_READY: function () {
+      window.__SEADAYS_GOOGLE_CMP_CONSENT_MODE_READY__ = true;
+      if (typeof window.seadaysOnGoogleCmpReady === 'function') window.seadaysOnGoogleCmpReady();
+    }
+  });
+  window.adsbygoogle = window.adsbygoogle || [];
+  window.adsbygoogle.pauseAdRequests = 1;
+  if (!document.getElementById('seadays-google-cmp-bridge')) {
+    var bridge = document.createElement('script');
+    bridge.id = 'seadays-google-cmp-bridge';
+    bridge.src = '/assets/js/seadays-google-cmp.js';
+    bridge.async = false;
+    document.head.appendChild(bridge);
+  }
+  if (document.getElementById('seadays-adsense-script')) return;
+  var s = document.createElement('script');
+  s.id = 'seadays-adsense-script';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent('ca-pub-3084834499411817');
+  document.head.appendChild(s);
+})();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
 <script>
 gtag('js', new Date());
@@ -24,6 +54,8 @@ window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
 <script src="/assets/js/seadays-download.js" defer></script>
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, follow">
   <meta name="description" content="Corner Brook cruise port guide: terminals, getting there, weather, and shore-day ideas.">

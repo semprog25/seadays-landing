@@ -418,6 +418,10 @@
 
   function init() {
     if (GOOGLE_CMP_ENABLED) {
+      if (window.__SEADAYS_GOOGLE_CMP_BRIDGE__) {
+        initWithGoogleCmp();
+        return;
+      }
       loadGoogleCmpBridgeThenInit();
       return;
     }

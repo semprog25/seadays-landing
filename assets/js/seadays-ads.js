@@ -45,6 +45,18 @@
     }
   }
 
+  function isCmpIntegrationEnabled() {
+    return window.__SEADAYS_GOOGLE_CMP_INTEGRATION__ === true;
+  }
+
+  function resumePausedAdRequestsIfAllowed() {
+    if (!isCmpIntegrationEnabled() || !hasAdvertisingConsent()) return;
+    window.adsbygoogle = window.adsbygoogle || [];
+    if (window.adsbygoogle.pauseAdRequests === 1) {
+      window.adsbygoogle.pauseAdRequests = 0;
+    }
+  }
+
   function ensureAdsByGoogle(clientId) {
     return new Promise(function (resolve, reject) {
       if (window.adsbygoogle && document.getElementById(SCRIPT_ID)) {
@@ -104,6 +116,8 @@
       });
       return;
     }
+
+    resumePausedAdRequestsIfAllowed();
 
     // Custom cookie banner is not an IAB TCF CMP. Until a Google-certified TCF
     // CMP is installed, request non-personalized ads only (EEA/UK policy-safe).
