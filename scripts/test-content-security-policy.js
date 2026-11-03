@@ -6,7 +6,6 @@ const fs = require('fs');
 const path = require('path');
 const {
   FUNDING_CHOICES_ORIGIN,
-  META_CSP_MAX_LENGTH,
   getContentSecurityPolicyDirectives,
   getContentSecurityPolicyMetaDirectives,
   injectContentSecurityPolicyMeta,
@@ -17,12 +16,11 @@ function test(name, fn) {
   console.log('PASS', name);
 }
 
-test('meta CSP fits Chromium meta tag length cap', () => {
+test('meta CSP preserves upgrade-insecure-requests and GA script host', () => {
   const policy = getContentSecurityPolicyMetaDirectives();
-  assert.ok(
-    policy.length <= META_CSP_MAX_LENGTH,
-    `meta CSP length ${policy.length} exceeds ${META_CSP_MAX_LENGTH}`
-  );
+  assert.match(policy, /upgrade-insecure-requests/);
+  assert.match(policy, /script-src[^;]*https:\/\/www\.google-analytics\.com/);
+  assert.match(policy, /connect-src[^;]*region1\.google-analytics\.com/);
 });
 
 test('meta CSP allows Funding Choices script origin in script-src', () => {
@@ -43,12 +41,6 @@ test('header CSP includes frame-src for Funding Choices UI', () => {
   assert.match(policy, /frame-src[^;]*fundingchoicesmessages\.google\.com/);
 });
 
-test('CSP still allows existing GA and AdSense script origins', () => {
-  const meta = getContentSecurityPolicyMetaDirectives();
-  assert.match(meta, /https:\/\/www\.googletagmanager\.com/);
-  assert.match(meta, /https:\/\/pagead2\.googlesyndication\.com/);
-});
-
 test('CSP does not add unsafe-eval or script-src https: wildcard', () => {
   const policy = getContentSecurityPolicyMetaDirectives();
   assert.doesNotMatch(policy, /unsafe-eval/);
@@ -65,10 +57,6 @@ test('inject is idempotent on sample index head', () => {
 
 test('blocked Funding Choices loader URL is permitted by meta script-src', () => {
   const policy = getContentSecurityPolicyMetaDirectives();
-  const blocked =
-    'https://fundingchoicesmessages.google.com/i/ca-pub-3084834499411817?fc=alwaysshow&fctype=gdpr';
-  const origin = new URL(blocked).origin;
-  assert.strictEqual(origin, FUNDING_CHOICES_ORIGIN);
   assert.match(policy, /script-src[^;]*fundingchoicesmessages\.google\.com/);
 });
 

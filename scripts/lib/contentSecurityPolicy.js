@@ -3,43 +3,21 @@
 /**
  * Single source for SeaDays landing CSP (meta tag + CDN _headers template).
  * GitHub Pages serves meta CSP only on selected root pages; see inject-csp-meta.js.
- *
- * ponytail: Chromium caps meta http-equiv CSP around ~769 chars; meta policy trims
- * non-essential entries (upgrade-insecure-requests, duplicate GA script host) to fit FC.
  */
 
 const FUNDING_CHOICES_ORIGIN = 'https://fundingchoicesmessages.google.com';
-const META_CSP_MAX_LENGTH = 769;
 
-function buildPolicyParts(options) {
-  const opts = options || {};
-  const scriptSrc = [
-    "script-src 'self' 'unsafe-inline'",
-    'https://www.googletagmanager.com',
-    'https://unpkg.com',
-    'https://pagead2.googlesyndication.com',
-    FUNDING_CHOICES_ORIGIN,
-  ];
-  if (!opts.forMeta) {
-    scriptSrc.splice(2, 0, 'https://www.google-analytics.com');
-  }
-
-  const connectSrc = [
-    "connect-src 'self'",
-    'https://soqkgrfzluewpuiguypm.supabase.co',
-    'https://auth.seadays.app',
-    'https://www.google-analytics.com',
-    'https://www.googletagmanager.com',
-    'https://pagead2.googlesyndication.com',
-    FUNDING_CHOICES_ORIGIN,
-  ];
-  if (!opts.forMeta) {
-    connectSrc.splice(5, 0, 'https://region1.google-analytics.com');
-  }
-
-  const parts = [
+function buildBasePolicyParts() {
+  return [
     "default-src 'self'",
-    scriptSrc.join(' '),
+    [
+      "script-src 'self' 'unsafe-inline'",
+      'https://www.googletagmanager.com',
+      'https://www.google-analytics.com',
+      'https://unpkg.com',
+      'https://pagead2.googlesyndication.com',
+      FUNDING_CHOICES_ORIGIN,
+    ].join(' '),
     "style-src 'self' 'unsafe-inline'",
     [
       "img-src 'self' data:",
@@ -49,46 +27,48 @@ function buildPolicyParts(options) {
       'https://www.googletagmanager.com',
       'https://pagead2.googlesyndication.com',
     ].join(' '),
-    connectSrc.join(' '),
+    [
+      "connect-src 'self'",
+      'https://soqkgrfzluewpuiguypm.supabase.co',
+      'https://auth.seadays.app',
+      'https://www.google-analytics.com',
+      'https://www.googletagmanager.com',
+      'https://region1.google-analytics.com',
+      'https://pagead2.googlesyndication.com',
+      FUNDING_CHOICES_ORIGIN,
+    ].join(' '),
     "font-src 'self'",
     "object-src 'none'",
     "base-uri 'self'",
     ["form-action 'self'", 'https://soqkgrfzluewpuiguypm.supabase.co'].join(' '),
+    'upgrade-insecure-requests',
   ];
-
-  if (!opts.forMeta) {
-    parts.push('upgrade-insecure-requests');
-  }
-
-  if (opts.forHeader) {
-    parts.splice(
-      parts.indexOf("font-src 'self'") + 1,
-      0,
-      [
-        'frame-src',
-        'https://googleads.g.doubleclick.net',
-        'https://tpc.googlesyndication.com',
-        'https://www.google.com',
-        FUNDING_CHOICES_ORIGIN,
-      ].join(' ')
-    );
-  }
-
-  return parts;
 }
 
 function joinPolicyParts(parts) {
   return parts.join('; ');
 }
 
-/** Full policy for CDN _headers (may exceed meta length cap). */
-function getContentSecurityPolicyDirectives() {
-  return joinPolicyParts(buildPolicyParts({ forHeader: true }));
+/** Meta tag and page-embedded CSP (no frame-src; matches pre-PR shape + Funding Choices). */
+function getContentSecurityPolicyMetaDirectives() {
+  return joinPolicyParts(buildBasePolicyParts());
 }
 
-/** Policy embedded in HTML meta tags (Chromium length cap). */
-function getContentSecurityPolicyMetaDirectives() {
-  return joinPolicyParts(buildPolicyParts({ forMeta: true }));
+/** CDN _headers CSP includes frame-src for ads and Funding Choices UI. */
+function getContentSecurityPolicyDirectives() {
+  const parts = buildBasePolicyParts();
+  parts.splice(
+    parts.indexOf("font-src 'self'") + 1,
+    0,
+    [
+      'frame-src',
+      'https://googleads.g.doubleclick.net',
+      'https://tpc.googlesyndication.com',
+      'https://www.google.com',
+      FUNDING_CHOICES_ORIGIN,
+    ].join(' ')
+  );
+  return joinPolicyParts(parts);
 }
 
 function getContentSecurityPolicyMetaHtml() {
@@ -135,7 +115,6 @@ function getContentSecurityPolicyHeaderValue(options) {
 
 module.exports = {
   FUNDING_CHOICES_ORIGIN,
-  META_CSP_MAX_LENGTH,
   getContentSecurityPolicyDirectives,
   getContentSecurityPolicyMetaDirectives,
   getContentSecurityPolicyHeaderValue,
