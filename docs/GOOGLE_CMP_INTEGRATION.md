@@ -6,10 +6,13 @@
 
 | Layer | Role |
 |-------|------|
+| `scripts/lib/googleCmpHeadBootstrap.js` | Flag-gated head: `googlefc.callbackQueue`, `pauseAdRequests`, official `adsbygoogle.js` loader |
 | `scripts/lib/seadaysGoogleCmp.js` | Consent authority rules (Node tests) |
-| `assets/js/seadays-google-cmp.js` | `googlefc` callback queue (`CONSENT_MODE_DATA_READY`), `getGoogleConsentModeValues()`, revocation |
-| `assets/js/seadays-analytics.js` | Loads CMP bridge only when flag true; custom banner when `NOT_APPLICABLE`; defers localStorage in regulated regions |
-| `assets/js/seadays-ads.js` | `seadaysHasAdvertisingConsent()` / NPA via analytics helpers |
+| `assets/js/seadays-google-cmp.js` | `CONSENT_MODE_DATA_READY` handler, `getGoogleConsentModeValues()`, revocation |
+| `assets/js/seadays-analytics.js` | Custom banner when `NOT_APPLICABLE`; defers localStorage in regulated regions |
+| `assets/js/seadays-ads.js` | Unpauses `pauseAdRequests` only when SeaDays ad consent + TCF rules pass; slot fill unchanged |
+
+**Google loader (documented):** Published European regulations messages deploy via the **AdSense tag** (`adsbygoogle.js` with your `ca-pub-…`), not the account meta alone. When the integration flag is on, the shared head snippet loads that tag early with `pauseAdRequests=1` so the CMP can run **before** any slot `push({})`.
 
 **Single authority:** In EEA-regulated visits (`ad_storage` ≠ `NOT_APPLICABLE`), Google CMP owns consent; SeaDays localStorage cannot grant ads. Outside regulated scope, existing custom banner + v2 prefs apply.
 
@@ -29,7 +32,7 @@
 <script>window.__SEADAYS_GOOGLE_CMP_INTEGRATION__ = true;</script>
 ```
 
-Must run **before** `/assets/js/seadays-analytics.js` (inline in `<head>` or early snippet).
+Must appear **before** the shared SeaDays analytics head block (so the gated bootstrap runs). Then run `npm run inject-analytics` if static HTML predates the bootstrap snippet.
 
 4. QA: first visit, accept/reject/customize, return visit, revocation (`googlefc.showRevocationMessage` via Cookie settings when regulated), CMP blocked (fail closed).
 5. Production: enable flag only after QA; never enable without published CMP.
@@ -44,6 +47,7 @@ Must run **before** `/assets/js/seadays-analytics.js` (inline in `<head>` or ear
 
 ```bash
 node scripts/test-consent-cmp-integration.js
+node scripts/test-google-cmp-head-bootstrap.js
 npm run test-seo-remediation
 npm run test-site-layout
 ```
@@ -51,5 +55,5 @@ npm run test-site-layout
 ## Assumptions needing console verification
 
 - Privacy & messaging message is draft vs published.
-- `googlefc` injection is tied to existing AdSense account meta / tag (no extra ad units added in this PR).
+- `googlefc` injection requires the **AdSense tag** in head when flag is on (not account meta alone).
 - Revocation UI copy and TCF vendor list match SeaDays privacy policy (policy pages unchanged in this PR).

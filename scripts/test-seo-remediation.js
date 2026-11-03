@@ -390,7 +390,9 @@ async function main() {
     assert.match(snippet, /<meta name="google-adsense-account" content="ca-pub-3084834499411817">/);
     assert.match(snippet, /<meta name="apple-itunes-app" content="app-id=6759758357">/);
     assert.match(snippet, /seadays-download\.js/);
-    assert.doesNotMatch(snippet, /adsbygoogle\.js/);
+    assert.match(snippet, /__SEADAYS_GOOGLE_CMP_INTEGRATION__ !== true\) return/);
+    assert.match(snippet, /pauseAdRequests/);
+    assert.doesNotMatch(snippet, /<script\s+async[^>]*adsbygoogle\.js/);
     assert.doesNotMatch(snippet, /enable_page_level_ads/);
     assert.strictEqual(countAdsenseAccountMeta(snippet), 1);
 
@@ -398,7 +400,7 @@ async function main() {
     const twice = injectAnalyticsHead(once);
     assert.strictEqual(twice, once);
     assert.strictEqual(countAdsenseAccountMeta(once), 1);
-    assert.doesNotMatch(once, /adsbygoogle\.js/);
+    assert.doesNotMatch(once, /<script\s+async[^>]*adsbygoogle\.js/);
   });
 
   test('public pages carry exactly one AdSense account meta', () => {

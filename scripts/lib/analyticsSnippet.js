@@ -6,6 +6,7 @@
  */
 
 const { getAdsenseAccountMetaHtml } = require('./adsenseConfig');
+const { getGoogleCmpEarlyHeadScriptHtml } = require('./googleCmpHeadBootstrap');
 
 const GA_MEASUREMENT_ID = 'G-WSQDQ33QZD';
 const APPLE_ITUNES_APP_META = '<meta name="apple-itunes-app" content="app-id=6759758357">';
@@ -35,6 +36,7 @@ gtag('consent', 'default', {
   wait_for_update: 500
 });
 </script>
+${getGoogleCmpEarlyHeadScriptHtml()}
 <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
 <script>
 gtag('js', new Date());
@@ -128,9 +130,10 @@ function injectAnalyticsHead(html) {
 
   const hasSharedScript = /\/assets\/js\/seadays-analytics\.js/.test(html);
   const hasConsentDefault = /gtag\(\s*['"]consent['"]\s*,\s*['"]default['"]/.test(html);
+  const hasCmpBootstrap = /__SEADAYS_GOOGLE_CMP_INTEGRATION__\s*!==\s*true/.test(html);
   const configCount = (html.match(/gtag\(\s*['"]config['"]/g) || []).length;
 
-  if (hasSharedScript && hasConsentDefault && configCount === 1) {
+  if (hasSharedScript && hasConsentDefault && hasCmpBootstrap && configCount === 1) {
     let next = ensureAppleItunesAppMeta(ensureAdsenseAccountMeta(html));
     if (!next.includes(DOWNLOAD_SCRIPT_SRC)) {
       next = next.replace(

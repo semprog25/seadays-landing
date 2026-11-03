@@ -12,6 +12,36 @@ gtag('consent', 'default', {
   wait_for_update: 500
 });
 </script>
+<script>
+(function(){
+  if (window.__SEADAYS_GOOGLE_CMP_INTEGRATION__ !== true) return;
+  window.__SEADAYS_GOOGLE_CMP_HEAD_BOOTSTRAP__ = true;
+  window.googlefc = window.googlefc || {};
+  window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+  window.googlefc.callbackQueue.push({
+    CONSENT_MODE_DATA_READY: function () {
+      window.__SEADAYS_GOOGLE_CMP_CONSENT_MODE_READY__ = true;
+      if (typeof window.seadaysOnGoogleCmpReady === 'function') window.seadaysOnGoogleCmpReady();
+    }
+  });
+  window.adsbygoogle = window.adsbygoogle || [];
+  window.adsbygoogle.pauseAdRequests = 1;
+  if (!document.getElementById('seadays-google-cmp-bridge')) {
+    var bridge = document.createElement('script');
+    bridge.id = 'seadays-google-cmp-bridge';
+    bridge.src = '/assets/js/seadays-google-cmp.js';
+    bridge.async = false;
+    document.head.appendChild(bridge);
+  }
+  if (document.getElementById('seadays-adsense-script')) return;
+  var s = document.createElement('script');
+  s.id = 'seadays-adsense-script';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent('ca-pub-3084834499411817');
+  document.head.appendChild(s);
+})();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
 <script>
 gtag('js', new Date());
@@ -20,6 +50,7 @@ window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
 <script src="/assets/js/seadays-download.js" defer></script>
+
 <h2>Why your cruise itinerary matters</h2>
 <figure><img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_d9adca90-34f2-49c5-a6aa-a3ff39-edab7ff0332323f7.jpg" alt="Cruise itinerary planning starts with the mix of embarkation, sea days, and port days" loading="lazy" decoding="async" width="800" height="450" style="max-width:100%;height:auto;border-radius:12px;"></figure>
 <p>A cruise itinerary is the day-by-day route: embarkation port, sea days, port calls, and disembarkation. It sets how rushed or relaxed the trip feels, which countries you actually see, and how much time you spend using the ship versus going ashore.</p>

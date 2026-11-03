@@ -12,6 +12,36 @@ gtag('consent', 'default', {
   wait_for_update: 500
 });
 </script>
+<script>
+(function(){
+  if (window.__SEADAYS_GOOGLE_CMP_INTEGRATION__ !== true) return;
+  window.__SEADAYS_GOOGLE_CMP_HEAD_BOOTSTRAP__ = true;
+  window.googlefc = window.googlefc || {};
+  window.googlefc.callbackQueue = window.googlefc.callbackQueue || [];
+  window.googlefc.callbackQueue.push({
+    CONSENT_MODE_DATA_READY: function () {
+      window.__SEADAYS_GOOGLE_CMP_CONSENT_MODE_READY__ = true;
+      if (typeof window.seadaysOnGoogleCmpReady === 'function') window.seadaysOnGoogleCmpReady();
+    }
+  });
+  window.adsbygoogle = window.adsbygoogle || [];
+  window.adsbygoogle.pauseAdRequests = 1;
+  if (!document.getElementById('seadays-google-cmp-bridge')) {
+    var bridge = document.createElement('script');
+    bridge.id = 'seadays-google-cmp-bridge';
+    bridge.src = '/assets/js/seadays-google-cmp.js';
+    bridge.async = false;
+    document.head.appendChild(bridge);
+  }
+  if (document.getElementById('seadays-adsense-script')) return;
+  var s = document.createElement('script');
+  s.id = 'seadays-adsense-script';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent('ca-pub-3084834499411817');
+  document.head.appendChild(s);
+})();
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WSQDQ33QZD"></script>
 <script>
 gtag('js', new Date());
@@ -20,6 +50,7 @@ window.__SEADAYS_GA_READY__ = true;
 </script>
 <script src="/assets/js/seadays-analytics.js" defer></script>
 <script src="/assets/js/seadays-download.js" defer></script>
+
 <h2>What a drink package actually includes</h2>
 <p>A cruise drink package is a prepaid beverage plan sold by the cruise line—not a single product across the industry. Most mainstream “deluxe” or “premium” plans cover a defined list of drinks up to a per-drink price cap. Soda-only, non-alcoholic, beer-and-wine, and coffee bundles are separate SKUs with different rules.</p>
 <p>Before you compare prices, open the <strong>current inclusions list</strong> for your sailing. Packages commonly cover draft beer, house wine, and standard cocktails up to a stated limit. They often <em>exclude</em> or cap specialty items: premium spirits above the cap, some bottled wines, fresh-squeezed juice, energy drinks, souvenir glasses, mini-bar stock, room-service beverages, and drinks in some specialty venues. Bottled water brands vary by line—some plans include select brands, others do not.</p>
