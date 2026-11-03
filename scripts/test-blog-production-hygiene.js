@@ -269,4 +269,20 @@ test('batch 2 merge-proposed articles drop template meta descriptions', () => {
   }
 });
 
+test('solo vs group article drops template meta description', () => {
+  const slug = 'complete-guide-to-solo-cruise-vs-group-cruise';
+  const templateRe = /If .+ is what you are trying to plan around/i;
+  const html = fs.readFileSync(path.join(BLOG, slug, 'index.html'), 'utf8');
+  const head = html.slice(0, html.indexOf('</head>') + 7);
+  assert.doesNotMatch(head, templateRe, `${slug} head meta`);
+  const articleLd = html.match(
+    /<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"Article"[\s\S]*?)<\/script>/
+  );
+  assert.ok(articleLd, `${slug} Article JSON-LD`);
+  assert.doesNotMatch(articleLd[1], templateRe, `${slug} JSON-LD description`);
+  assert.match(html, /Compare solo and group cruise logistics/i, slug);
+  assert.match(html, new RegExp(`<link rel="canonical" href="https://seadays.app/blog/${slug}/">`), slug);
+  assert.match(html, /<h1>Complete Guide to Solo Cruise Vs Group Cruise<\/h1>/, slug);
+});
+
 console.log('OK blog production hygiene');
