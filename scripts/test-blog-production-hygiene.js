@@ -241,11 +241,12 @@ test('legacy slugs keep canonicals when visible titles drop unsupported claims',
     assert.doesNotMatch(h1, bannedRe, slug);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://seadays.app/blog/${slug}/">`));
     assert.match(html, /content="index,\s*follow"/i);
+    assert.doesNotMatch(html, /Updated Jan 1, 1970/, slug);
   }
   const chaotic = fs.readFileSync(path.join(BLOG, 'why-your-cruise-feels-chaotic-without-a-planning-app', 'index.html'), 'utf8');
   assert.doesNotMatch(chaotic, /Framing the Issue/);
   assert.match(chaotic, /the-hidden-stress-of-cruise-travel-and-how-to-avoid-it/);
-  assert.match(chaotic, /content="index,\s*follow"/i);
+  assert.match(chaotic, /content="noindex,\s*follow"/i);
 });
 
 console.log('OK blog production hygiene');

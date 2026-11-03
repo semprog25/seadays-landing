@@ -5,6 +5,8 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const {
+  formatDate,
+  injectContextualLinks,
   resolveArticleModifiedIso,
   resolveArticlePublicationDates,
 } = require('./generateBlogs');
@@ -83,6 +85,19 @@ test('D: datePublished unchanged when editorial modified date is set', () => {
   assert.strictEqual(publishedIso, '2026-03-15');
   assert.strictEqual(modifiedIso, '2026-10-28');
   assert.notStrictEqual(publishedIso, modifiedIso);
+});
+
+test('F: formatDate renders editorial ISO dateModified (not epoch) for Updated line', () => {
+  const label = formatDate('2026-10-20');
+  assert.match(label, /Oct 20, 2026/);
+  assert.doesNotMatch(label, /1970/);
+});
+
+test('G: injectContextualLinks skips when override body already has related-inline', () => {
+  const body =
+    '<p>One</p><p>Two</p><p class="related-inline">Related: <a href="/blog/x/">X</a></p><p>Three</p>';
+  const out = injectContextualLinks(body, [{ slug: 'y', title: 'Y' }], 4);
+  assert.strictEqual((out.match(/class="related-inline"/g) || []).length, 1);
 });
 
 test('E: scheduled-style CMS refresh does not replace editorial modified date', () => {
