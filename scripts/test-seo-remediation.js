@@ -240,6 +240,41 @@ async function main() {
     assert.ok(leadAt < wikiAt, 'cruise port lead should appear before municipality overview');
   });
 
+  test('port content override metaDescription is kept when a public port guide exists', () => {
+    const overrideMeta =
+      'Istanbul cruise port guide: Galataport berths, tram access, shore-day plans, and entry rules to confirm before you leave the ship.';
+    const html = buildPortDetailHtml(
+      {
+        slug: 'istanbul-turkey',
+        name: 'Istanbul, Turkey',
+        country: 'Turkey',
+        region: 'Mediterranean',
+        highlights: [],
+        description: 'Galataport is Istanbul’s main cruise terminal on the Karaköy waterfront.',
+        metaDescription: overrideMeta,
+        hasContentOverride: true,
+      },
+      [],
+      [],
+      [],
+      {
+        baseUrl: 'https://seadays.app',
+        defaultImage: 'https://seadays.app/logo.png',
+        indexStyles: '',
+        runtimeGuardScript: '',
+        portGuide: {
+          portName: 'Istanbul',
+          portInfo: {
+            description:
+              'Istanbul sits on the Bosphorus and works as both a marquee Mediterranean call and a growing homeport.',
+          },
+        },
+      }
+    );
+    assert.match(html, /meta name="description" content="[^"]*Galataport berths/);
+    assert.doesNotMatch(html, /meta name="description" content="[^"]*terminals, getting there, weather, and shore-day ideas/);
+  });
+
   test('port FAQ JSON-LD is omitted without traveler Q&A data', () => {
     const html = buildPortDetailHtml(
       { slug: 'example-port', name: 'Example', country: 'Nowhere', region: '', highlights: [], description: 'A cruise port.' },
