@@ -57,3 +57,4 @@ npm run test-site-layout
 - Privacy & messaging message is draft vs published.
 - `googlefc` injection requires the **AdSense tag** in head when flag is on (not account meta alone).
 - Revocation UI copy and TCF vendor list match SeaDays privacy policy (policy pages unchanged in this PR).
+- **Meta CSP length:** Chromium enforces an ~769-character cap on `http-equiv` CSP; Funding Choices hosts are added within that budget on the four root pages that carry meta CSP (`scripts/lib/contentSecurityPolicy.js`). Ship/blog/port pages have no meta CSP today.
