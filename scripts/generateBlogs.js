@@ -1264,6 +1264,16 @@ async function getArticleBodyHtml(article) {
 
 function formatDate(ts) {
   if (ts == null) return '';
+  if (typeof ts === 'string') {
+    const s = ts.trim();
+    if (/^\d{4}-\d{2}-\d{2}/.test(s)) {
+      const iso = s.length === 10 ? `${s}T00:00:00.000Z` : s;
+      const d = new Date(iso);
+      if (!isNaN(d.getTime())) {
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      }
+    }
+  }
   let ms = typeof ts === 'number' ? ts : (typeof ts === 'string' ? parseInt(ts, 10) : Date.parse(ts));
   if (isNaN(ms) || !Number.isFinite(ms)) return '';
   if (ms < 10000000000) ms *= 1000;
@@ -1632,6 +1642,7 @@ function selectMoreToReadArticles(article, articles, maxCount = 12) {
 
 function injectContextualLinks(bodyHtml, relatedArticles, maxLinks = 4) {
   if (!relatedArticles.length || !bodyHtml) return bodyHtml;
+  if (/class="related-inline"/.test(bodyHtml)) return bodyHtml;
   const links = relatedArticles.slice(0, maxLinks).map(
     (a) => `<a href="${blogRelPath(a.slug)}" class="contextual-link">${escapeHtml(a.title || 'Read more')}</a>`
   );
@@ -3821,6 +3832,8 @@ module.exports = {
   pickCardImage,
   materializeSignedImageToPublic,
   formatIsoDate,
+  formatDate,
+  injectContextualLinks,
   resolveArticleModifiedIso,
   resolveArticlePublicationDates,
   buildArticleAuthorJsonLd,
