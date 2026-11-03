@@ -36,12 +36,12 @@ Do **not** change nameservers or DNS from an agent session. An operator must:
 ```
 Content-Security-Policy:
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://pagead2.googlesyndication.com;
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: https://auth.seadays.app https://soqkgrfzluewpuiguypm.supabase.co https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com;
-  connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co https://auth.seadays.app https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com;
+  connect-src 'self' https://soqkgrfzluewpuiguypm.supabase.co https://auth.seadays.app https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://pagead2.googlesyndication.com https://fundingchoicesmessages.google.com;
   font-src 'self';
-  frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com;
+  frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://fundingchoicesmessages.google.com;
   frame-ancestors 'none';
   base-uri 'self';
   form-action 'self' https://soqkgrfzluewpuiguypm.supabase.co;
