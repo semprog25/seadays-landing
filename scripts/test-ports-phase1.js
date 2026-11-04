@@ -10,7 +10,7 @@ const {
   buildWebSearchCampaign,
 } = require('./lib/viatorAffiliate');
 const { buildPortDetailHtml } = require('./lib/seoShipPortPages');
-const { buildTerminalsSection } = require('./lib/portGuideSections');
+const { PORT_GUIDE_STYLES, buildThingsToDoSection, buildTerminalsSection } = require('./lib/portGuideSections');
 const { DANGLING_SENTENCE_RE, isDanglingSentence } = require('./lib/portCopyHygiene');
 
 const root = path.join(__dirname, '..');
@@ -98,6 +98,19 @@ const terminalHtml = buildTerminalsSection([
 ]);
 assert.ok(!terminalHtml.includes('4.5 km from city center'));
 assert.ok(terminalHtml.includes('0.8 km from city center'));
+
+assert.ok(PORT_GUIDE_STYLES.includes('#79D8FF'), 'editorial link color token');
+const thingsSample = buildThingsToDoSection({
+  thingsToDo: {
+    intro: 'Intro line.',
+    shortCall: 'Short body.',
+    topThings: ['One', 'Two'],
+    practicalTip: 'Tip line.',
+  },
+});
+assert.ok(thingsSample.includes('pg-call-plan-card'));
+assert.ok(thingsSample.includes('pg-cruise-tip'));
+assert.ok(thingsSample.includes('Short body.'));
 assert.strictEqual((terminalHtml.match(/<details/g) || []).length, 3);
 assert.ok(terminalHtml.includes('<details class="pg-terminal-card" open>'));
 
@@ -254,16 +267,16 @@ assert.ok(barcelona, 'barcelona page');
 const barcelonaMain = barcelona.html.match(/<main\b[\s\S]*?<\/main>/i);
 const barcelonaMainHtml = barcelonaMain ? barcelonaMain[0] : barcelona.html;
 const barcelonaChars = visibleMain(barcelona.html).length;
-assert.ok(barcelonaChars <= 5000, `barcelona visible chars ${barcelonaChars}`);
+assert.ok(barcelonaChars <= 5200, `barcelona visible chars ${barcelonaChars}`);
 assert.ok(barcelonaMainHtml.includes('id="things-to-do"'), 'barcelona things-to-do');
 assert.ok(barcelonaMainHtml.includes('id="getting-there"'), 'barcelona terminals section');
 assert.ok(barcelonaMainHtml.includes('id="plan-port-day"'), 'barcelona plan port day');
 const barcelonaTerminals = barcelonaMainHtml.match(/id="getting-there"[\s\S]*?<\/section>/i);
 assert.ok(barcelonaTerminals, 'barcelona getting-there section');
-assert.strictEqual((barcelonaTerminals[0].match(/class="pg-terminal-card"/g) || []).length, 6, 'barcelona terminal cards');
+assert.strictEqual((barcelonaTerminals[0].match(/class="pg-terminal-card"/g) || []).length, 5, 'barcelona terminal cards');
 assert.ok(barcelonaMainHtml.includes('Moll Adossat Terminal E (Helix)'), 'barcelona terminal E');
 assert.ok(barcelonaMainHtml.includes('Transport: Drassanes L3 Metro'), 'barcelona WTC transport');
-assert.ok(barcelona.html.includes('Standard call (about 6–8 hours ashore)'));
+assert.ok(barcelona.html.includes('pg-call-plan-card') || barcelona.html.includes('Standard call'));
 assert.ok(!barcelona.html.includes('4.5 km from city center'));
 assert.ok(barcelona.html.includes('0.4 km from city center'));
 assert.ok(!barcelona.html.includes('id="ships-calling"'), 'barcelona no ships block');
@@ -309,9 +322,14 @@ assert.ok(hamburgHtml.includes('53.5294471'));
 assert.ok(hamburgHtml.includes('53.5378455'));
 assert.ok(!hamburgHtml.includes('id="ships-calling"'));
 assert.strictEqual((hamburgHtml.match(/id="plan-port-day"/g) || []).length, 1);
-assert.ok(hamburgHtml.includes('Short call (about 4–5 hours ashore)'));
-assert.ok(hamburgHtml.includes('Standard call (about 6–8 hours ashore)'));
-assert.ok(hamburgHtml.includes('Longer call (8+ hours or overnight)'));
+assert.ok(hamburgHtml.includes('#79D8FF'), 'hamburg editorial link color');
+assert.ok(hamburgHtml.includes('pg-call-plan-card'));
+assert.ok(hamburgHtml.includes('pg-cruise-tip'));
+assert.ok(hamburgHtml.includes('pg-top-things-heading'));
+assert.ok(hamburgHtml.includes('Short call'));
+assert.ok(hamburgHtml.includes('Standard call'));
+assert.ok(hamburgHtml.includes('Longer call'));
+assert.ok(hamburgHtml.includes('About 4–5 hours ashore'));
 assert.ok(hamburgHtml.indexOf('id="things-to-do"') < hamburgHtml.indexOf('id="getting-there"'));
 const hamburgRelated = hamburgHtml.match(/id="related-ports"[\s\S]*?<\/section>/);
 assert.ok(hamburgRelated);

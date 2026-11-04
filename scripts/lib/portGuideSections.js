@@ -225,6 +225,20 @@ function buildFactsSection(guide) {
   return section('Facts', `${dl}${lists}`, 'facts');
 }
 
+function buildCallPlanCard(kind, duration, title, body) {
+  return (
+    `<article class="pg-call-plan-card pg-call-plan-card--${kind}">` +
+    `<header class="pg-call-plan-head">` +
+    `<span class="pg-call-plan-icon" aria-hidden="true"></span>` +
+    `<div class="pg-call-plan-titles">` +
+    `<p class="pg-call-plan-duration">${escapeHtml(duration)}</p>` +
+    `<h3 class="pg-call-plan-title">${escapeHtml(title)}</h3>` +
+    `</div></header>` +
+    `<p class="pg-call-plan-body">${escapeHtml(body)}</p>` +
+    `</article>`
+  );
+}
+
 /**
  * Destination-specific shore-day guidance (replaces SEO template "Things to do" when present).
  * Expected guide.thingsToDo shape:
@@ -235,32 +249,44 @@ function buildThingsToDoSection(guide) {
   if (!t || typeof t !== 'object') return '';
   const top = listItems(t.topThings);
   const blocks = [];
-  if (hasText(t.intro)) blocks.push(`<p class="pg-prose">${escapeHtml(t.intro)}</p>`);
-  if (top) {
-    blocks.push(`<p class="pg-label">Top things to do</p><ul>${top}</ul>`);
-  }
+  if (hasText(t.intro)) blocks.push(`<p class="pg-prose pg-things-intro">${escapeHtml(t.intro)}</p>`);
+  const callPlans = [];
   if (hasText(t.shortCall)) {
-    blocks.push(
-      `<p class="pg-label">Short call (about 4–5 hours ashore)</p><p class="pg-prose">${escapeHtml(t.shortCall)}</p>`
+    callPlans.push(
+      buildCallPlanCard('short', 'About 4–5 hours ashore', 'Short call', t.shortCall)
     );
   }
   if (hasText(t.standardCall)) {
-    blocks.push(
-      `<p class="pg-label">Standard call (about 6–8 hours ashore)</p><p class="pg-prose">${escapeHtml(t.standardCall)}</p>`
+    callPlans.push(
+      buildCallPlanCard('standard', 'About 6–8 hours ashore', 'Standard call', t.standardCall)
     );
   }
   if (hasText(t.longerCall)) {
+    callPlans.push(
+      buildCallPlanCard('longer', '8+ hours or overnight', 'Longer call', t.longerCall)
+    );
+  }
+  if (callPlans.length) {
+    blocks.push(`<div class="pg-call-plans">${callPlans.join('\n')}</div>`);
+  }
+  if (top) {
     blocks.push(
-      `<p class="pg-label">Longer call (8+ hours or overnight)</p><p class="pg-prose">${escapeHtml(t.longerCall)}</p>`
+      `<div class="pg-top-things">` +
+        `<h3 class="pg-top-things-heading">Top things to do</h3>` +
+        `<ul class="pg-top-things-list">${top}</ul>` +
+        `</div>`
     );
   }
   if (hasText(t.practicalTip)) {
     blocks.push(
-      `<p class="pg-label">Practical cruise tip</p><p class="pg-prose">${escapeHtml(t.practicalTip)}</p>`
+      `<aside class="pg-cruise-tip" aria-label="Practical cruise tip">` +
+        `<p class="pg-cruise-tip-label">Practical cruise tip</p>` +
+        `<p class="pg-cruise-tip-body">${escapeHtml(t.practicalTip)}</p>` +
+        `</aside>`
     );
   }
   if (!blocks.length) return '';
-  return section('Things to do', blocks.join('\n'), 'things-to-do');
+  return section('Things to do', `<div class="pg-things-layout">${blocks.join('\n')}</div>`, 'things-to-do');
 }
 
 function hasRichThingsToDo(guide) {
@@ -572,8 +598,39 @@ const PORT_GUIDE_STYLES = `
 .pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
 .pg-lead-guide { font-size: 18px; color: rgba(255,255,255,0.82); }
 .pg-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin: 12px 0 8px; font-weight: 700; }
-.pg-section#things-to-do ul { margin: 0 0 14px; padding-left: 1.2em; color: rgba(255,255,255,0.88); line-height: 1.65; }
-.pg-section#things-to-do li { margin: 0 0 6px; }
+.pg-things-layout { display: grid; gap: 18px; }
+.pg-things-intro { margin-bottom: 0; }
+.pg-call-plans { display: grid; gap: 12px; }
+@media (min-width: 900px) { .pg-call-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pg-call-plan-card { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.pg-call-plan-card--short { border-top: 3px solid rgba(34,211,238,0.75); }
+.pg-call-plan-card--standard { border-top: 3px solid rgba(255,0,51,0.55); }
+.pg-call-plan-card--longer { border-top: 3px solid rgba(255,255,255,0.35); }
+.pg-call-plan-head { display: flex; align-items: flex-start; gap: 12px; }
+.pg-call-plan-icon { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 12px; background: rgba(6,182,212,0.14); border: 1px solid rgba(34,211,238,0.35); position: relative; }
+.pg-call-plan-icon::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -9px 0 0 -7px; border: 2px solid rgba(255,255,255,0.82); border-radius: 50%; box-sizing: border-box; }
+.pg-call-plan-icon::before { content: ''; position: absolute; left: 50%; top: 50%; width: 2px; height: 6px; margin: -8px 0 0 -1px; background: rgba(255,255,255,0.82); border-radius: 1px; }
+.pg-call-plan-duration { margin: 0 0 4px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.48); }
+.pg-call-plan-title { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: #fff; }
+.pg-call-plan-body { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.86); }
+.pg-top-things { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+.pg-top-things-heading { margin: 0 0 12px; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
+.pg-top-things-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.88); }
+.pg-top-things-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,0,51,0.85); box-shadow: 0 0 0 3px rgba(255,0,51,0.12); }
+.pg-cruise-tip { margin: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(34,211,238,0.35); border-left: 4px solid #22d3ee; background: linear-gradient(120deg, rgba(6,182,212,0.16), rgba(255,255,255,0.03)); }
+.pg-cruise-tip-label { margin: 0 0 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+.pg-cruise-tip-body { margin: 0; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.92); font-weight: 650; }
+.pg-section#things-to-do ul:not(.pg-top-things-list) { margin: 0 0 14px; padding-left: 1.2em; color: rgba(255,255,255,0.88); line-height: 1.65; }
+.pg-section#things-to-do li:not(.pg-top-things-list li) { margin: 0 0 6px; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download) { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:visited,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):visited { color: #9ae4ff; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:hover,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:focus-visible,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):focus-visible { outline: 2px solid #79D8FF; outline-offset: 3px; border-radius: 4px; }
 .pg-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0 8px; }
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
@@ -716,6 +773,9 @@ function buildExperiencesSection(affiliate, portName) {
 const THINGS_PROSE_WORD_CAP = 80;
 
 function buildCappedThingsSection(guide, port, gate) {
+  if (hasRichThingsToDo(guide)) {
+    return buildThingsToDoSection(guide);
+  }
   const filter = typeof gate === 'function' ? gate : (s) => s;
   const city = cityLabel(port?.name || guide?.portName || 'this port');
   const t = guide && guide.thingsToDo && typeof guide.thingsToDo === 'object' ? guide.thingsToDo : null;
@@ -806,7 +866,7 @@ function buildEntryCollapsedSection(guide, gate, cityName, port) {
   if (port && port.slug === 'hamburg-germany') {
     return section(
       'Entry & documents',
-      `<p class="pg-prose">Germany is in the Schengen Area. Which passport or visa you need depends on your nationality. SeaDays does not set those rules. Check the <a href="https://www.auswaertiges-amt.de/en/visa-service" target="_blank" rel="noopener noreferrer">German Federal Foreign Office</a> and the <a href="https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en" target="_blank" rel="noopener noreferrer">European Commission visa policy</a> page before you travel.</p>`,
+      `<p class="pg-prose">Germany is in the Schengen Area. Which passport or visa you need depends on your nationality. SeaDays does not set those rules. Check the <a class="pg-editorial-link" href="https://www.auswaertiges-amt.de/en/visa-service" target="_blank" rel="noopener noreferrer">German Federal Foreign Office</a> and the <a class="pg-editorial-link" href="https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en" target="_blank" rel="noopener noreferrer">European Commission visa policy</a> page before you travel.</p>`,
       'entry-requirements'
     );
   }

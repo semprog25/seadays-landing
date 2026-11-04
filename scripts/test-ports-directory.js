@@ -27,9 +27,9 @@ assert.ok(html.includes('<noscript>'), 'noscript crawl fallback');
 assert.ok(html.includes('directory-crawl-list'), 'crawl link list');
 assert.ok(!html.includes('>Sort: Popular<'), 'Popular sort removed');
 assert.ok(html.includes('directory-card-image'), 'image-first cards');
-assert.ok(html.includes('region-card-image'), 'region image cards');
+assert.ok(html.includes('region-card--text-first') || html.includes('region-card-media'), 'region cards');
 assert.ok(html.includes('region-scroll-hint'), 'region scroll hint');
-assert.ok(html.includes('scrollbar-width: none'), 'hidden region scrollbars in CSS');
+assert.ok(!html.includes('region-card-image region-card-image--placeholder'), 'no oversized region image placeholders');
 
 const featuredInHtml = (html.match(/data-featured="1"/g) || []).length;
 assert.strictEqual(featuredInHtml, DEFAULT_FEATURED_SLUGS.length, 'featured card count');
@@ -41,7 +41,7 @@ DEFAULT_FEATURED_SLUGS.forEach((slug) => {
 });
 
 assert.match(html, /rel="canonical" href="https:\/\/seadays\.app\/ports\/"/);
-const cardCount = (html.match(/class="seo-grid-card directory-card"/g) || []).length;
+const cardCount = (html.match(/class="seo-grid-card directory-card[^"]*"/g) || []).length;
 assert.ok(cardCount >= 400, 'directory grid has crawlable cards');
 
 const overrides = JSON.parse(
@@ -76,25 +76,25 @@ while ((match = portCardImgRe.exec(html))) {
 }
 assert.strictEqual(blogMisuse, 0, 'port cards must not use generic blog imagery');
 
-const placeholderCount = (html.match(/directory-card-image--placeholder/g) || []).length;
-assert.ok(placeholderCount >= cardCount - verifiedPortPhotos - 1, 'placeholder count sane');
+const textFirstCount = (html.match(/directory-card--text-first/g) || []).length;
+assert.ok(textFirstCount >= cardCount - verifiedPortPhotos - 1, 'text-first cards where no photo');
 
 let featuredVerified = 0;
-let featuredNeutral = 0;
+let featuredTextFirst = 0;
 for (const slug of DEFAULT_FEATURED_SLUGS) {
   const needle = `data-item="${slug}"`;
   const idx = html.indexOf(needle);
   assert.ok(idx !== -1, `featured slug in grid: ${slug}`);
   const slice = html.slice(idx, idx + 1400);
   if (slice.includes('<img class="directory-card-image')) featuredVerified += 1;
-  else if (slice.includes('directory-card-image--placeholder')) featuredNeutral += 1;
+  else if (slice.includes('directory-card--text-first')) featuredTextFirst += 1;
 }
-assert.strictEqual(featuredVerified + featuredNeutral, DEFAULT_FEATURED_SLUGS.length);
+assert.strictEqual(featuredVerified + featuredTextFirst, DEFAULT_FEATURED_SLUGS.length);
 assert.ok(featuredVerified >= 1, 'at least one verified port photo (e.g. Hamburg)');
-assert.ok(featuredNeutral >= 1, 'neutral placeholders where no port photo exists');
+assert.ok(featuredTextFirst >= 1, 'text-first cards where no port photo exists');
 
 console.log(
-  `[coverage] cards=${cardCount} verifiedPortPhotos=${verifiedPortPhotos} placeholders=${placeholderCount} featuredPhotos=${featuredVerified} featuredNeutral=${featuredNeutral} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
+  `[coverage] cards=${cardCount} verifiedPortPhotos=${verifiedPortPhotos} textFirst=${textFirstCount} featuredPhotos=${featuredVerified} featuredTextFirst=${featuredTextFirst} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
 );
 
 assert.strictEqual(DIRECTORY_PAGE_SIZE, 24);
