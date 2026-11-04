@@ -8,7 +8,7 @@
     "phase1CorrectionPassAt": "2026-08-11T21:41:35.430Z",
     "kielEnrichmentAt": "2026-08-21T10:06:47.570Z",
     "kielSource": "PORT OF KIEL official terminal pages (portofkiel.com)",
-    "terminalNote": "Barcelona distances follow the February 2025 Port of Barcelona brochure. Port Canaveral addresses follow the port directions page. Vigo lists one Trasatlánticos station."
+    "terminalNote": "Barcelona distances follow the February 2025 Port of Barcelona brochure. Port Canaveral addresses follow the port directions page. Vigo lists one Trasatlánticos station. Barcelona/Miami terminal coords and status updated 2026-11-04 (status-aware map pilot)."
   },
   "byPortId": {
     "barcelona": [
@@ -16,6 +16,9 @@
         "name": "Moll Adossat Terminal A",
         "slug": "adossat-terminal-a",
         "description": "Southern Adossat berth. About 2 km from the center.",
+        "address": "Moll Adossat, 1, 08039 Barcelona",
+        "latitude": 41.362222,
+        "longitude": 2.181389,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -37,6 +40,9 @@
         "name": "Moll Adossat Terminal B",
         "slug": "adossat-terminal-b",
         "description": "Adossat berth beside Terminal A. About 2 km from the center.",
+        "address": "Moll Adossat, 3, 08039 Barcelona",
+        "latitude": 41.360628,
+        "longitude": 2.181075,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -57,9 +63,9 @@
       {
         "name": "Moll Adossat Terminal C",
         "slug": "adossat-terminal-c",
-        "description": "Adossat berth. About 2.5 km from the center.",
+        "description": "Legacy Adossat Terminal C (not the future public Terminal C planned for ~2030). Cruise operations at this building ended 1 November 2026; it is being demolished.",
         "terminal_type": "both",
-        "terminal_status": "active",
+        "terminal_status": "closed",
         "facilities": [
           "baggage",
           "check-in",
@@ -78,6 +84,9 @@
         "name": "Moll Adossat Terminal D",
         "slug": "adossat-terminal-d",
         "description": "Palacruceros berth on Adossat. About 2.5 km from the center.",
+        "address": "C/ Moll Adossat, s/n, 08039 Barcelona",
+        "latitude": 41.354224,
+        "longitude": 2.176258,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -96,9 +105,10 @@
       {
         "name": "World Trade Center (WTC) Cruise Pier",
         "slug": "world-trade-center-pier",
-        "description": "Port Vell pier. About 400 m from the center.",
+        "description": "Port Vell / WTC cruise pier. About 400 m from the center.",
         "terminal_type": "both",
-        "terminal_status": "active",
+        "terminal_status": "transitioning",
+        "visitor_notice": "Under the Port of Barcelona and Barcelona City Council agreement, cruise use at the World Trade Center / Barcelona South wharf is winding down, with operations expected to end by late 2026. Confirm your assigned Adossat terminal (A, B, D, or E) on embarkation documents.",
         "facilities": [
           "passenger bridge",
           "baggage",
@@ -118,6 +128,9 @@
         "name": "Moll Adossat Terminal E (Helix)",
         "slug": "adossat-terminal-e",
         "description": "Helix terminal on Adossat. About 3 km from the center.",
+        "address": "Moll Adossat, s/n, 08039 Barcelona",
+        "latitude": 41.351014,
+        "longitude": 2.174199,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -473,6 +486,9 @@
         "name": "PortMiami Cruise Terminal D",
         "slug": "portmiami-terminal-d",
         "description": "Major turnaround berth on Dodge Island; widely used by large contemporary fleets.",
+        "address": "1435 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.776512,
+        "longitude": -80.169859,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -494,6 +510,9 @@
         "name": "PortMiami Cruise Terminal A",
         "slug": "portmiami-terminal-a",
         "description": "Dodge Island cruise berth on N Cruise Blvd; follow sailing-specific terminal letter on documents.",
+        "address": "2000 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.775097,
+        "longitude": -80.168737,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -516,6 +535,9 @@
         "name": "PortMiami Cruise Terminal B",
         "slug": "portmiami-terminal-b",
         "description": "Dodge Island berth; allow time for bridge traffic onto island.",
+        "address": "1761 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.774375,
+        "longitude": -80.16487,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -537,6 +559,9 @@
         "name": "PortMiami Cruise Terminal C",
         "slug": "portmiami-terminal-c",
         "description": "Dodge Island cruise terminal; peak-day congestion common—arrive inside line window.",
+        "address": "1741 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.774759,
+        "longitude": -80.165954,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -558,6 +583,9 @@
         "name": "PortMiami Cruise Terminal F",
         "slug": "portmiami-terminal-f",
         "description": "Dedicated cruise terminal facility on Dodge Island for assigned sailings.",
+        "address": "1103 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.779442,
+        "longitude": -80.176725,
         "terminal_type": "both",
         "terminal_status": "active",
         "facilities": [
@@ -579,6 +607,9 @@
         "name": "PortMiami Cruise Terminal AA",
         "slug": "portmiami-terminal-aa",
         "description": "MSC Cruises’ Terminal AA (opened 2025): large multi-level facility designed to handle very high passenger volumes, including multi-ship operations.",
+        "address": "2200 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.771194,
+        "longitude": -80.158201,
         "terminal_type": "homeport",
         "terminal_status": "active",
         "facilities": [
@@ -601,6 +632,9 @@
         "name": "PortMiami Cruise Terminal E",
         "slug": "portmiami-terminal-e",
         "description": "Carnival Cruise Line terminal complex (with D and F) on PortMiami; expanded to handle larger ships.",
+        "address": "1265 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.777967,
+        "longitude": -80.173266,
         "terminal_type": "homeport",
         "terminal_status": "active",
         "facilities": [
