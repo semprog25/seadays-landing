@@ -14,7 +14,7 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 require('dotenv').config({ path: path.join(__dirname, '..', '..', 'Seadays-main', '.env') });
 
 const fs = require('fs');
-const { buildPortsIndexHtml, resolveDirectoryPorts } = require('./lib/portsDirectoryIndex');
+const { buildPortsIndexHtml, resolveDirectoryPorts, loadRegionImageManifest } = require('./lib/portsDirectoryIndex');
 const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
 const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const {
@@ -102,6 +102,31 @@ function extractRatingsFromExisting(indexPath) {
   return map;
 }
 
+function extractOgImageFromPortPage(repoRoot, slug) {
+  const pagePath = path.join(repoRoot, 'ports', slug, 'index.html');
+  if (!fs.existsSync(pagePath)) return '';
+  const html = fs.readFileSync(pagePath, 'utf8');
+  const og =
+    html.match(/property=["']og:image["']\s+content=["']([^"']+)["']/i) ||
+    html.match(/content=["']([^"']+)["']\s+property=["']og:image["']/i);
+  let url = og ? String(og[1]).trim() : '';
+  if (!url || url.includes('seadaysfav.png')) {
+    const hero = html.match(/class="seo-hero-img"\s+src="([^"]+)"/i);
+    if (hero) url = String(hero[1]).trim();
+  }
+  return url;
+}
+
+function resolveDirectoryImageUrl(port, portGuide, repoRoot) {
+  const heroUrl = portGuide?.hero?.url ? String(portGuide.hero.url).trim() : '';
+  if (heroUrl && !heroUrl.includes('seadaysfav.png')) return heroUrl;
+  const fromRecord = String(port.image_url || '').trim();
+  if (fromRecord && !fromRecord.includes('seadaysfav.png')) return fromRecord;
+  const fromPage = extractOgImageFromPortPage(repoRoot, port.slug);
+  if (fromPage && !fromPage.includes('seadaysfav.png')) return fromPage;
+  return fromRecord || fromPage || heroUrl || '';
+}
+
 function main() {
   const repoRoot = path.join(__dirname, '..');
   const indexPath = path.join(repoRoot, 'ports', 'index.html');
@@ -149,6 +174,7 @@ function main() {
     if (portGuide?.portInfo?.description && !port.description) {
       port.description = portGuide.portInfo.description;
     }
+    port.directoryImageUrl = resolveDirectoryImageUrl(port, portGuide, repoRoot);
     const affiliate = resolvePortAffiliateCta(
       { ...port, appPortId },
       {
@@ -162,9 +188,12 @@ function main() {
     port.hasBookableExperiences = Boolean(affiliate.show);
   }
 
+  const regionImages = loadRegionImageManifest(repoRoot);
+
   const html = buildPortsIndexHtml({
     ports: seoPorts,
     featuredGuideCardsHtml,
+    regionImages,
     indexStyles: INDEX_STYLES,
     analyticsHeadHtml: getAnalyticsHeadHtml(),
     runtimeGuardScript: RUNTIME_GUARD_SCRIPT,

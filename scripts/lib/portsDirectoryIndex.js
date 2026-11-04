@@ -11,6 +11,9 @@ const {
   getSiteFooterHtml,
   getSiteShellCssLinkHtml,
 } = require('./siteShell');
+const fs = require('fs');
+const path = require('path');
+const buildPortsDirectoryClientScriptSource = require('./portsDirectoryIndex.client');
 
 function escapeHtml(s) {
   return String(s == null ? '' : s)
@@ -83,6 +86,71 @@ const PRIORITY_REGION_DEFS = [
   { key: 'South America', label: 'South America', regions: ['South America'] },
   { key: 'Middle East', label: 'Middle East', regions: ['Middle East'] },
 ];
+
+/** Editorial default set shown before region/search/browse-all (12 ports). */
+const DEFAULT_FEATURED_SLUGS = [
+  'barcelona-spain',
+  'miami-fl-united-states',
+  'cozumel-mexico',
+  'santorini-greece',
+  'nassau-bahamas',
+  'juneau-ak-united-states',
+  'hamburg-germany',
+  'sydney-australia',
+  'dubrovnik-croatia',
+  'san-juan-puerto-rico',
+  'southampton-united-kingdom',
+  'singapore-singapore',
+];
+
+const DIRECTORY_PAGE_SIZE = 24;
+const DIRECTORY_FEATURED_SIZE = 12;
+
+function isDirectoryPlaceholderImage(url) {
+  const s = String(url || '').trim();
+  return !s || s.includes('seadaysfav.png');
+}
+
+function loadRegionImageManifest(repoRoot) {
+  const manifestPath = path.join(repoRoot, 'data', 'ports-directory-region-images.json');
+  if (!fs.existsSync(manifestPath)) return {};
+  try {
+    const raw = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    return raw.regions && typeof raw.regions === 'object' ? raw.regions : {};
+  } catch {
+    return {};
+  }
+}
+
+function buildPortCardImageHtml(port) {
+  const url = String(port.directoryImageUrl || port.image_url || '').trim();
+  const alt = `${port.displayName}, ${port.country}`;
+  if (isDirectoryPlaceholderImage(url)) {
+    return `<span class="directory-card-image directory-card-image--placeholder" role="img" aria-label="${escapeHtml(alt)}"></span>`;
+  }
+  return (
+    `<img class="directory-card-image img-loading" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
+    `width="400" height="225" loading="lazy" decoding="async" data-img-source="directory" ` +
+    `onload="this.classList.remove('img-loading')">`
+  );
+}
+
+function buildNoScriptCrawlLinksHtml(directoryPorts) {
+  const links = directoryPorts
+    .slice()
+    .sort((a, b) => compareLabelsAz(a.displayName, b.displayName))
+    .map(
+      (port) =>
+        `<li><a href="/ports/${escapeHtml(port.slug)}/">${escapeHtml(port.displayName)}${
+          port.country ? `, ${escapeHtml(port.country)}` : ''
+        }</a></li>`
+    )
+    .join('\n');
+  return (
+    `<noscript><section class="directory-crawl-fallback" aria-label="All cruise port guides">` +
+    `<h2>All port guides</h2><ul class="directory-crawl-list">${links}</ul></section></noscript>`
+  );
+}
 
 function formatDirectoryRating(rating) {
   const n = typeof rating === 'number' ? rating : Number(String(rating || '').trim());
@@ -228,7 +296,8 @@ function compareLabelsAz(a, b) {
   return String(a || '').localeCompare(String(b || ''), undefined, { sensitivity: 'base' });
 }
 
-function buildRegionBrowseHtml(directoryPorts) {
+function buildRegionBrowseHtml(directoryPorts, regionImages) {
+  const images = regionImages && typeof regionImages === 'object' ? regionImages : {};
   const presentRegions = new Set(directoryPorts.map((p) => p.region));
   const priorityKeys = new Set();
   const cards = [];
@@ -240,12 +309,20 @@ function buildRegionBrowseHtml(directoryPorts) {
     const count = countPortsForRegions(directoryPorts, available);
     if (!count) continue;
     available.forEach((r) => priorityKeys.add(r));
+    const imgMeta = images[def.key] || {};
+    const imgUrl = String(imgMeta.imageUrl || '').trim();
+    const imgAlt = String(imgMeta.alt || def.label).trim();
+    const imgHtml = imgUrl
+      ? `<img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="" loading="lazy" decoding="async" width="320" height="180">`
+      : `<span class="region-card-image region-card-image--placeholder" aria-hidden="true"></span>`;
     cards.push(
       `<button type="button" class="region-card" data-region-key="${escapeHtml(def.key)}" ` +
         `data-regions="${escapeHtml(available.join('|'))}" aria-pressed="false">` +
+        imgHtml +
+        `<span class="region-card-body">` +
         `<span class="region-card-name">${escapeHtml(def.label)}</span>` +
         `<span class="region-card-count">${count} port${count === 1 ? '' : 's'}</span>` +
-        `</button>`
+        `</span></button>`
     );
   }
 
@@ -300,6 +377,8 @@ function buildPortCardsHtml(directoryPorts) {
         typeof port.reviewCount === 'number' && Number.isFinite(port.reviewCount)
           ? String(port.reviewCount)
           : '0';
+      const featured = DEFAULT_FEATURED_SLUGS.includes(port.slug) ? '1' : '0';
+      const imageHtml = buildPortCardImageHtml(port);
       return (
         `<a href="/ports/${escapeHtml(port.slug)}/" class="seo-grid-card directory-card" ` +
         `data-group="${escapeHtml(port.region)}" data-item="${escapeHtml(port.slug)}" ` +
@@ -308,7 +387,10 @@ function buildPortCardsHtml(directoryPorts) {
         `data-region="${escapeHtml(port.region)}" ` +
         `data-aliases="${escapeHtml(port.searchAliases)}" ` +
         `data-bookable="${port.hasBookableExperiences ? '1' : '0'}" ` +
+        `data-featured="${featured}" ` +
         `data-rating="${escapeHtml(ratingVal)}" data-reviews="${escapeHtml(reviewCount)}">` +
+        imageHtml +
+        `<span class="directory-card-body">` +
         `<span class="seo-grid-card-title">${escapeHtml(port.displayName)}</span>` +
         `<span class="seo-grid-card-meta">${escapeHtml(port.country)}${
           port.region ? ` · ${escapeHtml(port.region)}` : ''
@@ -318,7 +400,7 @@ function buildPortCardsHtml(directoryPorts) {
         `<span class="seo-grid-card-bottom">` +
         ratingHtml +
         `<span class="seo-grid-card-hint">Open Port Guide →</span>` +
-        `</span>` +
+        `</span></span>` +
         `</a>`
       );
     })
@@ -336,16 +418,20 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .seo-prose p { margin-bottom: 18px; }
 .seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
 .seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 1200px; margin: 0 auto; padding: 140px 20px 36px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
-.directory-hero h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.06; margin-bottom: 14px; }
-.directory-hero p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; }
-.directory-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
-.directory-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
+.directory-hero { max-width: 1200px; margin: 0 auto; padding: 120px 20px 20px; }
+.directory-hero--compact { padding-bottom: 8px; }
+.directory-hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; letter-spacing: -1px; line-height: 1.08; margin-bottom: 10px; }
+.directory-hero p { font-size: 17px; color: rgba(255,255,255,0.68); line-height: 1.55; margin-bottom: 12px; max-width: 42em; }
+.directory-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; cursor: pointer; font-size: 14px; }
 .directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
+.directory-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .directory-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
-.directory-hero-art { border-radius: 22px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,0.4); position: relative; }
-.directory-hero-art::after { content: ''; position: absolute; inset: -80px -120px auto auto; width: 240px; height: 240px; background: radial-gradient(circle at center, rgba(6,182,212,0.32), rgba(6,182,212,0)); filter: blur(4px); pointer-events: none; }
-.directory-hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+.directory-btn-outline { background: transparent; }
+.directory-section--search { margin-top: 0; padding-top: 8px; }
+.directory-search-wrap--primary { max-width: 720px; margin: 0 auto; }
+.directory-search--primary { padding: 16px 18px; font-size: 17px; border: 1px solid rgba(255,0,51,0.45); box-shadow: 0 0 0 1px rgba(255,0,51,0.2), 0 0 18px rgba(255,0,51,0.22); }
+.directory-search--primary:focus { outline: none; border-color: rgba(255,0,51,0.78); box-shadow: 0 0 0 2px rgba(255,0,51,0.45); }
 .directory-controls { max-width: 1200px; margin: 0 auto; padding: 0 20px 18px; }
 .directory-section { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
 .directory-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -354,7 +440,7 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .directory-search-wrap { position: relative; max-width: 640px; width: 100%; margin: 0 auto 8px; }
 .directory-search { width: 100%; max-width: none; margin: 0; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: #fff; font-size: 16px; font-weight: 600; }
 .directory-search::placeholder { color: rgba(255,255,255,0.45); font-weight: 600; }
-.directory-search:focus { outline: none; border-color: rgba(6,182,212,0.7); box-shadow: 0 0 0 1px rgba(6,182,212,0.35); }
+.directory-search:focus { outline: none; border-color: rgba(255,0,51,0.65); box-shadow: 0 0 0 1px rgba(255,0,51,0.35); }
 .search-results { position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 40; max-height: 340px; overflow: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: rgba(12,12,12,0.98); box-shadow: 0 16px 40px rgba(0,0,0,0.45); display: none; }
 .search-results.is-open { display: block; }
 .search-result-item { display: block; width: 100%; text-align: left; padding: 12px 14px; border: 0; border-bottom: 1px solid rgba(255,255,255,0.06); background: transparent; color: #fff; cursor: pointer; text-decoration: none; }
@@ -363,37 +449,54 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .search-result-name { display: block; font-weight: 800; font-size: 15px; }
 .search-result-meta { display: block; margin-top: 2px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .search-empty { padding: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
-.region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
-.region-card { appearance: none; text-align: left; padding: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, background 0.2s; }
-.region-card:hover { border-color: rgba(6,182,212,0.55); transform: translateY(-1px); }
-.region-card[aria-pressed="true"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
+.region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.region-card { appearance: none; text-align: left; padding: 0; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, background 0.2s; overflow: hidden; display: flex; flex-direction: column; }
+.region-card:hover { border-color: rgba(255,0,51,0.55); transform: translateY(-1px); }
+.region-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
+.region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); }
+.region-card-image--placeholder { min-height: 100px; }
+.region-card-body { padding: 12px 14px 14px; }
 .region-card-name { display: block; font-weight: 800; font-size: 15px; line-height: 1.25; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .region-more-wrap { margin-top: 14px; }
-.region-more-toggle { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; }
-.region-more-toggle:hover { border-color: rgba(6,182,212,0.55); }
+.region-more-toggle { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 44px; }
+.region-more-toggle:hover { border-color: rgba(255,0,51,0.55); }
 .region-more-panel { display: none; margin-top: 12px; }
 .region-more-panel.is-open { display: block; }
 .region-more-scroll { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
 .region-more-scroll .pill { flex: 0 0 auto; }
 .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
-.country-card { appearance: none; text-align: left; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-.country-card:hover { border-color: rgba(6,182,212,0.55); }
-.country-card[aria-pressed="true"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
+.country-card { appearance: none; text-align: left; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, background 0.2s; min-height: 44px; }
+.country-card:hover { border-color: rgba(255,0,51,0.55); }
+.country-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
 .country-card-name { display: block; font-weight: 800; font-size: 16px; line-height: 1.2; }
 .country-card-count { display: block; margin-top: 4px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .country-empty { font-size: 14px; color: rgba(255,255,255,0.55); padding: 8px 0; }
 .filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 14px; }
-.filter-select { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.92); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 42px; }
-.filter-select:focus { outline: 2px solid rgba(6,182,212,0.7); outline-offset: 2px; }
+.filter-select { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.92); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 44px; }
+.filter-select:focus { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .filter-select option { color: #111; }
 .results-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 12px; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; }
-.pill:hover { border-color: rgba(6,182,212,0.55); }
-.pill[aria-pressed="true"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
-.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
-.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
+.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; min-height: 44px; }
+.pill:hover { border-color: rgba(255,0,51,0.55); }
+.pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
+.region-card:focus-visible, .country-card:focus-visible, .pill:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
+.seo-grid-card:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 3px; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 0 20px 24px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 0; padding: 0; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; overflow: hidden; }
+.directory-card-body { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; }
+.directory-card-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(20,20,20,0.9)); }
+.directory-card-image--placeholder { min-height: 140px; }
+.directory-card.is-filter-hidden, .directory-card.is-page-hidden { display: none !important; }
+.directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 0 20px; color: rgba(255,255,255,0.62); font-size: 15px; }
+.directory-load-more-wrap { max-width: 1200px; margin: 0 auto 48px; padding: 0 20px; text-align: center; }
+.directory-load-more { min-width: min(100%, 280px); }
+.directory-crawl-fallback { max-width: 900px; margin: 0 auto 48px; padding: 0 20px; color: rgba(255,255,255,0.78); }
+.directory-crawl-list { columns: 2; column-gap: 24px; list-style: none; padding: 0; margin: 12px 0 0; }
+.directory-crawl-list li { break-inside: avoid; margin-bottom: 6px; }
+.directory-crawl-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+.directory-crawl-list a:hover { text-decoration: underline; }
 .seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
 .seo-grid-card-title { font-weight: 800; font-size: 18px; letter-spacing: -0.2px; }
 .seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
@@ -423,8 +526,8 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .app-cta a { flex: 0 0 auto; }
 .header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
 @media (max-width: 900px) {
-  .directory-hero { grid-template-columns: 1fr; padding-top: 120px; }
-  .directory-hero h1 { font-size: 38px; }
+  .directory-hero { padding-top: 100px; }
+  .directory-hero h1 { font-size: 2rem; }
   .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
   .region-grid { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
@@ -436,374 +539,7 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 `;
 
 function buildPortsDirectoryClientScript() {
-  return `
-  (function(){
-    var search = document.getElementById('portSearch');
-    var searchResults = document.getElementById('portSearchResults');
-    var regionBrowse = document.getElementById('regionBrowse');
-    var regionMoreToggle = document.getElementById('regionMoreToggle');
-    var regionMorePanel = document.getElementById('regionMorePanel');
-    var countryBrowse = document.getElementById('countryBrowse');
-    var countryHeading = document.getElementById('countryHeading');
-    var countryEmpty = document.getElementById('countryEmpty');
-    var grid = document.getElementById('directoryGrid');
-    var resultsMeta = document.getElementById('resultsMeta');
-    var filterRegion = document.getElementById('filterRegion');
-    var filterCountry = document.getElementById('filterCountry');
-    var filterBookable = document.getElementById('filterBookable');
-    var filterSort = document.getElementById('filterSort');
-    if(!grid) return;
-
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'));
-    var state = {
-      regions: null,
-      country: '__all__',
-      bookable: false,
-      sort: 'name',
-      query: ''
-    };
-
-    function norm(s){
-      return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-    }
-    function setPressed(container, attr, activeValue){
-      if(!container) return;
-      Array.prototype.slice.call(container.querySelectorAll('[' + attr + ']')).forEach(function(btn){
-        var v = btn.getAttribute(attr);
-        btn.setAttribute('aria-pressed', String(v === activeValue));
-      });
-    }
-    function activeRegionKey(){
-      var pressed = document.querySelector('.region-card[aria-pressed="true"], .region-more-pill[aria-pressed="true"]');
-      return pressed ? pressed.getAttribute('data-region-key') : '__all__';
-    }
-    function parseRegionsAttr(el){
-      if(!el) return null;
-      var raw = el.getAttribute('data-regions') || '';
-      if(!raw) return null;
-      return raw.split('|').map(function(s){ return s.trim(); }).filter(Boolean);
-    }
-    function cardMatchesRegions(card, regions){
-      if(!regions || !regions.length) return true;
-      var region = card.getAttribute('data-region') || card.getAttribute('data-group') || '';
-      return regions.indexOf(region) !== -1;
-    }
-    function cardMatchesQuery(card, q){
-      if(!q) return true;
-      var name = card.getAttribute('data-name') || '';
-      var country = card.getAttribute('data-country') || '';
-      var region = norm(card.getAttribute('data-region') || card.getAttribute('data-group') || '');
-      var aliases = card.getAttribute('data-aliases') || '';
-      var item = card.getAttribute('data-item') || '';
-      var title = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-      return name.indexOf(q) !== -1
-        || country.indexOf(q) !== -1
-        || region.indexOf(q) !== -1
-        || aliases.indexOf(q) !== -1
-        || title.indexOf(q) !== -1
-        || item.indexOf(q) !== -1;
-    }
-    function visiblePool(){
-      var q = state.query;
-      return cards.filter(function(card){
-        if(state.bookable && card.getAttribute('data-bookable') !== '1') return false;
-        if(q) return cardMatchesQuery(card, q);
-        if(!cardMatchesRegions(card, state.regions)) return false;
-        if(state.country && state.country !== '__all__'){
-          var c = card.getAttribute('data-country') || '';
-          if(c !== state.country) return false;
-        }
-        return true;
-      });
-    }
-    function sortCards(list){
-      var mode = state.sort || 'name';
-      return list.slice().sort(function(a, b){
-        if(mode === 'name'){
-          var na = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          var nb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          return na.localeCompare(nb);
-        }
-        if(mode === 'country'){
-          var ca = a.getAttribute('data-country') || '';
-          var cb = b.getAttribute('data-country') || '';
-          if(ca !== cb) return ca.localeCompare(cb);
-          var ta = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          var tb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          return ta.localeCompare(tb);
-        }
-        var ra = Number(a.getAttribute('data-rating') || 0);
-        var rb = Number(b.getAttribute('data-rating') || 0);
-        if(rb !== ra) return rb - ra;
-        var va = Number(a.getAttribute('data-reviews') || 0);
-        var vb = Number(b.getAttribute('data-reviews') || 0);
-        if(vb !== va) return vb - va;
-        var pa = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-        var pb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-        return pa.localeCompare(pb);
-      });
-    }
-    function rebuildCountryOptions(poolForCountries){
-      var hasRegion = !!(state.regions && state.regions.length);
-      var showCountries = hasRegion || !!state.query;
-      var counts = {};
-      if(showCountries){
-        poolForCountries.forEach(function(card){
-          var c = card.getAttribute('data-country') || '';
-          var labelEl = card.querySelector('.seo-grid-card-meta');
-          var label = '';
-          if(labelEl){
-            var parts = (labelEl.textContent || '').split('·');
-            label = (parts[0] || '').trim();
-          }
-          if(!c) return;
-          if(!counts[c]) counts[c] = { key: c, label: label || c, count: 0 };
-          counts[c].count += 1;
-          if(label) counts[c].label = label;
-        });
-      }
-      var entries = Object.keys(counts).map(function(k){ return counts[k]; })
-        .sort(function(a, b){ return a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }); });
-
-      if(countryBrowse){
-        countryBrowse.innerHTML = '';
-        if(!showCountries){
-          if(countryEmpty){
-            countryEmpty.style.display = 'block';
-            countryEmpty.textContent = 'Select a region to see its countries, or search above.';
-          }
-        } else if(!entries.length){
-          if(countryEmpty){
-            countryEmpty.style.display = 'block';
-            countryEmpty.textContent = 'No countries match the current filters.';
-          }
-        } else {
-          if(countryEmpty) countryEmpty.style.display = 'none';
-          var allBtn = document.createElement('button');
-          allBtn.type = 'button';
-          allBtn.className = 'country-card';
-          allBtn.setAttribute('data-country', '__all__');
-          allBtn.setAttribute('aria-pressed', state.country === '__all__' ? 'true' : 'false');
-          allBtn.innerHTML = '<span class="country-card-name">All countries</span><span class="country-card-count">' +
-            poolForCountries.length + ' port' + (poolForCountries.length === 1 ? '' : 's') + '</span>';
-          countryBrowse.appendChild(allBtn);
-          entries.forEach(function(entry){
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'country-card';
-            b.setAttribute('data-country', entry.key);
-            b.setAttribute('aria-pressed', state.country === entry.key ? 'true' : 'false');
-            b.innerHTML = '<span class="country-card-name">' + entry.label + '</span>' +
-              '<span class="country-card-count">' + entry.count + ' port' + (entry.count === 1 ? '' : 's') + '</span>';
-            countryBrowse.appendChild(b);
-          });
-        }
-      }
-
-      if(filterCountry){
-        var previous = filterCountry.value;
-        filterCountry.innerHTML = '<option value="__all__">All Countries</option>';
-        entries.forEach(function(entry){
-          var opt = document.createElement('option');
-          opt.value = entry.key;
-          opt.textContent = entry.label + ' (' + entry.count + ')';
-          filterCountry.appendChild(opt);
-        });
-        var still = entries.some(function(e){ return e.key === previous; });
-        filterCountry.value = still ? previous : '__all__';
-        if(!still) state.country = '__all__';
-      }
-
-      if(countryHeading){
-        var regionLabel = 'Select a region';
-        var pressed = document.querySelector('.region-card[aria-pressed="true"], .region-more-pill[aria-pressed="true"]');
-        if(pressed){
-          var nameEl = pressed.querySelector('.region-card-name');
-          regionLabel = nameEl ? nameEl.textContent.trim() : (pressed.textContent || '').split('·')[0].trim();
-        }
-        countryHeading.textContent = state.query ? 'Countries matching search' : regionLabel;
-      }
-    }
-    function apply(){
-      var q = state.query;
-      var regionPool = cards.filter(function(card){
-        if(q) return cardMatchesQuery(card, q);
-        return cardMatchesRegions(card, state.regions);
-      });
-      rebuildCountryOptions(regionPool);
-
-      var matched = sortCards(visiblePool());
-      var matchedSet = {};
-      matched.forEach(function(card, idx){
-        matchedSet[card.getAttribute('data-item')] = idx;
-      });
-      cards.forEach(function(card){
-        var slug = card.getAttribute('data-item');
-        if(Object.prototype.hasOwnProperty.call(matchedSet, slug)){
-          card.classList.remove('is-hidden');
-          card.style.order = String(matchedSet[slug]);
-        } else {
-          card.classList.add('is-hidden');
-          card.style.order = '';
-        }
-      });
-      if(resultsMeta){
-        var label = matched.length + ' port' + (matched.length === 1 ? '' : 's');
-        if(q) label += ' matching “' + q + '”';
-        else if(state.regions && state.regions.length) label += ' in selected region';
-        if(state.country && state.country !== '__all__') label += ' · filtered by country';
-        resultsMeta.textContent = label;
-      }
-    }
-    function renderSearchResults(){
-      if(!searchResults) return;
-      var q = state.query;
-      if(!q){
-        searchResults.classList.remove('is-open');
-        searchResults.innerHTML = '';
-        return;
-      }
-      var hits = sortCards(cards.filter(function(card){ return cardMatchesQuery(card, q); })).slice(0, 8);
-      if(!hits.length){
-        searchResults.innerHTML = '<div class="search-empty">No ports found. Try a city, port, or country name.</div>';
-        searchResults.classList.add('is-open');
-        return;
-      }
-      searchResults.innerHTML = hits.map(function(card){
-        var href = card.getAttribute('href') || '#';
-        var name = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').trim();
-        var meta = ((card.querySelector('.seo-grid-card-meta') || {}).textContent || '').trim();
-        return '<a class="search-result-item" href="' + href + '">' +
-          '<span class="search-result-name">' + name + '</span>' +
-          '<span class="search-result-meta">' + meta + '</span></a>';
-      }).join('');
-      searchResults.classList.add('is-open');
-    }
-    function selectRegion(btn){
-      var key = btn ? btn.getAttribute('data-region-key') : '__all__';
-      setPressed(document, 'data-region-key', key === '__all__' ? '' : key);
-      if(key === '__all__' || !btn){
-        document.querySelectorAll('[data-region-key]').forEach(function(el){
-          el.setAttribute('aria-pressed', 'false');
-        });
-        state.regions = null;
-        if(filterRegion) filterRegion.value = '__all__';
-      } else {
-        document.querySelectorAll('[data-region-key]').forEach(function(el){
-          el.setAttribute('aria-pressed', String(el === btn));
-        });
-        state.regions = parseRegionsAttr(btn);
-        if(filterRegion){
-          var opt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === key; });
-          if(opt) filterRegion.value = key;
-        }
-      }
-      state.country = '__all__';
-      if(filterCountry) filterCountry.value = '__all__';
-      apply();
-    }
-
-    if(regionBrowse){
-      regionBrowse.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-region-key]');
-        if(!btn) return;
-        if(btn.getAttribute('aria-pressed') === 'true'){
-          selectRegion(null);
-          return;
-        }
-        selectRegion(btn);
-      });
-    }
-    if(regionMorePanel){
-      regionMorePanel.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-region-key]');
-        if(!btn) return;
-        selectRegion(btn);
-      });
-    }
-    if(regionMoreToggle && regionMorePanel){
-      regionMoreToggle.addEventListener('click', function(){
-        var open = regionMorePanel.classList.toggle('is-open');
-        regionMoreToggle.setAttribute('aria-expanded', String(open));
-        regionMoreToggle.textContent = open ? 'Hide additional regions' : 'View all regions';
-      });
-    }
-    if(countryBrowse){
-      countryBrowse.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-country]');
-        if(!btn) return;
-        state.country = btn.getAttribute('data-country') || '__all__';
-        setPressed(countryBrowse, 'data-country', state.country);
-        if(filterCountry) filterCountry.value = state.country;
-        apply();
-      });
-    }
-    if(filterRegion){
-      filterRegion.addEventListener('change', function(){
-        var val = filterRegion.value;
-        if(val === '__all__'){
-          selectRegion(null);
-          return;
-        }
-        var btn = document.querySelector('[data-region-key="' + val.replace(/"/g, '') + '"]');
-        if(btn) selectRegion(btn);
-        else {
-          state.regions = [val];
-          state.country = '__all__';
-          apply();
-        }
-      });
-    }
-    if(filterCountry){
-      filterCountry.addEventListener('change', function(){
-        state.country = filterCountry.value || '__all__';
-        if(countryBrowse) setPressed(countryBrowse, 'data-country', state.country);
-        apply();
-      });
-    }
-    if(filterBookable){
-      filterBookable.addEventListener('change', function(){
-        state.bookable = filterBookable.value === 'bookable';
-        apply();
-      });
-    }
-    if(filterSort){
-      filterSort.addEventListener('change', function(){
-        state.sort = filterSort.value || 'name';
-        apply();
-      });
-    }
-    if(search){
-      search.addEventListener('input', function(){
-        state.query = norm(search.value || '');
-        if(state.query){
-          state.regions = null;
-          state.country = '__all__';
-          document.querySelectorAll('[data-region-key]').forEach(function(el){ el.setAttribute('aria-pressed', 'false'); });
-          if(filterRegion) filterRegion.value = '__all__';
-          if(filterCountry) filterCountry.value = '__all__';
-        }
-        renderSearchResults();
-        apply();
-      });
-      search.addEventListener('keydown', function(e){
-        if(e.key === 'Escape'){
-          searchResults && searchResults.classList.remove('is-open');
-        }
-      });
-    }
-    document.addEventListener('click', function(e){
-      if(!searchResults || !search) return;
-      if(search.contains(e.target) || searchResults.contains(e.target)) return;
-      searchResults.classList.remove('is-open');
-    });
-
-    // Default: no forced region — search or browse freely (all ports visible, sorted).
-    state.regions = null;
-    state.country = '__all__';
-    apply();
-  })();
-`;
+  return buildPortsDirectoryClientScriptSource();
 }
 
 /**
@@ -829,9 +565,14 @@ function buildPortsIndexHtml(opts) {
   const desc =
     'Explore cruise ports and destinations: browse by region and country, search port guides, and plan shore days with SeaDays.';
 
+  const regionImages = opts.regionImages && typeof opts.regionImages === 'object' ? opts.regionImages : {};
   const { directoryPorts } = resolveDirectoryPorts(opts.ports);
-  const { regionCardsHtml, otherRegionsHtml, otherRegionCount } = buildRegionBrowseHtml(directoryPorts);
+  const { regionCardsHtml, otherRegionsHtml, otherRegionCount } = buildRegionBrowseHtml(
+    directoryPorts,
+    regionImages
+  );
   const cards = buildPortCardsHtml(directoryPorts);
+  const noscriptLinksHtml = buildNoScriptCrawlLinksHtml(directoryPorts);
 
   const allRegions = [...new Set(directoryPorts.map((p) => p.region))].sort(compareLabelsAz);
   const priorityFilterDefsAz = PRIORITY_REGION_DEFS.filter((def) =>
@@ -890,28 +631,20 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
   <div class="grid-overlay"></div>
   <div class="content-layer">
     ${buildDirectoryHeaderNav()}
-    <section class="directory-hero" aria-labelledby="ports-title">
+    <section class="directory-hero directory-hero--compact" aria-labelledby="ports-title">
       <div class="directory-hero-copy">
-        <h1 id="ports-title">Explore Cruise Ports &amp; Destinations</h1>
-        <p>Discover cruise ports, destinations, and port guides. Search by name, or browse Region → Country → Port—the same clear hierarchy as our ships directory.</p>
+        <h1 id="ports-title">Cruise ports &amp; destinations</h1>
+        <p>Search for a port or browse by region and country. Every card opens a static port guide—same URLs, clearer discovery.</p>
         <div class="directory-cta-row">
           <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
-          <a class="directory-btn" href="/blog/">Read destination guides</a>
         </div>
-      </div>
-      <div class="directory-hero-art" aria-hidden="true">
-        <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg" alt="" loading="lazy" decoding="async">
       </div>
     </section>
 
-    <section class="directory-section" aria-label="Search ports">
-      <div class="directory-section-head">
-        <h2>Search</h2>
-        <span class="directory-section-note">Jump straight to a port, city, or country</span>
-      </div>
-      <div class="directory-search-wrap">
+    <section class="directory-section directory-section--search" aria-label="Search ports">
+      <div class="directory-search-wrap directory-search-wrap--primary">
         <label class="sr-only" for="portSearch">Search ports by name or country</label>
-        <input id="portSearch" class="directory-search" type="search" placeholder="Search ports by name or country" autocomplete="off">
+        <input id="portSearch" class="directory-search directory-search--primary" type="search" placeholder="Search ports by name or country" autocomplete="off">
         <div id="portSearchResults" class="search-results" role="listbox" aria-label="Search results"></div>
       </div>
     </section>
@@ -960,13 +693,19 @@ ${regionCardsHtml}
         <select id="filterSort" class="filter-select">
           <option value="name" selected>Sort: Name</option>
           <option value="country">Sort: Country</option>
-          <option value="popular">Sort: Popular</option>
         </select>
+        <button type="button" class="directory-btn directory-btn-outline" id="directoryReset" aria-label="Reset all filters">Reset</button>
+        <button type="button" class="directory-btn directory-btn-outline" id="browseAllPorts">Browse all ports</button>
       </div>
-      <p class="results-meta" id="resultsMeta"></p>
+      <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
     </section>
 
+    <p class="directory-empty" id="directoryEmpty" hidden>No ports match these filters.</p>
     <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
+    <div class="directory-load-more-wrap">
+      <button type="button" class="directory-btn directory-btn-outline directory-load-more" id="directoryLoadMore" hidden>Load more ports</button>
+    </div>
+    ${noscriptLinksHtml}
     <section class="app-cta" aria-label="App call to action">
       <div class="app-cta-inner">
         <div>
@@ -1004,8 +743,13 @@ ${regionCardsHtml}
 module.exports = {
   buildPortsIndexHtml,
   resolveDirectoryPorts,
+  loadRegionImageManifest,
   DIRECTORY_ALIAS_TO_CANONICAL,
   CANONICAL_DISPLAY,
   PRIORITY_REGION_DEFS,
+  DEFAULT_FEATURED_SLUGS,
+  DIRECTORY_PAGE_SIZE,
+  DIRECTORY_FEATURED_SIZE,
   shortDirectoryBlurb,
+  isDirectoryPlaceholderImage,
 };
