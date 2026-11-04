@@ -313,7 +313,7 @@ function buildRegionBrowseHtml(directoryPorts, regionImages) {
     const imgUrl = String(imgMeta.imageUrl || '').trim();
     const imgAlt = String(imgMeta.alt || def.label).trim();
     const imgHtml = imgUrl
-      ? `<img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="" loading="lazy" decoding="async" width="320" height="180">`
+      ? `<span class="region-card-media"><img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="" loading="lazy" decoding="async" width="320" height="180"></span>`
       : `<span class="region-card-image region-card-image--placeholder" aria-hidden="true"></span>`;
     cards.push(
       `<button type="button" class="region-card" data-region-key="${escapeHtml(def.key)}" ` +
@@ -367,10 +367,7 @@ function buildPortCardsHtml(directoryPorts) {
           ? `<span class="rating-pill">${escapeHtml(fr.display)} ★ · ${escapeHtml(String(Math.round(reviewCountNum)))} review${reviewCountNum === 1 ? '' : 's'}</span>`
           : '';
       const featured = DEFAULT_FEATURED_SLUGS.includes(port.slug) ? '1' : '0';
-      const blurbHtml =
-        featured === '1' && port.shortBlurb
-          ? `<span class="seo-grid-card-desc">${escapeHtml(port.shortBlurb)}</span>`
-          : '';
+      const blurbHtml = '';
       const bookableHtml = port.hasBookableExperiences
         ? `<span class="seo-grid-card-bookable">Bookable experiences available</span>`
         : '';
@@ -420,24 +417,30 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .seo-prose p { margin-bottom: 18px; }
 .seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
 .seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 1200px; margin: 0 auto; padding: 120px 20px 20px; }
-.directory-hero--compact { padding-bottom: 8px; }
-.directory-hero h1 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 900; letter-spacing: -1px; line-height: 1.08; margin-bottom: 10px; }
-.directory-hero p { font-size: 17px; color: rgba(255,255,255,0.68); line-height: 1.55; margin-bottom: 12px; max-width: 42em; }
-.directory-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
-.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; cursor: pointer; font-size: 14px; }
+.directory-hero { max-width: 720px; margin: 0 auto; padding: 100px 20px 0; text-align: center; }
+.directory-hero--compact { padding-bottom: 0; }
+.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 10px; color: #fff; }
+.directory-hero p { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.5; margin: 0 auto; max-width: 34em; }
+.directory-section--search { margin-top: 0; padding: 22px 20px 6px; }
+.directory-search-wrap--primary { max-width: 620px; margin: 0 auto; }
+.directory-search--primary { padding: 17px 20px 17px 44px; font-size: 17px; border-radius: 16px; border: 1px solid rgba(255,0,51,0.42); background: rgba(8,8,10,0.92); box-shadow: 0 0 0 1px rgba(255,0,51,0.18), 0 12px 40px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.04); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23FF0033' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 14px 50%; }
+.directory-search--primary:hover { border-color: rgba(255,0,51,0.58); }
+.directory-search--primary:focus { outline: none; border-color: rgba(255,0,51,0.82); box-shadow: 0 0 0 2px rgba(255,0,51,0.35), 0 12px 40px rgba(0,0,0,0.45); }
+.directory-section--search .directory-search::placeholder { color: rgba(255,255,255,0.42); font-weight: 600; }
+.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; cursor: pointer; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
 .directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
 .directory-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .directory-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
-.directory-btn-outline { background: transparent; }
-.directory-section--search { margin-top: 0; padding-top: 8px; }
-.directory-search-wrap--primary { max-width: 720px; margin: 0 auto; }
-.directory-search--primary { padding: 16px 18px; font-size: 17px; border: 1px solid rgba(255,0,51,0.45); box-shadow: 0 0 0 1px rgba(255,0,51,0.2), 0 0 18px rgba(255,0,51,0.22); }
-.directory-search--primary:focus { outline: none; border-color: rgba(255,0,51,0.78); box-shadow: 0 0 0 2px rgba(255,0,51,0.45); }
+.directory-btn-outline { background: rgba(255,255,255,0.03); }
 .directory-controls { max-width: 1200px; margin: 0 auto; padding: 0 20px 18px; }
-.directory-section { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
+.directory-section { max-width: 1200px; margin: 0 auto 24px; padding: 0 20px; }
+.directory-section--browse { margin-top: 8px; }
+.filter-panel { border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); padding: 14px 16px 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+.directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 16px 18px; color: rgba(255,255,255,0.62); font-size: 15px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.14); text-align: center; background: rgba(255,255,255,0.02); }
 .directory-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 .directory-section-head h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 0; }
+.directory-section-head--ports { max-width: 1200px; margin: 8px auto 10px; padding: 0 20px; }
+.directory-section-head--ports h2 { font-size: 20px; letter-spacing: -0.03em; }
 .directory-section-note { font-size: 13px; color: rgba(255,255,255,0.55); }
 .directory-search-wrap { position: relative; max-width: 640px; width: 100%; margin: 0 auto 8px; }
 .directory-search { width: 100%; max-width: none; margin: 0; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: #fff; font-size: 16px; font-weight: 600; }
@@ -453,15 +456,18 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .search-empty { padding: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
 .region-grid-wrap { position: relative; max-width: 100%; }
 .region-scroll-hint { font-size: 12px; color: rgba(255,255,255,0.5); margin: 0 0 10px; font-weight: 600; }
-.region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; scrollbar-width: none; -ms-overflow-style: none; }
+.region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; scrollbar-width: none; -ms-overflow-style: none; }
 .region-grid::-webkit-scrollbar { display: none; height: 0; }
-.region-card { appearance: none; text-align: left; padding: 0; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, background 0.2s; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
-.region-card:hover { border-color: rgba(255,0,51,0.55); transform: translateY(-1px); }
-.region-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
-.region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); }
+.region-card { appearance: none; text-align: left; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,20,0.85); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
+.region-card:hover { border-color: rgba(255,0,51,0.55); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,0,51,0.15); }
+.region-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.1); box-shadow: 0 0 0 1px rgba(255,0,51,0.35); }
+.region-card-media { position: relative; display: block; overflow: hidden; }
+.region-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.06) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
+.region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); transform: scale(1); transition: transform 0.35s ease; }
+.region-card:hover .region-card-image { transform: scale(1.03); }
 .region-card-image--placeholder { min-height: 100px; }
-.region-card-body { padding: 12px 14px 14px; min-width: 0; }
-.region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: anywhere; word-break: normal; hyphens: auto; }
+.region-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
+.region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; word-break: normal; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .region-more-wrap { margin-top: 14px; }
 .region-more-toggle { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 44px; }
@@ -478,7 +484,12 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .country-card-name { display: block; font-weight: 800; font-size: 16px; line-height: 1.2; }
 .country-card-count { display: block; margin-top: 4px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .country-empty { font-size: 14px; color: rgba(255,255,255,0.55); padding: 8px 0; }
-.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 14px; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 10px; }
+.directory-btn-reset { border-color: rgba(255,0,51,0.5); background: rgba(255,0,51,0.08); }
+.directory-btn-reset:hover { border-color: rgba(255,0,51,0.75); background: rgba(255,0,51,0.14); }
+@media (min-width: 901px) {
+  #browseAllPorts { margin-left: auto; }
+}
 .filter-select { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.92); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 44px; }
 .filter-select:focus { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .filter-select option { color: #111; }
@@ -489,13 +500,15 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
 .region-card:focus-visible, .country-card:focus-visible, .pill:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .seo-grid-card:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 3px; }
-.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 0 20px 24px; max-width: 1200px; margin: 0 auto; }
-.seo-grid-card { display: flex; flex-direction: column; gap: 0; padding: 0; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; overflow: hidden; }
-.directory-card-body { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 18px; padding: 0 20px 28px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 0; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.09); background: rgba(16,16,18,0.88); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; box-shadow: 0 6px 28px rgba(0,0,0,0.28); }
+.seo-grid-card:hover { border-color: rgba(255,0,51,0.65); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,0,51,0.12); }
+.directory-card-body { display: flex; flex-direction: column; gap: 6px; padding: 15px 16px 16px; }
 .directory-card-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(20,20,20,0.9)); }
-.directory-card-image--placeholder { min-height: 140px; background: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, rgba(20,20,22,0.95) 55%, rgba(255,0,51,0.08) 100%); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.directory-card-image--placeholder { min-height: 148px; display: block; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; }
+.directory-card-image--placeholder::after { content: ''; position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
+.directory-card-image--placeholder::before { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -12px 0 0 -7px; border: 2px solid rgba(255,255,255,0.22); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); z-index: 1; }
 .directory-card.is-filter-hidden, .directory-card.is-page-hidden { display: none !important; }
-.directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 0 20px; color: rgba(255,255,255,0.62); font-size: 15px; }
 .directory-load-more-wrap { max-width: 1200px; margin: 0 auto 48px; padding: 0 20px; text-align: center; }
 .directory-load-more { min-width: min(100%, 280px); }
 .directory-crawl-fallback { max-width: 900px; margin: 0 auto 48px; padding: 0 20px; color: rgba(255,255,255,0.78); }
@@ -503,8 +516,7 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .directory-crawl-list li { break-inside: avoid; margin-bottom: 6px; }
 .directory-crawl-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .directory-crawl-list a:hover { text-decoration: underline; }
-.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
-.seo-grid-card-title { font-weight: 800; font-size: 18px; letter-spacing: -0.2px; }
+.seo-grid-card-title { font-weight: 800; font-size: 18px; letter-spacing: -0.2px; line-height: 1.25; }
 .seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .seo-grid-card-meta { font-size: 13px; color: rgba(255,255,255,0.55); }
 .seo-grid-card-desc { font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.68); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -526,14 +538,17 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
 .guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .app-cta { max-width: 1200px; margin: 0 auto 26px; padding: 0 20px; }
-.app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(6,182,212,0.06); }
+.app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; border-radius: 18px; border: 1px solid rgba(255,0,51,0.22); background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(18,18,20,0.92)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
 .app-cta strong { display: block; font-size: 15px; }
 .app-cta span { display: block; font-size: 13px; color: rgba(255,255,255,0.68); margin-top: 2px; }
 .app-cta a { flex: 0 0 auto; }
 .header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
 @media (max-width: 900px) {
-  .directory-hero { padding-top: 100px; }
-  .directory-hero h1 { font-size: 2rem; }
+  .directory-hero { padding: 88px 16px 0; }
+  .directory-hero h1 { font-size: 1.75rem; }
+  .directory-section--search { padding: 18px 16px 4px; }
+  .seo-directory-grid { grid-template-columns: 1fr; gap: 14px; padding: 0 16px 24px; }
+  .directory-section, .directory-controls, .directory-section-head--ports { padding-left: 16px; padding-right: 16px; }
   .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
   .region-scroll-hint { display: block; }
@@ -645,10 +660,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
     <section class="directory-hero directory-hero--compact" aria-labelledby="ports-title">
       <div class="directory-hero-copy">
         <h1 id="ports-title">Cruise ports &amp; destinations</h1>
-        <p>Search for a port or browse by region and country. Every card opens a static port guide—same URLs, clearer discovery.</p>
-        <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
-        </div>
+        <p>Search by name or explore by region and country—each card opens a full port guide.</p>
       </div>
     </section>
 
@@ -693,6 +705,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
     </section>
 
     <section class="directory-controls" aria-label="Filters">
+      <div class="filter-panel">
       <div class="filter-bar">
         <label class="sr-only" for="filterRegion">Region</label>
         <select id="filterRegion" class="filter-select">${filterRegionOptions}</select>
@@ -708,10 +721,11 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
           <option value="name" selected>Sort: Name</option>
           <option value="country">Sort: Country</option>
         </select>
-        <button type="button" class="directory-btn directory-btn-outline" id="directoryReset" aria-label="Reset all filters">Reset</button>
+        <button type="button" class="directory-btn directory-btn-outline directory-btn-reset" id="directoryReset" aria-label="Reset all filters">Reset filters</button>
         <button type="button" class="directory-btn directory-btn-outline" id="browseAllPorts">Browse all ports</button>
       </div>
       <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
+      </div>
     </section>
 
     <p class="directory-empty" id="directoryEmpty" hidden>No ports match these filters.</p>

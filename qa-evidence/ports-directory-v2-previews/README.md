@@ -4,12 +4,12 @@ Captured from local `python3 -m http.server` against branch `feat/ports-director
 
 | File | Viewport |
 |------|----------|
-| `desktop-1280-v2.png` | Desktop (~1280×800), post QA pass |
-| `mobile-390-v2.png` | Mobile 390×844, post QA pass |
-| `desktop-1280.png` / `mobile-390.png` | Initial PR56 capture (pre region-fallback images) |
+| `final-pass/` | 320 / 390 / 768 / 1280 after prior QA (consent declined) |
+| `premium-pass/ports-index-390x844.png` | Mobile premium polish (post `86d882498`) |
+| `premium-pass/ports-index-1280x800.png` | Desktop premium polish |
+| `premium-pass/ports-index-320x568.png` | Narrow mobile check |
+| `premium-pass/ports-index-768x1024.png` | Tablet check |
 
-**Image coverage (regenerated index):** 337 `<img class="directory-card-image">`, 70 gradient placeholders, all 12 featured ports use real blog/region assets.
-
-**Before (v1 on `origin/main`):** large two-column hero with side artwork, all port cards visible in DOM on load, cyan focus on region filters, “Sort: Popular” option.
+**Image coverage (regenerated index):** 1 verified port photo on cards (Hamburg), CSS placeholders elsewhere; region cards use manifest photos only (no fake port thumbnails).
 
 **After (this branch):** compact hero, search-first, 12 featured ports + Browse all, region image cards, red focus accents, turquoise bookable pill only, `<noscript>` full port link list.
