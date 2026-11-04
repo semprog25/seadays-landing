@@ -36,6 +36,7 @@ const {
   resolvePortAffiliateCta,
   getViatorConfigFromEnv,
 } = require('./lib/viatorAffiliate');
+const { mergePublishedPortHtmlPreservation } = require('./lib/publishedPortHtmlPreserve');
 const { getAppRepoRoot, buildPortSlugToReviewKeyMap } = require('./lib/reviewAggregateMerge');
 const {
   getAliasRedirectTarget,
@@ -351,14 +352,18 @@ function main() {
       [port.name, port.country, port.region, 'cruise port'],
       6
     );
-    const html = buildPortDetailHtml(
+    const outPath = path.join(dir, 'index.html');
+    let html = buildPortDetailHtml(
       port,
       pickRelatedPorts(seoPorts, port, 5),
       pickShipsForPortPage(seoShips, port, 4),
       blogs,
       { ...spOpts, portGuide, portTerminals, affiliate }
     );
-    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+    if (fs.existsSync(outPath)) {
+      html = mergePublishedPortHtmlPreservation(html, fs.readFileSync(outPath, 'utf8'), { affiliate });
+    }
+    fs.writeFileSync(outPath, html, 'utf8');
   }
 
   const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);

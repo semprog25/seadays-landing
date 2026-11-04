@@ -38,9 +38,11 @@ const PORT_PATTERNS = [
   /^scripts\/lib\/portsDirectoryIndex\.js$/,
   /^scripts\/lib\/publicPortGuideAdapter\.js$/,
   /^scripts\/lib\/portGuideSections\.js$/,
+  /^scripts\/lib\/terminalVerifiedImages\.js$/,
   /^scripts\/lib\/viatorAffiliate\.js$/,
   /^data\/public-port-guides\.json$/,
   /^data\/public-port-terminals\.json$/,
+  /^data\/terminal-verified-image-bindings\.json$/,
   /^data\/known-affiliate-port-ids\.json$/,
 ];
 

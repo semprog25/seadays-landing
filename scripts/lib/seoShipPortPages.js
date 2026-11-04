@@ -1177,8 +1177,8 @@ const PAGE_STYLES = `
 @media (min-width: 1100px) {
   .seo-detail-wide .pg-facts,
   .seo-detail-wide .pg-quick,
-  .seo-detail-wide .pg-terminal-grid,
   .seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .seo-detail-wide .seo-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .seo-detail h1 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
@@ -1515,6 +1515,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       ...port,
       overviewText,
       highlights: filterHighlightList(port.highlights, port.description),
+      appPortId: opts.slugToAppPortId?.[port.slug] || port.appPortId || '',
     },
     guide,
     terminals,

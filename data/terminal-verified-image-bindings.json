@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "schema": 1,
+    "description": "Maps canonical cruise-terminal identities to verified Wikimedia catalogue KV records (D6). Only bind when the Commons asset depicts this exact terminal.",
+    "catalogKvSource": "data/catalog-image-verified-fixtures/kv-records-by-key.json",
+    "terminalIdentityFormat": "{country_id}/{port_id}/{terminal_slug}"
+  },
+  "bindings": {
+    "germany/hamburg/cruise-center-hafencity": {
+      "terminalSlug": "cruise-center-hafencity",
+      "displayName": "Cruise Center HafenCity",
+      "catalogKvKey": "port:image:infrastructure:hamburg-germany"
+    },
+    "spain/barcelona/adossat-terminal-b": {
+      "terminalSlug": "adossat-terminal-b",
+      "displayName": "Moll Adossat Terminal B",
+      "catalogKvKey": "port:image:infrastructure:barcelona-spain"
+    }
+  }
+}

@@ -15,6 +15,7 @@ const {
   wikipediaAttributionHtml,
 } = require('./portCopyHygiene');
 const { buildGuestReviewsSectionHtml } = require('./guestReviewsSection');
+const { resolveTerminalVerifiedImage, buildTerminalCardPhotoHtml } = require('./terminalVerifiedImages');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -361,6 +362,60 @@ function terminalCardIsFilled(t, descText) {
   return hasText(t && t.address) || Boolean(berthLabel(t)) || transportOptions(t).length > 0 || hasText(descText);
 }
 
+function buildTerminalCardPrimaryBadge(isPrimary) {
+  if (!isPrimary) return '';
+  return `<div class="pg-terminal-card-badge-row"><span class="pg-pill">Primary</span></div>`;
+}
+
+function buildTerminalCardBody(meta, address, transportHtml, desc) {
+  return (
+    (meta ? `<p class="pg-meta">${escapeHtml(meta)}</p>` : '') +
+    address +
+    transportHtml +
+    desc
+  );
+}
+
+function buildTerminalCardHtml(t, opts, gate) {
+  const distLabel = terminalDistanceLabel(t.distance_to_city_center_km);
+  const freq = opts.distanceFreq || new Map();
+  const showDist = distLabel && freq.get(distLabel) === 1;
+  const descText = gate(cleanPortCopy(t.description || ''));
+  if (!terminalCardIsFilled(t, descText)) return '';
+  const desc = hasText(descText) ? `<p class="pg-terminal-card-desc">${escapeHtml(descText)}</p>` : '';
+  const meta = [formatTerminalType(t.terminal_type), berthLabel(t), showDist ? distLabel : ''].filter(Boolean).join(' · ');
+  const address = hasText(t.address) ? `<p class="pg-meta">${escapeHtml(t.address)}</p>` : '';
+  const transport = transportOptions(t);
+  const transportHtml = transport.length
+    ? `<p class="pg-meta">Transport: ${escapeHtml(transport.join(', '))}</p>`
+    : '';
+  const portAppId = opts.portAppId || '';
+  const verifiedImage = resolveTerminalVerifiedImage(t, portAppId);
+  const photoHtml = verifiedImage ? buildTerminalCardPhotoHtml(verifiedImage) : '';
+  const name = escapeHtml(t.name || 'Cruise terminal');
+  const body = buildTerminalCardBody(meta, address, transportHtml, desc);
+  const badge = buildTerminalCardPrimaryBadge(t.is_primary);
+
+  if (photoHtml) {
+    return (
+      `<article class="pg-terminal-card pg-terminal-card--has-photo" aria-labelledby="pg-terminal-${escapeHtml(String(t.slug || 'terminal'))}-title">` +
+      badge +
+      photoHtml +
+      `<h3 class="pg-terminal-card-title" id="pg-terminal-${escapeHtml(String(t.slug || 'terminal'))}-title">${name}</h3>` +
+      body +
+      `</article>`
+    );
+  }
+
+  const primaryInSummary = t.is_primary ? ` <span class="pg-pill">Primary</span>` : '';
+  return (
+    `<details class="pg-terminal-card" open>` +
+    `<summary><span class="pg-terminal-card-title">${name}</span>${primaryInSummary}</summary>` +
+    body +
+    `</details>`
+  );
+}
+
 function buildTerminalsSection(terminals, opts = {}) {
   if (!Array.isArray(terminals) || !terminals.length) {
     if (!hasText(opts.logistics)) return '';
@@ -372,30 +427,9 @@ function buildTerminalsSection(terminals, opts = {}) {
   }
   const freq = distanceFrequency(terminals);
   const gate = typeof opts.gate === 'function' ? opts.gate : (s) => s;
+  const cardOpts = { ...opts, distanceFreq: freq };
   const cards = terminals
-    .map((t) => {
-      const distLabel = terminalDistanceLabel(t.distance_to_city_center_km);
-      const showDist = distLabel && freq.get(distLabel) === 1;
-      const descText = gate(cleanPortCopy(t.description || ''));
-      if (!terminalCardIsFilled(t, descText)) return '';
-      const desc = hasText(descText) ? `<p>${escapeHtml(descText)}</p>` : '';
-      const primary = t.is_primary ? ` <span class="pg-pill">Primary</span>` : '';
-      const meta = [formatTerminalType(t.terminal_type), berthLabel(t), showDist ? distLabel : ''].filter(Boolean).join(' · ');
-      const address = hasText(t.address) ? `<p class="pg-meta">${escapeHtml(t.address)}</p>` : '';
-      const transport = transportOptions(t);
-      const transportHtml = transport.length
-        ? `<p class="pg-meta">Transport: ${escapeHtml(transport.join(', '))}</p>`
-        : '';
-      return (
-        `<details class="pg-terminal-card" open>` +
-        `<summary><span>${escapeHtml(t.name || 'Cruise terminal')}</span>${primary}</summary>` +
-        (meta ? `<p class="pg-meta">${escapeHtml(meta)}</p>` : '') +
-        address +
-        transportHtml +
-        desc +
-        `</details>`
-      );
-    })
+    .map((t) => buildTerminalCardHtml(t, cardOpts, gate))
     .filter(Boolean)
     .join('');
   const logisticsHtml = hasText(opts.logistics) ? `<p class="pg-prose">${escapeHtml(opts.logistics)}</p>` : '';
@@ -532,7 +566,7 @@ function buildGuideOverviewLead(guide) {
 }
 
 const PORT_GUIDE_STYLES = `
-.pg-section { margin: 40px 0 28px; }
+.pg-section { margin: 40px 0 28px; scroll-margin-top: 72px; }
 .pg-section h2 { font-size: 24px; font-weight: 800; margin: 0 0 14px; color: #fff; }
 .pg-section h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; color: #fff; }
 .pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
@@ -544,20 +578,29 @@ const PORT_GUIDE_STYLES = `
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
 .pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
-.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; }
-.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
-.pg-terminal-card > p { display: block; margin-top: 10px; }
-.pg-terminal-card summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font-weight: 800; color: #fff; list-style: none; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; grid-template-columns: 1fr; }
+.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; }
+.pg-terminal-card-badge-row { margin: 0 0 12px; }
+.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; }
+.pg-terminal-card:not(.pg-terminal-card--has-photo) > summary .pg-terminal-card-title { font-size: 17px; font-weight: 700; }
+.pg-terminal-card > p { display: block; margin: 0 0 10px; }
+.pg-terminal-card-desc { font-size: 17px; font-weight: 400; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; }
+.pg-terminal-card summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; cursor: pointer; font-weight: 700; color: #fff; list-style: none; line-height: 1.4; }
 .pg-terminal-card summary::-webkit-details-marker { display: none; }
-.pg-terminal-card summary span { font-size: 17px; }
-.port-jump { position: sticky; top: 58px; z-index: 4; display: flex; gap: 14px; overflow-x: auto; margin: 0 0 18px; padding: 8px 0; background: rgba(10,10,10,0.94); }
+.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; background: rgba(255,255,255,0.06); }
+.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
+.pg-terminal-card-photo figcaption a { color: rgba(255,255,255,0.78); }
+.port-jump { display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .port-jump a:hover { color: #fff; }
+.port-jump a:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
 .pg-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
 .pg-map-credit a { color: rgba(255,255,255,0.78); }
-.pg-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 10px; }
+.pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 10px; }
+.pg-terminal-card .pg-meta { color: rgba(255,255,255,0.68); }
 .pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }
 .pg-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
 .pg-tags li { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
@@ -837,7 +880,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
     buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }),
     buildGuestReviewsSectionHtml(port),
     buildExperiencesSection(affiliate, city),
-    buildTerminalsSection(terminals, { gate, logistics }),
+    buildTerminalsSection(terminals, { gate, logistics, portAppId: port?.appPortId || '' }),
     shoreFirst ? '' : things,
     buildWeatherMergedSection(guide, port, gate),
     buildEntryCollapsedSection(guide, gate, city, port),

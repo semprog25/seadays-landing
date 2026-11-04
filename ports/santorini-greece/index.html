@@ -172,8 +172,8 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 @media (min-width: 1100px) {
   .seo-detail-wide .pg-facts,
   .seo-detail-wide .pg-quick,
-  .seo-detail-wide .pg-terminal-grid,
   .seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .seo-detail-wide .seo-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .seo-detail h1 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
@@ -238,7 +238,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .guest-reviews-download:hover { text-decoration: underline; }
 @media (max-width: 720px) { .guest-reviews-summary { flex-direction: column; align-items: flex-start; } }
 
-.pg-section { margin: 40px 0 28px; }
+.pg-section { margin: 40px 0 28px; scroll-margin-top: 72px; }
 .pg-section h2 { font-size: 24px; font-weight: 800; margin: 0 0 14px; color: #fff; }
 .pg-section h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; color: #fff; }
 .pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
@@ -250,15 +250,23 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
 .pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
-.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; }
-.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
-.pg-terminal-card > p { display: block; margin-top: 10px; }
-.pg-terminal-card summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font-weight: 800; color: #fff; list-style: none; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; grid-template-columns: 1fr; }
+.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; }
+.pg-terminal-card-badge-row { margin: 0 0 12px; }
+.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; }
+.pg-terminal-card:not(.pg-terminal-card--has-photo) > summary .pg-terminal-card-title { font-size: 17px; font-weight: 700; }
+.pg-terminal-card > p { display: block; margin: 0 0 10px; }
+.pg-terminal-card-desc { font-size: 17px; font-weight: 400; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; }
+.pg-terminal-card summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; cursor: pointer; font-weight: 700; color: #fff; list-style: none; line-height: 1.4; }
 .pg-terminal-card summary::-webkit-details-marker { display: none; }
-.pg-terminal-card summary span { font-size: 17px; }
-.port-jump { position: sticky; top: 58px; z-index: 4; display: flex; gap: 14px; overflow-x: auto; margin: 0 0 18px; padding: 8px 0; background: rgba(10,10,10,0.94); }
+.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; background: rgba(255,255,255,0.06); }
+.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
+.pg-terminal-card-photo figcaption a { color: rgba(255,255,255,0.78); }
+.port-jump { display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .port-jump a:hover { color: #fff; }
+.port-jump a:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
 .pg-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
@@ -322,7 +330,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 <section class="pg-section" id="quick-facts"><h2>Quick facts</h2><dl class="pg-facts pg-quick"><div class="pg-fact"><dt>Port type</dt><dd>Port call</dd></div><div class="pg-fact"><dt>Country</dt><dd>Greece</dd></div><div class="pg-fact"><dt>Region</dt><dd>Greek Isles</dd></div><div class="pg-fact"><dt>Terminals</dt><dd>1</dd></div><div class="pg-fact"><dt>Getting to the city</dt><dd>Vertical ascent from Old Port to Fira; Oia is a further island transfer</dd></div><div class="pg-fact"><dt>Currency</dt><dd>Euro (EUR)</dd></div><div class="pg-fact"><dt>Language</dt><dd>Greek; English widely spoken in tourism</dd></div><div class="pg-fact"><dt>Best months</dt><dd>April, May, June, September, October</dd></div></dl></section>
 <section class="guest-reviews" id="guest-reviews" aria-labelledby="guest-reviews-heading"><h2 id="guest-reviews-heading">Guest reviews</h2><p class="guest-reviews-empty">No guest reviews yet.</p><p class="guest-reviews-cta">Sailed on Santorini? Share your experience in SeaDays after your cruise.</p><p class="guest-reviews-cta"><a class="guest-reviews-download" href="/download/">Get SeaDays</a></p></section>
 <section class="pg-section pg-booking" id="bookable-experiences" aria-label="Bookable experiences"><p class="pg-eyebrow">Bookable Experiences</p><div class="pg-booking-banner"><div class="pg-booking-copy"><span class="pg-booking-badge">Top Rated Experiences</span><h2>Explore experiences in Santorini</h2><p>Book shore excursions, tours &amp; activities with our partner</p><p class="pg-booking-trust">Secure checkout · Partner handled</p></div><a class="pg-booking-cta" href="https://www.viator.com/searchResults/all?text=Santorini&amp;pid=P00314321&amp;mcid=42383&amp;medium=link&amp;campaign=seadays-web-psantorini" target="_blank" rel="noopener noreferrer sponsored">Browse Experiences →</a></div><p class="pg-affiliate-note">SeaDays may earn a commission from qualifying bookings made through partner links. Checkout, payment, and support are handled by the partner.</p></section>
-<section class="pg-section" id="getting-there"><h2>Getting there &amp; terminals</h2><p class="pg-prose">On a call at Santorini, confirm the pier, shuttle, and all-aboard time before you leave the ship.</p><div class="pg-terminal-grid"><details class="pg-terminal-card" open><summary><span>Santorini Old Port (Skala) tender landing</span> <span class="pg-pill">Primary</span></summary><p class="pg-meta">Transit · 0.5 km from city center</p><p class="pg-meta">Transport: cable car, stairs, donkey, excursion coaches via Athinios on some tours</p><p>Primary tender landing beneath Fira for cruise ships anchored in the caldera; cable car, stairs, and donkey options ascend to town.</p></details></div></section>
+<section class="pg-section" id="getting-there"><h2>Getting there &amp; terminals</h2><p class="pg-prose">On a call at Santorini, confirm the pier, shuttle, and all-aboard time before you leave the ship.</p><div class="pg-terminal-grid"><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Santorini Old Port (Skala) tender landing</span> <span class="pg-pill">Primary</span></summary><p class="pg-meta">Transit · 0.5 km from city center</p><p class="pg-meta">Transport: cable car, stairs, donkey, excursion coaches via Athinios on some tours</p><p class="pg-terminal-card-desc">Primary tender landing beneath Fira for cruise ships anchored in the caldera; cable car, stairs, and donkey options ascend to town.</p></details></div></section>
 <section class="pg-section" id="things-to-do"><h2>Things to do</h2><p class="pg-prose">Cable-car queues dominate the clock.</p>
 <p class="pg-label">Short call (about 4–5 hours ashore)</p>
 <p class="pg-prose">Tender up to Fira, walk the caldera edge, descend with extra queue time. Skip Oia unless you have a private transfer and a late all-aboard.</p>
