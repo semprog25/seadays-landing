@@ -173,7 +173,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   .seo-detail-wide .pg-facts,
   .seo-detail-wide .pg-quick,
   .seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .seo-detail-wide .seo-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .seo-detail h1 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
@@ -186,10 +186,14 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .seo-keyfacts dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); }
 .seo-keyfacts dd { font-size: 16px; font-weight: 600; margin: 0 0 8px 0; }
 .seo-cross-block { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
-.seo-cross-list { list-style: none; margin: 0; padding: 0; }
-.seo-cross-list li { margin: 10px 0; }
+.seo-cross-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.seo-cross-list li { margin: 0; }
 .seo-cross-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .seo-cross-list a:hover { text-decoration: underline; }
+#related-ports.seo-cross-block { margin-top: 32px; }
+#related-ports .seo-cross-list a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+#related-ports .seo-cross-list a:hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
+#related-ports .seo-cross-list a:focus-visible { outline: 2px solid #79D8FF; outline-offset: 3px; border-radius: 4px; }
 .seo-hero-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 16px; margin: 0 0 28px; background: rgba(255,255,255,0.06); }
 .seo-visual-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 0.8fr); gap: 18px; align-items: stretch; margin: 22px 0 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; background: radial-gradient(circle at top left, rgba(255,0,51,0.22), transparent 42%), linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
 .seo-visual-img { width: 100%; height: 230px; object-fit: cover; min-height: 100%; }
@@ -244,25 +248,68 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
 .pg-lead-guide { font-size: 18px; color: rgba(255,255,255,0.82); }
 .pg-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin: 12px 0 8px; font-weight: 700; }
-.pg-section#things-to-do ul { margin: 0 0 14px; padding-left: 1.2em; color: rgba(255,255,255,0.88); line-height: 1.65; }
-.pg-section#things-to-do li { margin: 0 0 6px; }
+.pg-things-layout { display: grid; gap: 18px; }
+.pg-things-intro { margin-bottom: 0; }
+.pg-call-plans { display: grid; gap: 12px; }
+@media (min-width: 900px) { .pg-call-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pg-call-plan-card { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.pg-call-plan-card--short { border-top: 3px solid rgba(34,211,238,0.75); }
+.pg-call-plan-card--standard { border-top: 3px solid rgba(255,0,51,0.55); }
+.pg-call-plan-card--longer { border-top: 3px solid rgba(255,255,255,0.35); }
+.pg-call-plan-head { display: flex; align-items: flex-start; gap: 12px; }
+.pg-call-plan-icon { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 12px; background: rgba(6,182,212,0.14); border: 1px solid rgba(34,211,238,0.35); position: relative; }
+.pg-call-plan-icon::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -9px 0 0 -7px; border: 2px solid rgba(255,255,255,0.82); border-radius: 50%; box-sizing: border-box; }
+.pg-call-plan-icon::before { content: ''; position: absolute; left: 50%; top: 50%; width: 2px; height: 6px; margin: -8px 0 0 -1px; background: rgba(255,255,255,0.82); border-radius: 1px; }
+.pg-call-plan-duration { margin: 0 0 4px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.48); }
+.pg-call-plan-title { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: #fff; }
+.pg-call-plan-body { margin: 0; font-size: 14px; line-height: 1.58; color: rgba(255,255,255,0.86); }
+.pg-top-things { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+.pg-top-things-heading { margin: 0 0 12px; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
+.pg-top-things-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.48; color: rgba(255,255,255,0.88); }
+.pg-top-things-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,0,51,0.85); box-shadow: 0 0 0 3px rgba(255,0,51,0.12); }
+.pg-cruise-tip { margin: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(34,211,238,0.35); border-left: 4px solid #22d3ee; background: linear-gradient(120deg, rgba(6,182,212,0.16), rgba(255,255,255,0.03)); }
+.pg-cruise-tip-label { margin: 0 0 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+.pg-cruise-tip-body { margin: 0; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.92); font-weight: 650; }
+.pg-section#things-to-do ul:not(.pg-top-things-list) { margin: 0 0 14px; padding-left: 1.2em; color: rgba(255,255,255,0.88); line-height: 1.65; }
+.pg-section#things-to-do li:not(.pg-top-things-list li) { margin: 0 0 6px; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download) { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:visited,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):visited { color: #9ae4ff; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:hover,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:focus-visible,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):focus-visible { outline: 2px solid #79D8FF; outline-offset: 3px; border-radius: 4px; }
 .pg-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0 8px; }
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
 .pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
-.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; grid-template-columns: 1fr; }
-.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; }
-.pg-terminal-card-badge-row { margin: 0 0 12px; }
-.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: stretch; grid-template-columns: 1fr; }
+.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; min-height: 0; }
+.pg-terminal-card--has-photo { display: flex; flex-direction: column; height: 100%; padding: 18px; }
+.pg-terminal-card-badge-row { margin: 0 0 12px; min-height: 26px; display: flex; align-items: flex-start; flex: 0 0 auto; }
+.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; flex: 0 0 auto; }
 .pg-terminal-card:not(.pg-terminal-card--has-photo) > summary .pg-terminal-card-title { font-size: 17px; font-weight: 700; }
 .pg-terminal-card > p { display: block; margin: 0 0 10px; }
-.pg-terminal-card-desc { font-size: 17px; font-weight: 400; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; }
+.pg-terminal-card-desc { font-size: 16px; font-weight: 400; line-height: 1.65; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; flex: 1 1 auto; }
 .pg-terminal-card summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; cursor: pointer; font-weight: 700; color: #fff; list-style: none; line-height: 1.4; }
 .pg-terminal-card summary::-webkit-details-marker { display: none; }
-.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; background: rgba(255,255,255,0.06); }
-.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
+.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; width: 100%; flex: 0 0 auto; background: rgba(255,255,255,0.06); }
+.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; min-height: 40px; box-sizing: border-box; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
 .pg-terminal-card-photo figcaption a { color: rgba(255,255,255,0.78); }
+@media (min-width: 1100px) {
+  .seo-detail-wide .pg-terminal-grid { align-items: stretch; }
+  .seo-detail-wide .pg-terminal-grid > .pg-terminal-card--has-photo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+  .seo-detail-wide .pg-terminal-grid .pg-terminal-card-photo { flex-shrink: 0; }
+  .seo-detail-wide .pg-terminal-grid .pg-terminal-card-desc { flex: 1 1 auto; }
+}
 .port-jump { display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .port-jump a:hover { color: #fff; }
@@ -271,7 +318,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
 .pg-map-credit a { color: rgba(255,255,255,0.78); }
-.pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 10px; }
+.pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 8px; flex: 0 0 auto; }
 .pg-terminal-card .pg-meta { color: rgba(255,255,255,0.68); }
 .pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }
 .pg-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
@@ -296,11 +343,18 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .pg-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 18px; }
 .pg-breadcrumbs a { color: rgba(255,255,255,0.75); text-decoration: none; }
 .pg-breadcrumbs a:hover { color: var(--neon-red); }
+.pg-section#weather-best-time { margin-top: 36px; }
+.pg-section#weather-best-time .pg-prose { margin-bottom: 10px; }
+.pg-section#weather-best-time .pg-facts { margin-top: 6px; margin-bottom: 0; }
+.pg-section#entry-requirements { margin-top: 32px; }
+.pg-section#entry-requirements .pg-prose { margin-bottom: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
 @media (max-width: 720px) {
   .pg-facts, .pg-booking-banner { grid-template-columns: 1fr; }
   .pg-app-cta { flex-direction: column; align-items: flex-start; }
   .pg-app-cta-actions { width: 100%; }
   .pg-booking-cta { width: 100%; }
+  .pg-terminal-grid { align-items: stretch; }
+  .pg-terminal-card--has-photo { height: auto; }
 }
 </style>
 </head>
@@ -332,13 +386,12 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 <section class="guest-reviews" id="guest-reviews" aria-labelledby="guest-reviews-heading"><h2 id="guest-reviews-heading">Guest reviews</h2><p class="guest-reviews-empty">No guest reviews yet.</p><p class="guest-reviews-cta">Sailed on Southampton? Share your experience in SeaDays after your cruise.</p><p class="guest-reviews-cta"><a class="guest-reviews-download" href="/download/">Get SeaDays</a></p></section>
 <section class="pg-section pg-booking" id="bookable-experiences" aria-label="Bookable experiences"><p class="pg-eyebrow">Bookable Experiences</p><div class="pg-booking-banner"><div class="pg-booking-copy"><span class="pg-booking-badge">Top Rated Experiences</span><h2>Explore experiences in Southampton</h2><p>Book shore excursions, tours &amp; activities with our partner</p><p class="pg-booking-trust">Secure checkout · Partner handled</p></div><a class="pg-booking-cta" href="https://www.viator.com/searchResults/all?text=Southampton&amp;pid=P00314321&amp;mcid=42383&amp;medium=link&amp;campaign=seadays-web-psouthampton" target="_blank" rel="noopener noreferrer sponsored">Browse Experiences →</a></div><p class="pg-affiliate-note">SeaDays may earn a commission from qualifying bookings made through partner links. Checkout, payment, and support are handled by the partner.</p></section>
 <section class="pg-section" id="getting-there"><h2>Getting there &amp; terminals</h2><p class="pg-prose">Embarkation from Southampton can simplify flight planning when airports and hotels align.</p><div class="pg-terminal-grid"><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">City Cruise Terminal</span> <span class="pg-pill">Primary</span></summary><p class="pg-meta">Home port &amp; transit · 1.2 km from city center</p><p class="pg-meta">Transport: Southampton Central rail ~1 mi, taxi, bus</p><p class="pg-terminal-card-desc">Western Docks cruise terminal (Berth 101); busy turnaround hub.</p></details><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Horizon Cruise Terminal</span></summary><p class="pg-meta">Home port &amp; transit · 1.3 km from city center</p><p class="pg-meta">Transport: taxi, bus, rail via Central</p><p class="pg-terminal-card-desc">Newer Western Docks terminal (Berth 102) for large-guest-volume operations.</p></details><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Ocean Cruise Terminal</span></summary><p class="pg-meta">Home port &amp; transit · 2 km from city center</p><p class="pg-meta">Transport: taxi, bus, Southampton Central</p><p class="pg-terminal-card-desc">Eastern Docks large cruise terminal (Berth 46); major turnaround facility.</p></details><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Mayflower Cruise Terminal</span></summary><p class="pg-meta">Home port &amp; transit · 1.4 km from city center</p><p class="pg-meta">Transport: taxi, bus, rail</p><p class="pg-terminal-card-desc">Western Docks terminal (Berth 106); used by major mass-market lines.</p></details><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">QEII Cruise Terminal</span></summary><p class="pg-meta">Home port · 3.5 km from city center</p><p class="pg-meta">Transport: taxi, cruise transfer, car via Dock Gate 4</p><p class="pg-terminal-card-desc">Eastern Docks cruise terminal (berths commonly referenced as 38/39). Access via Dock Gate 4; further along the docks from Ocean Cruise Terminal.</p></details></div></section>
-<section class="pg-section" id="things-to-do"><h2>Things to do</h2><p class="pg-label">Short call (about 4–5 hours ashore)</p>
-<p class="pg-prose">If you are embarking, prioritize check-in. Errands or a quick waterfront meal near Western Docks are realistic; Eastern Docks usually need a taxi for town.</p>
-<p class="pg-label">Standard call (about 6–8 hours ashore)</p>
-<p class="pg-prose">A free afternoon before sailing can cover Ocean Village or SeaCity plus hotel transfer. Do not attempt a full London day and same-evening embarkation without a proven buffer.</p>
-<p class="pg-label">Practical cruise tip</p>
-<p class="pg-prose">Luggage + Dock Gate mistakes cost more time than the map implies. Match Gate 4 vs Gate 10 to your berth before ordering a taxi.</p>
-<p class="pg-label">Top things to do</p><ul><li>Confirm Eastern Docks (Ocean / QEII, Dock Gate 4) vs Western Docks (City / Horizon / Mayflower, Dock Gate 10)</li><li>Ocean Village / waterfront dining near Western Docks</li><li>SeaCity Museum / Titanic exhibits on a longer free window</li><li>London by rail for pre- or post-cruise nights</li><li>New Forest or Isle of Wight only with ample free time</li></ul></section>
+<section class="pg-section" id="things-to-do"><h2>Things to do</h2><div class="pg-things-layout"><p class="pg-prose pg-things-intro">Southampton is the UK’s main turnaround port. “Things to do” often means embarkation logistics, a short city errand, or a London pre/post stay—not a packed transit sightseeing day.</p>
+<div class="pg-call-plans"><article class="pg-call-plan-card pg-call-plan-card--short"><header class="pg-call-plan-head"><span class="pg-call-plan-icon" aria-hidden="true"></span><div class="pg-call-plan-titles"><p class="pg-call-plan-duration">About 4–5 hours ashore</p><h3 class="pg-call-plan-title">Short call</h3></div></header><p class="pg-call-plan-body">If you are embarking, prioritize check-in. Errands or a quick waterfront meal near Western Docks are realistic; Eastern Docks usually need a taxi for town.</p></article>
+<article class="pg-call-plan-card pg-call-plan-card--standard"><header class="pg-call-plan-head"><span class="pg-call-plan-icon" aria-hidden="true"></span><div class="pg-call-plan-titles"><p class="pg-call-plan-duration">About 6–8 hours ashore</p><h3 class="pg-call-plan-title">Standard call</h3></div></header><p class="pg-call-plan-body">A free afternoon before sailing can cover Ocean Village or SeaCity plus hotel transfer. Do not attempt a full London day and same-evening embarkation without a proven buffer.</p></article>
+<article class="pg-call-plan-card pg-call-plan-card--longer"><header class="pg-call-plan-head"><span class="pg-call-plan-icon" aria-hidden="true"></span><div class="pg-call-plan-titles"><p class="pg-call-plan-duration">8+ hours or overnight</p><h3 class="pg-call-plan-title">Longer call</h3></div></header><p class="pg-call-plan-body">Pre/post nights in London or a New Forest day trip work when you are not boarding the same evening. Treat dock security queues as part of the schedule.</p></article></div>
+<div class="pg-top-things"><h3 class="pg-top-things-heading">Top things to do</h3><ul class="pg-top-things-list"><li>Confirm Eastern Docks (Ocean / QEII, Dock Gate 4) vs Western Docks (City / Horizon / Mayflower, Dock Gate 10)</li><li>Ocean Village / waterfront dining near Western Docks</li><li>SeaCity Museum / Titanic exhibits on a longer free window</li><li>London by rail for pre- or post-cruise nights</li><li>New Forest or Isle of Wight only with ample free time</li></ul></div>
+<aside class="pg-cruise-tip" aria-label="Practical cruise tip"><p class="pg-cruise-tip-label">Practical cruise tip</p><p class="pg-cruise-tip-body">Luggage + Dock Gate mistakes cost more time than the map implies. Match Gate 4 vs Gate 10 to your berth before ordering a taxi.</p></aside></div></section>
 <section class="pg-section" id="weather-best-time"><h2>Weather &amp; best time</h2><p class="pg-prose">In Southampton, summer offers the longest daylight for embarkation travel. In Southampton, shoulder seasons remain active for cruising but can be wet—pack layers for dock queues.</p><p class="pg-prose">Average temperature in Southampton: Mild summers; cool, damp winters.</p><p class="pg-prose">Best months: May, June, July, August, September.</p><dl class="pg-facts"><div class="pg-fact"><dt>Climate</dt><dd>Temperate maritime</dd></div><div class="pg-fact"><dt>Best months</dt><dd>May, June, July, August, September</dd></div></dl></section>
 <section class="pg-section" id="entry-requirements"><h2>Entry &amp; documents</h2><details class="pg-terminal-card"><summary><span>Documents and entry rules</span></summary><p class="pg-prose">For Southampton, UK entry rules depend on nationality (visa, ETA, or other schemes). For Southampton, Check official GOV.UK guidance for your passport before travel.</p><p class="pg-prose">For Southampton, Follow your cruise line’s embarkation document list. For Southampton, Airport-to-dock timing is separate from immigration eligibility.</p></details></section>
 <section class="pg-section" id="traveler-questions"><h2>Traveler questions</h2><div class="pg-qa-grid"><article class="pg-qa-card"><h3>What transport options are available from the Southampton cruise port?</h3><p>Southampton Central station connects to London and regional rail; complete the last mile by taxi or scheduled cruise transfer to your specific terminal…</p></article></div></section>
