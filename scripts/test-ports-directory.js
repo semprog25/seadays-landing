@@ -28,6 +28,8 @@ assert.ok(html.includes('directory-crawl-list'), 'crawl link list');
 assert.ok(!html.includes('>Sort: Popular<'), 'Popular sort removed');
 assert.ok(html.includes('directory-card-image'), 'image-first cards');
 assert.ok(html.includes('region-card-image'), 'region image cards');
+assert.ok(html.includes('region-scroll-hint'), 'region scroll hint');
+assert.ok(html.includes('scrollbar-width: none'), 'hidden region scrollbars in CSS');
 
 const featuredInHtml = (html.match(/data-featured="1"/g) || []).length;
 assert.strictEqual(featuredInHtml, DEFAULT_FEATURED_SLUGS.length, 'featured card count');
@@ -53,37 +55,46 @@ assert.ok(
   overrides.ports['la-paz-mexico'].description.includes('Baja California Sur'),
   'La Paz override'
 );
-assert.ok(
-  html.includes('Skagen is Denmark&#39;s northernmost town') ||
-    html.includes("Skagen is Denmark's northernmost town"),
-  'Skagen blurb on directory'
-);
-assert.ok(html.includes('La Paz is the capital of Baja California Sur'), 'La Paz blurb on directory');
 
 const skagenPage = fs.readFileSync(path.join(root, 'ports/skagen-denmark/index.html'), 'utf8');
-assert.ok(!skagenPage.includes('Fossil Group'), 'Skagen guide: no watch brand bleed');
-assert.ok(
-  skagenPage.includes('northernmost town') || skagenPage.includes('northernmost town'),
-  'Skagen guide: Danish town copy'
-);
 const laPazPage = fs.readFileSync(path.join(root, 'ports/la-paz-mexico/index.html'), 'utf8');
+assert.ok(html.includes('data-item="skagen-denmark"'), 'Skagen in directory grid');
+assert.ok(html.includes('data-item="la-paz-mexico"'), 'La Paz in directory grid');
+assert.ok(!skagenPage.includes('Fossil Group'), 'Skagen guide: no watch brand bleed');
+assert.ok(skagenPage.includes('northernmost town'), 'Skagen guide: Danish town copy');
 assert.ok(!laPazPage.includes('capital of Bolivia'), 'La Paz guide: no Bolivia bleed');
 assert.ok(laPazPage.includes('Baja California Sur'), 'La Paz guide: Baja copy');
 
-let featuredWithImg = 0;
+const portCardImgRe = /<img class="directory-card-image[^"]*" src="([^"]+)"/g;
+let verifiedPortPhotos = 0;
+let blogMisuse = 0;
+let match;
+while ((match = portCardImgRe.exec(html))) {
+  const src = match[1];
+  if (src.includes('blog-images/materialized')) blogMisuse += 1;
+  else verifiedPortPhotos += 1;
+}
+assert.strictEqual(blogMisuse, 0, 'port cards must not use generic blog imagery');
+
+const placeholderCount = (html.match(/directory-card-image--placeholder/g) || []).length;
+assert.ok(placeholderCount >= cardCount - verifiedPortPhotos - 1, 'placeholder count sane');
+
+let featuredVerified = 0;
+let featuredNeutral = 0;
 for (const slug of DEFAULT_FEATURED_SLUGS) {
   const needle = `data-item="${slug}"`;
   const idx = html.indexOf(needle);
   assert.ok(idx !== -1, `featured slug in grid: ${slug}`);
   const slice = html.slice(idx, idx + 1400);
-  if (slice.includes('<img class="directory-card-image')) featuredWithImg += 1;
+  if (slice.includes('<img class="directory-card-image')) featuredVerified += 1;
+  else if (slice.includes('directory-card-image--placeholder')) featuredNeutral += 1;
 }
-assert.strictEqual(featuredWithImg, DEFAULT_FEATURED_SLUGS.length, 'featured ports with real images');
+assert.strictEqual(featuredVerified + featuredNeutral, DEFAULT_FEATURED_SLUGS.length);
+assert.ok(featuredVerified >= 1, 'at least one verified port photo (e.g. Hamburg)');
+assert.ok(featuredNeutral >= 1, 'neutral placeholders where no port photo exists');
 
-const imgCardCount = (html.match(/<img class="directory-card-image/g) || []).length;
-const placeholderCount = (html.match(/directory-card-image--placeholder/g) || []).length;
 console.log(
-  `[coverage] directory img tags=${imgCardCount} placeholders=${placeholderCount} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
+  `[coverage] cards=${cardCount} verifiedPortPhotos=${verifiedPortPhotos} placeholders=${placeholderCount} featuredPhotos=${featuredVerified} featuredNeutral=${featuredNeutral} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
 );
 
 assert.strictEqual(DIRECTORY_PAGE_SIZE, 24);
@@ -107,7 +118,7 @@ const sampleHtml = buildPortsIndexHtml({
   indexStyles: '',
   analyticsHeadHtml: '',
   runtimeGuardScript: '',
-  regionImages: { 'Test Region': 'https://seadays.app/example.jpg' },
+  regionImages: { 'Test Region': { imageUrl: 'https://seadays.app/example.jpg', alt: 'Test' } },
 });
 assert.ok(sampleHtml.includes('directory-hero--compact'), 'builder smoke');
 

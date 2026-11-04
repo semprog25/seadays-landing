@@ -18,7 +18,6 @@ const {
   buildPortsIndexHtml,
   resolveDirectoryPorts,
   loadRegionImageManifest,
-  applyDirectoryImageFromRegionManifest,
 } = require('./lib/portsDirectoryIndex');
 const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
 const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
@@ -182,7 +181,6 @@ function main() {
       port.description = portGuide.portInfo.description;
     }
     port.directoryImageUrl = resolveDirectoryImageUrl(port, portGuide, repoRoot);
-    applyDirectoryImageFromRegionManifest(port, regionImages);
     const affiliate = resolvePortAffiliateCta(
       { ...port, appPortId },
       {
