@@ -11,6 +11,12 @@ const path = require('path');
 const { evaluatePublishGate } = require('./lib/publishGate');
 const { replaceRobotsMeta } = require('./lib/adsenseIndexability');
 const { isPortSeoRedirectSlug } = require('./lib/portSeoRedirects');
+const {
+  loadOverrides,
+  loadGuidesByAppPortId,
+  shipEligibleForIndexRestore,
+  portEligibleForIndexRestore,
+} = require('./lib/publishGateRestoreEligibility');
 
 const BASE = 'https://seadays.app';
 
@@ -60,6 +66,9 @@ function addSitemapUrls(xml, urls) {
 
 function main() {
   const repoRoot = path.join(__dirname, '..');
+  const shipOverrides = loadOverrides(repoRoot, 'ships');
+  const portOverrides = loadOverrides(repoRoot, 'ports');
+  const guidesById = loadGuidesByAppPortId(repoRoot);
   const pages = [...listPages(repoRoot, 'port'), ...listPages(repoRoot, 'ship')];
   const results = evaluatePublishGate(pages);
   const byFile = new Map(results.map((row) => [row.file, row]));
@@ -84,12 +93,24 @@ function main() {
       page.kind === 'port' &&
       isNoindex(html) &&
       !refresh &&
-      !isPortSeoRedirectSlug(page.slug)
+      !isPortSeoRedirectSlug(page.slug) &&
+      portEligibleForIndexRestore(page.slug, html, repoRoot, guidesById, portOverrides)
     ) {
       html = replaceRobotsMeta(html, 'index, follow');
       fs.writeFileSync(page.file, html, 'utf8');
       restored += 1;
       restore.push(`${BASE}/ports/${page.slug}/`);
+    } else if (
+      !fail &&
+      page.kind === 'ship' &&
+      isNoindex(html) &&
+      !refresh &&
+      shipEligibleForIndexRestore(page.slug, shipOverrides)
+    ) {
+      html = replaceRobotsMeta(html, 'index, follow');
+      fs.writeFileSync(page.file, html, 'utf8');
+      restored += 1;
+      restore.push(`${BASE}/ships/${page.slug}/`);
     }
     if (isNoindex(html) || refresh) {
       drop.add(`${BASE}/${page.kind === 'ship' ? 'ships' : 'ports'}/${page.slug}/`);
