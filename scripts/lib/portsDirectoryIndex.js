@@ -126,13 +126,15 @@ function buildPortCardImageHtml(port) {
   const url = String(port.directoryImageUrl || port.image_url || '').trim();
   const alt = `${port.displayName}, ${port.country}`;
   if (isDirectoryPlaceholderImage(url)) {
-    return `<span class="directory-card-image directory-card-image--placeholder" role="img" aria-label="${escapeHtml(alt)}"></span>`;
+    return { html: '', textFirst: true };
   }
-  return (
-    `<img class="directory-card-image img-loading" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
-    `width="400" height="225" loading="lazy" decoding="async" data-img-source="directory" ` +
-    `onload="this.classList.remove('img-loading')">`
-  );
+  return {
+    textFirst: false,
+    html:
+      `<img class="directory-card-image img-loading" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
+      `width="400" height="225" loading="lazy" decoding="async" data-img-source="directory" ` +
+      `onload="this.classList.remove('img-loading')">`,
+  };
 }
 
 function buildNoScriptCrawlLinksHtml(directoryPorts) {
@@ -314,9 +316,10 @@ function buildRegionBrowseHtml(directoryPorts, regionImages) {
     const imgAlt = String(imgMeta.alt || def.label).trim();
     const imgHtml = imgUrl
       ? `<span class="region-card-media"><img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="" loading="lazy" decoding="async" width="320" height="180"></span>`
-      : `<span class="region-card-image region-card-image--placeholder" aria-hidden="true"></span>`;
+      : '';
+    const cardClass = imgUrl ? 'region-card' : 'region-card region-card--text-first';
     cards.push(
-      `<button type="button" class="region-card" data-region-key="${escapeHtml(def.key)}" ` +
+      `<button type="button" class="${cardClass}" data-region-key="${escapeHtml(def.key)}" ` +
         `data-regions="${escapeHtml(available.join('|'))}" aria-pressed="false" ` +
         `aria-label="${escapeHtml(def.label)}, ${count} port${count === 1 ? '' : 's'}">` +
         imgHtml +
@@ -377,9 +380,10 @@ function buildPortCardsHtml(directoryPorts) {
         typeof port.reviewCount === 'number' && Number.isFinite(port.reviewCount)
           ? String(port.reviewCount)
           : '0';
-      const imageHtml = buildPortCardImageHtml(port);
+      const image = buildPortCardImageHtml(port);
+      const cardClasses = `seo-grid-card directory-card${image.textFirst ? ' directory-card--text-first' : ''}`;
       return (
-        `<a href="/ports/${escapeHtml(port.slug)}/" class="seo-grid-card directory-card" ` +
+        `<a href="/ports/${escapeHtml(port.slug)}/" class="${cardClasses}" ` +
         `data-group="${escapeHtml(port.region)}" data-item="${escapeHtml(port.slug)}" ` +
         `data-name="${escapeHtml(normalizeSearch(port.displayName))}" ` +
         `data-country="${escapeHtml(normalizeSearch(port.country))}" ` +
@@ -388,7 +392,7 @@ function buildPortCardsHtml(directoryPorts) {
         `data-bookable="${port.hasBookableExperiences ? '1' : '0'}" ` +
         `data-featured="${featured}" ` +
         `data-rating="${escapeHtml(ratingVal)}" data-reviews="${escapeHtml(reviewCount)}">` +
-        imageHtml +
+        image.html +
         `<span class="directory-card-body">` +
         `<span class="seo-grid-card-title">${escapeHtml(port.displayName)}</span>` +
         `<span class="seo-grid-card-meta">${escapeHtml(port.country)}${
@@ -429,11 +433,11 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .seo-prose p { margin-bottom: 18px; }
 .seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
 .seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 720px; margin: 0 auto; padding: 100px 20px 0; text-align: center; }
+.directory-hero { max-width: 720px; margin: 0 auto; padding: 78px 20px 0; text-align: center; }
 .directory-hero--compact { padding-bottom: 0; }
-.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 10px; color: #fff; }
+.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 8px; color: #fff; }
 .directory-hero p { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.5; margin: 0 auto; max-width: 34em; }
-.directory-section--search { margin-top: 0; padding: 22px 20px 6px; }
+.directory-section--search { margin-top: 0; padding: 10px 20px 0; }
 .directory-search-wrap--primary { max-width: 620px; margin: 0 auto; }
 .directory-search--primary { padding: 17px 20px 17px 44px; font-size: 17px; border-radius: 16px; border: 1px solid rgba(255,0,51,0.42); background: rgba(8,8,10,0.92); box-shadow: 0 0 0 1px rgba(255,0,51,0.18), 0 12px 40px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.04); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23FF0033' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 14px 50%; }
 .directory-search--primary:hover { border-color: rgba(255,0,51,0.58); }
@@ -477,7 +481,9 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .region-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.06) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
 .region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); transform: scale(1); transition: transform 0.35s ease; }
 .region-card:hover .region-card-image { transform: scale(1.03); }
-.region-card-image--placeholder { min-height: 100px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
+.region-card-image--placeholder { min-height: 48px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
+.region-card--text-first { border-top: 3px solid rgba(255,0,51,0.35); }
+.region-card--text-first .region-card-body { padding: 16px 15px 15px; background: rgba(14,14,16,0.95); }
 .region-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
 .region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; word-break: normal; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
@@ -517,9 +523,9 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .seo-grid-card:hover { border-color: rgba(255,0,51,0.65); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,0,51,0.12); }
 .directory-card-body { display: flex; flex-direction: column; gap: 6px; padding: 15px 16px 16px; }
 .directory-card-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(20,20,20,0.9)); }
-.directory-card-image--placeholder { min-height: 148px; display: block; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; }
-.directory-card-image--placeholder::after { content: ''; position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
-.directory-card-image--placeholder::before { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -12px 0 0 -7px; border: 2px solid rgba(255,255,255,0.22); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); z-index: 1; }
+.directory-card-image--placeholder { min-height: 0; aspect-ratio: unset; height: 0; display: none; }
+.directory-card--text-first { border-top: 2px solid rgba(255,0,51,0.28); }
+.directory-card--text-first .directory-card-body { padding-top: 14px; }
 .directory-card.is-filter-hidden, .directory-card.is-page-hidden { display: none !important; }
 .directory-load-more-wrap { max-width: 1200px; margin: 0 auto 48px; padding: 0 20px; text-align: center; }
 .directory-load-more { min-width: min(100%, 280px); }
@@ -556,9 +562,9 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .app-cta a { flex: 0 0 auto; }
 .header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
 @media (max-width: 900px) {
-  .directory-hero { padding: 88px 16px 0; }
+  .directory-hero { padding: 72px 16px 0; }
   .directory-hero h1 { font-size: 1.75rem; }
-  .directory-section--search { padding: 18px 16px 4px; }
+  .directory-section--search { padding: 8px 16px 0; }
   .seo-directory-grid { grid-template-columns: 1fr; gap: 14px; padding: 0 16px 24px; }
   .directory-section, .directory-controls, .directory-section-head--ports { padding-left: 16px; padding-right: 16px; }
   .featured-guides-grid { grid-template-columns: 1fr; }

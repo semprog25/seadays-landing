@@ -21,7 +21,7 @@ const WIDE_GRID_OLD =
   /(\s+\.seo-detail-wide \.pg-facts,\s*\n\s*\.seo-detail-wide \.pg-quick,\s*\n\s*)\.seo-detail-wide \.pg-terminal-grid,\s*\n\s*\.seo-detail-wide \.pg-qa-grid \{ grid-template-columns: repeat\(auto-fit, minmax\(240px, 1fr\)\); \}/;
 
 const WIDE_GRID_NEW = `$1.seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }`;
+  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }`;
 
 const PORT_JUMP_OLD =
   /\.port-jump \{ position: sticky; top: 58px; z-index: 4; display: flex; gap: 14px; overflow-x: auto; margin: 0 0 18px; padding: 8px 0; background: rgba\(10,10,10,0\.94\); \}/;
