@@ -28,6 +28,22 @@ const altona = {
   address: 'Van-der-Smissen-Straße 5',
   description: 'Altona terminal.',
 };
+const steinwerder = {
+  country_id: 'germany',
+  slug: 'cruise-center-steinwerder',
+  name: 'Cruise Center Steinwerder',
+  terminal_type: 'both',
+  address: 'Buchheisterstraße 16',
+  description: 'Steinwerder terminal.',
+};
+const baakenhoeft = {
+  country_id: 'germany',
+  slug: 'baakenhoeft',
+  name: 'Baakenhöft',
+  terminal_type: 'both',
+  address: 'Baakenhöft 1',
+  description: 'Baakenhöft berth.',
+};
 
 assert.strictEqual(
   terminalIdentityKey(hafenCity, 'hamburg'),
@@ -38,7 +54,28 @@ const hafenImage = resolveTerminalVerifiedImage(hafenCity, 'hamburg');
 assert.ok(hafenImage && hafenImage.url.includes('Cruise_Center_HafenCity'), 'HafenCity verified image');
 
 const altonaImage = resolveTerminalVerifiedImage(altona, 'hamburg');
-assert.strictEqual(altonaImage, null, 'Altona must not inherit HafenCity photo');
+assert.ok(altonaImage && altonaImage.url.includes('Cruise_Center_Altona'), 'Altona verified image');
+assert.ok(!altonaImage.url.includes('HafenCity'), 'Altona must not use HafenCity asset');
+
+const steinwerderImage = resolveTerminalVerifiedImage(steinwerder, 'hamburg');
+assert.ok(
+  steinwerderImage && steinwerderImage.url.includes('Steinwerder_12'),
+  'Steinwerder verified image'
+);
+
+const baakenhoeftImage = resolveTerminalVerifiedImage(baakenhoeft, 'hamburg');
+assert.ok(
+  baakenhoeftImage && baakenhoeftImage.url.includes('Baakenh'),
+  'Baakenhöft verified image'
+);
+
+const urls = new Set([
+  hafenImage.url,
+  altonaImage.url,
+  steinwerderImage.url,
+  baakenhoeftImage.url,
+]);
+assert.strictEqual(urls.size, 4, 'each Hamburg terminal photo must use a distinct Commons URL');
 
 const gridHtml = buildTerminalsSection([hafenCity, altona], {
   portAppId: 'hamburg',
@@ -46,7 +83,7 @@ const gridHtml = buildTerminalsSection([hafenCity, altona], {
 });
 assert.ok(gridHtml.includes('pg-terminal-card-photo'), 'photo on verified terminal only');
 const photoCount = (gridHtml.match(/pg-terminal-card-photo/g) || []).length;
-assert.strictEqual(photoCount, 1, 'exactly one terminal photo');
+assert.strictEqual(photoCount, 2, 'two terminal photos in partial grid');
 const hafenBlock = gridHtml.match(
   /<article class="pg-terminal-card pg-terminal-card--has-photo"[\s\S]*?<\/article>/
 );
@@ -57,5 +94,12 @@ const photoIdx = block.indexOf('pg-terminal-card-photo');
 const titleIdx = block.indexOf('pg-terminal-card-title');
 assert.ok(badgeIdx >= 0 && photoIdx > badgeIdx && titleIdx > photoIdx, 'badge → photo → title order');
 assert.ok(!/position:\s*sticky/.test(PORT_GUIDE_STYLES), 'port-jump not sticky');
+
+const allTerminalsHtml = buildTerminalsSection([hafenCity, altona, steinwerder, baakenhoeft], {
+  portAppId: 'hamburg',
+  logistics: 'Logistics.',
+});
+const allPhotoCount = (allTerminalsHtml.match(/pg-terminal-card--has-photo/g) || []).length;
+assert.strictEqual(allPhotoCount, 4, 'all four Hamburg terminals have verified photos');
 
 console.log('test-port-guide-nav-terminal-images: OK');
