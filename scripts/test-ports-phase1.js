@@ -334,6 +334,19 @@ assert.ok(hamburgHtml.includes('Short call'));
 assert.ok(hamburgHtml.includes('Standard call'));
 assert.ok(hamburgHtml.includes('Longer call'));
 assert.ok(hamburgHtml.includes('About 4–5 hours ashore'));
+assert.ok(hamburgHtml.includes('blog-hero'), 'hamburg keeps production page shell CSS');
+assert.ok(hamburgHtml.includes('google-adsense-account'), 'hamburg adsense meta');
+assert.ok(hamburgHtml.includes('seadays-contextual-cta'), 'hamburg save CTA block');
+assert.ok(hamburgHtml.includes('safeImage'), 'hamburg footer image guard');
+assert.ok(hamburgHtml.includes('campaign=seadays-web-phamburg'), 'hamburg viator campaign');
+assert.ok(!/\.port-jump \{[^}]*position:\s*sticky/s.test(hamburgHtml), 'no sticky port-jump regression');
+const hamburgTerminals = hamburgHtml.match(/id="getting-there"[\s\S]*?<\/section>/i);
+assert.ok(hamburgTerminals, 'hamburg terminals section');
+assert.strictEqual(
+  (hamburgTerminals[0].match(/class="[^"]*pg-terminal-card--has-photo/g) || []).length,
+  4,
+  'four terminal photos'
+);
 assert.ok(hamburgHtml.indexOf('id="things-to-do"') < hamburgHtml.indexOf('id="getting-there"'));
 const hamburgRelated = hamburgHtml.match(/id="related-ports"[\s\S]*?<\/section>/);
 assert.ok(hamburgRelated);
