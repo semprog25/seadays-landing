@@ -349,7 +349,17 @@ function terminalPin(t) {
   const label =
     `<strong>${escapeHtml(t.name || 'Cruise terminal')}</strong>` +
     (hasText(t.address) ? `<br>${escapeHtml(t.address)}` : '');
-  return { lat, lon, label };
+  const slug = hasText(t.slug) ? String(t.slug).trim() : '';
+  return slug ? { lat, lon, label, slug } : { lat, lon, label };
+}
+
+function buildTerminalMapFocusHtml(t) {
+  const lat = Number(t && (t.latitude != null ? t.latitude : t.lat));
+  const lon = Number(t && (t.longitude != null ? t.longitude : t.lon));
+  if (!Number.isFinite(lat) || !Number.isFinite(lon) || !hasText(t && t.slug)) return '';
+  return (
+    `<p class="pg-meta"><button type="button" class="pg-terminal-map-focus" data-terminal-map-slug="${escapeHtml(String(t.slug))}">Show on map</button></p>`
+  );
 }
 
 function buildOsmTerminalMap(terminals) {
@@ -371,8 +381,11 @@ function buildOsmTerminalMap(terminals) {
     `var map=L.map(el,{scrollWheelZoom:false});` +
     `L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);` +
     `var bounds=[];` +
-    `pins.forEach(function(p){L.marker([p.lat,p.lon],{icon:icon}).addTo(map).bindPopup(p.label);bounds.push([p.lat,p.lon]);});` +
-    `if(bounds.length===1)map.setView(bounds[0],14);else map.fitBounds(bounds,{padding:[28,28]});` +
+    `var markersBySlug={};` +
+    `pins.forEach(function(p){var m=L.marker([p.lat,p.lon],{icon:icon}).addTo(map).bindPopup(p.label);if(p.slug)markersBySlug[p.slug]=m;bounds.push([p.lat,p.lon]);});` +
+    `if(bounds.length===1){map.setView(bounds[0],14);}else{var pad=window.innerWidth<480?[52,16]:[28,28];map.fitBounds(bounds,{padding:pad});}` +
+    `var section=el.closest('section');` +
+    `if(section){section.addEventListener('click',function(ev){var btn=ev.target.closest('[data-terminal-map-slug]');if(!btn)return;var mk=markersBySlug[btn.getAttribute('data-terminal-map-slug')];if(!mk)return;ev.preventDefault();map.setView(mk.getLatLng(),Math.max(map.getZoom(),16));mk.openPopup();el.scrollIntoView({block:'nearest'});});}` +
     `})();</script>`
   );
 }
@@ -420,11 +433,12 @@ function buildTerminalCardHtml(t, opts, gate) {
   const transportHtml = transport.length
     ? `<p class="pg-meta">Transport: ${escapeHtml(transport.join(', '))}</p>`
     : '';
+  const mapFocusHtml = buildTerminalMapFocusHtml(t);
   const portAppId = opts.portAppId || '';
   const verifiedImage = resolveTerminalVerifiedImage(t, portAppId);
   const photoHtml = verifiedImage ? buildTerminalCardPhotoHtml(verifiedImage) : '';
   const name = escapeHtml(t.name || 'Cruise terminal');
-  const body = buildTerminalCardBody(meta, address, transportHtml, desc);
+  const body = buildTerminalCardBody(meta, address, transportHtml + mapFocusHtml, desc);
   const badge = buildTerminalCardPrimaryBadge(t.is_primary);
 
   if (photoHtml) {
@@ -686,6 +700,8 @@ const PORT_GUIDE_STYLES = `
 .port-jump a:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
 .pg-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
+.pg-terminal-map-focus { display: inline-flex; align-items: center; min-height: 44px; margin: 0; padding: 0; border: 0; background: none; font: inherit; font-size: 15px; font-weight: 600; color: #79D8FF; text-decoration: underline; cursor: pointer; }
+.pg-terminal-map-focus:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
 .pg-map-credit a { color: rgba(255,255,255,0.78); }
 .pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 8px; flex: 0 0 auto; }

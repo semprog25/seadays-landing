@@ -78,6 +78,13 @@ const miamiActive = filterActiveTerminalsForDisplay(miami);
 assert.strictEqual(miamiActive.length, 7, 'Miami active terminals');
 const miamiMap = buildOsmTerminalMap(miami);
 assert.strictEqual((miamiMap.match(/"lat":/g) || []).length, 7, 'Miami map pins');
+assert.ok(miamiMap.includes('markersBySlug'), 'map stores markers by slug');
+const miamiSection = buildTerminalsSection(miami);
+assert.strictEqual(
+  (miamiSection.match(/data-terminal-map-slug=/g) || []).length,
+  7,
+  'Miami show-on-map controls'
+);
 const miamiPins = JSON.parse(miamiMap.match(/var pins=(\[[\s\S]*?\]);/)[1]);
 const aa = miamiPins.find((p) => p.label.includes('Terminal AA'));
 const a = miamiPins.find((p) => p.label.includes('Terminal A') && !p.label.includes('AA'));
