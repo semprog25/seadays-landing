@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "schema": 1,
+    "description": "Maps canonical cruise-terminal identities to verified Wikimedia catalogue KV records (D6). Only bind when the Commons asset depicts this exact terminal.",
+    "catalogKvSource": "data/catalog-image-verified-fixtures/kv-records-by-key.json",
+    "terminalIdentityFormat": "{country_id}/{port_id}/{terminal_slug}"
+  },
+  "bindings": {
+    "germany/hamburg/cruise-center-hafencity": {
+      "terminalSlug": "cruise-center-hafencity",
+      "displayName": "Cruise Center HafenCity",
+      "catalogKvKey": "port:image:infrastructure:hamburg-germany"
+    },
+    "germany/hamburg/cruise-center-altona": {
+      "terminalSlug": "cruise-center-altona",
+      "displayName": "Cruise Center Altona",
+      "catalogKvKey": "terminal:image:germany:hamburg:cruise-center-altona"
+    },
+    "germany/hamburg/cruise-center-steinwerder": {
+      "terminalSlug": "cruise-center-steinwerder",
+      "displayName": "Cruise Center Steinwerder",
+      "catalogKvKey": "terminal:image:germany:hamburg:cruise-center-steinwerder"
+    },
+    "germany/hamburg/baakenhoeft": {
+      "terminalSlug": "baakenhoeft",
+      "displayName": "Baakenhöft",
+      "catalogKvKey": "terminal:image:germany:hamburg:baakenhoeft"
+    },
+    "spain/barcelona/adossat-terminal-b": {
+      "terminalSlug": "adossat-terminal-b",
+      "displayName": "Moll Adossat Terminal B",
+      "catalogKvKey": "port:image:infrastructure:barcelona-spain"
+    }
+  }
+}

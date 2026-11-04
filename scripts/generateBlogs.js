@@ -3499,16 +3499,20 @@ async function main() {
     }
     port.hasBookableExperiences = Boolean(affiliate.show);
     assertTargetedPortAffiliateWritable(mode, affiliate, port.slug);
-    fs.writeFileSync(
-      path.join(dir, 'index.html'),
-      buildPortDetailHtml(port, relPorts, destShips, blogs, {
-        ...spOpts,
-        portGuide,
-        portTerminals,
+    const outPath = path.join(dir, 'index.html');
+    let portHtml = buildPortDetailHtml(port, relPorts, destShips, blogs, {
+      ...spOpts,
+      portGuide,
+      portTerminals,
+      affiliate,
+    });
+    if (fs.existsSync(outPath)) {
+      const { mergePublishedPortHtmlPreservation } = require('./lib/publishedPortHtmlPreserve');
+      portHtml = mergePublishedPortHtmlPreservation(portHtml, fs.readFileSync(outPath, 'utf8'), {
         affiliate,
-      }),
-      'utf8'
-    );
+      });
+    }
+    fs.writeFileSync(outPath, portHtml, 'utf8');
     portsWritten += 1;
   }
   if (targetedOnly) {
