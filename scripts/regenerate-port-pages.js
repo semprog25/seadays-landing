@@ -361,7 +361,7 @@ function main() {
       { ...spOpts, portGuide, portTerminals, affiliate }
     );
     if (fs.existsSync(outPath)) {
-      html = mergePublishedPortHtmlPreservation(html, fs.readFileSync(outPath, 'utf8'));
+      html = mergePublishedPortHtmlPreservation(html, fs.readFileSync(outPath, 'utf8'), { affiliate });
     }
     fs.writeFileSync(outPath, html, 'utf8');
   }

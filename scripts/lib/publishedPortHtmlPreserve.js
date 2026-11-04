@@ -4,8 +4,8 @@ const { replaceRobotsMeta } = require('./adsenseIndexability');
 
 const BOOKABLE_SECTION_RE =
   /<section class="pg-section pg-booking" id="bookable-experiences"[\s\S]*?<\/section>/i;
-const CANONICAL_RE = /<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']\s*\/?>/i;
 const ROBOTS_RE = /<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i;
+const CANONICAL_RE = /<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']\s*\/?>/i;
 
 function extractRobotsContent(html) {
   const m = String(html || '').match(ROBOTS_RE);
@@ -22,35 +22,44 @@ function extractCanonicalHref(html) {
   return m ? m[1].trim() : '';
 }
 
-function replaceCanonicalHref(html, href) {
-  if (!href) return html;
-  if (CANONICAL_RE.test(html)) {
-    return html.replace(
-      CANONICAL_RE,
-      `<link rel="canonical" href="${href.replace(/"/g, '&quot;')}">`
-    );
-  }
-  return html;
-}
-
 function replaceBookableExperiencesSection(html, sectionHtml) {
   if (!sectionHtml || !BOOKABLE_SECTION_RE.test(html)) return html;
   return html.replace(BOOKABLE_SECTION_RE, sectionHtml);
 }
 
+function sectionHasViatorAffiliate(sectionHtml) {
+  return /viator\.com/i.test(String(sectionHtml || ''));
+}
+
 /**
- * Keep published robots, canonical, and bookable-experiences from the on-disk page
- * when regenerating port HTML (avoids viator env / indexability drift).
+ * Guard against local / misconfigured regen regressions — not a permanent content freeze.
+ * - Robots: block accidental noindex → index from indexability heuristics alone.
+ * - Bookable: keep existing Viator block only when regen would drop affiliate and config has no URL.
+ * When affiliate.url is present (CI secrets), generated bookable output is kept.
  */
-function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml) {
+function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = {}) {
   if (!existingHtml) return generatedHtml;
   let html = generatedHtml;
-  const robots = extractRobotsContent(existingHtml);
-  if (robots) html = replaceRobotsMeta(html, robots);
-  const canonical = extractCanonicalHref(existingHtml);
-  html = replaceCanonicalHref(html, canonical);
-  const bookable = extractBookableExperiencesSection(existingHtml);
-  if (bookable) html = replaceBookableExperiencesSection(html, bookable);
+  const existingRobots = extractRobotsContent(existingHtml);
+  const generatedRobots = extractRobotsContent(generatedHtml);
+  if (
+    existingRobots &&
+    /noindex/i.test(existingRobots) &&
+    /index,\s*follow/i.test(generatedRobots)
+  ) {
+    html = replaceRobotsMeta(html, existingRobots);
+  }
+  const existingBook = extractBookableExperiencesSection(existingHtml);
+  const generatedBook = extractBookableExperiencesSection(generatedHtml);
+  const affiliateHasUrl = Boolean(opts.affiliate && opts.affiliate.url);
+  if (
+    existingBook &&
+    sectionHasViatorAffiliate(existingBook) &&
+    !sectionHasViatorAffiliate(generatedBook) &&
+    !affiliateHasUrl
+  ) {
+    html = replaceBookableExperiencesSection(html, existingBook);
+  }
   return html;
 }
 
@@ -61,4 +70,5 @@ module.exports = {
   extractCanonicalHref,
   mergePublishedPortHtmlPreservation,
   replaceBookableExperiencesSection,
+  sectionHasViatorAffiliate,
 };

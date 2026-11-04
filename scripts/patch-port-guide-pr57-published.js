@@ -92,14 +92,6 @@ function patchGettingThereSection(html, terminals, opts) {
   return html.replace(GETTING_THERE_RE, newSection);
 }
 
-function isPublishedPortPage(html) {
-  return (
-    html.includes('class="seo-detail') &&
-    /<h1>/.test(html) &&
-    !/http-equiv=["']refresh/i.test(html)
-  );
-}
-
 function main() {
   const appRoot = getAppRepoRoot(repoRoot);
   const guides = loadGuides();
@@ -139,4 +131,18 @@ function main() {
   );
 }
 
-main();
+function isPublishedPortPage(html) {
+  return (
+    html.includes('class="seo-detail') &&
+    /<h1>/.test(html) &&
+    !/http-equiv=["']refresh/i.test(html)
+  );
+}
+
+if (require.main === module) main();
+
+module.exports = {
+  patchPortGuideTerminalCss,
+  patchGettingThereSection,
+  isPublishedPortPage,
+};
