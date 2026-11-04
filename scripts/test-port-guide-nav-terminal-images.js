@@ -48,7 +48,7 @@ assert.ok(gridHtml.includes('pg-terminal-card-photo'), 'photo on verified termin
 const photoCount = (gridHtml.match(/pg-terminal-card-photo/g) || []).length;
 assert.strictEqual(photoCount, 1, 'exactly one terminal photo');
 const hafenBlock = gridHtml.match(
-  /<details class="pg-terminal-card pg-terminal-card--has-photo"[\s\S]*?<\/details>/
+  /<article class="pg-terminal-card pg-terminal-card--has-photo"[\s\S]*?<\/article>/
 );
 assert.ok(hafenBlock, 'photo card markup');
 const block = hafenBlock[0];
