@@ -1178,7 +1178,7 @@ const PAGE_STYLES = `
   .seo-detail-wide .pg-facts,
   .seo-detail-wide .pg-quick,
   .seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .seo-detail-wide .seo-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .seo-detail h1 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
@@ -1191,10 +1191,14 @@ const PAGE_STYLES = `
 .seo-keyfacts dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); }
 .seo-keyfacts dd { font-size: 16px; font-weight: 600; margin: 0 0 8px 0; }
 .seo-cross-block { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
-.seo-cross-list { list-style: none; margin: 0; padding: 0; }
-.seo-cross-list li { margin: 10px 0; }
+.seo-cross-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.seo-cross-list li { margin: 0; }
 .seo-cross-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
 .seo-cross-list a:hover { text-decoration: underline; }
+#related-ports.seo-cross-block { margin-top: 32px; }
+#related-ports .seo-cross-list a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+#related-ports .seo-cross-list a:hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
+#related-ports .seo-cross-list a:focus-visible { outline: 2px solid #79D8FF; outline-offset: 3px; border-radius: 4px; }
 .seo-hero-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 16px; margin: 0 0 28px; background: rgba(255,255,255,0.06); }
 .seo-visual-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 0.8fr); gap: 18px; align-items: stretch; margin: 22px 0 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; background: radial-gradient(circle at top left, rgba(255,0,51,0.22), transparent 42%), linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
 .seo-visual-img { width: 100%; height: 230px; object-fit: cover; min-height: 100%; }

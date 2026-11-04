@@ -389,8 +389,8 @@ function terminalCardIsFilled(t, descText) {
 }
 
 function buildTerminalCardPrimaryBadge(isPrimary) {
-  if (!isPrimary) return '';
-  return `<div class="pg-terminal-card-badge-row"><span class="pg-pill">Primary</span></div>`;
+  const pill = isPrimary ? '<span class="pg-pill">Primary</span>' : '';
+  return `<div class="pg-terminal-card-badge-row">${pill}</div>`;
 }
 
 function buildTerminalCardBody(meta, address, transportHtml, desc) {
@@ -612,11 +612,11 @@ const PORT_GUIDE_STYLES = `
 .pg-call-plan-icon::before { content: ''; position: absolute; left: 50%; top: 50%; width: 2px; height: 6px; margin: -8px 0 0 -1px; background: rgba(255,255,255,0.82); border-radius: 1px; }
 .pg-call-plan-duration { margin: 0 0 4px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.48); }
 .pg-call-plan-title { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: #fff; }
-.pg-call-plan-body { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.86); }
+.pg-call-plan-body { margin: 0; font-size: 14px; line-height: 1.58; color: rgba(255,255,255,0.86); }
 .pg-top-things { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
 .pg-top-things-heading { margin: 0 0 12px; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
 .pg-top-things-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.88); }
+.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.48; color: rgba(255,255,255,0.88); }
 .pg-top-things-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,0,51,0.85); box-shadow: 0 0 0 3px rgba(255,0,51,0.12); }
 .pg-cruise-tip { margin: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(34,211,238,0.35); border-left: 4px solid #22d3ee; background: linear-gradient(120deg, rgba(6,182,212,0.16), rgba(255,255,255,0.03)); }
 .pg-cruise-tip-label { margin: 0 0 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
@@ -635,19 +635,31 @@ const PORT_GUIDE_STYLES = `
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
 .pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
-.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; grid-template-columns: 1fr; }
-.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; }
-.pg-terminal-card-badge-row { margin: 0 0 12px; }
-.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: stretch; grid-template-columns: 1fr; }
+.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; min-height: 0; }
+.pg-terminal-card--has-photo { display: flex; flex-direction: column; height: 100%; padding: 18px; }
+.pg-terminal-card-badge-row { margin: 0 0 12px; min-height: 26px; display: flex; align-items: flex-start; flex: 0 0 auto; }
+.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; flex: 0 0 auto; }
 .pg-terminal-card:not(.pg-terminal-card--has-photo) > summary .pg-terminal-card-title { font-size: 17px; font-weight: 700; }
 .pg-terminal-card > p { display: block; margin: 0 0 10px; }
-.pg-terminal-card-desc { font-size: 17px; font-weight: 400; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; }
+.pg-terminal-card-desc { font-size: 16px; font-weight: 400; line-height: 1.65; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; flex: 1 1 auto; }
 .pg-terminal-card summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; cursor: pointer; font-weight: 700; color: #fff; list-style: none; line-height: 1.4; }
 .pg-terminal-card summary::-webkit-details-marker { display: none; }
-.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; background: rgba(255,255,255,0.06); }
-.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
+.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; width: 100%; flex: 0 0 auto; background: rgba(255,255,255,0.06); }
+.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; min-height: 40px; box-sizing: border-box; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
 .pg-terminal-card-photo figcaption a { color: rgba(255,255,255,0.78); }
+@media (min-width: 1100px) {
+  .seo-detail-wide .pg-terminal-grid { align-items: stretch; }
+  .seo-detail-wide .pg-terminal-grid > .pg-terminal-card--has-photo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+  .seo-detail-wide .pg-terminal-grid .pg-terminal-card-photo { flex-shrink: 0; }
+  .seo-detail-wide .pg-terminal-grid .pg-terminal-card-desc { flex: 1 1 auto; }
+}
 .port-jump { display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .port-jump a:hover { color: #fff; }
@@ -656,7 +668,7 @@ const PORT_GUIDE_STYLES = `
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
 .pg-map-credit a { color: rgba(255,255,255,0.78); }
-.pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 10px; }
+.pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 8px; flex: 0 0 auto; }
 .pg-terminal-card .pg-meta { color: rgba(255,255,255,0.68); }
 .pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }
 .pg-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
@@ -681,11 +693,18 @@ const PORT_GUIDE_STYLES = `
 .pg-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 18px; }
 .pg-breadcrumbs a { color: rgba(255,255,255,0.75); text-decoration: none; }
 .pg-breadcrumbs a:hover { color: var(--neon-red); }
+.pg-section#weather-best-time { margin-top: 36px; }
+.pg-section#weather-best-time .pg-prose { margin-bottom: 10px; }
+.pg-section#weather-best-time .pg-facts { margin-top: 6px; margin-bottom: 0; }
+.pg-section#entry-requirements { margin-top: 32px; }
+.pg-section#entry-requirements .pg-prose { margin-bottom: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
 @media (max-width: 720px) {
   .pg-facts, .pg-booking-banner { grid-template-columns: 1fr; }
   .pg-app-cta { flex-direction: column; align-items: flex-start; }
   .pg-app-cta-actions { width: 100%; }
   .pg-booking-cta { width: 100%; }
+  .pg-terminal-grid { align-items: stretch; }
+  .pg-terminal-card--has-photo { height: auto; }
 }
 `;
 
