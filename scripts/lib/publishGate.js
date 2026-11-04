@@ -7,6 +7,8 @@ const MIN_SHARED_CHARS = 45;
 const EXEMPT_SENTENCE_KEYS = new Set([
   'book shore excursions tours activities with our partner',
   'book shore excursions in the seadays app with our partner',
+  // Guest-reviews empty-state CTA (ship/port name varies; tail sentence is identical).
+  'share your experience in seadays after your cruise',
 ]);
 const LABEL_RE =
   /^(best months|climate|short call|standard call|longer call|practical cruise tip|top things|port type|documents and entry rules|photo|map data|average temperature)\b/i;
@@ -30,6 +32,7 @@ function proseRoot(html) {
   s = s.replace(/<figcaption[\s\S]*?<\/figcaption>/gi, '');
   s = s.replace(/<aside[\s\S]*?<\/aside>/gi, '');
   s = s.replace(/<div class="seo-article-grid"[\s\S]*?<\/div>/gi, '');
+  s = s.replace(/<section class="guest-reviews"[\s\S]*?<\/section>/gi, '');
   s = s.replace(/<p class="(?:pg-affiliate-note|wiki-attribution|pg-map-credit)"[\s\S]*?<\/p>/gi, '');
   return s;
 }
@@ -59,6 +62,7 @@ function collectSentenceKeys(html) {
   const chunks = proseRoot(html).match(/<(p|li)\b[^>]*>[\s\S]*?<\/\1>/gi) || [];
   for (const chunk of chunks) {
     if (/\bclass="[^"]*\blead\b/.test(chunk)) continue;
+    if (/\bguest-reviews-(?:empty|cta|note|summary)\b/.test(chunk)) continue;
     const text = visibleText(chunk);
     for (const sentence of splitSentences(text)) {
       if (sentence.length < MIN_SHARED_CHARS) continue;
