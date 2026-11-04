@@ -273,9 +273,18 @@ assert.ok(barcelonaMainHtml.includes('id="getting-there"'), 'barcelona terminals
 assert.ok(barcelonaMainHtml.includes('id="plan-port-day"'), 'barcelona plan port day');
 const barcelonaTerminals = barcelonaMainHtml.match(/id="getting-there"[\s\S]*?<\/section>/i);
 assert.ok(barcelonaTerminals, 'barcelona getting-there section');
-assert.strictEqual((barcelonaTerminals[0].match(/class="pg-terminal-card"/g) || []).length, 5, 'barcelona terminal cards');
+const barcelonaTerminalCards =
+  (barcelonaTerminals[0].match(/<details class="pg-terminal-card"/g) || []).length +
+  (barcelonaTerminals[0].match(/<article class="pg-terminal-card/g) || []).length;
+assert.strictEqual(barcelonaTerminalCards, 4, 'barcelona active terminal cards');
 assert.ok(barcelonaMainHtml.includes('Moll Adossat Terminal E (Helix)'), 'barcelona terminal E');
-assert.ok(barcelonaMainHtml.includes('Transport: Drassanes L3 Metro'), 'barcelona WTC transport');
+assert.ok(barcelonaMainHtml.includes('pg-terminal-transition-notice'), 'barcelona WTC transition notice');
+assert.ok(!barcelonaMainHtml.includes('World Trade Center (WTC) Cruise Pier</summary>'), 'WTC not active terminal card');
+assert.ok(!barcelonaTerminals[0].includes('Moll Adossat Terminal C</summary>'), 'legacy terminal C not active card');
+assert.ok(barcelonaTerminals[0].includes('id="port-terminal-map"'), 'barcelona terminal map');
+const barcelonaPinCount = (barcelonaTerminals[0].match(/"lat":/g) || []).length;
+assert.strictEqual(barcelonaPinCount, 4, 'barcelona map pin count');
+assert.ok(barcelonaMainHtml.includes('pg-terminal-card--has-photo'), 'barcelona terminal B photo card');
 assert.ok(barcelona.html.includes('pg-call-plan-card') || barcelona.html.includes('Standard call'));
 assert.ok(!barcelona.html.includes('4.5 km from city center'));
 assert.ok(barcelona.html.includes('0.4 km from city center'));

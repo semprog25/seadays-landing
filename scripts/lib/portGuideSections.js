@@ -16,6 +16,10 @@ const {
 } = require('./portCopyHygiene');
 const { buildGuestReviewsSectionHtml } = require('./guestReviewsSection');
 const { resolveTerminalVerifiedImage, buildTerminalCardPhotoHtml } = require('./terminalVerifiedImages');
+const {
+  filterActiveTerminalsForDisplay,
+  collectTransitioningVisitorNotices,
+} = require('./terminalOperationalStatus');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -349,7 +353,8 @@ function terminalPin(t) {
 }
 
 function buildOsmTerminalMap(terminals) {
-  const pins = (Array.isArray(terminals) ? terminals : []).map(terminalPin).filter(Boolean);
+  const active = filterActiveTerminalsForDisplay(terminals);
+  const pins = active.map(terminalPin).filter(Boolean);
   if (!pins.length) return '';
   const payload = JSON.stringify(pins).replace(/</g, '\\u003c');
   return (
@@ -442,29 +447,44 @@ function buildTerminalCardHtml(t, opts, gate) {
   );
 }
 
+function buildTransitioningNoticesHtml(terminals) {
+  const notices = collectTransitioningVisitorNotices(terminals);
+  if (!notices.length) return '';
+  return notices
+    .map(
+      (text) =>
+        `<p class="pg-prose pg-terminal-transition-notice" role="note">${escapeHtml(text)}</p>`
+    )
+    .join('');
+}
+
 function buildTerminalsSection(terminals, opts = {}) {
-  if (!Array.isArray(terminals) || !terminals.length) {
-    if (!hasText(opts.logistics)) return '';
+  const all = Array.isArray(terminals) ? terminals : [];
+  const active = filterActiveTerminalsForDisplay(all);
+  if (!all.length && !hasText(opts.logistics)) return '';
+  if (!all.length) {
     return section(
       'Getting there & terminals',
       `<p class="pg-prose">${escapeHtml(opts.logistics)}</p>`,
       'getting-there'
     );
   }
-  const freq = distanceFrequency(terminals);
+  const freq = distanceFrequency(active);
   const gate = typeof opts.gate === 'function' ? opts.gate : (s) => s;
   const cardOpts = { ...opts, distanceFreq: freq };
-  const cards = terminals
+  const cards = active
     .map((t) => buildTerminalCardHtml(t, cardOpts, gate))
     .filter(Boolean)
     .join('');
   const logisticsHtml = hasText(opts.logistics) ? `<p class="pg-prose">${escapeHtml(opts.logistics)}</p>` : '';
-  const mapHtml = buildOsmTerminalMap(terminals);
-  return section(
-    'Getting there & terminals',
-    `${logisticsHtml}${mapHtml}<div class="pg-terminal-grid">${cards}</div>`,
-    'getting-there'
-  );
+  const transitionHtml = buildTransitioningNoticesHtml(all);
+  const mapHtml = buildOsmTerminalMap(all);
+  const body = `${logisticsHtml}${transitionHtml}${mapHtml}${cards ? `<div class="pg-terminal-grid">${cards}</div>` : ''}`;
+  if (!body.replace(/\s/g, '')) {
+    if (!hasText(opts.logistics)) return '';
+    return section('Getting there & terminals', logisticsHtml, 'getting-there');
+  }
+  return section('Getting there & terminals', body, 'getting-there');
 }
 
 function prefixEachSentence(place, text, lead) {
@@ -1014,6 +1034,7 @@ module.exports = {
   buildBreadcrumbsHtml,
   buildBreadcrumbJsonLd,
   buildTerminalsSection,
+  buildOsmTerminalMap,
   buildThingsToDoSection,
   hasRichThingsToDo,
   collectPortFaqItems,
