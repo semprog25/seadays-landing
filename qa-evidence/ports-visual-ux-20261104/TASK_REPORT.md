@@ -82,7 +82,7 @@ No Viator/robots/canonical regressions on Hamburg vs baseline markers.
 
 ## G. PR head SHA
 
-See git after push (replaces `c8fdfcfca` when blocker commit lands).
+**Head SHA:** `1ff0859ecd691a1f376bb029db189e93c1d4f3ee`
 
 ## H. MERGE READY — **NO**
 
