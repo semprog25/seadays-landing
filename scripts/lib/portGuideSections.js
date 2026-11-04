@@ -15,6 +15,7 @@ const {
   wikipediaAttributionHtml,
 } = require('./portCopyHygiene');
 const { buildGuestReviewsSectionHtml } = require('./guestReviewsSection');
+const { resolveTerminalVerifiedImage, buildTerminalCardPhotoHtml } = require('./terminalVerifiedImages');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -386,8 +387,12 @@ function buildTerminalsSection(terminals, opts = {}) {
       const transportHtml = transport.length
         ? `<p class="pg-meta">Transport: ${escapeHtml(transport.join(', '))}</p>`
         : '';
+      const portAppId = opts.portAppId || '';
+      const verifiedImage = resolveTerminalVerifiedImage(t, portAppId);
+      const photoHtml = verifiedImage ? buildTerminalCardPhotoHtml(verifiedImage) : '';
       return (
         `<details class="pg-terminal-card" open>` +
+        photoHtml +
         `<summary><span>${escapeHtml(t.name || 'Cruise terminal')}</span>${primary}</summary>` +
         (meta ? `<p class="pg-meta">${escapeHtml(meta)}</p>` : '') +
         address +
@@ -532,7 +537,7 @@ function buildGuideOverviewLead(guide) {
 }
 
 const PORT_GUIDE_STYLES = `
-.pg-section { margin: 40px 0 28px; }
+.pg-section { margin: 40px 0 28px; scroll-margin-top: 72px; }
 .pg-section h2 { font-size: 24px; font-weight: 800; margin: 0 0 14px; color: #fff; }
 .pg-section h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; color: #fff; }
 .pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
@@ -550,9 +555,14 @@ const PORT_GUIDE_STYLES = `
 .pg-terminal-card summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font-weight: 800; color: #fff; list-style: none; }
 .pg-terminal-card summary::-webkit-details-marker { display: none; }
 .pg-terminal-card summary span { font-size: 17px; }
-.port-jump { position: sticky; top: 58px; z-index: 4; display: flex; gap: 14px; overflow-x: auto; margin: 0 0 18px; padding: 8px 0; background: rgba(10,10,10,0.94); }
+.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; background: rgba(255,255,255,0.06); }
+.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
+.pg-terminal-card-photo figcaption a { color: rgba(255,255,255,0.78); }
+.port-jump { display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .port-jump a:hover { color: #fff; }
+.port-jump a:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
 .pg-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
@@ -837,7 +847,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
     buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }),
     buildGuestReviewsSectionHtml(port),
     buildExperiencesSection(affiliate, city),
-    buildTerminalsSection(terminals, { gate, logistics }),
+    buildTerminalsSection(terminals, { gate, logistics, portAppId: port?.appPortId || '' }),
     shoreFirst ? '' : things,
     buildWeatherMergedSection(guide, port, gate),
     buildEntryCollapsedSection(guide, gate, city, port),

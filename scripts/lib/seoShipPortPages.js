@@ -1515,6 +1515,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       ...port,
       overviewText,
       highlights: filterHighlightList(port.highlights, port.description),
+      appPortId: opts.slugToAppPortId?.[port.slug] || port.appPortId || '',
     },
     guide,
     terminals,
