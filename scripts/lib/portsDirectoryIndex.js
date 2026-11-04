@@ -412,6 +412,18 @@ function buildDirectoryHeaderNav() {
 
 const PORTS_DIRECTORY_EXTRA_CSS = `
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.directory-scroll-target { scroll-margin-top: 92px; }
+body.ports-directory-v2 { overflow-x: clip; scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); scrollbar-width: thin; }
+body.ports-directory-v2::-webkit-scrollbar { width: 10px; height: 10px; }
+body.ports-directory-v2::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); }
+body.ports-directory-v2::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; border: 2px solid rgba(10, 10, 10, 0.85); }
+body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.72); }
+@media (prefers-reduced-motion: reduce) { body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.5); } }
+.search-results { scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); scrollbar-width: thin; }
+.search-results::-webkit-scrollbar { width: 8px; }
+.search-results::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); border-radius: 8px; }
+.search-results::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; }
+.search-results::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.72); }
 .seo-prose { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
 .seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
 .seo-prose p { margin-bottom: 18px; }
@@ -465,7 +477,7 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .region-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.06) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
 .region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); transform: scale(1); transition: transform 0.35s ease; }
 .region-card:hover .region-card-image { transform: scale(1.03); }
-.region-card-image--placeholder { min-height: 100px; }
+.region-card-image--placeholder { min-height: 100px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
 .region-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
 .region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; word-break: normal; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
@@ -652,7 +664,7 @@ ${getFaviconHeadHtml()}
 ${PORTS_DIRECTORY_EXTRA_CSS}
 </style>
 </head>
-<body>
+<body class="ports-directory-v2">
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
@@ -695,7 +707,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
       }
     </section>
 
-    <section class="directory-section" aria-label="Browse by country">
+    <section class="directory-section directory-scroll-target" id="countryBrowseSection" aria-label="Browse by country">
       <div class="directory-section-head">
         <h2>Browse by Country</h2>
         <span class="directory-section-note" id="countryHeading">All regions</span>
@@ -704,7 +716,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
       <div class="country-grid" id="countryBrowse"></div>
     </section>
 
-    <section class="directory-controls" aria-label="Filters">
+    <section class="directory-controls directory-scroll-target" id="directoryResults" aria-label="Filters">
       <div class="filter-panel">
       <div class="filter-bar">
         <label class="sr-only" for="filterRegion">Region</label>

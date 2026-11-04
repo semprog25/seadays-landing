@@ -23,7 +23,11 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     var browseAllBtn = document.getElementById('browseAllPorts');
     var loadMoreBtn = document.getElementById('directoryLoadMore');
     var emptyPanel = document.getElementById('directoryEmpty');
+    var countryBrowseSection = document.getElementById('countryBrowseSection');
+    var directoryResults = document.getElementById('directoryResults');
     if(!grid) return;
+
+    var suppressAutoScroll = false;
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'));
     var state = {
@@ -37,6 +41,22 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       syncingHistory: false
     };
 
+    function prefersReducedMotion(){
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+    function scrollToSection(el){
+      if(suppressAutoScroll || !el) return;
+      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    }
+    function scrollAfterFilter(scrollKind){
+      if(scrollKind === 'country'){
+        scrollToSection(directoryResults || grid);
+        return;
+      }
+      if(scrollKind === 'region'){
+        scrollToSection(countryBrowseSection || directoryResults || grid);
+      }
+    }
     function norm(s){
       return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
     }
@@ -283,6 +303,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         resultsMeta.textContent = label;
       }
       if(!opts.skipHistory) syncHistory();
+      if(opts.scrollAfter) scrollAfterFilter(opts.scrollAfter);
     }
     function renderSearchResults(){
       if(!searchResults) return;
@@ -337,7 +358,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       state.country = '__all__';
       if(filterCountry) filterCountry.value = '__all__';
       state.view = 'filter';
-      apply();
+      apply({ scrollAfter: 'region' });
     }
     function resetAll(){
       if(search) search.value = '';
@@ -371,6 +392,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       apply({ keepDisplayCount: true });
     }
     function readStateFromUrl(){
+      suppressAutoScroll = true;
       var params = new URLSearchParams(window.location.search);
       state.syncingHistory = true;
       if(search) search.value = '';
@@ -417,6 +439,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         state.syncingHistory = false;
         renderSearchResults();
         apply({ skipHistory: true });
+        suppressAutoScroll = false;
         return;
       }
       var region = params.get('region');
@@ -432,6 +455,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       state.syncingHistory = false;
       renderSearchResults();
       apply({ skipHistory: true });
+      suppressAutoScroll = false;
     }
 
     if(regionBrowse){
@@ -467,7 +491,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         state.view = 'filter';
         setPressed(countryBrowse, 'data-country', state.country);
         if(filterCountry) filterCountry.value = state.country;
-        apply();
+        apply({ scrollAfter: 'country' });
       });
     }
     if(filterRegion){
@@ -494,7 +518,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         state.country = filterCountry.value || '__all__';
         state.view = 'filter';
         if(countryBrowse) setPressed(countryBrowse, 'data-country', state.country);
-        apply();
+        apply({ scrollAfter: state.country !== '__all__' ? 'country' : undefined });
       });
     }
     if(filterBookable){
@@ -541,6 +565,10 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     });
 
     if(window.location.search) readStateFromUrl();
-    else apply({ skipHistory: true });
+    else {
+      suppressAutoScroll = true;
+      apply({ skipHistory: true });
+      suppressAutoScroll = false;
+    }
   })();`;
 };

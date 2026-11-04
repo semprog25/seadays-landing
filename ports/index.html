@@ -101,6 +101,18 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.directory-scroll-target { scroll-margin-top: 92px; }
+body.ports-directory-v2 { overflow-x: clip; scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); scrollbar-width: thin; }
+body.ports-directory-v2::-webkit-scrollbar { width: 10px; height: 10px; }
+body.ports-directory-v2::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); }
+body.ports-directory-v2::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; border: 2px solid rgba(10, 10, 10, 0.85); }
+body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.72); }
+@media (prefers-reduced-motion: reduce) { body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.5); } }
+.search-results { scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); scrollbar-width: thin; }
+.search-results::-webkit-scrollbar { width: 8px; }
+.search-results::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); border-radius: 8px; }
+.search-results::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; }
+.search-results::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.72); }
 .seo-prose { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
 .seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
 .seo-prose p { margin-bottom: 18px; }
@@ -154,7 +166,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .region-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.06) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
 .region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); transform: scale(1); transition: transform 0.35s ease; }
 .region-card:hover .region-card-image { transform: scale(1.03); }
-.region-card-image--placeholder { min-height: 100px; }
+.region-card-image--placeholder { min-height: 100px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
 .region-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
 .region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; word-break: normal; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
@@ -254,7 +266,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
 
 </style>
 </head>
-<body>
+<body class="ports-directory-v2">
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
@@ -295,8 +307,8 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       <div class="region-grid" id="regionBrowse">
         <button type="button" class="region-card" data-region-key="Alaska" data-regions="Alaska" aria-pressed="false" aria-label="Alaska, 6 ports"><span class="region-card-media"><img class="region-card-image" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_31d5efa3-a7be-4322-9f85-98bdac-b1618c1a31d5e090.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">Alaska</span><span class="region-card-count">6 ports</span></span></button>
 <button type="button" class="region-card" data-region-key="Asia" data-regions="Asia" aria-pressed="false" aria-label="Asia, 32 ports"><span class="region-card-media"><img class="region-card-image" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_525e6a16-5e6b-4c68-8e5c-cd0600-e9b24b532b94d3e9.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">Asia</span><span class="region-card-count">32 ports</span></span></button>
-<button type="button" class="region-card" data-region-key="__virt_anz__" data-regions="Australia|New Zealand" aria-pressed="false" aria-label="Australia &amp; New Zealand, 12 ports"><span class="region-card-media"><img class="region-card-image" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_525e6a16-5e6b-4c68-8e5c-cd0600-e9b24b532b94d3e9.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">Australia &amp; New Zealand</span><span class="region-card-count">12 ports</span></span></button>
-<button type="button" class="region-card" data-region-key="Baltic" data-regions="Baltic" aria-pressed="false" aria-label="Baltic Sea, 26 ports"><span class="region-card-media"><img class="region-card-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Hamburg%2C_Hafen%2C_Elbphilharmonie_--_2016_--_3129.jpg/1280px-Hamburg%2C_Hafen%2C_Elbphilharmonie_--_2016_--_3129.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">Baltic Sea</span><span class="region-card-count">26 ports</span></span></button>
+<button type="button" class="region-card" data-region-key="__virt_anz__" data-regions="Australia|New Zealand" aria-pressed="false" aria-label="Australia &amp; New Zealand, 12 ports"><span class="region-card-image region-card-image--placeholder" aria-hidden="true"></span><span class="region-card-body"><span class="region-card-name">Australia &amp; New Zealand</span><span class="region-card-count">12 ports</span></span></button>
+<button type="button" class="region-card" data-region-key="Baltic" data-regions="Baltic" aria-pressed="false" aria-label="Baltic Sea, 26 ports"><span class="region-card-image region-card-image--placeholder" aria-hidden="true"></span><span class="region-card-body"><span class="region-card-name">Baltic Sea</span><span class="region-card-count">26 ports</span></span></button>
 <button type="button" class="region-card" data-region-key="British Isles" data-regions="British Isles" aria-pressed="false" aria-label="British Isles, 14 ports"><span class="region-card-media"><img class="region-card-image" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_3bad45e6-3a1b-46cd-ba4c-39fc2a-af61b666c500d989.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">British Isles</span><span class="region-card-count">14 ports</span></span></button>
 <button type="button" class="region-card" data-region-key="Caribbean" data-regions="Caribbean" aria-pressed="false" aria-label="Caribbean, 33 ports"><span class="region-card-media"><img class="region-card-image" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_86f80b40-1d98-433d-8d25-762b5e-1214df9d8e907f8b.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">Caribbean</span><span class="region-card-count">33 ports</span></span></button>
 <button type="button" class="region-card" data-region-key="Mediterranean" data-regions="Mediterranean" aria-pressed="false" aria-label="Mediterranean, 64 ports"><span class="region-card-media"><img class="region-card-image" src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/blog-images/materialized/blog_post_93bc725b-bdca-45ff-95fd-4e76d6-2c0d08c5562e6a68.jpg" alt="" loading="lazy" decoding="async" width="320" height="180"></span><span class="region-card-body"><span class="region-card-name">Mediterranean</span><span class="region-card-count">64 ports</span></span></button>
@@ -315,7 +327,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       </div>
     </section>
 
-    <section class="directory-section" aria-label="Browse by country">
+    <section class="directory-section directory-scroll-target" id="countryBrowseSection" aria-label="Browse by country">
       <div class="directory-section-head">
         <h2>Browse by Country</h2>
         <span class="directory-section-note" id="countryHeading">All regions</span>
@@ -324,7 +336,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       <div class="country-grid" id="countryBrowse"></div>
     </section>
 
-    <section class="directory-controls" aria-label="Filters">
+    <section class="directory-controls directory-scroll-target" id="directoryResults" aria-label="Filters">
       <div class="filter-panel">
       <div class="filter-bar">
         <label class="sr-only" for="filterRegion">Region</label>
@@ -1300,7 +1312,11 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
     var browseAllBtn = document.getElementById('browseAllPorts');
     var loadMoreBtn = document.getElementById('directoryLoadMore');
     var emptyPanel = document.getElementById('directoryEmpty');
+    var countryBrowseSection = document.getElementById('countryBrowseSection');
+    var directoryResults = document.getElementById('directoryResults');
     if(!grid) return;
+
+    var suppressAutoScroll = false;
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'));
     var state = {
@@ -1314,6 +1330,22 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       syncingHistory: false
     };
 
+    function prefersReducedMotion(){
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+    function scrollToSection(el){
+      if(suppressAutoScroll || !el) return;
+      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    }
+    function scrollAfterFilter(scrollKind){
+      if(scrollKind === 'country'){
+        scrollToSection(directoryResults || grid);
+        return;
+      }
+      if(scrollKind === 'region'){
+        scrollToSection(countryBrowseSection || directoryResults || grid);
+      }
+    }
     function norm(s){
       return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
     }
@@ -1560,6 +1592,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         resultsMeta.textContent = label;
       }
       if(!opts.skipHistory) syncHistory();
+      if(opts.scrollAfter) scrollAfterFilter(opts.scrollAfter);
     }
     function renderSearchResults(){
       if(!searchResults) return;
@@ -1614,7 +1647,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       state.country = '__all__';
       if(filterCountry) filterCountry.value = '__all__';
       state.view = 'filter';
-      apply();
+      apply({ scrollAfter: 'region' });
     }
     function resetAll(){
       if(search) search.value = '';
@@ -1648,6 +1681,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       apply({ keepDisplayCount: true });
     }
     function readStateFromUrl(){
+      suppressAutoScroll = true;
       var params = new URLSearchParams(window.location.search);
       state.syncingHistory = true;
       if(search) search.value = '';
@@ -1694,6 +1728,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         state.syncingHistory = false;
         renderSearchResults();
         apply({ skipHistory: true });
+        suppressAutoScroll = false;
         return;
       }
       var region = params.get('region');
@@ -1709,6 +1744,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
       state.syncingHistory = false;
       renderSearchResults();
       apply({ skipHistory: true });
+      suppressAutoScroll = false;
     }
 
     if(regionBrowse){
@@ -1744,7 +1780,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         state.view = 'filter';
         setPressed(countryBrowse, 'data-country', state.country);
         if(filterCountry) filterCountry.value = state.country;
-        apply();
+        apply({ scrollAfter: 'country' });
       });
     }
     if(filterRegion){
@@ -1771,7 +1807,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
         state.country = filterCountry.value || '__all__';
         state.view = 'filter';
         if(countryBrowse) setPressed(countryBrowse, 'data-country', state.country);
-        apply();
+        apply({ scrollAfter: state.country !== '__all__' ? 'country' : undefined });
       });
     }
     if(filterBookable){
@@ -1818,7 +1854,11 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
     });
 
     if(window.location.search) readStateFromUrl();
-    else apply({ skipHistory: true });
+    else {
+      suppressAutoScroll = true;
+      apply({ skipHistory: true });
+      suppressAutoScroll = false;
+    }
   })();
   </script>
   <script>
