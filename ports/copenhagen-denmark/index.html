@@ -102,8 +102,8 @@ body { font-family: Inter, system-ui, sans-serif; background: var(--dark-bg); co
 @media (min-width: 1100px) {
   .seo-detail-wide .pg-facts,
   .seo-detail-wide .pg-quick,
-  .seo-detail-wide .pg-terminal-grid,
   .seo-detail-wide .pg-qa-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .seo-detail-wide .pg-terminal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .seo-detail-wide .seo-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .seo-detail h1 { font-size: 40px; font-weight: 900; margin-bottom: 16px; line-height: 1.15; }
@@ -180,12 +180,18 @@ body { font-family: Inter, system-ui, sans-serif; background: var(--dark-bg); co
 .pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
 .pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
 .pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
-.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; }
-.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
-.pg-terminal-card > p { display: block; margin-top: 10px; }
-.pg-terminal-card summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; font-weight: 800; color: #fff; list-style: none; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: start; grid-template-columns: 1fr; }
+.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: inherit; }
+.pg-terminal-card-stack { display: flex; flex-direction: column; gap: 0; }
+.pg-terminal-card-badge-row { margin: 0 0 12px; }
+.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 800; line-height: 1.35; letter-spacing: normal; color: #fff; }
+.pg-terminal-card:not(.pg-terminal-card--has-photo) > summary .pg-terminal-card-title { font-size: 17px; }
+.pg-terminal-card > p, .pg-terminal-card-stack > p { display: block; margin: 0 0 10px; }
+.pg-terminal-card-desc { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; }
+.pg-terminal-card summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; cursor: pointer; font-weight: 800; color: #fff; list-style: none; line-height: 1.35; }
 .pg-terminal-card summary::-webkit-details-marker { display: none; }
-.pg-terminal-card summary span { font-size: 17px; }
+.pg-terminal-card--has-photo > summary.pg-terminal-card-a11y-summary { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; white-space: nowrap; }
+.pg-terminal-card--has-photo { position: relative; }
 .pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; background: rgba(255,255,255,0.06); }
 .pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
@@ -198,7 +204,8 @@ body { font-family: Inter, system-ui, sans-serif; background: var(--dark-bg); co
 .port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
 .pg-map-credit a { color: rgba(255,255,255,0.78); }
-.pg-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 10px; }
+.pg-meta { font-size: 14px; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 10px; }
+.pg-terminal-card .pg-meta { color: rgba(255,255,255,0.65); }
 .pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }
 .pg-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
 .pg-tags li { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
@@ -257,7 +264,7 @@ body { font-family: Inter, system-ui, sans-serif; background: var(--dark-bg); co
 <section class="pg-section" id="quick-facts"><h2>Quick facts</h2><dl class="pg-facts pg-quick"><div class="pg-fact"><dt>Port type</dt><dd>Home port</dd></div><div class="pg-fact"><dt>Country</dt><dd>Denmark</dd></div><div class="pg-fact"><dt>Region</dt><dd>Baltic</dd></div><div class="pg-fact"><dt>Terminals</dt><dd>3</dd></div><div class="pg-fact"><dt>Getting to the city</dt><dd>Approx.</dd></div><div class="pg-fact"><dt>Currency</dt><dd>Danish krone (DKK); cards widely accepted</dd></div><div class="pg-fact"><dt>Language</dt><dd>Danish; English widely spoken</dd></div><div class="pg-fact"><dt>Best months</dt><dd>May, June, July, August, September</dd></div></dl></section>
 <section class="guest-reviews" id="guest-reviews" aria-labelledby="guest-reviews-heading"><h2 id="guest-reviews-heading">Guest reviews</h2><p class="guest-reviews-empty">No guest reviews yet.</p><p class="guest-reviews-cta">Sailed on Copenhagen? Share your experience in SeaDays after your cruise.</p><p class="guest-reviews-cta"><a class="guest-reviews-download" href="/download/">Get SeaDays</a></p></section>
 <section class="pg-section pg-booking" id="bookable-experiences" aria-label="Bookable experiences"><p class="pg-eyebrow">Bookable Experiences</p><div class="pg-booking-banner"><div class="pg-booking-copy"><span class="pg-booking-badge">Top Rated Experiences</span><h2>Explore experiences in Copenhagen</h2><p>Book shore excursions, tours &amp; activities with our partner</p><p class="pg-booking-trust">Book shore excursions in the SeaDays app with our partner</p></div><a class="pg-booking-cta" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide" target="_self" rel="noopener noreferrer">Continue in SeaDays →</a></div><p class="pg-affiliate-note">SeaDays may earn a commission from qualifying bookings made through partner links. Checkout, payment, and support are handled by the partner.</p></section>
-<section class="pg-section" id="getting-there"><h2>Getting there &amp; terminals</h2><p class="pg-prose">Embarkation from Copenhagen can simplify flight planning when airports and hotels align.</p><div class="pg-terminal-grid"><details class="pg-terminal-card" open><summary><span>Oceankaj (Ocean Quay)</span> <span class="pg-pill">Primary</span></summary><p class="pg-meta">Home port &amp; transit · 8 km from city center</p><p class="pg-meta">Transport: bus + metro M4, taxi, cruise shuttle</p><p>Large-ship cruise complex in Nordhavn with modern passenger facilities; about 8 km from the historic center per destination materials.</p></details><details class="pg-terminal-card" open><summary><span>Langelinie Pier</span></summary><p class="pg-meta">Home port &amp; transit · 4 km from city center</p><p class="pg-meta">Transport: walking, bus, taxi, hop-on hop-off</p><p>Classic Copenhagen cruise pier near the Langelinie promenade and Little Mermaid area; roughly 4 km from the city center.</p></details><details class="pg-terminal-card" open><summary><span>Nordre Toldbod</span></summary><p class="pg-meta">Transit · 3 km from city center</p><p class="pg-meta">Transport: walking, bus, metro connections, taxi</p><p>Inner-harbor cruise quay closest to central waterfront districts; about 3 km to the city center per destination materials.</p></details></div></section>
+<section class="pg-section" id="getting-there"><h2>Getting there &amp; terminals</h2><p class="pg-prose">Embarkation from Copenhagen can simplify flight planning when airports and hotels align.</p><div class="pg-terminal-grid"><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Oceankaj (Ocean Quay)</span> <span class="pg-pill">Primary</span></summary><p class="pg-meta">Home port &amp; transit · 8 km from city center</p><p class="pg-meta">Transport: bus + metro M4, taxi, cruise shuttle</p><p class="pg-terminal-card-desc">Large-ship cruise complex in Nordhavn with modern passenger facilities; about 8 km from the historic center per destination materials.</p></details><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Langelinie Pier</span></summary><p class="pg-meta">Home port &amp; transit · 4 km from city center</p><p class="pg-meta">Transport: walking, bus, taxi, hop-on hop-off</p><p class="pg-terminal-card-desc">Classic Copenhagen cruise pier near the Langelinie promenade and Little Mermaid area; roughly 4 km from the city center.</p></details><details class="pg-terminal-card" open><summary><span class="pg-terminal-card-title">Nordre Toldbod</span></summary><p class="pg-meta">Transit · 3 km from city center</p><p class="pg-meta">Transport: walking, bus, metro connections, taxi</p><p class="pg-terminal-card-desc">Inner-harbor cruise quay closest to central waterfront districts; about 3 km to the city center per destination materials.</p></details></div></section>
 <section class="pg-section" id="things-to-do"><h2>Things to do</h2><p class="pg-label">Short call (about 4–5 hours ashore)</p>
 <p class="pg-prose">From Langelinie/Nordre Toldbod, walk a waterfront loop. From Oceankaj, use metro/bus straight to one central pocket (Nyhavn or Tivoli)—not both plus a long return.</p>
 <p class="pg-label">Standard call (about 6–8 hours ashore)</p>

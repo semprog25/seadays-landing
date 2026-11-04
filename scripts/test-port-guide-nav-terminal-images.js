@@ -18,6 +18,7 @@ const hafenCity = {
   terminal_type: 'both',
   address: 'Überseeboulevard 7',
   description: 'HafenCity terminal.',
+  is_primary: true,
 };
 const altona = {
   country_id: 'germany',
@@ -46,5 +47,15 @@ const gridHtml = buildTerminalsSection([hafenCity, altona], {
 assert.ok(gridHtml.includes('pg-terminal-card-photo'), 'photo on verified terminal only');
 const photoCount = (gridHtml.match(/pg-terminal-card-photo/g) || []).length;
 assert.strictEqual(photoCount, 1, 'exactly one terminal photo');
+const hafenBlock = gridHtml.match(
+  /<details class="pg-terminal-card pg-terminal-card--has-photo"[\s\S]*?<\/details>/
+);
+assert.ok(hafenBlock, 'photo card markup');
+const block = hafenBlock[0];
+const badgeIdx = block.indexOf('pg-terminal-card-badge-row');
+const photoIdx = block.indexOf('pg-terminal-card-photo');
+const titleIdx = block.indexOf('pg-terminal-card-title');
+assert.ok(badgeIdx >= 0 && photoIdx > badgeIdx && titleIdx > photoIdx, 'badge → photo → title order');
+assert.ok(!/position:\s*sticky/.test(PORT_GUIDE_STYLES), 'port-jump not sticky');
 
 console.log('test-port-guide-nav-terminal-images: OK');
