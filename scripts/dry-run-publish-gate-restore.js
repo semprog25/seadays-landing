@@ -1,21 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
-/**
- * Read-only estimate: which port/ship pages would flip to index after apply-publish-gate
- * with current HTML on disk. Does not write files.
- */
-
 const fs = require('fs');
 const path = require('path');
 const { evaluatePublishGate } = require('./lib/publishGate');
+const { replaceRobotsMeta } = require('./lib/adsenseIndexability');
 const { isPortSeoRedirectSlug } = require('./lib/portSeoRedirects');
-const {
-  loadOverrides,
-  loadGuidesByAppPortId,
-  shipEligibleForIndexRestore,
-  portEligibleForIndexRestore,
-} = require('./lib/publishGateRestoreEligibility');
+const { buildRestoreContext, mayRestorePageToIndex } = require('./lib/publishGateRestoreEligibility');
+const { isRestoreApplyEnabled } = require('./lib/publishGateIndexRestoreManifest');
 
 const repoRoot = path.join(__dirname, '..');
 
@@ -41,55 +33,30 @@ function isNoindex(html) {
 }
 
 function main() {
-  const shipOverrides = loadOverrides(repoRoot, 'ships');
-  const portOverrides = loadOverrides(repoRoot, 'ports');
-  const guidesById = loadGuidesByAppPortId(repoRoot);
+  const ctx = buildRestoreContext(repoRoot);
   const pages = [...listPages('port'), ...listPages('ship')];
   const results = evaluatePublishGate(pages);
   const byFile = new Map(results.map((row) => [row.file, row]));
-  const wouldRestore = [];
-  const stillNoindex = [];
+  let wouldRestore = 0;
 
   for (const page of pages) {
     const row = byFile.get(page.file);
-    const fail = row && row.issues.length > 0;
-    const refresh = /http-equiv=["']refresh/i.test(page.html.slice(0, 2500));
-    const noindex = isNoindex(page.html);
-    let restore = false;
-    if (!fail && noindex && !refresh) {
-      if (
-        page.kind === 'port' &&
-        !isPortSeoRedirectSlug(page.slug) &&
-        portEligibleForIndexRestore(page.slug, page.html, repoRoot, guidesById, portOverrides)
-      ) {
-        restore = true;
-      } else if (page.kind === 'ship' && shipEligibleForIndexRestore(page.slug, shipOverrides)) {
-        restore = true;
-      }
+    const gateIssues = row ? row.issues : ['missing'];
+    if (
+      isNoindex(page.html) &&
+      mayRestorePageToIndex(page, { ...ctx, gateIssues, html: page.html })
+    ) {
+      wouldRestore += 1;
     }
-    const url = `https://seadays.app/${page.kind === 'ship' ? 'ships' : 'ports'}/${page.slug}/`;
-    if (restore) wouldRestore.push({ url, kind: page.kind, slug: page.slug, issues: row.issues });
-    else if (noindex) stillNoindex.push({ url, kind: page.kind, slug: page.slug, issues: row.issues });
   }
-
-  const sample = (slug) => wouldRestore.find((r) => r.slug === slug) || stillNoindex.find((r) => r.slug === slug);
 
   console.log(
     JSON.stringify(
       {
-        wouldRestoreCount: wouldRestore.length,
-        stillNoindexCount: stillNoindex.length,
-        samples: {
-          barcelona: sample('barcelona-spain'),
-          miami: sample('miami-fl-united-states'),
-          marigot: sample('marigot-st-maarten'),
-          carnivalBreeze: sample('carnival-breeze'),
-          acapulco: sample('acapulco-mexico'),
-          charcot: sample('le-commandant-charcot'),
-          skyPrincess: sample('sky-princess'),
-        },
-        sitemapImpactEstimate:
-          'After approved CI apply-publish-gate (or full channel), sitemap would gain up to wouldRestoreCount port+ship detail URLs currently omitted by filterSitemapXml; blog count unchanged.',
+        restoreApplyEnabled: isRestoreApplyEnabled(),
+        approvedManifestPresent: Boolean(ctx.manifest),
+        wouldRestoreCount: wouldRestore,
+        scheduledBlogsChannelSafe: !isRestoreApplyEnabled() || !ctx.manifest,
       },
       null,
       2

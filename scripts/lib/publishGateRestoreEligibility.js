@@ -3,7 +3,10 @@
 const fs = require('fs');
 const path = require('path');
 const { isPortDetailIndexable, isShipDetailIndexable } = require('./adsenseIndexability');
+const { isAuditNoindexPort } = require('./auditHoldback');
+const { isPortSeoRedirectSlug } = require('./portSeoRedirects');
 const { loadPublicPortGuidesFile, resolveGuideIdFromSlugTokens } = require('./publicPortGuideAdapter');
+const { isExplicitlyApprovedForIndexRestore, loadApprovedRestoreManifest } = require('./publishGateIndexRestoreManifest');
 
 function loadOverrides(repoRoot, kind) {
   const p = path.join(repoRoot, 'data', 'landing-cruise-content-overrides.json');
@@ -32,7 +35,7 @@ function loadGuidesByAppPortId(repoRoot) {
   return (payload && payload.byAppPortId) || {};
 }
 
-function shipEligibleForIndexRestore(slug, shipOverrides) {
+function shipPassesIndexabilityGate(slug, shipOverrides) {
   const ov = shipOverrides[String(slug || '').trim()] || {};
   return isShipDetailIndexable({
     slug: String(slug || '').trim(),
@@ -42,7 +45,7 @@ function shipEligibleForIndexRestore(slug, shipOverrides) {
   });
 }
 
-function portEligibleForIndexRestore(slug, html, repoRoot, guidesById, portOverrides) {
+function portPassesIndexabilityGate(slug, html, repoRoot, guidesById, portOverrides) {
   const s = String(slug || '').trim();
   const ov = portOverrides[s] || {};
   const country = String(ov.country || portCountryFromLead(html) || '').trim();
@@ -60,9 +63,37 @@ function portEligibleForIndexRestore(slug, html, repoRoot, guidesById, portOverr
   );
 }
 
+/**
+ * Fail-closed restore: explicit approved manifest + APPLY env + gate/indexability + holdbacks.
+ */
+function mayRestorePageToIndex(page, ctx) {
+  const { repoRoot, manifest, gateIssues, html, shipOverrides, portOverrides, guidesById } = ctx;
+  if (!page || gateIssues.length > 0) return false;
+  if (/http-equiv=["']refresh/i.test(String(html || '').slice(0, 2500))) return false;
+  if (page.kind === 'port' && isAuditNoindexPort(page.slug)) return false;
+  if (page.kind === 'port' && isPortSeoRedirectSlug(page.slug)) return false;
+  if (!isExplicitlyApprovedForIndexRestore(page.kind, page.slug, manifest)) return false;
+  if (page.kind === 'ship') {
+    return shipPassesIndexabilityGate(page.slug, shipOverrides);
+  }
+  return portPassesIndexabilityGate(page.slug, html, repoRoot, guidesById, portOverrides);
+}
+
+function buildRestoreContext(repoRoot) {
+  return {
+    repoRoot,
+    manifest: loadApprovedRestoreManifest(repoRoot),
+    shipOverrides: loadOverrides(repoRoot, 'ships'),
+    portOverrides: loadOverrides(repoRoot, 'ports'),
+    guidesById: loadGuidesByAppPortId(repoRoot),
+  };
+}
+
 module.exports = {
+  buildRestoreContext,
   loadOverrides,
   loadGuidesByAppPortId,
-  shipEligibleForIndexRestore,
-  portEligibleForIndexRestore,
+  mayRestorePageToIndex,
+  portPassesIndexabilityGate,
+  shipPassesIndexabilityGate,
 };

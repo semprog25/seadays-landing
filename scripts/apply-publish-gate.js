@@ -1,22 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
-/**
- * Downgrade port and ship pages that fail the publish gate to noindex,
- * and drop those URLs from sitemap.xml without rewriting other lastmod values.
- */
-
 const fs = require('fs');
 const path = require('path');
 const { evaluatePublishGate } = require('./lib/publishGate');
 const { replaceRobotsMeta } = require('./lib/adsenseIndexability');
 const { isPortSeoRedirectSlug } = require('./lib/portSeoRedirects');
-const {
-  loadOverrides,
-  loadGuidesByAppPortId,
-  shipEligibleForIndexRestore,
-  portEligibleForIndexRestore,
-} = require('./lib/publishGateRestoreEligibility');
+const { buildRestoreContext, mayRestorePageToIndex } = require('./lib/publishGateRestoreEligibility');
 
 const BASE = 'https://seadays.app';
 
@@ -66,9 +56,7 @@ function addSitemapUrls(xml, urls) {
 
 function main() {
   const repoRoot = path.join(__dirname, '..');
-  const shipOverrides = loadOverrides(repoRoot, 'ships');
-  const portOverrides = loadOverrides(repoRoot, 'ports');
-  const guidesById = loadGuidesByAppPortId(repoRoot);
+  const ctx = buildRestoreContext(repoRoot);
   const pages = [...listPages(repoRoot, 'port'), ...listPages(repoRoot, 'ship')];
   const results = evaluatePublishGate(pages);
   const byFile = new Map(results.map((row) => [row.file, row]));
@@ -80,7 +68,8 @@ function main() {
 
   for (const page of pages) {
     const row = byFile.get(page.file);
-    const fail = row && row.issues.length > 0;
+    const gateIssues = row ? row.issues : ['missing'];
+    const fail = gateIssues.length > 0;
     if (fail) failing += 1;
     let html = page.html;
     const refresh = /http-equiv=["']refresh/i.test(html.slice(0, 2500));
@@ -89,28 +78,13 @@ function main() {
       fs.writeFileSync(page.file, html, 'utf8');
       downgraded += 1;
     } else if (
-      !fail &&
-      page.kind === 'port' &&
       isNoindex(html) &&
-      !refresh &&
-      !isPortSeoRedirectSlug(page.slug) &&
-      portEligibleForIndexRestore(page.slug, html, repoRoot, guidesById, portOverrides)
+      mayRestorePageToIndex(page, { ...ctx, gateIssues, html: page.html })
     ) {
       html = replaceRobotsMeta(html, 'index, follow');
       fs.writeFileSync(page.file, html, 'utf8');
       restored += 1;
-      restore.push(`${BASE}/ports/${page.slug}/`);
-    } else if (
-      !fail &&
-      page.kind === 'ship' &&
-      isNoindex(html) &&
-      !refresh &&
-      shipEligibleForIndexRestore(page.slug, shipOverrides)
-    ) {
-      html = replaceRobotsMeta(html, 'index, follow');
-      fs.writeFileSync(page.file, html, 'utf8');
-      restored += 1;
-      restore.push(`${BASE}/ships/${page.slug}/`);
+      restore.push(`${BASE}/${page.kind === 'ship' ? 'ships' : 'ports'}/${page.slug}/`);
     }
     if (isNoindex(html) || refresh) {
       drop.add(`${BASE}/${page.kind === 'ship' ? 'ships' : 'ports'}/${page.slug}/`);
