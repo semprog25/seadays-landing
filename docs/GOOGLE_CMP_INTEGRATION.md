@@ -58,3 +58,4 @@ npm run test-site-layout
 - `googlefc` injection requires the **AdSense tag** in head when flag is on (not account meta alone).
 - Revocation UI copy and TCF vendor list match SeaDays privacy policy (policy pages unchanged in this PR).
 - Local homepage browser tests must neutralize the canonical redirect to `https://seadays.app/` or they will read **production** CSP, not the served file (`scripts/test-csp-funding-choices-browser-local.js`).
+- **Meta CSP** on the four GitHub Pages root files must include **`frame-src`** for Funding Choices UI frames (same hosts as `_headers`); script/connect alone is not enough.

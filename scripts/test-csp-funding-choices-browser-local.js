@@ -104,9 +104,44 @@ async function runBrowserCheck() {
   assert.ok(snapshot.metaContent.includes('upgrade-insecure-requests'));
   assert.strictEqual(cspViolations.length, 0, cspViolations[0] || 'FC script CSP violation');
 
+  const iframeProbe = await page.evaluate(() => {
+    const violations = [];
+    document.addEventListener('securitypolicyviolation', (e) => {
+      violations.push({ eff: e.effectiveDirective, blocked: e.blockedURI });
+    });
+    return new Promise((resolve) => {
+      const fc = document.createElement('iframe');
+      fc.src = 'https://fundingchoicesmessages.google.com/';
+      fc.style.display = 'none';
+      const evil = document.createElement('iframe');
+      evil.src = 'https://evil.example/';
+      evil.style.display = 'none';
+      let done = 0;
+      const finish = () => {
+        done += 1;
+        if (done < 2) return;
+        resolve({ violations });
+      };
+      fc.onload = finish;
+      evil.onload = finish;
+      document.body.appendChild(fc);
+      document.body.appendChild(evil);
+      setTimeout(() => resolve({ violations, timedOut: true }), 3000);
+    });
+  });
+
+  const fcBlocked = iframeProbe.violations.some(
+    (v) => v.eff === 'frame-src' && v.blocked.includes('fundingchoicesmessages.google.com')
+  );
+  const evilBlocked = iframeProbe.violations.some(
+    (v) => v.eff === 'frame-src' && v.blocked.includes('evil.example')
+  );
+  assert.strictEqual(fcBlocked, false, 'Funding Choices iframe must not be frame-src blocked');
+  assert.strictEqual(evilBlocked, true, 'unrelated iframe origin must remain blocked');
+
   await browser.close();
   server.close();
-  console.log('PASS local browser enforces PR CSP and allows Funding Choices script load');
+  console.log('PASS local browser CSP allows FC frames and blocks unrelated iframe origins');
 }
 
 runBrowserCheck().catch((err) => {

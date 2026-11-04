@@ -36,9 +36,12 @@ test('meta CSP allows Funding Choices in connect-src', () => {
   assert.match(policy, /connect-src[^;]*fundingchoicesmessages\.google\.com/);
 });
 
-test('header CSP includes frame-src for Funding Choices UI', () => {
-  const policy = getContentSecurityPolicyDirectives();
-  assert.match(policy, /frame-src[^;]*fundingchoicesmessages\.google\.com/);
+test('meta and header CSP include frame-src for Funding Choices UI', () => {
+  const meta = getContentSecurityPolicyMetaDirectives();
+  const header = getContentSecurityPolicyDirectives();
+  assert.strictEqual(meta, header);
+  assert.match(meta, /frame-src[^;]*fundingchoicesmessages\.google\.com/);
+  assert.match(meta, /frame-src[^;]*googleads\.g\.doubleclick\.net/);
 });
 
 test('CSP does not add unsafe-eval or script-src https: wildcard', () => {

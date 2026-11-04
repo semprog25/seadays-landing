@@ -37,6 +37,13 @@ function buildBasePolicyParts() {
       'https://pagead2.googlesyndication.com',
       FUNDING_CHOICES_ORIGIN,
     ].join(' '),
+    [
+      'frame-src',
+      'https://googleads.g.doubleclick.net',
+      'https://tpc.googlesyndication.com',
+      'https://www.google.com',
+      FUNDING_CHOICES_ORIGIN,
+    ].join(' '),
     "font-src 'self'",
     "object-src 'none'",
     "base-uri 'self'",
@@ -49,26 +56,14 @@ function joinPolicyParts(parts) {
   return parts.join('; ');
 }
 
-/** Meta tag and page-embedded CSP (no frame-src; matches pre-PR shape + Funding Choices). */
+/** Meta tag CSP (GitHub Pages authoritative on four root pages). */
 function getContentSecurityPolicyMetaDirectives() {
   return joinPolicyParts(buildBasePolicyParts());
 }
 
-/** CDN _headers CSP includes frame-src for ads and Funding Choices UI. */
+/** CDN _headers template — same directive set as meta. */
 function getContentSecurityPolicyDirectives() {
-  const parts = buildBasePolicyParts();
-  parts.splice(
-    parts.indexOf("font-src 'self'") + 1,
-    0,
-    [
-      'frame-src',
-      'https://googleads.g.doubleclick.net',
-      'https://tpc.googlesyndication.com',
-      'https://www.google.com',
-      FUNDING_CHOICES_ORIGIN,
-    ].join(' ')
-  );
-  return joinPolicyParts(parts);
+  return joinPolicyParts(buildBasePolicyParts());
 }
 
 function getContentSecurityPolicyMetaHtml() {
