@@ -117,4 +117,12 @@ function main() {
   console.log(`${DRY_RUN ? 'dry-run ' : ''}rewrote download CTAs in ${changed} files`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  rewriteHtml,
+  trackingForRel,
+  contextualBlock,
+};
