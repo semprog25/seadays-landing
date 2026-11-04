@@ -122,6 +122,29 @@ function loadRegionImageManifest(repoRoot) {
   }
 }
 
+/** When a port has no hero/og image, reuse curated region photography from the directory manifest. */
+function applyDirectoryImageFromRegionManifest(port, regionImages) {
+  const current = String(port.directoryImageUrl || port.image_url || '').trim();
+  if (!isDirectoryPlaceholderImage(current)) return current;
+  const images = regionImages && typeof regionImages === 'object' ? regionImages : {};
+  for (const def of PRIORITY_REGION_DEFS) {
+    if (!def.regions.includes(port.region)) continue;
+    const meta = images[def.key];
+    const candidate = String(meta?.imageUrl || '').trim();
+    if (!isDirectoryPlaceholderImage(candidate)) {
+      port.directoryImageUrl = candidate;
+      return candidate;
+    }
+  }
+  const direct = images[port.region];
+  const candidate = String(direct?.imageUrl || '').trim();
+  if (!isDirectoryPlaceholderImage(candidate)) {
+    port.directoryImageUrl = candidate;
+    return candidate;
+  }
+  return current;
+}
+
 function buildPortCardImageHtml(port) {
   const url = String(port.directoryImageUrl || port.image_url || '').trim();
   const alt = `${port.displayName}, ${port.country}`;
@@ -514,7 +537,7 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
 .featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.guide-card:hover { border-color: rgba(6,182,212,0.85); transform: translateY(-2px); }
+.guide-card:hover { border-color: rgba(255,0,51,0.75); transform: translateY(-2px); }
 .guide-card-image { width: 100%; height: 150px; min-height: 150px; object-fit: cover; object-position: center; background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(255,255,255,0.06)); display: block; }
 .guide-card-body { padding: 12px 14px 14px; }
 .guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
@@ -744,6 +767,7 @@ module.exports = {
   buildPortsIndexHtml,
   resolveDirectoryPorts,
   loadRegionImageManifest,
+  applyDirectoryImageFromRegionManifest,
   DIRECTORY_ALIAS_TO_CANONICAL,
   CANONICAL_DISPLAY,
   PRIORITY_REGION_DEFS,

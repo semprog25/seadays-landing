@@ -14,7 +14,12 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 require('dotenv').config({ path: path.join(__dirname, '..', '..', 'Seadays-main', '.env') });
 
 const fs = require('fs');
-const { buildPortsIndexHtml, resolveDirectoryPorts, loadRegionImageManifest } = require('./lib/portsDirectoryIndex');
+const {
+  buildPortsIndexHtml,
+  resolveDirectoryPorts,
+  loadRegionImageManifest,
+  applyDirectoryImageFromRegionManifest,
+} = require('./lib/portsDirectoryIndex');
 const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
 const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const {
@@ -168,6 +173,8 @@ function main() {
     publicGuides.byAppPortId || {}
   );
 
+  const regionImages = loadRegionImageManifest(repoRoot);
+
   for (const port of seoPorts) {
     const appPortId = slugToAppPortId[port.slug] || '';
     const portGuide = (appPortId && publicGuides.byAppPortId[appPortId]) || null;
@@ -175,6 +182,7 @@ function main() {
       port.description = portGuide.portInfo.description;
     }
     port.directoryImageUrl = resolveDirectoryImageUrl(port, portGuide, repoRoot);
+    applyDirectoryImageFromRegionManifest(port, regionImages);
     const affiliate = resolvePortAffiliateCta(
       { ...port, appPortId },
       {
@@ -187,8 +195,6 @@ function main() {
     );
     port.hasBookableExperiences = Boolean(affiliate.show);
   }
-
-  const regionImages = loadRegionImageManifest(repoRoot);
 
   const html = buildPortsIndexHtml({
     ports: seoPorts,

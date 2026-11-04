@@ -60,6 +60,32 @@ assert.ok(
 );
 assert.ok(html.includes('La Paz is the capital of Baja California Sur'), 'La Paz blurb on directory');
 
+const skagenPage = fs.readFileSync(path.join(root, 'ports/skagen-denmark/index.html'), 'utf8');
+assert.ok(!skagenPage.includes('Fossil Group'), 'Skagen guide: no watch brand bleed');
+assert.ok(
+  skagenPage.includes('northernmost town') || skagenPage.includes('northernmost town'),
+  'Skagen guide: Danish town copy'
+);
+const laPazPage = fs.readFileSync(path.join(root, 'ports/la-paz-mexico/index.html'), 'utf8');
+assert.ok(!laPazPage.includes('capital of Bolivia'), 'La Paz guide: no Bolivia bleed');
+assert.ok(laPazPage.includes('Baja California Sur'), 'La Paz guide: Baja copy');
+
+let featuredWithImg = 0;
+for (const slug of DEFAULT_FEATURED_SLUGS) {
+  const needle = `data-item="${slug}"`;
+  const idx = html.indexOf(needle);
+  assert.ok(idx !== -1, `featured slug in grid: ${slug}`);
+  const slice = html.slice(idx, idx + 1400);
+  if (slice.includes('<img class="directory-card-image')) featuredWithImg += 1;
+}
+assert.strictEqual(featuredWithImg, DEFAULT_FEATURED_SLUGS.length, 'featured ports with real images');
+
+const imgCardCount = (html.match(/<img class="directory-card-image/g) || []).length;
+const placeholderCount = (html.match(/directory-card-image--placeholder/g) || []).length;
+console.log(
+  `[coverage] directory img tags=${imgCardCount} placeholders=${placeholderCount} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
+);
+
 assert.strictEqual(DIRECTORY_PAGE_SIZE, 24);
 assert.strictEqual(DIRECTORY_FEATURED_SIZE, 12);
 
