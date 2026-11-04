@@ -57,6 +57,15 @@ function firstNumber(text) {
   return m ? Number(m[0]) : null;
 }
 
+/** Opening tags for legacy <details> or PR57+ photo <article> terminal cards (not figures). */
+const TERMINAL_CARD_OPEN_RE =
+  /<(?:details|article)\b[^>]*\bclass="[^"]*\bpg-terminal-card(?:[\s"]|--)/gi;
+
+function countTerminalCardsInGettingThereSection(sectionHtml) {
+  if (!sectionHtml) return 0;
+  return (String(sectionHtml).match(TERMINAL_CARD_OPEN_RE) || []).length;
+}
+
 function collectSentenceKeys(html) {
   const keys = [];
   const chunks = proseRoot(html).match(/<(p|li)\b[^>]*>[\s\S]*?<\/\1>/gi) || [];
@@ -110,7 +119,7 @@ function localIssues(html, kind) {
     // Unnamed port leads are not a holdback. The 17 Oct 2026 page audit
     // decides which ports to noindex; the rest stay up until they are rewritten.
     const getting = html.match(/<section\b[^>]*id="getting-there"[\s\S]*?<\/section>/i);
-    const cards = getting ? (getting[0].match(/<details\b/g) || []).length : 0;
+    const cards = getting ? countTerminalCardsInGettingThereSection(getting[0]) : 0;
     const terminalFact = firstNumber(factValue(html, 'Terminals'));
     const berthFact = firstNumber(factValue(html, 'Berths'));
     if (terminalFact != null && terminalFact !== cards) issues.push('terminal count');
@@ -160,4 +169,5 @@ module.exports = {
   evaluatePublishGate,
   localIssues,
   collectSentenceKeys,
+  countTerminalCardsInGettingThereSection,
 };

@@ -53,6 +53,14 @@ function isExplicitlyApprovedForIndexRestore(kind, slug, manifest) {
 function loadOct27AuditClassMap(repoRoot) {
   const candidates = [
     path.join(repoRoot, 'qa-evidence/adsense-indexing-dry-run-2026-10-27/port-ship-classification.csv'),
+    path.join(
+      repoRoot,
+      'qa-evidence/adsense-indexing-dry-run-2026-10-28-marigot-corrected/port-ship-classification.csv'
+    ),
+    path.join(
+      repoRoot,
+      'qa-evidence/adsense-indexing-dry-run-2026-10-28-marigot-corrected/inputs/oct28-uncorrected-baseline.csv'
+    ),
     path.join(repoRoot, '..', '..', 'qa-evidence/adsense-indexing-dry-run-2026-10-27/port-ship-classification.csv'),
   ];
   let csvPath = '';

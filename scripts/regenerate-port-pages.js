@@ -221,6 +221,11 @@ function patchShipIndexCard(repoRoot, ship) {
 
 function main() {
   const repoRoot = path.join(__dirname, '..');
+  const onlyPortSlugs = String(process.env.SEADAYS_REGEN_PORT_SLUGS || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const portSlugFilter = onlyPortSlugs.length ? new Set(onlyPortSlugs) : null;
   if (!process.env.SEADAYS_APP_ROOT) {
     process.env.SEADAYS_APP_ROOT = path.join(repoRoot, '..', 'Seadays-main');
   }
@@ -303,6 +308,7 @@ function main() {
   let withAffiliate = 0;
 
   for (const port of seoPorts) {
+    if (portSlugFilter && !portSlugFilter.has(port.slug)) continue;
     // Browse-hidden aliases: publish as noindex redirects (batch-written below).
     if (getAliasRedirectTarget(port.slug) || isPortSplitSlug(port.slug)) continue;
     const dir = path.join(repoRoot, 'ports', port.slug);
@@ -364,6 +370,13 @@ function main() {
       html = mergePublishedPortHtmlPreservation(html, fs.readFileSync(outPath, 'utf8'), { affiliate });
     }
     fs.writeFileSync(outPath, html, 'utf8');
+  }
+
+  if (portSlugFilter) {
+    console.log(
+      `[regenerate-port-pages] slug-filter complete: ${[...portSlugFilter].join(', ')} (guides=${withGuide})`
+    );
+    return;
   }
 
   const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);

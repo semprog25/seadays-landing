@@ -11,6 +11,9 @@ const {
   getSiteFooterHtml,
   getSiteShellCssLinkHtml,
 } = require('./siteShell');
+const fs = require('fs');
+const path = require('path');
+const buildPortsDirectoryClientScriptSource = require('./portsDirectoryIndex.client');
 
 function escapeHtml(s) {
   return String(s == null ? '' : s)
@@ -83,6 +86,71 @@ const PRIORITY_REGION_DEFS = [
   { key: 'South America', label: 'South America', regions: ['South America'] },
   { key: 'Middle East', label: 'Middle East', regions: ['Middle East'] },
 ];
+
+/** Editorial default set shown before region/search/browse-all (12 ports). */
+const DEFAULT_FEATURED_SLUGS = [
+  'barcelona-spain',
+  'miami-fl-united-states',
+  'cozumel-mexico',
+  'santorini-greece',
+  'nassau-bahamas',
+  'juneau-ak-united-states',
+  'hamburg-germany',
+  'sydney-australia',
+  'dubrovnik-croatia',
+  'san-juan-puerto-rico',
+  'southampton-united-kingdom',
+  'singapore-singapore',
+];
+
+const DIRECTORY_PAGE_SIZE = 24;
+const DIRECTORY_FEATURED_SIZE = 12;
+
+function isDirectoryPlaceholderImage(url) {
+  const s = String(url || '').trim();
+  return !s || s.includes('seadaysfav.png');
+}
+
+function loadRegionImageManifest(repoRoot) {
+  const manifestPath = path.join(repoRoot, 'data', 'ports-directory-region-images.json');
+  if (!fs.existsSync(manifestPath)) return {};
+  try {
+    const raw = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    return raw.regions && typeof raw.regions === 'object' ? raw.regions : {};
+  } catch {
+    return {};
+  }
+}
+
+function buildPortCardImageHtml(port) {
+  const url = String(port.directoryImageUrl || port.image_url || '').trim();
+  const alt = `${port.displayName}, ${port.country}`;
+  if (isDirectoryPlaceholderImage(url)) {
+    return `<span class="directory-card-image directory-card-image--placeholder" role="img" aria-label="${escapeHtml(alt)}"></span>`;
+  }
+  return (
+    `<img class="directory-card-image img-loading" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
+    `width="400" height="225" loading="lazy" decoding="async" data-img-source="directory" ` +
+    `onload="this.classList.remove('img-loading')">`
+  );
+}
+
+function buildNoScriptCrawlLinksHtml(directoryPorts) {
+  const links = directoryPorts
+    .slice()
+    .sort((a, b) => compareLabelsAz(a.displayName, b.displayName))
+    .map(
+      (port) =>
+        `<li><a href="/ports/${escapeHtml(port.slug)}/">${escapeHtml(port.displayName)}${
+          port.country ? `, ${escapeHtml(port.country)}` : ''
+        }</a></li>`
+    )
+    .join('\n');
+  return (
+    `<noscript><section class="directory-crawl-fallback" aria-label="All cruise port guides">` +
+    `<h2>All port guides</h2><ul class="directory-crawl-list">${links}</ul></section></noscript>`
+  );
+}
 
 function formatDirectoryRating(rating) {
   const n = typeof rating === 'number' ? rating : Number(String(rating || '').trim());
@@ -228,7 +296,8 @@ function compareLabelsAz(a, b) {
   return String(a || '').localeCompare(String(b || ''), undefined, { sensitivity: 'base' });
 }
 
-function buildRegionBrowseHtml(directoryPorts) {
+function buildRegionBrowseHtml(directoryPorts, regionImages) {
+  const images = regionImages && typeof regionImages === 'object' ? regionImages : {};
   const presentRegions = new Set(directoryPorts.map((p) => p.region));
   const priorityKeys = new Set();
   const cards = [];
@@ -240,12 +309,21 @@ function buildRegionBrowseHtml(directoryPorts) {
     const count = countPortsForRegions(directoryPorts, available);
     if (!count) continue;
     available.forEach((r) => priorityKeys.add(r));
+    const imgMeta = images[def.key] || {};
+    const imgUrl = String(imgMeta.imageUrl || '').trim();
+    const imgAlt = String(imgMeta.alt || def.label).trim();
+    const imgHtml = imgUrl
+      ? `<span class="region-card-media"><img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="" loading="lazy" decoding="async" width="320" height="180"></span>`
+      : `<span class="region-card-image region-card-image--placeholder" aria-hidden="true"></span>`;
     cards.push(
       `<button type="button" class="region-card" data-region-key="${escapeHtml(def.key)}" ` +
-        `data-regions="${escapeHtml(available.join('|'))}" aria-pressed="false">` +
+        `data-regions="${escapeHtml(available.join('|'))}" aria-pressed="false" ` +
+        `aria-label="${escapeHtml(def.label)}, ${count} port${count === 1 ? '' : 's'}">` +
+        imgHtml +
+        `<span class="region-card-body">` +
         `<span class="region-card-name">${escapeHtml(def.label)}</span>` +
         `<span class="region-card-count">${count} port${count === 1 ? '' : 's'}</span>` +
-        `</button>`
+        `</span></button>`
     );
   }
 
@@ -288,9 +366,8 @@ function buildPortCardsHtml(directoryPorts) {
         fr.display && Number.isFinite(reviewCountNum) && reviewCountNum > 0
           ? `<span class="rating-pill">${escapeHtml(fr.display)} ★ · ${escapeHtml(String(Math.round(reviewCountNum)))} review${reviewCountNum === 1 ? '' : 's'}</span>`
           : '';
-      const blurbHtml = port.shortBlurb
-        ? `<span class="seo-grid-card-desc">${escapeHtml(port.shortBlurb)}</span>`
-        : '';
+      const featured = DEFAULT_FEATURED_SLUGS.includes(port.slug) ? '1' : '0';
+      const blurbHtml = '';
       const bookableHtml = port.hasBookableExperiences
         ? `<span class="seo-grid-card-bookable">Bookable experiences available</span>`
         : '';
@@ -300,6 +377,7 @@ function buildPortCardsHtml(directoryPorts) {
         typeof port.reviewCount === 'number' && Number.isFinite(port.reviewCount)
           ? String(port.reviewCount)
           : '0';
+      const imageHtml = buildPortCardImageHtml(port);
       return (
         `<a href="/ports/${escapeHtml(port.slug)}/" class="seo-grid-card directory-card" ` +
         `data-group="${escapeHtml(port.region)}" data-item="${escapeHtml(port.slug)}" ` +
@@ -308,7 +386,10 @@ function buildPortCardsHtml(directoryPorts) {
         `data-region="${escapeHtml(port.region)}" ` +
         `data-aliases="${escapeHtml(port.searchAliases)}" ` +
         `data-bookable="${port.hasBookableExperiences ? '1' : '0'}" ` +
+        `data-featured="${featured}" ` +
         `data-rating="${escapeHtml(ratingVal)}" data-reviews="${escapeHtml(reviewCount)}">` +
+        imageHtml +
+        `<span class="directory-card-body">` +
         `<span class="seo-grid-card-title">${escapeHtml(port.displayName)}</span>` +
         `<span class="seo-grid-card-meta">${escapeHtml(port.country)}${
           port.region ? ` · ${escapeHtml(port.region)}` : ''
@@ -318,7 +399,7 @@ function buildPortCardsHtml(directoryPorts) {
         `<span class="seo-grid-card-bottom">` +
         ratingHtml +
         `<span class="seo-grid-card-hint">Open Port Guide →</span>` +
-        `</span>` +
+        `</span></span>` +
         `</a>`
       );
     })
@@ -331,30 +412,52 @@ function buildDirectoryHeaderNav() {
 
 const PORTS_DIRECTORY_EXTRA_CSS = `
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.directory-scroll-target { scroll-margin-top: 92px; }
+body.ports-directory-v2 { overflow-x: clip; scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); scrollbar-width: thin; }
+body.ports-directory-v2::-webkit-scrollbar { width: 10px; height: 10px; }
+body.ports-directory-v2::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); }
+body.ports-directory-v2::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; border: 2px solid rgba(10, 10, 10, 0.85); }
+body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.72); }
+@media (prefers-reduced-motion: reduce) { body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.5); } }
+.search-results { scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); scrollbar-width: thin; }
+.search-results::-webkit-scrollbar { width: 8px; }
+.search-results::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); border-radius: 8px; }
+.search-results::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; }
+.search-results::-webkit-scrollbar-thumb:hover { background: rgba(255, 0, 51, 0.72); }
 .seo-prose { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
 .seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
 .seo-prose p { margin-bottom: 18px; }
 .seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
 .seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 1200px; margin: 0 auto; padding: 140px 20px 36px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
-.directory-hero h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.06; margin-bottom: 14px; }
-.directory-hero p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; }
-.directory-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
-.directory-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
+.directory-hero { max-width: 720px; margin: 0 auto; padding: 100px 20px 0; text-align: center; }
+.directory-hero--compact { padding-bottom: 0; }
+.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 10px; color: #fff; }
+.directory-hero p { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.5; margin: 0 auto; max-width: 34em; }
+.directory-section--search { margin-top: 0; padding: 22px 20px 6px; }
+.directory-search-wrap--primary { max-width: 620px; margin: 0 auto; }
+.directory-search--primary { padding: 17px 20px 17px 44px; font-size: 17px; border-radius: 16px; border: 1px solid rgba(255,0,51,0.42); background: rgba(8,8,10,0.92); box-shadow: 0 0 0 1px rgba(255,0,51,0.18), 0 12px 40px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.04); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23FF0033' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 14px 50%; }
+.directory-search--primary:hover { border-color: rgba(255,0,51,0.58); }
+.directory-search--primary:focus { outline: none; border-color: rgba(255,0,51,0.82); box-shadow: 0 0 0 2px rgba(255,0,51,0.35), 0 12px 40px rgba(0,0,0,0.45); }
+.directory-section--search .directory-search::placeholder { color: rgba(255,255,255,0.42); font-weight: 600; }
+.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; cursor: pointer; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
 .directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
+.directory-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .directory-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
-.directory-hero-art { border-radius: 22px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,0.4); position: relative; }
-.directory-hero-art::after { content: ''; position: absolute; inset: -80px -120px auto auto; width: 240px; height: 240px; background: radial-gradient(circle at center, rgba(6,182,212,0.32), rgba(6,182,212,0)); filter: blur(4px); pointer-events: none; }
-.directory-hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+.directory-btn-outline { background: rgba(255,255,255,0.03); }
 .directory-controls { max-width: 1200px; margin: 0 auto; padding: 0 20px 18px; }
-.directory-section { max-width: 1200px; margin: 0 auto 22px; padding: 0 20px; }
+.directory-section { max-width: 1200px; margin: 0 auto 24px; padding: 0 20px; }
+.directory-section--browse { margin-top: 8px; }
+.filter-panel { border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); padding: 14px 16px 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
+.directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 16px 18px; color: rgba(255,255,255,0.62); font-size: 15px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.14); text-align: center; background: rgba(255,255,255,0.02); }
 .directory-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
 .directory-section-head h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 0; }
+.directory-section-head--ports { max-width: 1200px; margin: 8px auto 10px; padding: 0 20px; }
+.directory-section-head--ports h2 { font-size: 20px; letter-spacing: -0.03em; }
 .directory-section-note { font-size: 13px; color: rgba(255,255,255,0.55); }
 .directory-search-wrap { position: relative; max-width: 640px; width: 100%; margin: 0 auto 8px; }
 .directory-search { width: 100%; max-width: none; margin: 0; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: #fff; font-size: 16px; font-weight: 600; }
 .directory-search::placeholder { color: rgba(255,255,255,0.45); font-weight: 600; }
-.directory-search:focus { outline: none; border-color: rgba(6,182,212,0.7); box-shadow: 0 0 0 1px rgba(6,182,212,0.35); }
+.directory-search:focus { outline: none; border-color: rgba(255,0,51,0.65); box-shadow: 0 0 0 1px rgba(255,0,51,0.35); }
 .search-results { position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 40; max-height: 340px; overflow: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: rgba(12,12,12,0.98); box-shadow: 0 16px 40px rgba(0,0,0,0.45); display: none; }
 .search-results.is-open { display: block; }
 .search-result-item { display: block; width: 100%; text-align: left; padding: 12px 14px; border: 0; border-bottom: 1px solid rgba(255,255,255,0.06); background: transparent; color: #fff; cursor: pointer; text-decoration: none; }
@@ -363,39 +466,69 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .search-result-name { display: block; font-weight: 800; font-size: 15px; }
 .search-result-meta { display: block; margin-top: 2px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .search-empty { padding: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
-.region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
-.region-card { appearance: none; text-align: left; padding: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, background 0.2s; }
-.region-card:hover { border-color: rgba(6,182,212,0.55); transform: translateY(-1px); }
-.region-card[aria-pressed="true"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
-.region-card-name { display: block; font-weight: 800; font-size: 15px; line-height: 1.25; }
+.region-grid-wrap { position: relative; max-width: 100%; }
+.region-scroll-hint { font-size: 12px; color: rgba(255,255,255,0.5); margin: 0 0 10px; font-weight: 600; }
+.region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; scrollbar-width: none; -ms-overflow-style: none; }
+.region-grid::-webkit-scrollbar { display: none; height: 0; }
+.region-card { appearance: none; text-align: left; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,20,0.85); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
+.region-card:hover { border-color: rgba(255,0,51,0.55); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,0,51,0.15); }
+.region-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.1); box-shadow: 0 0 0 1px rgba(255,0,51,0.35); }
+.region-card-media { position: relative; display: block; overflow: hidden; }
+.region-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.06) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
+.region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); transform: scale(1); transition: transform 0.35s ease; }
+.region-card:hover .region-card-image { transform: scale(1.03); }
+.region-card-image--placeholder { min-height: 100px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
+.region-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
+.region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; word-break: normal; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .region-more-wrap { margin-top: 14px; }
-.region-more-toggle { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; }
-.region-more-toggle:hover { border-color: rgba(6,182,212,0.55); }
+.region-more-toggle { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 44px; }
+.region-more-toggle:hover { border-color: rgba(255,0,51,0.55); }
 .region-more-panel { display: none; margin-top: 12px; }
 .region-more-panel.is-open { display: block; }
-.region-more-scroll { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+.region-more-scroll { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+.region-more-scroll::-webkit-scrollbar { display: none; height: 0; }
 .region-more-scroll .pill { flex: 0 0 auto; }
 .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
-.country-card { appearance: none; text-align: left; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-.country-card:hover { border-color: rgba(6,182,212,0.55); }
-.country-card[aria-pressed="true"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
+.country-card { appearance: none; text-align: left; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); color: #fff; cursor: pointer; transition: border-color 0.2s, background 0.2s; min-height: 44px; }
+.country-card:hover { border-color: rgba(255,0,51,0.55); }
+.country-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
 .country-card-name { display: block; font-weight: 800; font-size: 16px; line-height: 1.2; }
 .country-card-count { display: block; margin-top: 4px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .country-empty { font-size: 14px; color: rgba(255,255,255,0.55); padding: 8px 0; }
-.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 14px; }
-.filter-select { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.92); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 42px; }
-.filter-select:focus { outline: 2px solid rgba(6,182,212,0.7); outline-offset: 2px; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 10px; }
+.directory-btn-reset { border-color: rgba(255,0,51,0.5); background: rgba(255,0,51,0.08); }
+.directory-btn-reset:hover { border-color: rgba(255,0,51,0.75); background: rgba(255,0,51,0.14); }
+@media (min-width: 901px) {
+  #browseAllPorts { margin-left: auto; }
+}
+.filter-select { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.92); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; min-height: 44px; }
+.filter-select:focus { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .filter-select option { color: #111; }
 .results-meta { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 12px; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; }
-.pill:hover { border-color: rgba(6,182,212,0.55); }
-.pill[aria-pressed="true"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.16); }
-.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
-.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
-.seo-grid-card-title { font-weight: 800; font-size: 18px; letter-spacing: -0.2px; }
+.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; min-height: 44px; }
+.pill:hover { border-color: rgba(255,0,51,0.55); }
+.pill[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.12); }
+.region-card:focus-visible, .country-card:focus-visible, .pill:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
+.seo-grid-card:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 3px; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 18px; padding: 0 20px 28px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 0; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.09); background: rgba(16,16,18,0.88); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; box-shadow: 0 6px 28px rgba(0,0,0,0.28); }
+.seo-grid-card:hover { border-color: rgba(255,0,51,0.65); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,0,51,0.12); }
+.directory-card-body { display: flex; flex-direction: column; gap: 6px; padding: 15px 16px 16px; }
+.directory-card-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(20,20,20,0.9)); }
+.directory-card-image--placeholder { min-height: 148px; display: block; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; }
+.directory-card-image--placeholder::after { content: ''; position: absolute; left: 50%; top: 50%; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); }
+.directory-card-image--placeholder::before { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -12px 0 0 -7px; border: 2px solid rgba(255,255,255,0.22); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); z-index: 1; }
+.directory-card.is-filter-hidden, .directory-card.is-page-hidden { display: none !important; }
+.directory-load-more-wrap { max-width: 1200px; margin: 0 auto 48px; padding: 0 20px; text-align: center; }
+.directory-load-more { min-width: min(100%, 280px); }
+.directory-crawl-fallback { max-width: 900px; margin: 0 auto 48px; padding: 0 20px; color: rgba(255,255,255,0.78); }
+.directory-crawl-list { columns: 2; column-gap: 24px; list-style: none; padding: 0; margin: 12px 0 0; }
+.directory-crawl-list li { break-inside: avoid; margin-bottom: 6px; }
+.directory-crawl-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+.directory-crawl-list a:hover { text-decoration: underline; }
+.seo-grid-card-title { font-weight: 800; font-size: 18px; letter-spacing: -0.2px; line-height: 1.25; }
 .seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
 .seo-grid-card-meta { font-size: 13px; color: rgba(255,255,255,0.55); }
 .seo-grid-card-desc { font-size: 13px; line-height: 1.45; color: rgba(255,255,255,0.68); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -411,399 +544,40 @@ const PORTS_DIRECTORY_EXTRA_CSS = `
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
 .featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.guide-card:hover { border-color: rgba(6,182,212,0.85); transform: translateY(-2px); }
+.guide-card:hover { border-color: rgba(255,0,51,0.75); transform: translateY(-2px); }
 .guide-card-image { width: 100%; height: 150px; min-height: 150px; object-fit: cover; object-position: center; background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(255,255,255,0.06)); display: block; }
 .guide-card-body { padding: 12px 14px 14px; }
 .guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
 .guide-card-meta { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .app-cta { max-width: 1200px; margin: 0 auto 26px; padding: 0 20px; }
-.app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(6,182,212,0.06); }
+.app-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; border-radius: 18px; border: 1px solid rgba(255,0,51,0.22); background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(18,18,20,0.92)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
 .app-cta strong { display: block; font-size: 15px; }
 .app-cta span { display: block; font-size: 13px; color: rgba(255,255,255,0.68); margin-top: 2px; }
 .app-cta a { flex: 0 0 auto; }
 .header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
 @media (max-width: 900px) {
-  .directory-hero { grid-template-columns: 1fr; padding-top: 120px; }
-  .directory-hero h1 { font-size: 38px; }
+  .directory-hero { padding: 88px 16px 0; }
+  .directory-hero h1 { font-size: 1.75rem; }
+  .directory-section--search { padding: 18px 16px 4px; }
+  .seo-directory-grid { grid-template-columns: 1fr; gap: 14px; padding: 0 16px 24px; }
+  .directory-section, .directory-controls, .directory-section-head--ports { padding-left: 16px; padding-right: 16px; }
   .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
-  .region-grid { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
-  .region-card { flex: 0 0 min(78vw, 240px); }
+  .region-scroll-hint { display: block; }
+  .region-grid-wrap::after { content: ''; position: absolute; right: 0; top: 28px; bottom: 8px; width: 28px; pointer-events: none; background: linear-gradient(to right, rgba(10,10,10,0), rgba(10,10,10,0.92)); }
+  .region-grid { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
+  .region-card { flex: 0 0 min(85vw, 272px); max-width: 272px; }
   .country-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-select { width: 100%; }
 }
+@media (min-width: 901px) {
+  .region-scroll-hint { display: none; }
+}
 `;
 
 function buildPortsDirectoryClientScript() {
-  return `
-  (function(){
-    var search = document.getElementById('portSearch');
-    var searchResults = document.getElementById('portSearchResults');
-    var regionBrowse = document.getElementById('regionBrowse');
-    var regionMoreToggle = document.getElementById('regionMoreToggle');
-    var regionMorePanel = document.getElementById('regionMorePanel');
-    var countryBrowse = document.getElementById('countryBrowse');
-    var countryHeading = document.getElementById('countryHeading');
-    var countryEmpty = document.getElementById('countryEmpty');
-    var grid = document.getElementById('directoryGrid');
-    var resultsMeta = document.getElementById('resultsMeta');
-    var filterRegion = document.getElementById('filterRegion');
-    var filterCountry = document.getElementById('filterCountry');
-    var filterBookable = document.getElementById('filterBookable');
-    var filterSort = document.getElementById('filterSort');
-    if(!grid) return;
-
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'));
-    var state = {
-      regions: null,
-      country: '__all__',
-      bookable: false,
-      sort: 'name',
-      query: ''
-    };
-
-    function norm(s){
-      return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-    }
-    function setPressed(container, attr, activeValue){
-      if(!container) return;
-      Array.prototype.slice.call(container.querySelectorAll('[' + attr + ']')).forEach(function(btn){
-        var v = btn.getAttribute(attr);
-        btn.setAttribute('aria-pressed', String(v === activeValue));
-      });
-    }
-    function activeRegionKey(){
-      var pressed = document.querySelector('.region-card[aria-pressed="true"], .region-more-pill[aria-pressed="true"]');
-      return pressed ? pressed.getAttribute('data-region-key') : '__all__';
-    }
-    function parseRegionsAttr(el){
-      if(!el) return null;
-      var raw = el.getAttribute('data-regions') || '';
-      if(!raw) return null;
-      return raw.split('|').map(function(s){ return s.trim(); }).filter(Boolean);
-    }
-    function cardMatchesRegions(card, regions){
-      if(!regions || !regions.length) return true;
-      var region = card.getAttribute('data-region') || card.getAttribute('data-group') || '';
-      return regions.indexOf(region) !== -1;
-    }
-    function cardMatchesQuery(card, q){
-      if(!q) return true;
-      var name = card.getAttribute('data-name') || '';
-      var country = card.getAttribute('data-country') || '';
-      var region = norm(card.getAttribute('data-region') || card.getAttribute('data-group') || '');
-      var aliases = card.getAttribute('data-aliases') || '';
-      var item = card.getAttribute('data-item') || '';
-      var title = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-      return name.indexOf(q) !== -1
-        || country.indexOf(q) !== -1
-        || region.indexOf(q) !== -1
-        || aliases.indexOf(q) !== -1
-        || title.indexOf(q) !== -1
-        || item.indexOf(q) !== -1;
-    }
-    function visiblePool(){
-      var q = state.query;
-      return cards.filter(function(card){
-        if(state.bookable && card.getAttribute('data-bookable') !== '1') return false;
-        if(q) return cardMatchesQuery(card, q);
-        if(!cardMatchesRegions(card, state.regions)) return false;
-        if(state.country && state.country !== '__all__'){
-          var c = card.getAttribute('data-country') || '';
-          if(c !== state.country) return false;
-        }
-        return true;
-      });
-    }
-    function sortCards(list){
-      var mode = state.sort || 'name';
-      return list.slice().sort(function(a, b){
-        if(mode === 'name'){
-          var na = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          var nb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          return na.localeCompare(nb);
-        }
-        if(mode === 'country'){
-          var ca = a.getAttribute('data-country') || '';
-          var cb = b.getAttribute('data-country') || '';
-          if(ca !== cb) return ca.localeCompare(cb);
-          var ta = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          var tb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-          return ta.localeCompare(tb);
-        }
-        var ra = Number(a.getAttribute('data-rating') || 0);
-        var rb = Number(b.getAttribute('data-rating') || 0);
-        if(rb !== ra) return rb - ra;
-        var va = Number(a.getAttribute('data-reviews') || 0);
-        var vb = Number(b.getAttribute('data-reviews') || 0);
-        if(vb !== va) return vb - va;
-        var pa = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-        var pb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
-        return pa.localeCompare(pb);
-      });
-    }
-    function rebuildCountryOptions(poolForCountries){
-      var hasRegion = !!(state.regions && state.regions.length);
-      var showCountries = hasRegion || !!state.query;
-      var counts = {};
-      if(showCountries){
-        poolForCountries.forEach(function(card){
-          var c = card.getAttribute('data-country') || '';
-          var labelEl = card.querySelector('.seo-grid-card-meta');
-          var label = '';
-          if(labelEl){
-            var parts = (labelEl.textContent || '').split('·');
-            label = (parts[0] || '').trim();
-          }
-          if(!c) return;
-          if(!counts[c]) counts[c] = { key: c, label: label || c, count: 0 };
-          counts[c].count += 1;
-          if(label) counts[c].label = label;
-        });
-      }
-      var entries = Object.keys(counts).map(function(k){ return counts[k]; })
-        .sort(function(a, b){ return a.label.localeCompare(b.label, undefined, { sensitivity: 'base' }); });
-
-      if(countryBrowse){
-        countryBrowse.innerHTML = '';
-        if(!showCountries){
-          if(countryEmpty){
-            countryEmpty.style.display = 'block';
-            countryEmpty.textContent = 'Select a region to see its countries, or search above.';
-          }
-        } else if(!entries.length){
-          if(countryEmpty){
-            countryEmpty.style.display = 'block';
-            countryEmpty.textContent = 'No countries match the current filters.';
-          }
-        } else {
-          if(countryEmpty) countryEmpty.style.display = 'none';
-          var allBtn = document.createElement('button');
-          allBtn.type = 'button';
-          allBtn.className = 'country-card';
-          allBtn.setAttribute('data-country', '__all__');
-          allBtn.setAttribute('aria-pressed', state.country === '__all__' ? 'true' : 'false');
-          allBtn.innerHTML = '<span class="country-card-name">All countries</span><span class="country-card-count">' +
-            poolForCountries.length + ' port' + (poolForCountries.length === 1 ? '' : 's') + '</span>';
-          countryBrowse.appendChild(allBtn);
-          entries.forEach(function(entry){
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'country-card';
-            b.setAttribute('data-country', entry.key);
-            b.setAttribute('aria-pressed', state.country === entry.key ? 'true' : 'false');
-            b.innerHTML = '<span class="country-card-name">' + entry.label + '</span>' +
-              '<span class="country-card-count">' + entry.count + ' port' + (entry.count === 1 ? '' : 's') + '</span>';
-            countryBrowse.appendChild(b);
-          });
-        }
-      }
-
-      if(filterCountry){
-        var previous = filterCountry.value;
-        filterCountry.innerHTML = '<option value="__all__">All Countries</option>';
-        entries.forEach(function(entry){
-          var opt = document.createElement('option');
-          opt.value = entry.key;
-          opt.textContent = entry.label + ' (' + entry.count + ')';
-          filterCountry.appendChild(opt);
-        });
-        var still = entries.some(function(e){ return e.key === previous; });
-        filterCountry.value = still ? previous : '__all__';
-        if(!still) state.country = '__all__';
-      }
-
-      if(countryHeading){
-        var regionLabel = 'Select a region';
-        var pressed = document.querySelector('.region-card[aria-pressed="true"], .region-more-pill[aria-pressed="true"]');
-        if(pressed){
-          var nameEl = pressed.querySelector('.region-card-name');
-          regionLabel = nameEl ? nameEl.textContent.trim() : (pressed.textContent || '').split('·')[0].trim();
-        }
-        countryHeading.textContent = state.query ? 'Countries matching search' : regionLabel;
-      }
-    }
-    function apply(){
-      var q = state.query;
-      var regionPool = cards.filter(function(card){
-        if(q) return cardMatchesQuery(card, q);
-        return cardMatchesRegions(card, state.regions);
-      });
-      rebuildCountryOptions(regionPool);
-
-      var matched = sortCards(visiblePool());
-      var matchedSet = {};
-      matched.forEach(function(card, idx){
-        matchedSet[card.getAttribute('data-item')] = idx;
-      });
-      cards.forEach(function(card){
-        var slug = card.getAttribute('data-item');
-        if(Object.prototype.hasOwnProperty.call(matchedSet, slug)){
-          card.classList.remove('is-hidden');
-          card.style.order = String(matchedSet[slug]);
-        } else {
-          card.classList.add('is-hidden');
-          card.style.order = '';
-        }
-      });
-      if(resultsMeta){
-        var label = matched.length + ' port' + (matched.length === 1 ? '' : 's');
-        if(q) label += ' matching “' + q + '”';
-        else if(state.regions && state.regions.length) label += ' in selected region';
-        if(state.country && state.country !== '__all__') label += ' · filtered by country';
-        resultsMeta.textContent = label;
-      }
-    }
-    function renderSearchResults(){
-      if(!searchResults) return;
-      var q = state.query;
-      if(!q){
-        searchResults.classList.remove('is-open');
-        searchResults.innerHTML = '';
-        return;
-      }
-      var hits = sortCards(cards.filter(function(card){ return cardMatchesQuery(card, q); })).slice(0, 8);
-      if(!hits.length){
-        searchResults.innerHTML = '<div class="search-empty">No ports found. Try a city, port, or country name.</div>';
-        searchResults.classList.add('is-open');
-        return;
-      }
-      searchResults.innerHTML = hits.map(function(card){
-        var href = card.getAttribute('href') || '#';
-        var name = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').trim();
-        var meta = ((card.querySelector('.seo-grid-card-meta') || {}).textContent || '').trim();
-        return '<a class="search-result-item" href="' + href + '">' +
-          '<span class="search-result-name">' + name + '</span>' +
-          '<span class="search-result-meta">' + meta + '</span></a>';
-      }).join('');
-      searchResults.classList.add('is-open');
-    }
-    function selectRegion(btn){
-      var key = btn ? btn.getAttribute('data-region-key') : '__all__';
-      setPressed(document, 'data-region-key', key === '__all__' ? '' : key);
-      if(key === '__all__' || !btn){
-        document.querySelectorAll('[data-region-key]').forEach(function(el){
-          el.setAttribute('aria-pressed', 'false');
-        });
-        state.regions = null;
-        if(filterRegion) filterRegion.value = '__all__';
-      } else {
-        document.querySelectorAll('[data-region-key]').forEach(function(el){
-          el.setAttribute('aria-pressed', String(el === btn));
-        });
-        state.regions = parseRegionsAttr(btn);
-        if(filterRegion){
-          var opt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === key; });
-          if(opt) filterRegion.value = key;
-        }
-      }
-      state.country = '__all__';
-      if(filterCountry) filterCountry.value = '__all__';
-      apply();
-    }
-
-    if(regionBrowse){
-      regionBrowse.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-region-key]');
-        if(!btn) return;
-        if(btn.getAttribute('aria-pressed') === 'true'){
-          selectRegion(null);
-          return;
-        }
-        selectRegion(btn);
-      });
-    }
-    if(regionMorePanel){
-      regionMorePanel.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-region-key]');
-        if(!btn) return;
-        selectRegion(btn);
-      });
-    }
-    if(regionMoreToggle && regionMorePanel){
-      regionMoreToggle.addEventListener('click', function(){
-        var open = regionMorePanel.classList.toggle('is-open');
-        regionMoreToggle.setAttribute('aria-expanded', String(open));
-        regionMoreToggle.textContent = open ? 'Hide additional regions' : 'View all regions';
-      });
-    }
-    if(countryBrowse){
-      countryBrowse.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-country]');
-        if(!btn) return;
-        state.country = btn.getAttribute('data-country') || '__all__';
-        setPressed(countryBrowse, 'data-country', state.country);
-        if(filterCountry) filterCountry.value = state.country;
-        apply();
-      });
-    }
-    if(filterRegion){
-      filterRegion.addEventListener('change', function(){
-        var val = filterRegion.value;
-        if(val === '__all__'){
-          selectRegion(null);
-          return;
-        }
-        var btn = document.querySelector('[data-region-key="' + val.replace(/"/g, '') + '"]');
-        if(btn) selectRegion(btn);
-        else {
-          state.regions = [val];
-          state.country = '__all__';
-          apply();
-        }
-      });
-    }
-    if(filterCountry){
-      filterCountry.addEventListener('change', function(){
-        state.country = filterCountry.value || '__all__';
-        if(countryBrowse) setPressed(countryBrowse, 'data-country', state.country);
-        apply();
-      });
-    }
-    if(filterBookable){
-      filterBookable.addEventListener('change', function(){
-        state.bookable = filterBookable.value === 'bookable';
-        apply();
-      });
-    }
-    if(filterSort){
-      filterSort.addEventListener('change', function(){
-        state.sort = filterSort.value || 'name';
-        apply();
-      });
-    }
-    if(search){
-      search.addEventListener('input', function(){
-        state.query = norm(search.value || '');
-        if(state.query){
-          state.regions = null;
-          state.country = '__all__';
-          document.querySelectorAll('[data-region-key]').forEach(function(el){ el.setAttribute('aria-pressed', 'false'); });
-          if(filterRegion) filterRegion.value = '__all__';
-          if(filterCountry) filterCountry.value = '__all__';
-        }
-        renderSearchResults();
-        apply();
-      });
-      search.addEventListener('keydown', function(e){
-        if(e.key === 'Escape'){
-          searchResults && searchResults.classList.remove('is-open');
-        }
-      });
-    }
-    document.addEventListener('click', function(e){
-      if(!searchResults || !search) return;
-      if(search.contains(e.target) || searchResults.contains(e.target)) return;
-      searchResults.classList.remove('is-open');
-    });
-
-    // Default: no forced region — search or browse freely (all ports visible, sorted).
-    state.regions = null;
-    state.country = '__all__';
-    apply();
-  })();
-`;
+  return buildPortsDirectoryClientScriptSource();
 }
 
 /**
@@ -829,9 +603,14 @@ function buildPortsIndexHtml(opts) {
   const desc =
     'Explore cruise ports and destinations: browse by region and country, search port guides, and plan shore days with SeaDays.';
 
+  const regionImages = opts.regionImages && typeof opts.regionImages === 'object' ? opts.regionImages : {};
   const { directoryPorts } = resolveDirectoryPorts(opts.ports);
-  const { regionCardsHtml, otherRegionsHtml, otherRegionCount } = buildRegionBrowseHtml(directoryPorts);
+  const { regionCardsHtml, otherRegionsHtml, otherRegionCount } = buildRegionBrowseHtml(
+    directoryPorts,
+    regionImages
+  );
   const cards = buildPortCardsHtml(directoryPorts);
+  const noscriptLinksHtml = buildNoScriptCrawlLinksHtml(directoryPorts);
 
   const allRegions = [...new Set(directoryPorts.map((p) => p.region))].sort(compareLabelsAz);
   const priorityFilterDefsAz = PRIORITY_REGION_DEFS.filter((def) =>
@@ -885,33 +664,22 @@ ${getFaviconHeadHtml()}
 ${PORTS_DIRECTORY_EXTRA_CSS}
 </style>
 </head>
-<body>
+<body class="ports-directory-v2">
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
     ${buildDirectoryHeaderNav()}
-    <section class="directory-hero" aria-labelledby="ports-title">
+    <section class="directory-hero directory-hero--compact" aria-labelledby="ports-title">
       <div class="directory-hero-copy">
-        <h1 id="ports-title">Explore Cruise Ports &amp; Destinations</h1>
-        <p>Discover cruise ports, destinations, and port guides. Search by name, or browse Region → Country → Port—the same clear hierarchy as our ships directory.</p>
-        <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
-          <a class="directory-btn" href="/blog/">Read destination guides</a>
-        </div>
-      </div>
-      <div class="directory-hero-art" aria-hidden="true">
-        <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg" alt="" loading="lazy" decoding="async">
+        <h1 id="ports-title">Cruise ports &amp; destinations</h1>
+        <p>Search by name or explore by region and country—each card opens a full port guide.</p>
       </div>
     </section>
 
-    <section class="directory-section" aria-label="Search ports">
-      <div class="directory-section-head">
-        <h2>Search</h2>
-        <span class="directory-section-note">Jump straight to a port, city, or country</span>
-      </div>
-      <div class="directory-search-wrap">
+    <section class="directory-section directory-section--search" aria-label="Search ports">
+      <div class="directory-search-wrap directory-search-wrap--primary">
         <label class="sr-only" for="portSearch">Search ports by name or country</label>
-        <input id="portSearch" class="directory-search" type="search" placeholder="Search ports by name or country" autocomplete="off">
+        <input id="portSearch" class="directory-search directory-search--primary" type="search" placeholder="Search ports by name or country" autocomplete="off">
         <div id="portSearchResults" class="search-results" role="listbox" aria-label="Search results"></div>
       </div>
     </section>
@@ -921,8 +689,11 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
         <h2>Browse by Region</h2>
         <span class="directory-section-note">Region → Country → Ports</span>
       </div>
+      <div class="region-grid-wrap">
+        <p class="region-scroll-hint" id="regionScrollHint">Swipe sideways for more regions</p>
       <div class="region-grid" id="regionBrowse">
-${regionCardsHtml}
+        ${regionCardsHtml}
+      </div>
       </div>
       ${
         otherRegionCount
@@ -936,7 +707,7 @@ ${regionCardsHtml}
       }
     </section>
 
-    <section class="directory-section" aria-label="Browse by country">
+    <section class="directory-section directory-scroll-target" id="countryBrowseSection" aria-label="Browse by country">
       <div class="directory-section-head">
         <h2>Browse by Country</h2>
         <span class="directory-section-note" id="countryHeading">All regions</span>
@@ -945,7 +716,8 @@ ${regionCardsHtml}
       <div class="country-grid" id="countryBrowse"></div>
     </section>
 
-    <section class="directory-controls" aria-label="Filters">
+    <section class="directory-controls directory-scroll-target" id="directoryResults" aria-label="Filters">
+      <div class="filter-panel">
       <div class="filter-bar">
         <label class="sr-only" for="filterRegion">Region</label>
         <select id="filterRegion" class="filter-select">${filterRegionOptions}</select>
@@ -960,13 +732,20 @@ ${regionCardsHtml}
         <select id="filterSort" class="filter-select">
           <option value="name" selected>Sort: Name</option>
           <option value="country">Sort: Country</option>
-          <option value="popular">Sort: Popular</option>
         </select>
+        <button type="button" class="directory-btn directory-btn-outline directory-btn-reset" id="directoryReset" aria-label="Reset all filters">Reset filters</button>
+        <button type="button" class="directory-btn directory-btn-outline" id="browseAllPorts">Browse all ports</button>
       </div>
-      <p class="results-meta" id="resultsMeta"></p>
+      <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
+      </div>
     </section>
 
+    <p class="directory-empty" id="directoryEmpty" hidden>No ports match these filters.</p>
     <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
+    <div class="directory-load-more-wrap">
+      <button type="button" class="directory-btn directory-btn-outline directory-load-more" id="directoryLoadMore" hidden>Load more ports</button>
+    </div>
+    ${noscriptLinksHtml}
     <section class="app-cta" aria-label="App call to action">
       <div class="app-cta-inner">
         <div>
@@ -1004,8 +783,13 @@ ${regionCardsHtml}
 module.exports = {
   buildPortsIndexHtml,
   resolveDirectoryPorts,
+  loadRegionImageManifest,
   DIRECTORY_ALIAS_TO_CANONICAL,
   CANONICAL_DISPLAY,
   PRIORITY_REGION_DEFS,
+  DEFAULT_FEATURED_SLUGS,
+  DIRECTORY_PAGE_SIZE,
+  DIRECTORY_FEATURED_SIZE,
   shortDirectoryBlurb,
+  isDirectoryPlaceholderImage,
 };
