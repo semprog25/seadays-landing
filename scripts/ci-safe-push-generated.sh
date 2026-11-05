@@ -13,7 +13,13 @@ PUSH_REMOTE="${PUSH_REMOTE:-origin}"
 PUSH_BRANCH="${PUSH_BRANCH:-main}"
 COMMIT_MSG="${COMMIT_MSG:-chore: regenerate static blog, ships, ports, and sitemap [skip ci]}"
 SOURCE_SHA="${SOURCE_SHA:-}"
-PATHS=(blog sitemap.xml index.html ships ports)
+# Ports channel sets COMMIT_PATHS=ports so directory regenerations cannot
+# publish blog stubs or root files. Other workflows keep the full set.
+if [[ -n "${COMMIT_PATHS:-}" ]]; then
+  read -r -a PATHS <<< "${COMMIT_PATHS}"
+else
+  PATHS=(blog sitemap.xml index.html ships ports)
+fi
 
 if [[ -z "${SOURCE_SHA}" ]]; then
   echo "::error::SOURCE_SHA is required (generation base commit)"
@@ -32,7 +38,7 @@ if ! git diff --quiet --cached -- "${PATHS[@]}" 2>/dev/null; then
 fi
 
 if [[ "${needs_commit}" -eq 1 ]]; then
-  git add blog/ sitemap.xml index.html ships/ ports/
+  git add -- "${PATHS[@]}"
   if ! git diff --cached --quiet; then
     git commit -m "${COMMIT_MSG}"
   fi

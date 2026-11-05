@@ -98,10 +98,44 @@ try {
   assert(m1.verifiedPhotoTiles === m2.verifiedPhotoTiles, 'stable verified tiles across regen');
   assert(m1.batch02 === m2.batch02, 'stable batch02 refs across regen');
 
+  execFileSync('node', ['scripts/rewrite-download-ctas.js'], {
+    cwd: repoRoot,
+    stdio: 'pipe',
+    env: { ...process.env, SEADAYS_HTML_POSTPROCESS_DIRS: 'ports,ships' },
+  });
+  execFileSync('node', ['scripts/inject-analytics-head.js'], {
+    cwd: repoRoot,
+    stdio: 'pipe',
+    env: { ...process.env, SEADAYS_HTML_POSTPROCESS_DIRS: 'ports,ships' },
+  });
+  const afterPost = fs.readFileSync(indexPath, 'utf8');
+  assertProductionIndexMarkers(afterPost, 'after ports-channel postprocess');
+
+  const dirty = execFileSync('git', ['diff', '--name-only'], { cwd: repoRoot, encoding: 'utf8' })
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const workflow = fs.readFileSync(path.join(repoRoot, '.github/workflows/generate-ports.yml'), 'utf8');
+  const pushScript = fs.readFileSync(path.join(repoRoot, 'scripts/ci-safe-push-generated.sh'), 'utf8');
+  assert(workflow.includes('COMMIT_PATHS: ports'), 'ports workflow commits only ports/');
+  assert(pushScript.includes('COMMIT_PATHS'), 'safe push honors COMMIT_PATHS');
+  const committed = dirty.filter((file) => file === 'ports' || file.startsWith('ports/'));
+  const wouldPublish = committed;
+  const guides = committed.filter((file) => file !== 'ports/index.html');
+  assert(guides.length === 0, `ports channel must not leave port-guide diffs (got ${guides.slice(0, 3).join(', ')})`);
+  assert(!wouldPublish.includes('ads.txt'), 'ads.txt is outside the ports commit set');
+  assert(dirty.filter((file) => file.startsWith('blog/')).every((file) => !wouldPublish.includes(file)), 'blog files stay out of the ports commit set');
+
   console.log('OK test-ports-catalogue-channel-index-photography', {
     pass1: m1,
     pass2: m2,
+    dirtyBlog: dirty.filter((file) => file.startsWith('blog/')).length,
+    dirtyAds: dirty.includes('ads.txt'),
+    committedPorts: wouldPublish,
   });
 } finally {
-  fs.writeFileSync(indexPath, indexBackup, 'utf8');
+  execFileSync('git', ['checkout', '--', 'blog', 'ads.txt', 'ports', 'sitemap.xml'], {
+    cwd: repoRoot,
+    stdio: 'pipe',
+  });
 }

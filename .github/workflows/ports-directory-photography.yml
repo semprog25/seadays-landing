@@ -9,6 +9,8 @@ on:
       - 'scripts/generateBlogs.js'
       - 'scripts/regenerate-ports-index.js'
       - 'scripts/ci-run-channel.sh'
+      - 'scripts/ci-safe-push-generated.sh'
+      - '.github/workflows/generate-ports.yml'
       - 'scripts/lib/preparePortsDirectoryIndexWrite.js'
       - 'scripts/lib/portsDirectoryIndex.js'
       - 'scripts/lib/portsDirectoryImageResolve.js'
