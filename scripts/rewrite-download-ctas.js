@@ -16,6 +16,16 @@ const DRY_RUN = process.argv.includes('--dry-run');
 
 const SKIP_DIR_NAMES = new Set(['node_modules', '.git', 'docs', 'data', 'scripts', 'auth']);
 
+function htmlPostprocessRoots() {
+  const scoped = String(process.env.SEADAYS_HTML_POSTPROCESS_DIRS || '').trim();
+  if (!scoped) return [ROOT];
+  return scoped
+    .split(',')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => path.join(ROOT, part));
+}
+
 function walkHtmlFiles(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -104,7 +114,10 @@ function rewriteHtml(html, rel) {
 }
 
 function main() {
-  const files = walkHtmlFiles(ROOT);
+  const files = [];
+  for (const root of htmlPostprocessRoots()) {
+    walkHtmlFiles(root, files);
+  }
   let changed = 0;
   for (const full of files) {
     const rel = path.relative(ROOT, full).replace(/\\/g, '/');

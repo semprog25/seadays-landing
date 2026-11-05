@@ -27,8 +27,12 @@ if [[ "${CHANNEL}" == "ports" || "${CHANNEL}" == "ships" || "${CHANNEL}" == "cat
 fi
 
 echo "[ci-run-channel] restore acquisition download CTAs"
+if [[ "${CHANNEL}" == "ports" || "${CHANNEL}" == "ships" ]]; then
+  export SEADAYS_HTML_POSTPROCESS_DIRS="ports,ships"
+fi
 node scripts/rewrite-download-ctas.js
 node scripts/inject-analytics-head.js
+unset SEADAYS_HTML_POSTPROCESS_DIRS 2>/dev/null || true
 
 # Publish gate last, after every HTML rewrite above: pages that fail the gate go
 # back to noindex and leave sitemap.xml, so a CI rebuild cannot re-index them.
