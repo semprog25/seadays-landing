@@ -1,0 +1,45 @@
+name: Ports directory photography
+
+# PR check that approved directory photos survive generateBlogs.js --ports-only.
+# Read-only: no deploy, no commit, no catalogue push.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ports-directory-photography.yml'
+      - 'scripts/generateBlogs.js'
+      - 'scripts/regenerate-ports-index.js'
+      - 'scripts/ci-run-channel.sh'
+      - 'scripts/lib/preparePortsDirectoryIndexWrite.js'
+      - 'scripts/lib/portsDirectoryIndex.js'
+      - 'scripts/lib/portsDirectoryImageResolve.js'
+      - 'scripts/lib/destinationPhotoBatch02GeoPolicy.js'
+      - 'scripts/lib/destinationImageSourcePolicy.js'
+      - 'scripts/test-ports-catalogue-channel-index-photography.js'
+      - 'ports/index.html'
+      - 'data/ports-directory-image-review-state.json'
+      - 'data/ports-directory-destination-owner-candidates.json'
+      - 'data/destination-photo-batch-02-final-approvals.json'
+      - 'data/destination-image-catalog.json'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ports catalogue photography survives repeated generation
+        env:
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/test-ports-catalogue-channel-index-photography.js
