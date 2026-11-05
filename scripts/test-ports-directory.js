@@ -95,7 +95,9 @@ let match;
 while ((match = portCardImgRe.exec(gridHtml))) {
   const src = match[1];
   if (src.includes('blog-images/materialized')) blogMisuse += 1;
-  else verifiedPortPhotos += 1;
+  else if (src.includes('seadays-no-image.webp')) {
+    /* decorative placeholder — not a verified destination photo */
+  } else verifiedPortPhotos += 1;
 }
 assert.strictEqual(blogMisuse, 0, 'port cards must not use generic blog imagery');
 
@@ -106,10 +108,31 @@ assert(!html.includes('directoryCoverageNote'), 'public ports index must not sho
 const listRowCount = (gridHtml.match(/directory-port-list-item/g) || []).length;
 const photoTileCount = (gridHtml.match(/data-verified-photo="1"/g) || []).length;
 assert.strictEqual(photoTileCount, verifiedPortPhotos, 'photo tile count matches verified images');
+
+const verifiedSrcRe = /<img class="directory-card-image[^"]*" src="([^"]+)"/g;
+let missingVerifiedAssets = [];
+while ((match = verifiedSrcRe.exec(gridHtml))) {
+  const src = match[1];
+  if (src.includes('seadays-no-image.webp')) continue;
+  const rel = src.replace(/^\//, '');
+  if (!fs.existsSync(path.join(root, rel))) missingVerifiedAssets.push(src);
+}
+assert.strictEqual(
+  missingVerifiedAssets.length,
+  0,
+  `verified port photo assets must exist on disk: ${missingVerifiedAssets.slice(0, 5).join(', ')}`
+);
+
 assert.strictEqual(listRowCount, 0, 'directory uses card grid only, no list rows');
 assert.ok(
+  html.includes('seadays-no-image.webp'),
+  'ports index references owner no-photo placeholder asset'
+);
+const reviewPromoCount = (html.match(/Want the full reviews\?/g) || []).length;
+assert.strictEqual(reviewPromoCount, 1, 'exactly one review promotion on ports index');
+assert.ok(
   (gridHtml.match(/directory-card-media--neutral/g) || []).length >= cardCount - photoTileCount - 1,
-  'ports without verified photos use neutral card media'
+  'ports without verified photos use neutral card media with no-photo image'
 );
 
 let featuredVerified = 0;

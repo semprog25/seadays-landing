@@ -6,6 +6,8 @@ const path = require('path');
 const assert = require('assert');
 const {
   isApprovedDestinationPhotographyUrl,
+  isAllowedRegionCountrySourceUrl,
+  isCommerciallyReusableCommonsLicense,
   isWikimediaCommonsUrl,
   isAllowedOwnerDestinationSourceBasename,
   DESTINATION_POLICY_NOTE,
@@ -22,8 +24,15 @@ const repoRoot = path.join(__dirname, '..');
 
 assert(isApprovedDestinationPhotographyUrl('https://images.pexels.com/photos/123/pexels-photo-123.jpeg'));
 assert(isApprovedDestinationPhotographyUrl('https://images.unsplash.com/photo-1'));
+assert(!isApprovedDestinationPhotographyUrl('/assets/img/ports-directory/seadays-no-image.webp'));
+assert(!isApprovedDestinationPhotographyUrl('/assets/img/ports-directory/ui/back-to-regions-card-owner.webp'));
 assert(isApprovedDestinationPhotographyUrl('/assets/img/ports-directory/ports/foo.webp'));
 assert(!isApprovedDestinationPhotographyUrl('https://upload.wikimedia.org/wikipedia/commons/a/a1/Example.jpg'));
+assert(isAllowedRegionCountrySourceUrl('https://upload.wikimedia.org/wikipedia/commons/a/a1/Example.jpg'));
+assert(isCommerciallyReusableCommonsLicense('CC BY-SA 4.0'));
+assert(isCommerciallyReusableCommonsLicense('CC0'));
+assert(!isCommerciallyReusableCommonsLicense('CC BY-NC 4.0'));
+assert(!isCommerciallyReusableCommonsLicense('CC BY-ND 4.0'));
 assert(!isAllowedOwnerDestinationSourceBasename('commons-harbor.jpg'));
 assert(isAllowedOwnerDestinationSourceBasename('pexels-jane-12857738.jpg'));
 
@@ -58,6 +67,7 @@ assert(!html.includes('upload.wikimedia.org'), 'ports directory index must not e
 const photoTiles = (html.match(/directory-card--with-photo/g) || []).length;
 
 assert(DESTINATION_POLICY_NOTE.includes('Pexels'), 'policy note documented');
+assert(DESTINATION_POLICY_NOTE.includes('Wikimedia Commons for region and country'), 'commons region/country fallback documented');
 assert(isAllowedOwnerDestinationSourceBasename('destination-exterior-batch02-r3-pixabay-12345.webp'), 'pixabay local basename');
 
 console.log('OK test-destination-image-source-policy', {

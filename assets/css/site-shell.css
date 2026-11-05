@@ -1,24 +1,92 @@
 /* SeaDays global site shell — derived from homepage index.html. Do not fork. */
+:root {
+  --site-header-height: 72px;
+  --seadays-editorial-link: #79d8ff;
+  --seadays-editorial-link-visited: #9ae4ff;
+  --seadays-editorial-link-hover: #a8e8ff;
+  --seadays-brand-cta-bg: rgba(58, 10, 18, 0.92);
+  --seadays-brand-cta-border: rgba(255, 0, 51, 0.52);
+  --seadays-brand-cta-bg-hover: rgba(72, 12, 22, 0.96);
+  --seadays-brand-cta-border-hover: rgba(255, 0, 51, 0.72);
+}
+
 header.header.site-header {
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   margin: 0;
   text-align: initial;
-  padding: 20px 40px;
+  padding: 12px 24px;
+  padding-top: max(12px, env(safe-area-inset-top));
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  gap: 12px 20px;
   z-index: 100;
+  min-height: var(--site-header-height);
+  background: rgba(10, 10, 12, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+body:has(.fullpage-section) header.header.site-header {
+  position: absolute;
   background: transparent;
   border-bottom: none;
+  backdrop-filter: none;
+}
+
+header.header.site-header .header-brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  line-height: 0;
+  text-decoration: none;
+}
+
+header.header.site-header .header-brand img {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: min(160px, 42vw);
+}
+
+header.header.site-header .header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--seadays-brand-cta-border);
+  background: var(--seadays-brand-cta-bg);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+header.header.site-header .header-cta:hover {
+  color: #fff;
+  background: var(--seadays-brand-cta-bg-hover);
+  border-color: var(--seadays-brand-cta-border-hover);
+  box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18);
+  text-shadow: none;
+}
+header.header.site-header .header-cta:focus-visible {
+  outline: 2px solid rgba(255, 0, 51, 0.85);
+  outline-offset: 2px;
 }
 
 header.header.site-header .header-nav {
   display: flex;
-  gap: 30px;
+  gap: 16px 22px;
   align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -37,6 +105,11 @@ header.header.site-header .header-nav a:hover {
   text-shadow: 0 0 18px rgba(255, 140, 170, 0.85), 0 0 40px rgba(255, 0, 51, 0.45);
 }
 
+header.header.site-header .header-nav a.nav-link--active {
+  color: #fff;
+  font-weight: 700;
+}
+
 /* Blog is the primary content destination. order:-1 keeps it first on pages
    generated before the nav source order changed. */
 header.header.site-header .header-nav a[href="/blog/"] {
@@ -53,16 +126,22 @@ header.header.site-header .header-nav a[href*="/download/"] {
   min-height: 40px;
   padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(255, 0, 51, 0.18);
-  border: 1px solid rgba(255, 0, 51, 0.45);
+  border: 1px solid var(--seadays-brand-cta-border);
+  background: var(--seadays-brand-cta-bg);
   color: #fff;
   font-weight: 700;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 header.header.site-header .header-nav a[href*="/download/"]:hover {
   color: #fff;
-  background: rgba(255, 0, 51, 0.32);
-  border-color: rgba(255, 0, 51, 0.7);
+  background: var(--seadays-brand-cta-bg-hover);
+  border-color: var(--seadays-brand-cta-border-hover);
+  box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18);
   text-shadow: none;
+}
+header.header.site-header .header-nav a[href*="/download/"]:focus-visible {
+  outline: 2px solid rgba(255, 0, 51, 0.85);
+  outline-offset: 2px;
 }
 
 footer:has(.footer-shell),
@@ -270,9 +349,19 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
   }
 }
 
+@media (max-width: 1024px) {
+  header.header.site-header { flex-wrap: wrap; row-gap: 8px; }
+  header.header.site-header .header-cta { margin-left: auto; }
+  header.header.site-header .header-nav {
+    flex: 1 0 100%;
+    order: 3;
+    justify-content: center;
+    gap: 8px 16px;
+  }
+}
+
 @media (max-width: 768px) {
-  header.header.site-header { padding: 15px 20px; }
-  header.header.site-header .header-nav { gap: 12px 15px; }
+  header.header.site-header { padding: 12px 16px; }
   header.header.site-header .header-nav a { font-size: 13px; }
 
   footer:has(.footer-shell),
@@ -344,11 +433,10 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
 }
 
 @media (max-width: 480px) {
-  /* Keep Blog readable on small phones. Other text links hide so the row does not overflow.
-     Get SeaDays stays as the download CTA on inner pages. */
-  header.header.site-header .header-nav a { display: none; }
-  header.header.site-header .header-nav a[href="/blog/"] { display: inline-flex; }
-  header.header.site-header .header-nav a[href*="/download/"] { display: inline-flex; }
+  header.header.site-header { padding: 10px 12px; gap: 8px; }
+  header.header.site-header .header-nav { gap: 6px 12px; }
+  header.header.site-header .header-nav a { font-size: 12px; }
+  header.header.site-header .header-cta { padding: 8px 12px; font-size: 13px; }
   footer:has(.footer-shell),
   footer.site-footer {
     padding: 40px 0 24px;
@@ -385,6 +473,69 @@ body:not(:has(.fullpage-section)) > .content-layer > main.container {
 @media (max-width:600px){
   .get-seadays-cta-badges{flex-direction:column;}
   .get-seadays-cta img,.article-body .get-seadays-cta img{height:48px;}
+}
+
+/* Shared primary pill (Ports directory, inline heroes) — not solid neon fill */
+a.seadays-brand-cta,
+button.seadays-brand-cta,
+.directory-btn-primary,
+.hero-btn-primary {
+  border: 1px solid var(--seadays-brand-cta-border);
+  background: var(--seadays-brand-cta-bg);
+  color: #fff;
+}
+a.seadays-brand-cta:hover,
+button.seadays-brand-cta:hover,
+.directory-btn-primary:hover,
+.hero-btn-primary:hover {
+  background: var(--seadays-brand-cta-bg-hover);
+  border-color: var(--seadays-brand-cta-border-hover);
+  box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18);
+}
+
+/*
+ * Editorial / prose links on dark backgrounds (#79D8FF).
+ * Scoped — not header nav, pills, cards-as-links, or booking CTAs.
+ */
+.seo-prose a:not(.directory-btn):not(.seadays-brand-cta),
+.seo-details .seo-details-body a,
+.article-body a.contextual-link,
+.article-body :is(p, li, td, th, figcaption, blockquote, aside:not(.get-seadays-cta)) a[href]:not(.get-seadays-cta-badges a):not([class*="btn"]):not(.pg-booking-cta),
+.seo-detail .pg-section .pg-prose a.pg-editorial-link,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download),
+.seo-detail .seo-cross-list a,
+.ports-directory-v2 .seo-prose a {
+  color: var(--seadays-editorial-link);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(121, 216, 255, 0.45);
+  text-underline-offset: 3px;
+}
+.seo-prose a:not(.directory-btn):not(.seadays-brand-cta):visited,
+.seo-details .seo-details-body a:visited,
+.article-body a.contextual-link:visited,
+.article-body :is(p, li, td, th, figcaption, blockquote, aside:not(.get-seadays-cta)) a[href]:not(.get-seadays-cta-badges a):not([class*="btn"]):visited,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):visited,
+.seo-detail .seo-cross-list a:visited {
+  color: var(--seadays-editorial-link-visited);
+}
+.seo-prose a:not(.directory-btn):not(.seadays-brand-cta):hover,
+.seo-details .seo-details-body a:hover,
+.article-body a.contextual-link:hover,
+.article-body :is(p, li, td, th, figcaption, blockquote, aside:not(.get-seadays-cta)) a[href]:not(.get-seadays-cta-badges a):not([class*="btn"]):hover,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):hover,
+.seo-detail .seo-cross-list a:hover {
+  color: var(--seadays-editorial-link-hover);
+  text-decoration-color: rgba(168, 232, 255, 0.75);
+}
+.seo-prose a:not(.directory-btn):focus-visible,
+.seo-details .seo-details-body a:focus-visible,
+.article-body a.contextual-link:focus-visible,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):focus-visible,
+.seo-detail .seo-cross-list a:focus-visible {
+  outline: 2px solid var(--seadays-editorial-link);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* SD-34: blog hero crop — overrides legacy 160px strip in per-page inline styles */

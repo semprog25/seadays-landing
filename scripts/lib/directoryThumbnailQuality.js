@@ -12,6 +12,14 @@ const {
   destinationPhotographyRejectReason,
 } = require('./destinationImageSourcePolicy');
 
+function ownerPortsDirectoryAssetExists(url, repoRoot) {
+  const s = String(url || '').trim();
+  if (!s.startsWith('/assets/img/ports-directory/') || s.includes('..')) return false;
+  const root = repoRoot || path.join(__dirname, '..', '..');
+  const rel = s.replace(/^\//, '');
+  return fs.existsSync(path.join(root, rel));
+}
+
 let blocklistCache = null;
 let reviewStateCache = null;
 
@@ -298,6 +306,7 @@ function filterVerifiedPortUrl(slug, url, record, repoRoot) {
 
 module.exports = {
   assessPortDirectoryThumbnail,
+  ownerPortsDirectoryAssetExists,
   assessRegionBrowseThumbnail,
   filterVerifiedPortUrl,
   loadBlocklist,

@@ -6,6 +6,7 @@
  * Port pages also merge PublicPortGuide + public terminals + Viator CTA when available.
  */
 
+const { EDITORIAL_LINK_CSS } = require('./editorialLinkCss');
 const { getAnalyticsHeadHtml } = require('./analyticsSnippet');
 const { getFaviconHeadHtml } = require('./faviconHead');
 const {
@@ -1173,7 +1174,8 @@ const PAGE_STYLES = `
 .seo-hero { margin: 0 0 22px; }
 .seo-hero .seo-hero-img { display: block; margin: 0; }
 .seo-hero figcaption { margin-top: 8px; font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.62); }
-.seo-hero figcaption a { color: rgba(255,255,255,0.82); }
+.seo-hero figcaption a { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-hero figcaption a:hover { color: var(--seadays-editorial-link-hover, #a8e8ff); }
 @media (min-width: 1100px) {
   .seo-detail-wide .pg-facts,
   .seo-detail-wide .pg-quick,
@@ -1193,8 +1195,8 @@ const PAGE_STYLES = `
 .seo-cross-block { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
 .seo-cross-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .seo-cross-list li { margin: 0; }
-.seo-cross-list a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
-.seo-cross-list a:hover { text-decoration: underline; }
+.seo-cross-list a { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-cross-list a:hover { color: var(--seadays-editorial-link-hover, #a8e8ff); text-decoration-color: rgba(168,232,255,0.75); }
 #related-ports.seo-cross-block { margin-top: 32px; }
 #related-ports .seo-cross-list a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
 #related-ports .seo-cross-list a:hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
@@ -1225,7 +1227,7 @@ const PAGE_STYLES = `
 .seo-article-kicker, .seo-article-card strong, .seo-article-card small { margin-left: 14px; margin-right: 14px; }
 .seo-article-card strong { font-size: 15px; line-height: 1.25; }
 .seo-article-card small { color: rgba(255,255,255,0.66); line-height: 1.45; padding-bottom: 16px; }
-.seo-inline-more a { color: var(--neon-red); font-weight: 600; text-decoration: none; }
+.seo-inline-more a { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
 .seo-inline-more a:hover { text-decoration: underline; }
 .seo-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 18px; }
 .seo-breadcrumbs a { color: rgba(255,255,255,0.7); text-decoration: none; }
@@ -1236,7 +1238,7 @@ const PAGE_STYLES = `
 .seo-faq-item p { margin: 10px 0 0; color: rgba(255,255,255,0.86); line-height: 1.65; }
 /* Site chrome header/footer styles come from /assets/css/site-shell.css */
 @media (max-width: 720px) { .seo-visual-panel, .seo-article-grid { grid-template-columns: 1fr; } .seo-visual-copy { padding: 0 20px 22px; } .seo-visual-img, .seo-visual-art { min-height: 190px; height: 190px; } }
-` + GUEST_REVIEWS_SECTION_CSS + PORT_GUIDE_STYLES;
+` + GUEST_REVIEWS_SECTION_CSS + PORT_GUIDE_STYLES + EDITORIAL_LINK_CSS;
 
 function buildDirectoryHeaderNav() {
   return getSiteHeaderHtml({ page: 'default' });

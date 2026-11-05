@@ -6,6 +6,7 @@
  */
 
 const { PLAY_STORE_URL, APP_STORE_URL, downloadPagePath, playStoreUrl, appStoreUrl } = require('./storeLinks');
+const { LEAFLET_EDITORIAL_LINK_CSS } = require('./editorialLinkCss');
 const {
   cleanPortCopy,
   createSentenceGate,
@@ -371,6 +372,7 @@ function buildOsmTerminalMap(terminals) {
     `<div id="port-terminal-map" class="port-terminal-map" role="region" aria-label="Map of cruise terminals"></div>` +
     `<p class="pg-map-credit">Map data © <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">OpenStreetMap</a> contributors</p>` +
     `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">` +
+    `<style>${LEAFLET_EDITORIAL_LINK_CSS}</style>` +
     `<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous"></script>` +
     `<script>(function(){` +
     `var el=document.getElementById('port-terminal-map');` +
@@ -682,7 +684,8 @@ const PORT_GUIDE_STYLES = `
 .pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; width: 100%; flex: 0 0 auto; background: rgba(255,255,255,0.06); }
 .pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
 .pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; min-height: 40px; box-sizing: border-box; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
-.pg-terminal-card-photo figcaption a { color: rgba(255,255,255,0.78); }
+.pg-terminal-card-photo figcaption a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.pg-terminal-card-photo figcaption a:hover { color: #a8e8ff; }
 @media (min-width: 1100px) {
   .seo-detail-wide .pg-terminal-grid { align-items: stretch; }
   .seo-detail-wide .pg-terminal-grid > .pg-terminal-card--has-photo {
@@ -703,7 +706,8 @@ const PORT_GUIDE_STYLES = `
 .pg-terminal-map-focus { display: inline-flex; align-items: center; min-height: 44px; margin: 0; padding: 0; border: 0; background: none; font: inherit; font-size: 15px; font-weight: 600; color: #79D8FF; text-decoration: underline; cursor: pointer; }
 .pg-terminal-map-focus:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
 .pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
-.pg-map-credit a { color: rgba(255,255,255,0.78); }
+.pg-map-credit a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.pg-map-credit a:hover { color: #a8e8ff; }
 .pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 8px; flex: 0 0 auto; }
 .pg-terminal-card .pg-meta { color: rgba(255,255,255,0.68); }
 .pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }

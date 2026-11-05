@@ -26,7 +26,11 @@ function slugCardSnippet(html, slug) {
 
 function hasNeutralDirectoryCard(html, slug) {
   const chunk = slugCardSnippet(html, slug);
-  return chunk.includes('data-verified-photo="0"') && chunk.includes('directory-card-media--neutral');
+  return (
+    chunk.includes('data-verified-photo="0"') &&
+    chunk.includes('directory-card-media--neutral') &&
+    chunk.includes('seadays-no-image.webp')
+  );
 }
 
 function readIndexMarkers(html) {
