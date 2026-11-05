@@ -1,0 +1,51 @@
+{
+  "releaseId": "ports-directory-batch02-photography",
+  "preparedAt": "2026-11-05",
+  "description": "Minimal paths for a scoped PR — Batch 02 owner directory photography only. Exclude unrelated worktree WIP.",
+  "includeGlobs": [
+    "data/destination-photo-batch-02-*.json",
+    "data/destination-photo-batch-02-geo-verification-evidence.json",
+    "data/ports-directory-image-review-state.json",
+    "data/destination-image-catalog.json",
+    "data/ports-directory-country-images.json",
+    "assets/img/ports-directory/ports/*/destination-exterior-batch02*.webp",
+    "assets/img/ports-directory/ports/*/destination-exterior-batch02*.jpg",
+    "ports/index.html",
+    "scripts/finalize-destination-photo-batch-02-owner-reviews.js",
+    "scripts/build-destination-image-catalog.js",
+    "scripts/regenerate-ports-index.js",
+    "scripts/lib/destinationPhotoBatch02GeoPolicy.js",
+    "scripts/lib/destinationImageSourcePolicy.js",
+    "scripts/lib/destinationImageCatalog.js",
+    "scripts/lib/destinationDirectoryCard.js",
+    "scripts/lib/portsDirectoryImageResolve.js",
+    "scripts/lib/portsDirectoryIndex.js",
+    "scripts/lib/portsDirectoryIndex.client.js",
+    "scripts/lib/directoryThumbnailQuality.js",
+    "scripts/test-destination-photo-batch-02-*.js",
+    "scripts/test-destination-image-catalog.js",
+    "scripts/test-destination-image-source-policy.js",
+    "scripts/test-ports-directory.js",
+    "scripts/test-ports-region-country-navigation.js",
+    "qa-evidence/destination-batch-02-20261105/BATCH02_*REPORT*.md"
+  ],
+  "excludeFromPr": [
+    "ships/**",
+    "assets/css/site-shell.css",
+    "scripts/generateBlogs.js",
+    "data/owner-image-import*",
+    "data/wikimedia-harvest/**",
+    "ports/barcelona-spain/**",
+    "ports/hamburg-germany/**",
+    "ports/miami-fl-united-states/**",
+    "ports/kristiansund-norway/**",
+    "qa-evidence/overnight-image-coverage/**",
+    "qa-evidence/wikimedia-catalog-phase-*/**"
+  ],
+  "publicRenderExclusions": [
+    "curacao-willemstad-curacao",
+    "costa-maya-mexico"
+  ],
+  "ownerApprovedCount": 25,
+  "eligiblePublicDirectoryPhotoCount": 23
+}

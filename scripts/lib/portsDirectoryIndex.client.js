@@ -1,15 +1,21 @@
 'use strict';
 
+const { buildHorizontalScrollWheelHelperSource } = require('./horizontalScrollWheel');
+
 /** Inline browser script for /ports/ directory (v2). Loaded as string into generated HTML. */
 module.exports = function buildPortsDirectoryClientScriptSource() {
   return `(function(){
+    ${buildHorizontalScrollWheelHelperSource()}
     var PAGE_SIZE = 24;
     var FEATURED_SIZE = 12;
     var search = document.getElementById('portSearch');
     var searchResults = document.getElementById('portSearchResults');
     var regionBrowse = document.getElementById('regionBrowse');
-    var regionMoreToggle = document.getElementById('regionMoreToggle');
-    var regionMorePanel = document.getElementById('regionMorePanel');
+    var regionBrowseSection = document.getElementById('regionBrowseSection');
+    var regionGridWrap = document.getElementById('regionGridWrap');
+    var regionExpandToggle = document.getElementById('regionExpandToggle');
+    var regionScrollPrev = document.getElementById('regionScrollPrev');
+    var regionScrollNext = document.getElementById('regionScrollNext');
     var countryBrowse = document.getElementById('countryBrowse');
     var countryHeading = document.getElementById('countryHeading');
     var countryEmpty = document.getElementById('countryEmpty');
@@ -23,23 +29,133 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     var browseAllBtn = document.getElementById('browseAllPorts');
     var loadMoreBtn = document.getElementById('directoryLoadMore');
     var emptyPanel = document.getElementById('directoryEmpty');
+    var directoryBack = document.getElementById('directoryBack');
+    var directoryBreadcrumb = document.getElementById('directoryBreadcrumb');
+    var directoryPortsWrap = document.getElementById('directoryPortsWrap');
     var countryBrowseSection = document.getElementById('countryBrowseSection');
     var directoryResults = document.getElementById('directoryResults');
     if(!grid) return;
+
+    var countryImages = {};
+    try {
+      var countryImagesEl = document.getElementById('portsDirectoryCountryImages');
+      if(countryImagesEl && countryImagesEl.textContent) countryImages = JSON.parse(countryImagesEl.textContent);
+    } catch(countryImagesErr) { countryImages = {}; }
 
     var suppressAutoScroll = false;
 
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'));
     var state = {
-      view: 'featured',
+      view: 'discover',
       regions: null,
       country: '__all__',
       bookable: false,
       sort: 'name',
       query: '',
-      displayCount: FEATURED_SIZE,
+      displayCount: PAGE_SIZE,
       syncingHistory: false
     };
+
+    function escAttr(s){
+      return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    }
+    function countryCardInner(entry){
+      var img = countryImages[entry.key];
+      var media = img && img.url
+        ? '<span class="country-card-media"><img class="country-card-image" src="' + escAttr(img.url) + '" alt="' + escAttr(img.alt || entry.label) + '" loading="lazy" decoding="async" width="320" height="180"></span>'
+        : '<span class="country-card-media"><span class="country-card-image country-card-image--placeholder" aria-hidden="true"></span></span>';
+      return media + '<span class="country-card-body"><span class="country-card-name">' + escAttr(entry.label) + '</span><span class="country-card-count">' +
+        entry.count + ' port' + (entry.count === 1 ? '' : 's') + '</span></span>';
+    }
+    function portsResultsActive(){
+      if(state.view === 'browse' || !!state.query) return true;
+      if(state.country && state.country !== '__all__') return true;
+      return false;
+    }
+    function activeRegionLabel(){
+      var pressed = document.querySelector('.region-card[aria-pressed="true"]');
+      if(!pressed) return '';
+      var nameEl = pressed.querySelector('.region-card-name');
+      return nameEl ? nameEl.textContent.trim() : '';
+    }
+    function activeCountryLabel(){
+      if(!state.country || state.country === '__all__') return '';
+      var btn = countryBrowse && countryBrowse.querySelector('[data-country="' + state.country + '"]');
+      if(!btn) return state.country;
+      var nameEl = btn.querySelector('.country-card-name');
+      return nameEl ? nameEl.textContent.trim() : state.country;
+    }
+    function collapseRegionGallery(){
+      if(!regionGridWrap) return;
+      regionGridWrap.classList.remove('is-expanded');
+      if(regionExpandToggle){
+        regionExpandToggle.setAttribute('aria-expanded', 'false');
+        regionExpandToggle.textContent = 'View all regions';
+      }
+      updateRegionCarouselNav();
+    }
+    function updateRegionCarouselNav(){
+      if(!regionBrowse || !regionScrollPrev || !regionScrollNext) return;
+      var expanded = regionGridWrap && regionGridWrap.classList.contains('is-expanded');
+      if(expanded){
+        regionScrollPrev.disabled = true;
+        regionScrollNext.disabled = true;
+        regionScrollPrev.setAttribute('aria-hidden', 'true');
+        regionScrollNext.setAttribute('aria-hidden', 'true');
+        return;
+      }
+      var maxScroll = regionBrowse.scrollWidth - regionBrowse.clientWidth;
+      var canScroll = maxScroll > 4;
+      regionScrollPrev.setAttribute('aria-hidden', canScroll ? 'false' : 'true');
+      regionScrollNext.setAttribute('aria-hidden', canScroll ? 'false' : 'true');
+      if(!canScroll){
+        regionScrollPrev.disabled = true;
+        regionScrollNext.disabled = true;
+        return;
+      }
+      regionScrollPrev.disabled = regionBrowse.scrollLeft <= 2;
+      regionScrollNext.disabled = regionBrowse.scrollLeft >= maxScroll - 2;
+    }
+    function scrollRegionCarousel(dir){
+      if(!regionBrowse || (regionGridWrap && regionGridWrap.classList.contains('is-expanded'))) return;
+      var card = regionBrowse.querySelector('.region-card');
+      var step = card ? Math.max(card.offsetWidth + 10, 240) : 280;
+      regionBrowse.scrollBy({ left: dir * step, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    }
+    function updateDrillChrome(){
+      var onRegions = !state.regions && !state.query && state.view !== 'browse';
+      if(regionBrowseSection){
+        var hideRegions = !onRegions && state.view !== 'browse';
+        regionBrowseSection.classList.toggle('is-drill-hidden', hideRegions);
+        if(hideRegions) collapseRegionGallery();
+      }
+      var showPorts = portsResultsActive();
+      var showCountryGallery = !!(state.regions && state.regions.length) && !state.query && state.view !== 'browse' && (!state.country || state.country === '__all__');
+      if(countryBrowseSection){
+        countryBrowseSection.classList.toggle('is-drill-hidden', !showCountryGallery);
+      }
+      if(directoryResults) directoryResults.hidden = !showPorts;
+      if(directoryPortsWrap) directoryPortsWrap.hidden = !showPorts;
+      if(directoryBack){
+        var showBack = !!(state.regions && state.regions.length) || (state.country && state.country !== '__all__') || state.view === 'browse' || !!state.query;
+        directoryBack.hidden = !showBack;
+      }
+      if(directoryBreadcrumb){
+        var parts = ['Regions'];
+        var regionLabel = activeRegionLabel();
+        if(regionLabel) parts.push(regionLabel);
+        var countryLabel = activeCountryLabel();
+        if(countryLabel) parts.push(countryLabel);
+        if(state.query) parts = ['Search', '“' + (search && search.value ? search.value : state.query) + '”'];
+        else if(state.view === 'browse') parts = ['All ports'];
+        directoryBreadcrumb.innerHTML = parts.map(function(part, idx){
+          var isLast = idx === parts.length - 1;
+          var sep = idx ? '<span class="directory-breadcrumb-sep" aria-hidden="true">›</span>' : '';
+          if(isLast) return sep + '<span aria-current="page">' + part + '</span>';
+          return sep + '<span>' + part + '</span>';
+        }).join('');
+      }
+    }
 
     function prefersReducedMotion(){
       return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -97,9 +213,10 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       return !!(state.query || (state.regions && state.regions.length) || (state.country && state.country !== '__all__') || state.bookable);
     }
     function visiblePool(){
+      if(!portsResultsActive()) return [];
       var q = state.query;
-      if(state.view === 'featured' && !isActiveFilter()){
-        return cards.filter(function(card){ return card.getAttribute('data-featured') === '1'; });
+      if(state.view === 'browse' && !isActiveFilter()){
+        return cards.slice();
       }
       return cards.filter(function(card){
         if(state.bookable && card.getAttribute('data-bookable') !== '1') return false;
@@ -115,6 +232,9 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     function sortCards(list){
       var mode = state.sort || 'name';
       return list.slice().sort(function(a, b){
+        var photoA = a.getAttribute('data-verified-photo') === '1' ? 0 : 1;
+        var photoB = b.getAttribute('data-verified-photo') === '1' ? 0 : 1;
+        if(photoA !== photoB) return photoA - photoB;
         if(mode === 'name'){
           var na = ((a.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
           var nb = ((b.querySelector('.seo-grid-card-title') || {}).textContent || '').toLowerCase();
@@ -172,8 +292,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
           allBtn.className = 'country-card';
           allBtn.setAttribute('data-country', '__all__');
           allBtn.setAttribute('aria-pressed', state.country === '__all__' ? 'true' : 'false');
-          allBtn.innerHTML = '<span class="country-card-name">All countries</span><span class="country-card-count">' +
-            poolForCountries.length + ' port' + (poolForCountries.length === 1 ? '' : 's') + '</span>';
+          allBtn.innerHTML = countryCardInner({ key: '__all__', label: 'Back to regions', count: poolForCountries.length });
           countryBrowse.appendChild(allBtn);
           entries.forEach(function(entry){
             var b = document.createElement('button');
@@ -181,8 +300,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
             b.className = 'country-card';
             b.setAttribute('data-country', entry.key);
             b.setAttribute('aria-pressed', state.country === entry.key ? 'true' : 'false');
-            b.innerHTML = '<span class="country-card-name">' + entry.label + '</span>' +
-              '<span class="country-card-count">' + entry.count + ' port' + (entry.count === 1 ? '' : 's') + '</span>';
+            b.innerHTML = countryCardInner(entry);
             countryBrowse.appendChild(b);
           });
         }
@@ -190,7 +308,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
 
       if(filterCountry){
         var previous = filterCountry.value;
-        filterCountry.innerHTML = '<option value="__all__">All Countries</option>';
+        filterCountry.innerHTML = '<option value="__all__">Back to regions</option>';
         entries.forEach(function(entry){
           var opt = document.createElement('option');
           opt.value = entry.key;
@@ -204,7 +322,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
 
       if(countryHeading){
         var regionLabel = 'Select a region';
-        var pressed = document.querySelector('.region-card[aria-pressed="true"], .region-more-pill[aria-pressed="true"]');
+        var pressed = document.querySelector('.region-card[aria-pressed="true"]');
         if(pressed){
           var nameEl = pressed.querySelector('.region-card-name');
           regionLabel = nameEl ? nameEl.textContent.trim() : (pressed.textContent || '').split('·')[0].trim();
@@ -219,7 +337,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       if(state.view === 'browse') params.set('view', 'browse');
       if(state.regions && state.regions.length === 1) params.set('region', state.regions[0]);
       else if(state.regions && state.regions.length > 1){
-        var pressed = document.querySelector('.region-card[aria-pressed="true"], .region-more-pill[aria-pressed="true"]');
+        var pressed = document.querySelector('.region-card[aria-pressed="true"]');
         if(pressed) params.set('regionKey', pressed.getAttribute('data-region-key') || '');
       }
       if(state.country && state.country !== '__all__') params.set('country', state.country);
@@ -232,16 +350,22 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     }
     function apply(opts){
       opts = opts || {};
-      if(isActiveFilter()) state.view = 'filter';
-      else if(state.view !== 'browse') state.view = 'featured';
+      var drillingCountryGallery =
+        !!(state.regions && state.regions.length) &&
+        (!state.country || state.country === '__all__') &&
+        !state.query &&
+        state.view !== 'browse';
+      if(drillingCountryGallery) state.view = 'discover';
+      else if(isActiveFilter()) state.view = state.view === 'browse' ? 'browse' : 'filter';
+      else if(state.view !== 'browse') state.view = 'discover';
 
-      if(state.view === 'featured' && !isActiveFilter()) state.displayCount = FEATURED_SIZE;
-      else if(!opts.keepDisplayCount) state.displayCount = PAGE_SIZE;
+      if(state.view === 'browse' && !isActiveFilter()) state.displayCount = Math.max(state.displayCount, PAGE_SIZE);
+      else if(!opts.keepDisplayCount && portsResultsActive()) state.displayCount = PAGE_SIZE;
 
       var q = state.query;
       var regionPool = cards.filter(function(card){
         if(q) return cardMatchesQuery(card, q);
-        if(state.view === 'featured' && !isActiveFilter()) return card.getAttribute('data-featured') === '1';
+        if(state.view === 'browse' && !isActiveFilter()) return true;
         return cardMatchesRegions(card, state.regions);
       });
       rebuildCountryOptions(regionPool);
@@ -276,13 +400,16 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       });
 
       if(emptyPanel){
-        emptyPanel.hidden = matched.length > 0;
-        emptyPanel.textContent = q
-          ? 'No ports match your search. Try another city, country, or region name.'
-          : 'No ports match these filters. Reset or browse all ports.';
+        var showEmpty = portsResultsActive() && matched.length === 0;
+        emptyPanel.hidden = !showEmpty;
+        if(showEmpty){
+          emptyPanel.textContent = q
+            ? 'No ports match your search. Try another city, country, or region name.'
+            : 'No ports match these filters. Reset or browse all ports.';
+        }
       }
       if(loadMoreBtn){
-        var showLoadMore = state.view !== 'featured' && matched.length > state.displayCount;
+        var showLoadMore = portsResultsActive() && state.view !== 'featured' && matched.length > state.displayCount;
         loadMoreBtn.hidden = !showLoadMore;
         if(showLoadMore){
           loadMoreBtn.textContent = 'Load more ports (' + Math.min(PAGE_SIZE, matched.length - state.displayCount) + ' more)';
@@ -290,19 +417,21 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       }
       if(resultsMeta){
         var label = '';
-        if(matched.length){
+        if(!portsResultsActive()){
+          label = 'Select a country to see its ports';
+        } else if(matched.length){
           label = 'Showing ' + Math.min(state.displayCount, matched.length) + ' of ' + matched.length + ' port' + (matched.length === 1 ? '' : 's');
         } else {
           label = '0 ports';
         }
-        if(state.view === 'featured' && !isActiveFilter()) label += ' · featured guides';
-        else if(state.view === 'browse' && !isActiveFilter()) label += ' · all ports';
-        if(q) label += ' matching “' + q + '”';
-        else if(state.regions && state.regions.length) label += ' in selected region';
-        if(state.country && state.country !== '__all__') label += ' · filtered by country';
+        if(portsResultsActive() && state.view === 'browse' && !isActiveFilter()) label += ' · all ports';
+        if(portsResultsActive() && q) label += ' matching “' + q + '”';
+        else if(portsResultsActive() && state.regions && state.regions.length) label += ' in selected region';
+        if(portsResultsActive() && state.country && state.country !== '__all__') label += ' · filtered by country';
         resultsMeta.textContent = label;
       }
       if(!opts.skipHistory) syncHistory();
+      updateDrillChrome();
       if(opts.scrollAfter) scrollAfterFilter(opts.scrollAfter);
     }
     function renderSearchResults(){
@@ -336,7 +465,18 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       state.regions = null;
       if(filterRegion) filterRegion.value = '__all__';
     }
+    function returnToAllRegions(opts){
+      opts = opts || {};
+      collapseRegionGallery();
+      clearRegionSelection();
+      state.country = '__all__';
+      state.view = 'discover';
+      if(filterCountry) filterCountry.value = '__all__';
+      if(countryBrowse) setPressed(countryBrowse, 'data-country', '__all__');
+      apply({ scrollAfter: opts.scrollAfter || 'region', skipHistory: opts.skipHistory });
+    }
     function selectRegion(btn){
+      collapseRegionGallery();
       if(search && search.value){
         search.value = '';
         state.query = '';
@@ -356,14 +496,13 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         }
       }
       state.country = '__all__';
-      if(filterCountry) filterCountry.value = '__all__';
-      state.view = 'filter';
+      state.view = 'discover';
       apply({ scrollAfter: 'region' });
     }
     function resetAll(){
       if(search) search.value = '';
       state.query = '';
-      state.view = 'featured';
+      state.view = 'discover';
       state.regions = null;
       state.country = '__all__';
       state.bookable = false;
@@ -387,6 +526,30 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       renderSearchResults();
       apply();
     }
+    function handleBack(){
+      if(state.query){
+        if(search) search.value = '';
+        state.query = '';
+        renderSearchResults();
+        apply();
+        return;
+      }
+      if(state.view === 'browse'){
+        resetAll();
+        return;
+      }
+      if(state.country && state.country !== '__all__'){
+        state.country = '__all__';
+        if(filterCountry) filterCountry.value = '__all__';
+        if(countryBrowse) setPressed(countryBrowse, 'data-country', state.country);
+        state.view = 'discover';
+        apply({ scrollAfter: 'region' });
+        return;
+      }
+      if(state.regions && state.regions.length){
+        resetAll();
+      }
+    }
     function loadMore(){
       state.displayCount += PAGE_SIZE;
       apply({ keepDisplayCount: true });
@@ -397,12 +560,12 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       state.syncingHistory = true;
       if(search) search.value = '';
       state.query = '';
-      state.view = 'featured';
+      state.view = 'discover';
       state.regions = null;
       state.country = '__all__';
       state.bookable = false;
       state.sort = 'name';
-      state.displayCount = FEATURED_SIZE;
+      state.displayCount = PAGE_SIZE;
       clearRegionSelection();
       if(filterCountry) filterCountry.value = '__all__';
       if(filterBookable) filterBookable.value = '__all__';
@@ -430,27 +593,19 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
             el.setAttribute('aria-pressed', String(el === btn));
           });
           state.regions = parseRegionsAttr(btn);
-          if(filterRegion){
-            var opt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === regionKey; });
-            if(opt) filterRegion.value = regionKey;
-          }
-          state.view = 'filter';
+          state.view = 'discover';
         }
-        state.syncingHistory = false;
-        renderSearchResults();
-        apply({ skipHistory: true });
-        suppressAutoScroll = false;
-        return;
       }
       var region = params.get('region');
       if(region){
         state.regions = [region];
-        state.view = 'filter';
+        state.view = 'discover';
       }
       var country = params.get('country');
       if(country){
         state.country = norm(country);
         if(filterCountry) filterCountry.value = state.country;
+        state.view = 'filter';
       }
       state.syncingHistory = false;
       renderSearchResults();
@@ -459,6 +614,10 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     }
 
     if(regionBrowse){
+      regionBrowse.addEventListener('scroll', function(){ updateRegionCarouselNav(); }, { passive: true });
+      bindHorizontalWheelScroll(regionBrowse, function(){
+        return !(regionGridWrap && regionGridWrap.classList.contains('is-expanded'));
+      });
       regionBrowse.addEventListener('click', function(e){
         var btn = e.target && e.target.closest && e.target.closest('[data-region-key]');
         if(!btn) return;
@@ -469,25 +628,30 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         selectRegion(btn);
       });
     }
-    if(regionMorePanel){
-      regionMorePanel.addEventListener('click', function(e){
-        var btn = e.target && e.target.closest && e.target.closest('[data-region-key]');
-        if(!btn) return;
-        selectRegion(btn);
+    if(regionExpandToggle && regionGridWrap){
+      regionExpandToggle.addEventListener('click', function(){
+        var expanded = regionGridWrap.classList.toggle('is-expanded');
+        regionExpandToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        regionExpandToggle.textContent = expanded ? 'Show fewer regions' : 'View all regions';
+        updateRegionCarouselNav();
       });
     }
-    if(regionMoreToggle && regionMorePanel){
-      regionMoreToggle.addEventListener('click', function(){
-        var open = regionMorePanel.classList.toggle('is-open');
-        regionMoreToggle.setAttribute('aria-expanded', String(open));
-        regionMoreToggle.textContent = open ? 'Hide additional regions' : 'View all regions';
-      });
+    if(regionScrollPrev){
+      regionScrollPrev.addEventListener('click', function(){ scrollRegionCarousel(-1); });
     }
+    if(regionScrollNext){
+      regionScrollNext.addEventListener('click', function(){ scrollRegionCarousel(1); });
+    }
+    window.addEventListener('resize', function(){ updateRegionCarouselNav(); }, { passive: true });
     if(countryBrowse){
       countryBrowse.addEventListener('click', function(e){
         var btn = e.target && e.target.closest && e.target.closest('[data-country]');
         if(!btn) return;
         state.country = btn.getAttribute('data-country') || '__all__';
+        if(state.country === '__all__'){
+          returnToAllRegions();
+          return;
+        }
         state.view = 'filter';
         setPressed(countryBrowse, 'data-country', state.country);
         if(filterCountry) filterCountry.value = state.country;
@@ -516,6 +680,10 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     if(filterCountry){
       filterCountry.addEventListener('change', function(){
         state.country = filterCountry.value || '__all__';
+        if(state.country === '__all__' && state.regions && state.regions.length){
+          returnToAllRegions({ scrollAfter: 'region' });
+          return;
+        }
         state.view = 'filter';
         if(countryBrowse) setPressed(countryBrowse, 'data-country', state.country);
         apply({ scrollAfter: state.country !== '__all__' ? 'country' : undefined });
@@ -542,7 +710,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
           state.country = '__all__';
           if(filterCountry) filterCountry.value = '__all__';
         }
-        state.view = state.query ? 'filter' : 'featured';
+        state.view = state.query ? 'filter' : 'discover';
         renderSearchResults();
         apply();
       });
@@ -559,6 +727,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     });
     if(resetBtn) resetBtn.addEventListener('click', resetAll);
     if(browseAllBtn) browseAllBtn.addEventListener('click', browseAll);
+    if(directoryBack) directoryBack.addEventListener('click', handleBack);
     if(loadMoreBtn) loadMoreBtn.addEventListener('click', loadMore);
     window.addEventListener('popstate', function(){
       readStateFromUrl();
@@ -570,5 +739,6 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       apply({ skipHistory: true });
       suppressAutoScroll = false;
     }
+    updateRegionCarouselNav();
   })();`;
 };

@@ -4,6 +4,7 @@ const {
   readCatalogImagePublicGetOutcome,
   pickCatalogImageDisplayUrl,
 } = require('./readCatalogImageValue');
+const { isApprovedDestinationPhotographyUrl } = require('../destinationImageSourcePolicy');
 const {
   isVerifiedCatalogPreviewEnabled,
   shouldSkipVerifiedCatalogPreviewForEntityImage,
@@ -88,6 +89,11 @@ function resolveVerifiedCatalogPreviewImage(kind, appId, surface, options) {
   });
 
   if (read.outcome.kind !== 'verified_record') return null;
+
+  const displayUrl = pickCatalogImageDisplayUrl(read.outcome);
+  if (kind === 'port' && role === 'destinationHero' && displayUrl) {
+    if (!isApprovedDestinationPhotographyUrl(displayUrl)) return null;
+  }
 
   const portPreviewRole = kind === 'port' ? role : undefined;
   return buildPreviewHeroFromVerifiedOutcome(read.outcome, read.canonicalSlug, portPreviewRole);

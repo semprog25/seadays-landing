@@ -19,6 +19,7 @@ const {
   resolveDirectoryPorts,
   loadRegionImageManifest,
 } = require('./lib/portsDirectoryIndex');
+const { enrichSeoPortsForDirectoryIndex } = require('./lib/portsDirectoryImageResolve');
 const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
 const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const {
@@ -32,6 +33,7 @@ const {
 } = require('./lib/viatorAffiliate');
 const { getAppRepoRoot, buildPortSlugToReviewKeyMap } = require('./lib/reviewAggregateMerge');
 const { getAnalyticsHeadHtml } = require('./lib/analyticsSnippet');
+const { buildDirectoryRuntimeImageGuardScript } = require('./lib/directoryRuntimeImageGuard');
 const { loadLandingCruiseContentOverrides, applyPortContentOverride } = require('./lib/landingCruiseContentOverrides');
 
 const BASE_URL = 'https://seadays.app';
@@ -48,10 +50,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
 .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background-image: linear-gradient(rgba(255, 0, 51, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 51, 0.02) 1px, transparent 1px); background-size: 100px 100px; opacity: 0.4; pointer-events: none; }
 .content-layer { position: relative; z-index: 10; }
-.header { position: absolute; top: 0; left: 0; right: 0; padding: 20px 40px; display: flex; justify-content: flex-end; align-items: center; z-index: 100; }
-.header-nav { display: flex; gap: 30px; align-items: center; }
-.header-nav a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: 500; font-size: 15px; }
-.header-nav a:hover { color: white; }
+/* Header chrome owned by /assets/css/site-shell.css — do not override position here. */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .footer { padding: 60px 0 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; background: #050505; }
 /* Footer column layout is owned by /assets/css/site-shell.css — do not reintroduce auto-fit here. */
@@ -60,26 +59,7 @@ img { transition: filter 0.35s ease, transform 0.35s ease; }
 img.img-loading { filter: blur(8px); transform: scale(1.03); }
 `;
 
-const RUNTIME_GUARD_SCRIPT = `<script>
-(function(){
-  var FB='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
-  function safeImage(src){
-    if(!src||!src.startsWith('https://'))return FB;
-    if(src.includes('cdn.seadays.app'))return FB;
-    if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
-    return src;
-  }
-  function applyGuard(){
-    document.querySelectorAll('img[data-img-source]').forEach(function(el){
-      var orig=el.getAttribute('src')||'';
-      var safe=safeImage(orig);
-      if(safe!==orig){el.dataset.originalSrc=orig;el.src=safe;}
-    });
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyGuard);}
-  else{applyGuard();}
-})();
-</script>`;
+const RUNTIME_GUARD_SCRIPT = buildDirectoryRuntimeImageGuardScript();
 
 function extractFeaturedGuidesFromExisting(indexPath) {
   if (!fs.existsSync(indexPath)) return '';
@@ -104,31 +84,6 @@ function extractRatingsFromExisting(indexPath) {
     if (num) map.set(slug, Number(num[1]));
   }
   return map;
-}
-
-function extractOgImageFromPortPage(repoRoot, slug) {
-  const pagePath = path.join(repoRoot, 'ports', slug, 'index.html');
-  if (!fs.existsSync(pagePath)) return '';
-  const html = fs.readFileSync(pagePath, 'utf8');
-  const og =
-    html.match(/property=["']og:image["']\s+content=["']([^"']+)["']/i) ||
-    html.match(/content=["']([^"']+)["']\s+property=["']og:image["']/i);
-  let url = og ? String(og[1]).trim() : '';
-  if (!url || url.includes('seadaysfav.png')) {
-    const hero = html.match(/class="seo-hero-img"\s+src="([^"]+)"/i);
-    if (hero) url = String(hero[1]).trim();
-  }
-  return url;
-}
-
-function resolveDirectoryImageUrl(port, portGuide, repoRoot) {
-  const heroUrl = portGuide?.hero?.url ? String(portGuide.hero.url).trim() : '';
-  if (heroUrl && !heroUrl.includes('seadaysfav.png')) return heroUrl;
-  const fromRecord = String(port.image_url || '').trim();
-  if (fromRecord && !fromRecord.includes('seadaysfav.png')) return fromRecord;
-  const fromPage = extractOgImageFromPortPage(repoRoot, port.slug);
-  if (fromPage && !fromPage.includes('seadaysfav.png')) return fromPage;
-  return fromRecord || fromPage || heroUrl || '';
 }
 
 function main() {
@@ -180,7 +135,6 @@ function main() {
     if (portGuide?.portInfo?.description && !port.description) {
       port.description = portGuide.portInfo.description;
     }
-    port.directoryImageUrl = resolveDirectoryImageUrl(port, portGuide, repoRoot);
     const affiliate = resolvePortAffiliateCta(
       { ...port, appPortId },
       {
@@ -194,10 +148,21 @@ function main() {
     port.hasBookableExperiences = Boolean(affiliate.show);
   }
 
+  enrichSeoPortsForDirectoryIndex(seoPorts, {
+    repoRoot,
+    slugToAppPortId,
+    publicGuidesByAppPortId: publicGuides.byAppPortId || {},
+  });
+
+  const { loadVerifiedPortDestinationUrlBySlug } = require('./lib/portsDirectoryImageResolve');
+  const verifiedBySlug = loadVerifiedPortDestinationUrlBySlug(repoRoot);
+
   const html = buildPortsIndexHtml({
     ports: seoPorts,
     featuredGuideCardsHtml,
     regionImages,
+    repoRoot,
+    verifiedPortImagesBySlug: verifiedBySlug,
     indexStyles: INDEX_STYLES,
     analyticsHeadHtml: getAnalyticsHeadHtml(),
     runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
