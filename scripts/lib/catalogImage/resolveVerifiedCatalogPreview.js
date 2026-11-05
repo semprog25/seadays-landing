@@ -1,9 +1,16 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+
 const {
   readCatalogImagePublicGetOutcome,
   pickCatalogImageDisplayUrl,
 } = require('./readCatalogImageValue');
+const {
+  isApprovedDestinationPhotographyUrl,
+  isWikimediaCommonsUrl,
+} = require('../destinationImageSourcePolicy');
 const {
   isVerifiedCatalogPreviewEnabled,
   shouldSkipVerifiedCatalogPreviewForEntityImage,
@@ -16,6 +23,38 @@ const {
   resolvePilotCatalogReadPlan,
   getRawKvRecord,
 } = require('./phaseD3BVerifiedFixtures');
+
+let ownerDestinationCandidatesBySlug = null;
+
+function getOwnerDestinationCandidate(canonicalSlug) {
+  if (!ownerDestinationCandidatesBySlug) {
+    const jsonPath = path.join(__dirname, '..', '..', '..', 'data', 'ports-directory-destination-owner-candidates.json');
+    const parsed = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    ownerDestinationCandidatesBySlug = parsed.ports && typeof parsed.ports === 'object' ? parsed.ports : {};
+  }
+  return ownerDestinationCandidatesBySlug[String(canonicalSlug || '').trim()] || null;
+}
+
+function ownerApprovedDestinationPreviewUrl(canonicalSlug) {
+  const entry = getOwnerDestinationCandidate(canonicalSlug);
+  if (!entry || String(entry.verificationStatus || '').trim() !== 'OWNER_APPROVED') return null;
+  const url = String(entry.heroImageUrl || entry.directoryImageUrl || '').trim();
+  if (!url || !isApprovedDestinationPhotographyUrl(url)) return null;
+  return url;
+}
+
+function buildPreviewHeroFromOwnerDestinationUrl(ownerUrl, canonicalSlug, catalogPreviewRole, entry) {
+  const photographer = entry?.attribution?.directoryAndHero?.photographer;
+  const alt = photographer ? `${canonicalSlug} — ${photographer}` : `${canonicalSlug} destination photography`;
+  return {
+    displayUrl: ownerUrl,
+    alt,
+    payload: { alt, media: { url: ownerUrl } },
+    canonicalSlug,
+    catalogPreviewRole,
+    verifiedTestOnlyLabel: VERIFIED_CATALOG_TEST_ONLY_LABEL,
+  };
+}
 
 function resolveCanonicalSlugForVerifiedPreview(kind, appId, slugMaps) {
   const trimmed = String(appId || '').trim();
@@ -88,6 +127,22 @@ function resolveVerifiedCatalogPreviewImage(kind, appId, surface, options) {
   });
 
   if (read.outcome.kind !== 'verified_record') return null;
+
+  const displayUrl = pickCatalogImageDisplayUrl(read.outcome);
+  if (kind === 'port' && role === 'destinationHero') {
+    const ownerUrl = ownerApprovedDestinationPreviewUrl(read.canonicalSlug);
+    if (ownerUrl) {
+      return buildPreviewHeroFromOwnerDestinationUrl(
+        ownerUrl,
+        read.canonicalSlug,
+        'destinationHero',
+        getOwnerDestinationCandidate(read.canonicalSlug),
+      );
+    }
+    if (displayUrl && !isApprovedDestinationPhotographyUrl(displayUrl) && !isWikimediaCommonsUrl(displayUrl)) {
+      return null;
+    }
+  }
 
   const portPreviewRole = kind === 'port' ? role : undefined;
   return buildPreviewHeroFromVerifiedOutcome(read.outcome, read.canonicalSlug, portPreviewRole);

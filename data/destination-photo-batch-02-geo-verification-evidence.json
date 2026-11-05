@@ -1,0 +1,77 @@
+{
+  "batchId": "destination-photo-batch-02-geo-verification",
+  "verifiedAt": "2026-11-05",
+  "methodNote": "Evidence from provider page structured location fields, page titles/descriptions, and visible landmark claims — not harvest filenames or internal captions alone.",
+  "destinations": [
+    {
+      "portSlug": "ajaccio-corsica-france",
+      "providerImageId": 19466911,
+      "evidenceUrl": "https://www.pexels.com/photo/boats-in-harbor-buildings-in-background-19466911/",
+      "evidenceSummary": "Pexels structured location: Ajaccio, France; harbor scene with historic architecture.",
+      "productionGeoVerified": true
+    },
+    {
+      "portSlug": "colon-panama",
+      "providerImageId": 11678092,
+      "evidenceUrl": "https://www.pexels.com/photo/a-view-of-a-beautiful-paradise-11678092/",
+      "evidenceSummary": "Pexels structured location: Colón, Colón Province, Panama; page description references Colón beach.",
+      "productionGeoVerified": true
+    },
+    {
+      "portSlug": "aruba-oranjestad-aruba",
+      "providerImageId": "rU0tiN5JMhA",
+      "evidenceUrl": "https://unsplash.com/photos/a-green-and-white-building-with-a-sky-background-rU0tiN5JMhA",
+      "evidenceSummary": "Unsplash page not retrieved in this pass; pair metadata cites Oranjestad but lacks confirmed Unsplash map/location on provider page.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "barbados-bridgetown-barbados",
+      "providerImageId": 5287934,
+      "evidenceUrl": "https://www.pexels.com/photo/a-breathtaking-view-of-the-sea-5287934/",
+      "evidenceSummary": "Generic tropical aerial beach; photographer bio mentions Barbados but no structured location or identifiable Bridgetown landmark.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "belize-city-belize",
+      "providerImageId": 4716934,
+      "evidenceUrl": "https://www.pexels.com/photo/white-boat-on-blue-sea-4716934/",
+      "evidenceSummary": "Belize mentioned only in page description text; no structured location field; generic boats-on-water.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "george-town-cayman-islands",
+      "providerImageId": "k-9GLWbZ2Xw",
+      "evidenceUrl": "https://unsplash.com/photos/k-9GLWbZ2Xw",
+      "evidenceSummary": "Unsplash page not retrieved; image is generic harbor water without confirmed George Town landmark on provider record.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "curacao-willemstad-curacao",
+      "providerImageId": 1450360,
+      "evidenceUrl": "https://www.pexels.com/photo/photo-of-beach-during-golden-hour-1450360/",
+      "evidenceSummary": "Pexels structured location: Maldives — conflicts with Curaçao assignment.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "antigua-st-john-s-antigua",
+      "providerImageId": 1450350,
+      "evidenceUrl": "https://www.pexels.com/photo/photo-of-ocean-1450350/",
+      "evidenceSummary": "No structured location; Maldives-associated photographer; generic overwater/tropical scene.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "bonaire-bonaire",
+      "providerImageId": 1134178,
+      "evidenceUrl": "https://www.pexels.com/photo/photo-of-seashore-1134178/",
+      "evidenceSummary": "Resort poolside/tropical villas — not identifiable Bonaire shoreline or town.",
+      "productionGeoVerified": false
+    },
+    {
+      "portSlug": "costa-maya-mexico",
+      "providerImageId": 1450352,
+      "evidenceUrl": "https://www.pexels.com/photo/photo-of-ocean-1450352/",
+      "evidenceSummary": "Pexels structured location: Maldives — conflicts with Costa Maya, Mexico.",
+      "productionGeoVerified": false
+    }
+  ]
+}

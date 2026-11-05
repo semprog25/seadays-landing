@@ -1,0 +1,23 @@
+{
+  "batchId": "destination-photo-batch-02-owner-explicit-selections",
+  "frozenAt": "2026-11-05",
+  "note": "Authoritative owner-selected provider IDs for Batch 02 — no gallery inference.",
+  "v1ApproveA": [
+    { "portSlug": "george-town-cayman-islands", "provider": "unsplash", "providerImageId": "k-9GLWbZ2Xw" },
+    { "portSlug": "st-thomas-charlotte-amalie-us-virgin-islands", "provider": "pexels", "providerImageId": 34650321 },
+    { "portSlug": "corfu-greece", "provider": "pexels", "providerImageId": 1285625 },
+    { "portSlug": "split-croatia", "provider": "pexels", "providerImageId": 34588006 },
+    { "portSlug": "san-juan-puerto-rico", "provider": "pexels", "providerImageId": 15306227 },
+    { "portSlug": "curacao-willemstad-curacao", "provider": "pexels", "providerImageId": 1450360 },
+    { "portSlug": "antigua-st-john-s-antigua", "provider": "pexels", "providerImageId": 1450350 },
+    { "portSlug": "chania-crete-greece", "provider": "pexels", "providerImageId": 38313115 }
+  ],
+  "v1ApproveB": [
+    { "portSlug": "kotor-montenegro", "provider": "pexels", "providerImageId": 33498731 },
+    { "portSlug": "rhodes-greece", "provider": "pexels", "providerImageId": 10929911 },
+    { "portSlug": "bonaire-bonaire", "provider": "pexels", "providerImageId": 1134178 },
+    { "portSlug": "costa-maya-mexico", "provider": "pexels", "providerImageId": 1450352 }
+  ],
+  "round2Source": "data/destination-photo-batch-02-owner-review-reject13-decisions.json",
+  "round3Source": "data/destination-photo-batch-02-owner-review-reject3-decisions.json"
+}

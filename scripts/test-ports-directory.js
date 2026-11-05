@@ -27,9 +27,29 @@ assert.ok(html.includes('<noscript>'), 'noscript crawl fallback');
 assert.ok(html.includes('directory-crawl-list'), 'crawl link list');
 assert.ok(!html.includes('>Sort: Popular<'), 'Popular sort removed');
 assert.ok(html.includes('directory-card-image'), 'image-first cards');
-assert.ok(html.includes('region-card--text-first') || html.includes('region-card-media'), 'region cards');
+assert.ok(html.includes('region-card-media'), 'region cards with media');
 assert.ok(html.includes('region-scroll-hint'), 'region scroll hint');
 assert.ok(!html.includes('region-card-image region-card-image--placeholder'), 'no oversized region image placeholders');
+
+const regionBrowseStart = html.indexOf('id="regionBrowse"');
+const regionBrowseEnd = html.indexOf('id="countryBrowseSection"');
+const regionBrowseHtml =
+  regionBrowseStart >= 0 && regionBrowseEnd > regionBrowseStart
+    ? html.slice(regionBrowseStart, regionBrowseEnd)
+    : html;
+assert.ok(
+  !regionBrowseHtml.includes('region-card--text-first'),
+  'priority region browse cards must all show thumbnails'
+);
+const regionPexelsInBrowse = (regionBrowseHtml.match(/region-card-image" src="https:\/\/images\.pexels\.com/g) || [])
+  .length;
+const regionOwnerAssetsInBrowse = (regionBrowseHtml.match(
+  /region-card-image" src="\/assets\/img\/ports-directory\/regions\//g
+) || []).length;
+assert.ok(
+  regionPexelsInBrowse + regionOwnerAssetsInBrowse >= 10,
+  'region browse uses photography (owner assets or Pexels)'
+);
 
 const featuredInHtml = (html.match(/data-featured="1"/g) || []).length;
 assert.strictEqual(featuredInHtml, DEFAULT_FEATURED_SLUGS.length, 'featured card count');
@@ -65,19 +85,32 @@ assert.ok(skagenPage.includes('northernmost town'), 'Skagen guide: Danish town c
 assert.ok(!laPazPage.includes('capital of Bolivia'), 'La Paz guide: no Bolivia bleed');
 assert.ok(laPazPage.includes('Baja California Sur'), 'La Paz guide: Baja copy');
 
+const gridBlockMatch = html.match(/id="directoryGrid">([\s\S]*?)<\/div>\s*<div class="directory-load-more-wrap"/i);
+const gridHtml = gridBlockMatch ? gridBlockMatch[1] : html;
+
 const portCardImgRe = /<img class="directory-card-image[^"]*" src="([^"]+)"/g;
 let verifiedPortPhotos = 0;
 let blogMisuse = 0;
 let match;
-while ((match = portCardImgRe.exec(html))) {
+while ((match = portCardImgRe.exec(gridHtml))) {
   const src = match[1];
   if (src.includes('blog-images/materialized')) blogMisuse += 1;
   else verifiedPortPhotos += 1;
 }
 assert.strictEqual(blogMisuse, 0, 'port cards must not use generic blog imagery');
 
-const textFirstCount = (html.match(/directory-card--text-first/g) || []).length;
-assert.ok(textFirstCount >= cardCount - verifiedPortPhotos - 1, 'text-first cards where no photo');
+assert(!html.includes('Photo pending'), 'public ports index must not show Photo pending');
+assert(!html.includes('directory-coverage-note'), 'public ports index must not show coverage note');
+assert(!html.includes('directoryCoverageNote'), 'public ports index must not show coverage note id');
+
+const listRowCount = (gridHtml.match(/directory-port-list-item/g) || []).length;
+const photoTileCount = (gridHtml.match(/data-verified-photo="1"/g) || []).length;
+assert.strictEqual(photoTileCount, verifiedPortPhotos, 'photo tile count matches verified images');
+assert.strictEqual(listRowCount, 0, 'directory uses card grid only, no list rows');
+assert.ok(
+  (gridHtml.match(/directory-card-media--neutral/g) || []).length >= cardCount - photoTileCount - 1,
+  'ports without verified photos use neutral card media'
+);
 
 let featuredVerified = 0;
 let featuredTextFirst = 0;
@@ -87,21 +120,22 @@ for (const slug of DEFAULT_FEATURED_SLUGS) {
   assert.ok(idx !== -1, `featured slug in grid: ${slug}`);
   const slice = html.slice(idx, idx + 1400);
   if (slice.includes('<img class="directory-card-image')) featuredVerified += 1;
-  else if (slice.includes('directory-card--text-first')) featuredTextFirst += 1;
+  else if (slice.includes('directory-card-media--neutral')) featuredVerified += 1;
+  else if (slice.includes('directory-port-list-item')) featuredTextFirst += 1;
 }
 assert.strictEqual(featuredVerified + featuredTextFirst, DEFAULT_FEATURED_SLUGS.length);
-assert.ok(featuredVerified >= 1, 'at least one verified port photo (e.g. Hamburg)');
-assert.ok(featuredTextFirst >= 1, 'text-first cards where no port photo exists');
+assert.ok(featuredVerified >= 1, 'at least one featured port card (photo or neutral media)');
+assert.strictEqual(featuredTextFirst, 0, 'featured ports must not use list rows');
 
 console.log(
-  `[coverage] cards=${cardCount} verifiedPortPhotos=${verifiedPortPhotos} textFirst=${textFirstCount} featuredPhotos=${featuredVerified} featuredTextFirst=${featuredTextFirst} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
+  `[coverage] cards=${cardCount} verifiedPortPhotos=${verifiedPortPhotos} listRows=${listRowCount} photoTiles=${photoTileCount} featuredPhotos=${featuredVerified} featuredListRows=${featuredTextFirst} htmlBytes=${Buffer.byteLength(html, 'utf8')}`
 );
 
 assert.strictEqual(DIRECTORY_PAGE_SIZE, 24);
 assert.strictEqual(DIRECTORY_FEATURED_SIZE, 12);
 
 const regionImages = loadRegionImageManifest(root);
-assert.ok(Object.keys(regionImages).length >= 5, 'region image manifest');
+assert.ok(Object.keys(regionImages).length >= 12, 'region image manifest covers priority regions');
 
 const sampleHtml = buildPortsIndexHtml({
   ports: [

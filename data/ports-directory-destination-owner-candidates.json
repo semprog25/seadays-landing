@@ -1,0 +1,1263 @@
+{
+  "version": 1,
+  "policy": "Destination photography: Pexels and Unsplash primary; Pixabay optional script-time fallback (assets downloaded under /assets/img/ports-directory/ only — no Pixabay CDN hotlinks). Wikimedia is not used for region/country/port destination heroes or directory tiles. Terminal infrastructure photos in port guides may remain verified Wikimedia.",
+  "ports": {
+    "hamburg-germany": {
+      "verificationStatus": "NEEDS_REVIEW",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/hamburg-germany/destination-exterior-owner-hamburg.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/hamburg-germany/destination-exterior-owner-hamburg.webp",
+      "localSourceFiles": {
+        "directoryAndHero": "Hamburg.jpg",
+        "editorialSkyline": "Hamburg2.jpg"
+      },
+      "pexelsPhotoIds": {
+        "directoryAndHero": 12857738,
+        "editorialSkyline": 19736459
+      },
+      "attribution": {
+        "directoryAndHero": {
+          "photographer": "paparazziratzfatzzi (Pexels — confirm)",
+          "license": "Pexels License (unconfirmed)",
+          "licenseUrl": "https://www.pexels.com/license/"
+        },
+        "editorialSkyline": {
+          "photographer": "fallskornmedia (Pexels — confirm)",
+          "license": "Pexels License (unconfirmed)",
+          "licenseUrl": "https://www.pexels.com/license/"
+        }
+      },
+      "editorialImageUrl": "/assets/img/ports-directory/ports/hamburg-germany/editorial-elbphilharmonie-skyline-owner-hamburg.webp",
+      "cropFocal": {
+        "directory": {
+          "x": 52,
+          "y": 38
+        },
+        "hero": {
+          "x": 50,
+          "y": 36
+        },
+        "editorial": {
+          "x": 55,
+          "y": 42
+        }
+      },
+      "notes": "Both Hamburg downloads are exterior harbour/Elbphilharmonie views. No interior photograph was present in the Downloads folder."
+    },
+    "barcelona-spain": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/barcelona-spain/destination-exterior-batch01-pexels-38611504.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/barcelona-spain/destination-exterior-batch01-pexels-38611504.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/aerial-view-of-barcelona-city-skyline-38611504/",
+      "photographer": "Marcel Gierschick",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels location: Barcelona, Spain — Mediterranean cityscape aerial",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 38611504
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 42
+        },
+        "hero": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "attribution": "Photo: Marcel Gierschick / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "miami-fl-united-states": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/miami-fl-united-states/destination-exterior-batch01-pexels-378570.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/miami-fl-united-states/destination-exterior-batch01-pexels-378570.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-high-rise-buildings-378570/",
+      "photographer": "Pixabay",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Miami downtown high-rise skyline (Florida)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 378570
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 40
+        },
+        "hero": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "attribution": "Photo: Pixabay / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "copenhagen-denmark": {
+      "verificationStatus": "NEEDS_REVIEW",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "replacementOf": 2611817,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/copenhagen-denmark/destination-exterior-batch01r-pexels-35276893.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/copenhagen-denmark/destination-exterior-batch01r-pexels-35276893.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/colorful-waterfront-houses-in-nyhavn-copenhagen-35276893/",
+      "photographer": "Mike Norris",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Nyhavn colourful houses and canal — København, Denmark",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 35276893
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 44
+        },
+        "hero": {
+          "x": 50,
+          "y": 44
+        }
+      },
+      "notes": "Pexels listing (no invented ratings)"
+    },
+    "rome-civitavecchia-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/rome-civitavecchia-italy/destination-exterior-batch01-pexels-32199907.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/rome-civitavecchia-italy/destination-exterior-batch01-pexels-32199907.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-rome-with-colosseum-in-background-32199907/",
+      "photographer": "Paolo Bici",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Rome cityscape with Colosseum — cruise gateway Civitavecchia/Rome",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 32199907
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 52,
+          "y": 38
+        },
+        "hero": {
+          "x": 52,
+          "y": 38
+        }
+      },
+      "attribution": "Photo: Paolo Bici / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "venice-ravenna-trieste-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/venice-ravenna-trieste-italy/destination-exterior-batch01-pexels-36393798.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/venice-ravenna-trieste-italy/destination-exterior-batch01-pexels-36393798.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-venice-s-grand-canal-in-italy-36393798/",
+      "photographer": "Dominik Gryzbon",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Venice Grand Canal historic waterfront — Venice cruise hub",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 36393798
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 44
+        },
+        "hero": {
+          "x": 50,
+          "y": 44
+        }
+      },
+      "attribution": "Photo: Dominik Gryzbon / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "dubrovnik-croatia": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/dubrovnik-croatia/destination-exterior-batch01-pexels-16908309.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/dubrovnik-croatia/destination-exterior-batch01-pexels-16908309.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/defensive-walls-and-the-old-town-of-dubrovnik-16908309/",
+      "photographer": "Diego F. Parra",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Aerial Old Town Dubrovnik walls, Adriatic",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 16908309
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 40
+        },
+        "hero": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "attribution": "Photo: Diego F. Parra / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "lisbon-portugal": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/lisbon-portugal/destination-exterior-batch01-pexels-10885505.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/lisbon-portugal/destination-exterior-batch01-pexels-10885505.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/suspension-bridge-over-a-wide-river-10885505/",
+      "photographer": "Simão Moreira",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "25 de Abril Bridge over Tagus — Lisbon",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 10885505
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 46
+        },
+        "hero": {
+          "x": 50,
+          "y": 46
+        }
+      },
+      "attribution": "Photo: Simão Moreira / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "southampton-united-kingdom": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "unsplash",
+      "batchId": "destination-photo-batch-01-round2-four",
+      "replacementOf": 19784001,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/southampton-united-kingdom/destination-exterior-batch01r2-unsplash-da2971caee3b.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/southampton-united-kingdom/destination-exterior-batch01r2-unsplash-da2971caee3b.webp",
+      "sourcePageUrl": "https://unsplash.com/photos/a-marina-filled-with-lots-of-boats-next-to-tall-buildings-7w4nbbYLJKY",
+      "photographer": "Colin Osborne",
+      "license": "Unsplash License (free for commercial use)",
+      "licenseUrl": "https://unsplash.com/license",
+      "depictedDestination": "Ocean Village marina and waterfront apartments — Southampton, United Kingdom (Unsplash map marker)",
+      "unsplashPhotoIds": {
+        "directoryAndHero": "da2971caee3b"
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 45
+        },
+        "hero": {
+          "x": 50,
+          "y": 45
+        }
+      },
+      "notes": "Round 2 replacement — owner visual review required (NEEDS_REVIEW)",
+      "round2AppliedAt": "2026-11-05",
+      "ownerApprovedAt": "2026-11-05",
+      "productionLicenseVerified": true
+    },
+    "marseille-provence-france": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/marseille-provence-france/destination-exterior-batch01-pexels-15878303.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/marseille-provence-france/destination-exterior-batch01-pexels-15878303.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/panoramic-view-of-the-vieux-port-marseille-france-15878303/",
+      "photographer": "Ulrick Trappschuh",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Vieux-Port Marseille panorama with boats and skyline",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 15878303
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 43
+        },
+        "hero": {
+          "x": 50,
+          "y": 43
+        }
+      },
+      "attribution": "Photo: Ulrick Trappschuh / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "naples-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/naples-italy/destination-exterior-batch01-pexels-37933718.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/naples-italy/destination-exterior-batch01-pexels-37933718.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-mount-vesuvius-from-naples-harbor-37933718/",
+      "photographer": "Massimo Greco",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Bay of Naples harbour with Mount Vesuvius",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 37933718
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 40
+        },
+        "hero": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "attribution": "Photo: Massimo Greco / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "santorini-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/santorini-greece/destination-exterior-batch01-pexels-1010648.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/santorini-greece/destination-exterior-batch01-pexels-1010648.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/santorini-greece-1010648/",
+      "photographer": "jimmy teoh",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Oia Santorini caldera whitewashed architecture",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 1010648
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 38
+        },
+        "hero": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "attribution": "Photo: jimmy teoh / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "athens-piraeus-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/athens-piraeus-greece/destination-exterior-batch01-pexels-37187285.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/athens-piraeus-greece/destination-exterior-batch01-pexels-37187285.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/spectacular-view-of-the-acropolis-in-athens-37187285/",
+      "photographer": "pierre matile",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Acropolis of Athens — Piraeus/Athens cruise gateway",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 37187285
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 36
+        },
+        "hero": {
+          "x": 50,
+          "y": 36
+        }
+      },
+      "attribution": "Photo: pierre matile / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "palma-de-mallorca-spain": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/palma-de-mallorca-spain/destination-exterior-batch01-pexels-27953191.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/palma-de-mallorca-spain/destination-exterior-batch01-pexels-27953191.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/the-cathedral-of-palma-de-mallorca-spain-27953191/",
+      "photographer": "David Vives",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "La Seu cathedral waterfront Palma de Mallorca",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 27953191
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 42
+        },
+        "hero": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "attribution": "Photo: David Vives / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "bergen-norway": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/bergen-norway/destination-exterior-batch01-pexels-33583891.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/bergen-norway/destination-exterior-batch01-pexels-33583891.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/picturesque-view-of-historic-bryggen-waterfront-33583891/",
+      "photographer": "Jonathan Borba",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Bryggen wharf Bergen UNESCO waterfront",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 33583891
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 44
+        },
+        "hero": {
+          "x": 50,
+          "y": 44
+        }
+      },
+      "attribution": "Photo: Jonathan Borba / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "amsterdam-netherlands": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/amsterdam-netherlands/destination-exterior-batch01-pexels-18949431.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/amsterdam-netherlands/destination-exterior-batch01-pexels-18949431.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/canal-in-amsterdam-netherlands-18949431/",
+      "photographer": "Nik Cvetkovic",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Amsterdam canal with classic architecture",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 18949431
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 45
+        },
+        "hero": {
+          "x": 50,
+          "y": 45
+        }
+      },
+      "attribution": "Photo: Nik Cvetkovic / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "stockholm-sweden": {
+      "verificationStatus": "NEEDS_REVIEW",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "replacementOf": 1118872,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/stockholm-sweden/destination-exterior-batch01r-pexels-37499978.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/stockholm-sweden/destination-exterior-batch01r-pexels-37499978.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-stockholm-s-historic-waterfront-37499978/",
+      "photographer": "Margo Evardson",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Stockholm historic waterfront panorama — Stockholm County, Sweden (Pexels location tag)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 37499978
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 42
+        },
+        "hero": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "notes": "Pexels listing (no invented ratings)"
+    },
+    "istanbul-turkey": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-round2-four",
+      "replacementOf": 39465143,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/istanbul-turkey/destination-exterior-batch01r2-pexels-38131419.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/istanbul-turkey/destination-exterior-batch01r2-pexels-38131419.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/blue-mosque-in-istanbul-overlooking-bosphorus-38131419/",
+      "photographer": "Konevi",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Blue Mosque and Bosphorus waterfront — İstanbul, Türkiye (Pexels location tag)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 38131419
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 40
+        },
+        "hero": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "notes": "Round 2 replacement — owner visual review required (NEEDS_REVIEW)",
+      "round2AppliedAt": "2026-11-05",
+      "ownerApprovedAt": "2026-11-05",
+      "productionLicenseVerified": true
+    },
+    "cozumel-mexico": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/cozumel-mexico/destination-exterior-batch01-pexels-248797.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/cozumel-mexico/destination-exterior-batch01-pexels-248797.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-seashore-248797/",
+      "photographer": "Pixabay",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Tropical Caribbean coastline — Cozumel island destination",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 248797
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 48
+        },
+        "hero": {
+          "x": 50,
+          "y": 48
+        }
+      },
+      "attribution": "Photo: Pixabay / Pexels",
+      "notes": "Generic Caribbean shoreline; location tag on Pexels is not Cozumel-specific — owner should confirm",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "nassau-bahamas": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/nassau-bahamas/destination-exterior-batch01-pexels-457878.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/nassau-bahamas/destination-exterior-batch01-pexels-457878.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-beach-457878/",
+      "photographer": "Pixabay",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Bahamas turquoise beach — Nassau cruise destination style",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 457878
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 50
+        },
+        "hero": {
+          "x": 50,
+          "y": 50
+        }
+      },
+      "attribution": "Photo: Pixabay / Pexels",
+      "notes": "Beach scene without explicit Nassau landmark — owner review",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "mykonos-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-round2-four",
+      "replacementOf": 1010662,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/mykonos-greece/destination-exterior-batch01r2-pexels-6143740.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/mykonos-greece/destination-exterior-batch01r2-pexels-6143740.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-windmills-6143740/",
+      "photographer": "Kevin Lee",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Historic Mykonos windmills — Cyclades, Greece (Pexels listing)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 6143740
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 42
+        },
+        "hero": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "notes": "Round 2 replacement — owner visual review required (NEEDS_REVIEW)",
+      "round2AppliedAt": "2026-11-05",
+      "ownerApprovedAt": "2026-11-05",
+      "productionLicenseVerified": true
+    },
+    "valletta-malta": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/valletta-malta/destination-exterior-batch01-pexels-8909170.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/valletta-malta/destination-exterior-batch01-pexels-8909170.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/the-grand-harbor-in-the-port-of-valletta-malta-8909170/",
+      "photographer": "Sarolta Balog-Major",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Grand Harbour Valletta cliffs and historic waterfront",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 8909170
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 42
+        },
+        "hero": {
+          "x": 50,
+          "y": 42
+        }
+      },
+      "attribution": "Photo: Sarolta Balog-Major / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "genoa-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/genoa-italy/destination-exterior-batch01-pexels-10019044.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/genoa-italy/destination-exterior-batch01-pexels-10019044.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/waterfront-city-on-hills-on-sunset-10019044/",
+      "photographer": "Doralin Tunas",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Genoa waterfront cityscape at sunset",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 10019044
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 38
+        },
+        "hero": {
+          "x": 50,
+          "y": 38
+        }
+      },
+      "attribution": "Photo: Doralin Tunas / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "oslo-norway": {
+      "verificationStatus": "NEEDS_REVIEW",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "replacementOf": 15798094,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/oslo-norway/destination-exterior-batch01r-pexels-32991341.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/oslo-norway/destination-exterior-batch01r-pexels-32991341.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/aerial-view-of-oslo-waterfront-architecture-32991341/",
+      "photographer": "Jess Chen",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Aerial Oslo waterfront and Opera district — Oslo, Norway",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 32991341
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 40
+        },
+        "hero": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "notes": "Pexels ~4.8M views / ~21K downloads (provider metadata only)"
+    },
+    "seattle-wa-united-states": {
+      "verificationStatus": "NEEDS_REVIEW",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "replacementOf": 414612,
+      "directoryImageUrl": "/assets/img/ports-directory/ports/seattle-wa-united-states/destination-exterior-batch01r-pexels-36486517.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/seattle-wa-united-states/destination-exterior-batch01r-pexels-36486517.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/seattle-skyline-with-space-needle-and-mount-rainier-36486517/",
+      "photographer": "Brent Singleton",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Seattle skyline with Space Needle and Mount Rainier — Seattle, Washington",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 36486517
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 36
+        },
+        "hero": {
+          "x": 50,
+          "y": 36
+        }
+      },
+      "notes": "Pexels ~16.8M views / ~11.2K downloads (provider metadata only)"
+    },
+    "singapore-singapore": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-01-major-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/singapore-singapore/destination-exterior-batch01-pexels-30471856.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/singapore-singapore/destination-exterior-batch01-pexels-30471856.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/modern-marina-bay-skyline-in-singapore-30471856/",
+      "photographer": "Joerg Hartmann",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Marina Bay Singapore modern waterfront skyline",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 30471856
+      },
+      "cropFocal": {
+        "directory": {
+          "x": 50,
+          "y": 40
+        },
+        "hero": {
+          "x": 50,
+          "y": 40
+        }
+      },
+      "attribution": "Photo: Joerg Hartmann / Pexels",
+      "notes": "Machine-matched Pexels candidate — requires owner visual approval before production.",
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "george-town-cayman-islands": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "unsplash",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/george-town-cayman-islands/destination-exterior-batch02-unsplash-k-9GLWbZ2Xw.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/george-town-cayman-islands/destination-exterior-batch02-unsplash-k-9GLWbZ2Xw.webp",
+      "sourcePageUrl": "https://unsplash.com/photos/k-9GLWbZ2Xw",
+      "photographer": "Jason Clishe",
+      "license": "Unsplash License (free for commercial use)",
+      "licenseUrl": "https://unsplash.com/license",
+      "depictedDestination": "Crystal-clear harbor water — George Town, Cayman Islands (Unsplash map marker)",
+      "unsplashPhotoIds": {
+        "directoryAndHero": "k-9GLWbZ2Xw"
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "st-thomas-charlotte-amalie-us-virgin-islands": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/st-thomas-charlotte-amalie-us-virgin-islands/destination-exterior-batch02-pexels-34650321.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/st-thomas-charlotte-amalie-us-virgin-islands/destination-exterior-batch02-pexels-34650321.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-st-thomas-harbor-in-summer-34650321/",
+      "photographer": "Arian Fernandez",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Charlotte Amalie harbor with lush hills — St. Thomas, U.S. Virgin Islands",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 34650321
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "florence-pisa-livorno-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/florence-pisa-livorno-italy/destination-exterior-batch02-r2-pexels-4015473.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/florence-pisa-livorno-italy/destination-exterior-batch02-r2-pexels-4015473.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/drone-shot-of-buildings-in-the-city-of-florence-4015473/",
+      "photographer": "Olivier Darny",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Florence, Tuscany, Italy · Page title: Drone Shot of Buildings in the City of Florence",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 4015473
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "kotor-montenegro": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/kotor-montenegro/destination-exterior-batch02-alt-pexels-33498731.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/kotor-montenegro/destination-exterior-batch02-alt-pexels-33498731.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/stunning-coastal-view-of-kotor-bay-montenegro-33498731/",
+      "photographer": "Boris Hamer",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Kotor Bay old town and mountains — Montenegro",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 33498731
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "corfu-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/corfu-greece/destination-exterior-batch02-pexels-1285625.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/corfu-greece/destination-exterior-batch02-pexels-1285625.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/aerial-view-of-city-near-body-of-water-1285625/",
+      "photographer": "Tom Fisk",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Corfu Old Town peninsula and Ionian coast aerial",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 1285625
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "rhodes-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/rhodes-greece/destination-exterior-batch02-alt-pexels-10929911.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/rhodes-greece/destination-exterior-batch02-alt-pexels-10929911.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/body-of-water-near-buildings-10929911/",
+      "photographer": "Erik Karits",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Rhodes coastal town and Aegean — Greece",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 10929911
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "split-croatia": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/split-croatia/destination-exterior-batch02-pexels-34588006.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/split-croatia/destination-exterior-batch02-pexels-34588006.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-coastal-split-croatia-with-mountains-34588006/",
+      "photographer": "KENNEDY L. GREENAWAY",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Split coastal old town and Adriatic — Split-Dalmatia, Croatia",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 34588006
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "heraklion-crete-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/heraklion-crete-greece/destination-exterior-batch02-r2-pexels-37844576.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/heraklion-crete-greece/destination-exterior-batch02-r2-pexels-37844576.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/venetian-fort-and-harbor-in-heraklion-greece-37844576/",
+      "photographer": "K",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Heraklion, Greece · Page title: Venetian Fort and Harbor in Heraklion, Greece",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 37844576
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "sicily-palermo-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject3-round3-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/sicily-palermo-italy/destination-exterior-batch02-r3-pexels-36835853.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/sicily-palermo-italy/destination-exterior-batch02-r3-pexels-36835853.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/yachts-moored-at-palermo-harbor-sicily-36835853/",
+      "photographer": "BAE JUN",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Palermo, Italy · Page title: Yachts Moored at Palermo Harbor, Sicily",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 36835853
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "cartagena-colombia": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/cartagena-colombia/destination-exterior-batch02-r2-pexels-13804522.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/cartagena-colombia/destination-exterior-batch02-r2-pexels-13804522.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/traditional-houses-in-the-center-of-cartagena-colombia-13804522/",
+      "photographer": "Maria Paula Medina",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Cartagena, Colombia · Page title: Traditional Houses in the Center of Cartagena, Colombia",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 13804522
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "san-juan-puerto-rico": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/san-juan-puerto-rico/destination-exterior-batch02-pexels-15306227.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/san-juan-puerto-rico/destination-exterior-batch02-pexels-15306227.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/cityscape-of-san-juan-on-puerto-rico-15306227/",
+      "photographer": "Diego F. Parra",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "San Juan coast with Capitol and Atlantic — Puerto Rico",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 15306227
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "aruba-oranjestad-aruba": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "unsplash",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/aruba-oranjestad-aruba/destination-exterior-batch02-r2-unsplash-rU0tiN5JMhA.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/aruba-oranjestad-aruba/destination-exterior-batch02-r2-unsplash-rU0tiN5JMhA.webp",
+      "sourcePageUrl": "https://unsplash.com/photos/a-green-and-white-building-with-a-sky-background-rU0tiN5JMhA",
+      "photographer": "Unsplash contributor",
+      "license": "Unsplash License (free for commercial use)",
+      "licenseUrl": "https://unsplash.com/license",
+      "depictedDestination": "Pexels listing location: Oranjestad, Aruba · Page title: Downtown sights of Oranjestad, Aruba",
+      "unsplashPhotoIds": {
+        "directoryAndHero": "rU0tiN5JMhA"
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "curacao-willemstad-curacao": {
+      "verificationStatus": "OWNER_APPROVED_GEO_CONTRADICTION",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/curacao-willemstad-curacao/destination-exterior-batch02-pexels-1450360.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/curacao-willemstad-curacao/destination-exterior-batch02-pexels-1450360.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-beach-during-golden-hour-1450360/",
+      "photographer": "Brian Lazo",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Caribbean waterfront golden light — Curaçao / Willemstad region",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 1450360
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": true,
+      "providerGeoContradiction": {
+        "assignedPort": "Curaçao (Willemstad)",
+        "providerImageId": 1450360,
+        "evidenceUrl": "https://www.pexels.com/photo/photo-of-beach-during-golden-hour-1450360/",
+        "providerLocationClaim": "Maldives",
+        "summary": "Pexels structured location lists Maldives while this port is Curaçao. Owner selection retained; public directory render withheld pending explicit override."
+      },
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "barbados-bridgetown-barbados": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/barbados-bridgetown-barbados/destination-exterior-batch02-r2-pexels-5287934.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/barbados-bridgetown-barbados/destination-exterior-batch02-r2-pexels-5287934.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/a-breathtaking-view-of-the-sea-5287934/",
+      "photographer": "Robyn W",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Barbados (photographer caption on Pexels) · Page title: A Breathtaking View of the Sea",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 5287934
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "antigua-st-john-s-antigua": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/antigua-st-john-s-antigua/destination-exterior-batch02-pexels-1450350.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/antigua-st-john-s-antigua/destination-exterior-batch02-pexels-1450350.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-ocean-1450350/",
+      "photographer": "Brian Lazo",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Caribbean seascape — Antigua & Barbuda (St. John's cruise port)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 1450350
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "amber-cove-puerto-plata-dominican-republic": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject3-round3-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/amber-cove-puerto-plata-dominican-republic/destination-exterior-batch02-r3-pexels-38810525.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/amber-cove-puerto-plata-dominican-republic/destination-exterior-batch02-r3-pexels-38810525.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/aerial-view-of-puerto-plata-s-vibrant-coastline-38810525/",
+      "photographer": "William Finn",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Puerto Plata, Puerto Plata Province, Dominican Republic · Page title: Aerial View of Puerto Plata's Vibrant Coastline",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 38810525
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "bonaire-bonaire": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/bonaire-bonaire/destination-exterior-batch02-alt-pexels-1134178.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/bonaire-bonaire/destination-exterior-batch02-alt-pexels-1134178.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-seashore-1134178/",
+      "photographer": "Asad Photo Maldives",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Bonaire Caribbean shoreline",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 1134178
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "bodrum-turkey": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/bodrum-turkey/destination-exterior-batch02-r2-pexels-39117746.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/bodrum-turkey/destination-exterior-batch02-r2-pexels-39117746.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/bodrum-marina-with-castle-and-sailing-yachts-39117746/",
+      "photographer": "Muhammed Gündüz",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Bodrum, Turkey · Page title: Bodrum Marina with Castle and Sailing Yachts",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 39117746
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "bari-italy": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/bari-italy/destination-exterior-batch02-r2-pexels-35178862.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/bari-italy/destination-exterior-batch02-r2-pexels-35178862.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-bari-harbor-with-boats-and-historic-building-35178862/",
+      "photographer": "Elijah Cobb",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Bari, Apulia, Italy · Page title: Scenic View of Bari Harbor with Boats and Historic Building",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 35178862
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "ajaccio-corsica-france": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject3-round3-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/ajaccio-corsica-france/destination-exterior-batch02-r3-pexels-19466911.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/ajaccio-corsica-france/destination-exterior-batch02-r3-pexels-19466911.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/boats-in-harbor-buildings-in-background-19466911/",
+      "photographer": "Dan Phan Nguyen",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Ajaccio, France · Page title: Boats in Harbor, Buildings in Background",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 19466911
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "chania-crete-greece": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/chania-crete-greece/destination-exterior-batch02-pexels-38313115.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/chania-crete-greece/destination-exterior-batch02-pexels-38313115.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-chania-old-venetian-harbor-38313115/",
+      "photographer": "Piotr Baranowski",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Chania Old Venetian Harbor and lighthouse — Crete, Greece",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 38313115
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "bar-montenegro": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/bar-montenegro/destination-exterior-batch02-r2-pexels-33301410.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/bar-montenegro/destination-exterior-batch02-r2-pexels-33301410.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/stunning-mountain-and-sea-view-in-bar-montenegro-33301410/",
+      "photographer": "Boris Hamer",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Bar, Montenegro · Page title: Stunning Mountain and Sea View in Bar, Montenegro",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 33301410
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "belize-city-belize": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/belize-city-belize/destination-exterior-batch02-r2-pexels-4716934.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/belize-city-belize/destination-exterior-batch02-r2-pexels-4716934.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/white-boat-on-blue-sea-4716934/",
+      "photographer": "Frank Cordeiro",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Belize (Pexels page description) · Page title: White Boat on Blue Sea",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 4716934
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "colon-panama": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-reject13-round2-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/colon-panama/destination-exterior-batch02-r2-pexels-11678092.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/colon-panama/destination-exterior-batch02-r2-pexels-11678092.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/a-view-of-a-beautiful-paradise-11678092/",
+      "photographer": "Lauren Martina",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Pexels listing location: Colón, Colón Province, Panama · Page title: A View of a Beautiful Paradise",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 11678092
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-05"
+    },
+    "costa-maya-mexico": {
+      "verificationStatus": "OWNER_APPROVED_GEO_CONTRADICTION",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-02-med-carib-25",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/costa-maya-mexico/destination-exterior-batch02-alt-pexels-1450352.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/costa-maya-mexico/destination-exterior-batch02-alt-pexels-1450352.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/photo-of-ocean-1450352/",
+      "photographer": "Brian Lazo",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Mexican Caribbean shore — Costa Maya (generic beach)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 1450352
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": false,
+      "excludedFromPublicDirectoryRender": true,
+      "providerGeoContradiction": {
+        "assignedPort": "Costa Maya, Mexico",
+        "providerImageId": 1450352,
+        "evidenceUrl": "https://www.pexels.com/photo/photo-of-ocean-1450352/",
+        "providerLocationClaim": "Maldives",
+        "summary": "Pexels structured location lists Maldives while this port is Costa Maya, Mexico. Owner selection retained; public directory render withheld pending explicit override."
+      },
+      "ownerApprovedAt": "2026-11-05"
+    }
+  }
+}
