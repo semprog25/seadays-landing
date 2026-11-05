@@ -31,16 +31,18 @@ function readMarkers(html) {
 }
 
 const sourceRoot = path.join(__dirname, '..');
-const mainNodeModules = path.join(sourceRoot, '..', '..', 'node_modules');
+const repoNodeModules = path.join(sourceRoot, 'node_modules');
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'seadays-ports-parity-'));
 const repoRoot = tempRoot;
 
 execFileSync('rsync', ['-a', '--exclude', 'node_modules', '--exclude', '.git', `${sourceRoot}/`, `${repoRoot}/`], {
   stdio: 'pipe',
 });
-if (fs.existsSync(mainNodeModules)) {
-  fs.symlinkSync(mainNodeModules, path.join(repoRoot, 'node_modules'));
+if (!fs.existsSync(repoNodeModules)) {
+  console.error('FAIL: run npm ci so node_modules exists before parity test');
+  process.exit(1);
 }
+fs.symlinkSync(repoNodeModules, path.join(repoRoot, 'node_modules'));
 
 const indexPath = path.join(repoRoot, 'ports', 'index.html');
 const env = { ...process.env, SEADAYS_PORTS_INDEX_ONLY: '1' };

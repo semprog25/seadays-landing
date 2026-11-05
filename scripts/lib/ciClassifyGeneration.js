@@ -164,22 +164,62 @@ function planForChannel(channel, { allowOrphanCleanup = false } = {}) {
   throw new Error(`Unknown generation channel: ${channel}`);
 }
 
+function isStrictFullTrigger(file) {
+  return (
+    /^scripts\/lib\/analyticsSnippet\.js$/.test(file) ||
+    /^scripts\/lib\/faviconHead\.js$/.test(file)
+  );
+}
+
+function touchesPortsDirectoryGenerator(file) {
+  return (
+    matchesAny(PORT_PATTERNS, file) ||
+    file === 'scripts/generateBlogs.js' ||
+    /^scripts\/lib\/portsDirectory/.test(file) ||
+    file === 'scripts/lib/directoryRuntimeImageGuard.js' ||
+    file === 'scripts/lib/preparePortsDirectoryIndexWrite.js' ||
+    file === 'scripts/lib/portsDirectoryBookable.js' ||
+    file === 'scripts/lib/portsDirectoryFeaturedGuides.js' ||
+    file === 'scripts/lib/portsDirectoryPageShellStyles.js'
+  );
+}
+
+/**
+ * Owner-merged Ports directory releases ship committed ports/index.html and
+ * photography without a public-port-guides dataset bump — skip CI regen.
+ */
+function evaluatePortsDirectoryCommittedReleaseSuppress(changedFiles) {
+  const normalized = (Array.isArray(changedFiles) ? changedFiles : []).map(normalizePath).filter(Boolean);
+  if (!normalized.length) return null;
+  if (!normalized.includes('ports/index.html')) return null;
+  if (normalized.includes('data/public-port-guides.json')) return null;
+  if (!normalized.some(touchesPortsDirectoryGenerator)) return null;
+  return {
+    action: 'suppress',
+    reason: 'ports-directory-committed-release:skip-guide-regeneration',
+  };
+}
+
 function classifyChangedFiles(files) {
   const normalized = (Array.isArray(files) ? files : []).map(normalizePath).filter(Boolean);
   let blogs = false;
   let ports = false;
   let catalogue = false;
   let full = false;
+  let strictFull = false;
   let sitemap = false;
 
   for (const file of normalized) {
     if (matchesAny(FULL_PATTERNS, file)) full = true;
+    if (isStrictFullTrigger(file)) strictFull = true;
     if (matchesAny(BLOG_PATTERNS, file)) blogs = true;
     if (matchesAny(PORT_PATTERNS, file)) ports = true;
     if (matchesAny(CATALOGUE_PATTERNS, file)) catalogue = true;
     if (matchesAny(SITEMAP_PATTERNS, file)) sitemap = true;
   }
 
+  if (strictFull || (full && !ports)) return planForChannel('full');
+  if (full && ports && !blogs && !catalogue) return planForChannel('ports');
   if (full) return planForChannel('full');
   if (catalogue) return planForChannel('catalogue');
   if (ports) return planForChannel('ports');
@@ -216,6 +256,10 @@ function resolveGenerationPlan({
     if (guardVerdict?.action === 'suppress') {
       return emptyPlan('skip');
     }
+    const portsReleaseVerdict = evaluatePortsDirectoryCommittedReleaseSuppress(changedFiles);
+    if (portsReleaseVerdict?.action === 'suppress') {
+      return emptyPlan('skip');
+    }
   }
 
   return classifyChangedFiles(changedFiles);
@@ -228,6 +272,7 @@ module.exports = {
   CATALOGUE_PATTERNS,
   SITEMAP_PATTERNS,
   classifyChangedFiles,
+  evaluatePortsDirectoryCommittedReleaseSuppress,
   planForChannel,
   resolveGenerationPlan,
 };

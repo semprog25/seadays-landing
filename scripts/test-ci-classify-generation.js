@@ -64,6 +64,42 @@ test('generateBlogs.js changes select full without orphan cleanup', () => {
   assert.strictEqual(plan.allowOrphanCleanup, false);
 });
 
+test('generateBlogs.js with port directory scripts selects ports-only, not full', () => {
+  const plan = classifyChangedFiles([
+    'scripts/generateBlogs.js',
+    'scripts/lib/portsDirectoryIndex.js',
+    'scripts/regenerate-ports-index.js',
+  ]);
+  assert.strictEqual(plan.channel, 'ports');
+  assert.strictEqual(plan.ports, true);
+  assert.strictEqual(plan.blogs, false);
+  assert.strictEqual(plan.ships, false);
+});
+
+test('committed ports/index.html release suppresses push generation', () => {
+  const plan = resolveGenerationPlan({
+    eventName: 'push',
+    changedFiles: [
+      'ports/index.html',
+      'scripts/generateBlogs.js',
+      'scripts/lib/portsDirectoryIndex.js',
+      'data/ports-directory-country-images.json',
+      'assets/css/site-shell.css',
+    ],
+  });
+  assert.strictEqual(plan.skip, true);
+  assert.strictEqual(plan.channel, 'skip');
+});
+
+test('public-port-guides dataset change with index does not suppress push', () => {
+  const plan = resolveGenerationPlan({
+    eventName: 'push',
+    changedFiles: ['ports/index.html', 'data/public-port-guides.json'],
+  });
+  assert.strictEqual(plan.skip, false);
+  assert.strictEqual(plan.channel, 'ports');
+});
+
 test('daily schedule is blogs-only for CMS pickup', () => {
   const plan = resolveGenerationPlan({ eventName: 'schedule', changedFiles: ['index.html'] });
   assert.strictEqual(plan.channel, 'blogs');
