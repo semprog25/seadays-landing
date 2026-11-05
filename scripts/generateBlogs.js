@@ -62,6 +62,7 @@ const {
   getSiteFooterHtml,
   getSiteShellCssLinkHtml,
 } = require('./lib/siteShell');
+const { EDITORIAL_LINK_CSS } = require('./lib/editorialLinkCss');
 const { applyEditorialCopyToHtml, sanitizeArticleCopy } = require('./lib/editorialCopy');
 const { applyBlogProductionHygieneToHtml } = require('./lib/blogProductionHygiene');
 const {
@@ -83,6 +84,10 @@ const { filterSitemapXml } = require('./lib/sitemapIndexability');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
 const { writePortsDirectoryIndexFromCatalogue } = require('./lib/preparePortsDirectoryIndexWrite');
+const { PORTS_DIRECTORY_PAGE_SHELL_STYLES } = require('./lib/portsDirectoryPageShellStyles');
+const { buildDirectoryRuntimeImageGuardScript } = require('./lib/directoryRuntimeImageGuard');
+const { applyHasBookableExperiencesToSeoPorts } = require('./lib/portsDirectoryBookable');
+const { resolvePortsDirectoryFeaturedGuideCardsHtml } = require('./lib/portsDirectoryFeaturedGuides');
 const {
   getAliasRedirectTarget,
   getPreservedPortDirectorySlugs,
@@ -2272,8 +2277,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .article-body th, .article-body td { padding: 12px; text-align: left; border: 1px solid rgba(255,255,255,0.2); }
 .article-body aside { margin: 24px 0; padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
 .article-body .related-inline { font-size: 0.95em; color: rgba(255,255,255,0.7); margin: 24px 0; }
-.article-body .contextual-link { color: var(--neon-red); text-decoration: none; }
-.article-body .contextual-link:hover { text-decoration: underline; }
+.article-body .contextual-link { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.article-body .contextual-link:hover { color: var(--seadays-editorial-link-hover, #a8e8ff); text-decoration-color: rgba(168,232,255,0.75); }
 ${getAdSlotCss()}
 .app-download-cta { margin: 8px 0 4px; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .app-download-cta-note { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.62); font-weight: 400; }
@@ -2379,8 +2384,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .seo-details .seo-details-body { padding: 0 18px 18px; color: rgba(255,255,255,0.78); font-size: 15px; line-height: 1.65; max-width: 52em; margin: 0 auto; }
 .seo-details .seo-details-body h3 { font-size: 17px; font-weight: 900; margin: 16px 0 8px; color: #fff; }
 .seo-details .seo-details-body p { margin-bottom: 12px; }
-.seo-details .seo-details-body a { color: var(--neon-red); font-weight: 800; text-decoration: none; }
-.seo-details .seo-details-body a:hover { text-decoration: underline; }
+.seo-details .seo-details-body a { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-details .seo-details-body a:hover { color: var(--seadays-editorial-link-hover, #a8e8ff); }
 .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 20px 120px; }
 .article-card { background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(255, 255, 255, 0.05); border-radius: 24px; overflow: hidden; transition: all 0.3s ease; text-decoration: none; color: #fff; display: block; }
 .article-card:hover { border-color: var(--neon-red); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2); }
@@ -2399,6 +2404,7 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   .blog-filters { justify-content: center; }
   .featured-grid { grid-template-columns: 1fr; }
 }
+${EDITORIAL_LINK_CSS}
 `;
 
 // ---------------------------------------------------------------------------
@@ -2456,7 +2462,10 @@ const RUNTIME_GUARD_SCRIPT = `<script>
   var FB='${FALLBACK_IMAGE_URL}';
   // Blocks CDN proxy, SVGs, and expiring signed storage URLs.
   function safeImage(src){
-    if(!src||!src.startsWith('https://'))return FB;
+    var s=String(src||'').trim();
+    if(!s)return FB;
+    if(s.startsWith('/assets/')&&!s.includes('..'))return s;
+    if(!s.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
     if(src.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
@@ -3454,7 +3463,11 @@ async function main() {
   }
   }
   const unpublishedPortSlugs = new Set();
-  if (mode.ports) {
+  const skipPortDetailWrites = process.env.SEADAYS_PORTS_INDEX_ONLY === '1';
+  if (skipPortDetailWrites && mode.ports) {
+    console.log('[generateBlogs] SEADAYS_PORTS_INDEX_ONLY=1 — skipping port detail HTML writes');
+  }
+  if (mode.ports && !skipPortDetailWrites) {
   let portsWritten = 0;
   for (const port of seoPorts) {
     if (!shouldWritePortDetail(mode, port.slug)) continue;
@@ -3602,16 +3615,26 @@ async function main() {
     );
   }
   if (mode.ports && !targetedOnly) {
-    const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
+    applyHasBookableExperiencesToSeoPorts(seoPorts, {
+      appRoot,
+      slugToAppPortId,
+      knownAffiliatePortIds,
+      viatorConfig,
+    });
+    const portGuideCardsHtml = resolvePortsDirectoryFeaturedGuideCardsHtml({
+      repoRoot,
+      seoPorts,
+      articles,
+    });
     writePortsDirectoryIndexFromCatalogue({
       repoRoot,
       seoPorts,
       slugToAppPortId,
       publicGuidesByAppPortId: publicGuides.byAppPortId || {},
       featuredGuideCardsHtml: portGuideCardsHtml,
-      indexStyles: INDEX_STYLES,
+      indexStyles: PORTS_DIRECTORY_PAGE_SHELL_STYLES,
       analyticsHeadHtml: getAnalyticsHeadHtml(),
-      runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
+      runtimeGuardScript: buildDirectoryRuntimeImageGuardScript(),
       baseUrl: BASE_URL,
       defaultFavicon: DEFAULT_FAVICON,
       transformHtml: replaceSignedStorageImgSrcInHtml,

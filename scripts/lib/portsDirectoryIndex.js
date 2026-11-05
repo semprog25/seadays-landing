@@ -13,8 +13,13 @@ const {
 } = require('./siteShell');
 const fs = require('fs');
 const path = require('path');
+const {
+  buildNoPhotoRegionOrCountryMediaHtml,
+  NO_PHOTO_OBJECT_FIT_CSS,
+} = require('./seadaysNoPhotoAsset');
 const buildPortsDirectoryClientScriptSource = require('./portsDirectoryIndex.client');
-const { assessPortDirectoryThumbnail } = require('./directoryThumbnailQuality');
+const { isApprovedDestinationPhotographyUrl } = require('./destinationImageSourcePolicy');
+const { assessPortDirectoryThumbnail, ownerPortsDirectoryAssetExists } = require('./directoryThumbnailQuality');
 const {
   buildDestinationDirectoryCardHtml,
   DESTINATION_DIRECTORY_CARD_CSS,
@@ -184,7 +189,7 @@ const DIRECTORY_FEATURED_SIZE = 12;
 
 function isDirectoryPlaceholderImage(url) {
   const s = String(url || '').trim();
-  return !s || s.includes('seadaysfav.png');
+  return !s || s.includes('seadaysfav.png') || s.includes('seadays-no-image.webp');
 }
 
 function loadRegionImageManifest(repoRoot) {
@@ -193,27 +198,29 @@ function loadRegionImageManifest(repoRoot) {
 }
 
 function portHasVerifiedDirectoryPhoto(port) {
-  const url = String(port.directoryImageUrl || port.image_url || '').trim();
-  return !isDirectoryPlaceholderImage(url);
+  return resolveVerifiedPortDirectoryImageUrl(port, path.join(__dirname, '..', '..')).hasVerifiedPhoto;
 }
 
-function buildPortCardImageHtml(port) {
+/**
+ * Only surface directory photos that pass policy, quality, and on-disk asset checks.
+ * @returns {{ hasVerifiedPhoto: boolean, imgUrl: string }}
+ */
+function resolveVerifiedPortDirectoryImageUrl(port, repoRoot) {
   const url = String(port.directoryImageUrl || port.image_url || '').trim();
-  const alt = `${port.displayName}, ${port.country}`;
   if (isDirectoryPlaceholderImage(url)) {
-    return { html: '', hasVerifiedPhoto: false };
+    return { hasVerifiedPhoto: false, imgUrl: '' };
   }
-  const objectPosition = String(port.directoryImageObjectPosition || '').trim();
-  const focalAttr = objectPosition
-    ? ` data-directory-focal="${escapeHtml(objectPosition)}"`
-    : '';
-  return {
-    hasVerifiedPhoto: true,
-    html:
-      `<img class="directory-card-image img-loading" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
-      `width="1280" loading="lazy" decoding="async" data-img-source="directory"${focalAttr} ` +
-      `onload="this.classList.remove('img-loading')">`,
-  };
+  if (!isApprovedDestinationPhotographyUrl(url)) {
+    return { hasVerifiedPhoto: false, imgUrl: '' };
+  }
+  const quality = assessPortDirectoryThumbnail(url, { slug: port.slug }, repoRoot);
+  if (!quality.ok) {
+    return { hasVerifiedPhoto: false, imgUrl: '' };
+  }
+  if (url.startsWith('/assets/') && !ownerPortsDirectoryAssetExists(url, repoRoot)) {
+    return { hasVerifiedPhoto: false, imgUrl: '' };
+  }
+  return { hasVerifiedPhoto: true, imgUrl: url };
 }
 
 function buildNoScriptCrawlLinksHtml(directoryPorts) {
@@ -382,8 +389,8 @@ function buildRegionCardButton(def, imgMeta) {
   const imgAlt = String(imgMeta?.alt || def.label).trim();
   const imgHtml = imgUrl
     ? `<span class="region-card-media"><img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" width="320" height="180"></span>`
-    : '';
-  const cardClass = imgUrl ? 'region-card' : 'region-card region-card--text-first';
+    : buildNoPhotoRegionOrCountryMediaHtml('region-card-image');
+  const cardClass = 'region-card';
   return (
     `<button type="button" class="${cardClass}" data-region-key="${escapeHtml(def.key)}" ` +
     `data-regions="${escapeHtml(def.regions.join('|'))}" aria-pressed="false" ` +
@@ -453,7 +460,8 @@ function buildRegionBrowseHtml(directoryPorts, regionImages, verifiedBySlug, rep
   };
 }
 
-function buildPortCardsHtml(directoryPorts) {
+function buildPortCardsHtml(directoryPorts, repoRoot) {
+  const root = repoRoot || path.join(__dirname, '..', '..');
   return directoryPorts
     .slice()
     .sort((a, b) => {
@@ -481,11 +489,9 @@ function buildPortCardsHtml(directoryPorts) {
         typeof port.reviewCount === 'number' && Number.isFinite(port.reviewCount)
           ? String(port.reviewCount)
           : '0';
-      const image = buildPortCardImageHtml(port);
-      const hasVerifiedPhoto = image.hasVerifiedPhoto;
-      const imgUrl = hasVerifiedPhoto
-        ? String(port.directoryImageUrl || port.image_url || '').trim()
-        : '';
+      const resolved = resolveVerifiedPortDirectoryImageUrl(port, root);
+      const hasVerifiedPhoto = resolved.hasVerifiedPhoto;
+      const imgUrl = resolved.imgUrl;
       const dataAttrs =
         `data-group="${escapeHtml(port.region)}" data-item="${escapeHtml(port.slug)}" ` +
         `data-name="${escapeHtml(normalizeSearch(port.displayName))}" ` +
@@ -532,11 +538,20 @@ function buildCountryImagesManifest(directoryPorts, repoRoot) {
     const key = normalizeSearch(port.country);
     if (!key) continue;
     countryKeys.add(key);
-    if (manifest[key]) continue;
+    if (manifest[key]) {
+      const existingUrl = String(manifest[key].url || '').trim();
+      if (
+        existingUrl &&
+        (!existingUrl.startsWith('/assets/') || ownerPortsDirectoryAssetExists(existingUrl, root))
+      ) {
+        continue;
+      }
+    }
     const url = String(port.directoryImageUrl || '').trim();
     if (!url || url.includes('seadaysfav.png')) continue;
     const quality = assessPortDirectoryThumbnail(url, { slug: port.slug }, root);
     if (!quality.ok) continue;
+    if (url.startsWith('/assets/') && !ownerPortsDirectoryAssetExists(url, root)) continue;
     manifest[key] = {
       url,
       alt: `${port.country} cruise destinations`,
@@ -556,6 +571,7 @@ function buildCountryImagesManifest(directoryPorts, repoRoot) {
         if (!normKey || !url) continue;
         const quality = assessPortDirectoryThumbnail(url, { slug: entry.sourcePortSlug || '' }, root);
         if (!quality.ok && !url.startsWith('/assets/')) continue;
+        if (url.startsWith('/assets/') && !ownerPortsDirectoryAssetExists(url, root)) continue;
         manifest[normKey] = {
           url,
           alt: String(entry.alt || entry.label || key).trim(),
@@ -563,6 +579,13 @@ function buildCountryImagesManifest(directoryPorts, repoRoot) {
           sourcePortSlug: entry.sourcePortSlug || '',
           verification: entry.verification || 'override',
         };
+        if (entry.attributionRequired) {
+          manifest[normKey].attributionRequired = true;
+          manifest[normKey].photographer = String(entry.photographer || '').trim();
+          manifest[normKey].licenseTerms = String(entry.licenseTerms || '').trim();
+          manifest[normKey].licenseUrl = String(entry.licenseUrl || '').trim();
+          manifest[normKey].sourcePageUrl = String(entry.sourcePageUrl || '').trim();
+        }
       }
     } catch {
       /* keep manifest from ports */
@@ -592,26 +615,47 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .seo-prose { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; color: rgba(255,255,255,0.82); font-size: 17px; line-height: 1.75; }
 .seo-prose h2 { font-size: 26px; margin: 32px 0 16px; font-weight: 800; color: #fff; }
 .seo-prose p { margin-bottom: 18px; }
-.seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
-.seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 720px; margin: 0 auto; padding: 24px 20px 0; text-align: center; }
+.seo-prose a { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-prose a:hover { color: var(--seadays-editorial-link-hover, #a8e8ff); text-decoration-color: rgba(168,232,255,0.75); }
+body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padding: 24px 20px 4px; text-align: center; }
+@media (min-width: 721px) {
+  body.ports-directory-v2 .directory-hero { padding-top: 36px; }
+}
+@media (min-width: 1025px) {
+  body.ports-directory-v2 .directory-hero { padding-top: 48px; }
+}
 .directory-scroll-target { scroll-margin-top: calc(var(--site-header-height, 72px) + 16px); }
 .directory-hero--compact { padding-bottom: 0; }
-.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 14px; color: #fff; }
-.directory-hero p { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.55; margin: 0 auto 22px; max-width: 34em; }
-.directory-section--search { margin-top: 0; padding: 8px 20px 16px; }
+.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin: 0 0 12px; color: #fff; }
+.directory-hero p { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.55; margin: 0 auto 16px; max-width: 34em; }
+.directory-section--search { margin-top: 0; padding: 4px 20px 12px; }
 .directory-search-wrap--primary { max-width: 620px; margin: 0 auto; }
 .directory-search--primary { padding: 17px 20px 17px 44px; font-size: 17px; border-radius: 16px; border: 1px solid rgba(255,0,51,0.42); background: rgba(8,8,10,0.92); box-shadow: 0 0 0 1px rgba(255,0,51,0.18), 0 12px 40px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.04); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23FF0033' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 14px 50%; }
 .directory-search--primary:hover { border-color: rgba(255,0,51,0.58); }
 .directory-search--primary:focus { outline: none; border-color: rgba(255,0,51,0.82); box-shadow: 0 0 0 2px rgba(255,0,51,0.35), 0 12px 40px rgba(0,0,0,0.45); }
 .directory-section--search .directory-search::placeholder { color: rgba(255,255,255,0.42); font-weight: 600; }
-.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; cursor: pointer; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
-.directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
+.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; cursor: pointer; font-size: 14px; transition: border-color 0.2s, box-shadow 0.2s; }
+.directory-btn[hidden] { display: none !important; }
+.directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); }
 .directory-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
-.directory-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
+.directory-btn-primary { background: var(--seadays-brand-cta-bg, rgba(58, 10, 18, 0.92)); border-color: var(--seadays-brand-cta-border, rgba(255,0,51,0.52)); }
 .directory-btn-outline { background: rgba(255,255,255,0.03); }
 .directory-controls { max-width: 1200px; margin: 0 auto; padding: 0 20px 18px; }
-.directory-section { max-width: 1200px; margin: 0 auto 24px; padding: 0 20px; }
+.directory-section { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
+.directory-section--region { margin-top: 4px; margin-bottom: 20px; }
+.directory-section-head--region { flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px; margin-bottom: 14px; }
+.directory-section-lead { margin: 0; font-size: 14px; line-height: 1.45; color: rgba(255,255,255,0.58); max-width: 28em; }
+.directory-drill-nav { max-width: 1200px; margin: 0 auto 16px; padding: 0 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; }
+.directory-drill-nav.is-discover-layout { justify-content: center; margin-top: 0; margin-bottom: 12px; }
+.directory-drill-nav.is-discover-layout .directory-breadcrumb { display: none; }
+.directory-drill-nav.is-discover-layout .directory-toolbar { width: 100%; justify-content: center; }
+.directory-breadcrumb { margin: 0; flex: 1 1 200px; font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 600; }
+.directory-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.region-grid-wrap { position: relative; max-width: 100%; margin-top: 4px; }
+.region-grid-wrap:not(.is-expanded)::after { content: ''; position: absolute; right: 0; top: 0; bottom: 72px; width: 28px; pointer-events: none; background: linear-gradient(to right, rgba(10,10,10,0), rgba(10,10,10,0.92)); }
+.region-grid-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; margin: 14px 0 0; width: 100%; max-width: 100%; }
+.region-scroll-hint { font-size: 12px; color: rgba(255,255,255,0.5); margin: 0 0 10px; font-weight: 600; text-align: center; width: 100%; }
+.region-grid { display: flex; flex-wrap: nowrap; gap: 12px; overflow-x: auto; padding: 4px 2px 14px; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; scroll-snap-type: x mandatory; scroll-padding-inline-start: 2px; scrollbar-width: thin; scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); }
 .directory-section--browse { margin-top: 8px; }
 .filter-panel { border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); padding: 14px 16px 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
 .directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 16px 18px; color: rgba(255,255,255,0.62); font-size: 15px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.14); text-align: center; background: rgba(255,255,255,0.02); }
@@ -632,17 +676,16 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .search-result-name { display: block; font-weight: 800; font-size: 15px; }
 .search-result-meta { display: block; margin-top: 2px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .search-empty { padding: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
-.region-grid-wrap { position: relative; max-width: 100%; }
-.region-grid-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 0 0 12px; }
 .region-grid-nav { display: inline-flex; gap: 8px; align-items: center; }
 .region-scroll-btn { appearance: none; min-width: 44px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; font-weight: 800; font-size: 18px; line-height: 1; cursor: pointer; transition: border-color 0.2s, opacity 0.2s; }
 .region-scroll-btn:hover:not(:disabled) { border-color: rgba(255,0,51,0.55); }
 .region-scroll-btn:focus-visible { outline: 2px solid var(--neon-red); outline-offset: 2px; }
 .region-scroll-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-.region-expand-toggle { margin-left: auto; }
-.region-scroll-hint { font-size: 12px; color: rgba(255,255,255,0.5); margin: 0 0 10px; font-weight: 600; flex: 1 1 100%; }
-.region-grid { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; scrollbar-width: thin; }
-.region-grid .region-card { flex: 0 0 min(85vw, 272px); max-width: 272px; }
+.region-expand-toggle { margin-left: 0; }
+.region-grid::-webkit-scrollbar { height: 10px; }
+.region-grid::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.06); border-radius: 999px; }
+.region-grid::-webkit-scrollbar-thumb { background: rgba(255, 0, 51, 0.5); border-radius: 999px; border: 2px solid rgba(10, 10, 10, 0.85); }
+.region-grid .region-card { flex: 0 0 min(72vw, 272px); max-width: 272px; scroll-snap-align: start; }
 .region-grid-wrap.is-expanded .region-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; overflow: visible; flex-wrap: unset; padding-bottom: 0; }
 .region-grid-wrap.is-expanded .region-grid .region-card { flex: unset; max-width: none; }
 .region-grid-wrap.is-expanded .region-scroll-hint,
@@ -651,38 +694,35 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 @media (min-width: 901px) {
   .region-grid .region-card { flex: 0 0 min(42vw, 272px); }
 }
-.region-card { appearance: none; text-align: left; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,20,0.85); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
-.region-card:hover { border-color: rgba(255,0,51,0.55); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,0,51,0.15); }
+.region-card { appearance: none; text-align: left; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,20,0.85); color: #fff; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; overflow: hidden; display: flex; flex-direction: column; min-width: 0; box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
+.region-card:hover { border-color: rgba(255,0,51,0.55); box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,0,51,0.15); }
 .region-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.1); box-shadow: 0 0 0 1px rgba(255,0,51,0.35); }
 .region-card-media { position: relative; display: block; overflow: hidden; }
 .region-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.06) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
-.region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); transform: scale(1); transition: transform 0.35s ease; }
-.region-card:hover .region-card-image { transform: scale(1.03); }
-.region-card-image--placeholder { min-height: 48px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
+.region-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); }
+${NO_PHOTO_OBJECT_FIT_CSS}
 .region-card--text-first { border-top: 3px solid rgba(255,0,51,0.35); }
 .region-card--text-first .region-card-body { padding: 16px 15px 15px; background: rgba(14,14,16,0.95); }
 .region-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
 .region-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; word-break: normal; }
 .region-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
-.directory-drill-nav { max-width: 1200px; margin: 0 auto 12px; padding: 0 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-.directory-breadcrumb { flex: 1 1 200px; font-size: 13px; color: rgba(255,255,255,0.55); font-weight: 600; }
 .directory-breadcrumb span[aria-current="page"] { color: rgba(255,255,255,0.92); }
 .directory-breadcrumb-sep { margin: 0 6px; opacity: 0.45; }
-.directory-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .directory-controls--slim .filter-panel { border: 0; background: transparent; padding: 0; box-shadow: none; }
 .directory-controls--slim .filter-bar { margin-bottom: 6px; }
 .directory-section.is-drill-hidden { display: none !important; }
 .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-.country-card { appearance: none; text-align: left; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,20,0.85); color: #fff; cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; min-height: 44px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
-.country-card:hover { border-color: rgba(255,0,51,0.55); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,0,51,0.15); }
+.country-card { appearance: none; text-align: left; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(18,18,20,0.85); color: #fff; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s; min-height: 44px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 8px 28px rgba(0,0,0,0.28); }
+.country-card:hover { border-color: rgba(255,0,51,0.55); box-shadow: 0 12px 36px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,0,51,0.15); }
 .country-card[aria-pressed="true"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.1); box-shadow: 0 0 0 1px rgba(255,0,51,0.35); }
 .country-card-media { position: relative; display: block; overflow: hidden; }
 .country-card-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,0,51,0.05) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.72) 100%); }
 .country-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); }
-.country-card-image--placeholder { min-height: 72px; background: radial-gradient(ellipse 80% 70% at 50% 20%, rgba(255,0,51,0.09), transparent 55%), linear-gradient(165deg, rgba(255,255,255,0.06) 0%, rgba(12,12,14,0.98) 48%, rgba(255,0,51,0.05) 100%); }
 .country-card-body { padding: 13px 15px 15px; min-width: 0; background: linear-gradient(180deg, rgba(14,14,16,0.2), rgba(14,14,16,0.95)); }
 .country-card-name { display: block; font-weight: 800; font-size: 14px; line-height: 1.35; overflow-wrap: break-word; }
 .country-card-count { display: block; margin-top: 6px; font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 700; }
+.country-card-photo-credit { display: block; margin-top: 8px; font-size: 10px; line-height: 1.35; color: rgba(255,255,255,0.45); font-weight: 600; }
+.country-card-photo-credit a { color: rgba(121,216,255,0.85); text-decoration: underline; text-underline-offset: 2px; }
 .country-empty { font-size: 14px; color: rgba(255,255,255,0.55); padding: 8px 0; }
 .filter-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 10px; }
 .directory-btn-reset { border-color: rgba(255,0,51,0.5); background: rgba(255,0,51,0.08); }
@@ -703,11 +743,14 @@ body.ports-directory-v2::-webkit-scrollbar-thumb:hover { background: rgba(255, 0
 .seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 18px; padding: 0 20px 28px; max-width: 1200px; margin: 0 auto; align-items: start; }
 @media (max-width: 520px) { .seo-directory-grid { grid-template-columns: 1fr; gap: 14px; } }
 .seo-grid-card { display: flex; flex-direction: column; gap: 0; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.09); background: rgba(16,16,18,0.88); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; box-shadow: 0 6px 28px rgba(0,0,0,0.28); min-width: 0; }
-.seo-grid-card:hover { border-color: rgba(255,0,51,0.65); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,0,51,0.12); }
+.seo-grid-card:hover { border-color: rgba(255,0,51,0.65); box-shadow: 0 14px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,0,51,0.12); }
 ${DESTINATION_DIRECTORY_CARD_CSS}
 .directory-card.is-filter-hidden, .directory-card.is-page-hidden { display: none !important; }
-.directory-load-more-wrap { max-width: 1200px; margin: 0 auto 48px; padding: 0 20px; text-align: center; }
-.directory-load-more { min-width: min(100%, 280px); }
+.directory-load-more-wrap { position: relative; z-index: 5; max-width: 1200px; margin: 8px auto 48px; padding: 8px 20px 12px; text-align: center; }
+.directory-load-more { min-width: min(100%, 280px); min-height: 44px; }
+@media (prefers-reduced-motion: reduce) {
+  .region-card, .country-card, .seo-grid-card, .guide-card, .directory-btn { transition: none; }
+}
 .directory-crawl-fallback { max-width: 900px; margin: 0 auto 48px; padding: 0 20px; color: rgba(255,255,255,0.78); }
 .directory-crawl-list { columns: 2; column-gap: 24px; list-style: none; padding: 0; margin: 12px 0 0; }
 .directory-crawl-list li { break-inside: avoid; margin-bottom: 6px; }
@@ -724,11 +767,11 @@ ${DESTINATION_DIRECTORY_CARD_CSS}
 .rating-stars { letter-spacing: 2px; color: #fbbf24; font-size: 15px; line-height: 1; }
 .rating-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); }
 .directory-card.is-hidden { display: none; }
-.featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
+.featured-guides { max-width: 1200px; margin: 12px auto 24px; padding: 0 20px; }
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
 .featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.guide-card:hover { border-color: rgba(255,0,51,0.75); transform: translateY(-2px); }
+.guide-card { display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); text-decoration: none; color: #fff; transition: border-color 0.2s, box-shadow 0.2s; }
+.guide-card:hover { border-color: rgba(255,0,51,0.75); }
 .guide-card-image { width: 100%; height: 150px; min-height: 150px; object-fit: cover; object-position: center; background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(255,255,255,0.06)); display: block; }
 .guide-card-body { padding: 12px 14px 14px; }
 .guide-card-title { font-size: 14px; font-weight: 800; line-height: 1.25; letter-spacing: -0.2px; margin: 0; }
@@ -739,16 +782,16 @@ ${DESTINATION_DIRECTORY_CARD_CSS}
 .app-cta span { display: block; font-size: 13px; color: rgba(255,255,255,0.68); margin-top: 2px; }
 .app-cta a { flex: 0 0 auto; }
 @media (max-width: 900px) {
-  .directory-hero { padding: 20px 16px 0; }
-  .directory-hero h1 { font-size: 1.75rem; }
+  body.ports-directory-v2 .directory-hero { padding-left: 16px; padding-right: 16px; }
+  body.ports-directory-v2 .directory-hero h1 { font-size: 1.75rem; }
   .directory-section--search { padding: 8px 16px 0; }
   .seo-directory-grid { grid-template-columns: 1fr; gap: 14px; padding: 0 16px 24px; }
   .directory-section, .directory-controls, .directory-section-head--ports { padding-left: 16px; padding-right: 16px; }
   .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
   .region-scroll-hint { display: block; }
-  .region-grid-wrap:not(.is-expanded)::after { content: ''; position: absolute; right: 0; top: 52px; bottom: 8px; width: 28px; pointer-events: none; background: linear-gradient(to right, rgba(10,10,10,0), rgba(10,10,10,0.92)); }
-  .region-expand-toggle { margin-left: 0; width: 100%; justify-content: center; }
+  .region-grid-wrap:not(.is-expanded)::after { top: 26px; bottom: 96px; }
+  .region-expand-toggle { margin-left: 0; flex: 0 0 auto; }
   .country-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .filter-bar { flex-direction: column; align-items: stretch; }
   .filter-select { width: 100%; }
@@ -790,7 +833,7 @@ function buildPortsIndexHtml(opts) {
     opts.verifiedPortImagesBySlug && typeof opts.verifiedPortImagesBySlug === 'object'
       ? opts.verifiedPortImagesBySlug
       : {};
-  const repoRoot = opts.repoRoot || '';
+  const repoRoot = opts.repoRoot || path.join(__dirname, '..', '..');
   const { directoryPorts } = resolveDirectoryPorts(opts.ports);
   const { regionCardsHtml, regionCardCount } = buildRegionBrowseHtml(
     directoryPorts,
@@ -798,11 +841,8 @@ function buildPortsIndexHtml(opts) {
     verifiedBySlug,
     repoRoot
   );
-  const cards = buildPortCardsHtml(directoryPorts);
-  const countryImagesPayload = buildCountryImagesManifest(
-    directoryPorts,
-    opts.repoRoot || path.join(__dirname, '..', '..')
-  );
+  const cards = buildPortCardsHtml(directoryPorts, repoRoot);
+  const countryImagesPayload = buildCountryImagesManifest(directoryPorts, repoRoot);
   const countryImagesJson = JSON.stringify(countryImagesPayload.manifest).replace(/</g, '\\u003c');
   const noscriptLinksHtml = buildNoScriptCrawlLinksHtml(directoryPorts);
   const coverageNoteHtml = '';
@@ -879,12 +919,16 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
       </div>
     </section>
 
-    <section class="directory-section" id="regionBrowseSection" aria-label="Browse by region">
-      <div class="directory-section-head">
+    <section class="directory-section directory-section--region" id="regionBrowseSection" aria-label="Browse by region">
+      <div class="directory-section-head directory-section-head--region">
         <h2>Browse by region</h2>
-        <span class="directory-section-note">Region → Country → Port</span>
+        <p class="directory-section-lead">Choose a region to discover its countries and ports.</p>
       </div>
       <div class="region-grid-wrap" id="regionGridWrap">
+        <p class="region-scroll-hint" id="regionScrollHint">Swipe sideways for more regions</p>
+      <div class="region-grid" id="regionBrowse" data-region-card-count="${regionCardCount}">
+        ${regionCardsHtml}
+      </div>
         <div class="region-grid-toolbar">
           <div class="region-grid-nav" aria-label="Region carousel navigation">
             <button type="button" class="region-scroll-btn" id="regionScrollPrev" aria-label="Previous regions" disabled aria-hidden="true">‹</button>
@@ -892,10 +936,6 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
           </div>
           <button type="button" class="directory-btn directory-btn-outline region-expand-toggle" id="regionExpandToggle" aria-expanded="false" aria-controls="regionBrowse">View all regions</button>
         </div>
-        <p class="region-scroll-hint" id="regionScrollHint">Swipe sideways for more regions</p>
-      <div class="region-grid" id="regionBrowse" data-region-card-count="${regionCardCount}">
-        ${regionCardsHtml}
-      </div>
       </div>
     </section>
 
@@ -944,21 +984,21 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
     </div>
     </div>
     ${noscriptLinksHtml}
-    <section class="app-cta" aria-label="App call to action">
-      <div class="app-cta-inner">
-        <div>
-          <strong>Want the full reviews?</strong>
-          <span>Download SeaDays to read and leave reviews for ports and ships.</span>
-        </div>
-        <a class="directory-btn directory-btn-primary" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
-      </div>
-    </section>
     <section class="featured-guides" aria-label="Popular destination guides">
       <h2>Popular destination guides</h2>
       <div class="featured-guides-grid">${
         featuredGuideCardsHtml ||
         `<a class="guide-card" href="/blog/"><div class="guide-card-body"><p class="guide-card-title">SeaDays cruise blog</p><p class="guide-card-meta">Browse destination guides and shore-day tips</p></div></a>`
       }</div>
+    </section>
+    <section class="app-cta" aria-label="App call to action">
+      <div class="app-cta-inner">
+        <div>
+          <strong>Want the full reviews?</strong>
+          <span>Download SeaDays to read and leave reviews for ports and ships.</span>
+        </div>
+        <a class="directory-btn directory-btn-primary seadays-brand-cta" href="/download/?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_guide">Get SeaDays</a>
+      </div>
     </section>
     <article class="seo-prose">
       <h2>Plan smarter shore days</h2>

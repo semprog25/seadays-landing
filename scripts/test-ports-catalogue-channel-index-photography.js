@@ -26,7 +26,11 @@ function slugCardSnippet(html, slug) {
 
 function hasNeutralDirectoryCard(html, slug) {
   const chunk = slugCardSnippet(html, slug);
-  return chunk.includes('data-verified-photo="0"') && chunk.includes('directory-card-media--neutral');
+  return (
+    chunk.includes('data-verified-photo="0"') &&
+    chunk.includes('directory-card-media--neutral') &&
+    chunk.includes('seadays-no-image.webp')
+  );
 }
 
 function readIndexMarkers(html) {
@@ -74,12 +78,15 @@ const repoRoot = path.join(__dirname, '..');
 const indexPath = path.join(repoRoot, 'ports', 'index.html');
 const indexBackup = fs.readFileSync(indexPath, 'utf8');
 
+/** Ports workflow CI validates index generation only; avoid rewriting ~400 port guides in a test checkout. */
+const portsCatalogueChannelEnv = { ...process.env, SEADAYS_PORTS_INDEX_ONLY: '1' };
+
 function runPortsCatalogueChannel() {
   resetPortsDirectoryImageCachesForTests();
   execFileSync('node', ['scripts/generateBlogs.js', '--ports-only'], {
     cwd: repoRoot,
     stdio: 'pipe',
-    env: { ...process.env },
+    env: portsCatalogueChannelEnv,
     maxBuffer: 20 * 1024 * 1024,
   });
 }
@@ -134,8 +141,5 @@ try {
     committedPorts: wouldPublish,
   });
 } finally {
-  execFileSync('git', ['checkout', '--', 'blog', 'ads.txt', 'ports', 'sitemap.xml'], {
-    cwd: repoRoot,
-    stdio: 'pipe',
-  });
+  fs.writeFileSync(indexPath, indexBackup, 'utf8');
 }

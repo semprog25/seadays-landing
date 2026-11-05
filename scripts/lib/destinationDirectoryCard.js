@@ -2,6 +2,11 @@
 
 const { isApprovedDestinationPhotographyUrl } = require('./destinationImageSourcePolicy');
 const { objectPositionStyle, parseFocalPercent } = require('./ownerImagePresentation');
+const {
+  buildNoPhotoDirectoryMediaHtml,
+  NO_PHOTO_OBJECT_FIT_CSS,
+  SEADAYS_NO_PHOTO_WEBP_PATH,
+} = require('./seadaysNoPhotoAsset');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -13,8 +18,7 @@ function escapeHtml(s) {
     .replace(/'/g, '&#39;');
 }
 
-const DESTINATION_CARD_NEUTRAL_MEDIA =
-  `<span class="directory-card-media directory-card-media--neutral" aria-hidden="true"></span>`;
+const DESTINATION_CARD_NEUTRAL_MEDIA = buildNoPhotoDirectoryMediaHtml();
 
 function buildDirectoryCardImageStyleAttr(objectPosition) {
   if (objectPosition && typeof objectPosition === 'object') {
@@ -34,18 +38,24 @@ function buildDirectoryCardImageStyleAttr(objectPosition) {
 function buildDestinationCardMediaHtml(media) {
   const url = String(media?.imgUrl || '').trim();
   if (!url || !isApprovedDestinationPhotographyUrl(url)) {
-    return { html: DESTINATION_CARD_NEUTRAL_MEDIA, hasPhoto: false };
+    return { html: buildNoPhotoDirectoryMediaHtml(), hasPhoto: false };
   }
   const alt = String(media?.alt || 'Cruise destination').trim();
   const loading = media?.loading === 'eager' ? 'eager' : 'lazy';
   const extraClass = media?.imgClassExtra ? ` ${media.imgClassExtra}` : '';
   const focalAttr = buildDirectoryCardFocalDataAttr(media?.objectPosition);
+  const onErr =
+    "this.onerror=null;this.src='" +
+    SEADAYS_NO_PHOTO_WEBP_PATH +
+    "';this.alt='';this.classList.add('directory-card-image--no-photo');" +
+    "this.setAttribute('aria-hidden','true');this.setAttribute('data-img-source','no-photo-placeholder');" +
+    "this.classList.remove('img-loading');";
   return {
     hasPhoto: true,
     html:
       `<img class="directory-card-image img-loading${extraClass}" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
       `width="1280" loading="${loading}" decoding="async" data-img-source="directory"${focalAttr} ` +
-      `onload="this.classList.remove('img-loading')">`,
+      `onload="this.classList.remove('img-loading')" onerror="${onErr}">`,
   };
 }
 
@@ -108,8 +118,10 @@ function buildDestinationDirectoryCardHtml(options) {
 }
 
 const DESTINATION_DIRECTORY_CARD_CSS = `
-.directory-card-media--neutral { display: block; width: 100%; aspect-ratio: 16 / 10; min-height: 120px; background: radial-gradient(ellipse 85% 65% at 50% 18%, rgba(255,0,51,0.1), transparent 58%), linear-gradient(165deg, rgba(255,255,255,0.07) 0%, rgba(10,10,12,0.98) 52%, rgba(255,0,51,0.06) 100%); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.directory-card-image { width: 100%; height: auto; max-width: 100%; aspect-ratio: unset; object-fit: contain; object-position: center; display: block; background: transparent; flex-shrink: 0; vertical-align: middle; }
+.directory-card-media--neutral { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; min-height: 120px; background: #141416; border-bottom: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+.directory-card-image { width: 100%; max-width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center; display: block; background: #141416; flex-shrink: 0; }
+.directory-card img[src*="seadaysfav"], .guide-card img[src*="seadaysfav"] { display: none; }
+${NO_PHOTO_OBJECT_FIT_CSS}
 .directory-card--with-photo { display: flex; flex-direction: column; min-width: 0; height: auto; align-self: start; }
 .directory-card-body { display: flex; flex-direction: column; gap: 6px; padding: 15px 16px 16px; flex: 1 1 auto; min-width: 0; }
 .directory-card-body .seo-grid-card-title { overflow-wrap: break-word; word-break: normal; }
@@ -121,6 +133,7 @@ const DESTINATION_DIRECTORY_CARD_CSS = `
 module.exports = {
   DESTINATION_CARD_NEUTRAL_MEDIA,
   DESTINATION_DIRECTORY_CARD_CSS,
+  SEADAYS_NO_PHOTO_WEBP_PATH,
   buildDestinationCardMediaHtml,
   buildDestinationDirectoryCardHtml,
   buildDirectoryCardFocalDataAttr,

@@ -1,10 +1,13 @@
 'use strict';
 
+const { isSeadaysNoPhotoPlaceholderUrl, isSeadaysBackToRegionsNavigationUrl } = require('./seadaysNoPhotoAsset');
+
 /**
- * Permanent destination photography policy (ports/regions/countries/guides):
- * Pexels + Unsplash (+ owner-imported assets under /assets/img/ports-directory/) only.
- * Wikimedia Commons is never used for decorative destination photography.
- * Ship heroes and verified port terminal infrastructure photos are handled elsewhere.
+ * Destination photography order:
+ * 1. Pexels  2. Unsplash  3. Wikimedia Commons for region/country browse only
+ * 4. Seadays no-photo placeholder.
+ * Port destination heroes stay Pexels/Unsplash/owner assets until a country or region
+ * photo is explicitly published. Ship heroes and terminal photos are unchanged.
  */
 
 const PEXELS_IMAGE_HOST = 'images.pexels.com';
@@ -12,7 +15,7 @@ const UNSPLASH_IMAGE_HOSTS = new Set(['images.unsplash.com', 'plus.unsplash.com'
 const OWNER_ASSET_PREFIX = '/assets/img/ports-directory/';
 
 const DESTINATION_POLICY_NOTE =
-  'Destination photography: Pexels and Unsplash primary; Pixabay optional script-time fallback (assets downloaded under /assets/img/ports-directory/ only — no Pixabay CDN hotlinks). Wikimedia is not used for region/country/port destination heroes or directory tiles. Terminal infrastructure photos in port guides may remain verified Wikimedia.';
+  'Destination photography order: Pexels, then Unsplash, then Wikimedia Commons for region and country browse only when those have no suitable landscape, then the Seadays no-photo placeholder. Commons files must have a commercial-reuse licence (CC0, CC BY, CC BY-SA, or public domain). Port destination heroes are not filled from Commons until an owner-approved country or region image is published. Ship heroes and terminal infrastructure photos are unchanged.';
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -48,9 +51,35 @@ function isOwnerPortsDirectoryAssetUrl(url) {
  * @param {string} url
  * @returns {boolean}
  */
+function isCommerciallyReusableCommonsLicense(licenseShortName) {
+  const name = String(licenseShortName || '').replace(/<[^>]+>/g, '').trim();
+  if (!name) return false;
+  if (/non-?commercial|\bNC\b|no derivative|no derivatives|\bND\b/i.test(name)) return false;
+  if (/unknown|copyrighted|all rights reserved/i.test(name)) return false;
+  return /^(CC0|CC BY-SA|CC BY|Public domain)/i.test(name);
+}
+
+/**
+ * Region and country review candidates may use Commons. Port heroes may not.
+ * @param {string} url
+ * @returns {boolean}
+ */
+function isAllowedRegionCountrySourceUrl(url) {
+  const s = String(url || '').trim();
+  if (isApprovedDestinationPhotographyUrl(s)) return true;
+  return isWikimediaCommonsUrl(s);
+}
+
+function isOwnerNavigationChromeAssetUrl(url) {
+  const s = String(url || '').trim();
+  return isSeadaysBackToRegionsNavigationUrl(s) || s.includes('/ports-directory/ui/');
+}
+
 function isApprovedDestinationPhotographyUrl(url) {
   const s = String(url || '').trim();
   if (!s || s.includes('seadaysfav.png')) return false;
+  if (isSeadaysNoPhotoPlaceholderUrl(s)) return false;
+  if (isOwnerNavigationChromeAssetUrl(s)) return false;
   if (isOwnerPortsDirectoryAssetUrl(s)) return true;
   if (!s.startsWith('https://')) return false;
   if (isWikimediaCommonsUrl(s)) return false;
@@ -111,6 +140,8 @@ module.exports = {
   isPexelsImageUrl,
   isUnsplashImageUrl,
   isOwnerPortsDirectoryAssetUrl,
+  isCommerciallyReusableCommonsLicense,
+  isAllowedRegionCountrySourceUrl,
   isApprovedDestinationPhotographyUrl,
   destinationPhotographyRejectReason,
   isCatalogRecordApprovedForDestinationDisplay,

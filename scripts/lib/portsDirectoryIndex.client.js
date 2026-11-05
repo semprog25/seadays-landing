@@ -1,10 +1,13 @@
 'use strict';
 
 const { buildHorizontalScrollWheelHelperSource } = require('./horizontalScrollWheel');
+const { SEADAYS_NO_PHOTO_WEBP_PATH, SEADAYS_BACK_TO_REGIONS_CARD_WEBP_PATH } = require('./seadaysNoPhotoAsset');
 
 /** Inline browser script for /ports/ directory (v2). Loaded as string into generated HTML. */
 module.exports = function buildPortsDirectoryClientScriptSource() {
   return `(function(){
+    var NO_PHOTO_URL = '${SEADAYS_NO_PHOTO_WEBP_PATH}';
+    var BACK_TO_REGIONS_CARD_URL = '${SEADAYS_BACK_TO_REGIONS_CARD_WEBP_PATH}';
     ${buildHorizontalScrollWheelHelperSource()}
     var PAGE_SIZE = 24;
     var FEATURED_SIZE = 12;
@@ -34,6 +37,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     var directoryPortsWrap = document.getElementById('directoryPortsWrap');
     var countryBrowseSection = document.getElementById('countryBrowseSection');
     var directoryResults = document.getElementById('directoryResults');
+    var directoryDrillNav = document.getElementById('directoryDrillNav');
     if(!grid) return;
 
     var countryImages = {};
@@ -60,12 +64,27 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
     }
     function countryCardInner(entry){
-      var img = countryImages[entry.key];
+      var img = entry.key === '__all__' ? null : countryImages[entry.key];
+      var creditHtml = '';
+      if (img && img.attributionRequired) {
+        var creditHref = img.sourcePageUrl || img.licenseUrl || '';
+        var licenseLabel = String(img.licenseTerms || 'Licence').trim();
+        if (/BY-SA/i.test(licenseLabel)) licenseLabel = licenseLabel + ' (adapted)';
+        var creditLink = creditHref
+          ? '<a href="' + escAttr(creditHref) + '" target="_blank" rel="noopener noreferrer">' + escAttr(licenseLabel) + '</a>'
+          : escAttr(licenseLabel);
+        creditHtml = '<span class="country-card-photo-credit">Photo: ' + escAttr(img.photographer || 'Wikimedia Commons') + ' · ' + creditLink + '</span>';
+      }
+      var body = '<span class="country-card-body"><span class="country-card-name">' + escAttr(entry.label) + '</span><span class="country-card-count">' +
+        entry.count + ' port' + (entry.count === 1 ? '' : 's') + '</span>' + creditHtml + '</span>';
+      if (entry.key === '__all__') {
+        return '<span class="country-card-media"><img class="country-card-image" src="' + escAttr(BACK_TO_REGIONS_CARD_URL) + '" alt="" loading="lazy" decoding="async" width="320" height="180" aria-hidden="true" data-img-source="back-to-regions-navigation"></span>' + body;
+      }
+      var onErr = 'this.onerror=null;this.classList.add(\\'country-card-image--no-photo\\');this.src=\\'' + NO_PHOTO_URL + '\\';this.alt=\\'\\';this.setAttribute(\\'aria-hidden\\',\\'true\\');this.setAttribute(\\'data-img-source\\',\\'no-photo-placeholder\\');';
       var media = img && img.url
-        ? '<span class="country-card-media"><img class="country-card-image" src="' + escAttr(img.url) + '" alt="' + escAttr(img.alt || entry.label) + '" loading="lazy" decoding="async" width="320" height="180"></span>'
-        : '<span class="country-card-media"><span class="country-card-image country-card-image--placeholder" aria-hidden="true"></span></span>';
-      return media + '<span class="country-card-body"><span class="country-card-name">' + escAttr(entry.label) + '</span><span class="country-card-count">' +
-        entry.count + ' port' + (entry.count === 1 ? '' : 's') + '</span></span>';
+        ? '<span class="country-card-media"><img class="country-card-image" src="' + escAttr(img.url) + '" alt="' + escAttr(img.alt || entry.label) + '" loading="lazy" decoding="async" width="320" height="180" onerror="' + onErr + '"></span>'
+        : '<span class="country-card-media"><img class="country-card-image country-card-image--no-photo" src="' + escAttr(NO_PHOTO_URL) + '" alt="" loading="lazy" decoding="async" width="1035" height="780" aria-hidden="true" data-img-source="no-photo-placeholder"></span>';
+      return media + body;
     }
     function portsResultsActive(){
       if(state.view === 'browse' || !!state.query) return true;
@@ -124,6 +143,9 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     }
     function updateDrillChrome(){
       var onRegions = !state.regions && !state.query && state.view !== 'browse';
+      if(directoryDrillNav){
+        directoryDrillNav.classList.toggle('is-discover-layout', onRegions);
+      }
       if(regionBrowseSection){
         var hideRegions = !onRegions && state.view !== 'browse';
         regionBrowseSection.classList.toggle('is-drill-hidden', hideRegions);
@@ -642,6 +664,14 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     if(regionScrollNext){
       regionScrollNext.addEventListener('click', function(){ scrollRegionCarousel(1); });
     }
+    if(regionBrowse){
+      regionBrowse.addEventListener('keydown', function(e){
+        if(e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        if(regionGridWrap && regionGridWrap.classList.contains('is-expanded')) return;
+        e.preventDefault();
+        scrollRegionCarousel(e.key === 'ArrowRight' ? 1 : -1);
+      });
+    }
     window.addEventListener('resize', function(){ updateRegionCarouselNav(); }, { passive: true });
     if(countryBrowse){
       countryBrowse.addEventListener('click', function(e){
@@ -692,14 +722,14 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     if(filterBookable){
       filterBookable.addEventListener('change', function(){
         state.bookable = filterBookable.value === 'bookable';
-        state.view = 'filter';
+        if(state.view !== 'browse' && state.country && state.country !== '__all__') state.view = 'filter';
         apply();
       });
     }
     if(filterSort){
       filterSort.addEventListener('change', function(){
         state.sort = filterSort.value || 'name';
-        apply({ keepDisplayCount: true });
+        apply();
       });
     }
     if(search){

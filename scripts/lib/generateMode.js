@@ -176,7 +176,8 @@ function commitMessageForChannel(channel) {
     case 'blogs':
       return 'chore: regenerate static blog and sitemap [skip ci]';
     case 'ports':
-      return 'chore: regenerate port catalogue and sitemap [skip ci]';
+      // No [skip ci] — ports-only bot commits must trigger Landing deploy (paths no longer ignore ports/).
+      return 'chore: regenerate port catalogue [skip generate]';
     case 'ships':
       return 'chore: regenerate ship catalogue and sitemap [skip ci]';
     case 'catalogue':

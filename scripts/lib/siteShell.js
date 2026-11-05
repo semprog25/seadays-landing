@@ -52,17 +52,39 @@ function getSiteNavLinks(opts = {}) {
  * @param {{ page?: SiteShellPage }} [opts]
  */
 function getSiteHeaderHtml(opts = {}) {
-  const links = getSiteNavLinks(opts)
+  const links = getSiteNavLinks(opts);
+  const downloadLink = links.find((link) => link.label === 'Get SeaDays');
+  const contentLinks = links.filter((link) => link.label !== 'Get SeaDays');
+  const activeNav = opts.activeNav || '';
+  const navLinks = contentLinks
     .map((link) => {
       const href = String(link.href).replace(/&/g, '&amp;');
-      return `                <a href="${href}">${link.label}</a>`;
+      const id = href.indexOf('/ports/') !== -1 ? 'ports'
+        : href.indexOf('/ships/') !== -1 ? 'ships'
+        : href.indexOf('/blog/') !== -1 ? 'blog'
+        : href.indexOf('/press/') !== -1 ? 'press'
+        : href.indexOf('cruise-planning-tools') !== -1 ? 'features'
+        : '';
+      const isActive = activeNav && id && activeNav === id;
+      const cls = isActive ? ' class="nav-link--active"' : '';
+      const aria = isActive ? ' aria-current="page"' : '';
+      return `                <a href="${href}"${cls}${aria}>${link.label}</a>`;
     })
     .join('\n');
+  const downloadHref = downloadLink
+    ? String(downloadLink.href).replace(/&/g, '&amp;')
+    : '';
+  const ctaHtml = downloadHref
+    ? `            <a class="header-cta" href="${downloadHref}">Get SeaDays</a>\n`
+    : '';
 
   return `${SITE_SHELL_MARKER_START}:header -->
         <header class="header site-header">
-            <nav class="header-nav" aria-label="Main navigation">
-${links}
+            <a class="header-brand" href="/" aria-label="SeaDays home">
+                <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+            </a>
+${ctaHtml}            <nav class="header-nav" aria-label="Main navigation">
+${navLinks}
             </nav>
         </header>
         ${SITE_SHELL_MARKER_START}:header-end ${SITE_SHELL_MARKER_END}`;

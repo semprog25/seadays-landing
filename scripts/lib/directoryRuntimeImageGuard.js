@@ -1,16 +1,19 @@
 'use strict';
 
+const { SEADAYS_NO_PHOTO_WEBP_PATH } = require('./seadaysNoPhotoAsset');
+
 /** Inline script: allow same-origin /assets/ and https images; block legacy CDN/SVG. */
 function buildDirectoryRuntimeImageGuardScript() {
   return `<script>
 (function(){
-  var FB='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
+  var FB='${SEADAYS_NO_PHOTO_WEBP_PATH}';
   function safeImage(src){
     var s=String(src||'').trim();
     if(!s)return FB;
     if(s.startsWith('/assets/')&&!s.includes('..'))return s;
     if(!s.startsWith('https://'))return FB;
     if(s.includes('cdn.seadays.app'))return FB;
+    if(s.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(s.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
     return s;
   }
