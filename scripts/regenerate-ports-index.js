@@ -14,12 +14,8 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 require('dotenv').config({ path: path.join(__dirname, '..', '..', 'Seadays-main', '.env') });
 
 const fs = require('fs');
-const {
-  buildPortsIndexHtml,
-  resolveDirectoryPorts,
-  loadRegionImageManifest,
-} = require('./lib/portsDirectoryIndex');
-const { enrichSeoPortsForDirectoryIndex } = require('./lib/portsDirectoryImageResolve');
+const { resolveDirectoryPorts } = require('./lib/portsDirectoryIndex');
+const { writePortsDirectoryIndexFromCatalogue } = require('./lib/preparePortsDirectoryIndexWrite');
 const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
 const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
 const {
@@ -127,8 +123,6 @@ function main() {
     publicGuides.byAppPortId || {}
   );
 
-  const regionImages = loadRegionImageManifest(repoRoot);
-
   for (const port of seoPorts) {
     const appPortId = slugToAppPortId[port.slug] || '';
     const portGuide = (appPortId && publicGuides.byAppPortId[appPortId]) || null;
@@ -148,29 +142,18 @@ function main() {
     port.hasBookableExperiences = Boolean(affiliate.show);
   }
 
-  enrichSeoPortsForDirectoryIndex(seoPorts, {
+  writePortsDirectoryIndexFromCatalogue({
     repoRoot,
+    seoPorts,
     slugToAppPortId,
     publicGuidesByAppPortId: publicGuides.byAppPortId || {},
-  });
-
-  const { loadVerifiedPortDestinationUrlBySlug } = require('./lib/portsDirectoryImageResolve');
-  const verifiedBySlug = loadVerifiedPortDestinationUrlBySlug(repoRoot);
-
-  const html = buildPortsIndexHtml({
-    ports: seoPorts,
     featuredGuideCardsHtml,
-    regionImages,
-    repoRoot,
-    verifiedPortImagesBySlug: verifiedBySlug,
     indexStyles: INDEX_STYLES,
     analyticsHeadHtml: getAnalyticsHeadHtml(),
     runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
     baseUrl: BASE_URL,
     defaultFavicon: DEFAULT_FAVICON,
   });
-
-  fs.writeFileSync(indexPath, html, 'utf8');
   const { directoryPorts, aliasToCanonical } = resolveDirectoryPorts(seoPorts);
   console.log(
     `[regenerate-ports-index] wrote ports/index.html — ${directoryPorts.length} directory ports ` +

@@ -6,6 +6,7 @@
  * Generators also embed the same snippet for future builds.
  *
  * Usage: node scripts/inject-analytics-head.js
+ * Optional: SEADAYS_HTML_POSTPROCESS_DIRS=ports,ships (limit scope for catalogue CI)
  */
 'use strict';
 
@@ -24,6 +25,16 @@ const SKIP_RELATIVE = new Set([
   'auth/redirect.html', // OAuth helper — no marketing analytics
 ]);
 
+function htmlPostprocessRoots() {
+  const scoped = String(process.env.SEADAYS_HTML_POSTPROCESS_DIRS || '').trim();
+  if (!scoped) return [ROOT];
+  return scoped
+    .split(',')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => path.join(ROOT, part));
+}
+
 function shouldProcess(relPath) {
   const base = path.basename(relPath);
   if (SKIP_BASENAMES.has(base)) return false;
@@ -36,7 +47,6 @@ function walkHtmlFiles(dir, out) {
   if (!fs.existsSync(dir)) return;
   for (const name of fs.readdirSync(dir)) {
     const full = path.join(dir, name);
-    const rel = path.relative(ROOT, full);
     const st = fs.statSync(full);
     if (st.isDirectory()) {
       if (name === 'node_modules' || name === '.git') continue;
@@ -53,7 +63,9 @@ function stripOnly(relPath) {
 
 function main() {
   const files = [];
-  walkHtmlFiles(ROOT, files);
+  for (const root of htmlPostprocessRoots()) {
+    walkHtmlFiles(root, files);
+  }
 
   let injected = 0;
   let stripped = 0;

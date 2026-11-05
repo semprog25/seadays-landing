@@ -82,6 +82,7 @@ const { allShips: APP_ALL_SHIPS, allPorts: APP_ALL_PORTS } = require('./lib/appC
 const { filterSitemapXml } = require('./lib/sitemapIndexability');
 const { FALLBACK_SHIP_GRID, FALLBACK_PORT_GRID } = require('./lib/seoShipPortFallbacks');
 const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDirectoryIndex');
+const { writePortsDirectoryIndexFromCatalogue } = require('./lib/preparePortsDirectoryIndexWrite');
 const {
   getAliasRedirectTarget,
   getPreservedPortDirectorySlugs,
@@ -3602,13 +3603,19 @@ async function main() {
   }
   if (mode.ports && !targetedOnly) {
     const portGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickPortGuideArticles(), 'port-guide');
-    fs.writeFileSync(
-      path.join(repoRoot, 'ports', 'index.html'),
-      replaceSignedStorageImgSrcInHtml(
-        buildPortsIndexHtml({ ports: seoPorts, articles, featuredGuideCardsHtml: portGuideCardsHtml })
-      ),
-      'utf8'
-    );
+    writePortsDirectoryIndexFromCatalogue({
+      repoRoot,
+      seoPorts,
+      slugToAppPortId,
+      publicGuidesByAppPortId: publicGuides.byAppPortId || {},
+      featuredGuideCardsHtml: portGuideCardsHtml,
+      indexStyles: INDEX_STYLES,
+      analyticsHeadHtml: getAnalyticsHeadHtml(),
+      runtimeGuardScript: RUNTIME_GUARD_SCRIPT,
+      baseUrl: BASE_URL,
+      defaultFavicon: DEFAULT_FAVICON,
+      transformHtml: replaceSignedStorageImgSrcInHtml,
+    });
   }
   if (mode.ships || mode.ports) {
     const shipCount = targetedOnly

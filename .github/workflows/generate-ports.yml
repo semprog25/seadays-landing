@@ -109,7 +109,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet -- blog/ sitemap.xml index.html ships/ ports/ || echo "changed=true" >> "$GITHUB_OUTPUT"
+          git diff --quiet -- ports/ || echo "changed=true" >> "$GITHUB_OUTPUT"
           git status --short
 
       - name: Commit and push (safe)
@@ -117,4 +117,5 @@ jobs:
         env:
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
           COMMIT_MSG: ${{ needs.classify.outputs.commit_message }}
+          COMMIT_PATHS: ports
         run: bash scripts/ci-safe-push-generated.sh
