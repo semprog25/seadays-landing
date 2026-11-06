@@ -153,30 +153,52 @@
       "productionLicenseVerified": true
     },
     "bergen-norway": {
-      "url": "/assets/img/ports-directory/ports/bergen-norway/destination-exterior-batch01-pexels-33583891.webp",
-      "provider": "pexels",
+      "url": "/assets/img/ports-directory/ports/bergen-norway/destination-owner-downloads-53-bergen-norway.webp",
+      "provider": "owner",
       "providerImageId": 33583891,
       "sourcePageUrl": "https://www.pexels.com/photo/picturesque-view-of-historic-bryggen-waterfront-33583891/",
       "photographer": "Jonathan Borba",
       "licenseTerms": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
       "licenseUrl": "https://www.pexels.com/license/",
       "depictedDestination": "Bryggen wharf Bergen UNESCO waterfront",
-      "approvedAt": "2026-11-05",
-      "approvedBy": "owner-visual-review-batch01",
-      "productionLicenseVerified": true
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "productionLicenseVerified": true,
+      "ownerDownloadsApply": {
+        "sourceBasename": "bergen.jpg",
+        "sourceSha256": "6aa222df1210a54bc774d886c229ca59015e3a0394af634cdf0ce5bc58dd72ad",
+        "planSha256": "6aa222df1210a54bc774d886c229ca59015e3a0394af634cdf0ce5bc58dd72ad",
+        "dimensions": {
+          "width": 3888,
+          "height": 2592
+        },
+        "imageSlot": "port:bergen-norway",
+        "replacementImpact": "EXISTING_CATALOG_VERIFIED_WOULD_BE_REPLACED"
+      }
     },
     "amsterdam-netherlands": {
-      "url": "/assets/img/ports-directory/ports/amsterdam-netherlands/destination-exterior-batch01-pexels-18949431.webp",
-      "provider": "pexels",
+      "url": "/assets/img/ports-directory/ports/amsterdam-netherlands/destination-owner-downloads-53-amsterdam-netherlands.webp",
+      "provider": "owner",
       "providerImageId": 18949431,
       "sourcePageUrl": "https://www.pexels.com/photo/canal-in-amsterdam-netherlands-18949431/",
       "photographer": "Nik Cvetkovic",
       "licenseTerms": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
       "licenseUrl": "https://www.pexels.com/license/",
       "depictedDestination": "Amsterdam canal with classic architecture",
-      "approvedAt": "2026-11-05",
-      "approvedBy": "owner-visual-review-batch01",
-      "productionLicenseVerified": true
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "productionLicenseVerified": true,
+      "ownerDownloadsApply": {
+        "sourceBasename": "amsterdam.jpg",
+        "sourceSha256": "a97c7a5f581b4f47809fcda8661a1b766314317de1941d68e1ba9ee8f7f165d7",
+        "planSha256": "a97c7a5f581b4f47809fcda8661a1b766314317de1941d68e1ba9ee8f7f165d7",
+        "dimensions": {
+          "width": 5457,
+          "height": 3806
+        },
+        "imageSlot": "port:amsterdam-netherlands",
+        "replacementImpact": "EXISTING_CATALOG_VERIFIED_WOULD_BE_REPLACED"
+      }
     },
     "cozumel-mexico": {
       "url": "/assets/img/ports-directory/ports/cozumel-mexico/destination-exterior-batch01-pexels-248797.webp",
@@ -595,16 +617,16 @@
       "excludedFromPublicDirectoryRender": false
     },
     "curacao-willemstad-curacao": {
-      "url": "/assets/img/ports-directory/ports/curacao-willemstad-curacao/destination-exterior-batch02-pexels-1450360.webp",
-      "provider": "pexels",
+      "url": "/assets/img/ports-directory/ports/curacao-willemstad-curacao/destination-owner-downloads-53-curacao-willemstad-curacao.webp",
+      "provider": "owner",
       "providerImageId": 1450360,
       "sourcePageUrl": "https://www.pexels.com/photo/photo-of-beach-during-golden-hour-1450360/",
       "photographer": "Brian Lazo",
       "licenseTerms": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
       "licenseUrl": "https://www.pexels.com/license/",
       "depictedDestination": "Caribbean waterfront golden light — Curaçao / Willemstad region",
-      "approvedAt": "2026-11-05",
-      "approvedBy": "owner-visual-review-batch02-final",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
       "batchId": "destination-photo-batch-02-med-carib-25",
       "ownerDecision": "APPROVE_A",
       "ownerVisuallyApproved": true,
@@ -617,7 +639,18 @@
         "providerLocationClaim": "Maldives",
         "summary": "Pexels structured location lists Maldives while this port is Curaçao. Owner selection retained; public directory render withheld pending explicit override."
       },
-      "excludedFromPublicDirectoryRender": true
+      "excludedFromPublicDirectoryRender": true,
+      "ownerDownloadsApply": {
+        "sourceBasename": "Curacao.jpg",
+        "sourceSha256": "3708853b8112a480c1d159b7533a694ee32e4299913193acbc5177cbf6e563a9",
+        "planSha256": "3708853b8112a480c1d159b7533a694ee32e4299913193acbc5177cbf6e563a9",
+        "dimensions": {
+          "width": 5860,
+          "height": 3907
+        },
+        "imageSlot": "port:curacao-willemstad-curacao",
+        "replacementImpact": "EXISTING_HUMAN_APPROVED_WOULD_BE_REPLACED"
+      }
     },
     "antigua-st-john-s-antigua": {
       "url": "/assets/img/ports-directory/ports/antigua-st-john-s-antigua/destination-exterior-batch02-pexels-1450350.webp",
@@ -751,6 +784,654 @@
       "productionLicenseVerified": true,
       "productionGeoVerified": false,
       "excludedFromPublicDirectoryRender": false
+    },
+    "alesund-norway": {
+      "url": "/assets/img/ports-directory/ports/alesund-norway/destination-owner-downloads-53-alesund-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "alesund norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Alesund.jpg",
+        "sourceSha256": "e4dc23cc3215668a58bc932bb5b823467efc83e730646ce95affc5c6c39a39a2",
+        "planSha256": "e4dc23cc3215668a58bc932bb5b823467efc83e730646ce95affc5c6c39a39a2",
+        "dimensions": {
+          "width": 2500,
+          "height": 1667
+        },
+        "imageSlot": "port:alesund-norway",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "andalsnes-norway": {
+      "url": "/assets/img/ports-directory/ports/andalsnes-norway/destination-owner-downloads-53-andalsnes-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "andalsnes norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Åndalsnes.jpg",
+        "sourceSha256": "11bcaeaae941681d194a06515d409acc1448c983acd81fd1b4155e4d4dd39e18",
+        "planSha256": "11bcaeaae941681d194a06515d409acc1448c983acd81fd1b4155e4d4dd39e18",
+        "dimensions": {
+          "width": 7952,
+          "height": 5304
+        },
+        "imageSlot": "port:andalsnes-norway",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "arendal-norway": {
+      "url": "/assets/img/ports-directory/ports/arendal-norway/destination-owner-downloads-53-arendal-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "arendal norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Arendal.jpg",
+        "sourceSha256": "acfcdb8dafe07691ab3f6fcee246fd88d0a910fc07da574b5870007d06ed9987",
+        "planSha256": "acfcdb8dafe07691ab3f6fcee246fd88d0a910fc07da574b5870007d06ed9987",
+        "dimensions": {
+          "width": 3967,
+          "height": 2975
+        },
+        "imageSlot": "port:arendal-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "balestrand-norway": {
+      "url": "/assets/img/ports-directory/ports/balestrand-norway/destination-owner-downloads-53-balestrand-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "balestrand norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Balestrand.jpg",
+        "sourceSha256": "4224369db8e01d8e92dcaa7c194b9f0735de9b2e8f5ae8695b8377ceedc9980c",
+        "planSha256": "4224369db8e01d8e92dcaa7c194b9f0735de9b2e8f5ae8695b8377ceedc9980c",
+        "dimensions": {
+          "width": 3397,
+          "height": 2979
+        },
+        "imageSlot": "port:balestrand-norway",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "bremen-germany": {
+      "url": "/assets/img/ports-directory/ports/bremen-germany/destination-owner-downloads-53-bremen-germany.webp",
+      "provider": "owner",
+      "depictedDestination": "bremen germany (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Bremen.jpg",
+        "sourceSha256": "fc8bbabc1cc40bf247a6d69382274a6262bc74cae72ff96e7457a60c577980ea",
+        "planSha256": "fc8bbabc1cc40bf247a6d69382274a6262bc74cae72ff96e7457a60c577980ea",
+        "dimensions": {
+          "width": 4000,
+          "height": 3000
+        },
+        "imageSlot": "port:bremen-germany",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "bremerhaven-germany": {
+      "url": "/assets/img/ports-directory/ports/bremerhaven-germany/destination-owner-downloads-53-bremerhaven-germany.webp",
+      "provider": "owner",
+      "depictedDestination": "bremerhaven germany (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Bremerhaven.jpg",
+        "sourceSha256": "912dd773f915952704947fabe2e218fd4108860afccd7cf9be2e7f72c4dc68bd",
+        "planSha256": "912dd773f915952704947fabe2e218fd4108860afccd7cf9be2e7f72c4dc68bd",
+        "dimensions": {
+          "width": 6000,
+          "height": 4000
+        },
+        "imageSlot": "port:bremerhaven-germany",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "chennai-india": {
+      "url": "/assets/img/ports-directory/ports/chennai-india/destination-owner-downloads-53-chennai-india.webp",
+      "provider": "owner",
+      "depictedDestination": "chennai india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Chennai.jpg",
+        "sourceSha256": "adc5ed114ed36fcf0cff82ea78bb5ef10ae7f7c074700f14e76a2f0d818014b8",
+        "planSha256": "adc5ed114ed36fcf0cff82ea78bb5ef10ae7f7c074700f14e76a2f0d818014b8",
+        "dimensions": {
+          "width": 5879,
+          "height": 3898
+        },
+        "imageSlot": "port:chennai-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "cuxhaven-germany": {
+      "url": "/assets/img/ports-directory/ports/cuxhaven-germany/destination-owner-downloads-53-cuxhaven-germany.webp",
+      "provider": "owner",
+      "depictedDestination": "cuxhaven germany (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Cuxhaven.jpg",
+        "sourceSha256": "ee6539c111741dafd4aef139650aaabb61f21863a558ba763d20866db2c466df",
+        "planSha256": "ee6539c111741dafd4aef139650aaabb61f21863a558ba763d20866db2c466df",
+        "dimensions": {
+          "width": 8256,
+          "height": 5504
+        },
+        "imageSlot": "port:cuxhaven-germany",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "eidfjord-norway": {
+      "url": "/assets/img/ports-directory/ports/eidfjord-norway/destination-owner-downloads-53-eidfjord-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "eidfjord norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Eidfjord.jpg",
+        "sourceSha256": "050c4b88ce6be62ae68a861575b4588c03a22709136d4b459ea8e2b7f2b55018",
+        "planSha256": "050c4b88ce6be62ae68a861575b4588c03a22709136d4b459ea8e2b7f2b55018",
+        "dimensions": {
+          "width": 7376,
+          "height": 4917
+        },
+        "imageSlot": "port:eidfjord-norway",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "emden-germany": {
+      "url": "/assets/img/ports-directory/ports/emden-germany/destination-owner-downloads-53-emden-germany.webp",
+      "provider": "owner",
+      "depictedDestination": "emden germany (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Emden.jpg",
+        "sourceSha256": "570c7623faeba5922e1202b8a98d24001e19638fc7b097fdbf9854eb4f14d95d",
+        "planSha256": "570c7623faeba5922e1202b8a98d24001e19638fc7b097fdbf9854eb4f14d95d",
+        "dimensions": {
+          "width": 6000,
+          "height": 3376
+        },
+        "imageSlot": "port:emden-germany",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "flam-norway": {
+      "url": "/assets/img/ports-directory/ports/flam-norway/destination-owner-downloads-53-flam-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "flam norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Flam.jpg",
+        "sourceSha256": "f92459a02ba52d491a0143e74e292dc3aa4d9746a5d2903344ac38b345d34a6d",
+        "planSha256": "f92459a02ba52d491a0143e74e292dc3aa4d9746a5d2903344ac38b345d34a6d",
+        "dimensions": {
+          "width": 4032,
+          "height": 2268
+        },
+        "imageSlot": "port:flam-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "flekkefjord-norway": {
+      "url": "/assets/img/ports-directory/ports/flekkefjord-norway/destination-owner-downloads-53-flekkefjord-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "flekkefjord norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Flekkefjord.jpg",
+        "sourceSha256": "0f9ae00c271192e129fb0dd6a5d429f3992acecf40ed5faa7269009b051310eb",
+        "planSha256": "0f9ae00c271192e129fb0dd6a5d429f3992acecf40ed5faa7269009b051310eb",
+        "dimensions": {
+          "width": 6221,
+          "height": 4217
+        },
+        "imageSlot": "port:flekkefjord-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "geiranger-norway": {
+      "url": "/assets/img/ports-directory/ports/geiranger-norway/destination-owner-downloads-53-geiranger-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "geiranger norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Geiranger.jpg",
+        "sourceSha256": "55127adc91d2eb4e0d3ec0572d319eb6cb29c82d9e50fe889b5622831b9feca9",
+        "planSha256": "55127adc91d2eb4e0d3ec0572d319eb6cb29c82d9e50fe889b5622831b9feca9",
+        "dimensions": {
+          "width": 4032,
+          "height": 3024
+        },
+        "imageSlot": "port:geiranger-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "goa-india": {
+      "url": "/assets/img/ports-directory/ports/goa-india/destination-owner-downloads-53-goa-india.webp",
+      "provider": "owner",
+      "depictedDestination": "goa india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Goa.jpg",
+        "sourceSha256": "2d9f690950860f1454a37b97f3cf3fc78d162734a7c40d7edf04ff92fffcb48f",
+        "planSha256": "2d9f690950860f1454a37b97f3cf3fc78d162734a7c40d7edf04ff92fffcb48f",
+        "dimensions": {
+          "width": 3967,
+          "height": 2976
+        },
+        "imageSlot": "port:goa-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "gudvangen-norway": {
+      "url": "/assets/img/ports-directory/ports/gudvangen-norway/destination-owner-downloads-53-gudvangen-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "gudvangen norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Gudvangen.jpg",
+        "sourceSha256": "1efab7e9d15bc150781db9d6ee42a6f238015b5ebc8746ac45f52f195f11d16f",
+        "planSha256": "1efab7e9d15bc150781db9d6ee42a6f238015b5ebc8746ac45f52f195f11d16f",
+        "dimensions": {
+          "width": 6720,
+          "height": 4480
+        },
+        "imageSlot": "port:gudvangen-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "haugesund-norway": {
+      "url": "/assets/img/ports-directory/ports/haugesund-norway/destination-owner-downloads-53-haugesund-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "haugesund norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Haugesund.jpg",
+        "sourceSha256": "89b2dc53b28245b6559dc2eb98477220772c4a9bdd3e907f2130121588029004",
+        "planSha256": "89b2dc53b28245b6559dc2eb98477220772c4a9bdd3e907f2130121588029004",
+        "dimensions": {
+          "width": 3910,
+          "height": 2933
+        },
+        "imageSlot": "port:haugesund-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "hellesylt-norway": {
+      "url": "/assets/img/ports-directory/ports/hellesylt-norway/destination-owner-downloads-53-hellesylt-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "hellesylt norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Hellesylt.jpg",
+        "sourceSha256": "2f20480ad46909a965d37abcd3bf0c3ca91739e0f44720ab3208755e5f811a5a",
+        "planSha256": "2f20480ad46909a965d37abcd3bf0c3ca91739e0f44720ab3208755e5f811a5a",
+        "dimensions": {
+          "width": 6799,
+          "height": 4534
+        },
+        "imageSlot": "port:hellesylt-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "kolkata-india": {
+      "url": "/assets/img/ports-directory/ports/kolkata-india/destination-owner-downloads-53-kolkata-india.webp",
+      "provider": "owner",
+      "depictedDestination": "kolkata india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Kolkata.jpg",
+        "sourceSha256": "197832224022b0794804ec7959c6b81bcb5e21f2a39dc8fb94ec8e8dfe865a08",
+        "planSha256": "197832224022b0794804ec7959c6b81bcb5e21f2a39dc8fb94ec8e8dfe865a08",
+        "dimensions": {
+          "width": 4096,
+          "height": 2864
+        },
+        "imageSlot": "port:kolkata-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "koper-slovenia": {
+      "url": "/assets/img/ports-directory/ports/koper-slovenia/destination-owner-downloads-53-koper-slovenia.webp",
+      "provider": "owner",
+      "depictedDestination": "koper slovenia (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "koper.jpg",
+        "sourceSha256": "46cda46ca77f5e918d6603e31f572b323e45392aebc64ff42dfd1d1c83d7ea72",
+        "planSha256": "46cda46ca77f5e918d6603e31f572b323e45392aebc64ff42dfd1d1c83d7ea72",
+        "dimensions": {
+          "width": 3500,
+          "height": 2336
+        },
+        "imageSlot": "port:koper-slovenia",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "kristiansand-norway": {
+      "url": "/assets/img/ports-directory/ports/kristiansand-norway/destination-owner-downloads-53-kristiansand-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "kristiansand norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "kristiansand.jpg",
+        "sourceSha256": "1601a6cb8f52064ec2ac7f15b329dfa3c5e012ea72ed50a71cd7e7c6c8ae999a",
+        "planSha256": "1601a6cb8f52064ec2ac7f15b329dfa3c5e012ea72ed50a71cd7e7c6c8ae999a",
+        "dimensions": {
+          "width": 4305,
+          "height": 2870
+        },
+        "imageSlot": "port:kristiansand-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "leknes-norway": {
+      "url": "/assets/img/ports-directory/ports/leknes-norway/destination-owner-downloads-53-leknes-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "leknes norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Leknes.jpg",
+        "sourceSha256": "498065739793f5b05d7db6abdfc0d49f9b5a356fb497d7022ba13861b6fba1ff",
+        "planSha256": "498065739793f5b05d7db6abdfc0d49f9b5a356fb497d7022ba13861b6fba1ff",
+        "dimensions": {
+          "width": 4000,
+          "height": 3000
+        },
+        "imageSlot": "port:leknes-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "lofoten-islands-norway": {
+      "url": "/assets/img/ports-directory/ports/lofoten-islands-norway/destination-owner-downloads-53-lofoten-islands-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "lofoten islands norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Lofoten Islands.jpg",
+        "sourceSha256": "56e6ed4dae45016e90b95d800a88ac0ed02bc5bf62783264db9ba12eea8892cb",
+        "planSha256": "56e6ed4dae45016e90b95d800a88ac0ed02bc5bf62783264db9ba12eea8892cb",
+        "dimensions": {
+          "width": 4284,
+          "height": 2844
+        },
+        "imageSlot": "port:lofoten-islands-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "molde-norway": {
+      "url": "/assets/img/ports-directory/ports/molde-norway/destination-owner-downloads-53-molde-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "molde norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Molde.jpg",
+        "sourceSha256": "9ac3163b73fe0c053035935c64291f00a355be5dc70d0fda97b7575ba76c0e12",
+        "planSha256": "9ac3163b73fe0c053035935c64291f00a355be5dc70d0fda97b7575ba76c0e12",
+        "dimensions": {
+          "width": 6240,
+          "height": 3504
+        },
+        "imageSlot": "port:molde-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "mormugao-port-goa-india": {
+      "url": "/assets/img/ports-directory/ports/mormugao-port-goa-india/destination-owner-downloads-53-mormugao-port-goa-india.webp",
+      "provider": "owner",
+      "depictedDestination": "mormugao port goa india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Mormugao Port (Goa).jpg",
+        "sourceSha256": "bd7ca5ff250f4c3f06b78257865578c158fbdb508ff3abd91581b573c7bf695e",
+        "planSha256": "bd7ca5ff250f4c3f06b78257865578c158fbdb508ff3abd91581b573c7bf695e",
+        "dimensions": {
+          "width": 3399,
+          "height": 2550
+        },
+        "imageSlot": "port:mormugao-port-goa-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "mumbai-india": {
+      "url": "/assets/img/ports-directory/ports/mumbai-india/destination-owner-downloads-53-mumbai-india.webp",
+      "provider": "owner",
+      "depictedDestination": "mumbai india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Mumbai.jpg",
+        "sourceSha256": "efd5fee6b95497989cad4ea6ac7d6d8aedf7e03f7092e1190e843e56bf6eef71",
+        "planSha256": "efd5fee6b95497989cad4ea6ac7d6d8aedf7e03f7092e1190e843e56bf6eef71",
+        "dimensions": {
+          "width": 5344,
+          "height": 3461
+        },
+        "imageSlot": "port:mumbai-india",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "new-mangalore-india": {
+      "url": "/assets/img/ports-directory/ports/new-mangalore-india/destination-owner-downloads-53-new-mangalore-india.webp",
+      "provider": "owner",
+      "depictedDestination": "new mangalore india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "New Mangalore.jpg",
+        "sourceSha256": "341ed750b34d40f15f72113ffb001c8372e8e9146291aa3bbd65d93b324cf1b5",
+        "planSha256": "341ed750b34d40f15f72113ffb001c8372e8e9146291aa3bbd65d93b324cf1b5",
+        "dimensions": {
+          "width": 5261,
+          "height": 3507
+        },
+        "imageSlot": "port:new-mangalore-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "nordfjordeid-norway": {
+      "url": "/assets/img/ports-directory/ports/nordfjordeid-norway/destination-owner-downloads-53-nordfjordeid-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "nordfjordeid norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Nordfjordeid.jpg",
+        "sourceSha256": "2f5bdfa711481e8c865407c350b6e00082801b0578769311780647ab5bdb6d45",
+        "planSha256": "2f5bdfa711481e8c865407c350b6e00082801b0578769311780647ab5bdb6d45",
+        "dimensions": {
+          "width": 4000,
+          "height": 3000
+        },
+        "imageSlot": "port:nordfjordeid-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "olden-norway": {
+      "url": "/assets/img/ports-directory/ports/olden-norway/destination-owner-downloads-53-olden-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "olden norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Olden.jpg",
+        "sourceSha256": "5a62e6741662fed61a92eb6aa8bda2c0cca095e2faab4c06ccad3ac24f910cec",
+        "planSha256": "5a62e6741662fed61a92eb6aa8bda2c0cca095e2faab4c06ccad3ac24f910cec",
+        "dimensions": {
+          "width": 6987,
+          "height": 4658
+        },
+        "imageSlot": "port:olden-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "port-blair-india": {
+      "url": "/assets/img/ports-directory/ports/port-blair-india/destination-owner-downloads-53-port-blair-india.webp",
+      "provider": "owner",
+      "depictedDestination": "port blair india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Port Blair.jpg",
+        "sourceSha256": "5b0d33b6d859857d0c3b77ae902e0b58603a7d881128f043e68782c003579c91",
+        "planSha256": "5b0d33b6d859857d0c3b77ae902e0b58603a7d881128f043e68782c003579c91",
+        "dimensions": {
+          "width": 8192,
+          "height": 5464
+        },
+        "imageSlot": "port:port-blair-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "rotterdam-netherlands": {
+      "url": "/assets/img/ports-directory/ports/rotterdam-netherlands/destination-owner-downloads-53-rotterdam-netherlands.webp",
+      "provider": "owner",
+      "depictedDestination": "rotterdam netherlands (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "rotterdam.jpg",
+        "sourceSha256": "252320089dc422ebb5ebadc1775c66aced9590bb5e2b0a0039e868a0798c45d6",
+        "planSha256": "252320089dc422ebb5ebadc1775c66aced9590bb5e2b0a0039e868a0798c45d6",
+        "dimensions": {
+          "width": 6000,
+          "height": 4000
+        },
+        "imageSlot": "port:rotterdam-netherlands",
+        "replacementImpact": "FROZEN_BATCH_SUPERSEDED_BY_OWNER_OVERRIDE"
+      }
+    },
+    "stavanger-norway": {
+      "url": "/assets/img/ports-directory/ports/stavanger-norway/destination-owner-downloads-53-stavanger-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "stavanger norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Stavanger.jpg",
+        "sourceSha256": "a68ed4c2eca43408ea3e3089d37f538fe38822ed24e444d9b11fb17ea1cb71ff",
+        "planSha256": "a68ed4c2eca43408ea3e3089d37f538fe38822ed24e444d9b11fb17ea1cb71ff",
+        "dimensions": {
+          "width": 6000,
+          "height": 3376
+        },
+        "imageSlot": "port:stavanger-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "svolv-r-norway": {
+      "url": "/assets/img/ports-directory/ports/svolv-r-norway/destination-owner-downloads-53-svolv-r-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "svolv r norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Svolvær.jpg",
+        "sourceSha256": "a87f0a2e58e0599ef03e2e37508e43818d228197877e4a36121674d0538a8372",
+        "planSha256": "a87f0a2e58e0599ef03e2e37508e43818d228197877e4a36121674d0538a8372",
+        "dimensions": {
+          "width": 6141,
+          "height": 4094
+        },
+        "imageSlot": "port:svolv-r-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "trondheim-norway": {
+      "url": "/assets/img/ports-directory/ports/trondheim-norway/destination-owner-downloads-53-trondheim-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "trondheim norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Trondheim.jpg",
+        "sourceSha256": "4503fb22edb13843a9418c4e7805d24b178adab45c8d56239c2cdb78fafa91ae",
+        "planSha256": "4503fb22edb13843a9418c4e7805d24b178adab45c8d56239c2cdb78fafa91ae",
+        "dimensions": {
+          "width": 5994,
+          "height": 3996
+        },
+        "imageSlot": "port:trondheim-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "ulvik-norway": {
+      "url": "/assets/img/ports-directory/ports/ulvik-norway/destination-owner-downloads-53-ulvik-norway.webp",
+      "provider": "owner",
+      "depictedDestination": "ulvik norway (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Ulvik.jpg",
+        "sourceSha256": "1596fefc0670c90c3c2e2ab72c05e4dda08e219cf2d41b913713a31762014ff2",
+        "planSha256": "1596fefc0670c90c3c2e2ab72c05e4dda08e219cf2d41b913713a31762014ff2",
+        "dimensions": {
+          "width": 4896,
+          "height": 3264
+        },
+        "imageSlot": "port:ulvik-norway",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "visakhapatnam-india": {
+      "url": "/assets/img/ports-directory/ports/visakhapatnam-india/destination-owner-downloads-53-visakhapatnam-india.webp",
+      "provider": "owner",
+      "depictedDestination": "visakhapatnam india (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "visakhapatnam.jpg",
+        "sourceSha256": "c2fbccb0538ab893b9f00a74b08a61a0ac4e3356c8815fa6613bc44d88c53ecf",
+        "planSha256": "c2fbccb0538ab893b9f00a74b08a61a0ac4e3356c8815fa6613bc44d88c53ecf",
+        "dimensions": {
+          "width": 2400,
+          "height": 1604
+        },
+        "imageSlot": "port:visakhapatnam-india",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
+    },
+    "wilhelmshaven-germany": {
+      "url": "/assets/img/ports-directory/ports/wilhelmshaven-germany/destination-owner-downloads-53-wilhelmshaven-germany.webp",
+      "provider": "owner",
+      "depictedDestination": "wilhelmshaven germany (owner download — confirm geography)",
+      "approvedAt": "2026-11-06",
+      "approvedBy": "owner-downloads-53-final-local-apply",
+      "ownerDownloadsApply": {
+        "sourceBasename": "Wilhelmshaven.jpg",
+        "sourceSha256": "cc854bf4463fa7662393a33686134ef1f22e46c1319b80b84a51eccc1630df23",
+        "planSha256": "cc854bf4463fa7662393a33686134ef1f22e46c1319b80b84a51eccc1630df23",
+        "dimensions": {
+          "width": 5184,
+          "height": 3456
+        },
+        "imageSlot": "port:wilhelmshaven-germany",
+        "replacementImpact": "NO_EXISTING_IMAGE"
+      }
     }
   },
   "rejectedCommonsFiles": [

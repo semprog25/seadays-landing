@@ -299,6 +299,7 @@ function main() {
     indexStyles: INDEX_STYLES,
     runtimeGuardScript: '',
     appRoot,
+    repoRoot,
     slugToAppPortId,
     knownAffiliatePortIds,
   };
