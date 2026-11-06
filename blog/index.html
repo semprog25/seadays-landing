@@ -147,8 +147,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helve
 .seo-details .seo-details-body { padding: 0 18px 18px; color: rgba(255,255,255,0.78); font-size: 15px; line-height: 1.65; max-width: 52em; margin: 0 auto; }
 .seo-details .seo-details-body h3 { font-size: 17px; font-weight: 900; margin: 16px 0 8px; color: #fff; }
 .seo-details .seo-details-body p { margin-bottom: 12px; }
-.seo-details .seo-details-body a { color: var(--neon-red); font-weight: 800; text-decoration: none; }
-.seo-details .seo-details-body a:hover { text-decoration: underline; }
+.seo-details .seo-details-body a { color: var(--seadays-editorial-link, #79D8FF); font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-details .seo-details-body a:hover { color: var(--seadays-editorial-link-hover, #a8e8ff); }
 .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 0 20px 120px; }
 .article-card { background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(255, 255, 255, 0.05); border-radius: 24px; overflow: hidden; transition: all 0.3s ease; text-decoration: none; color: #fff; display: block; }
 .article-card:hover { border-color: var(--neon-red); transform: translateY(-5px); box-shadow: 0 10px 40px rgba(255, 0, 51, 0.2); }
@@ -167,6 +167,74 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   .blog-filters { justify-content: center; }
   .featured-grid { grid-template-columns: 1fr; }
 }
+
+/* seadays-editorial-links-v2 */
+.seo-prose a:not(.directory-btn):not(.seadays-brand-cta),
+.seo-details .seo-details-body a,
+.seo-cross-list a,
+.seo-inline-more a,
+.seo-detail .seo-body a,
+.seo-detail .seo-faq-item a,
+.seo-detail .pg-section .pg-prose a.pg-editorial-link,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download),
+.seo-detail .pg-qa-card a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download),
+.seo-detail .pg-call-plan-body a,
+.seo-detail .pg-call-plan-card a:not(.pg-booking-cta):not(.pg-btn),
+.seo-detail .pg-terminal-card .pg-prose a:not(.pg-booking-cta):not(.pg-btn),
+.seo-detail .pg-terminal-card-desc a,
+.seo-detail .pg-map-credit a,
+.seo-detail .pg-terminal-card-photo figcaption a,
+.seo-detail .seo-hero figcaption a,
+.article-body a.contextual-link,
+.article-body :is(p, li, td, th, figcaption, blockquote, aside:not(.get-seadays-cta)) a[href]:not(.get-seadays-cta-badges a):not([class*="btn"]):not(.pg-booking-cta) {
+  color: var(--seadays-editorial-link, #79D8FF);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(121, 216, 255, 0.45);
+  text-underline-offset: 3px;
+}
+.seo-prose a:not(.directory-btn):visited,
+.seo-details .seo-details-body a:visited,
+.seo-cross-list a:visited,
+.seo-inline-more a:visited,
+.seo-detail .seo-body a:visited,
+.seo-detail .seo-faq-item a:visited,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):visited,
+.seo-detail .pg-qa-card a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):visited,
+.seo-detail .pg-call-plan-body a:visited,
+.seo-detail .pg-map-credit a:visited,
+.article-body a.contextual-link:visited,
+.article-body :is(p, li, td, th, figcaption, blockquote, aside:not(.get-seadays-cta)) a[href]:not(.get-seadays-cta-badges a):not([class*="btn"]):visited {
+  color: var(--seadays-editorial-link-visited, #9ae4ff);
+}
+.seo-prose a:not(.directory-btn):hover,
+.seo-details .seo-details-body a:hover,
+.seo-cross-list a:hover,
+.seo-inline-more a:hover,
+.seo-detail .seo-body a:hover,
+.seo-detail .seo-faq-item a:hover,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):hover,
+.seo-detail .pg-qa-card a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):hover,
+.seo-detail .pg-call-plan-body a:hover,
+.seo-detail .pg-map-credit a:hover,
+.article-body a.contextual-link:hover,
+.article-body :is(p, li, td, th, figcaption, blockquote, aside:not(.get-seadays-cta)) a[href]:not(.get-seadays-cta-badges a):not([class*="btn"]):hover {
+  color: var(--seadays-editorial-link-hover, #a8e8ff);
+  text-decoration-color: rgba(168, 232, 255, 0.75);
+}
+.seo-prose a:not(.directory-btn):focus-visible,
+.seo-details .seo-details-body a:focus-visible,
+.seo-cross-list a:focus-visible,
+.seo-inline-more a:focus-visible,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):focus-visible,
+.seo-detail .pg-qa-card a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):focus-visible,
+.seo-detail .pg-map-credit a:focus-visible,
+.article-body a.contextual-link:focus-visible {
+  outline: 2px solid var(--seadays-editorial-link, #79D8FF);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 </style>
 </head>
 <body>
@@ -175,13 +243,16 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   <div class="content-layer">
     <!-- seadays-site-shell:header -->
         <header class="header site-header">
+            <a class="header-brand" href="/" aria-label="SeaDays home">
+                <img src="/press/logos/seadays-logo-dark.png" alt="SeaDays" width="160" height="36" decoding="async">
+            </a>
+            <a class="header-cta" href="/download/?utm_source=seadays_web&amp;utm_medium=nav&amp;utm_campaign=organic_nav">Get SeaDays</a>
             <nav class="header-nav" aria-label="Main navigation">
                 <a href="/blog/">Blog</a>
                 <a href="/#cruise-planning-tools">Features</a>
                 <a href="/ships/">Ships</a>
                 <a href="/ports/">Ports</a>
                 <a href="/press/">Press</a>
-                <a href="/download/?utm_source=seadays_web&amp;utm_medium=nav&amp;utm_campaign=organic_nav">Get SeaDays</a>
             </nav>
         </header>
         <!-- seadays-site-shell:header-end seadays-site-shell -->
@@ -1679,7 +1750,10 @@ img.img-loading { filter: blur(8px); transform: scale(1.03); }
   var FB='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/seadaysfav.png';
   // Blocks CDN proxy, SVGs, and expiring signed storage URLs.
   function safeImage(src){
-    if(!src||!src.startsWith('https://'))return FB;
+    var s=String(src||'').trim();
+    if(!s)return FB;
+    if(s.startsWith('/assets/')&&!s.includes('..'))return s;
+    if(!s.startsWith('https://'))return FB;
     if(src.includes('cdn.seadays.app'))return FB;
     if(src.indexOf('/storage/v1/object/sign/')!==-1)return FB;
     if(src.split('?')[0].toLowerCase().endsWith('.svg'))return FB;
