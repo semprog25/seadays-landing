@@ -21,6 +21,8 @@ const report = JSON.parse(
 const review = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data', 'ports-directory-image-review-state.json'), 'utf8'))
 const humanApproved = review.humanApproved && typeof review.humanApproved === 'object' ? review.humanApproved : {}
 
+const EXPECTED_OWNER_DOWNLOAD_PORT_GUIDES = 38
+
 const applySlugs = report.rows.filter((r) => r.type === 'port').map((r) => r.slug)
 const regenSlugs = applySlugs.filter((s) => s !== 'goa-india')
 const fav = 'seadaysfav.png'
@@ -34,6 +36,11 @@ function absFromHuman(url) {
 function assert(cond, msg) {
   if (!cond) throw new Error(msg)
 }
+
+assert(
+  regenSlugs.length === EXPECTED_OWNER_DOWNLOAD_PORT_GUIDES,
+  `expected ${EXPECTED_OWNER_DOWNLOAD_PORT_GUIDES} port guides in apply report (excluding goa-india), got ${regenSlugs.length}`
+)
 
 function checkPort(slug) {
   const htmlPath = path.join(repoRoot, 'ports', slug, 'index.html')
