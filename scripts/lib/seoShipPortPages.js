@@ -27,6 +27,13 @@ const {
   collectPortFaqItems,
   portCallsAsHomeport,
 } = require('./portGuideSections');
+const { isApprovedDestinationPhotographyUrl } = require('./destinationImageSourcePolicy');
+const { loadDestinationOwnerPortEntryBySlug } = require('./portsDirectoryImageResolve');
+const {
+  PORT_DESTINATION_HERO_CSS,
+  buildPortDestinationHeroHtml,
+  sanitizePublicHeroCaptionHtml,
+} = require('./portCinematicHero');
 const {
   isBoilerplateDescription,
   cleanPortCopy,
@@ -134,6 +141,72 @@ function pickFirstFiniteNumber(...values) {
     return n;
   }
   return null;
+}
+
+function loadPortsDirectoryHumanApprovedBySlug(repoRoot) {
+  const filePath = path.join(repoRoot, 'data', 'ports-directory-image-review-state.json');
+  if (!fs.existsSync(filePath)) return {};
+  try {
+    const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return payload.humanApproved && typeof payload.humanApproved === 'object' ? payload.humanApproved : {};
+  } catch {
+    return {};
+  }
+}
+
+function resolveRepoAssetPath(repoRoot, sitePath) {
+  const s = String(sitePath || '').trim();
+  if (!s.startsWith('/')) return '';
+  return path.join(repoRoot, s.replace(/^\//, ''));
+}
+
+/**
+ * Owner-directory human approvals for port guides: must pass photography policy.
+ * On-disk assets under /assets/ must exist so static OG previews never 404.
+ * @returns {object|null}
+ */
+function pickHumanApprovedDestinationHero(portSlug, humanBySlug, repoRoot) {
+  const approved = humanBySlug && portSlug ? humanBySlug[portSlug] : null;
+  if (!approved || typeof approved !== 'object') return null;
+  const hasOwnerDownloadsApply = Boolean(approved.ownerDownloadsApply && typeof approved.ownerDownloadsApply === 'object');
+  if (approved.excludedFromPublicDirectoryRender === true && !hasOwnerDownloadsApply) return null;
+  const url = String(approved.url || '').trim();
+  if (!url || !isApprovedDestinationPhotographyUrl(url)) return null;
+  if (url.startsWith('/')) {
+    const abs = resolveRepoAssetPath(repoRoot, url);
+    if (!abs || !fs.existsSync(abs)) return null;
+  }
+  return approved;
+}
+
+function absolutePublicImageUrl(baseUrl, url) {
+  const u = String(url || '').trim();
+  if (!u) return '';
+  if (u.startsWith('https://') || u.startsWith('http://')) return u;
+  const root = String(baseUrl || '').replace(/\/$/, '');
+  return u.startsWith('/') ? `${root}${u}` : `${root}/${u}`;
+}
+
+/**
+ * Caption for humanApproved-only heroes — reuse stored Pexels provenance when present;
+ * owner downloads without full metadata get a neutral licence note (no invented credits).
+ */
+function buildHumanApprovedHeroCaption(approved) {
+  if (!approved || typeof approved !== 'object') return '';
+  const photographer = String(approved.photographer || '').trim();
+  const license = String(approved.licenseTerms || '').trim();
+  const licenseUrl = String(approved.licenseUrl || '').trim();
+  const sourcePageUrl = String(approved.sourcePageUrl || '').trim();
+  if (photographer && license && licenseUrl) {
+    const authorHtml = escapeHtml(photographer);
+    const licenseHtml = `<a href="${escapeHtml(licenseUrl)}">${escapeHtml(license)}</a>`;
+    const sourceHtml = sourcePageUrl ? `<a href="${escapeHtml(sourcePageUrl)}">Pexels</a>` : '';
+    const caption = [`Photo: ${authorHtml}`, sourceHtml, licenseHtml].filter(Boolean).join(' — ');
+    return sanitizePublicHeroCaptionHtml(caption);
+  }
+  return sanitizePublicHeroCaptionHtml(
+    'Photo: owner-provided download — confirm licence and geography before production use.'
+  );
 }
 
 /**
@@ -1201,7 +1274,8 @@ const PAGE_STYLES = `
 #related-ports .seo-cross-list a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
 #related-ports .seo-cross-list a:hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
 #related-ports .seo-cross-list a:focus-visible { outline: 2px solid #79D8FF; outline-offset: 3px; border-radius: 4px; }
-.seo-hero-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: 16px; margin: 0 0 28px; background: rgba(255,255,255,0.06); }
+.seo-hero-img:not(.seo-hero-img--port-destination) { width: 100%; max-height: 420px; object-fit: cover; border-radius: 16px; margin: 0 0 28px; background: rgba(255,255,255,0.06); }
+${PORT_DESTINATION_HERO_CSS}
 .seo-visual-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 0.8fr); gap: 18px; align-items: stretch; margin: 22px 0 32px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; background: radial-gradient(circle at top left, rgba(255,0,51,0.22), transparent 42%), linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)); box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
 .seo-visual-img { width: 100%; height: 230px; object-fit: cover; min-height: 100%; }
 .seo-visual-art { position: relative; min-height: 230px; background: linear-gradient(135deg, rgba(255,0,51,0.35), rgba(0,194,255,0.2)), radial-gradient(circle at 72% 30%, rgba(255,255,255,0.45), transparent 9%), radial-gradient(circle at 18% 76%, rgba(255,255,255,0.22), transparent 12%); overflow: hidden; }
@@ -1501,10 +1575,34 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const shipPick = relations.hideCallingShips ? [] : relations.relatedShips.slice(0, 4);
   const blogPick = blogArticles.slice(0, 3);
   const articleImages = new Set(blogPick.map((a) => pickArticleImage(a)).filter(Boolean));
-  const licensedHero = buildLicensedHero(guide, h1);
-  const ownImage =
-    licensedHero.url || (port.image_url && !articleImages.has(port.image_url) ? port.image_url : '');
-  const ogImage = ownImage || opts.defaultImage;
+  const repoRoot = opts.repoRoot || path.join(__dirname, '..', '..');
+  const humanBySlug = loadPortsDirectoryHumanApprovedBySlug(repoRoot);
+  const humanApproved = pickHumanApprovedDestinationHero(port.slug, humanBySlug, repoRoot);
+  const licensedHero = humanApproved ? { html: '', url: '' } : buildLicensedHero(guide, h1);
+  const ownerEntry = port?.slug ? loadDestinationOwnerPortEntryBySlug(repoRoot)[port.slug] : null;
+  let ownerHeroUrl = String(ownerEntry?.heroImageUrl || ownerEntry?.directoryImageUrl || '').trim();
+  if (humanApproved) ownerHeroUrl = '';
+  const ownerHero =
+    ownerHeroUrl && isApprovedDestinationPhotographyUrl(ownerHeroUrl) ? ownerHeroUrl : '';
+  const portImageCandidate =
+    port.image_url && !articleImages.has(port.image_url) ? String(port.image_url).trim() : '';
+  const approvedPortImage =
+    portImageCandidate && isApprovedDestinationPhotographyUrl(portImageCandidate)
+      ? portImageCandidate
+      : '';
+  let displayImageUrl = '';
+  if (licensedHero.url) displayImageUrl = licensedHero.url;
+  else if (humanApproved) displayImageUrl = String(humanApproved.url || '').trim();
+  else if (ownerHero) displayImageUrl = ownerHero;
+  else if (approvedPortImage) displayImageUrl = approvedPortImage;
+  const ogImage = displayImageUrl
+    ? absolutePublicImageUrl(BASE_URL, displayImageUrl)
+    : opts.defaultImage || '';
+  let heroSource = '';
+  if (licensedHero.url) heroSource = 'licensed';
+  else if (humanApproved) heroSource = 'human';
+  else if (ownerHero) heroSource = 'owner_candidate';
+  else if (approvedPortImage) heroSource = 'port_dataset';
 
   const relatedPortLinks = portPick
     .map((p) => {
@@ -1547,7 +1645,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     '@type': 'TouristDestination',
     name: h1,
     description: jsonLdDesc,
-    image: ogImage || undefined,
+    image: displayImageUrl ? absolutePublicImageUrl(BASE_URL, displayImageUrl) : undefined,
     url: canonical,
   };
   if (lat != null && lng != null) {
@@ -1576,11 +1674,29 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
       }
     : null;
 
-  const heroImg = licensedHero.html
-    ? licensedHero.html
-    : ownImage
-      ? `<img class="seo-hero-img" src="${escapeHtml(ownImage)}" alt="${escapeHtml(h1)}" width="800" height="420" loading="eager" decoding="async">`
-      : '';
+  let heroImg = '';
+  if (licensedHero.html) {
+    heroImg = licensedHero.html;
+  } else if (displayImageUrl) {
+    const focal =
+      heroSource === 'human'
+        ? humanApproved?.cropFocal?.directory ||
+          humanApproved?.cropFocal?.hero ||
+          ownerEntry?.heroFocal ||
+          ownerEntry?.directoryImageFocal ||
+          null
+        : heroSource === 'owner_candidate'
+          ? ownerEntry?.heroFocal || ownerEntry?.directoryImageFocal || null
+          : null;
+    const figcaption = heroSource === 'human' ? buildHumanApprovedHeroCaption(humanApproved) : '';
+    heroImg = buildPortDestinationHeroHtml({
+      url: displayImageUrl,
+      alt: h1,
+      loading: 'eager',
+      ownerFocal: focal,
+      figcaptionHtml: figcaption,
+    });
+  }
   const callSummary = portCallsAsHomeport(port, terminals) ? 'Home port' : 'Port call';
   const robots = isPortDetailIndexable(port, guide) ? 'index, follow' : 'noindex, follow';
 

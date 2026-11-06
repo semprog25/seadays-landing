@@ -31,13 +31,63 @@ const review = JSON.parse(fs.readFileSync(reviewPath, 'utf8'));
 const v1 = JSON.parse(fs.readFileSync(v1Path, 'utf8'));
 const explicit = JSON.parse(fs.readFileSync(explicitPath, 'utf8'));
 
+/** Port slug → row from OWNER_DOWNLOADS_53_APPLY_REPORT (verified apply manifest). */
+function loadOwnerDownloads53ApplyByPortSlug(root) {
+  const applyPath = path.join(
+    root,
+    'qa-evidence',
+    'owner-downloads-reconcile-20261106',
+    'OWNER_DOWNLOADS_53_APPLY_REPORT.json'
+  );
+  if (!fs.existsSync(applyPath)) return new Map();
+  const doc = JSON.parse(fs.readFileSync(applyPath, 'utf8'));
+  const map = new Map();
+  for (const r of Array.isArray(doc.rows) ? doc.rows : []) {
+    if (r && r.type === 'port' && r.slug) map.set(String(r.slug).trim(), r);
+  }
+  return map;
+}
+
+function assertLandscapeWebp(absPath, label) {
+  assert(fs.existsSync(absPath), `webp ${label}`);
+  const out = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', absPath], {
+    encoding: 'utf8',
+  });
+  const w = Number(out.match(/pixelWidth: (\d+)/)?.[1]);
+  const h = Number(out.match(/pixelHeight: (\d+)/)?.[1]);
+  assert(w > h, `landscape ${label}`);
+}
+
+/**
+ * Batch 02 final manifest is historical evidence; `humanApproved.url` may later match
+ * OWNER_DOWNLOADS_53 when ownerDownloadsApply + apply report prove the replacement.
+ */
+function hasVerifiedOwnerDownloads53Supersession(ha, batchRow, applyRow) {
+  if (!ha || !batchRow || !applyRow) return false;
+  if (!ha.ownerDownloadsApply || typeof ha.ownerDownloadsApply !== 'object') return false;
+  if (String(applyRow.slug || '').trim() !== String(batchRow.portSlug || '').trim()) return false;
+  if (String(applyRow.type || '') !== 'port') return false;
+  if (String(applyRow.verification || '') !== 'HASH_OK') return false;
+  const expectedUrl = String(applyRow.newAssetWebp || '').trim();
+  if (!expectedUrl || String(ha.url || '').trim() !== expectedUrl) return false;
+  const prev = String(applyRow.previousUrl || '').trim();
+  if (prev && prev !== String(batchRow.localAssetPath || '').trim()) return false;
+  const oda = ha.ownerDownloadsApply;
+  if (String(oda.imageSlot || '').trim() !== `port:${batchRow.portSlug}`) return false;
+  if (String(oda.sourceSha256 || '') !== String(applyRow.sha256 || '')) return false;
+  if (String(oda.planSha256 || '') && String(applyRow.sha256 || '') !== String(oda.planSha256 || ''))
+    return false;
+  return true;
+}
+
+const applyByPortSlug = loadOwnerDownloads53ApplyByPortSlug(repoRoot);
+
 assert(finalDoc.total === 25, '25 selections');
 assert(finalDoc.selections.length === 25, '25 rows');
 
 for (const row of finalDoc.selections) {
   const ha = review.humanApproved?.[row.portSlug];
   assert(ha, `humanApproved ${row.portSlug}`);
-  assert(ha.url === row.localAssetPath, `url ${row.portSlug}`);
   assert(String(ha.providerImageId) === String(row.providerImageId), `id ${row.portSlug}`);
   assert(ha.ownerVisuallyApproved === true, `owner visual ${row.portSlug}`);
   assert(ha.productionLicenseVerified === true, `license ${row.portSlug}`);
@@ -45,14 +95,21 @@ for (const row of finalDoc.selections) {
   const excluded = isExcludedFromPublicDirectoryRender(row.portSlug);
   assert(Boolean(ha.excludedFromPublicDirectoryRender) === excluded, `exclusion ${row.portSlug}`);
 
-  const disk = path.join(repoRoot, row.localAssetPath.replace(/^\//, ''));
-  assert(fs.existsSync(disk), `webp ${row.portSlug}`);
-  const out = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', disk], {
-    encoding: 'utf8',
-  });
-  const w = Number(out.match(/pixelWidth: (\d+)/)?.[1]);
-  const h = Number(out.match(/pixelHeight: (\d+)/)?.[1]);
-  assert(w > h, `landscape ${row.portSlug}`);
+  const applyRow = applyByPortSlug.get(row.portSlug);
+  const supersededBy53 = hasVerifiedOwnerDownloads53Supersession(ha, row, applyRow);
+
+  if (supersededBy53) {
+    assert(ha.url === applyRow.newAssetWebp, `active url ${row.portSlug}`);
+    const activeDisk = path.join(repoRoot, String(ha.url).replace(/^\//, ''));
+    assertLandscapeWebp(activeDisk, `${row.portSlug} active`);
+    const histDisk = path.join(repoRoot, row.localAssetPath.replace(/^\//, ''));
+    assert(fs.existsSync(histDisk), `historical webp ${row.portSlug}`);
+    assertLandscapeWebp(histDisk, `${row.portSlug} historical batch02`);
+  } else {
+    assert(ha.url === row.localAssetPath, `url ${row.portSlug}`);
+    const disk = path.join(repoRoot, row.localAssetPath.replace(/^\//, ''));
+    assertLandscapeWebp(disk, row.portSlug);
+  }
 }
 
 for (const exp of [...explicit.v1ApproveA, ...explicit.v1ApproveB]) {

@@ -106,6 +106,9 @@ jobs:
           VIATOR_AFFILIATE_MEDIUM: link
         run: bash scripts/ci-run-channel.sh ${{ needs.classify.outputs.channel }}
 
+      - name: Verify owner-approved port imagery after generation
+        run: node scripts/test-port-guide-human-approved-hero.js
+
       - name: Check for changes
         id: changes
         run: |
