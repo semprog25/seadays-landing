@@ -44,12 +44,48 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
+        "fromTerminal": "Aalborg Royal Cruise Berth / Honnørkajen waterfront — Aalborg waterfront cruise berth (verify quay on sailing docs; Port of Aalborg cr",
         "transportation": [],
         "distanceToCity": "",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "**On foot from Royal Cruise Berth / Honnørkajen:** for most mobile adults allow **10–20 minutes** into the central shopping streets and **15–25 minutes** toward Utzon Center / waterfront cultural cluster—**editorial estimates**; surfaces and ISPS fencing can add time when ships are alongside. **Rail:** Aalborg station is a short taxi/bus hop from the waterfront—use Rejseplanen/DSB for the call date; do not treat “Aalborg” as a free transfer to Aarhus without a live plan and ship buffer. **Airport (AAL):** separate transfer; embarkation-style days need luggage margin."
+      },
+      "thingsToDo": {
+        "intro": "",
+        "topThings": [
+          "Waterfront / Honnørkajen stroll and harbour views: allow 30–45 minutes.",
+          "Utzon Center area: allow 60–90 minutes including exhibits when open.",
+          "Budolfi Cathedral / historic centre lanes: allow 45–60 minutes.",
+          "Aalborg Historiske Museum or Kunsten (longer calls): allow 75–120 minutes—check opening hours.",
+          "Local café time on the fjord: allow 30 minutes as weather buffer."
+        ],
+        "shortCall": "15 minutes clear berth, 45 minutes waterfront + centre lanes, 60 minutes Utzon/cultural stop, 30 minutes café, 15 minutes return, **75-minute** buffer (15+45+60+30+15+75=240).",
+        "standardCall": "15 minutes out, 75 minutes museum, 45 minutes lunch, 60 minutes cathedral/centre, 30 minutes waterfront, 15 minutes return, **90-minute** buffer (15+75+45+60+30+15+90=330 of ~420).",
+        "longerCall": "Add Lindholm Høje or a longer museum only with verified bus/taxi timings; keep **120 minutes** uncommitted on a 9-hour clock. Overnight needs reboarding confirmation.",
+        "practicalTip": "Match your daily programme’s berth name (**Royal Cruise Berth** vs **4110**) before photographing a return landmark—occasional ships use the alternate berth."
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "researched_at_utc": "2026-11-05T22:56:15.126776Z",
+        "qa_verdict": "PASS",
+        "import_tier": "policy_applied",
+        "research_sha256": "b59f218a46820d61b38f9e3fdf065a6eb259db9238938a0439b03ea5bf249a98",
+        "landing_slug": "aalborg-denmark",
+        "applied_policy": "enrichment_pilot",
+        "travelerQuestions": [
+          "Where exactly do I dock? Confirm sailing docs + port calendar.",
+          "Walk to Utzon? Often short when city-berthed—verify.",
+          "ETIAS? Not currently operating."
+        ],
+        "content_only_apply": true,
+        "editorial_needs_review_acked_at": "2026-11-07T23:40:29.138Z",
+        "approved_field_set": [
+          "thingsToDo",
+          "gettingThere.fromTerminal",
+          "gettingThere.publicTransport",
+          "researchImport.travelerQuestions"
+        ]
       }
     },
     "aarhus": {
