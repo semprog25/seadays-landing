@@ -190,19 +190,37 @@ function buildWeatherBestSeasonBlock(guide) {
   return section('Weather & best season', summary + months, 'weather-best-season');
 }
 
-function buildGettingThereSection(guide) {
+function hasGuideArrivalCopy(guide) {
+  const g = guide && guide.gettingThere;
+  if (!g) return false;
+  if (hasText(g.fromTerminal)) return true;
+  if (hasText(g.publicTransport)) return true;
+  if (hasText(g.distanceToCity)) return true;
+  if (hasText(g.walkingTime)) return true;
+  if (hasText(g.taxiInfo)) return true;
+  return Array.isArray(g.transportation) && g.transportation.some((x) => hasText(x));
+}
+
+function buildGettingThereBodyHtml(guide) {
   if (!guide || !guide.gettingThere) return '';
+  const scrub = (text) => cleanPortCopy(text);
   const g = guide.gettingThere;
-  const transport = listItems(g.transportation);
+  const transport = listItems((g.transportation || []).map((x) => scrub(x)));
   const rows =
-    dlRow('From the terminal', g.fromTerminal) +
-    dlRow('Distance to city', g.distanceToCity) +
-    dlRow('Walking', g.walkingTime) +
-    dlRow('Taxi', g.taxiInfo) +
-    dlRow('Public transport', g.publicTransport);
+    dlRow('From the terminal', scrub(g.fromTerminal)) +
+    dlRow('Distance to city', scrub(g.distanceToCity)) +
+    dlRow('Walking', scrub(g.walkingTime)) +
+    dlRow('Taxi', scrub(g.taxiInfo)) +
+    dlRow('Public transport', scrub(g.publicTransport));
   const list = transport ? `<p class="pg-label">Transportation options</p><ul>${transport}</ul>` : '';
   if (!rows && !list) return '';
-  return section('Getting there', `<dl class="pg-facts">${rows}</dl>${list}`, 'getting-there');
+  return `<dl class="pg-facts">${rows}</dl>${list}`;
+}
+
+function buildGettingThereSection(guide) {
+  const body = buildGettingThereBodyHtml(guide);
+  if (!body) return '';
+  return section('Getting there', body, 'getting-there');
 }
 
 function buildPoliticsSection(guide) {
@@ -300,7 +318,8 @@ function hasRichThingsToDo(guide) {
   return (
     (Array.isArray(t.topThings) && t.topThings.filter((x) => hasText(x)).length >= 3) ||
     hasText(t.standardCall) ||
-    hasText(t.shortCall)
+    hasText(t.shortCall) ||
+    hasText(t.longerCall)
   );
 }
 
@@ -477,8 +496,12 @@ function buildTransitioningNoticesHtml(terminals) {
 function buildTerminalsSection(terminals, opts = {}) {
   const all = Array.isArray(terminals) ? terminals : [];
   const active = filterActiveTerminalsForDisplay(all);
-  if (!all.length && !hasText(opts.logistics)) return '';
+  if (!all.length && !hasText(opts.logistics) && !hasGuideArrivalCopy(opts.guide)) return '';
   if (!all.length) {
+    const editorial = hasGuideArrivalCopy(opts.guide) ? buildGettingThereBodyHtml(opts.guide) : '';
+    if (editorial) {
+      return section('Getting there & terminals', editorial, 'getting-there');
+    }
     return section(
       'Getting there & terminals',
       `<p class="pg-prose">${escapeHtml(opts.logistics)}</p>`,
@@ -999,7 +1022,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
     buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }),
     buildGuestReviewsSectionHtml(port),
     buildExperiencesSection(affiliate, city),
-    buildTerminalsSection(terminals, { gate, logistics, portAppId: port?.appPortId || '' }),
+    buildTerminalsSection(terminals, { gate, logistics, portAppId: port?.appPortId || '', guide }),
     shoreFirst ? '' : things,
     buildWeatherMergedSection(guide, port, gate),
     buildEntryCollapsedSection(guide, gate, city, port),
