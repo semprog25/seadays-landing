@@ -23,14 +23,19 @@
       }
     },
     "Northern Europe": {
-      "imageUrl": "/assets/img/ports-directory/regions/northern-europe-owner-northern-europe.webp",
-      "alt": "Northern Europe cruise region (owner download)",
+      "imageUrl": "/assets/img/ports-directory/regions/northern-europe-owner-portpic-20261107.webp",
+      "alt": "Northern Europe cruise region",
       "source": "owner-provided",
-      "verificationStatus": "NEEDS_REVIEW",
+      "verificationStatus": "owner_approved_stock_20261107",
       "localSourceFile": "Northern Europe.jpg",
       "attribution": {
-        "license": "Owner declared Pexels — confirm photo ID and licence",
-        "licenseUrl": "https://www.pexels.com/license/"
+        "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "photographer": "Frank Wesneck",
+        "sourcePlatform": "pexels",
+        "sourcePageUrl": "https://www.pexels.com/photo/34514019/",
+        "providerImageId": 34514019,
+        "productionLicenseVerified": true
       },
       "ownerDownloadsApply": {
         "sourceSha256": "dd03157d1cc4b7953cf8ec084720bf59d8da04aff28d78915d2e89d2f340f207",
@@ -39,6 +44,19 @@
           "width": 4538,
           "height": 2862
         },
+        "imageSlot": "region:Northern Europe"
+      },
+      "portpicApply": {
+        "sourceBasename": "Northern Europe.jpg",
+        "sourceSha256": "75f3cd1f0aa1fbfefec98d4f35c90341a4e8f496b26a98ac06cc8abbc5c91cee",
+        "dimensions": {
+          "width": 4538,
+          "height": 2862
+        },
+        "supersededUrl": "/assets/img/ports-directory/regions/northern-europe-owner-northern-europe.webp",
+        "provenanceStatus": "STOCK_IDENTITY_VERIFIED_2026-11-07",
+        "stockIdentityVerifiedAt": "2026-11-07",
+        "approvedBy": "owner-explicit-20261107",
         "imageSlot": "region:Northern Europe"
       }
     },

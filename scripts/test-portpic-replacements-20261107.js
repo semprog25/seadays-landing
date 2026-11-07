@@ -9,8 +9,8 @@ const BASE = 'https://seadays.app'
 
 const INCLUDED_PORT_SLUGS = ['kochi-india', 'reine-norway']
 const EXCLUDED_PORT_SLUGS = ['kristiansund-norway', 'skjolden-norway']
-const EXCLUDED_REGION_URL = 'northern-europe-owner-portpic-20261107'
 const INCLUDED_NORWAY_COUNTRY = 'destination-browse-owner-portpic-norway.webp'
+const INCLUDED_NORTHERN_EUROPE_REGION = 'northern-europe-owner-portpic-20261107.webp'
 
 const review = JSON.parse(
   fs.readFileSync(path.join(repoRoot, 'data', 'ports-directory-image-review-state.json'), 'utf8')
@@ -59,32 +59,34 @@ assert(
   'Norway country browse must use portpic asset'
 )
 assert(country.countries.norway.productionLicenseVerified === true, 'Norway licence verified')
-const norwayAsset = path.join(
-  repoRoot,
-  country.countries.norway.url.replace(/^\//, '')
-)
+const norwayAsset = path.join(repoRoot, country.countries.norway.url.replace(/^\//, ''))
 assert(fs.existsSync(norwayAsset), 'Norway asset missing')
 
 const ne = region.regions['Northern Europe']
-assert(!ne.imageUrl.includes(EXCLUDED_REGION_URL), 'Northern Europe must not use excluded portpic region asset')
+assert(ne.imageUrl.includes(INCLUDED_NORTHERN_EUROPE_REGION), 'Northern Europe region image')
+assert(ne.attribution?.productionLicenseVerified === true, 'Northern Europe licence verified')
+assert(ne.attribution?.providerImageId === 34514019, 'Northern Europe Pexels ID')
+assert(ne.attribution?.photographer === 'Frank Wesneck', 'Northern Europe photographer')
+const neAsset = path.join(repoRoot, ne.imageUrl.replace(/^\//, ''))
+assert(fs.existsSync(neAsset), 'Northern Europe asset missing')
 assert(
-  ne.imageUrl.includes('northern-europe-owner-northern-europe.webp'),
-  'Northern Europe restored to main region asset'
+  ne.portpicApply?.sourceSha256 === '75f3cd1f0aa1fbfefec98d4f35c90341a4e8f496b26a98ac06cc8abbc5c91cee',
+  'Northern Europe source hash'
 )
 
-assert(!catalogText.includes(EXCLUDED_REGION_URL), 'catalog must not reference excluded region portpic')
+assert(catalogText.includes(INCLUDED_NORTHERN_EUROPE_REGION), 'catalog Northern Europe portpic')
 for (const slug of EXCLUDED_PORT_SLUGS) {
   assert(!catalogText.includes(`destination-owner-portpic-${slug}`), `catalog must not reference ${slug} portpic`)
 }
 
 const indexHtml = fs.readFileSync(path.join(repoRoot, 'ports', 'index.html'), 'utf8')
-assert(!indexHtml.includes(EXCLUDED_REGION_URL), 'ports index must not reference excluded region portpic')
+assert(indexHtml.includes(INCLUDED_NORTHERN_EUROPE_REGION), 'ports index Northern Europe region card')
+assert(indexHtml.includes(INCLUDED_NORWAY_COUNTRY), 'ports index Norway browse')
 for (const slug of EXCLUDED_PORT_SLUGS) {
   assert(!indexHtml.includes(`destination-owner-portpic-${slug}`), `ports index must not reference ${slug} portpic`)
 }
-assert(indexHtml.includes(INCLUDED_NORWAY_COUNTRY), 'ports index Norway browse')
 
 const goa = fs.readFileSync(path.join(repoRoot, 'ports/goa-india/index.html'), 'utf8')
 assert(goa.includes('/ports/mormugao-port-goa-india/'), 'goa redirect target intact')
 
-console.log('OK test-portpic-replacements-20261107 (3 included, 4 excluded)')
+console.log('OK test-portpic-replacements-20261107 (4 approved, 3 port exclusions)')
