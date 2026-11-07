@@ -153,7 +153,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
 .region-grid-wrap:not(.is-expanded)::after { content: ''; position: absolute; right: 0; top: 0; bottom: 72px; width: 28px; pointer-events: none; background: linear-gradient(to right, rgba(10,10,10,0), rgba(10,10,10,0.92)); }
 .region-grid-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; margin: 14px 0 0; width: 100%; max-width: 100%; }
 .region-scroll-hint { font-size: 12px; color: rgba(255,255,255,0.5); margin: 0 0 10px; font-weight: 600; text-align: center; width: 100%; }
-.region-grid { display: flex; flex-wrap: nowrap; gap: 12px; overflow-x: auto; padding: 4px 2px 14px; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; scroll-snap-type: x mandatory; scroll-padding-inline-start: 2px; scrollbar-width: thin; scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); }
+.region-grid { display: flex; flex-wrap: nowrap; gap: 12px; overflow-x: auto; padding: 4px 2px 14px; -webkit-overflow-scrolling: touch; scroll-behavior: auto; scroll-snap-type: x proximity; scroll-padding-inline-start: 2px; scrollbar-width: thin; scrollbar-color: rgba(255, 0, 51, 0.55) rgba(255, 255, 255, 0.08); }
 .directory-section--browse { margin-top: 8px; }
 .filter-panel { border-radius: 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.025); padding: 14px 16px 12px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.04); }
 .directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 16px 18px; color: rgba(255,255,255,0.62); font-size: 15px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.14); text-align: center; background: rgba(255,255,255,0.02); }
@@ -329,6 +329,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
 .directory-load-more { min-width: min(100%, 280px); min-height: 44px; }
 @media (prefers-reduced-motion: reduce) {
   .region-card, .country-card, .seo-grid-card, .guide-card, .directory-btn { transition: none; }
+  .region-grid { scroll-behavior: auto; scroll-snap-type: none; }
 }
 .directory-crawl-fallback { max-width: 900px; margin: 0 auto 48px; padding: 0 20px; color: rgba(255,255,255,0.78); }
 .directory-crawl-list { columns: 2; column-gap: 24px; list-style: none; padding: 0; margin: 12px 0 0; }
@@ -1424,23 +1425,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
     var BACK_TO_REGIONS_CARD_URL = '/assets/img/ports-directory/ui/back-to-regions-card-owner.webp';
     
   function bindHorizontalWheelScroll(el, canScrollFn){
-    if(!el) return;
-    canScrollFn = canScrollFn || function(){ return true; };
-    el.addEventListener('wheel', function(e){
-      if(!canScrollFn()) return;
-      if(Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-      var dy = e.deltaY;
-      if(!dy) return;
-      var max = el.scrollWidth - el.clientWidth;
-      if(max <= 2) return;
-      var left = el.scrollLeft;
-      var atStart = left <= 1;
-      var atEnd = left >= max - 1;
-      if(dy > 0 && atEnd) return;
-      if(dy < 0 && atStart) return;
-      e.preventDefault();
-      el.scrollBy({ left: dy, behavior: 'auto' });
-    }, { passive: false });
+    /* Native overflow-x scroll; vertical wheel stays on the page (see horizontalScrollWheel.js). */
   }
   
     var PAGE_SIZE = 24;
