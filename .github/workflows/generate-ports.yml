@@ -109,6 +109,9 @@ jobs:
       - name: Verify owner-approved port imagery after generation
         run: node scripts/test-port-guide-human-approved-hero.js
 
+      - name: Verify public captions omit internal photo QA warnings
+        run: node scripts/test-public-photo-caption-internal-warnings.js
+
       - name: Check for changes
         id: changes
         run: |

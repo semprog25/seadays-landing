@@ -384,9 +384,25 @@ function compareLabelsAz(a, b) {
   return String(a || '').localeCompare(String(b || ''), undefined, { sensitivity: 'base' });
 }
 
+/** Public region-carousel alt only — never internal geography/licence QA strings. */
+function sanitizePublicRegionCardImageAlt(regionKey, alt, fallbackLabel) {
+  const raw = String(alt || fallbackLabel || '').trim();
+  const key = String(regionKey || '').trim();
+  if (
+    key === 'Alaska' &&
+    (/confirm geography/i.test(raw) || /owner-provided download/i.test(raw))
+  ) {
+    return 'Alaska cruise region';
+  }
+  if (/confirm licen[sc]e and geography before production/i.test(raw)) {
+    return `${String(fallbackLabel || key || 'Cruise').trim()} cruise region`;
+  }
+  return raw;
+}
+
 function buildRegionCardButton(def, imgMeta) {
   const imgUrl = String(imgMeta?.imageUrl || '').trim();
-  const imgAlt = String(imgMeta?.alt || def.label).trim();
+  const imgAlt = sanitizePublicRegionCardImageAlt(def.key, imgMeta?.alt, def.label);
   const imgHtml = imgUrl
     ? `<span class="region-card-media"><img class="region-card-image" src="${escapeHtml(imgUrl)}" alt="${escapeHtml(imgAlt)}" loading="lazy" decoding="async" width="320" height="180"></span>`
     : buildNoPhotoRegionOrCountryMediaHtml('region-card-image');
@@ -1034,4 +1050,5 @@ module.exports = {
   shortDirectoryBlurb,
   isDirectoryPlaceholderImage,
   portHasVerifiedDirectoryPhoto,
+  sanitizePublicRegionCardImageAlt,
 };
