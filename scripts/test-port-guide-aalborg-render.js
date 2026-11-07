@@ -7,6 +7,8 @@ const path = require('path');
 
 const repoRoot = path.join(__dirname, '..');
 const { buildPhase1GuideHtml, hasRichThingsToDo } = require('./lib/portGuideSections');
+const { assertResearchCopyNotTruncated } = require('./lib/researchCopyGuards');
+const { extractCruiseTerminalArrival } = require('./lib/portResearchImport/extractMarkdownSections');
 
 function main() {
   const guides = JSON.parse(
@@ -14,7 +16,19 @@ function main() {
   );
   const guide = guides.byAppPortId.aalborg;
   assert.ok(guide, 'aalborg guide');
+  assertResearchCopyNotTruncated(guide.gettingThere?.fromTerminal, 'aalborg fromTerminal');
   assert.ok(hasRichThingsToDo(guide), 'aalborg rich thingsToDo');
+
+  const researchPath = process.env.SEADAYS_PORT_RESEARCH_ROOT;
+  if (researchPath) {
+    const mdPath = path.join(researchPath, 'by-port', 'aalborg-denmark.md');
+    if (fs.existsSync(mdPath)) {
+      const raw = fs.readFileSync(mdPath, 'utf8');
+      const body = raw.replace(/^---[\s\S]*?---\n?/, '');
+      const extracted = extractCruiseTerminalArrival(body);
+      assertResearchCopyNotTruncated(extracted, 'extractCruiseTerminalArrival(aalborg)');
+    }
+  }
 
   const html = buildPhase1GuideHtml({
     port: { name: 'Aalborg', slug: 'aalborg-denmark', appPortId: 'aalborg', country: 'Denmark' },
