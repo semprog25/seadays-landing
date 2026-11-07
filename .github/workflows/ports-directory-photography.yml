@@ -16,6 +16,9 @@ on:
       - 'scripts/lib/portsDirectoryImageResolve.js'
       - 'scripts/lib/destinationPhotoBatch02GeoPolicy.js'
       - 'scripts/lib/destinationImageSourcePolicy.js'
+      - 'scripts/lib/seoShipPortPages.js'
+      - 'scripts/lib/portCinematicHero.js'
+      - 'scripts/test-public-photo-caption-internal-warnings.js'
       - 'scripts/test-ports-catalogue-channel-index-photography.js'
       - 'scripts/test-ports-index-generator-parity.js'
       - 'scripts/lib/portsDirectoryBookable.js'
@@ -56,3 +59,6 @@ jobs:
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/test-ports-catalogue-channel-index-photography.js
+
+      - name: Public port captions omit internal photo QA warnings
+        run: node scripts/test-public-photo-caption-internal-warnings.js

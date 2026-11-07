@@ -187,26 +187,59 @@ function absolutePublicImageUrl(baseUrl, url) {
   return u.startsWith('/') ? `${root}${u}` : `${root}/${u}`;
 }
 
+function inferStockSourceLabel(approved) {
+  const provider = String(approved?.provider || '').toLowerCase();
+  const url = String(approved?.sourcePageUrl || '').toLowerCase();
+  if (provider.includes('unsplash') || url.includes('unsplash.com')) return 'Unsplash';
+  if (provider.includes('pexels') || url.includes('pexels.com')) return 'Pexels';
+  return '';
+}
+
+function shortPublicLicenseLinkLabel(licenseTerms, licenseUrl) {
+  const terms = String(licenseTerms || '').toLowerCase();
+  const url = String(licenseUrl || '').toLowerCase();
+  if (url.includes('unsplash.com') || terms.includes('unsplash')) return 'Unsplash License';
+  if (url.includes('pexels.com') || terms.includes('pexels')) return 'Pexels License';
+  const raw = String(licenseTerms || '').trim();
+  if (!raw) return 'License';
+  return raw.length > 72 ? `${raw.slice(0, 69)}…` : raw;
+}
+
 /**
- * Caption for humanApproved-only heroes — reuse stored Pexels provenance when present;
- * owner downloads without full metadata get a neutral licence note (no invented credits).
+ * Public hero caption from humanApproved metadata only — never internal QA / licence-review warnings.
  */
 function buildHumanApprovedHeroCaption(approved) {
   if (!approved || typeof approved !== 'object') return '';
   const photographer = String(approved.photographer || '').trim();
-  const license = String(approved.licenseTerms || '').trim();
+  const licenseTerms = String(approved.licenseTerms || '').trim();
   const licenseUrl = String(approved.licenseUrl || '').trim();
   const sourcePageUrl = String(approved.sourcePageUrl || '').trim();
-  if (photographer && license && licenseUrl) {
+  const sourceLabel = inferStockSourceLabel(approved);
+
+  if (photographer && licenseUrl) {
     const authorHtml = escapeHtml(photographer);
-    const licenseHtml = `<a href="${escapeHtml(licenseUrl)}">${escapeHtml(license)}</a>`;
-    const sourceHtml = sourcePageUrl ? `<a href="${escapeHtml(sourcePageUrl)}">Pexels</a>` : '';
+    const licenseHtml = `<a href="${escapeHtml(licenseUrl)}">${escapeHtml(
+      shortPublicLicenseLinkLabel(licenseTerms, licenseUrl)
+    )}</a>`;
+    const sourceHtml =
+      sourcePageUrl && sourceLabel
+        ? `<a href="${escapeHtml(sourcePageUrl)}">${escapeHtml(sourceLabel)}</a>`
+        : '';
     const caption = [`Photo: ${authorHtml}`, sourceHtml, licenseHtml].filter(Boolean).join(' — ');
     return sanitizePublicHeroCaptionHtml(caption);
   }
-  return sanitizePublicHeroCaptionHtml(
-    'Photo: owner-provided download — confirm licence and geography before production use.'
-  );
+
+  if (photographer) {
+    const authorHtml = escapeHtml(photographer);
+    const sourceHtml =
+      sourcePageUrl && sourceLabel
+        ? `<a href="${escapeHtml(sourcePageUrl)}">${escapeHtml(sourceLabel)}</a>`
+        : '';
+    const caption = sourceHtml ? `Photo: ${authorHtml} — ${sourceHtml}` : `Photo: ${authorHtml}`;
+    return sanitizePublicHeroCaptionHtml(caption);
+  }
+
+  return '';
 }
 
 /**
@@ -1774,4 +1807,5 @@ module.exports = {
   buildShipBreadcrumbJsonLd,
   buildShipBreadcrumbsHtml,
   buildShipAggregateRatingJsonLd,
+  buildHumanApprovedHeroCaption,
 };

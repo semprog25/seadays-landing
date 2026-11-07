@@ -90,11 +90,17 @@ function sanitizePublicHeroCaptionHtml(html) {
   let s = String(html || '');
   s = s.replace(/Photo candidate\s*\([^)]*\)\s*:\s*/gi, 'Photo: ');
   s = s.replace(/owner download via Pexels\s*[—–-]\s*/gi, '');
+  s = s.replace(
+    /Photo:\s*owner-provided download\s*[—–-]\s*confirm licen[sc]e and geography before production use\.?/gi,
+    ''
+  );
+  s = s.replace(/confirm licen[sc]e and geography before production use\.?/gi, '');
   s = s.replace(/\s*\(confirm before production\)\.?/gi, '');
   s = s.replace(/\bNEEDS_REVIEW\b/gi, '');
   s = s.replace(/\bVERIFIED\b/gi, '');
   s = s.replace(/\bREJECTED\b/gi, '');
   s = s.replace(/\s{2,}/g, ' ').trim();
+  if (!s || /^Photo:\s*$/i.test(s)) return '';
   return s;
 }
 
