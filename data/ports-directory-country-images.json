@@ -1,8 +1,8 @@
 {
   "version": 2,
   "policy": "Destination photography: Pexels and Unsplash for port heroes; region and country browse may use owner-imported Pexels, Unsplash, owner-supplied files, or commercially licensed Wikimedia Commons under /assets/img/ports-directory/. Curaçao country browse uses owner-supplied Curacao.jpg; pexels:1450360 remains blocked for Curaçao (Maldives geo contradiction) and must not be reused.",
-  "verificationStatus": "owner_batch_rc_final_20261105",
-  "updatedAt": "2026-11-05T21:45:00.000Z",
+  "verificationStatus": "owner_portpic_option_a_20261107",
+  "updatedAt": "2026-11-07T22:54:27.834Z",
   "countries": {
     "greece": {
       "url": "/assets/img/ports-directory/countries/greece/destination-browse-batch01r2-pexels-13900563.webp",
@@ -575,17 +575,29 @@
       "ownerApprovedAt": "2026-11-05"
     },
     "norway": {
-      "url": "/assets/img/ports-directory/countries/norway/destination-browse-rc-A-pexels-33583891.webp",
+      "url": "/assets/img/ports-directory/countries/norway/destination-browse-owner-portpic-norway.webp",
       "label": "Norway",
       "alt": "Norway cruise destinations",
-      "verification": "owner_batch_rc_final_20261105",
-      "provider": "pexels",
-      "providerImageId": "33583891",
-      "sourcePageUrl": "https://www.pexels.com/photo/picturesque-view-of-historic-bryggen-waterfront-33583891/",
-      "photographer": "Jonathan Borba",
-      "licenseUrl": "https://www.pexels.com/license/",
-      "licenseTerms": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
-      "ownerApprovedAt": "2026-11-05"
+      "verification": "stock_license_verified_20261107",
+      "provider": "unsplash",
+      "providerImageId": "ut7XZMquCoU",
+      "sourcePageUrl": "https://unsplash.com/photos/ut7XZMquCoU",
+      "photographer": "Benoît Deschasaux",
+      "licenseUrl": "https://unsplash.com/license",
+      "licenseTerms": "Unsplash License (free for commercial and non-commercial use)",
+      "ownerApprovedAt": "2026-11-07",
+      "portpicApply": {
+        "sourceBasename": "Norway.jpg",
+        "sourceSha256": "207f6af2302e8cf8e520d86e5029aac4944a85ac1d4c0649cec0e97ebd6b0411",
+        "dimensions": {
+          "width": 6038,
+          "height": 4025
+        },
+        "supersededUrl": "/assets/img/ports-directory/countries/norway/destination-browse-rc-A-pexels-33583891.webp",
+        "provenanceStatus": "STOCK_IDENTITY_VERIFIED_2026-11-07",
+        "stockIdentityVerifiedAt": "2026-11-07"
+      },
+      "productionLicenseVerified": true
     },
     "oman": {
       "url": "/assets/img/ports-directory/countries/oman/destination-browse-rc-A-pexels-2411705.webp",
