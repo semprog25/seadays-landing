@@ -27,6 +27,7 @@ const {
   collectPortFaqItems,
   portCallsAsHomeport,
 } = require('./portGuideSections');
+const { usesPassengerEditorialLead } = require('./publicGuideCopySanitize');
 const { isApprovedDestinationPhotographyUrl } = require('./destinationImageSourcePolicy');
 const { loadDestinationOwnerPortEntryBySlug } = require('./portsDirectoryImageResolve');
 const {
@@ -1669,8 +1670,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   ].filter(Boolean).join('\n');
   const jumpNav = buildPortJumpNav(`${guideHtml}\n${relatedHtml}`);
 
-  const omitDatasetOverviewForLd =
-    port.slug === 'aalborg-denmark' && String(guide?.portInfo?.description || '').trim();
+  const omitDatasetOverviewForLd = usesPassengerEditorialLead(guide);
   const bodyForLd = omitDatasetOverviewForLd
     ? String(guide.portInfo.description).trim()
     : [guide?.portInfo?.description || '', overviewText].filter(Boolean).join(' ');
@@ -1696,7 +1696,7 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
   const breadcrumbLd = buildBreadcrumbJsonLd(port, canonical);
-  const faqItems = collectPortFaqItems(guide, coreName).filter((item) =>
+  const faqItems = collectPortFaqItems(guide, coreName, port.slug).filter((item) =>
     guideHtml.includes(escapeHtml(item.q))
   );
   const faqLd = faqItems.length

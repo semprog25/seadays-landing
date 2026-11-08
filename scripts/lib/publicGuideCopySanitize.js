@@ -58,8 +58,16 @@ function quickFactGettingSummary(guide) {
   return `${fallback.slice(0, MAX_QUICK_FACT_CHARS - 1).replace(/\s+\S*$/, '').trim()}…`;
 }
 
+function usesPassengerEditorialLead(guide) {
+  return (
+    guide?.researchImport?.publication_tier === 'passenger_editorial' &&
+    String(guide?.portInfo?.description || '').trim().length > 0
+  );
+}
+
 function assertPassengerReadyGuideFields(guide, portId) {
-  if (!guide || portId !== 'aalborg') return;
+  const pilotIds = new Set(['aalborg', 'aarhus', 'akureyri', 'eidfjord', 'aqaba', 'aruba']);
+  if (!guide || (!pilotIds.has(portId) && !usesPassengerEditorialLead(guide))) return;
   const fields = [
     guide.gettingThere?.fromTerminal,
     guide.gettingThere?.publicTransport,
@@ -82,6 +90,7 @@ module.exports = {
   containsInternalResearchLeak,
   preparePassengerGuideText,
   quickFactGettingSummary,
+  usesPassengerEditorialLead,
   assertPassengerReadyGuideFields,
   INTERNAL_RESEARCH_LEAK_RE,
   MAX_QUICK_FACT_CHARS,
