@@ -1,0 +1,653 @@
+{
+  "schema_version": 1,
+  "lock_version": "stage34-14-port-release-v1",
+  "status": "IMMUTABLE_CANDIDATE_PENDING_OWNER",
+  "owner_publication_authorized": false,
+  "created_at_utc": "2026-11-08T13:18:24.674Z",
+  "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+  "bundle_idempotency_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+  "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+  "candidate_count": 14,
+  "passing_all_gates": 14,
+  "slugs_locked": [
+    "helsinki-finland",
+    "hvar-croatia",
+    "isafjordur-iceland",
+    "klaipeda-lithuania",
+    "koper-slovenia",
+    "kotor-montenegro",
+    "kuala-lumpur-port-klang-malaysia",
+    "limassol-cyprus",
+    "muscat-oman",
+    "nice-france",
+    "philipsburg-st-maarten",
+    "san-juan-puerto-rico",
+    "sicily-catania-italy",
+    "singapore-singapore"
+  ],
+  "ports": [
+    {
+      "landing_slug": "helsinki-finland",
+      "app_port_id": "helsinki",
+      "draft_file_sha256": "df33d69b8ade1cd681df907cb7cf6ef0af3eb0464f7ada8b66d60875322955e3",
+      "research_sha256": "7b0427f78ee788b861f056176995a6edcade58bbc3e4368b240312ff7c4673fd",
+      "field_exclusions": [],
+      "candidate_content_hash": "9388ea2d9770d6ec8cb7d690b5b7c87e616fb534d2e15eec4c09e01213b4cb75",
+      "stage28_candidate_content_hash": "9388ea2d9770d6ec8cb7d690b5b7c87e616fb534d2e15eec4c09e01213b4cb75",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/helsinki-finland/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/helsinki-finland.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/helsinki-finland.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "hvar-croatia",
+      "app_port_id": "hvar",
+      "draft_file_sha256": "01f2b7090faae038bd834992ec233d23672b4d4d3dfa28ca3f57df2c9fac5ffa",
+      "research_sha256": "67765a49adbfdb5defa5d49a34102200ad1d6ae537b5484845c0953cd1d531f4",
+      "field_exclusions": [],
+      "candidate_content_hash": "3dbeff2059d37f45ed1c14b55f5c1902d7999553434c9800c7a9af43165f4ea5",
+      "stage28_candidate_content_hash": "3dbeff2059d37f45ed1c14b55f5c1902d7999553434c9800c7a9af43165f4ea5",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/hvar-croatia/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/hvar-croatia.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/hvar-croatia.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "isafjordur-iceland",
+      "app_port_id": "isafjordur",
+      "draft_file_sha256": "97aae107eda2f7850a483af8cec52717139bdd5ad6c61a407c59a9adf6c9591d",
+      "research_sha256": "45342244de9d2034ec79e8d245dfc1bc3ad7bad6ad4b1c5914c0c1149541e4be",
+      "field_exclusions": [],
+      "candidate_content_hash": "1a3f63669f947fe46b8ca3fb4933b8e6456d4148afbe411e67a59b783f303278",
+      "stage28_candidate_content_hash": "1a3f63669f947fe46b8ca3fb4933b8e6456d4148afbe411e67a59b783f303278",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/isafjordur-iceland/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/isafjordur-iceland.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/isafjordur-iceland.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "klaipeda-lithuania",
+      "app_port_id": "klaipeda",
+      "draft_file_sha256": "960704c8c63316a6bf3f63f7a272c1f87cf839308db299de62810e5442c2127e",
+      "research_sha256": "03961e0c39280e85c5823fdb7ba663860eb9ab439c2623b0b6702870c1c887eb",
+      "field_exclusions": [],
+      "candidate_content_hash": "13b641256fb54e7f439550d18b6cf542ceccd39b48708269ea50fb8d189298cb",
+      "stage28_candidate_content_hash": "13b641256fb54e7f439550d18b6cf542ceccd39b48708269ea50fb8d189298cb",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/klaipeda-lithuania/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/klaipeda-lithuania.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/klaipeda-lithuania.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "koper-slovenia",
+      "app_port_id": "koper",
+      "draft_file_sha256": "51d8af7aa9c04127716884f8b39fed640ab134c62c07478c5b32b3ddfb410a22",
+      "research_sha256": "f2543fa93fd5b74fecf45b073e45d7bdd64dca1bcbd5d0130c561ebb69874166",
+      "field_exclusions": [],
+      "candidate_content_hash": "5e3b20627ffefddf2c206509eec57c77c77bdb657681bf9fed604a4c6e3762ab",
+      "stage28_candidate_content_hash": "5e3b20627ffefddf2c206509eec57c77c77bdb657681bf9fed604a4c6e3762ab",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/koper-slovenia/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/koper-slovenia.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/koper-slovenia.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "kotor-montenegro",
+      "app_port_id": "kotor",
+      "draft_file_sha256": "0e25c05fbdba752a21d0b9a5857b2e13ef7e002baabebc0d7debd5fde07e16d2",
+      "research_sha256": "7dbef0ec7799609573f415c62dd1fe731f8cf91e683b7f2a813b1c5d0410f0d1",
+      "field_exclusions": [],
+      "candidate_content_hash": "96c131bda7b7ccf39f813d882750f3742068d8a656cad242c9be9177fa1797f3",
+      "stage28_candidate_content_hash": "96c131bda7b7ccf39f813d882750f3742068d8a656cad242c9be9177fa1797f3",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/kotor-montenegro/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/kotor-montenegro.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/kotor-montenegro.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "kuala-lumpur-port-klang-malaysia",
+      "app_port_id": "port-klang",
+      "draft_file_sha256": "2b99f6be4b1743149f997211994e1455ab0ecb1335a71bcf0c3d8920ec2cad66",
+      "research_sha256": "bcc7cbda46289d07024c0f54d1ded3c9f6dfabed1fa6dc3cef84a18f54484b34",
+      "field_exclusions": [],
+      "candidate_content_hash": "995aa30d0c101a1f45eac64a7cb27d21de921a3254acf2aa35253778cf08f070",
+      "stage28_candidate_content_hash": "995aa30d0c101a1f45eac64a7cb27d21de921a3254acf2aa35253778cf08f070",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/kuala-lumpur-port-klang-malaysia/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/kuala-lumpur-port-klang-malaysia.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/kuala-lumpur-port-klang-malaysia.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": "Port Klang / PKCT — not downtown KL."
+    },
+    {
+      "landing_slug": "limassol-cyprus",
+      "app_port_id": "limassol",
+      "draft_file_sha256": "6d7f19eb6a719643f3fc1cc88d199a0b2de9d2968b08298380d9ef3667815d0a",
+      "research_sha256": "b8292abb7bc1014fe7fbdcf60f52205d702f36be2c6e2969f74735b156923e9b",
+      "field_exclusions": [],
+      "candidate_content_hash": "a2f2d9c87c39b9c5e47ba99f6112cbc45716fb750641d8d61b9393bdfc25b8f4",
+      "stage28_candidate_content_hash": "a2f2d9c87c39b9c5e47ba99f6112cbc45716fb750641d8d61b9393bdfc25b8f4",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/limassol-cyprus/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/limassol-cyprus.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/limassol-cyprus.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "muscat-oman",
+      "app_port_id": "muscat",
+      "draft_file_sha256": "421b3378556dc5b97c1a8f5fcb613ef8688af56e648703e3a465d780d3351ca9",
+      "research_sha256": "bbed1bb143663ba685f4a59ac42f8b90cc939965c703b0adec9671f5c0a32fe7",
+      "field_exclusions": [],
+      "candidate_content_hash": "3198d01f4fb9856b8a7b9a2ef6ec5034449fff190a6bae6bfe069648e0016493",
+      "stage28_candidate_content_hash": "3198d01f4fb9856b8a7b9a2ef6ec5034449fff190a6bae6bfe069648e0016493",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/muscat-oman/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/muscat-oman.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/muscat-oman.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": "Port Sultan Qaboos (PSQ) framing; not generic Muscat city arrival."
+    },
+    {
+      "landing_slug": "nice-france",
+      "app_port_id": "nice",
+      "draft_file_sha256": "2009afe8a23b9c9d408a9d02c9c324df8b951afb078999c14214deffa36539db",
+      "research_sha256": "a920d7c48f97e1f8a0057812bab82c98ca8a5e79cb10bd77a5ca2376c367bfe6",
+      "field_exclusions": [],
+      "candidate_content_hash": "e1ffbe229a7b525855aae2e7bccd531540fe9d995beb383a2ec497ee7ff36c14",
+      "stage28_candidate_content_hash": "e1ffbe229a7b525855aae2e7bccd531540fe9d995beb383a2ec497ee7ff36c14",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/nice-france/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/nice-france.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/nice-france.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": "Port Lympia vs Villefranche called out in practical tip."
+    },
+    {
+      "landing_slug": "philipsburg-st-maarten",
+      "app_port_id": "st-maarten",
+      "draft_file_sha256": "872e5218b80fdea380f81d4c51d35fe43e49ec7354ee610a7cf8afddbb3078a2",
+      "research_sha256": "a6dea5e346a09d35900ebeb26bb27050481a6e07ba8020def97adcabd1d8f6e4",
+      "field_exclusions": [],
+      "candidate_content_hash": "b5d8dadfd537aa5218879c8e582d4118825e048bf8dea9cd9a35df8b7e0161ac",
+      "stage28_candidate_content_hash": "b5d8dadfd537aa5218879c8e582d4118825e048bf8dea9cd9a35df8b7e0161ac",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/philipsburg-st-maarten/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/philipsburg-st-maarten.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/philipsburg-st-maarten.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": "Pier 2 Wathey — Philipsburg vs Marigot transfer clarity."
+    },
+    {
+      "landing_slug": "san-juan-puerto-rico",
+      "app_port_id": "san-juan",
+      "draft_file_sha256": "d6ed232a0fb974aa4dfa053656dfede9c9b1a39c455a5f74a5c0ca3793809c18",
+      "research_sha256": "b6c625c6a19b62ad2de4c46bb3a2e041f10fc3908519e2d7a46a46c4fb5c1794",
+      "field_exclusions": [],
+      "candidate_content_hash": "ab85979cee9ca04636a63008257cf56db4df2d38a83708b34388f054dd2ec93f",
+      "stage28_candidate_content_hash": "ab85979cee9ca04636a63008257cf56db4df2d38a83708b34388f054dd2ec93f",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/san-juan-puerto-rico/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/san-juan-puerto-rico.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/san-juan-puerto-rico.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "sicily-catania-italy",
+      "app_port_id": "catania",
+      "draft_file_sha256": "3e4c3caf04f543038ef4baa99be41bfe7c82c5268dad4f296c7c02d4cdd77b6b",
+      "research_sha256": "1f5490c71e30e70fc36da398a47ae01adf2a833ce9a7283297428a39462a6354",
+      "field_exclusions": [],
+      "candidate_content_hash": "8b8cc796d00d3b71c79dceac203ec5933287a4fad58e086b2913763420e2506e",
+      "stage28_candidate_content_hash": "8b8cc796d00d3b71c79dceac203ec5933287a4fad58e086b2913763420e2506e",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/sicily-catania-italy/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/sicily-catania-italy.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/sicily-catania-italy.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": null
+    },
+    {
+      "landing_slug": "singapore-singapore",
+      "app_port_id": "singapore",
+      "draft_file_sha256": "73cdc022be56a2ab48aef42ca2714ee81e148d6eb59a552137308f4ebddc487b",
+      "research_sha256": "7433c6f413d47f13915aa3ff84ec688cf2d263291d4531b3a5a967bc10547dd8",
+      "field_exclusions": [],
+      "candidate_content_hash": "fa100dd42a650ae6ed0eeb0d1305fe2dff3aa4bad40272b52f52da48c9965d24",
+      "stage28_candidate_content_hash": "fa100dd42a650ae6ed0eeb0d1305fe2dff3aa4bad40272b52f52da48c9965d24",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "stage28_owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "factual_exclude": false,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "preview_no_terminal_map",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true
+        }
+      ],
+      "preview_ref": "qa-evidence/stage33-remaining-ports/previews/singapore-singapore/index.html",
+      "rollback_ref": "qa-evidence/stage33-remaining-ports/rollback/singapore-singapore.production-snapshot.json",
+      "proposed_guide_ref": "qa-evidence/stage33-remaining-ports/proposed-guides/singapore-singapore.json",
+      "production_apply_allowed": true,
+      "owner_approval_status": "PENDING",
+      "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+      "gateway_note": "MBCCS vs HarbourFront SCC distinction in tip."
+    }
+  ],
+  "gateway_identity_review": {
+    "nice-france": "Port Lympia vs Villefranche called out in practical tip.",
+    "muscat-oman": "Port Sultan Qaboos (PSQ) framing; not generic Muscat city arrival.",
+    "kuala-lumpur-port-klang-malaysia": "Port Klang / PKCT — not downtown KL.",
+    "philipsburg-st-maarten": "Pier 2 Wathey — Philipsburg vs Marigot transfer clarity.",
+    "singapore-singapore": "MBCCS vs HarbourFront SCC distinction in tip."
+  }
+}

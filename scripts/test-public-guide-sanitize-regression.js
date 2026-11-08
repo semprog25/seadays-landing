@@ -28,6 +28,14 @@ function main() {
   const leak = 'Coordinates remain null/unverified until research pass completes.';
   assert.strictEqual(preparePassengerGuideText(leak), '', 'internal leak stripped');
 
+  const mdLink =
+    'Allow 45 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).';
+  assert.strictEqual(
+    preparePassengerGuideText(mdLink),
+    'Allow 45 minutes; official source.',
+    'markdown links reduced to label text'
+  );
+
   const hamburgHtml = buildPhase1GuideHtml({
     port: {
       name: 'Hamburg',
