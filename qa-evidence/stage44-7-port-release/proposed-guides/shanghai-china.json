@@ -1,0 +1,91 @@
+{
+  "appPortId": "shanghai",
+  "portName": "Shanghai",
+  "country": "China",
+  "portInfo": {
+    "description": "Shanghai is a cruise call—confirm your berth on the daily programme before you plan the day.",
+    "location": "",
+    "timezone": "CST (UTC+8)",
+    "language": "Mandarin, Shanghainese",
+    "currency": "Chinese Yuan (CNY)",
+    "population": ""
+  },
+  "facts": {
+    "established": "",
+    "significance": "",
+    "notableFeatures": [
+      "Modern skyline",
+      "Historic Bund"
+    ],
+    "culturalHighlights": []
+  },
+  "size": {
+    "portCapacity": "",
+    "terminalCount": 1,
+    "berthCount": 2,
+    "annualVisitors": "",
+    "citySize": ""
+  },
+  "climate": {
+    "type": "Humid subtropical",
+    "averageTemp": "16°C (61°F)",
+    "bestMonths": [
+      "April",
+      "May",
+      "September",
+      "October"
+    ],
+    "rainySeason": "June to July",
+    "humidity": "High",
+    "description": "Humid subtropical climate with four distinct seasons"
+  },
+  "politics": {
+    "governmentType": "Unitary one-party socialist republic",
+    "stability": "Stable",
+    "visaRequirements": "Visa required for most nationalities. Transit visa available for some ports.",
+    "entryRequirements": "Valid passport with at least 6 months validity. Visa required for most visitors."
+  },
+  "gettingThere": {
+    "fromTerminal": "Wusongkou International Cruise Terminal",
+    "transportation": [
+      "Walking",
+      "Taxi",
+      "Coach excursion"
+    ],
+    "distanceToCity": "Confirm with ship — minutes unverified.",
+    "walkingTime": "",
+    "taxiInfo": "",
+    "publicTransport": "Confirm local transport options with the ship on your call date.",
+    "distanceAnswer": "Confirm with ship — minutes unverified."
+  },
+  "thingsToDo": {
+    "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+    "topThings": [
+      "The Bund / Old Town (transfer) — with transfer as needed.",
+      "Ship excursion — safest timing."
+    ],
+    "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+    "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+    "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+    "practicalTip": "Immigration can be slow — leave early for independent plans."
+  },
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_id": "77890b7f17c702292aee612b",
+    "draft_version": "stage22-deterministic-v2.4",
+    "research_sha256": "a067e44744cb7ef824dc7ea876621b2a4c542df212bc4df10e92603c100de271",
+    "landing_slug": "shanghai-china",
+    "candidate_content_hash": "8a9d5fde049d7f28d06e0f5c92074a81fdd9dbe4a0367d687a7501cd59468bc4",
+    "locked_at_utc": "2026-11-08T17:29:10.274Z",
+    "field_exclusions": [
+      "thingsToDo.topThings[2]"
+    ],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage44_release_candidate": true,
+    "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66"
+  }
+}
