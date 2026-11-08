@@ -25,6 +25,7 @@ const {
   buildBreadcrumbsHtml,
   buildBreadcrumbJsonLd,
   collectPortFaqItems,
+  cityLabel,
   portCallsAsHomeport,
 } = require('./portGuideSections');
 const { usesPassengerEditorialLead } = require('./publicGuideCopySanitize');
@@ -1696,8 +1697,9 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
     if (jsonLd[k] === undefined) delete jsonLd[k];
   });
   const breadcrumbLd = buildBreadcrumbJsonLd(port, canonical);
-  const faqItems = collectPortFaqItems(guide, coreName, port.slug).filter((item) =>
-    guideHtml.includes(escapeHtml(item.q))
+  const faqPortName = cityLabel(port.name || guide?.portName || coreName);
+  const faqItems = collectPortFaqItems(guide, faqPortName, port.slug).filter(
+    (item) => guideHtml.includes(escapeHtml(item.q)) || guideHtml.includes(item.q)
   );
   const faqLd = faqItems.length
     ? {

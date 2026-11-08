@@ -111,8 +111,11 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
   const existingHeadStyles = extractSiteShellHeadStyleBlock(existingHtml);
   const generatedHeadStyles = extractSiteShellHeadStyleBlock(generatedHtml);
   const hasCallPlanCardCss = (block) => /\.pg-call-plan-card\s*\{/.test(String(block || ''));
+  const hasMobileOverflowPatch = (block) =>
+    /port-guide-mobile-overflow-v1/.test(String(block || ''));
   const shouldPreferGeneratedHeadStyles =
-    hasCallPlanCardCss(generatedHeadStyles) && !hasCallPlanCardCss(existingHeadStyles);
+    (hasCallPlanCardCss(generatedHeadStyles) && !hasCallPlanCardCss(existingHeadStyles)) ||
+    (hasMobileOverflowPatch(generatedHeadStyles) && !hasMobileOverflowPatch(existingHeadStyles));
   if (existingHeadStyles && !shouldPreferGeneratedHeadStyles) {
     html = replaceSiteShellHeadStyleBlock(html, existingHeadStyles);
   }
