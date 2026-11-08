@@ -183,7 +183,7 @@
       "portName": "Aberdeen",
       "country": "UK",
       "portInfo": {
-        "description": "Scotland's third-largest city and \"Granite City,\" a historic port with beautiful architecture and gateway to the Scottish Highlands.",
+        "description": "Port of Aberdeen markets cruise calls at South Harbour with capacity for ships up to 300 m and cites city-centre access and coach capacity. A cruise-calls page lists scheduled activity. Quay-level door pins and North vs South assignment for a given call are not fixed on the cited marketing pages — confirm with the agent.",
         "location": "",
         "timezone": "GMT (UTC+0) / BST (UTC+1)",
         "language": "English",
@@ -223,12 +223,52 @@
         "entryRequirements": "Valid passport required. EU citizens may need visa depending on nationality."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Aberdeen — South Harbour (cruise) — Aberdeen, Scotland, United Kingdom",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "City. Port describes operations in the heart of the city — walk minutes not published. Aberdeenshire tours (castles/distilleries) are long-call only.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "City. Port describes operations in the heart of the city — walk minutes not published. Aberdeenshire tours (castles/distilleries) are long-call only."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Aberdeen city centre — ~90 min.",
+          "Maritime/harbour walk — ~45 min.",
+          "Castles / whisky — coach; long-call.",
+          "Aberdeen city centre"
+        ],
+        "shortCall": "≥4 h. Exit 25 + centre 90 + return 25 + buffer 60 = 200.",
+        "standardCall": "≥6 h. Add museum/lunch; buffer 60. Skip distant castles unless coach timed.",
+        "longerCall": "Aberdeenshire coaches only with ≥90 min return buffer.",
+        "practicalTip": "Confirm South vs North Harbour assignment and tender/alongside before planning [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "562e5ffc68c8ce1d8d70e54c",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "3a75c41546f08116b8d742bd3aecff79ec313e29b4551171dfa505ab0d18465c",
+        "landing_slug": "aberdeen-united-kingdom",
+        "candidate_content_hash": "0ef6d78ce7e6d53072d50f2a15cbf4f3eb223bdbb5b5bee352d3e68237897443",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "b11708b8b35ffd000d187c96672cefe0b5a93e7192c46605a662a317c721df91"
       }
     },
     "abu-dhabi": {
@@ -384,7 +424,7 @@
       "portName": "Ajaccio",
       "country": "France",
       "portInfo": {
-        "description": "Corsica's capital, Napoleon's birthplace, a beautiful Mediterranean port with historic charm.",
+        "description": "Ajaccio is Corsica's capital and France's second cruise port by recent volume: the CCI Corse says over 460,000 cruise passengers and 205 calls in 2023. Ships use a dedicated quay opened in 2008 for vessels up to 340 m. The town is compact: Napoleon's birthplace, the citadel and the gulf beaches are close. The ferry Gare Maritime on Quai l'Herminier serves Corsica Ferries and Moby Lines and is separate from the cruise operation.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "French",
@@ -425,12 +465,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port de Commerce d'Ajaccio – cruise quay / passenger terminals — Quai l'Herminier CS 30253, 20179 Ajaccio cedex 1 (port admin)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "On foot: the port is next to the centre; allow about 10–15 min to Place Foch / the old town (estimate).",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "On foot: the port is next to the centre; allow about 10–15 min to Place Foch / the old town (estimate). Taxi: ranks near the port (not verified). Îles Sanguinaires: boat excursions from the gulf (operators and times not verified).",
+        "distanceAnswer": "On foot: the port is next to the centre; allow about 10–15 min to Place Foch / the old town (estimate)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Maison Bonaparte, Napoleon's birthplace (editorial; official site not fetched). 45 min.",
+          "Citadelle and old town (editorial). 45–60 min.",
+          "Palais Fesch fine-arts museum (editorial). 75 min.",
+          "Plage Saint-François town beach (editorial).",
+          "Îles Sanguinaires by boat. Half-day."
+        ],
+        "shortCall": "About 3.3 h on foot (estimates): walk to Place Foch (≈15 min) → Maison Bonaparte (45 min) → citadel and old-town lanes (60 min) → coffee on the quay (20 min) → walk back (≈15 min). At the ship 45 min before all-aboard.",
+        "standardCall": "About 6 h (estimates): the short-call loop (≈2.5 h before the return) → Palais Fesch (75 min) → lunch (60 min) → beach or market (45 min). At the ship 45 min before all-aboard. Budget check: short loop ≈150 min pre-return + Fesch 75 + lunch 60 + beach/market 45 + final walk 15 + 45 buffer ≈ 390 min (6 h 30). Keep the final walk explicit.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "On multi-ship days the town fills quickly; do Maison Bonaparte first. Do not confuse the ferry Gare Maritime (Quai l'Herminier) with the cruise quay [S2]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "512e8b4c351829a0ba7a1733",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "117dac309898ca77c0d69a9326138e7d29786143440008bba629c8b93170d47d",
+        "landing_slug": "ajaccio-corsica-france",
+        "candidate_content_hash": "b8ef5f5a262763adc1a0a6063c7293787d6fb7eb2e565d43f1938cd755fc08d6",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "7ae4c7dfb7200c1747fb9ac6d6373ecc32545b7af2d5515ed72f6e037ea290f3"
       }
     },
     "akita": {
@@ -681,7 +762,7 @@
       "portName": "Alexandria",
       "country": "Egypt",
       "portInfo": {
-        "description": "Egypt's second-largest city and historic Mediterranean port, gateway to Cairo and ancient Egyptian sites.",
+        "description": "Founded by Alexander in 331 BC, Alexandria became the seat of Ptolemaic rule. The Ministry of Tourism and Antiquities explains its later Roman and Byzantine urban remains, including Kom el-Dikka’s theatre, baths and lecture spaces. The modern Bibliotheca is a library-and-museum cultural complex, not the surviving ancient library. Keeping those periods distinct makes a more rewarding visit than a generic “Egypt highlights” drive. The important shore-day choice is local Alexandria versus Cairo/Giza. Neither a cruise-terminal berth total nor the physical possibility of a highway journey proves that the latter fits your all-aboard. This guide prioritises local routes with a generous vehicle return. A distant trip needs the line’s dated excursion duration and delay policy.",
         "location": "",
         "timezone": "EET (UTC+2)",
         "language": "Arabic",
@@ -724,12 +805,53 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa on arrival or e-visa available."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Alexandria Port cruise passenger terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "MedCruise describes escorted/secured cruise handling. Confirm whether your ship uses a shuttle or controlled coach pickup; do not assume a free walk from the quay into town. Taxi or an organised vehicle is the planning default. Exact passenger-exit-to-sight route lengths remain unresolved until the actual berth/gate is known. The itineraries reserve 45 minutes for first/last city transfers, 30 minutes for city-to-city attraction legs, and a 60-minute terminal buffer. These are conservative editorial allowances, not measured road times. If your line or driver forecasts longer, drop a stop. A short map separation between Qaitbay and the library is not a usable road-time source.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "MedCruise describes escorted/secured cruise handling. Confirm whether your ship uses a shuttle or controlled coach pickup; do not assume a free walk from the quay into town. Taxi or an organised vehicle is the planning default. Exact passenger-exit-to-sight route lengths remain unresolved until the actual berth/gate is known. The itineraries reserve 45 minutes for first/last city transfers, 30 minutes for city-to-city attraction legs, and a 60-minute terminal buffer. These are conservative editorial allowances, not measured road times. If your line or driver forecasts longer, drop a stop. A short map separation between Qaitbay and the library is not a usable road-time source."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Citadel of Qaitbay, Pharos peninsula: allow 75 minutes for the fortress/harbour setting; OSM location is corroborated geographically by Ministry material about the adjacent underwater site. Do not confuse underwater archaeology with a public diving excursion.",
+          "Bibliotheca Alexandrina, eastern Corniche: allow 90 minutes for a selective library/cultural-complex visit; check which galleries and museums are open and ticketed.",
+          "Kom el-Dikka, central Alexandria: about 90 minutes for the open-air Roman/Byzantine remains, including theatre, baths and mosaics. Sun and uneven paths matter; no unverified accessibility guarantee.",
+          "Kom al-Shoqafa catacombs, near the Serapeum: about 75 minutes for the funerary complex; steps/underground access should be checked before booking.",
+          "Serapeum/Diocletian’s Column, Alexandria: around 60 minutes; this is the monument popularly called Pompey’s Pillar, with the correct historical identification retained."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Choose the city or a separately confirmed distant excursion. The library and a fortress are not consolation prizes for missing Cairo; they are Alexandria’s own destination story."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "0b7e383f38b632ddb1312749",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "2411acf207867b1dec7a4f845683deb0af19ade18addb5f5753640f406c7fec6",
+        "landing_slug": "alexandria-egypt",
+        "candidate_content_hash": "a60f38527e619f8d192db81aa53e1294447a3437f389be629c639e444a76c396",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "9709595512db258f54e657a2ec215f9a49a2356df2cca9f5d8e3d626c18e7fe9"
       }
     },
     "alicante": {
@@ -737,7 +859,7 @@
       "portName": "Alicante",
       "country": "Spain",
       "portInfo": {
-        "description": "A beautiful Mediterranean port city on Spain's Costa Blanca, known for its beaches, historic castle, and excellent facilities.",
+        "description": "Alicante’s cruise traffic concentrates at Muelle 14 under the Autoridad Portuaria de Alicante, with Alicante Cruise Port publishing passenger-facing services, schedule tools and destination copy. The same APA terminals page distinguishes the cruise terminal from the TMS ferry terminal at Muelle 25 (Oran) and a larger passenger commercial building. Destination marketing on the cruise-port site highlights Castillo de Santa Bárbara on the 166-metre Mount Benacantil as a major medieval fortress with 360° views. The port markets 24/7 operations and homeport capability.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish",
@@ -778,12 +900,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Alicante Cruise Port — Muelle 14 — Puerto de Alicante, Muelle 14, 03001 Alicante, Spain",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Castillo de Santa Bárbara — Benacantil 166 m; major fortress per cruise-port destination copy. ~90 min.",
+          "Casco Antiguo — old town streets below the castle. ~60 min.",
+          "Explanada / waterfront — city waterfront promenade (editorial classic; city integration). ~45 min.",
+          "Terminal services — shops/currency as listed by Alicante Cruise Port.",
+          "Exit terminal: 15 min (est.)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm you are on Muelle 14, not the Muelle 25 ferry complex [S1]. Photograph all-aboard before climbing Benacantil."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "fa8a876255a07924115fd79d",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "8f309016353641d2e862eaf139efcf4f483d8ce1ca9362d5cc8c8a54cbaf4116",
+        "landing_slug": "alicante-spain",
+        "candidate_content_hash": "d14590916ff258f3411a2838e662a64e9185c0515eb38ce0a86634278f107794",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "e243799cdb5ba6f404a076531b57f9bf0ad84c228c8b279991d34babef74291f"
       }
     },
     "almeria": {
@@ -951,7 +1114,7 @@
       "portName": "Amber-Cove",
       "country": "Dominican Republic",
       "portInfo": {
-        "description": "A modern Dominican Republic port, gateway to Puerto Plata and excellent facilities.",
+        "description": "The port’s aqua zone makes a useful fallback when you want to stay close to the ship, while Puerto Plata offers a fort, museum and civic square for a more cultural visit. The official map labels taxis/pre-arranged tours at point 9; it is stronger wayfinding evidence than a generic “Puerto Plata port” map pin. It does not establish named berth faces or an exact passenger entrance coordinate. Damajagua is a separate guided outing involving forest walking, sliding/jumping and water conditions. The destination authority says many trips use seven falls rather than all 27 and gives about an hour from Puerto Plata city, not from this cruise terminal. A city drive and waterfall transfer are therefore not collapsed into one optimistic time. The cable car appears in destination marketing, but present operation was not checked and it is excluded from the plans.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "Spanish",
@@ -992,12 +1155,53 @@
         "entryRequirements": "Valid passport required. Tourist card required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Amber Cove Cruise Center — Bay Maimón,Puerto Plata Province,Dominican Republic",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Use the operator-marked taxi/pre-arranged-tour dispatch at map point 9. City plans allow 45 minutes outbound and 60 inbound as editorial vehicle/loading blocks, not sourced present road times. Have the driver confirm them before leaving; shorten the city circuit if traffic exceeds the allowance. The waterfall plan reserves 75 minutes each way, which needs a current operator quote and a ship-compatible return policy. Do not substitute the tourism authority’s one-hour city-to-Damajagua estimate as an Amber Cove road measurement.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Use the operator-marked taxi/pre-arranged-tour dispatch at map point 9. City plans allow 45 minutes outbound and 60 inbound as editorial vehicle/loading blocks, not sourced present road times. Have the driver confirm them before leaving; shorten the city circuit if traffic exceeds the allowance. The waterfall plan reserves 75 minutes each way, which needs a current operator quote and a ship-compatible return policy. Do not substitute the tourism authority’s one-hour city-to-Damajagua estimate as an Amber Cove road measurement."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Amber Cove Aqua Zone, Aqua Zone beside the cruise-pier approach, Amber Cove, Bay Maimón: A low-transfer pool/rest area inside the operator’s mapped campus. Allow about 150 minutes (editorial estimate). Cabanas, slides and other paid/included components require the sailing’s current terms.",
+          "Fortaleza San Felipe, Fortaleza San Felipe beside La Puntilla Park, Puerto Plata: Atlantic-facing colonial defences with museum interpretation. Allow about 60 minutes (editorial estimate). Confirm opening; do not mistake a sunset description for a safe late return window.",
+          "Museo del Ámbar, Duarte, Puerto Plata, Dominican Republic: Amber, fossils and local natural history in a city residence. Allow about 60 minutes (editorial estimate). Interior timing/accessibility and current admission need confirmation.",
+          "Independence Square and Cathedral of San Felipe, Central Park/Independence Square, Puerto Plata historic centre: A named civic meeting point with an adjacent working cathedral. Allow about 60 minutes (editorial estimate). Worship can restrict cathedral visits; city streets require heat/traffic awareness.",
+          "27 Charcos de Damajagua, Damajagua waterfalls guided visitor reception, Puerto Plata Province: An active forest/waterfall outing with local guides. Allow about 210 minutes (editorial estimate). Meet at the licensed operator’s confirmed reception; the article does not provide an entrance street/coordinate. Fitness, age/water rules and selected falls must be confirmed."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Give a city driver “Amber Cove, Bay Maimón” plus ship name for the return; “Puerto Plata cruise terminal” can lead to the wrong facility."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "9d17e784b2f0ca83a969a1a9",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "d326aa42085f3e9dd65921f9d2ef502a1a053ac11c40bd2f21adf55eb96f181b",
+        "landing_slug": "amber-cove-puerto-plata-dominican-republic",
+        "candidate_content_hash": "7e682a67c88a4747c3d64a37337f4bb2fb0861dac8488742c59495c9c6c8ee3a",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "9ce14998fd51419217e090555bd9402f8e73dc2d5cdf2481ea89b5ae2b613222"
       }
     },
     "amsterdam-ijmuiden": {
@@ -1252,7 +1456,7 @@
       "portName": "Antalya",
       "country": "Turkey",
       "portInfo": {
-        "description": "A major Mediterranean resort city, gateway to ancient sites and beautiful Turkish Riviera beaches.",
+        "description": "QTerminals Antalya operates a multipurpose port with separate harbours for cruise ships, container ships and bulk cargo, plus a yacht marina. The cruise page markets homeport potential based on Antalya’s international airport, hotel stock and archaeological sites including Aspendos, Perge and Side, and notes Antalya as Türkiye’s number-one holiday destination with a very large annual tourist volume claim on the same page. Exact berth LOA/draught figures were not extracted from a technical PDF in this fetch (GAP).",
         "location": "",
         "timezone": "TRT (UTC+3)",
         "language": "Turkish",
@@ -1293,12 +1497,53 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Some nationalities require visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "QTerminals Antalya — Cruise Terminal — QTerminals Antalya, Antalya, Türkiye",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Kaleiçi — old town. ~90 min.",
+          "Harbour / marina edge — editorial waterfront (distinct from cargo harbours).",
+          "Aspendos / Perge / Side — hinterland; long calls.",
+          "Transfer out: 30 (est./GAP)",
+          "Kaleiçi: 90"
+        ],
+        "shortCall": "≥4 h 30 if transfer to Kaleiçi ≤30 min each way (verify).\n- Transfer out: 30 (est./GAP)\n- Kaleiçi: 90\n- Transfer back: 30\n- Buffer: 60\nSum: 210. If transfer exceeds 30 min, skip or use ship shuttle only when confirmed.",
+        "standardCall": "≥6 h 30.\n- Transfers: 2×30 (est.)\n- Kaleiçi deep visit: 150\n- Lunch: 60\n- Buffer: 60\nSum: 330 min (~5 h 30). Publish ≥6 h 30. Do not add Aspendos on this plan.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm which harbour gate is the cruise exit inside the multipurpose port [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "d76a3b7bcb1e152611ebf1f5",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "5da7a7f48a1bfa4e4d207ff40eb32bc10f4ae1665b2eb80483e660f907708851",
+        "landing_slug": "antalya-turkey",
+        "candidate_content_hash": "082e0079a5d3ab27da917aafa705a83f2b8d2c53b981fdc5f49769077b2f7033",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "c81b928b0e0bf7d6178d535ea70c53d2493275c90cd6653dd9895e9d686cc62f"
       }
     },
     "antigua": {
@@ -1306,7 +1551,7 @@
       "portName": "Antigua",
       "country": "Antigua and Barbuda",
       "portInfo": {
-        "description": "Antigua's capital, a historic port with 365 beaches and excellent facilities.",
+        "description": "The most coherent longer outing pairs Nelson’s Dockyard’s naval history with Shirley Heights’ view of English Harbour. Betty’s Hope tells a different story:plantation sugar and the people enslaved in its production. Neither should be reduced to a backdrop for beaches. The 2024 tourism guide preserves heritage descriptions and contacts, but is not a current opening calendar. The port website’s technical page genuinely names the local five berths; unrelated template capacity blocks are not taken as Antiguan engineering facts. The destination’s landmark article uses a constructed tourist narrative, which is not a real traveller review and is not reproduced as one.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English",
@@ -1347,12 +1592,53 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "New Cruise Pier — St John’s Harbour,Antigua",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "From any of the five berths, allow the actual pier/controlled-exit walk before downtown sightseeing. For English Harbour the plans reserve 75 minutes out and 90 back including loading/terminal return; these are editorial allowances, not a sourced current drive time. Confirm with a licensed driver, particularly on busy ship days. Betty’s Hope is an east-island alternative and should not be bolted onto a short harbour loop. Do not infer a universally accessible path from level shopping areas:quay ramps, hills and historic interiors are different constraints. A confirmed tender call needs a line-supplied landing/pickup before these dock-based plans can be used.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "From any of the five berths, allow the actual pier/controlled-exit walk before downtown sightseeing. For English Harbour the plans reserve 75 minutes out and 90 back including loading/terminal return; these are editorial allowances, not a sourced current drive time. Confirm with a licensed driver, particularly on busy ship days. Betty’s Hope is an east-island alternative and should not be bolted onto a short harbour loop. Do not infer a universally accessible path from level shopping areas:quay ramps, hills and historic interiors are different constraints. A confirmed tender call needs a line-supplied landing/pickup before these dock-based plans can be used."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Nelson’s Dockyard and Dockyard Museum, Nelson’s Dockyard, English Harbour, Antigua: Restored Georgian naval-yard history and a harbour setting. Allow about 150 minutes (editorial estimate). Museum/compound hours and any conservation ticket need checking.",
+          "Shirley Heights Lookout, Shirley Heights Lookout, above English Harbour, Antigua: Restored military lookout and harbour panorama. Allow about 60 minutes (editorial estimate). A daytime view does not include the separately scheduled evening party.",
+          "Betty’s Hope, Betty’s Hope heritage visitor centre, eastern Antigua: Sugar-estate windmills and interpretation of plantation society. Allow about 90 minutes (editorial estimate). Exact current reception/road entrance and opening are unresolved; driver must confirm.",
+          "Government House Museum, Independence Drive and Church Street, St John’s, Antigua: A city-based historical alternative without a cross-island drive. Allow about 75 minutes (editorial estimate). Advance confirmation of museum access is essential.",
+          "Redcliffe Quay, Redcliffe Quay, St John’s waterfront, Antigua: A defined historic waterfront quarter for a local orientation and refreshments. Allow about 60 minutes (editorial estimate). Meet at a named business/entrance agreed with the guide, not an entire quay."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "The same-day visa exception and a later all-aboard are different questions. Do not extend a shore plan into an overnight stay without immigration confirmation."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "d832e4f312633fe31e39a524",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "b629f2b1cbf0c382852ff1a5b6e9b56cf2a5c76709a6fef68af3a68b5ffce830",
+        "landing_slug": "antigua-st-john-s-antigua",
+        "candidate_content_hash": "e212e0d1779b8b318e6cc7fa3c7b24ac43c60906230a04525f4973aa7d3019a8",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "610ea03fed16f1dda40845051cd91e433918837f7c923763d6142df3316b21d1"
       }
     },
     "antsiranana": {
@@ -1984,7 +2270,7 @@
       "portName": "Auckland",
       "country": "New Zealand",
       "portInfo": {
-        "description": "New Zealand's largest city and main port, known as the \"City of Sails\" with excellent facilities.",
+        "description": "Port of Auckland operates cruise as a distinct operations line alongside Fergusson Container Terminal and multi-cargo wharves. Key projects naming includes Te Waharoa | Auckland International Cruise Terminal. The cruise content also identifies Princes Wharf as Auckland’s secondary cruise berth, shared with Hilton Auckland hotel function space when not hosting ships. Cruise schedules and FAQs are published by the port; embarking passengers are directed to their cruise line/travel agent for check-in specifics.",
         "location": "",
         "timezone": "NZST (UTC+12) / NZDT (UTC+13)",
         "language": "English, Māori",
@@ -2024,12 +2310,51 @@
         "entryRequirements": "Valid passport required. NZeTA or visa required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Te Waharoa International Cruise Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Waterfront CBD access is often short from Queens Wharf precinct — confirm which berth.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Waterfront CBD access is often short from Queens Wharf precinct — confirm which berth."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Viaduct / waterfront — ~120 min.",
+          "Sky Tower / CBD — urban.",
+          "Waiheke ferry — long-call only."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask which berth (Te Waharoa vs Princes) before planning a walk [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "b8283463f01f37952513fb62",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "a0314f7ae873cdd365dc60e14ca08755acc88710bb3f9f072d5247f2511e1c2b",
+        "landing_slug": "auckland-new-zealand",
+        "candidate_content_hash": "ce56b970e243caa8af171b5dc2a104198ab50bbdd427b30d97a7a3a5a3ff1bee",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "0c6e787689c17bad813d874a0438adba9d778620f43fabceeb9f9b012c3afee2"
       }
     },
     "b-zios": {
@@ -2143,7 +2468,7 @@
       "portName": "Bali",
       "country": "Indonesia",
       "portInfo": {
-        "description": "Indonesia's most famous island, a tropical paradise with temples, beaches, and excellent facilities.",
+        "description": "Bali (Benoa) is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "WITA (UTC+8)",
         "language": "Indonesian",
@@ -2186,12 +2511,51 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Benoa cruise",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Taxi/coach to tourist areas — distances/minutes not verified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Taxi/coach to tourist areas — distances/minutes not verified."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Beach time (Jimbaran/Nusa Dua) — with confirmed transfer.",
+          "Uluwatu / temple — coach.",
+          "Ubud day — long buffer required."
+        ],
+        "shortCall": "Nearest beach only + 75 min buffer.",
+        "standardCall": "One temple/beach combo + 90 min buffer.",
+        "longerCall": "Ubud or multi-stop with ≥120 min buffer.",
+        "practicalTip": "On multi-ship days queues for coaches spike — book ship excursions or pre-arrange transfers [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "6136d711b32285620d6bb6ec",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "5a79ce8fc07ef028bc84e9a04c77f540d13f862da589f6dc9c8cc5d5410f8743",
+        "landing_slug": "bali-benoa-indonesia",
+        "candidate_content_hash": "b7029ad18bb97eb873ce38e32042675e671e24ac3afefa7e32cd5d943ff8b5eb",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "ddd82ea393b28facae3ae28f85a7c9507d1723cb9d2167499ad1959f3edc25ff"
       }
     },
     "baltimore": {
@@ -2199,7 +2563,7 @@
       "portName": "Baltimore",
       "country": "USA",
       "portInfo": {
-        "description": "A major Mid-Atlantic port, known for Inner Harbor, historic sites, and excellent cruise facilities.",
+        "description": "Cruise Maryland is the Maryland Port Administration’s passenger facility at South Locust Point, addressed 2001 East McComas Street. The passenger-information page publishes highway approaches via I-95 Exit 55 (Key Highway), embarkation rules (ticket + government photo ID/passport preferred; luggage tags before arrival), Homeland Security manifest timing that effectively requires check-in 90 minutes to 2 hours before departure, and parking rates payable on arrival by card. Partners named on the page include Carnival and Royal Caribbean. Door-threshold coordinates are not published — pins null.",
         "location": "",
         "timezone": "EST (UTC-5) / EDT (UTC-4)",
         "language": "English",
@@ -2239,12 +2603,54 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Cruise Maryland Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Driving. I-95 Exit 55 Key Highway; detailed N/S/W approaches on Cruise Maryland page. Parking. Walking distance; no reservations; cars/SUVs $25 per night; RV rates higher; accessible spaces on site. Pickup after cruise. Gates 8:30 a.m.; CBP clearance ~2–3 hours after arrival; no re-entry to seating area after debark. BWI timed transfer: Not verified on the passenger page.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Driving. I-95 Exit 55 Key Highway; detailed N/S/W approaches on Cruise Maryland page. Parking. Walking distance; no reservations; cars/SUVs $25 per night; RV rates higher; accessible spaces on site. Pickup after cruise. Gates 8:30 a.m.; CBP clearance ~2–3 hours after arrival; no re-entry to seating area after debark. BWI timed transfer: Not verified on the passenger page."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Inner Harbor — museums/Harborplace context — ~150 min; transfer minutes Not verified.",
+          "Fort McHenry — longer buffer.",
+          "Fell’s Point — mid call.",
+          "American Visionary Art Museum — rainy-day option."
+        ],
+        "shortCall": "≥4 h. Inner Harbor walk + one attraction; ≥90 min return on embarkation days.",
+        "standardCall": "≥6 h. Harbor + Fort McHenry or Fell’s Point; ≥90 min return.",
+        "longerCall": "Full museum day with hotel night preferred over same-day turnaround.",
+        "practicalTip": "Cruise Maryland warns that DHS manifest rules mean passengers who are not processed ~60 minutes before sailing can be denied boarding — arrive in the 90-minute-to-2-hour window your line specifies [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "8b75dc04713ee4bee41f210a",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "c548594ca69527c82ee863fa555a74af33d0c68e10afcc7040764b0a2834ec5e",
+        "landing_slug": "baltimore-md-united-states",
+        "candidate_content_hash": "a43724b165841a6cbe794df94055877d9521c199787963fe69f6401b8c34a64c",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [
+          "thingsToDo.topThings[1]"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.823Z",
+        "stage28_candidate_content_hash": "19dfa01f7ca111d6220bb04dfea0c8fd96eb0c5ab57495ab2fbb6f54d38ae191"
       }
     },
     "bangkok-laem-chabang": {
@@ -2359,7 +2765,7 @@
       "portName": "Barbados",
       "country": "Barbados",
       "portInfo": {
-        "description": "A Caribbean island nation with beautiful beaches, rich culture, and excellent port facilities.",
+        "description": "Barbados rewards choosing either a city-and-sea day or a focused inland attraction. The Nidhe Israel complex adds Jewish-community history; Pelican Craft Centre makes a local stop directly on the authority’s recommended city walking approach. Kensington Oval’s exterior statue offers cricket context without inventing a stadium-tour admission. The cruise terminal sits within a working port. The authority provides an optional, complimentary berth-dependent ship–terminal shuttle, including wheelchair-accessible units; that does not guarantee a step-free gangway or a free ride into town. The 20-minute city walk in the official text starts at the main gate, via Trevor’s Way and Pelican Craft Centre, not alongside an arbitrary ship berth.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English",
@@ -2400,12 +2806,53 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Bridgetown — Breakwater — Port of Bridgetown,St Michael,Barbados",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Use the Taxi Dispatch Centre after terminal exit; agree the currency and whether the fare is per person or vehicle. The authority explicitly warns about morning/late-afternoon weekday traffic. Its optional shuttle only connects ship and terminal, although commercial taxis also offer city/beach shuttles. Walking via the main gate/Trevor’s Way is the authority’s designated city route. The plans add pier/shuttle/gate time and use editorial 60-minute inland road blocks for Harrison’s Cave. Tourism publishes cave distances without a measured road definition; they are not converted into guaranteed drive times. Confirm the slot, driver and return first.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Use the Taxi Dispatch Centre after terminal exit; agree the currency and whether the fare is per person or vehicle. The authority explicitly warns about morning/late-afternoon weekday traffic. Its optional shuttle only connects ship and terminal, although commercial taxis also offer city/beach shuttles. Walking via the main gate/Trevor’s Way is the authority’s designated city route. The plans add pier/shuttle/gate time and use editorial 60-minute inland road blocks for Harrison’s Cave. Tourism publishes cave distances without a measured road definition; they are not converted into guaranteed drive times. Confirm the slot, driver and return first."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Pelican Craft Centre, Pelican Craft Centre, on the main-gate/Trevor’s Way approach to Bridgetown: A local craft stop before committing to a longer city circuit. Allow about 45 minutes (editorial estimate). Individual shops may not all be open; meet at the centre entrance.",
+          "Nidhe Israel Synagogue and Museum, Nidhe Israel Synagogue, Bridgetown, St Michael: Interpretation of the Jewish community and its place in Barbadian history. Allow about 90 minutes (editorial estimate). The detailed tourism listing is an event from 2018; its prices/hours are NOT current evidence. Confirm directly.",
+          "Harrison’s Cave Eco-Adventure Park, Allen View, St Thomas, Barbados: A booked cave-tram and selected above-ground nature visit. Allow about 150 minutes (editorial estimate). Confirm current operating days/slot; the captured tourism page gives limited days and 10:30–14:30 tour times, not a guaranteed daily opening.",
+          "Brownes Beach, Bay Street, St Michael, Barbados: A specifically located Carlisle Bay beach stop with changing facilities in the tourism description. Allow about 120 minutes (editorial estimate). No paid beach-club pass implied; check sea conditions, flags and actual lifeguard coverage.",
+          "Kensington Oval — Sir Garfield Sobers statue exterior, Sir Garfield Sobers statue, outside Kensington Oval gates, Bridgetown: A short cricket-history photo stop without claiming a stadium tour. Allow about 30 minutes (editorial estimate). Match/event controls may affect the approach; interior tour not confirmed."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "A taxi returning to the cruise terminal still leaves berth access to finish. Ask where the ship’s shuttle boards and protect the final working-port leg."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "0a561dd308bff022b37fc5a3",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "127d71c748e5865069fa5dd35cc3d7102b0756d6fb49c4bb4fa8463556c8b706",
+        "landing_slug": "barbados-bridgetown-barbados",
+        "candidate_content_hash": "9686f5d34d2d3133a3da6fbea8ee89db387c03509b7569a132a6feca20803427",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "a76fa32f7ed1038e3bfffd61bca8e48b1e6b3da019cfea03fff50a53c015482d"
       }
     },
     "barcelona": {
@@ -2654,7 +3101,7 @@
       "portName": "Belize-City",
       "country": "Belize",
       "portInfo": {
-        "description": "A Central American port destination, gateway to Mayan ruins, barrier reef, and excellent facilities.",
+        "description": "Fort Street Tourism Village is the documented Belize City landing at 38 Fort Street, north bank of the Haulover Creek mouth. Harvest Caye is a separate southern Belize destination, not another Belize City berth. No individual jetty number or offshore anchorage coordinate is invented from the general port description. The city has serious cultural sights:the Museum of Belize, a working cathedral, the Swing Bridge and Baron Bliss Lighthouse. Altun Ha and the Belize Zoo offer inland alternatives. The tourism board’s rural descriptions substantiate those destinations but do not supply terminal-road times, so the plans deliberately use labelled estimates and omit a public Caye Caulker ferry combination.",
         "location": "",
         "timezone": "CST (UTC-6)",
         "language": "English",
@@ -2694,12 +3141,53 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Fort Street Tourism Village — 38 Fort Street,Belize City,Belize",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Allow tender-ticket/queue time in addition to the tourism board’s approximate 15-minute water leg. Arrange the actual terminal meeting point and a return that meets the ship’s last shore tender. Road plans below use editorial 45–90-minute vehicle blocks, not claimed measured routes. Use a reputable booked guide/driver for city or rural touring and confirm the permitted walking route at dispatch. No source checked establishes a universally safe, step-free old-city loop. Tender boarding itself can be unsuitable for some mobility needs; the ship must confirm assistance and operating sea limits.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Allow tender-ticket/queue time in addition to the tourism board’s approximate 15-minute water leg. Arrange the actual terminal meeting point and a return that meets the ship’s last shore tender. Road plans below use editorial 45–90-minute vehicle blocks, not claimed measured routes. Use a reputable booked guide/driver for city or rural touring and confirm the permitted walking route at dispatch. No source checked establishes a universally safe, step-free old-city loop. Tender boarding itself can be unsuitable for some mobility needs; the ship must confirm assistance and operating sea limits."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Museum of Belize, 8 Gabourel Lane, Central Bank of Belize Compound, Belize City: A museum-led introduction to the country’s cultural history. Allow about 90 minutes (editorial estimate). Confirm current galleries/hours and visitor entry; NICH administrative-office hours are not museum opening hours.",
+          "Baron Bliss Lighthouse, Baron Bliss Lighthouse, Haulover Creek harbour entrance, Belize City: A named harbour-edge meeting/photo stop. Allow about 30 minutes (editorial estimate). Exterior stop; not a promised tower climb.",
+          "St John’s Cathedral, St John’s Cathedral, Belize City: A living religious landmark on a guided city circuit. Allow about 40 minutes (editorial estimate). Confirm worship/visitor access and the actual walking or vehicle route.",
+          "Swing Bridge, Swing Bridge across Haulover Creek, Belize City: Working urban-waterfront history rather than a staged attraction. Allow about 30 minutes (editorial estimate). Traffic/bridge movement and pedestrian conditions require the guide’s local assessment.",
+          "Altun Ha, Altun Ha archaeological visitor entrance, Belize District: One focused Maya-archaeology outing. Allow about 120 minutes (editorial estimate). Exact current reception address/point and road programme still need primary/operator confirmation."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask for the last shore tender time in both ship and local clocks. A road vehicle at Fort Street by sailing time is already too late."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "176edd8cebb9d2d5825c8721",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "8cc8c74c020e565dc7e4582be9e46d19dfb5f823a418014941bf755940b9c33b",
+        "landing_slug": "belize-city-belize",
+        "candidate_content_hash": "e7a6d3576b3fba078e9fa112c8fd2731ba41d6d8312bb3a5b7129eb0068c4cfb",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "78db1114c5c35a9fdba22c8823d0a65254a197c5a0d2c3a31c16dd3948b4673c"
       }
     },
     "bergen": {
@@ -4121,7 +4609,7 @@
       "portName": "Casablanca",
       "country": "Morocco",
       "portInfo": {
-        "description": "Morocco's largest city and main port, known for its modern architecture and historic medina.",
+        "description": "Morocco’s large Atlantic commercial city rewards an itinerary that accepts its scale. The old medina, the deliberately planned Habous district and the modern centre are different places; the Hassan II Mosque is another major stop rather than a convenient interior on every walking route. A city-only day can be rich in history and architecture without spending most of the call on an ambitious intercity drive.",
         "location": "",
         "timezone": "WET (UTC+0) / WEST (UTC+1)",
         "language": "Arabic, French",
@@ -4163,12 +4651,53 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Casablanca Cruise Port Terminal — New cruise terminal,Jetée Moulay Youssef,Port of Casablanca",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Use the ship/agent’s designated shuttle or licensed prearranged vehicle from the new terminal; confirm the specific public pickup and final gate. Budget 45 minutes for port exit/vehicle collection and 30–45 minutes for a city transfer, depending on destination/traffic; these are conservative editorial allowances, not measured routes. The operator’s 1 km city-centre label lacks endpoints and must not be sold as a safe 1 km gangway walk through the commercial port. Agree the return fare and pickup before entering a medina. Airport/rail projects are not evidence of a functioning terminal-city rail link.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Use the ship/agent’s designated shuttle or licensed prearranged vehicle from the new terminal; confirm the specific public pickup and final gate. Budget 45 minutes for port exit/vehicle collection and 30–45 minutes for a city transfer, depending on destination/traffic; these are conservative editorial allowances, not measured routes. The operator’s 1 km city-centre label lacks endpoints and must not be sold as a safe 1 km gangway walk through the commercial port. Agree the return fare and pickup before entering a medina. Airport/rail projects are not evidence of a functioning terminal-city rail link."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Hassan II Mosque guided visitor route, Boulevard Moulay Youssef, Casablanca 20000: The foundation-run tour is a focused architectural visit when its visitor session is confirmed. Allow about 90 minutes (editorial estimate). Dress rules and visitor/prayer access differ; Friday/Ramadan schedules need checking.",
+          "Old medina via Bab Marrakech, Bab Marrakech, Old Medina, Casablanca: Use the named gate as a concrete meeting/return point rather than an unspecified medina location. Allow about 75 minutes (editorial estimate). Keep the driver’s exact pickup; do not assume all lanes are vehicle-accessible.",
+          "Habous quarter, Mohammed V Mosque area, Quartier Habous, Casablanca: Arcades, souks and planned medina streets offer a different urban history from the old medina. Allow about 90 minutes (editorial estimate). Mosque is a meeting landmark, not a promise of interior admission.",
+          "Mohammed V square and centre-city architecture, Place Mohammed V, Casablanca centre: A defined square anchors a look at the civic and architectural city. Allow about 60 minutes (editorial estimate). Government buildings/theatre interiors are not guaranteed visits.",
+          "Ain Diab Corniche, Boulevard de la Corniche, Ain Diab, Casablanca: A coastal promenade alternative after the denser city quarters. Allow about 75 minutes (editorial estimate). Choose a precise driver pickup along the named road; beach-club entry/swimming are separate decisions."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "The Hassan II Mosque’s visitor tours and prayer access are different. The foundation requires shoulders/torso/knees covered and shoes removed; Friday and Ramadan schedules differ. Recheck the actual visit slot before making it the day’s anchor. [S8]"
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "69befb572d89e25d6de3fe32",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "e2fa25c704ab5151386672799af4ec02c533b87635857ae92d0385862e8ea1ed",
+        "landing_slug": "casablanca-morocco",
+        "candidate_content_hash": "ddfdc02b45c55d061ebceb0af30468c05a0eb72aab3a58e3b6fe65b127bcaf0b",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "0dfacbb77d716ba3ab03972b265807eefe206b5d57fc4d16e0aaf0d41daa8085"
       }
     },
     "castell-n": {
@@ -4393,7 +4922,7 @@
       "portName": "Charlottetown",
       "country": "Canada",
       "portInfo": {
-        "description": "Prince Edward Island's capital, a charming port town known for Anne of Green Gables and excellent facilities.",
+        "description": "Port Charlottetown is Prince Edward Island’s primary common-user marine terminal for cruise as well as bulk cargoes. The port states it can host up to four cruise ships at once with two at berths and two at anchorage, and publishes the passenger/contact address 1 Weymouth Street. General port info lists East Berth 150 m (depth −6.0 m), South Main 183 m (−12.4 m), Southwest 207 m (−16.0 m) and Southeast 217 m (−10.7 m). A berth-layout PDF labels the main terminal building, passenger areas and a tender dock. Door-threshold coordinates remain null.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English, French",
@@ -4433,12 +4962,54 @@
         "entryRequirements": "Valid passport usually required. Many visa-exempt visitors need an Electronic Travel Authorization (eTA) from the Government of Canada—confirm before you sail."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port Charlottetown (1 Weymouth St)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "From terminal. Downtown capital framing; timed walks Not verified. Airport (YYG). Transfer minutes Not verified. Anchorage calls. Expect tender when assigned to anchorage rather than a berth.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "From terminal. Downtown capital framing; timed walks Not verified. Airport (YYG). Transfer minutes Not verified. Anchorage calls. Expect tender when assigned to anchorage rather than a berth."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Downtown Charlottetown / waterfront — adjacent framing — ~120 min.",
+          "Victoria Park — short call.",
+          "PEI National Park beaches — organised mid/long call.",
+          "Anne of Green Gables sites (Cavendish) — long buffer only."
+        ],
+        "shortCall": "≥4 h. Downtown + waterfront; skip Cavendish. ≥90 min buffer (longer if tendering).",
+        "standardCall": "≥6 h. One island highlight or deep downtown; ≥90 min return.",
+        "longerCall": "North shore beaches / Cavendish with overnight preferred.",
+        "practicalTip": "Ask whether you are alongside or at anchorage — the port explicitly plans for two anchorage ships that imply tendering [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "7695ebdb3eaf2efb46f4f3e6",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "5b3c0a1bf4e828cbd48f4808d68e19e1f752c35d9e934b57b6e2560d08be4519",
+        "landing_slug": "charlottetown-pe-canada",
+        "candidate_content_hash": "676bc935b30d4ac198f047a7cac0eb3cf75c0907247f0d08cc010d3618367768",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [
+          "thingsToDo.topThings[1]"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "01ce912b8308acfee168311231564fd460a77d600a20c0fe5d2e0229cf6066db"
       }
     },
     "chennai": {
@@ -4687,7 +5258,7 @@
       "portName": "Colon",
       "country": "Panama",
       "portInfo": {
-        "description": "A major Panamanian port city at the Caribbean entrance to the Panama Canal.",
+        "description": "Agua Clara lets visitors observe the expanded canal locks without travelling to Panama City. The Canal Authority says a full visitor-centre visit takes about three hours and currently lists its restaurant, snack bar and souvenir shop temporarily closed. Bring permitted water/food arrangements rather than promising an on-site lunch. A vessel in the lock is not guaranteed. Portobelo’s forts and Black Christ church offer an alternative cultural direction; San Lorenzo is a separate western-side heritage option. The tourism authority’s multi-day land itinerary validates these places, not cruise-road timings. Its Portobelo page gives a two-hour drive from Panama City, which must not be reused as a Colón terminal transfer.",
         "location": "",
         "timezone": "EST (UTC-5)",
         "language": "Spanish",
@@ -4728,12 +5299,53 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Colón 2000 Terminal 1 — Paseo Gorgas/Calle 9,Colón,Panama",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Agua Clara Visitor Centre, Calle Golf, Colón, Panama: Expanded-lock observation and canal interpretation. Allow about 180 minutes (editorial estimate). Full visit about 3 h per operator; vessel passage not guaranteed; food/shop currently listed temporarily closed.",
+          "New Gatún viewpoint, Gatún viewpoint, 16 km from Agua Clara, Colón Province: A separate lock-viewing option using the authority-described transport. Allow about 90 minutes (editorial estimate). Actual shuttle duration/operation must fit the day; 08:30–16:30 published hours read 5 November 2026.",
+          "San Lorenzo Castle, San Lorenzo castle/national-park visitor approach, Colón Province: A western-side Atlantic-fort/landscape outing. Allow about 90 minutes (editorial estimate). Current ticket, reception/road access and opening unresolved; not casually combined with Portobelo.",
+          "Castillo Santiago de la Gloria, Castillo Santiago de la Gloria, on approach to Portobelo village, Colón Province: A specifically named Portobelo fort ruin/battery. Allow about 90 minutes (editorial estimate). Uneven masonry/heat; confirm permitted visitor access and guide meeting point.",
+          "Black Christ church, Black Christ church, Portobelo town centre, Colón Province: A working religious/cultural landmark on a Portobelo day. Allow about 45 minutes (editorial estimate). Worship/festival crowds can change access; no guaranteed interior opening."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "“Panama Canal cruise port” can mean different oceans and several facilities. Send the driver the actual Colón terminal name; confirm Cristóbal current access before treating its historical record as usable."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "bf206f408925d7fb92a6b93a",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "589ee7cd654fe4a95dfa80387996d5061c8840bffac2782830db6049ca116ff9",
+        "landing_slug": "colon-panama",
+        "candidate_content_hash": "d07fa2e8fffbe22161f0990500cdb0ca6c8d60fb58fe2ed4186af02d1b278f6d",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "2714d103c448854dff2df52c7416b3bbac4d3932080632eee9aac931497ad1bd"
       }
     },
     "copenhagen": {
@@ -4824,7 +5436,7 @@
       "portName": "Corfu",
       "country": "Greece",
       "portInfo": {
-        "description": "A Greek island port in the Ionian Sea, known for its Venetian architecture, beaches, and historic sites.",
+        "description": "Corfu Town’s Venetian, French and British influences are visible within a relatively compact historic core. Fortresses, Liston and the church streets make a coherent city day; the island’s beaches and monasteries are separate road destinations. An attractive island itinerary should not hide the time needed to get out of New Port and back through the assigned passenger route.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -4865,12 +5477,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Corfu New Port — cruise passenger terminal — New Port,Corfu 49100",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "MedCruise lists the city 2 km from the port and shuttle/taxi options, yet also uses a 15-minute old-town walking claim without matching endpoints. Allow 45 minutes from gangway through the actual port exit/shuttle to the old-town edge rather than promising either figure as a measured route. Within town, the fortresses and Liston are walkable for many visitors, but slopes, steps and polished paving matter. Paleokastritsa is a separate road outing; the member page quotes 45 minutes from the port, and this guide budgets about 60 each way for an independent vehicle with slack. Neither is a live traffic guarantee.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "MedCruise lists the city 2 km from the port and shuttle/taxi options, yet also uses a 15-minute old-town walking claim without matching endpoints. Allow 45 minutes from gangway through the actual port exit/shuttle to the old-town edge rather than promising either figure as a measured route. Within town, the fortresses and Liston are walkable for many visitors, but slopes, steps and polished paving matter. Paleokastritsa is a separate road outing; the member page quotes 45 minutes from the port, and this guide budgets about 60 each way for an independent vehicle with slack. Neither is a live traffic guarantee."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old Fortress, Old Fortress, Corfu Old Town: A defined defensive complex and harbour-view destination. Allow about 90 minutes (editorial estimate). Slopes/steps and current interior access need checking.",
+          "New Fortress, New Fortress, Corfu Old Town: A different fortress layer rather than another name for the Old Fortress. Allow about 75 minutes (editorial estimate). Do not promise an open interior or step-free ascent.",
+          "Liston, Liston beside Palace of St Michael and St George, Corfu: A specific arcade/café-side location for a flexible central walk. Allow about 60 minutes (editorial estimate). Individual cafés/venues are not endorsed or booked.",
+          "St Spyridon Church, St Spyridon Church, Corfu Old Town: A major religious landmark within the old-town lanes. Allow about 35 minutes (editorial estimate). Worship, queues and dress requirements govern visitor access.",
+          "Palace of St Michael and St George exterior, Palace of St Michael and St George, Corfu town: A named landmark of the British-era cityscape. Allow about 40 minutes (editorial estimate). Exterior focus; museum/gallery admission is a separate current check."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Record the return terminal/gate and not just “Corfu port.” The ferry terminal, the cruise terminal and a public old-town taxi stop are not interchangeable."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "b04901442dbd4a1bafe8d18f",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "fff8cdd90c9bb987581a726464ead8651716c5b798e20db1f464252831657bb1",
+        "landing_slug": "corfu-greece",
+        "candidate_content_hash": "6b8c3527812ebd3885b3a6cdfdbde9d0e176654abb3cc80c7e3b056e6697b0c5",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "3f1127498259c12d892cf13bf633cbd24876bbe31ba9882aeaa0e50e381efcad"
       }
     },
     "cork-cobh": {
@@ -4878,7 +5531,7 @@
       "portName": "Cork-Cobh",
       "country": "Ireland",
       "portInfo": {
-        "description": "Ireland's second-largest city and historic port, gateway to southern Ireland's attractions.",
+        "description": "Port of Cork states Cobh has a dedicated cruise berth and that cruise liners can also use Ringaskiddy deep-water berth and Cork city north Custom House Quay, publishing length and depth limits for each. Most marketed “Cork” ocean calls use Cobh — confirm the landing on your ticket.",
         "location": "",
         "timezone": "GMT (UTC+0) / IST (UTC+1)",
         "language": "English, Irish",
@@ -4918,12 +5571,52 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Cobh Cruise Terminal (Port of Cork) — Cobh, County Cork, Ireland",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Cobh town. Walk-off heritage streets — minutes unverified. Cork city. Transfer required from Cobh/Ringaskiddy — minutes unverified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Cobh town. Walk-off heritage streets — minutes unverified. Cork city. Transfer required from Cobh/Ringaskiddy — minutes unverified."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Cobh waterfront / cathedral views — ~90 min.",
+          "Titanic/emigration heritage sites — ticket hours unverified.",
+          "Cork city — coach; long-call.",
+          "Cobh town / waterfront heritage"
+        ],
+        "shortCall": "≥4 h. Exit 15 + Cobh town 90 + return 15 + buffer 60 = 180.",
+        "standardCall": "≥6 h. Add heritage museum + lunch; buffer 60.",
+        "longerCall": "Cork city only with ≥90 min return buffer.",
+        "practicalTip": "Confirm Cobh vs Ringaskiddy vs city quay — depths differ [S2]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "57b8bf7b848865622227c38b",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "a19cc31a32db4ad88fed0c81c72b95e57e7ac866e8e523e300ac51568b8780b5",
+        "landing_slug": "cork-cobh-ireland",
+        "candidate_content_hash": "b41bfab902b9334cc930032e074ddeebed14cbe9b7a25174b160b1db70d5b350",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "556949b320af3095dd68ed457b5747ceccbe50c99ee30561d0f3fa1f2b68b812"
       }
     },
     "corner-brook": {
@@ -5080,12 +5773,51 @@
         "entryRequirements": "Valid passport required. Tourist card (FMM) required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Puerto Costa Maya",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Port-to-Mahahual town transfer minutes not verified from primary HTML. Ruins excursions need coaches timed to all-aboard.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Port-to-Mahahual town transfer minutes not verified from primary HTML. Ruins excursions need coaches timed to all-aboard."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Port village / beach club — ~120 min if open on your call day.",
+          "Mahahual beach boulevard — transfer unverified.",
+          "Chacchoben / other ruins — coach; long call."
+        ],
+        "shortCall": "Stay in port village (~120) + 75 min buffer.",
+        "standardCall": "One ruins excursion only with line timing + 90 min buffer.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not trust LOA “Oasis-capable” claims until the operator page is readable [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "26fad7fa14b8c99cfb98290c",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "4bee1afcfb9a0900493fa68a74dc2e31c39f24c3f1a00ae35f42b34052e0c66a",
+        "landing_slug": "costa-maya-mexico",
+        "candidate_content_hash": "bdce1fa7784f3c51fce826545a40438fa733c4894b09b0ab9ff6eb0100c65137",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "a46efcb8ee5f888148181208a9d81d4a834e3cbcb6e51f42bb64babf78183d69"
       }
     },
     "costa-rica": {
@@ -5391,7 +6123,7 @@
       "portName": "Da Nang",
       "country": "Vietnam",
       "portInfo": {
-        "description": "Vietnam's third-largest city, a modern port gateway to Hoi An and excellent facilities.",
+        "description": "Chan May Port (Cảng Chân Mây) is a Class-I general seaport in central Vietnam, positioned between Hue and Da Nang and marketed as a Southeast Asian cruise stop. The port company’s introduction states two berths totalling 760 m with alongside depths from −9.4 m to −12.5 m (Berth 1 480 m; Berth 2 280 m) able to receive passenger ships to 362 m LOA and 225,282 GRT. Vietnam Seaports Association lists coordinates 16°20′00″N, 108°00′00″E, Berth 1 seaside 360 m at −12 m for cruise ships to 360 m / 225,282 GT, an inside 120 m berth, and Berth 2 at 280 m / −9.3 m, with channel depth −12.3 m. Contacts: info@chanmayport.com.vn; +84 234 3891841.",
         "location": "",
         "timezone": "ICT (UTC+7)",
         "language": "Vietnamese",
@@ -5431,12 +6163,51 @@
         "entryRequirements": "Valid passport with at least 6 months validity. E-visa or visa required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Chan May Berth 1",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Coaches to Hue or Da Nang — expect 45–90+ minutes depending on traffic (not timed on port pages).",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Coaches to Hue or Da Nang — expect 45–90+ minutes depending on traffic (not timed on port pages)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Hue Imperial City — coach day.",
+          "Da Nang / Marble Mountains — alternate coach.",
+          "Lang Co / beaches — nearer if offered."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Pick one city (Hue or Da Nang) on a short call — not both [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "193ed5f831b8a98ea0b40454",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "26c6cb11bcdb8bdcf86bd06e49b2768c9a950197805dbdc8e8343ba1642509d2",
+        "landing_slug": "da-nang-hue-chan-may-vietnam",
+        "candidate_content_hash": "786576e89e71249174b87eb6a31fe109b1b8b79f26d0a7ebb5b7c588c9c6ed8d",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "078106af8e6893efe505b462fd51fc30d269a812e24332138f322dff19fc68d4"
       }
     },
     "dakar": {
@@ -6378,7 +7149,7 @@
       "portName": "Eilat",
       "country": "Israel",
       "portInfo": {
-        "description": "Israel's southernmost city, a Red Sea resort destination known for diving, beaches, and desert landscapes.",
+        "description": "At Israel’s small Red Sea frontage, Eilat pairs a southern-shore reef with a desert hinterland. Underwater observation, controlled reef access and inland wildlife conservation are genuinely different ways to spend a day; they need not be padded into a generic city shopping itinerary. The Nature and Parks Authority explains Coral Beach’s protected habitat and Hai-Bar’s wildlife restoration role. A mapped harbour centroid would not help passengers find the correct exit. This revision instead records the passenger hall explicitly mentioned by the port, leaves its geometry null and separates general accessibility arrangements from ship-specific clearance. A sheltered museum-like aquarium visit may suit a different traveller from snorkelling or a vehicle-based reserve circuit.",
         "location": "",
         "timezone": "IST (UTC+2) / IDT (UTC+3)",
         "language": "Hebrew, Arabic",
@@ -6420,12 +7191,53 @@
         "entryRequirements": "Valid passport required. Security screening at entry. Some passport stamps may affect future travel."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Eilat Port passenger hall — Eilat Port, southern shore / Route 90, Eilat, Israel; exact hall entrance unverified",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Coral Beach Nature Reserve, Eilat southern shore: allow two hours for authorised reef viewing/snorkelling if suitable. The authority confirms beach services and reef-access bridges, not a day-specific swimming guarantee.",
+          "Underwater Observatory Marine Park, Coral Beach: two hours to see underwater viewing/aquarium exhibits without requiring a snorkel session. The operator describes stairs down to the underwater observatory; check mobility alternatives.",
+          "Dolphin Reef, southern Eilat: 90 minutes for observation/beach setting, conditional on current operator admission policy. The city guide corroborates the attraction; do not promise wildlife interaction or rely on an unextracted operator page for present encounter schedules.",
+          "Timna Park, named visitor entrance north of Eilat: 2½ hours for a preselected short route such as the Mushroom/arches area. The city guide documents its rock formations; use the operator for current trail/heat/access arrangements. No long desert hike is fitted into this visit block.",
+          "Hai-Bar Yotvata, Route 90 between Yotvata and Samar: 90 minutes for a vehicle-based reserve circuit; the official page locates it 35 km north of Eilat. Remain inside the vehicle as required and reserve/confirm admission."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not mistake an accessible hall for an accessible ship excursion. Confirm each ramp, vehicle, stair and reserve surface for the actual passenger and sailing. [S4][S6]"
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "9877a9e51f2d6db126c24760",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "98ee6d361590a896d5b3b0c17a01ef97e6ce3d6b297242b9891bb4423046b276",
+        "landing_slug": "eilat-israel",
+        "candidate_content_hash": "fc6bba0cb0795b243afb2e20112aba90d265c817031227501b32b12d3fcf9c15",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "a03c03443b70a5dd7ece417020f7ccd65ebe6244da051880762ee88a46e3a8b8"
       }
     },
     "emden": {
@@ -6433,7 +7245,7 @@
       "portName": "Emden",
       "country": "Germany",
       "portInfo": {
-        "description": "A German port city in Lower Saxony with excellent maritime facilities and access to East Frisian Islands.",
+        "description": "NPorts describes Emden as a North Sea/Ems port with vehicle handling. The City of Emden announces that Meyer Werft will perform final outfitting of several cruise newbuilds in Emden harbour, citing ships up to 350 m and a 2027–28 slate. That is an industrial outfitting use-case, not a documented transit passenger terminal — SeaDays keeps transit metrics as gaps.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "German",
@@ -6474,12 +7286,52 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Emden (NPorts) / outfitting berths — Emden, Germany",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town minutes unverified. Outfitting calls are not passenger shore days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Town minutes unverified. Outfitting calls are not passenger shore days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town centre — ~90 min (only if a passenger call is confirmed).",
+          "Harbour views — industrial; access rules unverified.",
+          "Day coaches — long-call.",
+          "Emden town centre"
+        ],
+        "shortCall": "Only if passenger landing confirmed: Exit 20 + town 90 + return 20 + buffer 60 = 190.",
+        "standardCall": "Same caveat; add lunch; buffer 60.",
+        "longerCall": "Regional coaches with ≥90 min return buffer.",
+        "practicalTip": "Most “cruise ships in Emden” news is outfitting, not transit tourism [S2]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "27e82ada0a3be099936f86c1",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "8ddf72c857da6d68759adcfd780d305313afedf140f1180acbbee26723b77e75",
+        "landing_slug": "emden-germany",
+        "candidate_content_hash": "d14a911729f33c3e3730a13cf9880fe98b4739166554a089e94ac3c5a04a4d12",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "b263e15116c94b01f6461d8dbb7bae0430f3d8caedcb0756e51899011a9a9c76"
       }
     },
     "esperance": {
@@ -7407,7 +8259,7 @@
       "portName": "Fujairah",
       "country": "UAE",
       "portInfo": {
-        "description": "A UAE port city on the Gulf of Oman known for beaches, mountains, and excellent facilities.",
+        "description": "The Port of Fujairah is the UAE’s only multi-purpose seaport on the eastern coastline, about 70 nautical miles outside the Strait of Hormuz. Fujairah Ports Authority describes oil, dry bulk, container, general cargo, passenger/RoRo and marine services. Under a June 2017 35-year concession, AD Ports Group’s Fujairah Terminals upgraded container/general-cargo infrastructure and states it provides Cruise Ship services alongside RoRo and livestock. Terminal capacity targets cited by the authority include 720,000 TEUs and 1.3 million tons of general cargo by 2030. Cruise-specific passenger-hall dimensions and door GPS for the numbered berths were not isolated beyond the main-quay table — treat berth assignment as line-controlled.",
         "location": "",
         "timezone": "GST (UTC+4)",
         "language": "Arabic, English",
@@ -7448,12 +8300,51 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Fujairah Terminals main quay (Berths 1–4)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Fujairah Fort / heritage — ~60 min if open (attraction pin null).",
+          "East-coast beaches / diving operators — book via ship or licensed operators; not audited.",
+          "Hajar foothills viewpoints — allow road time."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Summer heat is extreme — hydrate and prefer early shore time [S3]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "6d2b92db3cc347b7d0953fce",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "4d938f754a939b0d1d3d70e4ded1e6e9f28b5c89f4787644cdb7075e948a648d",
+        "landing_slug": "fujairah-united-arab-emirates",
+        "candidate_content_hash": "166638163adfafcfefce5ab95f0229239e32657f768ac89ace679b72872ec9da",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "db80b4e9939eb003a8dfa07bef1ea60e17a5e1d48f9f0c83add0ae766077ae32"
       }
     },
     "fuji-shimizu": {
@@ -7514,7 +8405,7 @@
       "portName": "Fukuoka",
       "country": "Japan",
       "portInfo": {
-        "description": "A major Japanese port city on Kyushu Island known for temples, food, and excellent facilities.",
+        "description": "Hakata Port in Fukuoka City is a major Kyushu cruise and ferry gateway toward Busan and Shanghai. The MLIT Cruise Ship Pier and Terminal Facility Specification sheet (as of 1 January 2026) lists Chuo Wharf berths No. 5 (270 m / −10 m) and No. 6 (330 m / −10.5 m) served by the Chuo Wharf Cruise Center opened May 2015, with CIQ available, ISPS yes, and ~3 km / 15 minutes to downtown. Hakozaki Wharf berths No. 4–5 provide 425 m at −10/−12 m without a dedicated terminal building on the sheet. Port contact: Port and Harbor Operation Section, +81-92-282-7292; cruise_hakata@city.fukuoka.lg.jp.",
         "location": "",
         "timezone": "JST (UTC+9)",
         "language": "Japanese",
@@ -7554,12 +8445,51 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Chuo #5",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "No downtown shuttle required per sheet; ~15 min by car to centre.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "No downtown shuttle required per sheet; ~15 min by car to centre."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Canal City / Hakata centre — ~120 min.",
+          "Kushida Shrine area — ~4 km / 15 min per sheet.",
+          "Ramen / seafood — neighbourhood walks."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Chuo vs Hakozaki — facilities differ [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "fbb1b272557bc7576ed0f8aa",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "a2460e48a85e856bd22321befbc13acff0a6784bfec646c8a436f17ac9ca24e2",
+        "landing_slug": "fukuoka-japan",
+        "candidate_content_hash": "1aef9ee67ac56b6490bc9fb7bd05f819dd377c4b423cf4238121a84cebee9d40",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "92e56b40a881ef01afca13ab835541d3ea6a22ab2d17900c00794ec7f0c8b070"
       }
     },
     "geiranger-fjord": {
@@ -14910,7 +15840,7 @@
       "portName": "Martinique",
       "country": "France",
       "portInfo": {
-        "description": "A French overseas department in the Caribbean, known for its rum, beaches, and Creole culture.",
+        "description": "Grand Port Maritime de la Martinique lists two cruise facilities. Quai des Tourelles hosts a dedicated cruise terminal aimed at turnarounds, with duty-free shopping and taxi stands; published quay length 325 m and water depth 11 m. Pointe Simon, built in 1992 for growing transit calls, sits on the Fort-de-France waterfront with direct centre access; the 300 m pier has 10 m depth, a West berth for ships to 200 m and an East berth for ships to 365 m, and can take two large ships at once. Confirm which quay your line uses before planning a walk-off day.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "French, Creole",
@@ -14959,12 +15889,52 @@
         "entryRequirements": "Valid passport required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Quai des Tourelles",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Pointe Simon: walk into centre. Tourelles: taxi/transfer minutes to centre not verified as a number on GPMLM pages used.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Pointe Simon: walk into centre. Tourelles: taxi/transfer minutes to centre not verified as a number on GPMLM pages used."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Centre / Savane / cathedral area — ~120 min from Pointe Simon.",
+          "Les Trois-Îlets ferry"
+        ],
+        "shortCall": "Centre loop (~120) + 75 min buffer from Pointe Simon.",
+        "standardCall": "Add one coach excursion + 90 min buffer.",
+        "longerCall": "North/south island tours with ≥120 min buffer.",
+        "practicalTip": "Tourelles vs Pointe Simon changes walkability [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "2396037cf7e7d0317d5f8d1c",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "143f971cd9402fab931a20d4b97bd2ef3323eaa572d65860227e76504b96d994",
+        "landing_slug": "fort-de-france-martinique",
+        "candidate_content_hash": "27decd186514f0e4d4bb128e9204a5de4928073994bd6df9d2e5c06e73de68a5",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [
+          "thingsToDo.topThings[1]"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "3df9573e778d454eabf78c7706d641d4b7e223e8533febfde72ef0606449ef32"
       }
     },
     "melbourne": {
@@ -28024,7 +28994,7 @@
       "portName": "Zeebrugge",
       "country": "Belgium",
       "portInfo": {
-        "description": "Major Belgian port and ferry terminal, gateway to Bruges and Belgian coast.",
+        "description": "This stop has two distinct identities. Zeebrugge offers a fishing-port landscape, marina views and a marked heritage walk beginning at the cruise terminal. Bruges provides the larger cultural day, with its Markt, Belfry and museums. Choose between them according to actual ashore time. Treating Zeebrugge as merely a station on the way to Bruges can waste the best option for passengers with limited time or uncertain transport.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Dutch, French",
@@ -28082,7 +29052,44 @@
         "distanceToCity": "15 km to Bruges",
         "walkingTime": "Not walkable to cities",
         "taxiInfo": "",
-        "publicTransport": "Shuttle buses to Bruges and train station"
+        "publicTransport": "Shuttle buses to Bruges and train station",
+        "distanceAnswer": "15 km to Bruges"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Zeebrugge Heritage Walk starts at the information panel at Rederskaai 60. The official 5.8 km route takes about two hours and returns to the terminal. It follows harbour-crane studs past fishing history and local landmarks. Verify mobility needs rather than assuming the entire route is step-free.",
+          "Markt, 8000 Brugge: allow 30–45 minutes for the square and surrounding facades. It is the orientation stop for the city, not a ticketed attraction. Leave time for uneven streets and crowds.",
+          "Belfort, Markt 7: allow 60–90 minutes only with suitable fitness and admission. There are 366 steps; this is not a step-free viewpoint. The operator recommends advance booking and says last admission is an hour before closing.",
+          "Begijnhof, 8000 Brugge: allow 30–45 minutes and visit quietly. This is an inhabited place, not an outdoor stage. The tourism board describes paths and entrance as accessible with assistance, not independently barrier-free.",
+          "Groeningemuseum, Dijver 12: allow 90 minutes for a focused art visit. The tourism board explicitly dates a four-year refurbishment closure from 11 January 2027, with core collection material planned elsewhere from March 2027. Do not reuse a 2026 itinerary after that closure without revision."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "The free port shuttle and a transfer to Bruges are different services. A ticket or statement about one does not establish price, availability or return pickup for the other. [S3]"
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "9b8f12d1ca43c19dffb5ded4",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "564693f7d8219eb3b5ea0890478641f573d783f3d1d593e6a6e700f1535bcd62",
+        "landing_slug": "bruges-zeebrugge-belgium",
+        "candidate_content_hash": "cc533a865a29adc972264bf000230d355b1695597e413cfc45c6baacbe2560bb",
+        "locked_at_utc": "2026-11-08T12:29:41.649Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage29_release_candidate": true,
+        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+        "stage29_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+        "applied_at_utc": "2026-11-08T12:29:41.824Z",
+        "stage28_candidate_content_hash": "cc44ca25c3c6db3bfd45754879e38c36ac43a89d620ea6b2bdf320646834c06e"
       }
     }
   },
