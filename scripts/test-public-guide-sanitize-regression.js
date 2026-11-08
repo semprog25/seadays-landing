@@ -36,6 +36,18 @@ function main() {
     'markdown links reduced to label text'
   );
 
+  const researchMarker =
+    'Keep the precise port name on the transport booking. “Nice” does not prove Lympia rather than Villefranche. [S1]';
+  assert.strictEqual(
+    preparePassengerGuideText(researchMarker),
+    'Keep the precise port name on the transport booking. “Nice” does not prove Lympia rather than Villefranche.',
+    'research [S#] markers stripped'
+  );
+  assert.ok(
+    !/\[S\d+/i.test(preparePassengerGuideText('You are in Port Klang, not downtown KL [S2].')),
+    'inline [S2] removed'
+  );
+
   const hamburgHtml = buildPhase1GuideHtml({
     port: {
       name: 'Hamburg',

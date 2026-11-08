@@ -40,6 +40,7 @@ function stripWikiCitationMarkers(text) {
     .replace(/ⓘ/g, '')
     .replace(/\((?:[^)]*[ˈˌəɪʊɔæɑɒʌɛɜθðŋʃʒ][^)]*)\)/g, '')
     .replace(/\/(?:[^/\s]*[ˈˌəɪʊɔæɑɒʌɛɜθðŋʃʒ][^/\s]*)\//g, '')
+    .replace(/\s*\[S\d+(?:\s+[^\]]*)?\]/gi, '')
     .replace(/\[(?:\d{1,3}|[a-z])\]/g, '')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/\s+([.,;:])/g, '$1')
