@@ -1669,7 +1669,11 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   ].filter(Boolean).join('\n');
   const jumpNav = buildPortJumpNav(`${guideHtml}\n${relatedHtml}`);
 
-  const bodyForLd = [guide?.portInfo?.description || '', overviewText].filter(Boolean).join(' ');
+  const omitDatasetOverviewForLd =
+    port.slug === 'aalborg-denmark' && String(guide?.portInfo?.description || '').trim();
+  const bodyForLd = omitDatasetOverviewForLd
+    ? String(guide.portInfo.description).trim()
+    : [guide?.portInfo?.description || '', overviewText].filter(Boolean).join(' ');
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
   const lat = pickFirstFiniteNumber(port.latitude, port.lat);
   const lng = pickFirstFiniteNumber(port.longitude, port.lng);

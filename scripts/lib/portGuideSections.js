@@ -21,6 +21,7 @@ const {
   filterActiveTerminalsForDisplay,
   collectTransitioningVisitorNotices,
 } = require('./terminalOperationalStatus');
+const { preparePassengerGuideText, quickFactGettingSummary } = require('./publicGuideCopySanitize');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -75,7 +76,7 @@ function isPortGuideBoilerplate(value) {
 function honestFactValue(value) {
   if (value == null) return '';
   if (typeof value === 'number' && Number.isFinite(value)) return String(value);
-  const s = String(value).trim();
+  const s = preparePassengerGuideText(String(value).trim());
   if (!s || isPortGuideBoilerplate(s)) return '';
   return s;
 }
@@ -83,6 +84,7 @@ function honestFactValue(value) {
 function listItems(arr) {
   if (!Array.isArray(arr) || !arr.length) return '';
   return arr
+    .map((x) => preparePassengerGuideText(x))
     .filter((x) => hasText(x) && !isPortGuideBoilerplate(x))
     .map((x) => `<li>${escapeHtml(x)}</li>`)
     .join('');
@@ -203,7 +205,7 @@ function hasGuideArrivalCopy(guide) {
 
 function buildGettingThereBodyHtml(guide) {
   if (!guide || !guide.gettingThere) return '';
-  const scrub = (text) => cleanPortCopy(text);
+  const scrub = (text) => preparePassengerGuideText(cleanPortCopy(text));
   const g = guide.gettingThere;
   const transport = listItems((g.transportation || []).map((x) => scrub(x)));
   const rows =
@@ -257,7 +259,7 @@ function buildCallPlanCard(kind, duration, title, body) {
     `<p class="pg-call-plan-duration">${escapeHtml(duration)}</p>` +
     `<h3 class="pg-call-plan-title">${escapeHtml(title)}</h3>` +
     `</div></header>` +
-    `<p class="pg-call-plan-body">${escapeHtml(body)}</p>` +
+    `<p class="pg-call-plan-body">${escapeHtml(preparePassengerGuideText(body))}</p>` +
     `</article>`
   );
 }
@@ -272,7 +274,9 @@ function buildThingsToDoSection(guide) {
   if (!t || typeof t !== 'object') return '';
   const top = listItems(t.topThings);
   const blocks = [];
-  if (hasText(t.intro)) blocks.push(`<p class="pg-prose pg-things-intro">${escapeHtml(t.intro)}</p>`);
+  if (hasText(t.intro)) {
+    blocks.push(`<p class="pg-prose pg-things-intro">${escapeHtml(preparePassengerGuideText(t.intro))}</p>`);
+  }
   const callPlans = [];
   if (hasText(t.shortCall)) {
     callPlans.push(
@@ -304,7 +308,7 @@ function buildThingsToDoSection(guide) {
     blocks.push(
       `<aside class="pg-cruise-tip" aria-label="Practical cruise tip">` +
         `<p class="pg-cruise-tip-label">Practical cruise tip</p>` +
-        `<p class="pg-cruise-tip-body">${escapeHtml(t.practicalTip)}</p>` +
+        `<p class="pg-cruise-tip-body">${escapeHtml(preparePassengerGuideText(t.practicalTip))}</p>` +
         `</aside>`
     );
   }
@@ -565,6 +569,7 @@ function collectPortFaqItems(guide, portName) {
   }
   if (
     portName !== 'Hamburg' &&
+    portName !== 'Aalborg' &&
     (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements)
   ) {
     questions.push({
@@ -591,10 +596,11 @@ function collectPortFaqItems(guide, portName) {
 }
 
 function clipFaqAnswer(text) {
-  const clean = cleanPortCopy(text);
+  const clean = preparePassengerGuideText(cleanPortCopy(text));
+  if (!clean) return '';
   const first = clean.split(/(?<=[.!?])\s+/)[0] || clean;
-  if (first.length <= 160) return first;
-  return `${first.slice(0, 157).replace(/\s+\S*$/, '').trim()}…`;
+  if (first.length <= 220) return first;
+  return `${first.slice(0, 217).replace(/\s+\S*$/, '').trim()}…`;
 }
 
 function buildTravelerQuestionsSection(guide, portName, opts = {}) {
@@ -814,7 +820,7 @@ function buildQuickFactsSection({ port, guide, terminals, isHomeport, gate }) {
     : Array.isArray(port?.popularMonths) && port.popularMonths.length
       ? port.popularMonths.join(', ')
       : '';
-  const getting = filter(firstSentence(guide?.gettingThere?.distanceToCity || guide?.gettingThere?.fromTerminal || '', 180));
+  const getting = filter(quickFactGettingSummary(guide) || firstSentence(guide?.gettingThere?.distanceToCity || '', 120));
   const passengers = honestFactValue(guide?.size?.publishedPassengers || '');
   const rows = [
     ['Port type', isHomeport ? 'Home port' : 'Port call'],
@@ -952,6 +958,13 @@ function buildEntryCollapsedSection(guide, gate, cityName, port) {
       'entry-requirements'
     );
   }
+  if (port && port.slug === 'aalborg-denmark') {
+    return section(
+      'Entry & documents',
+      `<p class="pg-prose">Denmark is in the Schengen Area. Which passport or visa you need depends on your nationality and how you arrive. SeaDays does not set those rules. Check <a class="pg-editorial-link" href="https://um.dk/en/travel-and-residence" target="_blank" rel="noopener noreferrer">Denmark’s official travel information</a> and the <a class="pg-editorial-link" href="https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en" target="_blank" rel="noopener noreferrer">European Commission visa policy</a> page before you travel.</p>`,
+      'entry-requirements'
+    );
+  }
   const filter = typeof gate === 'function' ? gate : (s) => s;
   const p = guide && guide.politics ? guide.politics : null;
   if (!p) return '';
@@ -1004,9 +1017,13 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
   const gate = createSentenceGate();
   const isHomeport = portCallsAsHomeport(port, terminals);
   const lead = gate(cleanPortCopy((guide && guide.portInfo && guide.portInfo.description) || ''));
-  const extra = gate(cleanPortCopy(port?.overviewText || ''));
+  const skipDatasetWikiOverview =
+    Boolean(lead && port?.slug === 'aalborg-denmark' && guide?.portInfo?.description);
+  const extra = skipDatasetWikiOverview ? '' : gate(cleanPortCopy(port?.overviewText || ''));
   const attribution =
-    lead || extra ? wikipediaAttributionHtml(loadWikipediaAttribution()[port && port.slug]) : '';
+    !skipDatasetWikiOverview && (lead || extra)
+      ? wikipediaAttributionHtml(loadWikipediaAttribution()[port && port.slug])
+      : '';
   const logistics = gate(
     isHomeport
       ? `Embarkation from ${city} can simplify flight planning when airports and hotels align.`

@@ -1,0 +1,24 @@
+{
+  "previewBaseUrl": "http://127.0.0.1:8777",
+  "note": "Port 8765 had dual listeners; verification used worktree-local 8777 after regen fix.",
+  "aalborg": {
+    "callPlanCardStandard": {
+      "display": "flex",
+      "borderRadius": "16px",
+      "paddingTop": "16px",
+      "borderTopWidth": "3px"
+    },
+    "callPlanCardShortBorderTop": "3px",
+    "cruiseTip": { "borderLeftWidth": "4px", "borderRadius": "16px" },
+    "horizontalOverflow": false,
+    "domCallPlanCards": 3
+  },
+  "hamburg": {
+    "callPlanCardStandard": {
+      "display": "flex",
+      "borderRadius": "16px",
+      "paddingTop": "16px",
+      "borderTopWidth": "3px"
+    }
+  }
+}
