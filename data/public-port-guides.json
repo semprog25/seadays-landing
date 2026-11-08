@@ -4813,7 +4813,7 @@
       "portName": "Catania",
       "country": "Italy",
       "portInfo": {
-        "description": "Sicily's second-largest city, a vibrant port destination with Baroque architecture and proximity to Mount Etna.",
+        "description": "Catania Cruise Port operates the Sporgente Centrale cruise terminal. Its FAQ describes walking into the city along Via VI Aprile toward Piazza dei Martiri and Via Dusmet in about six minutes, with bus alternatives. Mount Etna excursions are coach-scale, not walk-offs.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Italian",
@@ -4854,12 +4854,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Catania Cruise Port — Sporgente Centrale — Cruise Terminal Sporgente Centrale, Porto, 95121 Catania, Italy",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Piazza Duomo. FAQ ~6-minute walk via Via VI Aprile corridor. Treat as operator figure, not a surveyed trail. Etna. Long-call coach only.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Piazza Duomo. FAQ ~6-minute walk via Via VI Aprile corridor. Treat as operator figure, not a surveyed trail. Etna. Long-call coach only."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Piazza Duomo / centre. ~60–90 min.",
+          "Fish market / Via Etnea — editorial extension.",
+          "Etna — long call only.",
+          "Catania Cathedral / Piazza Duomo area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "≥6 h. Add lunch 60 + more streets 45; buffer 60.",
+        "longerCall": "Etna only with return ≥90 min before all-aboard.",
+        "practicalTip": "Follow the FAQ walk corridor (Via VI Aprile) rather than inventing shortcuts [S1]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "b5af049af20985f9dcb6cdd3",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "1f5490c71e30e70fc36da398a47ae01adf2a833ce9a7283297428a39462a6354",
+        "landing_slug": "sicily-catania-italy",
+        "candidate_content_hash": "5dfe46da9c7ffbf9c17781c773a6c2b7ad21d6f548c2cbd8658edcdacaa66f80",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "8b8cc796d00d3b71c79dceac203ec5933287a4fad58e086b2913763420e2506e"
       }
     },
     "charleston": {
@@ -9956,7 +9997,7 @@
       "portName": "Helsinki",
       "country": "Finland",
       "portInfo": {
-        "description": "Finnish capital known for its design, architecture, and island fortress, with excellent modern cruise facilities.",
+        "description": "A typical shore day mixes harbour architecture, design landmarks and the Suomenlinna sea fortress. Choose one principal outdoor site and leave margin for tram/ferry connections. Berth assignment is published with letter codes (LHB/LHC/LHD, ERA, EKL); do not treat “Helsinki” alone as a single door. The 2025 traffic release shows cruise volume recovering strongly while remaining an order of magnitude smaller than Helsinki–Tallinn ferry flows—plan as a cruise quay day, not a ferry terminal day.",
         "location": "Located on the Gulf of Finland",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Finnish, Swedish",
@@ -10015,7 +10056,45 @@
         "distanceToCity": "Most terminals within walking distance of city center",
         "walkingTime": "10-30 minutes to city center depending on terminal",
         "taxiInfo": "Taxis available at all terminals",
-        "publicTransport": "Excellent tram and bus network"
+        "publicTransport": "Excellent tram and bus network",
+        "distanceAnswer": "Most terminals within walking distance of city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Suomenlinna Sea Fortress: allow 2–3 hours on island plus ferry. Follow official getting-here guidance; ferry tickets and winter schedules vary.",
+          "Temppeliaukio (Rock Church), Lutherinkatu 3: allow 30–60 minutes when open for visitors; check service/visit calendar.",
+          "Market Square / South Harbour waterfront: allow about 60 minutes for a short harbour orientation if berthing nearby.",
+          "Design District / Esplanadi stroll: editorial 60–90 minutes when weather allows; not a timed admission.",
+          "Suomenlinna Sea Fortress"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Read the berth code (LHB/LHC/LHD vs ERA/EKL vs Olympia) before navigating. Hernesaari and Katajanokka are different districts on opposite sides of the South Harbour. [S1][S3]"
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "14715f93a725147ddf6e978b",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "7b0427f78ee788b861f056176995a6edcade58bbc3e4368b240312ff7c4673fd",
+        "landing_slug": "helsinki-finland",
+        "candidate_content_hash": "2a3ef13429bbb29bc62a8d27652c8c777e3aed41b15f968e4e8c19efde617c1b",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.225Z",
+        "stage33_candidate_content_hash": "9388ea2d9770d6ec8cb7d690b5b7c87e616fb534d2e15eec4c09e01213b4cb75"
       }
     },
     "hilo": {
@@ -10274,7 +10353,7 @@
       "portName": "Hvar",
       "country": "Croatia",
       "portInfo": {
-        "description": "Croatian island known for its lavender fields, Venetian architecture, and vibrant nightlife.",
+        "description": "Hvar Town’s harbour opens onto St Stephen’s Square, with the cathedral, Loggia/Clock Tower and Arsenal/Theatre telling different parts of its civic history. Fortica rises above the waterfront and requires a real climb. Benedictine lace provides an intimate museum theme, while the Franciscan frontage remains a useful exterior landmark even where interior visits are unavailable.",
         "location": "Located on Hvar Island, Croatia",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Croatian",
@@ -10330,9 +10409,47 @@
           "Local bus"
         ],
         "distanceToCity": "Terminal located in Hvar town center",
-        "walkingTime": "5-10 minutes to main square",
+        "walkingTime": "5-10 minutes to main square—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxi boats available for island tours",
-        "publicTransport": "Local buses connect island towns"
+        "publicTransport": "Local buses connect island towns",
+        "distanceAnswer": "Terminal located in Hvar town center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Fortica fortress, Fortica/Španjola hill above Hvar Town: A distinctive uphill fortress objective with town/harbour context. Allow about 90 minutes (editorial estimate). Steep/exposed approach; allow the climb and check current entry.",
+          "St Stephen’s Square and Cathedral, Trg Svetog Stjepana, cathedral end, Hvar Town: A precise central meeting area and ecclesiastical landmark. Allow about 60 minutes (editorial estimate). Church interior visits depend on worship and current access.",
+          "Historic Theatre, Historic Theatre above the Arsenal, Hvar Town waterfront: The tourism notice lists the Theatre separately as visitable. Allow about 60 minutes (editorial estimate). Arsenal is listed CLOSED; confirm the independent theatre entrance/access rather than assuming the entire building is open.",
+          "Loggia and Clock Tower, Hvar Loggia/Clock Tower, western side of main square: A compact civic-history alternative to the fortress ascent. Allow about 60 minutes (editorial estimate). Current seasonal opening/admission must be reconfirmed.",
+          "Benedictine lace museum, Benedictine Monastery/lace collection, Hvar Town old quarter: A specific local craft tradition and museum theme. Allow about 60 minutes (editorial estimate). A working religious community; confirm current visiting access."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "The operator’sZone Three taxi-boat season is a separate service, not the ship’s tender schedule. Do not return to a Pakleni taxi-boat line and assume it serves your vessel. [S1]"
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "aa635f3f7c97f25af46edc5c",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "67765a49adbfdb5defa5d49a34102200ad1d6ae537b5484845c0953cd1d531f4",
+        "landing_slug": "hvar-croatia",
+        "candidate_content_hash": "f28a775740c1439e31aa184612ec2b3e8c6c53b2975af364524d2687f8499929",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "3dbeff2059d37f45ed1c14b55f5c1902d7999553434c9800c7a9af43165f4ea5"
       }
     },
     "ica": {
@@ -10596,7 +10713,7 @@
       "portName": "Ísafjörður",
       "country": "Iceland",
       "portInfo": {
-        "description": "Largest town in Iceland's Westfjords, known for dramatic fjords, Arctic nature, and traditional Icelandic culture.",
+        "description": "Westfjords hub at Skutulsfjörður. Berth dimensions come from the Cruise Iceland sheet (harbour-master contact matches the municipal port) — official HTML home page fetched here did not list the length table.",
         "location": "",
         "timezone": "GMT (UTC+0)",
         "language": "Icelandic",
@@ -10649,9 +10766,47 @@
           "Local bus"
         ],
         "distanceToCity": "Quay located in town center",
-        "walkingTime": "5-10 minutes to town center",
+        "walkingTime": "5-10 minutes to town center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Limited taxis available",
-        "publicTransport": "Limited local bus service"
+        "publicTransport": "Limited local bus service",
+        "distanceAnswer": "Quay located in town center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town centre (~0.8 km)",
+          "Maritime Museum / old houses",
+          "Hornstrandir / fishing-village trips",
+          "Maritime Museum / old merchant houses",
+          "Ísafjörður town centre"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm which quay (Sundabakki vs Ásgeirsbakki) before timing the 0.8 km."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "a8c2d3a2deddd64dd963ec05",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "45342244de9d2034ec79e8d245dfc1bc3ad7bad6ad4b1c5914c0c1149541e4be",
+        "landing_slug": "isafjordur-iceland",
+        "candidate_content_hash": "26bbc2efc6c19b9b2dc940c9d546bb36feac2c6ea7724c57dcb4352ea65dba15",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "1a3f63669f947fe46b8ca3fb4933b8e6456d4148afbe411e67a59b783f303278"
       }
     },
     "isla-margarita": {
@@ -11969,7 +12124,7 @@
       "portName": "Klaipeda",
       "country": "Lithuania",
       "portInfo": {
-        "description": "Lithuania's main port, a historic city with German heritage and excellent facilities.",
+        "description": "Treat 2026 calls as using existing facilities unless your programme says otherwise; the new waterfront terminal is still under construction. Old Town walk claims in project marketing apply to the future layout.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Lithuanian",
@@ -12008,12 +12163,54 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Klaipėda cruise facilities (existing + new terminal project) — Klaipėda State Seaport",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Confirm current berth vs Old Town before claiming a walk.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Confirm current berth vs Old Town before claiming a walk."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old Town",
+          "Curonian Spit / lagoon",
+          "Theatre Square area",
+          "Klaipėda Old Town",
+          "Curonian Spit / lagoon views"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask which quay is in use — construction may change flows through 2027."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "e6546cb4150c6640d7d55f06",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "03961e0c39280e85c5823fdb7ba663860eb9ab439c2623b0b6702870c1c887eb",
+        "landing_slug": "klaipeda-lithuania",
+        "candidate_content_hash": "1777460928b9f26c37ce696506ad0b8e2432d957fe242f4431f865a231cdd7a7",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "13b641256fb54e7f439550d18b6cf542ceccd39b48708269ea50fb8d189298cb"
       }
     },
     "klaksvik": {
@@ -12543,7 +12740,7 @@
       "portName": "Koper",
       "country": "Slovenia",
       "portInfo": {
-        "description": "Slovenia's main port on the Adriatic Sea, a historic city with Venetian architecture and excellent facilities.",
+        "description": "visitkoper.si promotes old-town exploration, seasonal events, and the bell-tower “Upright History” exhibition on Tito Square. Luka Koper positions the passenger pier as Slovenia’s Adriatic cruise door and notes MedCruise membership in Slovenian-language materials. Municipality site koper.si frames a long urban history from pre-Roman/island origins.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Slovene",
@@ -12584,12 +12781,54 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Koper Cruise / Passenger Terminal (Potniški terminal) — Vojkovo nabrežje 38, 6501 Koper, Slovenia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Old town ~200 m per operator. Public bus/taxi/rail/airport listed as connections without timed claims.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Old town ~200 m per operator. Public bus/taxi/rail/airport listed as connections without timed claims."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old town / Titov trg — walk from the terminal.",
+          "New terminal building orientation — 2025 facility.",
+          "Istria hinterland",
+          "Koper old town / Titov trg area",
+          "New passenger terminal building (opened 2025)"
+        ],
+        "shortCall": "Old town circuit. 75-minute buffer.",
+        "standardCall": "Old town + one nearby coastal/hill town only if return preserves 90-minute buffer.",
+        "longerCall": "Hinterland possible with 120 minutes uncommitted. Overnight needs ship confirmation.",
+        "practicalTip": "You can see the campanile before you clear the terminal plaza — do not overbuy distant coaches on a first short call."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "c011d7789da5fde78563bca3",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "f2543fa93fd5b74fecf45b073e45d7bdd64dca1bcbd5d0130c561ebb69874166",
+        "landing_slug": "koper-slovenia",
+        "candidate_content_hash": "b00b2459c906f6c6cc8a7adc956d94730e9e2223e051f7394b302fd7a4cd7c7a",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "5e3b20627ffefddf2c206509eec57c77c77bdb657681bf9fed604a4c6e3762ab"
       }
     },
     "korcula": {
@@ -12757,7 +12996,7 @@
       "portName": "Kotor",
       "country": "Montenegro",
       "portInfo": {
-        "description": "A historic port in Montenegro on the Adriatic coast, a UNESCO World Heritage site with medieval architecture.",
+        "description": "UNESCO describes a medieval Adriatic artistic/commercial centre with masonry and iconography schools; a 1979 earthquake damaged many monuments. Luka Kotor’s site (ME/EN navigation) emphasises cruise ranking rhetoric and marina services; English cruise subpages were thin in the capture.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Montenegrin",
@@ -12798,12 +13037,54 @@
         "entryRequirements": "Valid passport required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Kotor (Luka Kotor A.D.) — Kotor Bay waterfront",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Old Town is waterfront-adjacent. Inland viewpoints need coaches — no minute invent.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Old Town is waterfront-adjacent. Inland viewpoints need coaches — no minute invent."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "UNESCO Old Town lanes",
+          "Waterfront / marina edge",
+          "Walls",
+          "Kotor Old Town (UNESCO region)",
+          "Kotor waterfront / marina edge"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Enter through the Sea Gate; set a meeting pin before exploring alleys."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "103519390a5453945d5fa3fb",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "7dbef0ec7799609573f415c62dd1fe731f8cf91e683b7f2a813b1c5d0410f0d1",
+        "landing_slug": "kotor-montenegro",
+        "candidate_content_hash": "a0a54ae56d0188de9ba16d48a7c08cf17fae300ef56a70d1ec77041d994985ff",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "96c131bda7b7ccf39f813d882750f3742068d8a656cad242c9be9177fa1797f3"
       }
     },
     "kralendijk-bonaire": {
@@ -14206,7 +14487,7 @@
       "portName": "Limassol",
       "country": "Cyprus",
       "portInfo": {
-        "description": "A major city and port on the southern coast of Cyprus, known for its wine festivals and archaeological sites.",
+        "description": "CPA homepage is announcement-heavy (environmental campaigns, governance). Visit Cyprus remains the tourism layer; the specific Limassol URL captured was dominated by marina boat-show content, so city claims stay conservative.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek, Turkish",
@@ -14247,12 +14528,54 @@
         "entryRequirements": "Valid passport required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Limassol Port (New Port area) — Limassol New Port",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Shuttle/taxi to Old Port/castle. No invented minutes.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Shuttle/taxi to Old Port/castle. No invented minutes."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old Port / castle circuit after transfer",
+          "CPA/port orientation only",
+          "Further archaeological sites",
+          "Limassol Old Port / castle area",
+          "Cyprus Ports Authority context"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Treat New Port as industrial logistics; sightseeing starts after the transfer."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "3e80cf339e53e4427f06c6da",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "b8292abb7bc1014fe7fbdcf60f52205d702f36be2c6e2969f74735b156923e9b",
+        "landing_slug": "limassol-cyprus",
+        "candidate_content_hash": "0e4ed6d1628118b6efcd42a2b5adf62953b5481ba32f9863b8b85e73c9f9f97c",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "a2f2d9c87c39b9c5e47ba99f6112cbc45716fb750641d8d61b9393bdfc25b8f4"
       }
     },
     "lipari": {
@@ -16843,7 +17166,7 @@
       "portName": "Muscat",
       "country": "Oman",
       "portInfo": {
-        "description": "The capital and largest city of Oman, a historic port city between the Arabian Sea and the Al Hajar Mountains.",
+        "description": "Muscat’s cruise guests almost always land at Port Sultan Qaboos in Muttrah. Asyad Ports has operated PSQ since 1 January 2018 and markets it as a premium multi-purpose port ~350 km south of the Strait of Hormuz with cruise, bulk grain, liquid bulk, navy and dhow traffic. Cruise operations are described as a prominent product with ~6% annual growth since 2018 on the Asyad page. This city guide emphasises Muttrah/Muscat shore time; facility contacts (+968 24714678 / 24714870) and tariff downloads live on the Asyad PSQ pages.",
         "location": "",
         "timezone": "GST (UTC+4)",
         "language": "Arabic",
@@ -16891,12 +17214,52 @@
         "entryRequirements": "Valid passport required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Via Port Sultan Qaboos",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Muttrah Souq and Corniche are commonly adjacent to PSQ — confirm walking safety and gate path with the ship.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Muttrah Souq and Corniche are commonly adjacent to PSQ — confirm walking safety and gate path with the ship."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Muttrah Souq / Corniche — ~120 min.",
+          "Sultan Qaboos Grand Mosque — allow transit and dress code time.",
+          "Old Muscat / forts — half-day if call length allows."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Winter mornings can be busy with multiple ships — leave early for mosque security lines."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "739fc7cd5a8a42f453788c6b",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "bbed1bb143663ba685f4a59ac42f8b90cc939965c703b0adec9671f5c0a32fe7",
+        "landing_slug": "muscat-oman",
+        "candidate_content_hash": "fe85df6eef48f9ffcd5e32902ec46a2a0d94d5a373cbf6aceb48113434a83964",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "3198d01f4fb9856b8a7b9a2ef6ec5034449fff190a6bae6bfe069648e0016493"
       }
     },
     "mykonos": {
@@ -17976,12 +18339,54 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port Lympia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Budget 30 minutes from the ship through the confirmed exit towards the Castle Hill/old-town circuit; allow 30–45 minutes to regain the exact gate and complete security. Use an agreed road transfer for Cimiez, budgeting 45 minutes each way rather than claiming it is a flat waterfront stroll. The operator’s shuttle/tram references are not a current frequency/fare promise.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Budget 30 minutes from the ship through the confirmed exit towards the Castle Hill/old-town circuit; allow 30–45 minutes to regain the exact gate and complete security. Use an agreed road transfer for Cimiez, budgeting 45 minutes each way rather than claiming it is a flat waterfront stroll. The operator’s shuttle/tram references are not a current frequency/fare promise."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Castle Hill park — Parc de la Colline du Château, Nice. A viewpoint/park with steep approaches; verify the accessible option. Allow 75 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
+          "Cours Saleya — Cours Saleya, Vieux-Nice. The market street is a useful fixed meeting landmark; market days/hours vary. Allow 45 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
+          "Sainte-Réparate Cathedral — Place Rossetti, Vieux-Nice. Church entry is subject to worship; the square remains an outdoor target. Allow 35 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
+          "Vieux-Nice lanes — Old town between Place Rossetti and Cours Saleya, Nice. Choose a small loop instead of losing the return meeting point. Allow 60 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
+          "Promenade des Anglais / Rauba Capeu — Seafront at Quai Rauba Capeu and the Promenade des Anglais, Nice. A seafront walk with sun exposure, not an assurance of swimming conditions. Allow 60 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/)."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Keep the precise port name on the transport booking. “Nice” in a regional excursion description does not prove that the ship is at Lympia rather than Villefranche. [S1]"
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "08639fcf98fea1012a48ae5e",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "a920d7c48f97e1f8a0057812bab82c98ca8a5e79cb10bd77a5ca2376c367bfe6",
+        "landing_slug": "nice-france",
+        "candidate_content_hash": "94caaea4e06536c770df70c12cc9d74d1736749cfb55ad0b082105a286e2b3d1",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "e1ffbe229a7b525855aae2e7bccd531540fe9d995beb383a2ec497ee7ff36c14"
       }
     },
     "niigata": {
@@ -19813,7 +20218,7 @@
       "portName": "Port Klang",
       "country": "Malaysia",
       "portInfo": {
-        "description": "Malaysia's main port serving Kuala Lumpur, with excellent facilities and access.",
+        "description": "Port Klang Cruise Terminal is Malaysia’s purpose-built cruise gateway in Port Klang (Selangor), serving international liners calling for Kuala Lumpur. Official jetty specifications list three berths: Berth 1 at 14.1 m below chart datum with 200 m quay length (450 m including dolphins) and 7.2 m height above CD; Berths 2 and 3 at 10.0 m depth with 120 m / 150 m quay lengths respectively and 200 m including dolphins. Pilot distances cited: Pulau Gedung 10 nm / Pulau Angsa 20 nm. Contact info.pkct@portklangcruise.com / +603-3093 0505; address Persiaran Pelabuhan Barat, Bandar Armada Putra, Pulau Indah.",
         "location": "",
         "timezone": "MYT (UTC+8)",
         "language": "Malay, English, Chinese, Tamil",
@@ -19854,12 +20259,53 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port Klang Cruise Terminal Berth 1 — Persiaran Pelabuhan Barat, Pulau Indah, Port Klang",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Coach/taxi to KL — budget a large round-trip window; minutes unverified on PKCT pages.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Coach/taxi to KL — budget a large round-trip window; minutes unverified on PKCT pages."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "KLCC / Petronas Twin Towers — full-day coach.",
+          "Batu Caves — coach.",
+          "Ship excursion — safest timing.",
+          "Kuala Lumpur city (transfer)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "You are in Port Klang, not downtown KL [S2]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "c7c9d2ad08695ac4932411a9",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "bcc7cbda46289d07024c0f54d1ded3c9f6dfabed1fa6dc3cef84a18f54484b34",
+        "landing_slug": "kuala-lumpur-port-klang-malaysia",
+        "candidate_content_hash": "fff1f10eec6dbb9e2b83c52116576537ab375d0edb4b3c1ffeb55403dde9f3ba",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "995aa30d0c101a1f45eac64a7cb27d21de921a3254acf2aa35253778cf08f070"
       }
     },
     "port-louis": {
@@ -23257,7 +23703,7 @@
       "portName": "San Juan",
       "country": "Puerto Rico",
       "portInfo": {
-        "description": "Puerto Rico's historic capital, a UNESCO World Heritage site with colonial architecture and excellent facilities.",
+        "description": "San Juan’s forts make sense when read together: El Morro defended the sea approach and San Cristóbal the land approach. A cathedral, city gate and civic square add context without requiring a rainforest coach day. The official tourism article updated 25 August 2026 documents these landmarks, but its promotional “oldest city” superlative is not repeated here. The port operator describes Old San Juan for transit/luxury calls and Pan American as a major homeport district, while Pier 4 can also handle homeporting. Those are operating roles, not a promise of your ship’s assignment. Future redevelopment piers are not silently counted as currently usable cruise berths.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "Spanish, English",
@@ -23301,12 +23747,54 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Pier 3 East — Paseo Concepción de Gracia,Old San Juan 00901",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "The operator FAQ gives indicative airport drives of roughly 10 minutes to Pan American and 15 to Old San Juan, excluding clearance and variable traffic. These are not flight-connection guarantees. Pan American passengers should use a taxi/line transfer into the old city; Old San Juan passengers may begin walking after the authorised exit. The plans use 45-minute first legs and 45–60-minute last legs for either district, deliberately more than the city-core walk from Pier 3/4. Vehicle/walking blocks are editorial allowances. NPS’s visit page updated 11 August 2026 lists both forts daily 09:00–17:00. Its accessibility page, last updated 2017, describes steep ramps, an elevator at San Cristóbal, and inaccessible lower El Morro levels; confirm current routes/elevator and alerts rather than promising full step-free access.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "The operator FAQ gives indicative airport drives of roughly 10 minutes to Pan American and 15 to Old San Juan, excluding clearance and variable traffic. These are not flight-connection guarantees. Pan American passengers should use a taxi/line transfer into the old city; Old San Juan passengers may begin walking after the authorised exit. The plans use 45-minute first legs and 45–60-minute last legs for either district, deliberately more than the city-core walk from Pier 3/4. Vehicle/walking blocks are editorial allowances. NPS’s visit page updated 11 August 2026 lists both forts daily 09:00–17:00. Its accessibility page, last updated 2017, describes steep ramps, an elevator at San Cristóbal, and inaccessible lower El Morro levels; confirm current routes/elevator and alerts rather than promising full step-free access."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Castillo San Felipe del Morro, El Morro, western tip of Old San Juan: Maritime defences and open Atlantic views. Allow about 120 minutes (editorial estimate). Heat, slopes and stairs; confirm accessible portions/current NPS schedule.",
+          "Castillo San Cristóbal, San Cristóbal, eastern edge of Old San Juan: The complementary land-facing fortification. Allow about 90 minutes (editorial estimate). Not a quick extra photo stop if exploring tunnels/levels.",
+          "Catedral de San Juan Bautista, Catedral de San Juan, Old San Juan: A living religious landmark within the historic street grid. Allow about 40 minutes (editorial estimate). Worship can limit visitor access; respect dress and services.",
+          "Puerta de San Juan, Puerta de San Juan, western city wall, Old San Juan: A named gate/meeting point on the old waterfront edge. Allow about 30 minutes (editorial estimate). Uneven approaches; do not confuse it with the cruise terminal gate.",
+          "Plaza de Armas, Plaza de Armas, Old San Juan town-hall square: A shaded civic-history and refreshment pause. Allow about 45 minutes (editorial estimate). Public square access does not include government interiors."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Tell the driver “Pan American East/West” or “Old San Juan Pier 3/4” plus ship name. “San Juan cruise terminal” is not enough."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "0a90bb1be7c9127cb0e7720c",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "b6c625c6a19b62ad2de4c46bb3a2e041f10fc3908519e2d7a46a46c4fb5c1794",
+        "landing_slug": "san-juan-puerto-rico",
+        "candidate_content_hash": "3555c2e7887d690684689947c12ca9dd5aad018f7816370c52c22f3edec98540",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "ab85979cee9ca04636a63008257cf56db4df2d38a83708b34388f054dd2ec93f"
       }
     },
     "sandnes": {
@@ -24411,7 +24899,7 @@
       "portName": "Singapore",
       "country": "Singapore",
       "portInfo": {
-        "description": "A global city-state and major port with excellent facilities and diverse attractions.",
+        "description": "Marina Bay Cruise Centre Singapore is the purpose-built two-berth cruise gateway at Marina South. The operator architecture page states a 395 m pier (18 m wide) able to berth ships up to 220,000 GRT, 360 m LOA and 11.5 m draft, with 36,000 sqm terminal space and 11,700 passenger capacity, plus Green Mark certification. Global Ports Holding’s Singapore Cruise Port page lists SATS-Creuers as terminal operator, two berths, 695 m total berthing line, 11.3–11.5 m quay depth, max LOA 360 m, draught 11.3 m, ~500 m to city centre and 25 km to the airport, with no height restrictions. Singapore Cruise Centre (HarbourFront) exists as a separate MPA facility family — not treated as MBCCS here.",
         "location": "",
         "timezone": "SGT (UTC+8)",
         "language": "English, Malay, Mandarin, Tamil",
@@ -24456,12 +24944,52 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "MBCCS",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "GPH cites ~500 m to city centre. MRT/taxi common — exact door walk null.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "GPH cites ~500 m to city centre. MRT/taxi common — exact door walk null."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Marina Bay / Gardens by the Bay — ~150 min.",
+          "Civic District / river — short transit.",
+          "Sentosa / coaches — allow buffer."
+        ],
+        "shortCall": "Marina Bay loop + 75 min buffer.",
+        "standardCall": "Bay + one neighbourhood + 90 min buffer.",
+        "longerCall": "Island/Sentosa day with ≥120 min buffer.",
+        "practicalTip": "Confirm you are at MBCCS not HarbourFront Singapore Cruise Centre."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "928157db804a3bb62175f3f8",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "7433c6f413d47f13915aa3ff84ec688cf2d263291d4531b3a5a967bc10547dd8",
+        "landing_slug": "singapore-singapore",
+        "candidate_content_hash": "990346c199807a6e53d8ad87844134aa5f512a7c495d1e669ace6fae8dcf4499",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "fa100dd42a650ae6ed0eeb0d1305fe2dff3aa4bad40272b52f52da48c9965d24"
       }
     },
     "sir-bani-yas": {
@@ -25338,7 +25866,7 @@
       "portName": "St Maarten",
       "country": "Sint Maarten",
       "portInfo": {
-        "description": "A Caribbean island divided between French and Dutch territories.",
+        "description": "Dutch-side Great Bay / Point Blanche complex. Pier 1 length not published on the fetched official cruise page — left as gap.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English, Dutch, French",
@@ -25382,12 +25910,54 @@
         "entryRequirements": "Valid passport required. Some nationalities may need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Pier 2 — Dr. A.C. Wathey Cruise & Cargo Facilities — Point Blanche / Harbour Point Village area, St. Maarten",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Authority: ~15-minute walk to Philipsburg, or cab/bus/water taxi (Captain Hodge Wharf, Walter Williams Jetty, Bobby’s Marina).",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Authority: ~15-minute walk to Philipsburg, or cab/bus/water taxi (Captain Hodge Wharf, Walter Williams Jetty, Bobby’s Marina)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Harbour Point Village shopping/tour desk",
+          "Philipsburg town walk (~15 min)",
+          "Beach / island tours",
+          "Harbour Point Village",
+          "Philipsburg town / Front Street"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Heat and pier crowds — water-taxi option exists if the walk feels long in peak heat."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "985a6baff3bdd5483fdade2b",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "a6dea5e346a09d35900ebeb26bb27050481a6e07ba8020def97adcabd1d8f6e4",
+        "landing_slug": "philipsburg-st-maarten",
+        "candidate_content_hash": "cb42ed749b326395ceb3ae9d24ce02f7c47c15288c64718c39a5513858fa1006",
+        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage33_remaining_candidate": true,
+        "production_baseline_sha": "c02de1f1ba57ce036d45390d279a59c09ab70f7d",
+        "stage34_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
+        "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
+        "applied_at_utc": "2026-11-08T13:18:28.226Z",
+        "stage33_candidate_content_hash": "b5d8dadfd537aa5218879c8e582d4118825e048bf8dea9cd9a35df8b7e0161ac"
       }
     },
     "st-pierre": {

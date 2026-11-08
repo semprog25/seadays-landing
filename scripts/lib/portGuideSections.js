@@ -684,7 +684,7 @@ const PORT_GUIDE_STYLES = `
 .pg-top-things { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
 .pg-top-things-heading { margin: 0 0 12px; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
 .pg-top-things-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.48; color: rgba(255,255,255,0.88); }
+.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.48; color: rgba(255,255,255,0.88); overflow-wrap: anywhere; word-break: break-word; max-width: 100%; }
 .pg-top-things-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,0,51,0.85); box-shadow: 0 0 0 3px rgba(255,0,51,0.12); }
 .pg-cruise-tip { margin: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(34,211,238,0.35); border-left: 4px solid #22d3ee; background: linear-gradient(120deg, rgba(6,182,212,0.16), rgba(255,255,255,0.03)); }
 .pg-cruise-tip-label { margin: 0 0 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }

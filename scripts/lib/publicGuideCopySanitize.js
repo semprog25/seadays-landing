@@ -20,6 +20,7 @@ const MAX_QUICK_FACT_CHARS = 120;
 
 function stripMarkdownEmphasis(text) {
   return String(text || '')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .replace(/__([^_]+)__/g, '$1')
