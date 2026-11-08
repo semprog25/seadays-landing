@@ -95,6 +95,9 @@ function isSiteChromeHeader(html) {
 
 function writeCss() {
   const cssPath = path.join(ROOT, 'assets', 'css', 'site-shell.css');
+  if (fs.existsSync(cssPath) && /header-brand/.test(fs.readFileSync(cssPath, 'utf8'))) {
+  return cssPath;
+  }
   const css = getSiteShellCss();
   if (!DRY_RUN) {
     fs.mkdirSync(path.dirname(cssPath), { recursive: true });

@@ -631,7 +631,7 @@ function replaceSiteHeaderInHtml(html, opts = {}) {
   if (replaced !== out) return replaced;
 
   const replaced2 = out.replace(
-    /<header\s+class="header(?:\s+site-header)?"[^>]*>\s*(?:<a[^>]*class="header-brand"[^>]*>[\s\S]*?<\/a>\s*)?<nav\s+class="header-nav"[\s\S]*?<\/header>/i,
+    /<header\s+class="header(?:\s+site-header)?"[^>]*>[\s\S]*?<nav\s+class="header-nav"[\s\S]*?<\/header>/i,
     headerHtml
   );
   if (replaced2 !== out) return replaced2;
