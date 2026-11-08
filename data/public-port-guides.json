@@ -5,7 +5,7 @@
       "portName": "Aalborg",
       "country": "Denmark",
       "portInfo": {
-        "description": "A historic Danish port city in northern Jutland, known for its charming old town, modern waterfront, and excellent cruise terminal facilities.",
+        "description": "Aalborg is a compact Limfjord city call with a waterfront berth and a walkable old town—quieter than the biggest Baltic capitals. Confirm your pier name on the daily programme before you go ashore.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Danish",
@@ -44,26 +44,32 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "Aalborg Royal Cruise Berth / Honnørkajen waterfront — Coordinates and definitive quay number remain null/unverified until sailing-specific or clearer primary quay geometry is captured. Secondary \"quay 4041 / Honnørkajen\" claims were not copied without matching primary HTML text in this pass.",
-        "transportation": [],
-        "distanceToCity": "",
-        "walkingTime": "",
-        "taxiInfo": "",
-        "publicTransport": "**On foot from Royal Cruise Berth / Honnørkajen:** for most mobile adults allow **10–20 minutes** into the central shopping streets and **15–25 minutes** toward Utzon Center / waterfront cultural cluster—**editorial estimates**; surfaces and ISPS fencing can add time when ships are alongside. **Rail:** Aalborg station is a short taxi/bus hop from the waterfront—use Rejseplanen/DSB for the call date; do not treat “Aalborg” as a free transfer to Aarhus without a live plan and ship buffer. **Airport (AAL):** separate transfer; embarkation-style days need luggage margin."
+        "fromTerminal": "Most cruise ships use the Royal Cruise Berth on the Honnørkajen waterfront, within walking distance of the city centre. Some sailings list Berth 4110 instead—check your daily programme and cruise documents before you leave the ship.",
+        "transportation": [
+          "Walking",
+          "Bus",
+          "Taxi",
+          "Rail"
+        ],
+        "distanceToCity": "Waterfront berth; city centre is a short walk for most mobile guests.",
+        "distanceAnswer": "The main cruise berth on Honnørkajen is a short walk from the city centre for most mobile guests.",
+        "walkingTime": "Many guests reach the main shopping streets in about 10–20 minutes on foot from the waterfront, and the Utzon Center area in about 15–25 minutes, depending on pier fencing and crowds.",
+        "taxiInfo": "Taxis meet ships at the waterfront when available; confirm your return time if you book one for a longer outing.",
+        "publicTransport": "Walking is practical when ships are alongside the waterfront. Aalborg railway station is a short taxi or bus ride from the port—use Rejseplanen or DSB for live times on your call date. Aalborg Airport (AAL) is a separate transfer; allow extra time with luggage."
       },
       "thingsToDo": {
-        "intro": "",
+        "intro": "Plan one neighbourhood cluster and leave time to get back through port security. The Honnørkajen waterfront and historic centre are the easiest wins on a typical call.",
         "topThings": [
-          "Waterfront / Honnørkajen stroll and harbour views: allow 30–45 minutes.",
-          "Utzon Center area: allow 60–90 minutes including exhibits when open.",
-          "Budolfi Cathedral / historic centre lanes: allow 45–60 minutes.",
-          "Aalborg Historiske Museum or Kunsten (longer calls): allow 75–120 minutes—check opening hours.",
-          "Local café time on the fjord: allow 30 minutes as weather buffer."
+          "Honnørkajen waterfront stroll and harbour views",
+          "Utzon Center (architecture and exhibits when open)",
+          "Budolfi Cathedral and the lanes of the old town",
+          "Aalborg Historiske Museum or Kunsten on longer days—check opening hours",
+          "Coffee or lunch on the fjord as a weather buffer"
         ],
-        "shortCall": "15 minutes clear berth, 45 minutes waterfront + centre lanes, 60 minutes Utzon/cultural stop, 30 minutes café, 15 minutes return, **75-minute** buffer (15+45+60+30+15+75=240).",
-        "standardCall": "15 minutes out, 75 minutes museum, 45 minutes lunch, 60 minutes cathedral/centre, 30 minutes waterfront, 15 minutes return, **90-minute** buffer (15+75+45+60+30+15+90=330 of ~420).",
-        "longerCall": "Add Lindholm Høje or a longer museum only with verified bus/taxi timings; keep **120 minutes** uncommitted on a 9-hour clock. Overnight needs reboarding confirmation.",
-        "practicalTip": "Match your daily programme’s berth name (**Royal Cruise Berth** vs **4110**) before photographing a return landmark—occasional ships use the alternate berth."
+        "shortCall": "After you clear the berth, stay near the waterfront and old town: a Honnørkajen walk, one cultural stop such as the Utzon Center area, and a café before heading back. Keep a generous buffer for security and the gangway queue.",
+        "standardCall": "You can combine a museum visit, lunch in the centre, Budolfi Cathedral, and a waterfront loop on a typical six-to-eight-hour call. Check opening times before you commit, and start your return well before all-aboard.",
+        "longerCall": "With eight hours or more, consider Lindholm Høje or a second museum only if you have confirmed bus or taxi timings and a clear path back. On overnight calls, reconfirm reboarding rules with the ship.",
+        "practicalTip": "Check whether your sailing lists Royal Cruise Berth or Berth 4110 before you choose a return landmark—occasional ships use the alternate berth."
       },
       "researchImport": {
         "schema_version": 1,
@@ -85,8 +91,11 @@
           "gettingThere.fromTerminal",
           "gettingThere.publicTransport",
           "researchImport.travelerQuestions"
-        ]
-      }
+        ],
+        "publication_tier": "passenger_editorial",
+        "editorial_rewrite": "stage10-aalborg-recovery"
+      },
+      "shorePlansFirst": true
     },
     "aarhus": {
       "appPortId": "aarhus",

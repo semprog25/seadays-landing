@@ -109,7 +109,13 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
     html = replaceBookableExperiencesSection(html, existingBook);
   }
   const existingHeadStyles = extractSiteShellHeadStyleBlock(existingHtml);
-  if (existingHeadStyles) html = replaceSiteShellHeadStyleBlock(html, existingHeadStyles);
+  const generatedHeadStyles = extractSiteShellHeadStyleBlock(generatedHtml);
+  const hasCallPlanCardCss = (block) => /\.pg-call-plan-card\s*\{/.test(String(block || ''));
+  const shouldPreferGeneratedHeadStyles =
+    hasCallPlanCardCss(generatedHeadStyles) && !hasCallPlanCardCss(existingHeadStyles);
+  if (existingHeadStyles && !shouldPreferGeneratedHeadStyles) {
+    html = replaceSiteShellHeadStyleBlock(html, existingHeadStyles);
+  }
 
   const existingHeader = extractFirstMatch(existingHtml, HEADER_SHELL_RE);
   if (existingHeader) html = replaceFirstMatch(html, HEADER_SHELL_RE, existingHeader);
