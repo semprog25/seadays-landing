@@ -21,7 +21,11 @@ const {
   filterActiveTerminalsForDisplay,
   collectTransitioningVisitorNotices,
 } = require('./terminalOperationalStatus');
-const { preparePassengerGuideText, quickFactGettingSummary } = require('./publicGuideCopySanitize');
+const {
+  preparePassengerGuideText,
+  quickFactGettingSummary,
+  usesPassengerEditorialLead,
+} = require('./publicGuideCopySanitize');
 
 function escapeHtml(s) {
   if (s == null || s === '') return '';
@@ -549,8 +553,11 @@ function namedForPort(portName, text) {
   return prefixEachSentence(portName, text, 'For');
 }
 
-function collectPortFaqItems(guide, portName) {
+function collectPortFaqItems(guide, portName, portSlug) {
   const questions = [];
+  const officialEntrySlugs = new Set(['hamburg-germany', 'aalborg-denmark', 'aarhus-denmark']);
+  const skipPoliticsFaq =
+    (portSlug && officialEntrySlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
   if (guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) {
     questions.push({
       q: `How far is ${portName} cruise terminal from the city center?`,
@@ -567,11 +574,7 @@ function collectPortFaqItems(guide, portName) {
       ),
     });
   }
-  if (
-    portName !== 'Hamburg' &&
-    portName !== 'Aalborg' &&
-    (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements)
-  ) {
+  if (!skipPoliticsFaq && (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements)) {
     questions.push({
       q: `What are the entry or visa requirements for ${portName}?`,
       a: namedForPort(
@@ -605,7 +608,7 @@ function clipFaqAnswer(text) {
 
 function buildTravelerQuestionsSection(guide, portName, opts = {}) {
   const gate = typeof opts.gate === 'function' ? opts.gate : (s) => s;
-  const questions = collectPortFaqItems(guide, portName)
+  const questions = collectPortFaqItems(guide, portName, opts.portSlug)
     .map((item) => {
       const clipped = clipFaqAnswer(item.a);
       return { q: item.q, a: gate(clipped) };
@@ -958,7 +961,7 @@ function buildEntryCollapsedSection(guide, gate, cityName, port) {
       'entry-requirements'
     );
   }
-  if (port && port.slug === 'aalborg-denmark') {
+  if (port && (port.slug === 'aalborg-denmark' || port.slug === 'aarhus-denmark')) {
     return section(
       'Entry & documents',
       `<p class="pg-prose">Denmark is in the Schengen Area. Which passport or visa you need depends on your nationality and how you arrive. SeaDays does not set those rules. Check <a class="pg-editorial-link" href="https://um.dk/en/travel-and-residence" target="_blank" rel="noopener noreferrer">Denmark’s official travel information</a> and the <a class="pg-editorial-link" href="https://home-affairs.ec.europa.eu/policies/schengen/visa-policy_en" target="_blank" rel="noopener noreferrer">European Commission visa policy</a> page before you travel.</p>`,
@@ -1017,8 +1020,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
   const gate = createSentenceGate();
   const isHomeport = portCallsAsHomeport(port, terminals);
   const lead = gate(cleanPortCopy((guide && guide.portInfo && guide.portInfo.description) || ''));
-  const skipDatasetWikiOverview =
-    Boolean(lead && port?.slug === 'aalborg-denmark' && guide?.portInfo?.description);
+  const skipDatasetWikiOverview = Boolean(lead && usesPassengerEditorialLead(guide));
   const extra = skipDatasetWikiOverview ? '' : gate(cleanPortCopy(port?.overviewText || ''));
   const attribution =
     !skipDatasetWikiOverview && (lead || extra)
@@ -1043,7 +1045,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
     shoreFirst ? '' : things,
     buildWeatherMergedSection(guide, port, gate),
     buildEntryCollapsedSection(guide, gate, city, port),
-    buildTravelerQuestionsSection(guide, city, { gate }),
+    buildTravelerQuestionsSection(guide, city, { gate, portSlug: port?.slug }),
     buildSinglePortAppPrompt(city),
   ]
     .filter(Boolean)
