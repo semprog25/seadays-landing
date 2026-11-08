@@ -44,6 +44,13 @@ function main() {
   const htmlResults = [];
   const changedAppIds = [];
 
+  const { execSync } = require('child_process');
+  const mainGuides = JSON.parse(
+    execSync('git show origin/main:data/public-port-guides.json', { cwd: REPO, encoding: 'utf8' })
+  );
+  const eilatRestored = sha(mainGuides.byAppPortId.eilat) === sha(guides.byAppPortId.eilat);
+  if (!eilatRestored) throw new Error('eilat guide must match origin/main baseline');
+
   for (const slug of apply.slugs) {
     const row = manifest.ports.find((p) => p.landing_slug === slug);
     const id = row.app_port_id;
@@ -85,7 +92,10 @@ function main() {
     changedAppIds.push(id);
   }
 
-  if (changedAppIds.length !== 25) throw new Error(`expected 25 guide mutations, got ${changedAppIds.length}`);
+  const expected = manifest.candidate_count || apply.slugs.length;
+  if (changedAppIds.length !== expected) {
+    throw new Error(`expected ${expected} guide mutations, got ${changedAppIds.length}`);
+  }
 
   const out = {
     ok: true,

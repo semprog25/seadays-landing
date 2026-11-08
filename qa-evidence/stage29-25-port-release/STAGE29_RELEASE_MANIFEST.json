@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "lock_version": "stage29-release-candidate-v1",
+  "lock_version": "stage31-24-port-release-v1",
   "status": "IMMUTABLE_CANDIDATE_PENDING_OWNER",
   "owner_publication_authorized": false,
   "created_at_utc": "2026-11-08T12:29:41.649Z",
   "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
-  "bundle_idempotency_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
-  "candidate_count": 25,
-  "passing_all_gates": 25,
+  "bundle_idempotency_hash": "6998864e9ef53526c7ab0811007cee1b65b695da8a31eb1f2ca8d1475507daca",
+  "candidate_count": 24,
+  "passing_all_gates": 24,
   "slugs_locked": [
     "aberdeen-united-kingdom",
     "ajaccio-corsica-france",
@@ -29,7 +29,6 @@
     "cork-cobh-ireland",
     "costa-maya-mexico",
     "da-nang-hue-chan-may-vietnam",
-    "eilat-israel",
     "emden-germany",
     "fort-de-france-martinique",
     "fujairah-united-arab-emirates",
@@ -430,36 +429,17 @@
       "draft_file_sha256": "f391e5267ecb30e8436d1dbef76bdf6627acff19347b61be1bb8c85b13d12ae5",
       "research_sha256": "26c6cb11bcdb8bdcf86bd06e49b2768c9a950197805dbdc8e8343ba1642509d2",
       "field_exclusions": [],
-      "stage28_candidate_content_hash": "078106af8e6893efe505b462fd51fc30d269a812e24332138f322dff19fc68d4",
-      "proposed_content_hash": "4bd587c45adbbd94ebbd96cc34d44abfb08a6370823fe3b0d03b0a7b15dac601",
-      "candidate_content_hash": "078106af8e6893efe505b462fd51fc30d269a812e24332138f322dff19fc68d4",
+      "stage28_candidate_content_hash": "1183094286458cfcf16db8fac4fbcbc8eb4f7848c9b9ea62504dbbdc00325b75",
+      "proposed_content_hash": "1183094286458cfcf16db8fac4fbcbc8eb4f7848c9b9ea62504dbbdc00325b75",
+      "candidate_content_hash": "1183094286458cfcf16db8fac4fbcbc8eb4f7848c9b9ea62504dbbdc00325b75",
       "production_apply_allowed": true,
       "publication_gates_pass": true,
       "proposed_guide_ref": "qa-evidence/stage29-25-port-release/proposed-guides/da-nang-hue-chan-may-vietnam.json",
       "preview_ref": "qa-evidence/stage29-25-port-release/previews/da-nang-hue-chan-may-vietnam/index.html",
       "rollback_ref": "qa-evidence/stage29-25-port-release/rollback/da-nang-hue-chan-may-vietnam.production-snapshot.json",
       "owner_approval_status": "PENDING",
-      "source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad"
-    },
-    {
-      "landing_slug": "eilat-israel",
-      "app_port_id": "eilat",
-      "canonical_id": "eilat",
-      "draft_id": "9877a9e51f2d6db126c24760",
-      "draft_version": "stage22-deterministic-v2.4",
-      "draft_file_sha256": "6ebf20acb6b282473f2675e204ceda7bb47d65ef03fb811f68e6efb41baddd98",
-      "research_sha256": "98ee6d361590a896d5b3b0c17a01ef97e6ce3d6b297242b9891bb4423046b276",
-      "field_exclusions": [],
-      "stage28_candidate_content_hash": "a03c03443b70a5dd7ece417020f7ccd65ebe6244da051880762ee88a46e3a8b8",
-      "proposed_content_hash": "50043f0cfc9ad70456383b99c83ae8e6e4d428ec3336568426e94f77b2be9eae",
-      "candidate_content_hash": "a03c03443b70a5dd7ece417020f7ccd65ebe6244da051880762ee88a46e3a8b8",
-      "production_apply_allowed": true,
-      "publication_gates_pass": true,
-      "proposed_guide_ref": "qa-evidence/stage29-25-port-release/proposed-guides/eilat-israel.json",
-      "preview_ref": "qa-evidence/stage29-25-port-release/previews/eilat-israel/index.html",
-      "rollback_ref": "qa-evidence/stage29-25-port-release/rollback/eilat-israel.production-snapshot.json",
-      "owner_approval_status": "PENDING",
-      "source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad"
+      "source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
+      "stage31_content_revision": "chan_may_remote_port_call_plans"
     },
     {
       "landing_slug": "emden-germany",
@@ -543,5 +523,18 @@
       "owner_approval_status": "PENDING",
       "source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad"
     }
-  ]
+  ],
+  "previous_bundle_idempotency_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
+  "stage31_eilat_excluded_at_utc": "2026-11-08T12:46:19.706Z",
+  "stage31_eilat_exclusion": {
+    "landing_slug": "eilat-israel",
+    "rationale": "Owner gate: independent verification required for current cruise passenger arrival and Red Sea call patterns before passenger editorial release. Not asserting permanent port closure.",
+    "restored_from": "origin/main",
+    "guide_restored_hash": "f077982a94746d90538a0f82fd54959fcf789e2df9933cb02f0d0214cc3e8f03",
+    "branch_guide_before_restore_hash": "f077982a94746d90538a0f82fd54959fcf789e2df9933cb02f0d0214cc3e8f03"
+  },
+  "stage31_chan_may_correction": {
+    "landing_slug": "da-nang-hue-chan-may-vietnam",
+    "summary": "Remote-port call plans; removed city-centre walk framing; Hue vs Da Nang transfers explicit"
+  }
 }

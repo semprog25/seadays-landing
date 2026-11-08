@@ -1,7 +1,7 @@
 {
   "source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
   "selection_criteria": "READY_FOR_OWNER_APPROVAL, publication_gates_pass, exclude HARD_EXCLUDE, sort landing_slug, unique app_port_id, cap 25",
-  "limit": 25,
+  "limit": 24,
   "eligible_count": 43,
   "picked": [
     {
@@ -389,25 +389,6 @@
       "before_after_changes": 10
     },
     {
-      "landing_slug": "eilat-israel",
-      "app_port_id": "eilat",
-      "canonical_id": "eilat",
-      "draft_id": "9877a9e51f2d6db126c24760",
-      "draft_version": "stage22-deterministic-v2.4",
-      "draft_file_sha256": "6ebf20acb6b282473f2675e204ceda7bb47d65ef03fb811f68e6efb41baddd98",
-      "research_sha256": "98ee6d361590a896d5b3b0c17a01ef97e6ce3d6b297242b9891bb4423046b276",
-      "candidate_content_hash": "a03c03443b70a5dd7ece417020f7ccd65ebe6244da051880762ee88a46e3a8b8",
-      "field_exclusions": [],
-      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "recommended_decision": "APPROVE_AFTER_SPOT_CHECK",
-      "publication_gates_pass": true,
-      "collision_note": null,
-      "sources_loaded": 10,
-      "preview_ref": "qa-evidence/stage28-bulk-candidates/previews/eilat-israel/index.html",
-      "rollback_ref": "qa-evidence/stage28-bulk-candidates/rollback/eilat-israel.production-snapshot.json",
-      "before_after_changes": 10
-    },
-    {
       "landing_slug": "emden-germany",
       "app_port_id": "emden",
       "canonical_id": "emden",
@@ -503,5 +484,6 @@
     "port-sultan-qaboos-muscat-oman",
     "port-of-aqaba-jordan",
     "gran-canaria-spain"
-  ]
+  ],
+  "stage31_note": "Eilat excluded; final cohort matches manifest slugs_locked"
 }

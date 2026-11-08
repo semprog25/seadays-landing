@@ -31,7 +31,8 @@ function main() {
     fail(`stage28 bundle mismatch: ${manifest.stage28_source_bundle_hash}`);
   }
   const slugs = manifest.slugs_locked.slice().sort();
-  if (slugs.length !== 25) fail(`expected 25 slugs, got ${slugs.length}`);
+  const expected = manifest.candidate_count || 25;
+  if (slugs.length !== expected) fail(`expected ${expected} slugs, got ${slugs.length}`);
 
   const portsBySlug = new Map(manifest.ports.map((p) => [p.landing_slug, p]));
   const appIds = new Set();

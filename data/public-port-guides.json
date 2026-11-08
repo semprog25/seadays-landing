@@ -6165,26 +6165,25 @@
       "gettingThere": {
         "fromTerminal": "Chan May Berth 1",
         "transportation": [
-          "Walking",
-          "Taxi",
-          "Coach excursion"
+          "Coach excursion",
+          "Taxi"
         ],
-        "distanceToCity": "Coaches to Hue or Da Nang — expect 45–90+ minutes depending on traffic (not timed on port pages).",
+        "distanceToCity": "Chan May is a remote berth — Hue and Da Nang need confirmed coach or taxi transfers (typically 45–90+ minutes each way depending on traffic; not timed on port pages).",
         "walkingTime": "",
         "taxiInfo": "",
         "publicTransport": "Confirm local transport options with the ship on your call date.",
-        "distanceAnswer": "Coaches to Hue or Da Nang — expect 45–90+ minutes depending on traffic (not timed on port pages)."
+        "distanceAnswer": "Chan May is a remote berth — Hue and Da Nang need confirmed coach or taxi transfers (typically 45–90+ minutes each way depending on traffic; not timed on port pages)."
       },
       "thingsToDo": {
-        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "intro": "Chan May is an industrial cruise berth between Hue and Da Nang. Plan confirmed transfers — you cannot walk into either city centre from the port.",
         "topThings": [
           "Hue Imperial City — coach day.",
           "Da Nang / Marble Mountains — alternate coach.",
           "Lang Co / beaches — nearer if offered."
         ],
-        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
-        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
-        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "shortCall": "Ship or port-area excursions only if offered; do not plan a self-directed walk into Hue or Da Nang without confirmed transfer time.",
+        "standardCall": "Pick one coach direction: Hue Imperial City (full day) or Da Nang / Marble Mountains — confirm ship, line, or licensed transfer and allow transfer time before sightseeing.",
+        "longerCall": "A second confirmed coach outing needs a long window and separate timing; Hue and Da Nang are distinct destinations, not a same-day pair from Chan May.",
         "practicalTip": "Pick one city (Hue or Da Nang) on a short call — not both [S1]."
       },
       "shorePlansFirst": true,
@@ -6207,7 +6206,9 @@
         "owner_publication_authorized": false,
         "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
         "applied_at_utc": "2026-11-08T12:29:41.824Z",
-        "stage28_candidate_content_hash": "078106af8e6893efe505b462fd51fc30d269a812e24332138f322dff19fc68d4"
+        "stage28_candidate_content_hash": "078106af8e6893efe505b462fd51fc30d269a812e24332138f322dff19fc68d4",
+        "stage31_chan_may_call_plan_fix": true,
+        "stage31_applied_at_utc": "2026-11-08T12:46:19.679Z"
       }
     },
     "dakar": {
@@ -7149,7 +7150,7 @@
       "portName": "Eilat",
       "country": "Israel",
       "portInfo": {
-        "description": "At Israel’s small Red Sea frontage, Eilat pairs a southern-shore reef with a desert hinterland. Underwater observation, controlled reef access and inland wildlife conservation are genuinely different ways to spend a day; they need not be padded into a generic city shopping itinerary. The Nature and Parks Authority explains Coral Beach’s protected habitat and Hai-Bar’s wildlife restoration role. A mapped harbour centroid would not help passengers find the correct exit. This revision instead records the passenger hall explicitly mentioned by the port, leaves its geometry null and separates general accessibility arrangements from ship-specific clearance. A sheltered museum-like aquarium visit may suit a different traveller from snorkelling or a vehicle-based reserve circuit.",
+        "description": "Israel's southernmost city, a Red Sea resort destination known for diving, beaches, and desert landscapes.",
         "location": "",
         "timezone": "IST (UTC+2) / IDT (UTC+3)",
         "language": "Hebrew, Arabic",
@@ -7191,53 +7192,12 @@
         "entryRequirements": "Valid passport required. Security screening at entry. Some passport stamps may affect future travel."
       },
       "gettingThere": {
-        "fromTerminal": "Eilat Port passenger hall — Eilat Port, southern shore / Route 90, Eilat, Israel; exact hall entrance unverified",
-        "transportation": [
-          "Walking",
-          "Taxi",
-          "Coach excursion"
-        ],
-        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "fromTerminal": "",
+        "transportation": [],
+        "distanceToCity": "",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": "Confirm local transport options with the ship on your call date.",
-        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
-      },
-      "thingsToDo": {
-        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
-        "topThings": [
-          "Coral Beach Nature Reserve, Eilat southern shore: allow two hours for authorised reef viewing/snorkelling if suitable. The authority confirms beach services and reef-access bridges, not a day-specific swimming guarantee.",
-          "Underwater Observatory Marine Park, Coral Beach: two hours to see underwater viewing/aquarium exhibits without requiring a snorkel session. The operator describes stairs down to the underwater observatory; check mobility alternatives.",
-          "Dolphin Reef, southern Eilat: 90 minutes for observation/beach setting, conditional on current operator admission policy. The city guide corroborates the attraction; do not promise wildlife interaction or rely on an unextracted operator page for present encounter schedules.",
-          "Timna Park, named visitor entrance north of Eilat: 2½ hours for a preselected short route such as the Mushroom/arches area. The city guide documents its rock formations; use the operator for current trail/heat/access arrangements. No long desert hike is fitted into this visit block.",
-          "Hai-Bar Yotvata, Route 90 between Yotvata and Samar: 90 minutes for a vehicle-based reserve circuit; the official page locates it 35 km north of Eilat. Remain inside the vehicle as required and reserve/confirm admission."
-        ],
-        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
-        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
-        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
-        "practicalTip": "Do not mistake an accessible hall for an accessible ship excursion. Confirm each ramp, vehicle, stair and reserve surface for the actual passenger and sailing. [S4][S6]"
-      },
-      "shorePlansFirst": true,
-      "researchImport": {
-        "schema_version": 1,
-        "publication_tier": "passenger_editorial",
-        "stage24_release_candidate": true,
-        "draft_id": "9877a9e51f2d6db126c24760",
-        "draft_version": "stage22-deterministic-v2.4",
-        "research_sha256": "98ee6d361590a896d5b3b0c17a01ef97e6ce3d6b297242b9891bb4423046b276",
-        "landing_slug": "eilat-israel",
-        "candidate_content_hash": "fc6bba0cb0795b243afb2e20112aba90d265c817031227501b32b12d3fcf9c15",
-        "locked_at_utc": "2026-11-08T12:29:41.649Z",
-        "field_exclusions": [],
-        "owner_approved": false,
-        "import_tier": "stage24_dry_run_only",
-        "stage29_release_candidate": true,
-        "stage28_source_bundle_hash": "50f0af8831cb3a709bc325d896e7e54fdb34efa7afc4820ff76ebefaa6b759ad",
-        "stage29_release_prep": true,
-        "owner_publication_authorized": false,
-        "stage29_release_bundle_hash": "a2b8efa26a281ec9fc3315136e1b75fb41651e87d80ce4f0826e78377450e35e",
-        "applied_at_utc": "2026-11-08T12:29:41.824Z",
-        "stage28_candidate_content_hash": "a03c03443b70a5dd7ece417020f7ccd65ebe6244da051880762ee88a46e3a8b8"
+        "publicTransport": ""
       }
     },
     "emden": {
