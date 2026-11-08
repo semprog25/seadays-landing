@@ -66,6 +66,14 @@ function usesPassengerEditorialLead(guide) {
   );
 }
 
+function isResearchItineraryCopy(text) {
+  const s = String(text || '');
+  if (/\b\d+\s*\+\s*\d+\s*\+\s*\d+\s*=/.test(s)) return true;
+  if (/\(\s*\d+\s*\+\s*\d+/.test(s)) return true;
+  if (/Sum:\s*\d+\s*min/i.test(s)) return true;
+  return false;
+}
+
 function assertPassengerReadyGuideFields(guide, portId) {
   const pilotIds = new Set(['aalborg', 'aarhus', 'akureyri', 'eidfjord', 'aqaba', 'aruba']);
   if (!guide || (!pilotIds.has(portId) && !usesPassengerEditorialLead(guide))) return;
@@ -89,6 +97,7 @@ function assertPassengerReadyGuideFields(guide, portId) {
 module.exports = {
   stripMarkdownEmphasis,
   containsInternalResearchLeak,
+  isResearchItineraryCopy,
   preparePassengerGuideText,
   quickFactGettingSummary,
   usesPassengerEditorialLead,

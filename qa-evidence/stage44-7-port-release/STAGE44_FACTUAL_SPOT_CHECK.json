@@ -1,0 +1,2439 @@
+{
+  "generated_at": "2026-11-08T17:29:10.274Z",
+  "ports": [
+    {
+      "landing_slug": "kagoshima-japan",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "MLIT Cruise Port Guide — Kagoshima Port",
+          "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "Marine Port; access; contacts"
+        },
+        {
+          "id": "S2",
+          "publisher": "(reserved)",
+          "url": "—",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "—",
+          "claim_supported": "—"
+        },
+        {
+          "id": "S3",
+          "publisher": "Japan Immigration (not captured)",
+          "url": "—",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "gap",
+          "claim_supported": "Entry"
+        },
+        {
+          "id": "S4",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-kagoshima-japan.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "(reserved)"
+            },
+            {
+              "id": "S3",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Japan Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Marine Port; access; contacts"
+            },
+            {
+              "id": "S2",
+              "publisher": "(reserved)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "—",
+              "claim_supported": "—"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Marine Port; access; contacts"
+            },
+            {
+              "id": "S2",
+              "publisher": "(reserved)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "—",
+              "claim_supported": "—"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "MLIT Cruise Port Guide — Kagoshima Port",
+              "url": "https://www.mlit.go.jp/kankocho/cruise/detail/070/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Marine Port; access; contacts"
+            },
+            {
+              "id": "S2",
+              "publisher": "(reserved)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "—",
+              "claim_supported": "—"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "katakolon-olympia-greece",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "OSM Port of Katakolo node/866132503 (ODbL)",
+          "url": "https://www.openstreetmap.org/node/866132503",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:49:08Z",
+          "published_updated": "Harbour pin",
+          "claim_supported": null
+        },
+        {
+          "id": "S2",
+          "publisher": "Katakolo Port (DLT Pyrgos)",
+          "url": "https://katakoloport.gr/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:49:08Z",
+          "published_updated": "Three piers; LOA; depths; ISPS",
+          "claim_supported": null
+        },
+        {
+          "id": "S3",
+          "publisher": "UNESCO WHC Olympia (517)",
+          "url": "https://whc.unesco.org/en/list/517/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:49:08Z",
+          "published_updated": "Sanctuary / Altis description",
+          "claim_supported": null
+        },
+        {
+          "id": "S4",
+          "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)",
+          "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:49:08Z",
+          "published_updated": "Founded 1857; 3rd-busiest claim; Olympia link; rail/trains",
+          "claim_supported": null
+        },
+        {
+          "id": "S5",
+          "publisher": "Open-Meteo 1991–2020 reanalysis",
+          "url": null,
+          "evidence_path": "evidence/om-climate-katakolon.json",
+          "accessed_utc": "2026-11-05T23:49:08Z",
+          "published_updated": "Interim monthly means",
+          "claim_supported": null
+        },
+        {
+          "id": "S6",
+          "publisher": "EU EES news; ETIAS FAQ status",
+          "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu/en/etias/faq",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:49:08Z",
+          "published_updated": "EES since 2026-04-10; ETIAS not operating",
+          "claim_supported": null
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)"
+            },
+            {
+              "id": "S2",
+              "url": "https://katakoloport.gr/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "Katakolo Port (DLT Pyrgos)"
+            },
+            {
+              "id": "S3",
+              "url": "https://whc.unesco.org/en/list/517/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "UNESCO WHC Olympia (517)"
+            },
+            {
+              "id": "S4",
+              "url": "https://elime.gr/en/limania/dimotiko-limeniko-tameio-pyrgou-katakolo-d-l-t-pyrgou-katakolo/",
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "publisher": "ELIME: Municipal Port Fund of Pyrgos (Katakolo)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Katakolo Port (DLT Pyrgos)",
+              "url": "https://katakoloport.gr/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Three piers; LOA; depths; ISPS",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Katakolo Port (DLT Pyrgos)",
+              "url": "https://katakoloport.gr/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Three piers; LOA; depths; ISPS",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Katakolo Port (DLT Pyrgos)",
+              "url": "https://katakoloport.gr/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Three piers; LOA; depths; ISPS",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Katakolo Port (DLT Pyrgos)",
+              "url": "https://katakoloport.gr/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Three piers; LOA; depths; ISPS",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[4]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM Port of Katakolo node/866132503 (ODbL)",
+              "url": "https://www.openstreetmap.org/node/866132503",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Katakolo Port (DLT Pyrgos)",
+              "url": "https://katakoloport.gr/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:49:08Z",
+              "published_updated": "Three piers; LOA; depths; ISPS",
+              "claim_supported": null
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "thingsToDo.topThings[2]",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Rail/tourist-train option — listed by ELIME; timetable gap."
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "korcula-croatia",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "OSM way/194565776",
+          "url": "https://www.openstreetmap.org/way/194565776",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:52:53Z",
+          "published_updated": "Harbour pin",
+          "claim_supported": null
+        },
+        {
+          "id": "S2",
+          "publisher": "Visit Korčula (Tourist Board) EN",
+          "url": "https://www.visitkorcula.eu/en/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:52:53Z",
+          "published_updated": "Old town; Marco Polo framing; ferry brands",
+          "claim_supported": null
+        },
+        {
+          "id": "S3",
+          "publisher": "Županijska lučka uprava Korčula",
+          "url": "https://www.portkorcula.eu/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:52:53Z",
+          "published_updated": "Harbour jurisdiction list",
+          "claim_supported": null
+        },
+        {
+          "id": "S4",
+          "publisher": "Open-Meteo reanalysis",
+          "url": null,
+          "evidence_path": "evidence/om-climate-korcula.json",
+          "accessed_utc": "2026-11-05T23:52:53Z",
+          "published_updated": "Interim means",
+          "claim_supported": null
+        },
+        {
+          "id": "S5",
+          "publisher": "EU EES / ETIAS FAQ",
+          "url": "home-affairs ; travel-europe",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:52:53Z",
+          "published_updated": "Entry status",
+          "claim_supported": null
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "OSM way/194565776"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.visitkorcula.eu/en/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Visit Korčula (Tourist Board) EN"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.portkorcula.eu/",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "Županijska lučka uprava Korčula"
+            },
+            {
+              "id": "S5",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM way/194565776",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Visit Korčula (Tourist Board) EN",
+              "url": "https://www.visitkorcula.eu/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Old town; Marco Polo framing; ferry brands",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM way/194565776",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Visit Korčula (Tourist Board) EN",
+              "url": "https://www.visitkorcula.eu/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Old town; Marco Polo framing; ferry brands",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM way/194565776",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Visit Korčula (Tourist Board) EN",
+              "url": "https://www.visitkorcula.eu/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Old town; Marco Polo framing; ferry brands",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM way/194565776",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Visit Korčula (Tourist Board) EN",
+              "url": "https://www.visitkorcula.eu/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Old town; Marco Polo framing; ferry brands",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[4]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "OSM way/194565776",
+              "url": "https://www.openstreetmap.org/way/194565776",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Harbour pin",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Visit Korčula (Tourist Board) EN",
+              "url": "https://www.visitkorcula.eu/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T23:52:53Z",
+              "published_updated": "Old town; Marco Polo framing; ferry brands",
+              "claim_supported": null
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "thingsToDo.topThings[2]",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Interior wine villages — gastronomy tradition noted; operator hours gap."
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "malmo-sweden",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "CMP — Cruises Malmö",
+          "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:19:12Z",
+          "published_updated": "LOA/depth/quay lengths; walk claim; contacts",
+          "claim_supported": null
+        },
+        {
+          "id": "S2",
+          "publisher": "Malmö stad visit",
+          "url": "https://www.malmotown.com/ ; malmo.se capture",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:19:12Z",
+          "published_updated": "City destination presence",
+          "claim_supported": null
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo",
+          "url": null,
+          "evidence_path": "evidence/pass4/om-malmo.json",
+          "accessed_utc": "2026-11-06T00:19:12Z",
+          "published_updated": "Interim means",
+          "claim_supported": null
+        },
+        {
+          "id": "S4",
+          "publisher": "EU EES / ETIAS FAQ",
+          "url": "home-affairs ; travel-europe",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:19:12Z",
+          "published_updated": "Entry status",
+          "claim_supported": null
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "CMP — Cruises Malmö"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "Malmö stad visit"
+            },
+            {
+              "id": "S4",
+              "url": "home-affairs ; travel-europe",
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "CMP — Cruises Malmö",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "LOA/depth/quay lengths; walk claim; contacts",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Malmö stad visit",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "City destination presence",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "CMP — Cruises Malmö",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "LOA/depth/quay lengths; walk claim; contacts",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Malmö stad visit",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "City destination presence",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "CMP — Cruises Malmö",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "LOA/depth/quay lengths; walk claim; contacts",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Malmö stad visit",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "City destination presence",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "CMP — Cruises Malmö",
+              "url": "https://www.cmport.com/cruise-ferries/cruises-malmo/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "LOA/depth/quay lengths; walk claim; contacts",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Malmö stad visit",
+              "url": "https://www.malmotown.com/ ; malmo.se capture",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:19:12Z",
+              "published_updated": "City destination presence",
+              "claim_supported": null
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "penang-malaysia",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Penang Port Commission — home / installations nav",
+          "url": "https://www.penangport.gov.my/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "SPCT listed; contacts"
+        },
+        {
+          "id": "S2",
+          "publisher": "Malaysia Immigration (not captured)",
+          "url": "—",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "gap",
+          "claim_supported": "Entry"
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-penang-malaysia.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.penangport.gov.my/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Penang Port Commission — home / installations nav"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Malaysia Immigration (not captured)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Penang Port Commission — home / installations nav",
+              "url": "https://www.penangport.gov.my/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "SPCT listed; contacts"
+            },
+            {
+              "id": "S2",
+              "publisher": "Malaysia Immigration (not captured)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "gap",
+              "claim_supported": "Entry"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Penang Port Commission — home / installations nav",
+              "url": "https://www.penangport.gov.my/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "SPCT listed; contacts"
+            },
+            {
+              "id": "S2",
+              "publisher": "Malaysia Immigration (not captured)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "gap",
+              "claim_supported": "Entry"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Penang Port Commission — home / installations nav",
+              "url": "https://www.penangport.gov.my/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "SPCT listed; contacts"
+            },
+            {
+              "id": "S2",
+              "publisher": "Malaysia Immigration (not captured)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "gap",
+              "claim_supported": "Entry"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "rio-de-janeiro-brazil",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Pier Mauá — About the Terminal",
+          "url": "https://piermaua.rio/en/sobre-o-terminal/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "Address; cumulative tourists; awards history"
+        },
+        {
+          "id": "S2",
+          "publisher": "Pier Mauá — Home / access",
+          "url": "https://piermaua.rio/en/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "70,000 m²; VLT; airport distances"
+        },
+        {
+          "id": "S3",
+          "publisher": "Itamaraty — QGRV visa table",
+          "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "updated 2026-10-09",
+          "claim_supported": "Nationality-based entry"
+        },
+        {
+          "id": "S4",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-rio-de-janeiro-brazil.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — About the Terminal"
+            },
+            {
+              "id": "S2",
+              "url": "https://piermaua.rio/en/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Pier Mauá — Home / access"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.gov.br/mre/pt-br/assuntos/portal-consular/vistos/quadro-geral-de-regime-de-vistos-para-entrada-de-estrangeiros-no-brasil",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Itamaraty — QGRV visa table"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Pier Mauá — About the Terminal",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Address; cumulative tourists; awards history"
+            },
+            {
+              "id": "S2",
+              "publisher": "Pier Mauá — Home / access",
+              "url": "https://piermaua.rio/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "70,000 m²; VLT; airport distances"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Pier Mauá — About the Terminal",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Address; cumulative tourists; awards history"
+            },
+            {
+              "id": "S2",
+              "publisher": "Pier Mauá — Home / access",
+              "url": "https://piermaua.rio/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "70,000 m²; VLT; airport distances"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Pier Mauá — About the Terminal",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Address; cumulative tourists; awards history"
+            },
+            {
+              "id": "S2",
+              "publisher": "Pier Mauá — Home / access",
+              "url": "https://piermaua.rio/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "70,000 m²; VLT; airport distances"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Pier Mauá — About the Terminal",
+              "url": "https://piermaua.rio/en/sobre-o-terminal/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Address; cumulative tourists; awards history"
+            },
+            {
+              "id": "S2",
+              "publisher": "Pier Mauá — Home / access",
+              "url": "https://piermaua.rio/en/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "70,000 m²; VLT; airport distances"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "shanghai-china",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal",
+          "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T12:09:32Z",
+          "published_updated": "live",
+          "claim_supported": "Address; 1600 m shoreline; 4 berths; 225k/150k GT capacity"
+        },
+        {
+          "id": "S2",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-shanghai-china.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "published_updated": "live",
+              "claim_supported": "Address; 1600 m shoreline; 4 berths; 225k/150k GT capacity"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Official Shanghai China Travel — Wusongkou International Cruise Terminal",
+              "url": "https://www.meet-in-shanghai.net/en/cruise-terminal/shanghai-wusongkou-international-cruise-terminal-613796/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:09:32Z",
+              "published_updated": "live",
+              "claim_supported": "Address; 1600 m shoreline; 4 berths; 225k/150k GT capacity"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    }
+  ]
+}

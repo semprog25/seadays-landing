@@ -11094,7 +11094,7 @@
       "portName": "Kagoshima",
       "country": "Japan",
       "portInfo": {
-        "description": "Japanese port city known for its active volcano (Sakurajima), hot springs, and historical samurai heritage.",
+        "description": "Marine Port Kagoshima sits on Kinko Bay between Kagoshima City and Mt Sakurajima and is within roughly 1,000 km of Shanghai, Tokyo, Fukuoka and Naha, attracting domestic and foreign cruise calls. MLIT’s Cruise Port Guide lists cruise terminal, tourist information and currency-exchange services, address Chuoko-shinmachi, Kagoshima City, airport access about 55 minutes by car, and management by Kagoshima Prefectural Government (TEL 099-805-7414; kago-gcyousei@pref.kagoshima.lg.jp). Berth length/depth figures were not published on the captured guide page.",
         "location": "",
         "timezone": "JST (UTC+9)",
         "language": "Japanese",
@@ -11149,9 +11149,44 @@
           "Ferry to Sakurajima"
         ],
         "distanceToCity": "Port located near city center",
-        "walkingTime": "15-25 minutes to city center",
+        "walkingTime": "15-25 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Good tram and bus network"
+        "publicTransport": "Good tram and bus network",
+        "distanceAnswer": "Port located near city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Sakurajima ferry / viewpoints — ~180 min planning.",
+          "Tenmonkan shopping — centre.",
+          "Sengan-en — allow transit."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Volcanic ash advisories can affect outdoor plans — check local notices."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "ae2256608533c29e0b8bc5b8",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "90bb57d7a946555a9390f4cf92b9d401b9acf5e4bce4c360bc9be96985cc0600",
+        "landing_slug": "kagoshima-japan",
+        "candidate_content_hash": "23db3dad291930e0b19d683682eed41d4dcfb6a0de327bea7b7fad5ec77e3b26",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.364Z",
+        "stage43_candidate_content_hash": "1929396606847824a5a5bb6e1714f2836aef2275d5120c218e8d08a262728902"
       }
     },
     "kailua-kona": {
@@ -11578,7 +11613,7 @@
       "portName": "Katakolon",
       "country": "Greece",
       "portInfo": {
-        "description": "A small port town, gateway to ancient Olympia, the birthplace of the Olympic Games.",
+        "description": "ELIME (Association of Greek Ports) frames Katakolo as Pyrgos’s port, founded 1857, and today among Greece’s busiest cruise gateways specifically because of Olympia access. UNESCO’s Archaeological Site of Olympia sits in the Alpheios–Kladeos valley as the Altis sanctuary of Zeus and the Pan-Hellenic Games landscape — a separate inland destination, not a quay-side ruin.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -11619,12 +11654,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Katakolo (Pyrgos Municipal Port Fund) — Katakolo harbour, Ilia, Greece",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Olympia is inland. ELIME notes car rentals, tourist trains, and a railway station connection; cruise lines usually sell coaches. No measured transfer minute is claimed here. Confirm last-call return with the ship.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Olympia is inland. ELIME notes car rentals, tourist trains, and a railway station connection; cruise lines usually sell coaches. No measured transfer minute is claimed here. Confirm last-call return with the ship."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Ancient Olympia — UNESCO Altis / stadium landscape.",
+          "Katakolo harbour front — if the call is short or mobility limits inland travel.",
+          "Rail/tourist-train option — listed by ELIME; timetable gap.",
+          "Archaeological Site of Olympia",
+          "Katakolo harbour front"
+        ],
+        "shortCall": "Harbour only, or a compressed Olympia coach only if the ship’s own timing still leaves a 75-minute buffer. Do not freelance a late return.",
+        "standardCall": "Olympia site + museum block with a 90-minute ship buffer. Minute split is editorial.",
+        "longerCall": "Fuller Olympia circuit still holding 120 minutes uncommitted. Overnight needs ship confirmation.",
+        "practicalTip": "Katakolo’s piers are the easy part; Olympia’s heat and queue are the schedule risk."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "a090077658d4d62b27110733",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "7912dbbfc9567c15deb1e0175a75c7ea1bc5cb4e0141f3ce58275536aeff4cd3",
+        "landing_slug": "katakolon-olympia-greece",
+        "candidate_content_hash": "b410757fad14f0f4afddba0db8f8ec8cf172c351131d7c8dd7f5dc8f81e22568",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.365Z",
+        "stage43_candidate_content_hash": "9aafae482a412e60e79855a626fa1618d9134e644fd7196128f24700c805c8cf"
       }
     },
     "kavala": {
@@ -12836,7 +12912,7 @@
       "portName": "Korcula",
       "country": "Croatia",
       "portInfo": {
-        "description": "A historic Croatian island port with medieval architecture and beautiful Adriatic coastline.",
+        "description": "visitkorcula.eu (EN) stresses cultural heritage, tentative UNESCO listing wording on the board site, and inter-island shipping via Jadrolinija, Krilo, TP Line, KSC and G&V Line. The Port Authority’s public pages emphasise harbour maintenance, traffic safety and concession oversight rather than a glossy cruise brochure.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Croatian",
@@ -12877,12 +12953,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Korčula town harbour / ferry landing area — Korčula Old Town waterfront, 20260 Korčula",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Old town is adjacent to the harbours. Island buses/taxis exist but are not timed here. Ferry brands listed by the tourist board are for inter-island travel, not ship-to-Olympia-style excursions.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Old town is adjacent to the harbours. Island buses/taxis exist but are not timed here. Ferry brands listed by the tourist board are for inter-island travel, not ship-to-Olympia-style excursions."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Stone old town — board’s primary invite.",
+          "Harbour edges — ZLU’s town harbours.",
+          "Interior wine villages — gastronomy tradition noted; operator hours gap.",
+          "Korčula stone old town",
+          "Town harbour edges"
+        ],
+        "shortCall": "Old town only. 75-minute buffer (and tender queue if applicable).",
+        "standardCall": "Old town + one nearby beach/village with 90-minute buffer.",
+        "longerCall": "Wider island loop only with 120 minutes uncommitted.",
+        "practicalTip": "Photograph the tender number before climbing into the lanes — Korčula’s grid is dense and easy to overshoot toward the wrong quay."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "0e7d34772e75d52addf7c419",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "4c74fcb31b4bc0c8463b5eb1217cb25a0071d729bfce3c664f8fb3c82353e3e1",
+        "landing_slug": "korcula-croatia",
+        "candidate_content_hash": "95aa47b0be372b6f06963815a0209d718a1c40d43fe399d7b98b02f3c4244833",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.365Z",
+        "stage43_candidate_content_hash": "5f69948535a4582f6b1935a15230588a6ba3d48af052c3b8dca295fab2d3f95f"
       }
     },
     "kota-kinabalu": {
@@ -15528,7 +15645,7 @@
       "portName": "Malmö",
       "country": "Sweden",
       "portInfo": {
-        "description": "Sweden's third largest city, connected to Copenhagen by the Öresund Bridge, with a modern port and historic center.",
+        "description": "Öresund Swedish-side cruise call under the shared CMP operator with Copenhagen. Keep Copenhagen as an optional long product, not the default short call.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Swedish",
@@ -15575,12 +15692,52 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "CMP Malmö cruise quay — Copenhagen Malmö Port — Malmö",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "CMP: walking distance to centre — confirm quay exit.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "CMP: walking distance to centre — confirm quay exit."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "City centre / Gamla Staden",
+          "Malmö city centre / Gamla Staden approaches",
+          "Västra hamnen / Turning Torso area",
+          "Copenhagen day trip"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not dual-commit Malmö museums and Copenhagen on a short clock."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "b15471267fca78a9837d2232",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "c0e3a653e53b5dde7d590bd0db0c59e96c43034f4055a45651051224d512684c",
+        "landing_slug": "malmo-sweden",
+        "candidate_content_hash": "c80d37e1b4d2625a029d9a667d92d9462e1e731604bb37a776a8f4a20c9c597c",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.365Z",
+        "stage43_candidate_content_hash": "ecadb3f979b36260341511fb63219810347fea01b30196c02755a31bc21ff8a1"
       }
     },
     "manama-khalifa-bin-salman-port": {
@@ -19701,7 +19858,7 @@
       "portName": "Penang",
       "country": "Malaysia",
       "portInfo": {
-        "description": "A Malaysian port destination with excellent facilities, historic heritage, and access to beautiful Malaysian attractions.",
+        "description": "Penang is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "MYT (UTC+8)",
         "language": "Malay, English, Chinese, Tamil",
@@ -19740,12 +19897,51 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Swettenham Pier Cruise Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "George Town centre is typically near the pier — confirm with ship before assuming a short walk.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "George Town centre is typically near the pier — confirm with ship before assuming a short walk."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "George Town street art / heritage — ~150 min.",
+          "Food streets — heat-aware.",
+          "Penang Hill — allow transit."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Heat and humidity — hydrate for heritage walking."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "467ccc8cee7968080dd7ad26",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "5d053a5349a89e986b1d1cdfa826a380f8ac0ab4c78ee593d292e72decff0387",
+        "landing_slug": "penang-malaysia",
+        "candidate_content_hash": "793aeb091861e923d84db0a10860cf9ae1e3bd566f39cff1438c44786b07f0b3",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.365Z",
+        "stage43_candidate_content_hash": "96e85e81a75ff28c7556e4cb67fbff6ba0e41bd1412f775991512072377e1502"
       }
     },
     "phu-my": {
@@ -22302,7 +22498,7 @@
       "portName": "Rio de Janeiro",
       "country": "Brazil",
       "portInfo": {
-        "description": "Brazil's vibrant former capital, a stunning port city with iconic beaches, mountains, and excellent facilities.",
+        "description": "Rio de Janeiro is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "BRT (UTC-3)",
         "language": "Portuguese",
@@ -22345,12 +22541,52 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Pier Mauá",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "VLT integration to metro hubs (Uruguaiana, Carioca, Cinelândia) per Pier Mauá access page. Taxis/rideshare at the port; prices null. Beach zones (Copacabana/Ipanema) are a separate road transfer — minutes null.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "VLT integration to metro hubs (Uruguaiana, Carioca, Cinelândia) per Pier Mauá access page. Taxis/rideshare at the port; prices null. Beach zones (Copacabana/Ipanema) are a separate road transfer — minutes null."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Praça Mauá / Museum of Tomorrow / MAR — adjacent.",
+          "Centro / Cinelândia — VLT/metro.",
+          "Christ the Redeemer / Sugarloaf — allow queues + traffic buffer.",
+          "Copacabana — longer transfer; not ideal on a short call."
+        ],
+        "shortCall": "Praça Mauá museums + waterfront + 75 min buffer.",
+        "standardCall": "One iconic viewpoint (Christ or Sugarloaf) + downtown + 90–120 min buffer for traffic.",
+        "longerCall": "Beach + viewpoint only with early start and confirmed all-aboard.",
+        "practicalTip": "Plan traffic buffers for anything beyond Praça Mauá; Rio road times vary widely."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "bdf4f4f534b4c68b9779659b",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "c54b5033cd7cf3931339f21279b2ad9bd142c627511cc46ac3c67e7cc242d831",
+        "landing_slug": "rio-de-janeiro-brazil",
+        "candidate_content_hash": "117d2c5342e0a2c6d0ebc9ac39a693ca2832b0066cd87971ef3643b8d26b03e3",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.365Z",
+        "stage43_candidate_content_hash": "744f1eef6d51facc2b5b378b684b7f25547a8f7cebbf7a3c1fcbea3adca437f1"
       }
     },
     "road-town": {
@@ -24672,7 +24908,7 @@
       "portName": "Shanghai",
       "country": "China",
       "portInfo": {
-        "description": "China's largest city and major port, a modern metropolis with historic areas and excellent facilities.",
+        "description": "Shanghai is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "CST (UTC+8)",
         "language": "Mandarin, Shanghainese",
@@ -24715,12 +24951,52 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Wusongkou International Cruise Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Confirm with ship — minutes unverified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Confirm with ship — minutes unverified."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "The Bund / Old Town (transfer) — with transfer as needed.",
+          "Ship excursion — safest timing."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Immigration can be slow — leave early for independent plans."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "77890b7f17c702292aee612b",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "a067e44744cb7ef824dc7ea876621b2a4c542df212bc4df10e92603c100de271",
+        "landing_slug": "shanghai-china",
+        "candidate_content_hash": "8a9d5fde049d7f28d06e0f5c92074a81fdd9dbe4a0367d687a7501cd59468bc4",
+        "locked_at_utc": "2026-11-08T17:29:10.274Z",
+        "field_exclusions": [
+          "thingsToDo.topThings[2]"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage44_release_candidate": true,
+        "stage43_source_bundle_hash": "40be0c1e5d0d3c9b0578b745875ce78375173d25b2af8cfe2300aad4da567b66",
+        "stage44_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage44_release_bundle_hash": "cd0ca7725432c3424e9439d913ac7e7ac362ce6fc6080c91030971b13ed1ddb0",
+        "applied_at_utc": "2026-11-08T17:29:10.365Z",
+        "stage43_candidate_content_hash": "3a11bb654bf48b0ee621e8da76f0824bb0e5361093236d76fd9a268e5b17cb61"
       }
     },
     "sharm-el-sheikh": {
