@@ -61,27 +61,11 @@
     "publicTransport": "Inner harbour: complimentary shuttle; 3 km to centre. Aura river: walkable downtown context. Airport distance on berth sheet: 11 km.",
     "distanceAnswer": "Within Turku city"
   },
-  "researchImport": {
-    "landing_slug": "turku-finland",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "c75427b9c91e0f3ae7e0986f3260efb0123587134941917a783eb96353762f0f",
-    "candidate_content_hash": "c1080346756db47b72632c17e00866b50edb1e6ba456bafb0c8416bd4dceab9a",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
-  },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
     "topThings": [
       "River Aura waterfront / Market Square area — ~90–120 min.",
-      "Archipelago boat trips — only with long calls; not verified for self-timing.",
+      "Archipelago boat trips — long calls only; book through your ship or a verified operator.",
       "Turku city centre / riverfront"
     ],
     "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
@@ -89,5 +73,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "Reconcile your ship’s LOA with the 240 m vs 290 m figures before assuming an inner-harbour berth."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "c75427b9c91e0f3ae7e0986f3260efb0123587134941917a783eb96353762f0f",
+    "landing_slug": "turku-finland",
+    "candidate_content_hash": "3bf5b5685f7367a3248f1af73408be2dd2c6bb530f344160b2c3d2300b2099ab",
+    "locked_at_utc": "2026-11-09T15:08:10.650Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }

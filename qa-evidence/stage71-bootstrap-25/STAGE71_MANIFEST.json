@@ -20,7 +20,7 @@
   "production_baseline_sha": "989c709f82ab8642ff285468998e41d8895a6a8c",
   "worktree_head_sha": "b1cb57b78ff501d2ff9b2b4b0b716a279e6363b8",
   "verified_research_commit": "77968a38ba420a4011af3b83b9d444c3e1552ad1",
-  "bundle_idempotency_hash": "b605122e98576705423bb80e58376c1cbad2b9e1373e5a02b8d2ce75021ec093",
+  "bundle_idempotency_hash": "ad302209b9024cb33def7bed45e6b3558c5deaafc5b91b5eb41ebac2c4f54ace",
   "candidate_count_selected": 25,
   "passing_all_gates": 25,
   "slugs_inspected": [
@@ -95,7 +95,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/lanzarote.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "madeira-funchal-portugal",
@@ -113,7 +115,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/madeira.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "melbourne-australia",
@@ -131,15 +135,17 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/melbourne.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "molde-norway",
       "app_port_id": "molde",
-      "draft_content_hash": "1569938dc065595ff4106ac13e23a0bec270af02dbf744c38560241eabc83c36",
+      "draft_content_hash": "dad8baad2ba5aaa7ecb8863abe26e504cd63eeff80e3e0003aadac5096b49f55",
       "research_sha256": "b3b7b1f4d03bb904414c24c1427d6be723704ec0c64cbeca4407328ae15b89db",
       "field_exclusions": [],
-      "proposed_content_hash": "8fd4a2f70f3fe868c963a54b3788c27e7c1b91063a56b3dedcd078b03ed44380",
+      "proposed_content_hash": "32e9a7109e7f18da02556b75b0e80697ca0dd3acf5cc156d96919eed47cf357e",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -149,7 +155,10 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/molde.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.663Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "narvik-norway",
@@ -167,15 +176,17 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/narvik.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "olden-norway",
       "app_port_id": "olden",
-      "draft_content_hash": "fabbb937a8acf5a2bdb5d8aa2951b571843fc4e06a8144d84c996e09687e6a55",
+      "draft_content_hash": "177a0b7f025403911aeab440c9bee8d55839543097a7b3c477aaf79e4e2f8577",
       "research_sha256": "263d71ea030a3df33c897c42df8ac0a8ac491e6c8edae098ac12b7576cd1f992",
       "field_exclusions": [],
-      "proposed_content_hash": "bc8b1d7c3e77f2ea991f358092788f764ebd56f2f844caa6b241401464248324",
+      "proposed_content_hash": "f50875222730abcbb36405447777508ee43b1c862e42c14e3fd95b861d560577",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -185,7 +196,10 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/olden.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.658Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "ponta-delgada-azores-portugal",
@@ -203,15 +217,17 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/ponta-delgada.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "port-canaveral-fl-united-states",
       "app_port_id": "port-canaveral",
-      "draft_content_hash": "7df12692f8ea2c1e435eeaba8669a6027e80afd43fddb1834125ec13d4ebf59f",
+      "draft_content_hash": "3fc5e0206bb3465672672de8c609310a04d313d9337527b952b368a931bce524",
       "research_sha256": "9c97c4416c61a5cb4f45cb193aacf23a31a51fe45f87bcefd092daab8d9e0a97",
       "field_exclusions": [],
-      "proposed_content_hash": "936e6a754258400812d9884537c19a213b46efae7e57350b898fd416634454a9",
+      "proposed_content_hash": "e879745adb0d8ebfd90b9271b1627800c05d06821e605fc83dbd26fba2c1cb2d",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -221,7 +237,10 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/port-canaveral.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.625Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "safaga-egypt",
@@ -239,7 +258,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/safaga.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "salvador-de-bahia-brazil",
@@ -257,7 +278,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/salvador.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "santiago-san-antonio-chile",
@@ -275,7 +298,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/san-antonio.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "sharm-el-sheikh-egypt",
@@ -293,15 +318,17 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/sharm-el-sheikh.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "skagen-denmark",
       "app_port_id": "skagen",
-      "draft_content_hash": "f5d3e7edda11123a8e78d55f59b9cf7391d3099b16f714169a2e190e968ae8a2",
+      "draft_content_hash": "5c35ddf8ae0eb8b8307e49fab2b0b39b667cce40cf947c93766fdc2332e10b48",
       "research_sha256": "ca852b1d700cf6e46771a4f206211118035f33238de8ca35c326500538b8022e",
       "field_exclusions": [],
-      "proposed_content_hash": "c88da2b5c77a74a2aab338d06ac14f5f5fb4e827aba3077fdbad5db2555c9ace",
+      "proposed_content_hash": "6dce61f101f65ae894afb2556958a7c4c8e4c56cab6302db9622f38a76645374",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -311,15 +338,18 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/skagen.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.648Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "skjolden-norway",
       "app_port_id": "skjolden",
-      "draft_content_hash": "08189742f87dd931fc22af766ea19fca73e7eaaf155536b37152f563f85d27f4",
+      "draft_content_hash": "7f94179a2383b0ec31e6b152a1054ffa36f060edb1969a1581c3e2d249162fd7",
       "research_sha256": "2ee0da2610a597afe91b13d6d66fea6cbf0ca68616f3148ea040446f94883bcf",
       "field_exclusions": [],
-      "proposed_content_hash": "1398cf50e8497613b6a71eda49a7418917d0d84afa4463499e254c6ee8f6b213",
+      "proposed_content_hash": "c2d7320f9e1f51baea95f8a49d8722e27ba7d51ccd05cbf370029333a7a42c8a",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -329,7 +359,10 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/skjolden.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.631Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "st-george-s-grenada",
@@ -347,15 +380,17 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/grenada.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "st-lucia-castries-st-lucia",
       "app_port_id": "st-lucia",
-      "draft_content_hash": "be1a19f88b3b48fca6efc034558d5adfad78d5d94cd207aabad6cb099173b764",
+      "draft_content_hash": "c5f7dd8e64522aa3ccde7742c6f882a706b84293db2574d9d98ae6736aa9bd9c",
       "research_sha256": "85274325b3cc47df7216ba029641a45e6d2557fe9c5c077cdba195347c3b08af",
       "field_exclusions": [],
-      "proposed_content_hash": "6556710d20c731f1cd1b9e312a402203976d40137d3a6062597619059971fb55",
+      "proposed_content_hash": "fd6a6de4cdc17aafafa9fc2956d839f0ddcf17dfbba740fdbfc006894a5fbbb4",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -365,7 +400,10 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/st-lucia.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.636Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "tauranga-new-zealand",
@@ -383,7 +421,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/tauranga.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "tenerife-spain",
@@ -401,7 +441,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/tenerife.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "tortola-british-virgin-islands",
@@ -419,7 +461,9 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/tortola.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "trondheim-norway",
@@ -437,15 +481,17 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/trondheim.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "turku-finland",
       "app_port_id": "turku",
-      "draft_content_hash": "ef4c2fd8a93c471c256a3d074731e3cdecb10376e3fd3095914ad3dcd00f63e1",
+      "draft_content_hash": "75324ec4db4ad620ab2279a33c0a55cadb182e01a05a8a478ad4b293ed04d0db",
       "research_sha256": "c75427b9c91e0f3ae7e0986f3260efb0123587134941917a783eb96353762f0f",
       "field_exclusions": [],
-      "proposed_content_hash": "c93bd106a257d49750205bb12c937342691a6f2700567f9417c12015116c67f3",
+      "proposed_content_hash": "407c90db86eb580dc3fa59be9ef7d6bb1202a8bb8aac9b0c670c2e2f6260ff99",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -455,15 +501,18 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/turku.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.653Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "ulvik-norway",
       "app_port_id": "ulvik",
-      "draft_content_hash": "4ec2a0b4cb299ffdd6f98df9efda198a1cab7faa1ead7d2321cb59186b5f9565",
+      "draft_content_hash": "0379ae98ee364d903e111e3d9111d903ca59188b0c6b2def9ddd1c999a1551d7",
       "research_sha256": "759da02cce3fbcedda684cf128a33681f50c2fc39665c02f650bf87e633e58e4",
       "field_exclusions": [],
-      "proposed_content_hash": "a693f11a0c3b2734cec36fe8aa28b72b4fcdc3b20feaf382ebb8cda4a2334556",
+      "proposed_content_hash": "135296740a6ce46db19dc2976b43c0fda970ef13b3dc5fcf4dff5f55361bb5ee",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -473,15 +522,18 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/ulvik.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.639Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "ushuaia-argentina",
       "app_port_id": "ushuaia",
-      "draft_content_hash": "5363b764a3a2741092e7c6d074f50c9143b0365626fec67a5c0d0934a2b6b3dc",
+      "draft_content_hash": "c00f50b14eef834e44482a4a3507775d9844ebe53b0994397d93c0d8ccb46843",
       "research_sha256": "9000fa2046600837a72436ae2bab6d1e59bcbda6b0a0ebf9d95880fc51ad3729",
       "field_exclusions": [],
-      "proposed_content_hash": "d62a94c6ca4ecae5d4f1791e7cb4289636f870c04fda1de1d271cf1432b2370d",
+      "proposed_content_hash": "8f44bc866e8636d3f35d078d1a87bd00a5a1d9ee82e8df9b1020052f44b1ab7a",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -491,15 +543,18 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/ushuaia.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:19.401Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "visby-sweden",
       "app_port_id": "visby",
-      "draft_content_hash": "b07090e743f0b22de10e1b9df54005dda19b2a477be2bbd427e55bbd02645aba",
+      "draft_content_hash": "fc042846ee2f3ba4765baba94cfd4ce8069a53a428a6ab9529cd55eb566def23",
       "research_sha256": "c888070816ad835ab9b65e878c48f6b1502e4c2d6b93fc3434aaf09dfc360d1c",
       "field_exclusions": [],
-      "proposed_content_hash": "931d83a54aae62ea26112752a3beef9ba162beb5939e66e83e53965354aad9ab",
+      "proposed_content_hash": "eb5904c96011897553afac20575bd4a0653719528d24c04c68eb216a8b70e9ba",
       "technical_apply_eligible": true,
       "production_apply_allowed": false,
       "publication_gates_pass": true,
@@ -509,7 +564,10 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/visby.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "stage72_rebuilt_at_utc": "2026-11-09T15:08:10.644Z",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     },
     {
       "landing_slug": "wellington-new-zealand",
@@ -527,12 +585,51 @@
       "terminals_proposed_ref": "qa-evidence/stage71-bootstrap-25/terminals-proposed/wellington.json",
       "owner_approval_status": "PENDING",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-      "identifier_confidence": "verified"
+      "identifier_confidence": "verified",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "editorial_review_reasons": []
     }
   ],
   "pipeline": {
     "prompt_version": "stage22-deterministic-v2.5-marker-strip",
     "recovery_mode": "stage71-bootstrap-25",
     "sanitizer": "stage22-deterministic-v2.5-marker-strip"
+  },
+  "editorial_review": {
+    "stage72_completed_at_utc": "2026-11-09T15:08:19.505Z",
+    "counts": {
+      "EDITORIAL_PASS": 25,
+      "EDITORIAL_REPAIR_REQUIRED": 0,
+      "EDITORIAL_HOLD": 0
+    },
+    "slugs_editorial_pass": [
+      "lanzarote-spain",
+      "madeira-funchal-portugal",
+      "melbourne-australia",
+      "molde-norway",
+      "narvik-norway",
+      "olden-norway",
+      "ponta-delgada-azores-portugal",
+      "port-canaveral-fl-united-states",
+      "safaga-egypt",
+      "salvador-de-bahia-brazil",
+      "santiago-san-antonio-chile",
+      "sharm-el-sheikh-egypt",
+      "skagen-denmark",
+      "skjolden-norway",
+      "st-george-s-grenada",
+      "st-lucia-castries-st-lucia",
+      "tauranga-new-zealand",
+      "tenerife-spain",
+      "tortola-british-virgin-islands",
+      "trondheim-norway",
+      "turku-finland",
+      "ulvik-norway",
+      "ushuaia-argentina",
+      "visby-sweden",
+      "wellington-new-zealand"
+    ],
+    "owner_publication_authorized": false,
+    "production_apply_permitted": false
   }
 }

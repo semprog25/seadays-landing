@@ -1,0 +1,133 @@
+{
+  "generated_at_utc": "2026-11-09T15:08:10.509Z",
+  "slug_count": 10,
+  "slugs": [
+    "port-canaveral-fl-united-states",
+    "skjolden-norway",
+    "st-lucia-castries-st-lucia",
+    "ulvik-norway",
+    "visby-sweden",
+    "skagen-denmark",
+    "turku-finland",
+    "olden-norway",
+    "molde-norway",
+    "ushuaia-argentina"
+  ],
+  "detail": [
+    {
+      "landing_slug": "port-canaveral-fl-united-states",
+      "repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "portcanaveral.com directions-parking [S2] in research by-port",
+          "before_snippet": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adj"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "portcanaveral.com directions-parking [S2] in research by-port",
+          "before_snippet": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adj"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "generic passenger guidance; avoids clipped research cell merge",
+          "before_snippet": "Confirm local transport options with the ship on your call date."
+        }
+      ]
+    },
+    {
+      "landing_slug": "skjolden-norway",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "research lists asset; removed internal hours-not-verified wording",
+          "before_snippet": "Catamaran M/S Holly — port lists 73-guest catamaran among assets; ticket hours not verified."
+        }
+      ]
+    },
+    {
+      "landing_slug": "st-lucia-castries-st-lucia",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing; no fabricated hours",
+          "before_snippet": "Castries market — hours not verified."
+        }
+      ]
+    },
+    {
+      "landing_slug": "ulvik-norway",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing",
+          "before_snippet": "Olav H. Hauge Centre — hours not verified."
+        }
+      ]
+    },
+    {
+      "landing_slug": "visby-sweden",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing",
+          "before_snippet": "Botanical / rose gardens / ruins — hours not verified."
+        }
+      ]
+    },
+    {
+      "landing_slug": "skagen-denmark",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing",
+          "before_snippet": "Grenen (sand spit) — transfer time not verified."
+        }
+      ]
+    },
+    {
+      "landing_slug": "turku-finland",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing",
+          "before_snippet": "Archipelago boat trips — only with long calls; not verified for self-timing."
+        }
+      ]
+    },
+    {
+      "landing_slug": "olden-norway",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[0]",
+          "evidence": "removed internal verification phrasing",
+          "before_snippet": "Quayside / village staging area — shops/excursion desks mentioned on secondary guides only; authority confirms quay + te"
+        },
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing",
+          "before_snippet": "Loen Skylift — via shuttle or Loen tender — duration not verified on authority HTML."
+        }
+      ]
+    },
+    {
+      "landing_slug": "molde-norway",
+      "repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe phrasing",
+          "before_snippet": "Atlantic Road / regional coach — only with line-confirmed timing; not verified as a short-call walk."
+        }
+      ]
+    },
+    {
+      "landing_slug": "ushuaia-argentina",
+      "repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "ANPyN/DPP research [S1][S2]; removed internal verification tag",
+          "before_snippet": "Ushuaia is the southernmost major cruise/Antarctic gateway in Argentina. The national ports agency describes a 550 m × 2"
+        }
+      ]
+    }
+  ]
+}

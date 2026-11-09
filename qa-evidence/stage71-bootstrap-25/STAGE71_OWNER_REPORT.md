@@ -32,7 +32,9 @@ Full artifact: `STAGE71_MERGE_DEPLOY_VERIFY.json`.
 | **BLOCKED** | **0** |
 | Owner bucket `READY_FOR_OWNER_APPROVAL` | **25** |
 
-Bundle hash: `b605122e98576705423bb80e58376c1cbad2b9e1373e5a02b8d2ce75021ec093` (`STAGE71_MANIFEST.json`).
+Bundle hash: `ad302209b9024cb33def7bed45e6b3558c5deaafc5b91b5eb41ebac2c4f54ace` (`STAGE71_MANIFEST.json` after Stage 72 repairs).
+
+**Stage 72 editorial review:** `STAGE72_OWNER_REPORT.md`, `EDITORIAL_REVIEW_REPORT.json`, `STAGE72_REPAIRS_APPLIED.json` — **25/25 EDITORIAL_PASS** for passenger copy (metadata uncertainties remain; no `owner_publication_authorized`).
 
 ## Publication safety (final review)
 

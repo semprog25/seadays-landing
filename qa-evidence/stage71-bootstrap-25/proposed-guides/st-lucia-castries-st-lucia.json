@@ -59,27 +59,11 @@
     "publicTransport": "City/market walk marketed as very short from terminal; minutes still treat as unsurveyed. Soufrière / Pitons are long coach days — ≥120 min buffer.",
     "distanceAnswer": "City/market walk marketed as very short from terminal; minutes still treat as unsurveyed. Soufrière / Pitons are long coach days — ≥120 min buffer."
   },
-  "researchImport": {
-    "landing_slug": "st-lucia-castries-st-lucia",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "85274325b3cc47df7216ba029641a45e6d2557fe9c5c077cdba195347c3b08af",
-    "candidate_content_hash": "a27943fd25558521ca2fb82044b7f0538f273a1ab95c2d6dd1e5b4903f883956",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
-  },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
     "topThings": [
       "Pointe Seraphine / Carenage shopping — ~90–120 min.",
-      "Castries market — hours not verified.",
+      "Castries market — check opening hours locally on your call day.",
       "Soufrière / Pitons — long call only.",
       "Pointe Seraphine / La Place Carenage shopping"
     ],
@@ -88,5 +72,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "Ask which berth number you are on — Castries can host multiple ships."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "85274325b3cc47df7216ba029641a45e6d2557fe9c5c077cdba195347c3b08af",
+    "landing_slug": "st-lucia-castries-st-lucia",
+    "candidate_content_hash": "45e72d5d9391fe0d1358101f4097e8b120ffdf2dd33faa8d0a3e594c9d9d6d47",
+    "locked_at_utc": "2026-11-09T15:08:10.633Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }

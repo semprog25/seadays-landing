@@ -53,27 +53,11 @@
       "Taxi",
       "Coach excursion"
     ],
-    "distanceToCity": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adjacent; no reservations; opens 10 a.m. embarkation; disabled fee-waiver rules listed. Terminal assignment. Subject to change — verify with cruise line.",
+    "distanceToCity": "From Orlando International Airport (MCO), the port authority cites about 45 minutes via S.R. 528 East to Exit 54A (north terminals) or 54B (south terminals). Parking is adjacent; terminal assignment can change—confirm with your cruise line.",
     "walkingTime": "",
     "taxiInfo": "",
     "publicTransport": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adjacent; no reservations; opens 10 a.m. embarkation; disabled fee-waiver rules listed. Terminal assignment. Subject to change — verify with cruise line.",
-    "distanceAnswer": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adjacent; no reservations; opens 10 a.m. embarkation; disabled fee-waiver rules listed. Terminal assignment. Subject to change — verify with cruise line."
-  },
-  "researchImport": {
-    "landing_slug": "port-canaveral-fl-united-states",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "9c97c4416c61a5cb4f45cb193aacf23a31a51fe45f87bcefd092daab8d9e0a97",
-    "candidate_content_hash": "755336b47dc0bf16b7d3fb01359a753875018d8bc2570727f2abfba6ce8d9cfc",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
+    "distanceAnswer": "From Orlando International Airport (MCO), the port authority cites about 45 minutes via S.R. 528 East to Exit 54A (north terminals) or 54B (south terminals). Parking is adjacent; terminal assignment can change—confirm with your cruise line."
   },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
@@ -89,5 +73,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "Know your Exit 54A vs 54B before the toll road fork — north and south terminal clusters are different exits."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "9c97c4416c61a5cb4f45cb193aacf23a31a51fe45f87bcefd092daab8d9e0a97",
+    "landing_slug": "port-canaveral-fl-united-states",
+    "candidate_content_hash": "8b4a5f77aaa5f0d717091f2af3b92e40cb5e5070eff81ca00954cbf2aea66255",
+    "locked_at_utc": "2026-11-09T15:08:10.579Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }
