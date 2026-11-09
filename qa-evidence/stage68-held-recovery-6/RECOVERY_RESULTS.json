@@ -1,0 +1,270 @@
+{
+  "schema_version": 1,
+  "status": "READY_FOR_OWNER_REVIEW",
+  "inspected": 6,
+  "passing": 6,
+  "held": 0,
+  "slugs_inspected": [
+    "oslo-norway",
+    "st-croix-frederiksted-us-virgin-islands",
+    "new-york-ny-united-states",
+    "ocean-cay-msc-reserve-bahamas",
+    "kefalonia-greece",
+    "wilhelmshaven-germany"
+  ],
+  "slugs_approved": [
+    "kefalonia-greece",
+    "new-york-ny-united-states",
+    "ocean-cay-msc-reserve-bahamas",
+    "oslo-norway",
+    "st-croix-frederiksted-us-virgin-islands",
+    "wilhelmshaven-germany"
+  ],
+  "slugs_still_held": [],
+  "preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+  "baseline_main": "90b981f409427bb81f29e6f736b0d35cae94e39e",
+  "recovery_at_utc": "2026-11-09T12:23:38.846Z",
+  "rows": [
+    {
+      "landing_slug": "oslo-norway",
+      "app_port_id": "oslo",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "excluded_fields": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "call_plan_cards": 10
+    },
+    {
+      "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+      "app_port_id": "frederiksted",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "excluded_fields": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "call_plan_cards": 10
+    },
+    {
+      "landing_slug": "new-york-ny-united-states",
+      "app_port_id": "new-york",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "excluded_fields": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "call_plan_cards": 10
+    },
+    {
+      "landing_slug": "ocean-cay-msc-reserve-bahamas",
+      "app_port_id": "ocean-cay",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "excluded_fields": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "call_plan_cards": 10
+    },
+    {
+      "landing_slug": "kefalonia-greece",
+      "app_port_id": "kefalonia",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "excluded_fields": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "call_plan_cards": 10
+    },
+    {
+      "landing_slug": "wilhelmshaven-germany",
+      "app_port_id": "wilhelmshaven",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "excluded_fields": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "call_plan_cards": 10
+    }
+  ],
+  "bundle_idempotency_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99"
+}

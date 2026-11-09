@@ -41269,6 +41269,334 @@
         "publicTransport": "Confirm local transport options with the ship on your call date."
       },
       "shorePlansFirst": true
+    },
+    "kefalonia": {
+      "portInfo": {
+        "description": "Visit Greece paints Kefalonia as lush Ionian terrain with Argostoli as cosmopolitan capital, Fiskardo’s preserved architecture (post-1953 earthquake contrast), Assos’s Venetian castle, and beaches including Myrtos. LTDKI contact: Metaxa Ioanni, 281 00 Argostoli; +30 26710 26541; ltkefa@gmail.com; Coast Guard kefalonia@hcg.gr.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "gettingThere": {
+        "fromTerminal": "Argostoli cruise pier (north mole) — Argostoli harbour, Kefalonia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town is adjacent per LTDKI. Melissani/Sami and Myrtos are cross-island drives — no invented minutes.",
+        "distanceAnswer": "Town is adjacent per LTDKI. Melissani/Sami and Myrtos are cross-island drives — no invented minutes.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Argostoli waterfront / town — immediate connection to the harbour per LTDKI.",
+          "Melissani Cave — highlight on Visit Greece materials; plan a timed road trip.",
+          "Myrtos viewpoint — only with a generous buffer; confirm parking and hours locally."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If the north mole is occupied, expect anchorage and tender service — budget extra queue time when several ships are in the area."
+      },
+      "shorePlansFirst": true,
+      "appPortId": "kefalonia",
+      "portName": "Kefalonia (Argostoli)",
+      "country": "Greece",
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "landing_slug": "kefalonia-greece",
+        "candidate_content_hash": "4f23c6fe11e61a4cdb468b46ab4ce6dbe3880fe73fe8bcc664cd9ff2c26e5759",
+        "locked_at_utc": "2026-11-09T12:23:38.791Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage68_held_recovery": true,
+        "stage68_preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+        "owner_publication_authorized": false,
+        "stage68_held_recovery_publication": true,
+        "stage68_held_recovery_bundle_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99",
+        "applied_at_utc": "2026-11-09T12:23:54.994Z"
+      }
+    },
+    "new-york": {
+      "portInfo": {
+        "description": "New York City’s passenger cruise gateways are the Manhattan Cruise Terminal on the Hudson and the Brooklyn Cruise Terminal at Pier 12 in Red Hook, both operated by Ports America under NYCEDC framing. MCT’s main office address is 711 12th Avenue at West 55th Street; NYCEDC publishes maximum ship dimensions (1,000′ length, 150′ width, 36′ draught) and marine reference latitudes/longitudes for Pier 88 and Pier 90, plus notes on full CBP processing areas. Brooklyn’s main office is Pier 12, Building 112, with a GPS-only address at 210 Clinton Wharf; maximum length 1,135.2′, quay length 880′. Passenger door WGS84 pins are not published as entrance surveys — pins stay null. Which borough you use is sailing-specific; going to the wrong terminal can cost the ship.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "gettingThere": {
+        "fromTerminal": "Manhattan Cruise Terminal — 711 12th Avenue at West 55th Street, New York, NY 10019",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Manhattan Cruise Terminal (711 12th Avenue): allow traffic buffers for Midtown. Brooklyn Cruise Terminal (Pier 12): Brooklyn Bridge and Dumbo are closer than from Manhattan. JFK, LaGuardia and Newark need timed transfers — confirm with your sailing. Cape Liberty in Bayonne is a separate embarkation facility; do not confuse it with NYC terminals.",
+        "distanceAnswer": "Manhattan Cruise Terminal (711 12th Avenue): allow traffic buffers for Midtown. Brooklyn Cruise Terminal (Pier 12): Brooklyn Bridge and Dumbo are closer than from Manhattan. JFK, LaGuardia and Newark need timed transfers — confirm with your sailing. Cape Liberty in Bayonne is a separate embarkation facility; do not confuse it with NYC terminals.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "MCT. Address 711 12th Avenue at W 55th Street. Subway/bus walk minutes from Columbus Circle Not verified on the NYCEDC operations page. BCT. Pier 12 Building 112; use GPS address only as labeled. Airports. Timed JFK/LGA/EWR transfers Not verified on these operations pages. Cape Liberty. Do not send NYC-bound passengers to Bayonne without checking documents."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Midtown / Times Square / Central Park — realistic from MCT with traffic buffer — ~150 min.",
+          "Hudson River Greenway — immediate west-side walk from MCT context.",
+          "9/11 Memorial — downtown transfer; minutes Not verified.",
+          "Brooklyn Bridge / Dumbo — better from BCT than MCT on a short call.",
+          "Statue of Liberty / ferry — organised only; security queues."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Manhattan vs Brooklyn vs Cape Liberty before you book a car — three different facilities serve the wider NY/NJ market."
+      },
+      "shorePlansFirst": true,
+      "appPortId": "new-york",
+      "portName": "New York",
+      "country": "United States",
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "landing_slug": "new-york-ny-united-states",
+        "candidate_content_hash": "3cdbd9b58fd14b56755fd4839e7e66f08be1b107bdb36ef2e797bddb56e7ef9c",
+        "locked_at_utc": "2026-11-09T12:23:38.791Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage68_held_recovery": true,
+        "stage68_preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+        "owner_publication_authorized": false,
+        "stage68_held_recovery_publication": true,
+        "stage68_held_recovery_bundle_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99",
+        "applied_at_utc": "2026-11-09T12:23:54.994Z"
+      }
+    },
+    "ocean-cay": {
+      "portInfo": {
+        "description": "Ocean Cay is MSC Cruises’ exclusive Bahamas private island, restored from a former sand-excavation site into a marketed marine reserve with beaches, spa, food trucks/bars, cabanas and conservation programming. The MSC destination FAQ states ships berth directly at the quay next to the Welcome Centre in Ocean Village, so guests walk ashore without tenders, may return to the ship at any time during the call, and navigate by signed paths (about twenty minutes to the far side of the ~95-acre island). Eight named beaches (including North/South lagoon beaches, Sunset Beach, Lighthouse Bay beside the ~100-foot lighthouse, and Yacht Club-only Ocean House Beach) plus Seakers Food Court, Springer’s and Lighthouse bars, and the MSC Foundation Super Coral / Mission Blue Hope Spot story are on the same destination materials. Quay LOA/door coordinates are not published as WGS84 on the page used — keep pins null.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "gettingThere": {
+        "fromTerminal": "Ocean Cay MSC Marine Reserve quay / Welcome Centre — Ocean Cay, Bimini group, Bahamas",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Walk off at Welcome Centre. Island paths signed; furthest areas ~20 min walk. Still use 75 / 90 / 120 min all-aboard buffers by call length (especially if late-night stays are scheduled — confirm per itinerary).",
+        "distanceAnswer": "Walk off at Welcome Centre. Island paths signed; furthest areas ~20 min walk. Still use 75 / 90 / 120 min all-aboard buffers by call length (especially if late-night stays are scheduled — confirm per itinerary).",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Walk off at Welcome Centre. Island paths signed; furthest areas ~20 min walk. Still use 75 / 90 / 120 min all-aboard buffers by call length (especially if late-night stays are scheduled — confirm per itinerary)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Beaches / lagoon swim — half-day+.",
+          "Lighthouse Bay / light show — hours vary.",
+          "Marine Conservation Center (opened 10 Apr 2025; Discovery Pavilion excursion marketed from summer 2025).",
+          "Ocean Cay beaches / lighthouse / Marine Conservation Center"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "MSC-only landing — non-MSC ships are not evidenced as callers."
+      },
+      "shorePlansFirst": true,
+      "appPortId": "ocean-cay",
+      "portName": "Ocean Cay MSC Reserve",
+      "country": "Bahamas",
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "landing_slug": "ocean-cay-msc-reserve-bahamas",
+        "candidate_content_hash": "83dce18a85df02a80768a1edac8b46c3ecee32c3299149a86515ccbb9d72954b",
+        "locked_at_utc": "2026-11-09T12:23:38.791Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage68_held_recovery": true,
+        "stage68_preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+        "owner_publication_authorized": false,
+        "stage68_held_recovery_publication": true,
+        "stage68_held_recovery_bundle_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99",
+        "applied_at_utc": "2026-11-09T12:23:54.994Z"
+      }
+    },
+    "oslo": {
+      "portInfo": {
+        "description": "Oslo Havn frames Oslo as a cruise destination combining urban waterfront and nature access. Cruise traffic uses two terminals: Revierkaia, described as the main cruise quay with shore power, and Filipstad, used until future urban redevelopment, with shore power for cruise ships noted as planned on the captured page. The port states quays in central Oslo are usually open to the public and points to an Oslo Cruise Port Manual for operational detail. Without published LOA/depth tables on the captured English page, berth metrics stay null beyond the named terminals.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "gettingThere": {
+        "fromTerminal": "Revierkaia — Revierkaia, Oslo",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Revierkaia is central; Filipstad may need tram/taxi — confirm onboard.",
+        "distanceAnswer": "Revierkaia is central; Filipstad may need tram/taxi — confirm onboard.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Opera House / Bjørvika — ~90 min from central quay.",
+          "Frogner Park / Vigeland — allow transit time.",
+          "Oslo Opera House / Bjørvika waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Revierkaia vs Filipstad before assuming a short walk."
+      },
+      "shorePlansFirst": true,
+      "appPortId": "oslo",
+      "portName": "Oslo",
+      "country": "Norway",
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "landing_slug": "oslo-norway",
+        "candidate_content_hash": "2321dfd3f0c1dc7ab661a205194aaa6d9c6014fa1a9dd7e22a503a401bb16832",
+        "locked_at_utc": "2026-11-09T12:23:38.791Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage68_held_recovery": true,
+        "stage68_preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+        "owner_publication_authorized": false,
+        "stage68_held_recovery_publication": true,
+        "stage68_held_recovery_bundle_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99",
+        "applied_at_utc": "2026-11-09T12:23:54.994Z"
+      }
+    },
+    "frederiksted": {
+      "portInfo": {
+        "description": "The Virgin Islands Port Authority operates the Ann E. Abramson Marine Facility as St. Croix’s sole cruise gateway in Frederiksted. VIPA states the pier is 1,526 feet long with 29-foot north and 36-foot south drafts, that the south berth can accommodate Voyager-class ships while the north takes smaller cruise ships, and that larger vessels may use outer-harbor anchorage arranged through DPNR. The waterfront park/pier revitalization history (Hugo 1989 damage; cruise opening 1994; Marilyn 1995; early-2000s rebuild; naming via Act No. 6041) is on the same VIPA page. Door GPS remains unpublished on the extract — pins stay null despite the strong berth narrative.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "gettingThere": {
+        "fromTerminal": "Ann E. Abramson Marine Facility — Frederiksted, St. Croix, U.S. Virgin Islands",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Shopping/restaurants within walking distance of the pier per VIPA; minutes not surveyed. Christiansted / estate tours need coaches and 75–120 min buffers.",
+        "distanceAnswer": "Shopping/restaurants within walking distance of the pier per VIPA; minutes not surveyed. Christiansted / estate tours need coaches and 75–120 min buffers.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Shopping/restaurants within walking distance of the pier per VIPA; minutes not surveyed. Christiansted / estate tours need coaches and 75–120 min buffers."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Frederiksted waterfront — ~90–120 min.",
+          "Beaches / snorkel — transfer unverified.",
+          "Christiansted / estate tours — coach; standard+ calls.",
+          "Frederiksted waterfront / shopping"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If your ship anchors, tender logistics differ from the alongside pier — check the day’s VIPA/ship notes."
+      },
+      "shorePlansFirst": true,
+      "appPortId": "frederiksted",
+      "portName": "St. Croix (Frederiksted)",
+      "country": "United States Virgin Islands",
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+        "candidate_content_hash": "5f0c6e26c0dc290352c34efde7e7100d0058ac8ec5604c02b313f5e9cb5b9b9e",
+        "locked_at_utc": "2026-11-09T12:23:38.791Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage68_held_recovery": true,
+        "stage68_preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+        "owner_publication_authorized": false,
+        "stage68_held_recovery_publication": true,
+        "stage68_held_recovery_bundle_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99",
+        "applied_at_utc": "2026-11-09T12:23:54.994Z"
+      }
+    },
+    "wilhelmshaven": {
+      "portInfo": {
+        "description": "Niedersachsen Ports describes Wilhelmshaven as Germany’s sole deep-water port on the Jade, with an outer deep-water section and an inner harbour behind a dual-chamber sea lock that is independent of the tide. The published product mix is bulk, containers (JadeWeserPort), energy/LNG and project cargo — not a cruise brochure. The NPorts Port Information Guide nonetheless lists North Harbour / Hannoverkai with max LOA 300 m, ~325 m solid quay, 11 m alongside depth at harbour normal, electricity/freshwater/Wi‑Fi and no stationary cargo gear. A 2020 city press release documented Mein Schiff 6 berthing at Hannoverkai for classification/diving works with no crew shore leave during COVID restrictions — that is evidence the quay can take a large cruise ship for technical purposes, not evidence of a regular tourist call programme.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "gettingThere": {
+        "fromTerminal": "North Harbour — Hannoverkai — Nordhafen / Hannoverkai, Wilhelmshaven",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Inner harbour is behind a dual-chamber sea lock. Walk or shuttle times from Hannoverkai into city sights vary — confirm on the daily programme.",
+        "distanceAnswer": "Inner harbour is behind a dual-chamber sea lock. Walk or shuttle times from Hannoverkai into city sights vary — confirm on the daily programme.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Inner harbour is behind a dual-chamber sea lock. Walk or shuttle times from Hannoverkai into city sights vary — confirm on the daily programme."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Wilhelmshaven waterfront / Jade bay — ~90 min when the ship grants shore leave.",
+          "Nordhafen / Hannoverkai — NPorts lists 300 m LOA alongside; confirm whether your call is passenger-facing.",
+          "Deep-water harbour / JadeWeserPort context — industrial gateway; NPorts does not market a regular cruise passenger programme."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask whether the call is passenger or technical/repair before booking tours."
+      },
+      "shorePlansFirst": true,
+      "appPortId": "wilhelmshaven",
+      "portName": "Wilhelmshaven",
+      "country": "Germany",
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "landing_slug": "wilhelmshaven-germany",
+        "candidate_content_hash": "4cefc6060e832a568a00a9b4aad39f5e8a8c3ac45e2cf2fecb5af662f3c24438",
+        "locked_at_utc": "2026-11-09T12:23:38.791Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage68_held_recovery": true,
+        "stage68_preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
+        "owner_publication_authorized": false,
+        "stage68_held_recovery_publication": true,
+        "stage68_held_recovery_bundle_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99",
+        "applied_at_utc": "2026-11-09T12:23:54.994Z"
+      }
     }
   },
   "meta": {

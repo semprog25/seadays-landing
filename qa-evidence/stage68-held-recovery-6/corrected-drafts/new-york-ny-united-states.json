@@ -1,0 +1,74 @@
+{
+  "landing_slug": "new-york-ny-united-states",
+  "draft": {
+    "landing_slug": "new-york-ny-united-states",
+    "appPortId": "new-york",
+    "portName": "New York",
+    "country": "United States",
+    "portInfo": {
+      "description": "New York City’s passenger cruise gateways are the Manhattan Cruise Terminal on the Hudson and the Brooklyn Cruise Terminal at Pier 12 in Red Hook, both operated by Ports America under NYCEDC framing. MCT’s main office address is 711 12th Avenue at West 55th Street; NYCEDC publishes maximum ship dimensions (1,000′ length, 150′ width, 36′ draught) and marine reference latitudes/longitudes for Pier 88 and Pier 90, plus notes on full CBP processing areas. Brooklyn’s main office is Pier 12, Building 112, with a GPS-only address at 210 Clinton Wharf; maximum length 1,135.2′, quay length 880′.Which borough you use is sailing-specific; going to the wrong terminal can cost the ship."
+    },
+    "gettingThere": {
+      "fromTerminal": "Manhattan Cruise Terminal — 711 12th Avenue at West 55th Street, New York, NY 10019",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Manhattan Cruise Terminal (711 12th Avenue): allow traffic buffers for Midtown. Brooklyn Cruise Terminal (Pier 12): Brooklyn Bridge and Dumbo are closer than from Manhattan. JFK, LaGuardia and Newark need timed transfers — confirm with your sailing. Cape Liberty in Bayonne is a separate embarkation facility; do not confuse it with NYC terminals.",
+      "distanceAnswer": "Manhattan Cruise Terminal (711 12th Avenue): allow traffic buffers for Midtown. Brooklyn Cruise Terminal (Pier 12): Brooklyn Bridge and Dumbo are closer than from Manhattan. JFK, LaGuardia and Newark need timed transfers — confirm with your sailing. Cape Liberty in Bayonne is a separate embarkation facility; do not confuse it with NYC terminals.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Midtown / Times Square / Central Park — realistic from MCT with traffic buffer — ~150 min.",
+        "Hudson River Greenway — immediate west-side walk from MCT context.",
+        "9/11 Memorial — downtown transfer; minutes Not verified.",
+        "Brooklyn Bridge / Dumbo — better from BCT than MCT on a short call.",
+        "Statue of Liberty / ferry — organised only; security queues."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Manhattan vs Brooklyn vs Cape Liberty before you book a car — three different facilities serve the wider NY/NJ market."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "89922750e035f722f58d350e07cd02d59026d18066fe33a03498d80ca5b0082f",
+      "existing_guide_hash": "57a63b31994946fe",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/new-york-ny-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.005Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial",
+  "recovery_patches": "stage68-held-recovery-6"
+}

@@ -1,0 +1,73 @@
+{
+  "landing_slug": "ocean-cay-msc-reserve-bahamas",
+  "draft": {
+    "landing_slug": "ocean-cay-msc-reserve-bahamas",
+    "appPortId": "ocean-cay",
+    "portName": "Ocean Cay MSC Reserve",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Ocean Cay is MSC Cruises’ exclusive Bahamas private island, restored from a former sand-excavation site into a marketed marine reserve with beaches, spa, food trucks/bars, cabanas and conservation programming. The MSC destination FAQ states ships berth directly at the quay next to the Welcome Centre in Ocean Village, so guests walk ashore without tenders, may return to the ship at any time during the call, and navigate by signed paths (about twenty minutes to the far side of the ~95-acre island). Eight named beaches (including North/South lagoon beaches, Sunset Beach, Lighthouse Bay beside the ~100-foot lighthouse, and Yacht Club-only Ocean House Beach) plus Seakers Food Court, Springer’s and Lighthouse bars, and the MSC Foundation Super Coral / Mission Blue Hope Spot story are on the same destination materials."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ocean Cay MSC Marine Reserve quay / Welcome Centre — Ocean Cay, Bimini group, Bahamas",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Walk off at Welcome Centre. Island paths signed; furthest areas ~20 min walk. Still use 75 / 90 / 120 min all-aboard buffers by call length (especially if late-night stays are scheduled — confirm per itinerary).",
+      "distanceAnswer": "Walk off at Welcome Centre. Island paths signed; furthest areas ~20 min walk. Still use 75 / 90 / 120 min all-aboard buffers by call length (especially if late-night stays are scheduled — confirm per itinerary).",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Beaches / lagoon swim — half-day+.",
+        "Lighthouse Bay / light show — hours vary.",
+        "Marine Conservation Center (opened 10 Apr 2025; Discovery Pavilion excursion marketed from summer 2025).",
+        "Ocean Cay beaches / lighthouse / Marine Conservation Center"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "MSC-only landing — non-MSC ships are not evidenced as callers."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c659592c16828ed07255972e5f5d2b836c10414c6b5f3d02f8816d86b0ac0723",
+      "existing_guide_hash": "d2a3f07f18cfa958",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ocean-cay-msc-reserve-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.013Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial",
+  "recovery_patches": "stage68-held-recovery-6"
+}

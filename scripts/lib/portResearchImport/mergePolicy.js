@@ -2,6 +2,11 @@
 
 /** Port overrides aligned with qa-evidence/.../PORT_RESEARCH_MERGE_POLICY.md */
 const PORT_POLICY_OVERRIDES = {
+  'kefalonia-greece': {
+    allow_terminal_map_pin: false,
+    content_only_until_pin_verified: true,
+    preserve_terminal_coordinates: false,
+  },
   'aalborg-denmark': {
     enrichment_mode: true,
     allow_thingsToDo_replace: true,

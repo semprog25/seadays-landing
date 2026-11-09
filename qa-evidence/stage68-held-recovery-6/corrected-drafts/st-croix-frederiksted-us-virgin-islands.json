@@ -1,0 +1,73 @@
+{
+  "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+  "draft": {
+    "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+    "appPortId": "frederiksted",
+    "portName": "St. Croix (Frederiksted)",
+    "country": "United States Virgin Islands",
+    "portInfo": {
+      "description": "The Virgin Islands Port Authority operates the Ann E. Abramson Marine Facility as St. Croix’s sole cruise gateway in Frederiksted. VIPA states the pier is 1,526 feet long with 29-foot north and 36-foot south drafts, that the south berth can accommodate Voyager-class ships while the north takes smaller cruise ships, and that larger vessels may use outer-harbor anchorage arranged through DPNR. The waterfront park/pier revitalization history (Hugo 1989 damage; cruise opening 1994; Marilyn 1995; early-2000s rebuild; naming via Act No. 6041) is on the same VIPA page."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ann E. Abramson Marine Facility — Frederiksted, St. Croix, U.S. Virgin Islands",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Shopping/restaurants within walking distance of the pier per VIPA; minutes not surveyed. Christiansted / estate tours need coaches and 75–120 min buffers.",
+      "distanceAnswer": "Shopping/restaurants within walking distance of the pier per VIPA; minutes not surveyed. Christiansted / estate tours need coaches and 75–120 min buffers.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Frederiksted waterfront — ~90–120 min.",
+        "Beaches / snorkel — transfer unverified.",
+        "Christiansted / estate tours — coach; standard+ calls.",
+        "Frederiksted waterfront / shopping"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If your ship anchors, tender logistics differ from the alongside pier — check the day’s VIPA/ship notes."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ed25345a7123a103b1686511542af0741c57437f40f7fd0413ed705fca52a626",
+      "existing_guide_hash": "3fb717447323056e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/st-croix-frederiksted-us-virgin-islands.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.934Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial",
+  "recovery_patches": "stage68-held-recovery-6"
+}
