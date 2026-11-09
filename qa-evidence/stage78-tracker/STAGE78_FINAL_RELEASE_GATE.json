@@ -1,6 +1,11 @@
 {
-  "generated_at_utc": "2026-11-09T20:10:00.000Z",
+  "generated_at_utc": "2026-11-09T21:30:00.000Z",
   "verdict": "READY_FOR_OWNER_PUBLICATION_APPROVAL",
+  "pr_105_head_after_rebase": "9e5d05e31615212f8f0a82bffbcc86c425080c72",
+  "rebased_onto_main_sha": "3f8f4738f756ded14c53748a2dc76c2927356aa2",
+  "pr_106_merge_sha": "0494c5859925ddb11ac2d89c7196e5b315dab9d1",
+  "rollback_pre_apply_baseline_sha": "3f8f4738f",
+  "rebase_conflict_resolution": "package.json: merged test:stage78-legacy-copy-cleanup with stage78 five-guide npm scripts; public-port-guides.json auto-merged (legacy slots from #106, five candidates from #105)",
   "production_baseline_sha": "79bad4262963a7299304a406c4b0dd755c80ec48",
   "baseline_passenger_editorial": 350,
   "candidate_passenger_editorial": 355,
@@ -14,11 +19,11 @@
   "five_guide_leak_scan": "PASS (test-stage78-candidate-leak-guard: JSON, HTML main, JSON-LD, gettingThere, thingsToDo)",
   "pr_104_disposition": "SUPERSEDED_BY_105 — identical stage77 evidence payloads; close #104 without merge to avoid duplicate evidence commit",
   "merge_order_recommended": [
-    "1. Merge #106 (legacy cleanup) → main stays 350 PE",
-    "2. Rebase #105 onto updated main (expect public-port-guides.json auto-merge: #106 edits boston/cabo/galveston/seattle; #105 adds 5 slots — orthogonal)",
+    "1. #106 MERGED (0494c585)",
+    "2. #105 rebased onto 3f8f4738 — DONE",
     "3. Merge #105 only after owner publication authorize"
   ],
-  "pr_106_readiness": "READY_FOR_OWNER_REVIEW — test-stage78-legacy-copy-cleanup PASS on 078fcfd10",
+  "pr_106_readiness": "MERGED — legacy four slots byte-match origin/main on rebased #105",
   "owner_flags": {
     "owner_publication_authorized": false,
     "production_apply_permitted": false
