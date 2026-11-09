@@ -42735,6 +42735,333 @@
         "stage68_held_recovery_bundle_hash": "ad172697cc124db5bb263ebda6805ffd437bae2870ff370cd244d23ac7e6b20d",
         "applied_at_utc": "2026-11-09T13:05:54.641Z"
       }
+    },
+    "fort-lauderdale": {
+      "appPortId": "fort-lauderdale",
+      "portName": "Fort Lauderdale, FL, United States",
+      "country": "United States",
+      "portInfo": {
+        "description": "Fort Lauderdale, FL, United States is a cruise call—confirm your berth on the daily programme before you plan the day.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Las Olas Boulevard — dining/shopping spine; transfer from port required — ~120 min.",
+          "Fort Lauderdale Beach — A1A corridor; taxi or rideshare from Port Everglades — ~120 min.",
+          "Riverwalk / downtown museums — short call option if traffic cooperates.",
+          "Hugh Taylor Birch / Anne Kolb nature — longer buffer.",
+          "Everglades airboat (organised) — only with firm return margin."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm the exact terminal number on your cruise documents before instructing a rideshare — Port Everglades spreads guests across eight separately addressed buildings."
+      },
+      "gettingThere": {
+        "fromTerminal": "Terminal 2 — 1801 SE 20th St; berth 1,602 ft / 31 ft depth",
+        "publicTransport": "",
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "walkingTime": "",
+        "taxiInfo": ""
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "researched_at_utc": "2026-11-06T12:00:00Z",
+        "qa_verdict": null,
+        "import_tier": "stage24_dry_run_only",
+        "landing_slug": "fort-lauderdale-fl-united-states",
+        "app_port_id": "fort-lauderdale",
+        "publication_tier": "passenger_editorial",
+        "stage78_identity_wiring": true,
+        "owner_publication_authorized": false,
+        "research_sha256": "a91f75c3ef73503030f3cc60508787bd40791045ecfcbcd4bfb46092bb4f47fe",
+        "stage77_verified_mapping": true,
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "candidate_content_hash": "1f8f70e79bca201f18e12b0b5095a206146b947195feedadb095ed51e4ac0c3b",
+        "locked_at_utc": "2026-11-09T19:54:53.342Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "stage78_five_port_prep_candidate": true,
+        "identifier_confidence": "review_key_picker_id",
+        "stage78_publication_candidate": true,
+        "stage78_preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+        "preparation_pr_head": "79bad4262963a7299304a406c4b0dd755c80ec48",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T19:55:29.948Z"
+      },
+      "shorePlansFirst": true
+    },
+    "juneau": {
+      "appPortId": "juneau",
+      "portName": "Juneau, AK, United States",
+      "country": "United States",
+      "portInfo": {
+        "description": "Juneau, AK, United States is a cruise call—confirm your berth on the daily programme before you plan the day.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Downtown Juneau waterfront / shops — adjacent framing — ~90 min.",
+          "Mendenhall Glacier — bus/tour; allow long buffer — ~180 min including transfer.",
+          "Mount Roberts Tramway — weather-dependent; confirm hours on sailing day.",
+          "Whale watching (organised) — only with guaranteed return.",
+          "Alaska State Museum — rainy-day option; check museum hours before you go."
+        ],
+        "shortCall": "≥4 h. Downtown promenade + one nearby attraction; skip glacier if tender/queue risk exists. ≥90 min buffer.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "Combine glacier + downtown only with overnight or a very late all-aboard; Juneau has no road connection to the rest of Alaska’s highway system for “drive onward” improvisation.",
+        "practicalTip": "Identify whether you are on a city or private dock before assuming a two-minute walk to the same storefront block — CBJ itself distinguishes the two dock categories."
+      },
+      "gettingThere": {
+        "fromTerminal": "CBJ downtown cruise berths — Two city docks; ≤1,000 ft / ≤1,100 ft framing",
+        "publicTransport": "",
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "walkingTime": "",
+        "taxiInfo": ""
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "researched_at_utc": "2026-11-06T12:10:00Z",
+        "qa_verdict": null,
+        "import_tier": "stage24_dry_run_only",
+        "landing_slug": "juneau-ak-united-states",
+        "app_port_id": "juneau",
+        "publication_tier": "passenger_editorial",
+        "stage78_identity_wiring": true,
+        "owner_publication_authorized": false,
+        "research_sha256": "46d0a4a7e63adf4be9806bbbb759d4337fbea79f1a24acc8584f7c96a9ddef71",
+        "stage77_verified_mapping": true,
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "candidate_content_hash": "8a95c7381f15fd5f8fa22a1d13efd066a71aafe3a8ee572b483983bf231bc398",
+        "locked_at_utc": "2026-11-09T19:54:53.342Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "stage78_five_port_prep_candidate": true,
+        "identifier_confidence": "review_key_picker_id",
+        "stage78_publication_candidate": true,
+        "stage78_preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+        "preparation_pr_head": "79bad4262963a7299304a406c4b0dd755c80ec48",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T19:55:29.948Z"
+      },
+      "shorePlansFirst": true
+    },
+    "long-beach": {
+      "appPortId": "long-beach",
+      "portName": "Long Beach, CA, United States",
+      "country": "United States",
+      "portInfo": {
+        "description": "Carnival operates the Long Beach Cruise Terminal at 231 Windsor Way beside the Queen Mary — a separate embarkation point from Port of Los Angeles San Pedro. Confirm US LGB vs US LAX on cruise documents and rideshare apps before you travel.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Aquarium of the Pacific — Shoreline Drive — ~150 min.",
+          "Shoreline Village / Rainbow Harbor — walk or short rideshare — ~90 min.",
+          "Queen Mary historic ship — adjacent to terminal — ~120 min.",
+          "Pine Avenue dining district — short transfer — ~90 min.",
+          "Downtown Long Beach waterfront — flexible short call."
+        ],
+        "shortCall": "≥4 h. Aquarium or Shoreline Village loop with ≥75 min buffer — terminal parking garage height limits apply (check Carnival/Visit Long Beach pages).",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Double-check US LGB vs US LAX on your documents — rideshare to the wrong harbour wastes an embark morning."
+      },
+      "gettingThere": {
+        "fromTerminal": "Long Beach Cruise Terminal — 231 Windsor Way, Long Beach, CA 90802",
+        "publicTransport": "Airports. Visit Long Beach publishes driving guidance from LAX and Long Beach Airport (LGB) on its cruise terminal pages — check those pages before sailing. Downtown. Pine Avenue and Shoreline Village are typically a short taxi or rideshare from Windsor Way; allow buffer on turnaround mornings.",
+        "distanceToCity": "Airports. Visit Long Beach publishes driving guidance from LAX and Long Beach Airport (LGB) on its cruise terminal pages — check those pages before sailing. Downtown. Pine Avenue and Shoreline Village are typically a short taxi or rideshare from Windsor Way; allow buffer on turnaround mornings.",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceAnswer": "Airports. Visit Long Beach publishes driving guidance from LAX and Long Beach Airport (LGB) on its cruise terminal pages — check those pages before sailing. Downtown. Pine Avenue and Shoreline Village are typically a short taxi or rideshare from Windsor Way; allow buffer on turnaround mornings.",
+        "walkingTime": "",
+        "taxiInfo": ""
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "researched_at_utc": "2026-11-06T11:00:00Z",
+        "qa_verdict": null,
+        "import_tier": "stage24_dry_run_only",
+        "landing_slug": "long-beach-ca-united-states",
+        "app_port_id": "long-beach",
+        "publication_tier": "passenger_editorial",
+        "stage78_identity_wiring": true,
+        "owner_publication_authorized": false,
+        "research_sha256": "f991adc2cc5bd269cf4d7978241e68f40eda17b452f2832b0768c16538691a57",
+        "stage77_verified_mapping": true,
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "candidate_content_hash": "2cb528960e0d872f6a1aee9466f09c72ac6feed4041e2fa3c317bcb1a834072a",
+        "locked_at_utc": "2026-11-09T19:54:53.342Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "stage78_five_port_prep_candidate": true,
+        "identifier_confidence": "review_key_picker_id",
+        "stage78_publication_candidate": true,
+        "stage78_preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+        "preparation_pr_head": "79bad4262963a7299304a406c4b0dd755c80ec48",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T19:55:29.948Z"
+      },
+      "shorePlansFirst": true,
+      "landing_slug": "long-beach-ca-united-states"
+    },
+    "montreal": {
+      "appPortId": "montreal",
+      "portName": "Montreal, QC, Canada",
+      "country": "Canada",
+      "portInfo": {
+        "description": "The Montreal Port Authority concentrates passenger cruise handling at the Grand Quay (Grand Quai), with Terminals 1 and 2 at 200 De la Commune Street West, Montréal, QC H2Y 4B2. Port pages state three cruise terminals are accessible by car, public transit or on foot, with controlled secure access. Airport access guidance publishes a daytime flat taxi fare of CAD $49.45 between Pierre Elliott Trudeau International Airport and the Grand Quay (5 a.m.–11 p.m., taxes included, tip excluded) and STM line 747 airport bus service at CAD $11. An observation tower note on the Grand Quay page references a 2021 opening — verify current public hours separately.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old Montréal / waterfront — ~150 min.",
+          "Notre-Dame Basilica / historic squares — ticket hours not verified.",
+          "Mount Royal — longer call with transport.",
+          "Old Montréal / Vieux-Montréal"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Grand Quay vs Terminal 3 vs B1/M5 before assuming a De la Commune walk-off — addresses differ."
+      },
+      "gettingThere": {
+        "fromTerminal": "Grand Quay Terminals 1 & 2 — 200 De la Commune W; door pin null",
+        "publicTransport": "",
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "walkingTime": "",
+        "taxiInfo": ""
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "researched_at_utc": "2026-11-06T11:10:00Z",
+        "qa_verdict": null,
+        "import_tier": "stage24_dry_run_only",
+        "landing_slug": "montreal-qc-canada",
+        "app_port_id": "montreal",
+        "publication_tier": "passenger_editorial",
+        "stage78_identity_wiring": true,
+        "owner_publication_authorized": false,
+        "research_sha256": "41d07a7e1679f7c78a090e47e0f541f26ff8e06afe0acc1195ff04808f0c3b75",
+        "stage77_verified_mapping": true,
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "candidate_content_hash": "0b82ac076db4646426517b3b63e21a3325afb82055130df9df21e15308015c51",
+        "locked_at_utc": "2026-11-09T19:54:53.342Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "stage78_five_port_prep_candidate": true,
+        "identifier_confidence": "review_key_picker_id",
+        "stage78_publication_candidate": true,
+        "stage78_preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+        "preparation_pr_head": "79bad4262963a7299304a406c4b0dd755c80ec48",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T19:55:29.948Z"
+      },
+      "shorePlansFirst": true
+    },
+    "ponce": {
+      "appPortId": "ponce",
+      "portName": "Ponce, Puerto Rico",
+      "country": "Puerto Rico",
+      "portInfo": {
+        "description": "Autoridad del Puerto de Ponce documents cruise operations at piers 4, 5, and 6 on the south coast, with anchorage-and-tender assignments on some sailings. Confirm alongside vs tender on your daily programme before planning ashore time.",
+        "timezone": "",
+        "language": "",
+        "currency": ""
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Ponce historic centre — Plaza Las Delicias — ~120 min.",
+          "Parque de Bombas firehouse museum — central Ponce — ~60 min.",
+          "Museo de Arte de Ponce — longer call with taxi — ~150 min.",
+          "La Guancha boardwalk — seafood lunch stop — ~90 min.",
+          "Coffee plantation / south-coast coach — long call only."
+        ],
+        "shortCall": "≥4 h. One central Ponce stop (Plaza Las Delicias area) with ≥90 min tender/transport buffer if assigned anchorage.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ponce is not San Juan — keep port codes and excursion pickup points labelled Ponce on your documents."
+      },
+      "gettingThere": {
+        "fromTerminal": "Piers 4 / 5 / 6",
+        "publicTransport": "Historic centre. Allow a taxi or organised shore excursion from the municipal piers — confirm pier assignment and whether your ship is alongside or tendered before you leave the terminal area.",
+        "distanceToCity": "Historic centre. Allow a taxi or organised shore excursion from the municipal piers — confirm pier assignment and whether your ship is alongside or tendered before you leave the terminal area.",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceAnswer": "Historic centre. Allow a taxi or organised shore excursion from the municipal piers — confirm pier assignment and whether your ship is alongside or tendered before you leave the terminal area.",
+        "walkingTime": "",
+        "taxiInfo": ""
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "researched_at_utc": "2026-11-06T00:34:30Z",
+        "qa_verdict": null,
+        "import_tier": "stage24_dry_run_only",
+        "landing_slug": "ponce-puerto-rico",
+        "app_port_id": "ponce",
+        "publication_tier": "passenger_editorial",
+        "stage78_identity_wiring": true,
+        "owner_publication_authorized": false,
+        "research_sha256": "818249f65489606b04dff880301de944659b548cae22e966e80700e412e3647b",
+        "stage77_verified_mapping": true,
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "candidate_content_hash": "f9e3a8cac8979e6d30ab2ebbe9cd8724c33cfeb35c7d87884e0f69aab27a1930",
+        "locked_at_utc": "2026-11-09T19:54:53.342Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "stage78_five_port_prep_candidate": true,
+        "identifier_confidence": "review_key_picker_id",
+        "stage78_publication_candidate": true,
+        "stage78_preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+        "preparation_pr_head": "79bad4262963a7299304a406c4b0dd755c80ec48",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T19:55:29.948Z"
+      },
+      "shorePlansFirst": true,
+      "landing_slug": "ponce-puerto-rico",
+      "practicalTip": "Ponce is not San Juan — keep port codes and excursion pickup points labelled Ponce on your documents."
     }
   },
   "meta": {

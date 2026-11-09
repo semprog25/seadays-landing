@@ -1,0 +1,80 @@
+{
+  "landing_slug": "fort-lauderdale-fl-united-states",
+  "draft": {
+    "landing_slug": "fort-lauderdale-fl-united-states",
+    "appPortId": "fort-lauderdale",
+    "portName": "Fort Lauderdale, FL, United States",
+    "country": "United States",
+    "portInfo": {
+      "description": "Fort Lauderdale, FL, United States is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "timezone": "",
+      "language": "",
+      "currency": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal 2 — 1801 SE 20th St; berth 1,602 ft / 31 ft depth",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": ""
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Las Olas Boulevard — dining/shopping spine; transfer from port required — ~120 min.",
+        "Fort Lauderdale Beach — A1A corridor; transfer Not verified in minutes.",
+        "Riverwalk / downtown museums — short call option if traffic cooperates.",
+        "Hugh Taylor Birch / Anne Kolb nature — longer buffer.",
+        "Everglades airboat (organised) — only with firm return margin."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm the exact terminal number on your cruise documents before instructing a rideshare — Port Everglades spreads guests across eight separately addressed buildings."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a91f75c3ef73503030f3cc60508787bd40791045ecfcbcd4bfb46092bb4f47fe",
+      "existing_guide_hash": "6e02bf8a7bc3a89b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/fort-lauderdale-fl-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_distance",
+        "dropped_research_publicTransport"
+      ],
+      "generated_at_utc": "2026-11-09T19:54:53.361Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage78-five-port-prep"
+}

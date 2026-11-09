@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-11-09T19:54:53.342Z",
+  "ports": [
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": "fort-lauderdale",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": "juneau",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": "long-beach",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": false,
+          "failures": [
+            "schema_top_things_2",
+            "passenger_top_things_2_of_3",
+            "factual_insufficient_attractions_2"
+          ]
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_EDITORIAL_FIX"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": "montreal",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": "ponce",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": false,
+          "failures": [
+            "schema_top_things_1",
+            "passenger_top_things_1_of_3",
+            "factual_insufficient_attractions_1"
+          ]
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_EDITORIAL_FIX"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "stage": "stage78-publication-candidate",
+  "status": "READY_FOR_OWNER_REVIEW",
+  "candidate_only": true,
+  "owner_publication_authorized": false,
+  "production_apply_permitted": false,
+  "publication_candidate_apply_permitted": true,
+  "slugs_approved": [],
+  "slugs_publication_candidate": [
+    "fort-lauderdale-fl-united-states",
+    "juneau-ak-united-states",
+    "long-beach-ca-united-states",
+    "montreal-qc-canada",
+    "ponce-puerto-rico"
+  ],
+  "preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+  "preparation_pr_head": "79bad4262963a7299304a406c4b0dd755c80ec48",
+  "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "baseline_main": "79bad4262963a7299304a406c4b0dd755c80ec48",
+  "baseline_live_passenger_editorial": 350,
+  "projected_passenger_editorial_if_merged": 355,
+  "production_public_port_guides_sha256_at_prep": "4d1852bfd9fdf251b9cd108c33ad274b10a7b102d409a62052abb68789393594",
+  "factual_signoff": [
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    }
+  ],
+  "created_at_utc": "2026-11-09T19:55:29.873Z"
+}

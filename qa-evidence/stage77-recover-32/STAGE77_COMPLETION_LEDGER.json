@@ -1,0 +1,58 @@
+{
+  "generated_at_utc": "2026-11-09T19:48:08.909Z",
+  "stage": 77,
+  "production": {
+    "live_passenger_editorial": 350,
+    "catalogue_slots": 406,
+    "remaining_unpublished": 56,
+    "merge_sha": "29aaafca6fb852c6a73f1ed11031deffb56c8098",
+    "catalogue_bot_sha": "79bad4262963a7299304a406c4b0dd755c80ec48",
+    "pages_run": "42685132464",
+    "phase0_verdict": "PASS",
+    "catalogue_regen_spotcheck": "PASS"
+  },
+  "identity": {
+    "category_d_count": 24,
+    "verified_mapping": 24,
+    "owner_decision_required": 0,
+    "no_match": 0,
+    "collision": 0,
+    "safe_corrections_prepared": 24
+  },
+  "research": {
+    "category_c": 8,
+    "repair_candidates": 0,
+    "research_pr_recommended": false
+  },
+  "publication_prep": {
+    "identity_and_research_pass_eligible": [
+      "fort-lauderdale-fl-united-states",
+      "juneau-ak-united-states",
+      "long-beach-ca-united-states",
+      "montreal-qc-canada",
+      "ponce-puerto-rico"
+    ],
+    "count_ready_for_editorial_prep_after_owner_wiring": 5,
+    "net_new_publication_ready_now": 0
+  },
+  "holds_preserved": {
+    "owner_policy": 21,
+    "hamburg_pilot": 1,
+    "genuine_aliases": 2
+  },
+  "max_defensible_new_published_without_owner_authorization": 0,
+  "max_defensible_after_identity_wiring_and_editorial_only": 5,
+  "owner_decisions": [
+    "Approve identity wiring PR (24 VERIFIED_MAPPING proposals — landing JSON only)",
+    "No research recovery PR until official terminal/transit sources clear Category C BLOCKED gates",
+    "21 policy holds + Hamburg pilot + 2 aliases unchanged",
+    "Publication authorization still required for any apply above 350"
+  ],
+  "evidence_files": {
+    "phase0": "qa-evidence/stage77-verify-close-76/PHASE0_LIVE_VERIFICATION.json",
+    "regen": "qa-evidence/stage77-verify-close-76/CATALOGUE_BOT_REGEN_SPOTCHECK.json",
+    "identity": "qa-evidence/stage77-recover-32/STAGE77_IDENTITY_DISPOSITION.json",
+    "research": "qa-evidence/stage77-recover-32/STAGE77_RESEARCH_DISPOSITION.json",
+    "wiring_proposal": "qa-evidence/stage77-recover-32/STAGE77_IDENTITY_WIRING_PROPOSAL.json"
+  }
+}

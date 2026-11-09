@@ -1,0 +1,58 @@
+{
+  "generated_at_utc": "2026-11-09T20:00:00.000Z",
+  "stage": 78,
+  "production_baseline": {
+    "main_sha": "79bad4262963a7299304a406c4b0dd755c80ec48",
+    "live_passenger_editorial": 350,
+    "remaining_unpublished": 56
+  },
+  "track_a_five_guide_candidate": {
+    "status": "READY_FOR_OWNER_REVIEW",
+    "candidate_slugs": [
+      "fort-lauderdale-fl-united-states",
+      "juneau-ak-united-states",
+      "long-beach-ca-united-states",
+      "montreal-qc-canada",
+      "ponce-puerto-rico"
+    ],
+    "projected_passenger_editorial_if_merged": 355,
+    "preparation_bundle_hash": "05565400f9bd022572adb7ba922f1c506ac1740ff05bfa4adab44426ea2d4ed0",
+    "identity_wiring": "5 of 24 Stage 77 VERIFIED_MAPPING proposals applied (landing JSON only)",
+    "research_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+    "all_five_research_qa_pass": true,
+    "owner_publication_authorized": false,
+    "exclusions": []
+  },
+  "track_b_legacy_cleanup": {
+    "status": "READY_FOR_OWNER_REVIEW",
+    "slugs": [
+      "boston-ma-united-states",
+      "cabo-san-lucas-mexico",
+      "galveston-tx-united-states",
+      "seattle-wa-united-states"
+    ],
+    "live_passenger_editorial_unchanged": 350,
+    "separate_pr_from_track_a": true
+  },
+  "track_c_remaining_51": {
+    "owner_policy_holds": 21,
+    "hamburg_pilot_hold": 1,
+    "genuine_aliases": 2,
+    "category_c_research_blocked": 8,
+    "identity_d_wiring_not_bulk_applied": 19,
+    "new_actionable_research_repairs": 0,
+    "note": "Retains Stage 77 disposition; no duplicate 56-row audit"
+  },
+  "owner_approvals_required": [
+    "Review five-guide publication candidate PR (auth flags false; no auto-merge)",
+    "Review legacy copy cleanup PR (four pages only)",
+    "Optional: approve merge order after review — still no deploy without explicit authorization",
+    "Remaining 19 identity mappings not applied without separate owner wiring PR"
+  ],
+  "evidence_refs": {
+    "stage77_wiring": "qa-evidence/stage77-recover-32/STAGE77_IDENTITY_WIRING_PROPOSAL.json",
+    "stage78_prep": "qa-evidence/stage78-five-port-prep/",
+    "stage78_publication": "qa-evidence/stage78-publication-5/",
+    "stage78_legacy": "qa-evidence/stage78-legacy-copy-cleanup/"
+  }
+}

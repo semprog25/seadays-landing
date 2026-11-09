@@ -1,0 +1,78 @@
+{
+  "landing_slug": "montreal-qc-canada",
+  "draft": {
+    "landing_slug": "montreal-qc-canada",
+    "appPortId": "montreal",
+    "portName": "Montreal, QC, Canada",
+    "country": "Canada",
+    "portInfo": {
+      "description": "The Montreal Port Authority concentrates passenger cruise handling at the Grand Quay (Grand Quai), with Terminals 1 and 2 at 200 De la Commune Street West, Montréal, QC H2Y 4B2. Port pages state three cruise terminals are accessible by car, public transit or on foot, with controlled secure access. Airport access guidance publishes a daytime flat taxi fare of CAD $49.45 between Pierre Elliott Trudeau International Airport and the Grand Quay (5 a.m.–11 p.m., taxes included, tip excluded) and STM line 747 airport bus service at CAD $11. An observation tower note on the Grand Quay page references a 2021 opening — verify current public hours separately.",
+      "timezone": "",
+      "language": "",
+      "currency": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Grand Quay Terminals 1 & 2 — 200 De la Commune W; door pin null",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": ""
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Old Montréal / waterfront — ~150 min.",
+        "Notre-Dame Basilica / historic squares — ticket hours not verified.",
+        "Mount Royal — longer call with transport.",
+        "Old Montréal / Vieux-Montréal"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Grand Quay vs Terminal 3 vs B1/M5 before assuming a De la Commune walk-off — addresses differ."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "41d07a7e1679f7c78a090e47e0f541f26ff8e06afe0acc1195ff04808f0c3b75",
+      "existing_guide_hash": "e4f7c263a61d0b3d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/montreal-qc-canada.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_research_distance",
+        "dropped_research_publicTransport"
+      ],
+      "generated_at_utc": "2026-11-09T19:54:53.389Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage78-five-port-prep"
+}
