@@ -1,0 +1,19 @@
+{
+  "reconciled_at_utc": "2026-11-09T18:45:00.000Z",
+  "pairs_with_research_pr": "semprog25/seadays-ports-deliverables#3",
+  "expected_after_research_merge_head": "0abbeb7f8f1049047e12f950588c16175c7830fe",
+  "scope": "researchImport.research_sha256 pins only — no passenger field or HTML changes",
+  "ports_master_index_note": "External final/PORTS_MASTER_INDEX.json is not in either repo; update two slug rows on next composite index refresh.",
+  "slugs": {
+    "cape-liberty-bayonne-nj-united-states": {
+      "appPortId": "bayonne",
+      "research_sha256_before": "0219b97899881fa14a0d561b88554b5c5bad7dda64093aaa0ebcbf98ca51c55f",
+      "research_sha256_after": "2dd26e7a035f8986303e1298655ba1361d3f72389bdf6617c6a043369fa71958"
+    },
+    "vancouver-bc-canada": {
+      "appPortId": "vancouver",
+      "research_sha256_before": "ea37ebd7893d11546bb3952d28d398290b9374ffe38281c3ccb4e22bf324dd18",
+      "research_sha256_after": "afd8027d3b186e4e41a16d5cf04790d7d5b1a1ad3cbf019ad9cbf66fb288acff"
+    }
+  }
+}

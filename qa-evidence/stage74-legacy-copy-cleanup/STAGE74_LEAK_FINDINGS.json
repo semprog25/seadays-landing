@@ -1,0 +1,49 @@
+{
+  "generated_at_utc": "2026-11-09T18:20:00.000Z",
+  "baseline_production_sha": "53736b985e82d17457522e37aaa637ecfb46f0cf",
+  "passenger_editorial_count": 344,
+  "scanner": "scripts/lib/publicGuideCopySanitize.js → containsInternalResearchLeak",
+  "stage73_context": "Stage 73 validated 25 new candidates; production at 53736b98 reflects 344 passenger editorial. Spot-check / full main-block scan flagged these two among existing Stage 68 guides.",
+  "findings": [
+    {
+      "landing_slug": "cape-liberty-bayonne-nj-united-states",
+      "classification": "genuine_leak",
+      "scanner_match": "Not verified on the FAQ page",
+      "regex_id": "Not verified on … page",
+      "passenger_visible": true,
+      "locations": [
+        "getting-there #distance-to-city dd",
+        "getting-there #public-transport dd",
+        "FAQPage JSON-LD acceptedAnswer text"
+      ],
+      "json_paths": [
+        "gettingThere.distanceToCity",
+        "gettingThere.distanceAnswer",
+        "gettingThere.publicTransport"
+      ],
+      "research_source": "seadays-ports-deliverables/by-port/cape-liberty-bayonne-nj-united-states.md § Getting there (line ~102)",
+      "false_positive": false,
+      "notes": "Article body was clean; leak lived in getting-there copy and FAQ schema derived from distanceAnswer."
+    },
+    {
+      "landing_slug": "vancouver-bc-canada",
+      "classification": "genuine_leak",
+      "scanner_match": "Not verified on the Canada Place page captured",
+      "regex_id": "Not verified on … page",
+      "passenger_visible": true,
+      "locations": [
+        "getting-there #distance-to-city dd",
+        "getting-there #public-transport dd",
+        "FAQPage JSON-LD acceptedAnswer text"
+      ],
+      "json_paths": [
+        "gettingThere.distanceToCity",
+        "gettingThere.distanceAnswer",
+        "gettingThere.publicTransport"
+      ],
+      "research_source": "seadays-ports-deliverables/by-port/vancouver-bc-canada.md § Getting there (line ~102)",
+      "false_positive": false,
+      "notes": "“page captured” is internal research capture wording, not passenger guidance."
+    }
+  ]
+}
