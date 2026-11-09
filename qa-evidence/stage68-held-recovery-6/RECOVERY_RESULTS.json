@@ -23,7 +23,7 @@
   "slugs_still_held": [],
   "preparation_bundle_hash": "d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583",
   "baseline_main": "90b981f409427bb81f29e6f736b0d35cae94e39e",
-  "recovery_at_utc": "2026-11-09T12:23:38.846Z",
+  "recovery_at_utc": "2026-11-09T13:05:52.952Z",
   "rows": [
     {
       "landing_slug": "oslo-norway",
@@ -52,6 +52,10 @@
           "gate": "call_plan_cards",
           "ok": true,
           "count": 10
+        },
+        {
+          "gate": "port_lead_present",
+          "ok": true
         },
         {
           "gate": "passenger_leak_scan",
@@ -94,6 +98,10 @@
           "count": 10
         },
         {
+          "gate": "port_lead_present",
+          "ok": true
+        },
+        {
           "gate": "passenger_leak_scan",
           "ok": true
         },
@@ -132,6 +140,10 @@
           "gate": "call_plan_cards",
           "ok": true,
           "count": 10
+        },
+        {
+          "gate": "port_lead_present",
+          "ok": true
         },
         {
           "gate": "passenger_leak_scan",
@@ -174,6 +186,10 @@
           "count": 10
         },
         {
+          "gate": "port_lead_present",
+          "ok": true
+        },
+        {
           "gate": "passenger_leak_scan",
           "ok": true
         },
@@ -212,6 +228,10 @@
           "gate": "call_plan_cards",
           "ok": true,
           "count": 10
+        },
+        {
+          "gate": "port_lead_present",
+          "ok": true
         },
         {
           "gate": "passenger_leak_scan",
@@ -254,6 +274,10 @@
           "count": 10
         },
         {
+          "gate": "port_lead_present",
+          "ok": true
+        },
+        {
           "gate": "passenger_leak_scan",
           "ok": true
         },
@@ -266,5 +290,5 @@
       "call_plan_cards": 10
     }
   ],
-  "bundle_idempotency_hash": "00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99"
+  "bundle_idempotency_hash": "ad172697cc124db5bb263ebda6805ffd437bae2870ff370cd244d23ac7e6b20d"
 }

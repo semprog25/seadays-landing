@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { validateGeneratedPortHtml } = require('./lib/bulkPortPublication/validatePortHtml');
-const { containsInternalResearchLeak } = require('./lib/publicGuideCopySanitize');
+const { containsInternalResearchLeak, collectGuidePassengerLeakBlob } = require('./lib/publicGuideCopySanitize');
 
 const REPO = path.join(__dirname, '..');
 const EVIDENCE = path.join(REPO, 'qa-evidence/stage68-held-recovery-6');
@@ -48,6 +48,7 @@ function main() {
     const html = fs.readFileSync(path.join(REPO, 'ports', landingSlug, 'index.html'), 'utf8');
     const val = validateGeneratedPortHtml(html, { slug: landingSlug });
     const issues = [...val.issues];
+    if (containsInternalResearchLeak(collectGuidePassengerLeakBlob(after))) issues.push('research_leak_json');
     if (containsInternalResearchLeak(html)) issues.push('research_leak_html');
     if (landingSlug === 'kefalonia-greece' && /id="port-terminal-map"/.test(html)) {
       issues.push('unexpected_terminal_map');

@@ -3,6 +3,8 @@
 const { stripWikiCitationMarkers } = require('./portCopyHygiene');
 const { isTruncatedResearchCopy, assertResearchCopyNotTruncated } = require('./researchCopyGuards');
 
+const { listPassengerTextFields } = require('./publicPortGuidePassengerTextFields');
+
 const INTERNAL_RESEARCH_LEAK_RE = [
   /\bnull\s*\/\s*unverified\b/i,
   /\bnot copied without matching\b/i,
@@ -14,6 +16,10 @@ const INTERNAL_RESEARCH_LEAK_RE = [
   /\bOSM\b.*\bpin\b/i,
   /\b\d+\s*\+\s*\d+\s*\+\s*\d+\s*=/,
   /\(\s*\d+\s*\+\s*\d+/,
+  /\bkeep pins null\b/i,
+  /\bpins stay null\b/i,
+  /\bberth metrics stay null\b/i,
+  /\bNot verified on (?:the )?[\w\s/&.'’-]+(?:operations |passenger )?page\b/i,
 ];
 
 const MAX_QUICK_FACT_CHARS = 120;
@@ -31,6 +37,18 @@ function containsInternalResearchLeak(text) {
   const s = String(text || '').trim();
   if (!s) return false;
   return INTERNAL_RESEARCH_LEAK_RE.some((re) => re.test(s));
+}
+
+function collectGuidePassengerLeakBlob(guide) {
+  if (!guide) return '';
+  const parts = [];
+  for (const { holder, key } of listPassengerTextFields(guide)) {
+    const value = holder[key];
+    if (typeof value === 'string' && value.trim()) parts.push(value);
+  }
+  const distanceAnswer = guide?.gettingThere?.distanceAnswer;
+  if (typeof distanceAnswer === 'string' && distanceAnswer.trim()) parts.push(distanceAnswer);
+  return parts.join('\n');
 }
 
 function preparePassengerGuideText(text, opts = {}) {
@@ -97,6 +115,7 @@ function assertPassengerReadyGuideFields(guide, portId) {
 module.exports = {
   stripMarkdownEmphasis,
   containsInternalResearchLeak,
+  collectGuidePassengerLeakBlob,
   isResearchItineraryCopy,
   preparePassengerGuideText,
   quickFactGettingSummary,

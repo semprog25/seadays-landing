@@ -11,7 +11,11 @@ const { validateEditorialDraft } = require('./lib/bulkPortPublication/validateEd
 const { validateGeneratedPortHtml } = require('./lib/bulkPortPublication/validatePortHtml');
 const { buildPhase1GuideHtml, PORT_GUIDE_STYLES } = require('./lib/portGuideSections');
 const { stableStringify } = require('./lib/portResearchImport/jsonDiff');
-const { containsInternalResearchLeak, preparePassengerGuideText } = require('./lib/publicGuideCopySanitize');
+const {
+  containsInternalResearchLeak,
+  collectGuidePassengerLeakBlob,
+  preparePassengerGuideText,
+} = require('./lib/publicGuideCopySanitize');
 const { scanDraftFields, classifyOwnerBucket } = require('./lib/bulkPortPublication/stage23FieldReview');
 const { listPassengerTextFields } = require('./lib/publicPortGuidePassengerTextFields');
 const { resolveCompositeResearchRoot } = require('./lib/portResearchImport/resolveCompositeResearchRoot');
@@ -68,12 +72,19 @@ function applyHeldDraftPatches(draft, landingSlug) {
   }
   if (landingSlug === 'new-york-ny-united-states') {
     d.portInfo.description = d.portInfo.description.replace(
-      / Passenger door WGS84 pins are not published as entrance surveys — pins stay null\. /,
+      / Passenger door WGS84 pins are not published as entrance surveys — pins stay null\. ?/,
       ''
     );
     d.gettingThere.distanceToCity =
       'Manhattan Cruise Terminal (711 12th Avenue): allow traffic buffers for Midtown. Brooklyn Cruise Terminal (Pier 12): Brooklyn Bridge and Dumbo are closer than from Manhattan. JFK, LaGuardia and Newark need timed transfers — confirm with your sailing. Cape Liberty in Bayonne is a separate embarkation facility; do not confuse it with NYC terminals.';
     d.gettingThere.distanceAnswer = d.gettingThere.distanceToCity;
+    d.gettingThere.publicTransport =
+      'Manhattan (MCT): 711 12th Avenue at West 55th Street — subway and bus via Columbus Circle; allow walk time in traffic. Brooklyn (BCT): Pier 12, Building 112 — use the GPS address on NYCEDC materials only. Airports (JFK, LGA, EWR): plan timed transfers with your sailing. Cape Liberty in Bayonne is not an NYC terminal — match your ticket to the facility on your documents.';
+    if (Array.isArray(d.thingsToDo?.topThings)) {
+      d.thingsToDo.topThings = d.thingsToDo.topThings.map((line) =>
+        line.replace(/;\s*minutes Not verified\.?/gi, '; allow extra transfer time in traffic.')
+      );
+    }
   }
   if (landingSlug === 'ocean-cay-msc-reserve-bahamas') {
     d.portInfo.description = d.portInfo.description.replace(
@@ -169,7 +180,18 @@ function main() {
       if (researchMerge.mergedGuide) {
         proposed = { ...proposed, ...researchMerge.mergedGuide, appPortId: row.app_port_id };
       }
+      proposed = applyHeldDraftPatches(proposed, landingSlug);
+      const draftLead = String(draft.portInfo?.description || '').trim();
+      if (draftLead) {
+        const lead = String(proposed.portInfo?.description || '').trim();
+        if (!lead || containsInternalResearchLeak(lead)) {
+          proposed.portInfo.description = draftLead;
+        }
+      }
       proposed = sanitizePassengerGuideSurfaces(proposed);
+      if (!String(proposed.portInfo?.description || '').trim() && draftLead) {
+        proposed.portInfo.description = draftLead;
+      }
       proposed.researchImport = {
         ...(proposed.researchImport || {}),
         landing_slug: landingSlug,
@@ -207,10 +229,12 @@ function main() {
         { gate: 'html_preview_validation', ok: htmlVal.ok, issues: htmlVal.issues },
         { gate: 'call_plan_cards', ok: callPlanCards >= 3, count: callPlanCards },
         {
+          gate: 'port_lead_present',
+          ok: Boolean(String(proposed.portInfo?.description || '').trim()),
+        },
+        {
           gate: 'passenger_leak_scan',
-          ok: !containsInternalResearchLeak(
-            JSON.stringify({ portInfo: proposed.portInfo, gettingThere: proposed.gettingThere, thingsToDo: proposed.thingsToDo })
-          ),
+          ok: !containsInternalResearchLeak(collectGuidePassengerLeakBlob(proposed)),
         },
         { gate: 'factual_exclude', ok: !factual.exclude_from_release, reason: factual.exclude_reason },
       ];
@@ -273,4 +297,12 @@ function main() {
   if (!passingSlugs.length) process.exit(47);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  applyHeldDraftPatches,
+  HELD_SLUGS,
+  PREP_BUNDLE,
+};

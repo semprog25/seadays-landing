@@ -11,7 +11,8 @@ const { resolveCompositeResearchRoot } = require('./lib/portResearchImport/resol
 const { removeStage65ExcludedGuideEntries } = require('./lib/bulkPortPublication/stage65PublicationGuards');
 const { assignPublicPortGuideByAppPortId } = require('./lib/bulkPortPublication/crossCountryHomonymPublicationGuards');
 const { buildPublishedSlugSet, exclusionReasonForSlug } = require('./lib/bulkPortPublication/stage43PublishedBaseline');
-const { usesPassengerEditorialLead } = require('./lib/publicGuideCopySanitize');
+const { usesPassengerEditorialLead, collectGuidePassengerLeakBlob, containsInternalResearchLeak } = require('./lib/publicGuideCopySanitize');
+const { applyHeldDraftPatches } = require('./stage68-held-recovery-6-prep');
 const { stableStringify } = require('./lib/portResearchImport/jsonDiff');
 
 const REPO = path.join(__dirname, '..');
@@ -31,8 +32,12 @@ function fail(msg) {
 
 function loadProposed(slug) {
   const p = path.join(EVIDENCE, 'proposed-guides', `${slug}.json`);
-  const g = JSON.parse(fs.readFileSync(p, 'utf8'));
+  let g = JSON.parse(fs.readFileSync(p, 'utf8'));
   if (!String(g.portInfo?.description || '').trim()) fail(`portInfo.description required: ${slug}`);
+  g = applyHeldDraftPatches(JSON.parse(JSON.stringify(g)), slug);
+  if (containsInternalResearchLeak(collectGuidePassengerLeakBlob(g))) {
+    fail(`passenger leak in proposed guide after patches: ${slug}`);
+  }
   return g;
 }
 

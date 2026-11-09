@@ -2,8 +2,12 @@
 
 - **Baseline main:** `90b981f409427bb81f29e6f736b0d35cae94e39e` (313 passenger editorial)
 - **Preparation bundle (unchanged):** `d5095e1ef878d8cc1fd8a437a0ff9bdc48b2c6d169a3f899e6fa17fed06d6583`
-- **Recovery bundle:** `00f727d48bca33659b84fb18ae687e25c0297af6fcb9c713040d988bf8b22c99`
+- **Recovery bundle:** `ad172697cc124db5bb263ebda6805ffd437bae2870ff370cd244d23ac7e6b20d`
 - **PR #94:** preparation-only — **not required** to merge this recovery PR
+
+## Root cause (passenger-copy leaks)
+
+`applyHeldDraftPatches()` ran on the editorial draft **before** `dryRunPortImport()` merged research fields back over `portInfo`, `gettingThere`, and `thingsToDo`. Proposed guides and apply output therefore still carried internal pin/verification phrases. **Fix:** re-apply patches on the merged `proposed` guide; restore patched draft lead when merge clears or re-leaks; defend at apply load; extend `containsInternalResearchLeak` + `collectGuidePassengerLeakBlob` for HTML/JSON scans.
 
 ## Inspected / passing / held
 
@@ -12,6 +16,8 @@
 | Inspected | 6 |
 | Passing (this PR) | 6 |
 | Still held | 0 |
+
+**Slugs (unchanged):** `kefalonia-greece`, `new-york-ny-united-states`, `ocean-cay-msc-reserve-bahamas`, `oslo-norway`, `st-croix-frederiksted-us-virgin-islands`, `wilhelmshaven-germany`
 
 ## Failing gate → fix (evidence)
 
@@ -26,8 +32,9 @@
 
 ## Validation
 
-- `RELEASE_VALIDATION.json` — 6/6 HTML PASS
+- `RELEASE_VALIDATION.json` — 6/6 HTML PASS (JSON + HTML leak scan)
 - `BROWSER_QA.json` — 6/6 desktop + mobile PASS
+- `test-stage68-held-recovery-leak-regression.js` — negative controls + clean alternates PASS
 - CocoCay + Falmouth Jamaica guards unchanged (rollback evidence)
 - Terminals JSON unchanged on disk
 
