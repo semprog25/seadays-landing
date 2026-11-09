@@ -38,6 +38,33 @@ const POLICY_HOLD_SLUGS = [
   'venice-ravenna-trieste-italy',
 ]
 
+/** Stage 52 timing-scan soften — qualified call plans without invented minute math (PR #81). */
+const PR81_CALL_PLAN_SOFTEN = {
+  'corner-brook-canada': {
+    shortCall:
+      'Stay near the waterfront and downtown museum area; keep a generous buffer before all-aboard.',
+    standardCall:
+      'Combine a town walk, one museum or look-off, and lunch if times allow—start back well before all-aboard.',
+    longerCall:
+      'Gros Morne or a long coach outing needs confirmed transport and a full-day window—not a short-call add-on.',
+  },
+  'reykjavik-iceland': {
+    shortCall: 'Stay near the port area and keep a generous buffer before all-aboard.',
+    standardCall:
+      'Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.',
+    longerCall:
+      'A Golden Circle-style outing needs confirmed transport and an eight-hour or longer window.',
+  },
+  'lofoten-islands-norway': {
+    shortCall:
+      'Stay near the tender or quay area and one harbour village; keep a generous buffer before all-aboard.',
+    standardCall:
+      'Pick one island highlight or museum if transfer is confirmed—start back well before all-aboard.',
+    longerCall:
+      'Cross-island or Lofotr outings need confirmed coaches or ship excursions and a full-day window.',
+  },
+}
+
 function shellHtml(fragment, title) {
   return `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -137,6 +164,8 @@ function main() {
     const draftPath = path.join(DRAFTS, `${landingSlug}.json`)
     const draftPayload = JSON.parse(fs.readFileSync(draftPath, 'utf8'))
     let draft = sanitizePassengerDraftSurfaces(JSON.parse(JSON.stringify(draftPayload.draft || draftPayload)))
+    const soften = PR81_CALL_PLAN_SOFTEN[landingSlug]
+    if (soften && draft.thingsToDo) Object.assign(draft.thingsToDo, soften)
     const draftSha = hashFile(draftPath)
     if (draftSha !== row.draft_file_sha256) throw new Error(`draft sha mismatch ${landingSlug}`)
 

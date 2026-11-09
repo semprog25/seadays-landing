@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T06:18:32.698Z",
+  "generated_at": "2026-11-09T06:35:44.408Z",
   "ports": [
     {
       "landing_slug": "corner-brook-canada",
@@ -954,8 +954,8 @@
         {
           "area": "excursion_long",
           "field": "thingsToDo.longerCall",
-          "tier": "exclude",
-          "confidence": "exclude",
+          "tier": "authoritative",
+          "confidence": "high",
           "supporting_sources": [
             {
               "id": "S1",
@@ -1103,11 +1103,6 @@
         {
           "field": "portInfo.description",
           "reason": "field_excluded_stage23"
-        },
-        {
-          "field": "thingsToDo.longerCall",
-          "reason": "explicit_evidence_gap",
-          "excerpt": "Cross-island itineraries only with ≥120 min return buffer and published shuttle/"
         },
         {
           "field": "thingsToDo.topThings[1]",

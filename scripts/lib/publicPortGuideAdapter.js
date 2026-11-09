@@ -481,6 +481,8 @@ module.exports = {
   loadPublicPortGuidesFile,
   writePublicPortGuidesFile,
   toPublicGuide,
+  resolveGuideId,
+  acceptGuideId,
   resolveGuideIdFromSlugTokens,
   extractPortNameCandidates,
   normalizeCountryKey,

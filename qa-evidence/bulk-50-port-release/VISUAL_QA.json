@@ -1,7 +1,5 @@
 {
-  "generated_at_utc": "2026-11-09T06:19:30.000Z",
-  "status": "DEFERRED_MODULE_MISSING",
-  "note": "playwright is not a repo dependency on main; stage61-playwright-visual-audit.js could not run. Editorial/html gates passed in RELEASE_VALIDATION.json. Reuse stage53 playwright harness after npm add playwright in CI or local prep.",
+  "generated_at_utc": "2026-11-09T06:35:59.368Z",
   "slugs": [
     "corner-brook-canada",
     "horta-azores-portugal",
@@ -9,5 +7,159 @@
     "reykjavik-iceland",
     "sydney-australia"
   ],
-  "fallback_checks": ["validateGeneratedPortHtml", "source_marker_regression", "passenger_leak_scan"]
+  "passing": 5,
+  "total": 5,
+  "ports": [
+    {
+      "landing_slug": "corner-brook-canada",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "horta-azores-portugal",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "lofoten-islands-norway",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "reykjavik-iceland",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "sydney-australia",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "ok": true
 }

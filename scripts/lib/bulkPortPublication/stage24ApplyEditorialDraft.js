@@ -17,11 +17,15 @@ const PRESERVE_KEYS = [
   'seo',
 ];
 
-function applyFieldExclusions(out, exclusions) {
+function applyFieldExclusions(out, exclusions, existingGuide) {
   for (const ex of exclusions) {
     if (ex === 'portInfo.description') {
-      if (out.portInfo) delete out.portInfo.description;
-      continue;
+      const preserved = String(existingGuide?.portInfo?.description || '').trim()
+      if (out.portInfo) {
+        if (preserved) out.portInfo.description = existingGuide.portInfo.description
+        else delete out.portInfo.description
+      }
+      continue
     }
     if (ex.startsWith('thingsToDo.topThings[')) {
       const idx = Number(ex.match(/\[(\d+)\]/)?.[1]);
@@ -58,7 +62,7 @@ function applyEditorialDraftToGuide({
   out.thingsToDo = { ...(out.thingsToDo || {}), ...(patch.thingsToDo || {}) };
   if (patch.shorePlansFirst != null) out.shorePlansFirst = patch.shorePlansFirst;
 
-  applyFieldExclusions(out, exclusions);
+  applyFieldExclusions(out, exclusions, existingGuide);
 
   for (const key of PRESERVE_KEYS) {
     if (existingGuide?.[key] != null) out[key] = existingGuide[key];

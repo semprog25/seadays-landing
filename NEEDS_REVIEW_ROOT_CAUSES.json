@@ -1,0 +1,1100 @@
+{
+  "generated_at_utc": "2026-11-09T06:35:14.249Z",
+  "baseline_guides": "/Users/sharanestone/Semprog/seadays-landing/.worktrees/bulk-50-port-release/qa-evidence/bulk-50-port-release/rollback-pre-apply/public-port-guides.json",
+  "needs_review_analyzed": 108,
+  "cause_counts": {
+    "draft_sanitizer_markdown_leak": 50,
+    "missing_weak_passenger_content": 108,
+    "unsupported_factual_claims": 108,
+    "historical_policy_exclusion": 9,
+    "gateway_terminal_policy_block": 42,
+    "editorial_research_leak": 12
+  },
+  "ports": [
+    {
+      "landing_slug": "barcelona-spain",
+      "app_port_id": "barcelona",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "bod-norway",
+      "app_port_id": "bodo",
+      "causes": [
+        "historical_policy_exclusion",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "cozumel-mexico",
+      "app_port_id": "cozumel",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "dubrovnik-croatia",
+      "app_port_id": "dubrovnik",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "haifa-israel",
+      "app_port_id": "haifa",
+      "causes": [
+        "historical_policy_exclusion",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "lofoten-islands-norway",
+      "app_port_id": "lofoten",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "marigot-st-maarten",
+      "app_port_id": "marigot",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "miami-fl-united-states",
+      "app_port_id": "miami",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "app_port_id": "mormugao",
+      "causes": [
+        "historical_policy_exclusion",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "mumbai-india",
+      "app_port_id": "mumbai",
+      "causes": [
+        "historical_policy_exclusion",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "nassau-bahamas",
+      "app_port_id": "nassau",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "port-of-haifa-israel",
+      "app_port_id": "haifa",
+      "causes": [
+        "historical_policy_exclusion",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "app_port_id": "ravenna",
+      "causes": [
+        "historical_policy_exclusion",
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "santorini-greece",
+      "app_port_id": "santorini",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "southampton-united-kingdom",
+      "app_port_id": "southampton",
+      "causes": [
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "sydney-australia",
+      "app_port_id": "sydney-australia",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "venice-ravenna-trieste-italy",
+      "app_port_id": "venice",
+      "causes": [
+        "historical_policy_exclusion",
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "amsterdam-netherlands",
+      "app_port_id": "amsterdam",
+      "causes": [
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "athens-piraeus-greece",
+      "app_port_id": "piraeus",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "colombo-sri-lanka",
+      "app_port_id": "colombo",
+      "causes": [
+        "historical_policy_exclusion",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "copenhagen-denmark",
+      "app_port_id": "copenhagen",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "corner-brook-canada",
+      "app_port_id": "corner-brook",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "eilat-israel",
+      "app_port_id": "eilat",
+      "causes": [
+        "historical_policy_exclusion",
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "genoa-italy",
+      "app_port_id": "genua",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "haugesund-norway",
+      "app_port_id": "haugesund",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "hilo-hi-united-states",
+      "app_port_id": "hilo",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "hobart-australia",
+      "app_port_id": "hobart",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "honolulu-hi-united-states",
+      "app_port_id": "honolulu",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "horta-azores-portugal",
+      "app_port_id": "horta",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "istanbul-turkey",
+      "app_port_id": "istanbul",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "izmir-turkey",
+      "app_port_id": "izmir",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "jacksonville-fl-united-states",
+      "app_port_id": "jacksonville",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "kavala-greece",
+      "app_port_id": "kavala",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "kirkenes-norway",
+      "app_port_id": "kirkenes",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "kirkwall-orkney-united-kingdom",
+      "app_port_id": "kirkwall",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "kos-greece",
+      "app_port_id": "ko",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "kristiansand-norway",
+      "app_port_id": "kristiansand",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "kristiansund-norway",
+      "app_port_id": "kristiansund",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "la-coruna-spain",
+      "app_port_id": "la-coruna",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "lanzarote-spain",
+      "app_port_id": "lanzarote",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "le-havre-paris-france",
+      "app_port_id": "le-havre",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "liverpool-united-kingdom",
+      "app_port_id": "liverpool",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "london-tilbury-united-kingdom",
+      "app_port_id": "tilbury",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "madeira-funchal-portugal",
+      "app_port_id": "madeira",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "malaga-spain",
+      "app_port_id": "malaga",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "marseille-provence-france",
+      "app_port_id": "marseille",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "melbourne-australia",
+      "app_port_id": "melbourne",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "menorca-mahon-spain",
+      "app_port_id": "mahon",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "messina-sicily-italy",
+      "app_port_id": "messina",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "molde-norway",
+      "app_port_id": "molde",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "mykonos-greece",
+      "app_port_id": "mykonos",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "nafplio-greece",
+      "app_port_id": "nafplio",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "nagasaki-japan",
+      "app_port_id": "nagasaki",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "naples-italy",
+      "app_port_id": "naples",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "narvik-norway",
+      "app_port_id": "narvik",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "nordfjordeid-norway",
+      "app_port_id": "nordfjordeid",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "norfolk-va-united-states",
+      "app_port_id": "norfolk",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "ocho-rios-jamaica",
+      "app_port_id": "ocho-rios",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "okinawa-naha-japan",
+      "app_port_id": "naha",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "olbia-italy",
+      "app_port_id": "olbia",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "olden-norway",
+      "app_port_id": "olden",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "osaka-kyoto-kobe-japan",
+      "app_port_id": "kobe",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "palma-de-mallorca-spain",
+      "app_port_id": "palma-de-mallorca",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "ponta-delgada-azores-portugal",
+      "app_port_id": "ponta-delgada",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "port-canaveral-fl-united-states",
+      "app_port_id": "port-canaveral",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "portland-me-united-states",
+      "app_port_id": "portland",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "portsmouth-united-kingdom",
+      "app_port_id": "portsmouth",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "reykjavik-iceland",
+      "app_port_id": "reykjavik",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "rhodes-greece",
+      "app_port_id": "rhodes",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "rome-civitavecchia-italy",
+      "app_port_id": "civitavecchia",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "safaga-egypt",
+      "app_port_id": "safaga",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "saint-john-nb-canada",
+      "app_port_id": "saint-john",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "salerno-italy",
+      "app_port_id": "salerno",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "salvador-de-bahia-brazil",
+      "app_port_id": "salvador",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "samos-greece",
+      "app_port_id": "samos",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "san-diego-ca-united-states",
+      "app_port_id": "san-diego",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "san-francisco-ca-united-states",
+      "app_port_id": "san-francisco",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "santander-spain",
+      "app_port_id": "santander",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "santiago-san-antonio-chile",
+      "app_port_id": "san-antonio",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "sharm-el-sheikh-egypt",
+      "app_port_id": "sharm-el-sheikh",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "sicily-palermo-italy",
+      "app_port_id": "palermo",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "skagen-denmark",
+      "app_port_id": "skagen",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "skjolden-norway",
+      "app_port_id": "skjolden",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "split-croatia",
+      "app_port_id": "split",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "st-george-s-grenada",
+      "app_port_id": "grenada",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "st-lucia-castries-st-lucia",
+      "app_port_id": "st-lucia",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "st-thomas-charlotte-amalie-us-virgin-islands",
+      "app_port_id": "st-thomas",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "stockholm-sweden",
+      "app_port_id": "stockholm",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "stornoway-united-kingdom",
+      "app_port_id": "stornoway",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tallinn-estonia",
+      "app_port_id": "tallinn",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tangier-morocco",
+      "app_port_id": "tangier",
+      "causes": [
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tarragona-spain",
+      "app_port_id": "tarragona",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tauranga-new-zealand",
+      "app_port_id": "tauranga",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tenerife-spain",
+      "app_port_id": "tenerife",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tokyo-yokohama-japan",
+      "app_port_id": "yokohama",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "tortola-british-virgin-islands",
+      "app_port_id": "tortola",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "toulon-france",
+      "app_port_id": "toulon",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "trondheim-norway",
+      "app_port_id": "trondheim",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "turku-finland",
+      "app_port_id": "turku",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "ulvik-norway",
+      "app_port_id": "ulvik",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "ushuaia-argentina",
+      "app_port_id": "ushuaia",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "valencia-spain",
+      "app_port_id": "valencia",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "valletta-malta",
+      "app_port_id": "valletta",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "vigo-spain",
+      "app_port_id": "vigo",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 0
+    },
+    {
+      "landing_slug": "visby-sweden",
+      "app_port_id": "visby",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "warnemunde-berlin-germany",
+      "app_port_id": "warnem-nde",
+      "causes": [
+        "draft_sanitizer_markdown_leak",
+        "editorial_research_leak",
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "wellington-new-zealand",
+      "app_port_id": "wellington",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims",
+        "gateway_terminal_policy_block"
+      ],
+      "thin_score": 16
+    },
+    {
+      "landing_slug": "zakynthos-greece",
+      "app_port_id": "zakynthos",
+      "causes": [
+        "missing_weak_passenger_content",
+        "unsupported_factual_claims"
+      ],
+      "thin_score": 16
+    }
+  ]
+}

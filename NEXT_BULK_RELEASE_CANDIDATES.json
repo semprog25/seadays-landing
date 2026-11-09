@@ -1,0 +1,20 @@
+{
+  "generated_at_utc": "2026-11-09T06:35:14.249Z",
+  "production_baseline_sha": "9ea50c967a26a705fbbf93ab196b39f8b7835cbe",
+  "pr81_cohort_separate": [
+    "corner-brook-canada",
+    "horta-azores-portugal",
+    "lofoten-islands-norway",
+    "reykjavik-iceland",
+    "sydney-australia"
+  ],
+  "estimated_safe_grouped_release_after_pr81": 5,
+  "candidate_slugs_up_to_50": [],
+  "ranked_future_from_pilot_synthesis": [],
+  "next_wave_requirements": [
+    "Per-slug v2.5 sanitizer + synthesis for NEEDS_REVIEW pool (pilot produced 0 auto-READY without cached Stage 45 drafts)",
+    "Owner clearance for policy-held slugs (Bod, Ravenna, Mumbai, Mormugao, Eilat, terminal aliases)",
+    "Field-exclusion or editorial passes for NEEDS_FACT_CHECK synthesis outputs"
+  ],
+  "note": "Stage 45 cached READY cohort is exhausted on baseline; scale-up depends on NEEDS_REVIEW recovery batches, not a single 50-port artifact."
+}
