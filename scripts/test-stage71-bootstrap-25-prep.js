@@ -25,6 +25,9 @@ function main() {
   assert.strictEqual(manifest.verified_research_commit, MERGED_RESEARCH)
   assert.strictEqual(shaVal.verified_count, 25)
   assert.ok(!cohort.selected_slugs.includes('hamburg-germany'))
+  assert.strictEqual(cohort.category_a_deferred_preparation.length, 6)
+  assert.strictEqual(cohort.historical_owner_policy_excluded.length, 6)
+  assert.ok(!cohort.category_a_deferred_preparation.includes('hamburg-germany'))
 
   const recovery = JSON.parse(fs.readFileSync(path.join(OUT, 'RECOVERY_RESULTS.json'), 'utf8'))
   for (const row of recovery.ports) {
@@ -41,8 +44,13 @@ function main() {
     assert.ok(draft.draft?.thingsToDo?.shortCall, row.landing_slug)
   }
 
-  const publishedChanged = manifest.ports.filter((p) => p.production_apply_allowed === false)
-  assert.strictEqual(publishedChanged.length, 0)
+  assert.strictEqual(manifest.production_apply_permitted, false)
+  assert.strictEqual(manifest.slugs_technical_eligible.length, 25)
+  assert.strictEqual(manifest.slugs_approved.length, 0)
+  for (const portRow of manifest.ports) {
+    assert.strictEqual(portRow.technical_apply_eligible, true, portRow.landing_slug)
+    assert.strictEqual(portRow.production_apply_allowed, false, portRow.landing_slug)
+  }
 
   console.log('test-stage71-bootstrap-25-prep PASS', {
     preparation_pass: recovery.ports.length,

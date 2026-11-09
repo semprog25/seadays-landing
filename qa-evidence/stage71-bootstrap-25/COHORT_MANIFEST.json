@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "lock_version": "stage71-bootstrap-25-v1",
-  "generated_at_utc": "2026-11-09T15:00:27.312Z",
+  "generated_at_utc": "2026-11-09T15:03:59.363Z",
   "landing_baseline_sha": "989c709f82ab8642ff285468998e41d8895a6a8c",
   "merged_research_commit": "77968a38ba420a4011af3b83b9d444c3e1552ad1",
   "source_manifest": "qa-evidence/stage70-yaml-repair-31/post_repair_COHORT_MANIFEST.json",
@@ -39,14 +39,26 @@
       "reason": "pilot_pass_bucket_not_net_new"
     }
   ],
-  "category_a_deferred_excluded": [
+  "category_a_deferred_preparation": [
+    "hobart-australia",
+    "marigot-st-maarten",
+    "nagasaki-japan",
+    "nordfjordeid-norway",
+    "okinawa-naha-japan",
+    "stornoway-united-kingdom"
+  ],
+  "historical_owner_policy_excluded": [
     "falmouth-jamaica",
     "glasgow-united-kingdom",
-    "hamburg-germany",
     "kirkenes-norway",
     "ocho-rios-jamaica",
     "rostock-germany",
     "tokyo-yokohama-japan"
   ],
+  "cohort_exclusion_glossary": {
+    "category_a_deferred_preparation": "Six Category A NEEDS_REVIEW ports eligible for future prep but excluded from this 25-slug net-new cohort",
+    "pilot_held_from_cohort": "Hamburg PASS-bucket pilot; not net-new editorial cohort",
+    "historical_owner_policy_excluded": "Owner factual holds and homonym/policy exclusions (not Category A deferrals)"
+  },
   "publication_status_policy": "UNCHANGED_NEEDS_REVIEW"
 }

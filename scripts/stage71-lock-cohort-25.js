@@ -12,15 +12,22 @@ const STAGE70 = path.join(REPO, 'qa-evidence/stage70-yaml-repair-31')
 const OUT = path.join(REPO, 'qa-evidence/stage71-bootstrap-25')
 const MERGED_RESEARCH_SHA = '77968a38ba420a4011af3b83b9d444c3e1552ad1'
 const LANDING_BASELINE_SHA = '989c709f82ab8642ff285468998e41d8895a6a8c'
-const CATEGORY_A_DEFERRED = new Set([
-  'hamburg-germany',
-  'tokyo-yokohama-japan',
-  'kirkenes-norway',
-  'ocho-rios-jamaica',
-  'glasgow-united-kingdom',
-  'rostock-germany',
-  'falmouth-jamaica',
-])
+const {
+  STAGE69_OWNER_HOLD,
+  FALMOUTH_JAMAICA_LANDING_SLUG,
+} = require('./lib/bulkPortPublication/stage69IdentityGate')
+
+/** Category A NEEDS_REVIEW ports not in the locked 25-slug net-new cohort */
+const CATEGORY_A_DEFERRED_PREPARATION = [
+  'hobart-australia',
+  'marigot-st-maarten',
+  'nagasaki-japan',
+  'nordfjordeid-norway',
+  'okinawa-naha-japan',
+  'stornoway-united-kingdom',
+]
+
+const PILOT_HELD_LANDING_SLUG = 'hamburg-germany'
 
 function main() {
   const postManifest = JSON.parse(
@@ -33,13 +40,37 @@ function main() {
   if (selectedSlugs.length !== 25) {
     throw new Error(`expected 25 cohort slugs, got ${selectedSlugs.length}`)
   }
+  const inventoryPath = path.join(STAGE70, 'post_repair_REMAINING_87_INVENTORY.json')
+  const inventory = fs.existsSync(inventoryPath)
+    ? JSON.parse(fs.readFileSync(inventoryPath, 'utf8'))
+    : []
+  const inventoryBySlug = new Map(inventory.map((r) => [r.landing_slug, r]))
+
+  const forbiddenInCohort = new Set([
+    PILOT_HELD_LANDING_SLUG,
+    ...CATEGORY_A_DEFERRED_PREPARATION,
+    ...STAGE69_OWNER_HOLD,
+    FALMOUTH_JAMAICA_LANDING_SLUG,
+  ])
   for (const slug of selectedSlugs) {
-    if (CATEGORY_A_DEFERRED.has(slug)) {
-      throw new Error(`deferred slug must not be in cohort: ${slug}`)
+    if (forbiddenInCohort.has(slug)) {
+      throw new Error(`excluded slug must not be in cohort: ${slug}`)
     }
   }
-  if (postManifest.pilot_held_from_cohort?.some((p) => p.landing_slug === 'hamburg-germany') === false) {
-    throw new Error('expected hamburg-germany pilot hold in stage70 manifest')
+  if (postManifest.pilot_held_from_cohort?.some((p) => p.landing_slug === PILOT_HELD_LANDING_SLUG) === false) {
+    throw new Error(`expected ${PILOT_HELD_LANDING_SLUG} pilot hold in stage70 manifest`)
+  }
+  for (const slug of CATEGORY_A_DEFERRED_PREPARATION) {
+    const row = inventoryBySlug.get(slug)
+    if (!row || row.category !== 'A') {
+      throw new Error(`expected category A deferred preparation slug: ${slug}`)
+    }
+    if (selectedSlugs.includes(slug)) {
+      throw new Error(`deferred category A slug leaked into cohort: ${slug}`)
+    }
+  }
+  if (CATEGORY_A_DEFERRED_PREPARATION.length !== 6) {
+    throw new Error('expected exactly 6 category A deferred preparation slugs')
   }
 
   const bySlug = new Map(allCandidates.map((r) => [r.landing_slug, r]))
@@ -113,12 +144,43 @@ function main() {
     selected_count: selectedSlugs.length,
     selected_slugs: [...selectedSlugs].sort(),
     pilot_held_from_cohort: postManifest.pilot_held_from_cohort || [],
-    category_a_deferred_excluded: [...CATEGORY_A_DEFERRED].sort(),
+    category_a_deferred_preparation: [...CATEGORY_A_DEFERRED_PREPARATION].sort(),
+    historical_owner_policy_excluded: [...STAGE69_OWNER_HOLD, FALMOUTH_JAMAICA_LANDING_SLUG].sort(),
+    cohort_exclusion_glossary: {
+      category_a_deferred_preparation:
+        'Six Category A NEEDS_REVIEW ports eligible for future prep but excluded from this 25-slug net-new cohort',
+      pilot_held_from_cohort: 'Hamburg PASS-bucket pilot; not net-new editorial cohort',
+      historical_owner_policy_excluded:
+        'Owner factual holds and homonym/policy exclusions (not Category A deferrals)',
+    },
     publication_status_policy: 'UNCHANGED_NEEDS_REVIEW',
   }
 
   fs.writeFileSync(path.join(OUT, 'COHORT_MANIFEST.json'), `${JSON.stringify(cohortManifest, null, 2)}\n`, 'utf8')
   fs.writeFileSync(path.join(OUT, 'SELECTED_CANDIDATES.json'), `${JSON.stringify(selected, null, 2)}\n`, 'utf8')
+  const crypto = require('crypto')
+  const prodGuidesPath = path.join(REPO, 'data/public-port-guides.json')
+  const prodGuidesSha = crypto.createHash('sha256').update(fs.readFileSync(prodGuidesPath)).digest('hex')
+  fs.writeFileSync(
+    path.join(OUT, 'PUBLICATION_AUTHORIZATION_BOUNDARY.json'),
+    `${JSON.stringify(
+      {
+        verified_at_utc: new Date().toISOString(),
+        production_data_modified_on_branch: false,
+        production_public_port_guides_sha256: prodGuidesSha,
+        live_passenger_editorial_baseline: 319,
+        owner_publication_authorized: false,
+        production_apply_permitted: false,
+        stage71_apply_script: 'scripts/stage71-apply-bootstrap-25.js',
+        fail_closed_without_owner_auth: true,
+        stage68_apply_uses_separate_manifest: true,
+      },
+      null,
+      2
+    )}\n`,
+    'utf8'
+  )
+
   fs.writeFileSync(
     path.join(OUT, 'RESEARCH_SHA_VALIDATION.json'),
     `${JSON.stringify(

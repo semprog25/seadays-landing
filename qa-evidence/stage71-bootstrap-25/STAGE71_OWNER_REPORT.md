@@ -32,7 +32,28 @@ Full artifact: `STAGE71_MERGE_DEPLOY_VERIFY.json`.
 | **BLOCKED** | **0** |
 | Owner bucket `READY_FOR_OWNER_APPROVAL` | **25** |
 
-Bundle hash: `83ae6cd1be69d37c061035f44f222e30e886c40e29ec2f28d3fd84950cdbe944` (`STAGE71_MANIFEST.json`).
+Bundle hash: `b605122e98576705423bb80e58376c1cbad2b9e1373e5a02b8d2ce75021ec093` (`STAGE71_MANIFEST.json`).
+
+## Publication safety (final review)
+
+| Field | Meaning |
+|-------|---------|
+| `technical_apply_eligible` | **25/25** — prep gates only |
+| `production_apply_allowed` | **false** on every port until a future owner-authorized apply stage |
+| `owner_publication_authorized` / `production_apply_permitted` | **false** at manifest root |
+| `slugs_approved` | **[]** (empty — use `slugs_technical_eligible`) |
+
+Apply path: `scripts/stage71-apply-bootstrap-25.js` — **fail-closed** (exit 42) without owner authorization. Stage 68 apply remains bound to its own bundle hash.
+
+## Cohort exclusions (not in the locked 25)
+
+| Class | Slugs |
+|-------|--------|
+| **Category A deferred prep (6)** | hobart, marigot, nagasaki, nordfjordeid, okinawa-naha, stornoway |
+| **Pilot hold** | hamburg-germany |
+| **Historical owner/policy (6)** | tokyo-yokohama, kirkenes, ocho-rios, glasgow, rostock, falmouth-jamaica |
+
+Artifact: `PUBLICATION_AUTHORIZATION_BOUNDARY.json`, tests: `test-stage71-publication-safety.js`.
 
 Per slug: passenger short / standard / longer call plans in `corrected-drafts/*.json` (`shoreTimePlanner.plans`); terminal proposals in `terminals-proposed/`; HTML previews under `previews-local-only/` (not published).
 

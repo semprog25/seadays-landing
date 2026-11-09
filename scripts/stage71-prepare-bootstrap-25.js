@@ -238,7 +238,8 @@ function main() {
         research_sha256: row.research_sha256,
         field_exclusions: fieldExclusions,
         proposed_content_hash: proposedContentHash,
-        production_apply_allowed: portPass,
+        technical_apply_eligible: portPass,
+        production_apply_allowed: false,
         publication_gates_pass: portPass,
         proposed_guide_ref: `qa-evidence/stage71-bootstrap-25/proposed-guides/${landingSlug}.json`,
         rollback_ref: `qa-evidence/stage71-bootstrap-25/rollback/${landingSlug}.production-snapshot.json`,
@@ -250,12 +251,12 @@ function main() {
       });
     }
 
-    const approved = manifestPorts.filter((p) => p.production_apply_allowed);
+    const technicallyEligible = manifestPorts.filter((p) => p.technical_apply_eligible);
     const releaseBundleHash = crypto
       .createHash('sha256')
       .update(
         stableStringify(
-          approved.map((p) => ({
+          technicallyEligible.map((p) => ({
             landing_slug: p.landing_slug,
             app_port_id: p.app_port_id,
             proposed_content_hash: p.proposed_content_hash,
@@ -274,6 +275,22 @@ function main() {
       lock_version: LOCK,
       status: verdict,
       owner_publication_authorized: false,
+      production_apply_permitted: false,
+      publication_authorization: {
+        owner_publication_authorized: false,
+        production_apply_permitted: false,
+        apply_requires_explicit_owner_authorization: true,
+        apply_entrypoint: 'scripts/stage71-apply-bootstrap-25.js',
+        technical_apply_eligible_count: technicallyEligible.length,
+        glossary: {
+          technical_apply_eligible:
+            'Preparation gates passed (draft, HTML preview, leak scan, terminal dry-run). Does not permit production writes.',
+          production_apply_allowed:
+            'Per-port flag; remains false until a future owner-authorized apply stage sets manifest owner_publication_authorized.',
+          slugs_technical_eligible:
+            'Slugs that passed technical preparation; not approved for live passenger_editorial publication.',
+        },
+      },
       created_at_utc: lockedAt,
       production_baseline_sha: PRODUCTION_BASELINE_SHA,
       worktree_head_sha: head,
@@ -282,7 +299,8 @@ function main() {
       candidate_count_selected: selected.length,
       passing_all_gates: passing,
       slugs_inspected: selected.map((p) => p.landing_slug).sort(),
-      slugs_approved: approved.map((p) => p.landing_slug).sort(),
+      slugs_technical_eligible: technicallyEligible.map((p) => p.landing_slug).sort(),
+      slugs_approved: [],
       ports: manifestPorts,
       pipeline: {
         prompt_version: PROMPT_VERSION,
@@ -304,7 +322,7 @@ function main() {
           verdict,
           passing,
           selected: selected.length,
-          approved: approved.length,
+          technical_eligible: technicallyEligible.length,
           release_bundle: releaseBundleHash,
         },
         null,
