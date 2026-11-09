@@ -1,0 +1,30 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "nordfjordeid-norway--seawalk",
+        "name": "SeaWalk pier 1 (SWN 1)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "nordfjordeid-norway--tender-dock",
+        "name": "Nordfjordeid tender dock",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}

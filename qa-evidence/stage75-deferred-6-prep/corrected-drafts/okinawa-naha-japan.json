@@ -1,0 +1,77 @@
+{
+  "landing_slug": "okinawa-naha-japan",
+  "draft": {
+    "landing_slug": "okinawa-naha-japan",
+    "appPortId": "naha",
+    "portName": "Naha",
+    "country": "Japan",
+    "portInfo": {
+      "description": "Naha Port is Okinawa’s historic gateway, once a Ryukyu trading hub toward China and Southeast Asia, now a tourism and commerce harbour. MLIT notes Kokusai-dori (International Street) is about a 20-minute walk from Naha Cruise Terminal, with Tsuboya pottery street and Makishi Public Market among nearby attractions. Published location lines include Wakasa and Minatomachi areas of Naha. Berth length/depth were not on the captured guide page.",
+      "location": "",
+      "timezone": "JST (UTC+9)",
+      "language": "Japanese, Okinawan",
+      "currency": "Japanese Yen (JPY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Naha Cruise Terminal — Wakasa / Minatomachi area, Naha, Okinawa",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Walk ~20 min to Kokusai-dori per MLIT; monorail/taxi for farther sights.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Walk ~20 min to Kokusai-dori per MLIT; monorail/taxi for farther sights."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Kokusai-dori / Makishi — ~150 min.",
+        "Shuri Castle area — allow transit.",
+        "Beach — coach/taxi.",
+        "Kokusai-dori / Makishi Market"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Heat and humidity high — hydrate for the Kokusai walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "55e978d1d0bf644bc216ad4edb8c64b1261c8707f9703019cfad9bcca15eb154",
+      "existing_guide_hash": "c983d08f53c66810",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/okinawa-naha-japan.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T18:09:16.401Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage75-deferred-needs-review"
+}

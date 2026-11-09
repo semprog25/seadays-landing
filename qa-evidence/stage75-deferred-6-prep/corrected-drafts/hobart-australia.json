@@ -1,0 +1,76 @@
+{
+  "landing_slug": "hobart-australia",
+  "draft": {
+    "landing_slug": "hobart-australia",
+    "appPortId": "hobart",
+    "portName": "Hobart",
+    "country": "Australia",
+    "portInfo": {
+      "description": "TasPorts operates Hobart’s commercial harbour including Macquarie Wharf berths (Nos. 1–6) and Princes Wharf berths, with a Cruise section for visiting Tasmania by cruise and berthing facilities information. Project QuayLink / Macquarie Wharf is listed among major projects reshaping the waterfront cruise precinct. Exact LOA/depth for the cruise-preferred berth was not isolated from the cruise overview HTML captured.",
+      "location": "",
+      "timezone": "AEST (UTC+10) / AEDT (UTC+11)",
+      "language": "English",
+      "currency": "Australian Dollar (AUD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Hobart Macquarie Wharf cruise berths — Macquarie Wharf, Hobart, Tasmania",
+      "transportation": [
+        "Walking",
+        "Local bus"
+      ],
+      "distanceToCity": "Terminal located in downtown Hobart",
+      "walkingTime": "10-15 minutes to Salamanca Place and CBD—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Metro Tasmania bus service available",
+      "distanceAnswer": "Terminal located in downtown Hobart"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Salamanca / waterfront — ~120 min.",
+        "MONA — ferry timed return.",
+        "kunanyi / Mount Wellington — weather-dependent.",
+        "Salamanca / waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Antarctic wind can be sharp — layers even in summer."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0962a34ff2eb5621cc772b0eda10a6bf5cd660085fd1b4171952198d88d16c28",
+      "existing_guide_hash": "4c9e227febe5b83d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/hobart-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T18:09:16.368Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage75-deferred-needs-review"
+}

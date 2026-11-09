@@ -1,0 +1,79 @@
+{
+  "landing_slug": "nordfjordeid-norway",
+  "draft": {
+    "landing_slug": "nordfjordeid-norway",
+    "appPortId": "nordfjordeid",
+    "portName": "Nordfjordeid",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Port of Nordfjordeid sits at the head of Eidsfjord in Vestland and markets a rural fjord call between Bergen and Ålesund. Larger ships (port text: 150 m+) typically use the SeaWalk — a foldable floating walkway the docking procedure says can serve ships up to 340 m and up to 7000 passengers between mooring buoys — while other calls tender; once at the dock the guest flow is described as identical. The terminal building holds souvenir shop, toilets, tourist/excursion desk and port security. Confirm SeaWalk vs tender on the daily programme before timing Sagastad. Gangway GPS pins remain null.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "SeaWalk pier 1 (SWN 1) — Osvegen 10, 6770 Nordfjordeid",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Sagastad Viking Centre — 10–15 min walk; opens on cruise days — ~60–120 min.",
+        "Eidsgata / wooden-house centre + grave mounds on the Sagastad recommended route — ~45–90 min.",
+        "Regional Loen Skylift / Briksdal — only with line-confirmed coaches and large buffers; minutes not verified here.",
+        "Sagastad Viking Centre"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask the ship whether you are on SeaWalk or tender before locking Sagastad timing."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4b43eecf3734a89f5faf7fc2be4b3d6f6fa0872f8cd85ef8306234f33730bebd",
+      "existing_guide_hash": "6cd8cf2dd3578497",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/nordfjordeid-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T18:09:16.396Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage75-deferred-needs-review"
+}

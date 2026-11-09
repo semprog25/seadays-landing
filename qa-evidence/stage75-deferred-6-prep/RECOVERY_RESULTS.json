@@ -1,0 +1,269 @@
+{
+  "generated_at": "2026-11-09T18:09:16.341Z",
+  "ports": [
+    {
+      "landing_slug": "hobart-australia",
+      "app_port_id": "hobart",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "marigot-st-maarten",
+      "app_port_id": "marigot",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "nagasaki-japan",
+      "app_port_id": "nagasaki",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "nordfjordeid-norway",
+      "app_port_id": "nordfjordeid",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "okinawa-naha-japan",
+      "app_port_id": "naha",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "stornoway-united-kingdom",
+      "app_port_id": "stornoway",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    }
+  ]
+}

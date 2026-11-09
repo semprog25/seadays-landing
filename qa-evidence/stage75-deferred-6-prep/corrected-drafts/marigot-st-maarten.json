@@ -1,0 +1,80 @@
+{
+  "landing_slug": "marigot-st-maarten",
+  "draft": {
+    "landing_slug": "marigot-st-maarten",
+    "appPortId": "marigot",
+    "portName": "Marigot",
+    "country": "Saint-Martin",
+    "portInfo": {
+      "description": "Marigot is the main town on the French collectivity of Saint-Martin in the northeast Caribbean. It is not the same call as Philipsburg on Dutch Sint Maarten—confirm your itinerary lists Marigot or Saint-Martin on the French side. The Établissement Portuaire de Saint-Martin (Port of Saint-Martin) handles cruise ships through anchorage and tender landings, with the ferry terminal and Marina Fort Louis on the Marigot waterfront.",
+      "location": "Baie de la Potence / Galisbay, Saint-Martin (French side of the island shared with Sint Maarten)",
+      "timezone": "AST (UTC-4)",
+      "language": "French; English widely used in tourism and shops",
+      "currency": "Euro (EUR); US dollars are often accepted—confirm change policies ashore",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Confirm your sailing's arrival details: Marigot calls use anchorage and tender landings coordinated by the Port of Saint-Martin, not the large Philipsburg cruise piers on the Dutch side. Follow gangway and tender instructions from your ship each day.",
+      "transportation": [
+        "Ship's tender",
+        "Walking from waterfront landing areas",
+        "Taxi",
+        "Local minibus"
+      ],
+      "distanceToCity": "Port of Saint-Martin public information cites about 10 minutes from central Marigot after cruise landings; tender location and crowds change that in practice.",
+      "distanceAnswer": "Port of Saint-Martin public information cites about 10 minutes from central Marigot after cruise landings; tender location and crowds change that in practice.",
+      "walkingTime": "From many landings, the Marigot waterfront and lower town are often walkable if you are mobile—Fort Louis adds a steep uphill segment.",
+      "taxiInfo": "Taxis and informal transport serve Marigot; agree on destination and return timing, and keep payment options your driver accepts.",
+      "publicTransport": "There is no standard cruise-shuttle contract—use ship tenders first. Trips toward Philipsburg or Dutch-side beaches involve border crossing and separate transport planning."
+    },
+    "thingsToDo": {
+      "intro": "A Marigot call is usually a compact French-side day: harbour front, shopping streets, and Fort Louis views—unless your ship sells a Dutch-side or island-wide excursion instead.",
+      "topThings": [
+        "Market square / waterfront — ~90–120 min.",
+        "Marigot shops / cafés opposite the terminal.",
+        "Island tours — coach; confirm French-side vs Dutch-side drop-offs.",
+        "Marigot market square / waterfront",
+        "Marigot waterfront and harbour promenade near the ferry terminal"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm your sailing's arrival details before booking independent transport. All-aboard time matters more than map distance on tender days."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "52380dd23c2e632bcf6fa1b3fc41593a6e11888664db06adc17e7f2412dddbf9",
+      "existing_guide_hash": "e7c4f1d2cf79a8d3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/marigot-st-maarten.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T18:09:16.382Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage75-deferred-needs-review"
+}

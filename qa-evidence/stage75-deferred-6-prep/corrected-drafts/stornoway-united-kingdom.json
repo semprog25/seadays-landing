@@ -1,0 +1,80 @@
+{
+  "landing_slug": "stornoway-united-kingdom",
+  "draft": {
+    "landing_slug": "stornoway-united-kingdom",
+    "appPortId": "stornoway",
+    "portName": "Stornoway",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Stornoway Harbour on the Isle of Lewis is the main seaport of the Outer Hebrides and an established cruise call. The Port Authority’s cruise page states the new Deep Water Terminal handles vessels up to 360 m, while ships under 156 m use Inner Harbour piers 1 and 3 in the town centre. Cruise Ambassadors meet passengers and distribute town/island maps (Lews Castle, Callanish, Carloway Broch, blackhouses). A Cruise Scotland industry member page adds berth depths, a tender pontoon note and “town centre 5 km / shuttle yes” framing for the deep-water facility — treat those figures as secondary unless matched on SPA pages.",
+      "location": "",
+      "timezone": "GMT (UTC+0) / BST (UTC+1)",
+      "language": "English, Scottish Gaelic",
+      "currency": "British Pound (GBP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Stornoway Deep Water Terminal — Stornoway Harbour, Isle of Lewis",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Lews Castle / Stornoway town — ~90 min.",
+        "Callanish Standing Stones — coach; long call.",
+        "Carloway Broch / Gearrannan blackhouses — coach.",
+        "Lews Castle / town waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Deep Water Terminal vs Inner Harbour before planning a walk-off day."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b072fc2ccfd0c98aec3277724668952932589606f5a571ee54fafe4ab8bd2023",
+      "existing_guide_hash": "e9adb3a49b06bce0",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/stornoway-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T18:09:16.406Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage75-deferred-needs-review"
+}
