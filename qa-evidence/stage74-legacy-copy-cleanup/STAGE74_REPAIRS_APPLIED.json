@@ -1,0 +1,54 @@
+{
+  "generated_at_utc": "2026-11-09T17:21:10.884Z",
+  "baseline_production_sha": "53736b985e82d17457522e37aaa637ecfb46f0cf",
+  "slug_count": 2,
+  "slugs": [
+    "cape-liberty-bayonne-nj-united-states",
+    "vancouver-bc-canada"
+  ],
+  "research_source_root": "/Users/sharanestone/Semprog/seadays-ports-deliverables/by-port",
+  "detail": [
+    {
+      "landing_slug": "cape-liberty-bayonne-nj-united-states",
+      "appPortId": "bayonne",
+      "fields": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "Royal Caribbean Cape Liberty FAQ [S1]; removed “Not verified on the FAQ page” research leak",
+          "before_snippet": "Driving. NJTP Exit 14A → Route 440 → Port Terminal Blvd left at light → past guard gate → terminal signs. Airports. EWR, JFK, and LGA are th"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Driving. NJTP Exit 14A → Route 440 → Port Terminal Blvd left at light → past guard gate → terminal signs. Airports. EWR, JFK, and LGA are th"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Driving. NJTP Exit 14A → Route 440 → Port Terminal Blvd left at light → past guard gate → terminal signs. Airports. EWR, JFK, and LGA are th"
+        }
+      ]
+    },
+    {
+      "landing_slug": "vancouver-bc-canada",
+      "appPortId": "vancouver",
+      "fields": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "VFPA/Canada Place [S1,S2]; removed “Not verified on the Canada Place page captured” research leak",
+          "before_snippet": "Transit. Waterfront Station via SkyTrain, SeaBus, West Coast Express. Parking. Underground parkade operated by Indigo Park Canada; entry at "
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Transit. Waterfront Station via SkyTrain, SeaBus, West Coast Express. Parking. Underground parkade operated by Indigo Park Canada; entry at "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Transit. Waterfront Station via SkyTrain, SeaBus, West Coast Express. Parking. Underground parkade operated by Indigo Park Canada; entry at "
+        }
+      ]
+    }
+  ]
+}
