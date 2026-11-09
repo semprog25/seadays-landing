@@ -1,0 +1,87 @@
+{
+  "landing_slug": "bodrum-turkey",
+  "app_port_id": "bodrum",
+  "research_sha256": "e618be0f071a16304d2a0ffebe52e34581f4cf6ba7d79f70229cbba458a5afc5",
+  "draft": {
+    "landing_slug": "bodrum-turkey",
+    "appPortId": "bodrum",
+    "portName": "Bodrum",
+    "country": "Turkey",
+    "portInfo": {
+      "description": "Bodrum Cruise Port markets a full cruise-port product with technical information, tariffs and guest services alongside ferry and yacht services. The castle dominating the harbour is the primary heritage stop for cruise passengers; ferry traffic shares the wider harbour complex — follow cruise signage.",
+      "location": "",
+      "timezone": "TRT (UTC+3)",
+      "language": "Turkish",
+      "currency": "Turkish Lira (TRY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Bodrum Cruise Port — Bodrum, Muğla, Türkiye",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Castle. Harbour-adjacent; allow 10–20 min walk estimate + security/ticket time. Hours/prices GAP. Promenade/marina edge. Short walk. Taxis. Rank pattern on ship days — fare card not fetched.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Castle. Harbour-adjacent; allow 10–20 min walk estimate + security/ticket time. Hours/prices GAP. Promenade/marina edge. Short walk. Taxis. Rank pattern on ship days — fare card not fetched."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "Castle: 90",
+        "Promenade: 30",
+        "Return: 15",
+        "Buffer: 60"
+      ],
+      "shortCall": "≥4 h 30.\n- Exit: 15\n- Castle: 90\n- Promenade: 30\n- Return: 15\n- Buffer: 60\nSum: 210.",
+      "standardCall": "≥6 h. Add lunch 60 + bazaar 45; keep buffer 60.",
+      "longerCall": "Beach clubs or peninsula sites only with verified transfers. Overnight: harbour evening.",
+      "practicalTip": "Distinguish cruise exit from ferry queues."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e618be0f071a16304d2a0ffebe52e34581f4cf6ba7d79f70229cbba458a5afc5",
+      "existing_guide_hash": "839cc178825c6516",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bodrum-turkey.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.222Z",
+      "cache_key": "48670a03c289e72ce746e1289e052b208b9f533ab4bcb170949766145ceda9f8",
+      "landing_slug": "bodrum-turkey",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

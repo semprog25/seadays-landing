@@ -1,0 +1,1921 @@
+{
+  "generated_at": "2026-11-09T06:35:44.408Z",
+  "ports": [
+    {
+      "landing_slug": "corner-brook-canada",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Port of Corner Brook — Port Specifications & Services",
+          "url": "https://cornerbrookport.com/port-specifications-services-2/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Western Terminal 5878; 362 m; 9.6 m MLW; Logistec; postal framing"
+        },
+        {
+          "id": "S2",
+          "publisher": "Port of Corner Brook — Home",
+          "url": "https://cornerbrookport.com/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Cruise guest framing; Western NL setting"
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo ERA5 archive",
+          "url": "https://open-meteo.com/en/docs/historical-weather-api",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "n/a",
+          "claim_supported": "Climate table"
+        },
+        {
+          "id": "S4",
+          "publisher": "IRCC — eTA facts",
+          "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "eTA air-only; cruise exception"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Port Specifications & Services"
+            },
+            {
+              "id": "S2",
+              "url": "https://cornerbrookport.com/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port of Corner Brook — Home"
+            },
+            {
+              "id": "S3",
+              "url": "https://open-meteo.com/en/docs/historical-weather-api",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 archive"
+            },
+            {
+              "id": "S4",
+              "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/facts.html",
+              "accessed_utc": "2026-11-06",
+              "publisher": "IRCC — eTA facts"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port of Corner Brook — Port Specifications & Services",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Western Terminal 5878; 362 m; 9.6 m MLW; Logistec; postal framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "Port of Corner Brook — Home",
+              "url": "https://cornerbrookport.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise guest framing; Western NL setting"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port of Corner Brook — Port Specifications & Services",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Western Terminal 5878; 362 m; 9.6 m MLW; Logistec; postal framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "Port of Corner Brook — Home",
+              "url": "https://cornerbrookport.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise guest framing; Western NL setting"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port of Corner Brook — Port Specifications & Services",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Western Terminal 5878; 362 m; 9.6 m MLW; Logistec; postal framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "Port of Corner Brook — Home",
+              "url": "https://cornerbrookport.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise guest framing; Western NL setting"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port of Corner Brook — Port Specifications & Services",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Western Terminal 5878; 362 m; 9.6 m MLW; Logistec; postal framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "Port of Corner Brook — Home",
+              "url": "https://cornerbrookport.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise guest framing; Western NL setting"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[4]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port of Corner Brook — Port Specifications & Services",
+              "url": "https://cornerbrookport.com/port-specifications-services-2/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Western Terminal 5878; 362 m; 9.6 m MLW; Logistec; postal framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "Port of Corner Brook — Home",
+              "url": "https://cornerbrookport.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise guest framing; Western NL setting"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.distanceAnswer",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "From berth. Downtown transfer minutes Not verified. Airport (YTQ/others). Not ve"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "portInfo.description",
+          "reason": "field_excluded_stage23"
+        },
+        {
+          "field": "thingsToDo.topThings[0]",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Corner Brook downtown / Captains Brook waterfront — ~120 min; transfer Not verified."
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "horta-azores-portugal",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Portos dos Açores",
+          "url": "https://www.portosdosacores.pt/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "Horta Marina investment news; authority"
+        },
+        {
+          "id": "S5",
+          "publisher": "EU — Entry/Exit System",
+          "url": "https://travel-europe.europa.eu/ees_en",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T11:54:57Z",
+          "published_updated": "live",
+          "claim_supported": "EES fully operational since 2026-04-10"
+        },
+        {
+          "id": "S6",
+          "publisher": "EU — ETIAS",
+          "url": "https://travel-europe.europa.eu/etias_en",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T11:54:57Z",
+          "published_updated": "live",
+          "claim_supported": "ETIAS not yet operating"
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-horta-azores-portugal.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portosdosacores.pt/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Portos dos Açores"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — Entry/Exit System"
+            },
+            {
+              "id": "S6",
+              "url": "https://travel-europe.europa.eu/etias_en",
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Portos dos Açores",
+              "url": "https://www.portosdosacores.pt/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Horta Marina investment news; authority"
+            },
+            {
+              "id": "S5",
+              "publisher": "EU — Entry/Exit System",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "published_updated": "live",
+              "claim_supported": "EES fully operational since 2026-04-10"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Portos dos Açores",
+              "url": "https://www.portosdosacores.pt/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Horta Marina investment news; authority"
+            },
+            {
+              "id": "S5",
+              "publisher": "EU — Entry/Exit System",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "published_updated": "live",
+              "claim_supported": "EES fully operational since 2026-04-10"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Portos dos Açores",
+              "url": "https://www.portosdosacores.pt/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Horta Marina investment news; authority"
+            },
+            {
+              "id": "S5",
+              "publisher": "EU — Entry/Exit System",
+              "url": "https://travel-europe.europa.eu/ees_en",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T11:54:57Z",
+              "published_updated": "live",
+              "claim_supported": "EES fully operational since 2026-04-10"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "portInfo.description",
+          "reason": "field_excluded_stage23"
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "lofoten-islands-norway",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Visit Lofoten Cruise — Leknes",
+          "url": "https://cruise.visitlofoten.com/ports/leknes",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:20Z",
+          "published_updated": "230 m quay; anchorage/tender; contacts; activities",
+          "claim_supported": null
+        },
+        {
+          "id": "S2",
+          "publisher": "Lofoten Havn — Leknes",
+          "url": "https://lofotenhavn.no/leknes/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:20Z",
+          "published_updated": "190 m quay; 40 m tender pier; ISPS; watches",
+          "claim_supported": null
+        },
+        {
+          "id": "S3",
+          "publisher": "Visit Lofoten Cruise — Svolvær",
+          "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:20Z",
+          "published_updated": "Svolvær LOA/depth caps (cross-ref)",
+          "claim_supported": null
+        },
+        {
+          "id": "S4",
+          "publisher": "Open-Meteo ERA5 2015–2024",
+          "url": "batches/C03/evidence/pass1/om-lofoten.json",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:20Z",
+          "published_updated": "Interim monthly means",
+          "claim_supported": null
+        },
+        {
+          "id": "S5",
+          "publisher": "European Commission — Schengen / EES",
+          "url": "home-affairs.ec.europa.eu",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:20Z",
+          "published_updated": "Schengen / EES",
+          "claim_supported": null
+        },
+        {
+          "id": "S6",
+          "publisher": "Travel Europe — ETIAS",
+          "url": "travel-europe.europa.eu/etias_en",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:20Z",
+          "published_updated": "ETIAS not operating",
+          "claim_supported": null
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Leknes"
+            },
+            {
+              "id": "S2",
+              "url": "https://lofotenhavn.no/leknes/",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Lofoten Havn — Leknes"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruise.visitlofoten.com/ports/svolvaer",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Visit Lofoten Cruise — Svolvær"
+            },
+            {
+              "id": "S4",
+              "url": "batches/C03/evidence/pass1/om-lofoten.json",
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "publisher": "Open-Meteo ERA5 2015–2024"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Visit Lofoten Cruise — Leknes",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "published_updated": "230 m quay; anchorage/tender; contacts; activities",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Lofoten Havn — Leknes",
+              "url": "https://lofotenhavn.no/leknes/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "published_updated": "190 m quay; 40 m tender pier; ISPS; watches",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Visit Lofoten Cruise — Leknes",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "published_updated": "230 m quay; anchorage/tender; contacts; activities",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Lofoten Havn — Leknes",
+              "url": "https://lofotenhavn.no/leknes/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "published_updated": "190 m quay; 40 m tender pier; ISPS; watches",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Visit Lofoten Cruise — Leknes",
+              "url": "https://cruise.visitlofoten.com/ports/leknes",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "published_updated": "230 m quay; anchorage/tender; contacts; activities",
+              "claim_supported": null
+            },
+            {
+              "id": "S2",
+              "publisher": "Lofoten Havn — Leknes",
+              "url": "https://lofotenhavn.no/leknes/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:20Z",
+              "published_updated": "190 m quay; 40 m tender pier; ISPS; watches",
+              "claim_supported": null
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "portInfo.description",
+          "reason": "field_excluded_stage23"
+        },
+        {
+          "field": "thingsToDo.topThings[1]",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Scenic island coach / fishing-village viewpoints — line excursions; independent self-drive timing not verified."
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "reykjavik-iceland",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Faxaflóahafnir — Cruise",
+          "url": "https://www.faxafloahafnir.is/en/cruise/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "Reykjavík/Akranes; 5500 m² terminal spring 2026; EPI; contact"
+        },
+        {
+          "id": "S2",
+          "publisher": "Faxaflóahafnir — Cruise port facilities",
+          "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "ISPS; security staffing"
+        },
+        {
+          "id": "S3",
+          "publisher": "WMO normals — REYKJAVÍK",
+          "url": null,
+          "evidence_path": "evidence/Reykjavik_04030.csv",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "1991-2020 WMO",
+          "claim_supported": "Climate"
+        },
+        {
+          "id": "S4",
+          "publisher": "EU — EES FAQ",
+          "url": "https://travel-europe.europa.eu/en/ees/faq",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "EES since 2026-04-10"
+        },
+        {
+          "id": "S5",
+          "publisher": "EU — ETIAS",
+          "url": "https://travel-europe.europa.eu/en/etias",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "ETIAS not operating"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Faxaflóahafnir — Cruise port facilities"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S5",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Faxaflóahafnir — Cruise",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Reykjavík/Akranes; 5500 m² terminal spring 2026; EPI; contact"
+            },
+            {
+              "id": "S2",
+              "publisher": "Faxaflóahafnir — Cruise port facilities",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "ISPS; security staffing"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Faxaflóahafnir — Cruise",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Reykjavík/Akranes; 5500 m² terminal spring 2026; EPI; contact"
+            },
+            {
+              "id": "S2",
+              "publisher": "Faxaflóahafnir — Cruise port facilities",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "ISPS; security staffing"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Faxaflóahafnir — Cruise",
+              "url": "https://www.faxafloahafnir.is/en/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Reykjavík/Akranes; 5500 m² terminal spring 2026; EPI; contact"
+            },
+            {
+              "id": "S2",
+              "publisher": "Faxaflóahafnir — Cruise port facilities",
+              "url": "https://www.faxafloahafnir.is/en/cruise-port-facilities/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "ISPS; security staffing"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "portInfo.description",
+          "reason": "field_excluded_stage23"
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "sydney-australia",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Port Authority of NSW — Cruise",
+          "url": "https://www.portauthoritynsw.com.au/cruise/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "OPT; White Bay; schedules"
+        },
+        {
+          "id": "S2",
+          "publisher": "Australian entry (not detailed this pass)",
+          "url": "—",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "gap",
+          "claim_supported": "Entry"
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-sydney-australia.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of NSW — Cruise"
+            },
+            {
+              "id": "S2",
+              "url": "—",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Australian entry (not detailed this pass)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port Authority of NSW — Cruise",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "OPT; White Bay; schedules"
+            },
+            {
+              "id": "S2",
+              "publisher": "Australian entry (not detailed this pass)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "gap",
+              "claim_supported": "Entry"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port Authority of NSW — Cruise",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "OPT; White Bay; schedules"
+            },
+            {
+              "id": "S2",
+              "publisher": "Australian entry (not detailed this pass)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "gap",
+              "claim_supported": "Entry"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port Authority of NSW — Cruise",
+              "url": "https://www.portauthoritynsw.com.au/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "OPT; White Bay; schedules"
+            },
+            {
+              "id": "S2",
+              "publisher": "Australian entry (not detailed this pass)",
+              "url": "—",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "gap",
+              "claim_supported": "Entry"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "portInfo.description",
+          "reason": "field_excluded_stage23"
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    }
+  ],
+  "gate_rows": [
+    {
+      "landing_slug": "corner-brook-canada",
+      "app_port_id": "corner-brook",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "prompt_version",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "horta-azores-portugal",
+      "app_port_id": "horta",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "prompt_version",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "lofoten-islands-norway",
+      "app_port_id": "lofoten",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "prompt_version",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "reykjavik-iceland",
+      "app_port_id": "reykjavik",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "prompt_version",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "sydney-australia",
+      "app_port_id": "sydney-australia",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "prompt_version",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "cohort_track": "stage45_exclusion_path"
+    }
+  ]
+}

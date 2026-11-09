@@ -1,0 +1,84 @@
+{
+  "landing_slug": "christchurch-lyttelton-new-zealand",
+  "app_port_id": "lyttelton",
+  "research_sha256": "413f0e08177b50271717d9d9a07670f48c260ea247443cfb05408d86145ae2cf",
+  "draft": {
+    "landing_slug": "christchurch-lyttelton-new-zealand",
+    "appPortId": "lyttelton",
+    "portName": "Christchurch (Lyttelton)",
+    "country": "New Zealand",
+    "portInfo": {
+      "description": "Lyttelton Port Company welcomes cruise guests as the gateway to Canterbury. LPC states its cruise berth is New Zealand’s first purpose-built cruise ship facility: 148 metres long, able to cater to the world’s largest cruise vessels up to 362 m long carrying up to 6,000 passengers and 2,000 crew, with a shoreside shelter for coach transfers and an amenities building. There is no walk-off access from the cruise berth; on ship days dedicated shuttles run to Lyttelton (Norwich Quay stop) and Christchurch (Cashel Street). Meeting parties should arrange to meet in town or the city centre, not at the berth.",
+      "location": "",
+      "timezone": "NZST (UTC+12) / NZDT (UTC+13)",
+      "language": "English, Māori",
+      "currency": "New Zealand Dollar (NZD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Lyttelton purpose-built cruise berth",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Use ship/LPC shuttles only from the berth.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Use ship/LPC shuttles only from the berth."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Christchurch city rebuild / gardens — ~180 min with shuttle.",
+        "Lyttelton township cafés — short hop.",
+        "Diamond Harbour ferry — views."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not plan to walk off the berth — shuttle is mandatory."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "413f0e08177b50271717d9d9a07670f48c260ea247443cfb05408d86145ae2cf",
+      "existing_guide_hash": "1977408681b197a6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/christchurch-lyttelton-new-zealand.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.256Z",
+      "cache_key": "fee1aa9858dbff5214af17d469d34a0e6b579e5157701c8b219e7689bc9a603c",
+      "landing_slug": "christchurch-lyttelton-new-zealand",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

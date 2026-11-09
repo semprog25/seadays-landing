@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "lock_version": "bulk-50-port-release-v1",
+  "status": "READY_FOR_REVIEW",
+  "owner_publication_authorized": false,
+  "created_at_utc": "2026-11-09T06:35:44.408Z",
+  "production_baseline_sha": "9ea50c967a26a705fbbf93ab196b39f8b7835cbe",
+  "worktree_head_sha": "29c1ee41297924ef507276fb0364b86fee2cd6da",
+  "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+  "bundle_idempotency_hash": "4e731d5625d1427e2b33d5637131f893b418de023a5476d8b1f534b6d831bb6a",
+  "max_cohort_requested": 50,
+  "eligible_candidate_count": 5,
+  "candidate_count_selected": 5,
+  "passing_all_gates": 5,
+  "slugs_locked": [
+    "corner-brook-canada",
+    "horta-azores-portugal",
+    "lofoten-islands-norway",
+    "reykjavik-iceland",
+    "sydney-australia"
+  ],
+  "slugs_approved": [
+    "corner-brook-canada",
+    "horta-azores-portugal",
+    "lofoten-islands-norway",
+    "reykjavik-iceland",
+    "sydney-australia"
+  ],
+  "ports": [
+    {
+      "landing_slug": "corner-brook-canada",
+      "app_port_id": "corner-brook",
+      "draft_file_sha256": "2e1865ce306a26d675fc1bcbf44c5b321c4d29430607da5677ad89cd645df4a0",
+      "research_sha256": "2ddc2ea9092ec85781348262ee4882d78f0c4873353fd759f96b25b9d0ab7f07",
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "proposed_content_hash": "e463fc4f98a7899fa9414b91f823c3834d44966869bc26070544e3b23db928cc",
+      "production_apply_allowed": true,
+      "publication_gates_pass": true,
+      "proposed_guide_ref": "qa-evidence/bulk-50-port-release/proposed-guides/corner-brook-canada.json",
+      "rollback_ref": "qa-evidence/bulk-50-port-release/rollback/corner-brook-canada.production-snapshot.json",
+      "owner_approval_status": "PENDING",
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "horta-azores-portugal",
+      "app_port_id": "horta",
+      "draft_file_sha256": "aa852f3930faf4c88f0baef67f7fe77a151782869ed3ffcec585f0cd2b8813c6",
+      "research_sha256": "ca5c8e6d790d9402cc641880e8d6205c711873de05a2fbb8ed7acde9722559af",
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "proposed_content_hash": "77c7ba9ca7ce21ea59ecd546388f25524fd45836bfed5a4ba72428ec46869e9d",
+      "production_apply_allowed": true,
+      "publication_gates_pass": true,
+      "proposed_guide_ref": "qa-evidence/bulk-50-port-release/proposed-guides/horta-azores-portugal.json",
+      "rollback_ref": "qa-evidence/bulk-50-port-release/rollback/horta-azores-portugal.production-snapshot.json",
+      "owner_approval_status": "PENDING",
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "lofoten-islands-norway",
+      "app_port_id": "lofoten",
+      "draft_file_sha256": "4608b999e29b085faf0e76b936320065b765a1b742f280e570b2f611a2a24e1a",
+      "research_sha256": "6d519f09471e43d5e7b807fb16397a0dfbaf52cb5e93036fc145c6e74064acf5",
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "proposed_content_hash": "9203df3ab97a8b48fb7c60b0d227831d7f8caf5386bccd4eead64bf83bf9aa80",
+      "production_apply_allowed": true,
+      "publication_gates_pass": true,
+      "proposed_guide_ref": "qa-evidence/bulk-50-port-release/proposed-guides/lofoten-islands-norway.json",
+      "rollback_ref": "qa-evidence/bulk-50-port-release/rollback/lofoten-islands-norway.production-snapshot.json",
+      "owner_approval_status": "PENDING",
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "reykjavik-iceland",
+      "app_port_id": "reykjavik",
+      "draft_file_sha256": "516135e7d40c8cd3afab5d9b0773b17fabaa82b1de1a2bf5ab909922192d52c1",
+      "research_sha256": "bf91f415056c7f5d3b19569d0b13a8995241a1f6b7bbbd0e7046f806dd445177",
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "proposed_content_hash": "3694fefe8e570f87c547846b9c5affdb1490345fb988ffa941755e22fc66c601",
+      "production_apply_allowed": true,
+      "publication_gates_pass": true,
+      "proposed_guide_ref": "qa-evidence/bulk-50-port-release/proposed-guides/reykjavik-iceland.json",
+      "rollback_ref": "qa-evidence/bulk-50-port-release/rollback/reykjavik-iceland.production-snapshot.json",
+      "owner_approval_status": "PENDING",
+      "cohort_track": "stage45_exclusion_path"
+    },
+    {
+      "landing_slug": "sydney-australia",
+      "app_port_id": "sydney-australia",
+      "draft_file_sha256": "7293b6f959cb84b17d0df86ed01f665859e63e50b8d16d38d1d4fc2d943fa2dc",
+      "research_sha256": "d188145110f736f0ad1bf1518b2cb68f10183fd036aec6347860a9e243e76cc1",
+      "field_exclusions": [
+        "portInfo.description"
+      ],
+      "proposed_content_hash": "5e8e0a5dd74e55a03a8dd804258524f6b8450a4a89a6675be90c5777e3bc424e",
+      "production_apply_allowed": true,
+      "publication_gates_pass": true,
+      "proposed_guide_ref": "qa-evidence/bulk-50-port-release/proposed-guides/sydney-australia.json",
+      "rollback_ref": "qa-evidence/bulk-50-port-release/rollback/sydney-australia.production-snapshot.json",
+      "owner_approval_status": "PENDING",
+      "cohort_track": "stage45_exclusion_path"
+    }
+  ],
+  "exception_queue": [
+    {
+      "landing_slug": "alanya-turkey",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "almeria-spain",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "bari-italy",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "belfast-united-kingdom",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "bilbao-spain",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "bodrum-turkey",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "bordeaux-france",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "boston-ma-united-states",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "brindisi-italy",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "brisbane-australia",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "cagliari-italy",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "cairns-australia",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "cannes-france",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "charleston-sc-united-states",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "cherbourg-france",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "christchurch-lyttelton-new-zealand",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "crotone-italy",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "dover-united-kingdom",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "dublin-ireland",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "edinburgh-south-queensferry-united-kingdom",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "gijon-spain",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "halifax-ns-canada",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "harstad-norway",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "ho-chi-minh-city-phu-my-vietnam",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "kagoshima-japan",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "katakolon-olympia-greece",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "kiel-germany",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "korcula-croatia",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "la-romana-dominican-republic",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "malmo-sweden",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "monaco-monaco",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "montego-bay-jamaica",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "panama-city-panama",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "penang-malaysia",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "port-said-egypt",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "princess-cays-bahamas",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "puerto-vallarta-mexico",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "punta-arenas-chile",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "riga-latvia",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "rio-de-janeiro-brazil",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "roseau-dominica",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "rotterdam-netherlands",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "salalah-oman",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "shanghai-china",
+      "reason": "already_published_passenger_editorial"
+    },
+    {
+      "landing_slug": "sir-bani-yas-island-united-arab-emirates",
+      "reason": "already_published_passenger_editorial"
+    }
+  ],
+  "pipeline": {
+    "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+    "draft_source": "qa-evidence/stage45-rescore/drafts",
+    "sanitizer": "stage22-deterministic-v2.5-marker-strip"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "landing_slug": "kagoshima-japan",
+  "app_port_id": "kagoshima",
+  "research_sha256": "90bb57d7a946555a9390f4cf92b9d401b9acf5e4bce4c360bc9be96985cc0600",
+  "draft": {
+    "landing_slug": "kagoshima-japan",
+    "appPortId": "kagoshima",
+    "portName": "Kagoshima",
+    "country": "Japan",
+    "portInfo": {
+      "description": "Marine Port Kagoshima sits on Kinko Bay between Kagoshima City and Mt Sakurajima and is within roughly 1,000 km of Shanghai, Tokyo, Fukuoka and Naha, attracting domestic and foreign cruise calls. MLIT’s Cruise Port Guide lists cruise terminal, tourist information and currency-exchange services, address Chuoko-shinmachi, Kagoshima City, airport access about 55 minutes by car, and management by Kagoshima Prefectural Government (TEL 099-805-7414; kago-gcyousei@pref.kagoshima.lg.jp). Berth length/depth figures were not published on the captured guide page.",
+      "location": "",
+      "timezone": "JST (UTC+9)",
+      "language": "Japanese",
+      "currency": "Japanese Yen (JPY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Kagoshima Port",
+      "transportation": [
+        "Tram",
+        "Bus",
+        "Ferry to Sakurajima"
+      ],
+      "distanceToCity": "Port located near city center",
+      "walkingTime": "15-25 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Good tram and bus network",
+      "distanceAnswer": "Port located near city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Sakurajima ferry / viewpoints — ~180 min planning.",
+        "Tenmonkan shopping — centre.",
+        "Sengan-en — allow transit."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Volcanic ash advisories can affect outdoor plans — check local notices."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "90bb57d7a946555a9390f4cf92b9d401b9acf5e4bce4c360bc9be96985cc0600",
+      "existing_guide_hash": "9fa716c7de470b49",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kagoshima-japan.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.291Z",
+      "cache_key": "458919995c8726a37e525058988002aff6731c71f08749660c1f947443567f52",
+      "landing_slug": "kagoshima-japan",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

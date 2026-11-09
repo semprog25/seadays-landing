@@ -1,0 +1,84 @@
+{
+  "landing_slug": "sydney-australia",
+  "app_port_id": "sydney-australia",
+  "research_sha256": "d188145110f736f0ad1bf1518b2cb68f10183fd036aec6347860a9e243e76cc1",
+  "draft": {
+    "landing_slug": "sydney-australia",
+    "appPortId": "sydney-australia",
+    "portName": "Sydney",
+    "country": "Australia",
+    "portInfo": {
+      "description": "Sydney Harbour cruise calls are administered by Port Authority of NSW, whose Cruise section lists dedicated FAQ hubs for the Overseas Passenger Terminal and White Bay Cruise Terminal, plus a Sydney Harbour cruise schedule and NSW-wide cruise policies. OPT sits in the Circular Quay precinct; White Bay is a separate harbour facility typically requiring a transfer. Numeric berth LOA/depth were not pulled from the FAQ pages captured (some deep FAQ URLs 404’d), so metrics stay null.",
+      "location": "",
+      "timezone": "AEST (UTC+10) / AEDT (UTC+11)",
+      "language": "English",
+      "currency": "Australian Dollar (AUD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Overseas Passenger Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "OPT guests often walk into Circular Quay; White Bay needs bus/taxi — confirm which terminal your ship uses.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "OPT guests often walk into Circular Quay; White Bay needs bus/taxi — confirm which terminal your ship uses."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Opera House / Circular Quay — ~120 min.",
+        "Harbour Bridge / The Rocks — walking.",
+        "Bondi or ferry to Manly — timed returns."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check OPT vs White Bay on the ship’s daily program before planning a walk-off."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d188145110f736f0ad1bf1518b2cb68f10183fd036aec6347860a9e243e76cc1",
+      "existing_guide_hash": "ccb143263ef13a59",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/sydney-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.199Z",
+      "cache_key": "1585bdc1a38a94ab05e84c8a9e549bf4c00f667cd3668f1aeb3b3e3e2fc59ddf",
+      "landing_slug": "sydney-australia",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

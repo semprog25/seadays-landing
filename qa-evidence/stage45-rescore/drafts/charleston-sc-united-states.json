@@ -1,0 +1,86 @@
+{
+  "landing_slug": "charleston-sc-united-states",
+  "app_port_id": "charleston",
+  "research_sha256": "15ac6f9e767cebb7d1a3d2850563479475e8fa5e9db8df4ee973cfac8a1ba6e5",
+  "draft": {
+    "landing_slug": "charleston-sc-united-states",
+    "appPortId": "charleston",
+    "portName": "Charleston",
+    "country": "United States",
+    "portInfo": {
+      "description": "South Carolina Ports Authority has long run Charleston cruise operations at Union Pier Terminal (32 Washington Street). The passenger FAQ PDF describes on-site parking, complimentary shuttles to the terminal door, Gate 2 at Concord & Laurens for cars, Gate 1/main gate at 32 Washington for taxi/bus drop-off, and CHS airport about 10 miles with 20–30 minutes travel time. SCSPA’s published Jan–Jul 2026 cruise calendar lists multiple calls (e.g., Vision of the Seas, Norwegian Jewel, Valiant Lady) with the last tabulated Jewel call on 30 June 2026. Separately, the Union Pier facility page now states UPT is under contract to be sold to Marti Holdings LLC for waterfront redevelopment so SC Ports can focus on cargo. Until SCSPA publishes a successor passenger address, treat the landing as uncertain after mid-2026 and verify sailing documents.",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Union Pier Cruise Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Per FAQ (Union Pier era). I-26 Exit 219-B; brown/white CRUISE signs; Gate 2 Concord/Laurens for cars; Gate 1 at 32 Washington for taxi/bus. Parking. On SCSPA property; shuttle to door; fees listed in FAQ subject to change. CHS. ~10 miles; 20–30 minutes. After sale. Successor directions Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Per FAQ (Union Pier era). I-26 Exit 219-B; brown/white CRUISE signs; Gate 2 Concord/Laurens for cars; Gate 1 at 32 Washington for taxi/bus. Parking. On SCSPA property; shuttle to door; fees listed in FAQ subject to change. CHS. ~10 miles; 20–30 minutes. After sale. Successor directions Not verified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Historic district / Rainbow Row area — downtown adjacency when at Union Pier — ~180 min.",
+        "Waterfront Park — short walk framing.",
+        "Fort Sumter ferry — organised timing.",
+        "King Street shopping — mid call.",
+        "Plantations (Magnolia/Boone) — long buffer only."
+      ],
+      "shortCall": "≥4 h. Historic core + Waterfront Park; ≥90 min return.",
+      "standardCall": "≥6 h. Add Fort Sumter or one museum; ≥90 min return.",
+      "longerCall": "Plantation + downtown with overnight preferred.",
+      "practicalTip": "Before you travel in late 2026 or beyond, re-check SCSPA for the current passenger gate address — Union Pier’s sale/redevelopment may change where you are dropped."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "15ac6f9e767cebb7d1a3d2850563479475e8fa5e9db8df4ee973cfac8a1ba6e5",
+      "existing_guide_hash": "81308a0a1b90585e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/charleston-sc-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.249Z",
+      "cache_key": "9dcb54b4496e803714e536165f17d55f15f5c82187ed6d84782ced65090474d2",
+      "landing_slug": "charleston-sc-united-states",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,87 @@
+{
+  "landing_slug": "korcula-croatia",
+  "app_port_id": "korcula",
+  "research_sha256": "4c74fcb31b4bc0c8463b5eb1217cb25a0071d729bfce3c664f8fb3c82353e3e1",
+  "draft": {
+    "landing_slug": "korcula-croatia",
+    "appPortId": "korcula",
+    "portName": "Korčula",
+    "country": "Croatia",
+    "portInfo": {
+      "description": "visitkorcula.eu (EN) stresses cultural heritage, tentative UNESCO listing wording on the board site, and inter-island shipping via Jadrolinija, Krilo, TP Line, KSC and G&V Line. The Port Authority’s public pages emphasise harbour maintenance, traffic safety and concession oversight rather than a glossy cruise brochure.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Croatian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Korčula town harbour / ferry landing area — Korčula Old Town waterfront, 20260 Korčula",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Old town is adjacent to the harbours. Island buses/taxis exist but are not timed here. Ferry brands listed by the tourist board are for inter-island travel, not ship-to-Olympia-style excursions.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Old town is adjacent to the harbours. Island buses/taxis exist but are not timed here. Ferry brands listed by the tourist board are for inter-island travel, not ship-to-Olympia-style excursions."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Stone old town — board’s primary invite.",
+        "Harbour edges — ZLU’s town harbours.",
+        "Interior wine villages — gastronomy tradition noted; operator hours gap.",
+        "Korčula stone old town",
+        "Town harbour edges"
+      ],
+      "shortCall": "Old town only. 75-minute buffer (and tender queue if applicable).",
+      "standardCall": "Old town + one nearby beach/village with 90-minute buffer.",
+      "longerCall": "Wider island loop only with 120 minutes uncommitted.",
+      "practicalTip": "Photograph the tender number before climbing into the lanes — Korčula’s grid is dense and easy to overshoot toward the wrong quay."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4c74fcb31b4bc0c8463b5eb1217cb25a0071d729bfce3c664f8fb3c82353e3e1",
+      "existing_guide_hash": "2663bf2729c941a2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/korcula-croatia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.302Z",
+      "cache_key": "eeafa578053ec0d37d0b586992222ce47cf15a21e34181397c010c0391134729",
+      "landing_slug": "korcula-croatia",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

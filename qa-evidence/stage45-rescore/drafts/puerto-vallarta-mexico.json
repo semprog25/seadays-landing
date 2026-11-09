@@ -1,0 +1,88 @@
+{
+  "landing_slug": "puerto-vallarta-mexico",
+  "app_port_id": "puerto-vallarta",
+  "research_sha256": "3cbfd62fe5a92505140d37062a33db5b0dc8da5c40a0fff82aa9a9607de272b3",
+  "draft": {
+    "landing_slug": "puerto-vallarta-mexico",
+    "appPortId": "puerto-vallarta",
+    "portName": "Puerto Vallarta",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "API Puerto Vallarta operates the maritime terminal on the primary northern hotel-zone boulevard at Km 4.5. The authority’s “Cómo llegar” page explains car, urban bus and cruise-ship arrival patterns, waiting halls, and berth-specific return doors for international cruise passengers. Cruise movement statistics for 2026 are published as downloadable spreadsheets/images on the API statistics page — figures were not transcribed into this guide pending careful parsing of the XLSX. Multiple international cruise lines call regularly per the same how-to-arrive page.",
+      "location": "",
+      "timezone": "CST (UTC-6)",
+      "language": "Spanish",
+      "currency": "Mexican Peso (MXN)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal Marítima Puerto Vallarta — Boulevard Francisco Medina Ascencio Km 4.5, Zona Hotelera Norte, Calle Heroica Escuela Naval Militar, 48333 Puerto Vallarta, Jalisco",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Hotel-zone beach near terminal — shortest logistics — ~90 min.",
+        "Malecón / Centro — taxi/bus; minutes Not verified — ~120 min ashore once there.",
+        "Zona Romántica — further south; long-call only.",
+        "Bay boat / snorkel tours — organised; weather Jun–Oct wet.",
+        "Sierra Madre day trips — organised only."
+      ],
+      "shortCall": "≥4 h. Hotel-zone beach or short taxi to nearer sights; note reboard gate number before leaving.",
+      "standardCall": "≥6 h. Malecón + lunch with ≥90 min return; confirm Muelle/Puerta.",
+      "longerCall": "Botanical gardens / sierra tours need verified timing; wet-season roads slow returns.",
+      "practicalTip": "Photograph your Muelle number and matching Puerta (3 / 11 / 17) before heading downtown — returning to the wrong gate burns buffer."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "3cbfd62fe5a92505140d37062a33db5b0dc8da5c40a0fff82aa9a9607de272b3",
+      "existing_guide_hash": "d1a1af750ec9ad2c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/puerto-vallarta-mexico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.339Z",
+      "cache_key": "e3084fd97fde128068b34c477e62627fe192ee82ef09853ac3cbeeba2fce3111",
+      "landing_slug": "puerto-vallarta-mexico",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

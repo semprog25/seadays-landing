@@ -1,0 +1,84 @@
+{
+  "landing_slug": "ho-chi-minh-city-phu-my-vietnam",
+  "app_port_id": "phu-my",
+  "research_sha256": "3c9ded5311c3cc127fcd59ed43773d7bf7da008d6aa491f95a1decaee8a36ef3",
+  "draft": {
+    "landing_slug": "ho-chi-minh-city-phu-my-vietnam",
+    "appPortId": "phu-my",
+    "portName": "Ho Chi Minh City (Phu My)",
+    "country": "Vietnam",
+    "portInfo": {
+      "description": "PTSC Phu My Port sits in the Cai Mep–Thi Vai deep-water cluster and markets itself as an early Vietnamese deep-water general-cargo port handling vessels to 80,000 DWT. Published infrastructure includes a main wharf 385 m long, 27 m wide, draft −14.5 m, plus a 320 m ship/barge wharf for craft to 4,500 DWT, on a 26.5 ha site. Contact: Street 3, Phu My 1 Industrial Park; +84 254 392 1658; info@ptscphumy.com.vn. Ocean cruise ships use these industrial berths rather than a purpose-built cruise village — expect security, coaches, and a long transfer to Ho Chi Minh City.",
+      "location": "",
+      "timezone": "ICT (UTC+7)",
+      "language": "Vietnamese",
+      "currency": "Vietnamese Dong (VND)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "PTSC Phu My main wharf",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Coach to HCMC — budget a large round-trip window; exact minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Coach to HCMC — budget a large round-trip window; exact minutes unverified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "District 1 landmarks — full-day coach.",
+        "Cu Chi tunnels — long excursion.",
+        "Ship tour — safest timing."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "You are not walking into downtown Saigon from the gangway."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "3c9ded5311c3cc127fcd59ed43773d7bf7da008d6aa491f95a1decaee8a36ef3",
+      "existing_guide_hash": "eee2af00d133c8b6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ho-chi-minh-city-phu-my-vietnam.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.287Z",
+      "cache_key": "a3e2a19e40b25be4d7e55dbe4f27981c766f7459542c51ffc7c86d6b67dd831d",
+      "landing_slug": "ho-chi-minh-city-phu-my-vietnam",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

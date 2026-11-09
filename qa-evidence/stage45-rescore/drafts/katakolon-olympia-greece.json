@@ -1,0 +1,87 @@
+{
+  "landing_slug": "katakolon-olympia-greece",
+  "app_port_id": "katakolon",
+  "research_sha256": "7912dbbfc9567c15deb1e0175a75c7ea1bc5cb4e0141f3ce58275536aeff4cd3",
+  "draft": {
+    "landing_slug": "katakolon-olympia-greece",
+    "appPortId": "katakolon",
+    "portName": "Katakolon (Olympia)",
+    "country": "Greece",
+    "portInfo": {
+      "description": "ELIME (Association of Greek Ports) frames Katakolo as Pyrgos’s port, founded 1857, and today among Greece’s busiest cruise gateways specifically because of Olympia access. UNESCO’s Archaeological Site of Olympia sits in the Alpheios–Kladeos valley as the Altis sanctuary of Zeus and the Pan-Hellenic Games landscape — a separate inland destination, not a quay-side ruin.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Katakolo (Pyrgos Municipal Port Fund) — Katakolo harbour, Ilia, Greece",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Olympia is inland. ELIME notes car rentals, tourist trains, and a railway station connection; cruise lines usually sell coaches. No measured transfer minute is claimed here. Confirm last-call return with the ship.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Olympia is inland. ELIME notes car rentals, tourist trains, and a railway station connection; cruise lines usually sell coaches. No measured transfer minute is claimed here. Confirm last-call return with the ship."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Ancient Olympia — UNESCO Altis / stadium landscape.",
+        "Katakolo harbour front — if the call is short or mobility limits inland travel.",
+        "Rail/tourist-train option — listed by ELIME; timetable gap.",
+        "Archaeological Site of Olympia",
+        "Katakolo harbour front"
+      ],
+      "shortCall": "Harbour only, or a compressed Olympia coach only if the ship’s own timing still leaves a 75-minute buffer. Do not freelance a late return.",
+      "standardCall": "Olympia site + museum block with a 90-minute ship buffer. Minute split is editorial.",
+      "longerCall": "Fuller Olympia circuit still holding 120 minutes uncommitted. Overnight needs ship confirmation.",
+      "practicalTip": "Katakolo’s piers are the easy part; Olympia’s heat and queue are the schedule risk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7912dbbfc9567c15deb1e0175a75c7ea1bc5cb4e0141f3ce58275536aeff4cd3",
+      "existing_guide_hash": "1dfe541f9db954e5",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/katakolon-olympia-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.294Z",
+      "cache_key": "5267239a569935b28fde081d97001914ff1503c36096866aa16ca8c66d94f3ac",
+      "landing_slug": "katakolon-olympia-greece",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,85 @@
+{
+  "landing_slug": "punta-arenas-chile",
+  "app_port_id": "punta-arenas",
+  "research_sha256": "efab738e2a677f9b9be1d8f335b237978a87d8fbabedebbbe664b370041a3407",
+  "draft": {
+    "landing_slug": "punta-arenas-chile",
+    "appPortId": "punta-arenas",
+    "portName": "Punta Arenas",
+    "country": "Chile",
+    "portInfo": {
+      "description": "Punta Arenas is the Magallanes gateway for Patagonia and Antarctic repositioning itineraries. Empresa Portuaria Austral completed Stage II works at Muelle Arturo Prat in 2025 to raise direct-berth capacity from 258 m to 300 m LOA on the south face, adding a third dolphin, mooring gear and passenger walkway elements intended to reduce tendering for large ships. EPAUSTRAL also describes a forthcoming Stage III and a new passenger terminal project. Exact passenger-door coordinates and current tender-vs-dock rules by LOA remain null beyond the LOA statements.",
+      "location": "",
+      "timezone": "CLT (UTC-4) / CLST (UTC-3)",
+      "language": "Spanish",
+      "currency": "Chilean Peso (CLP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Muelle Arturo Prat",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Waterfront berth in Punta Arenas; measured CBD walk null. Taxis common; prices null.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Waterfront berth in Punta Arenas; measured CBD walk null. Taxis common; prices null."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Waterfront / Plaza Muñoz Gamero area — short call focus.",
+        "Cemetery / Mirador — local classics; opening hours null.",
+        "Magdalena Island penguin boats — weather-dependent; only with confirmed return.",
+        "Torres del Paine day trips — long road day; not realistic on short calls."
+      ],
+      "shortCall": "Town loop + 75 min buffer (wind delays).",
+      "standardCall": "Town + one nearby nature stop + 90 min buffer.",
+      "longerCall": "Penguin island or farther parks only with verified last tender/coach.",
+      "practicalTip": "Confirm whether your sailing berthed or tenders — Stage II aims to cut tendering for ≤300 m ships, but assignment is still sailing-specific."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "efab738e2a677f9b9be1d8f335b237978a87d8fbabedebbbe664b370041a3407",
+      "existing_guide_hash": "040518c7202a5425",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/punta-arenas-chile.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.343Z",
+      "cache_key": "0509be25f9c436362156c48157c52ef57fbe0e4518c32ba1d205672b22f85a7c",
+      "landing_slug": "punta-arenas-chile",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,95 @@
+{
+  "landing_slug": "almeria-spain",
+  "app_port_id": "almeria",
+  "research_sha256": "c1ea7d63ebfd8719a67ed707150fc9bd3f03fb15d35330a1db638d364a8e031f",
+  "draft": {
+    "landing_slug": "almeria-spain",
+    "appPortId": "almeria",
+    "portName": "Almeria",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Almería’s Autoridad Portuaria manages passenger ferries and growing cruise traffic. The published Estación Marítima is an 8,400 m² two-floor building for regular North Africa ferry embarkation/disembarkation with ticket offices in public areas. APA news states a dedicated cruise passenger terminal will be completed in the first four months of 2027, following ~€2.8M of related investment already noted by APA president Rosario Soto in the same release. Cruise callers before that opening should expect existing passenger infrastructure and verify the day’s landing with sailing documents.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Estación Marítima / cruise landing — Puerto de Almería — Puerto de Almería, Almería, Spain",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Alcazaba. Primary hilltop fortress; pin from OSM if matched. Walk/taxi minutes from estación not surveyed — allow 30–40 min estimate each way in heat. Cathedral / centre. Old-town streets inland of the port; minutes estimated. Cable Inglés. APA puerto-ciudad heritage listing; short waterfront stop. 2027 terminal. Not yet in service per APA — ignore for current itineraries.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Alcazaba. Primary hilltop fortress; pin from OSM if matched. Walk/taxi minutes from estación not surveyed — allow 30–40 min estimate each way in heat. Cathedral / centre. Old-town streets inland of the port; minutes estimated. Cable Inglés. APA puerto-ciudad heritage listing; short waterfront stop. 2027 terminal. Not yet in service per APA — ignore for current itineraries."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "Walk to centre: 25 (est.)",
+        "Return: 25",
+        "Buffer: 60",
+        "To Alcazaba: 35 (est.)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "Add Cable Inglés and a longer lunch after standard buffer is safe. Overnight: evening waterfront (editorial). Do not plan as if the 2027 cruise terminal already exists.",
+      "practicalTip": "Ask whether you are using the ferry estación or a temporary cruise setup — APA’s dedicated terminal is due in the first four months of 2027."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c1ea7d63ebfd8719a67ed707150fc9bd3f03fb15d35330a1db638d364a8e031f",
+      "existing_guide_hash": "7f19d5da3e90234c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/almeria-spain.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.208Z",
+      "cache_key": "ef5e8d458074e8a76776376c51c474c94b302bd87ff7f23dfcf7f9b01f7457f9",
+      "landing_slug": "almeria-spain",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": false,
+    "failures": [
+      "research_leak_in_draft",
+      "factual_internal_research_language"
+    ],
+    "warnings": [],
+    "factual": {
+      "flags": [
+        "internal_research_language"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": false,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "NEEDS_EDITORIAL_FIX",
+    "reasons": [
+      "research_leak_in_draft",
+      "factual_internal_research_language"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,92 @@
+{
+  "landing_slug": "roseau-dominica",
+  "app_port_id": "dominica",
+  "research_sha256": "d8dd30f8067ce1b581b135eaf30851dc5cf00797845a871fefdf9e2916a88b03",
+  "draft": {
+    "landing_slug": "roseau-dominica",
+    "appPortId": "dominica",
+    "portName": "Roseau",
+    "country": "Dominica",
+    "portInfo": {
+      "description": "Dominica Air and Sea Ports Authority documents a dedicated Roseau Cruise Ship Berth in the capital, giving an explicit WGS-compatible latitude/longitude, platform dimensions (160 ft / 49 m by 37 ft / 11.30 m), an 88 m access walkway, 13 m depth alongside, five berthing dolphins and six mooring dolphins. DASPA states the berth is within walking distance of Roseau’s business and shopping areas and close to the Tourism Information Centre, Dominica Museum and Craft Center. Inland waterfalls and national-park roads need coaches timed to all-aboard — those minutes are not on the berth page.",
+      "location": "",
+      "timezone": "AST (UTC-4)",
+      "language": "English",
+      "currency": "East Caribbean Dollar (XCD), US Dollar accepted",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Roseau Cruise Ship Berth",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town centre walk claimed; minutes not surveyed. Trafalgar Falls / Emerald Pool coaches need 90–120 min buffers on standard/long calls.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Town centre walk claimed; minutes not surveyed. Trafalgar Falls / Emerald Pool coaches need 90–120 min buffers on standard/long calls."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Roseau waterfront / craft centre — ~90–120 min.",
+        "Rainforest / waterfall tours — coach; standard+ calls."
+      ],
+      "shortCall": "Town circuit (~120) + 75 min buffer.",
+      "standardCall": "One inland highlight + 90 min buffer.",
+      "longerCall": "Multi-stop Nature Island day with ≥120 min buffer.",
+      "practicalTip": "Platform is only 49 m — large ships may use dolphins/breast lines; follow crew directions."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d8dd30f8067ce1b581b135eaf30851dc5cf00797845a871fefdf9e2916a88b03",
+      "existing_guide_hash": "5a07aeae8e40b45c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/roseau-dominica.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "dropped_research_thingsBullet",
+        "insufficient_supported_attractions_2"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.355Z",
+      "cache_key": "e9b2132c0d87ef036f239a8c975b83d7cab9997554b164bce2bca4ee049c6373",
+      "landing_slug": "roseau-dominica",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": false,
+    "failures": [
+      "schema_top_things_2",
+      "passenger_top_things_2_of_3",
+      "factual_insufficient_attractions_2"
+    ],
+    "warnings": [],
+    "factual": {
+      "flags": [
+        "insufficient_attractions_2"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": false,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "NEEDS_EDITORIAL_FIX",
+    "reasons": [
+      "schema_top_things_2",
+      "passenger_top_things_2_of_3",
+      "factual_insufficient_attractions_2"
+    ]
+  },
+  "cache_hit": false
+}

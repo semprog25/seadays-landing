@@ -1,0 +1,84 @@
+{
+  "landing_slug": "lofoten-islands-norway",
+  "app_port_id": "lofoten",
+  "research_sha256": "6d519f09471e43d5e7b807fb16397a0dfbaf52cb5e93036fc145c6e74064acf5",
+  "draft": {
+    "landing_slug": "lofoten-islands-norway",
+    "appPortId": "lofoten",
+    "portName": "Lofoten Islands",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Lofoten Islands is an archipelago call, not a single pier. Visit Lofoten Cruise and Lofoten Havn treat Leknes as the largest of the local cruise ports, with an open anchorage and tender pier when ships do not fit the quay. Lofoten Havn states Leknes has a 190 m municipal deepwater quay and a 40 m tender pier and calls it northern Norway’s third-largest cruise harbour; Visit Lofoten Cruise publishes max vessel length 230 m at the quay and position N68°12.7 E13°34. Svolvær is a second harbour (separate SeaDays slug) with shorter published LOA caps. This guide focuses on the Leknes landing model for the lofoten-islands-norway catalog entry; do not invent a single “Lofoten terminal” pin. All door GPS values stay null.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Leknes cruise quay",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Lofotr Viking Museum, Borg — listed from Leknes on Visit Lofoten Cruise — ~90–150 min on site; transfer not surveyed.",
+        "Scenic island coach / fishing-village viewpoints — line excursions; independent self-drive timing not verified.",
+        "Reine / Hamnøy photo stops — only with confirmed return; Reine also has its own catalog slug."
+      ],
+      "shortCall": "≥4 h. Exit/tender 40 + one nearby harbour-area stop 60 + return 40 + 75 min buffer ≈ 215. Skip Borg unless transfer is pre-confirmed under 30 min each way.",
+      "standardCall": "≥6 h. Lofotr or a single island loop with 90 min return buffer; do not stack Reine + Borg without line timing.",
+      "longerCall": "Cross-island itineraries only with ≥120 min return buffer and published shuttle/coach plan — not verified as independent.",
+      "practicalTip": "Confirm Leknes alongside vs tender and whether your ticket is actually Svolvær before planning."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6d519f09471e43d5e7b807fb16397a0dfbaf52cb5e93036fc145c6e74064acf5",
+      "existing_guide_hash": "80d48c892ea02460",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/lofoten-islands-norway.md"
+      ],
+      "unresolved_claims": [
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.189Z",
+      "cache_key": "57a9b5bd5ca3eeae938d9db5e16c6383b5656d6e6112bae1afe9b23a0f034636",
+      "landing_slug": "lofoten-islands-norway",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

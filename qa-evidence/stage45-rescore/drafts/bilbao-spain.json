@@ -1,0 +1,89 @@
+{
+  "landing_slug": "bilbao-spain",
+  "app_port_id": "bilbao",
+  "research_sha256": "e29594a457063c6b6bac8d65e0c8f4d1fea5e8bfbeaa52fec757303d193accba",
+  "draft": {
+    "landing_slug": "bilbao-spain",
+    "appPortId": "bilbao",
+    "portName": "Bilbao",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Cruise ships call at Getxo maritime stations in the Port of Bilbao complex. The authority publishes dedicated getting-there pages for Getxo 1&2 (with GPS 43.339182, -3.021255) and Getxo 3. Cruises overview notes year-round reception, a twenty-minute drive to city centre and airport, and a shuttle bus linking cruise passengers to public transport. Guggenheim Bilbao is the signature city attraction for longer transfers.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish, Basque",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Getxo 1 & 2 Passengers maritime station — Getxo, Bizkaia, Spain",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "To Bilbao centre. Port: ~20-minute drive. Shuttle bus to public transport facilities — timetable GAP. Getxo 1&2 directions. Follow Port of Bilbao getting-there page; GPS as above. Getxo 3. Separate directions page. Guggenheim. City centre museum; budget transfer + visit + return inside ship window.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "To Bilbao centre. Port: ~20-minute drive. Shuttle bus to public transport facilities — timetable GAP. Getxo 1&2 directions. Follow Port of Bilbao getting-there page; GPS as above. Getxo 3. Separate directions page. Guggenheim. City centre museum; budget transfer + visit + return inside ship window."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "Local waterfront: 90",
+        "Return: 15",
+        "Buffer: 60",
+        "Transfer in: 30 (uses port’s ~20 min drive + margin)"
+      ],
+      "shortCall": "≥5 h only if shuttle/taxi is immediate. Otherwise stay near Getxo. Getxo-local:\n- Exit: 15\n- Local waterfront: 90\n- Return: 15\n- Buffer: 60\nSum: 180. City attempt in 5 h is tight after 20-min drives each way + buffer.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "Full Guggenheim + Casco Viejo deep walk with ≥8 h. Overnight: evening Casco Viejo.",
+      "practicalTip": "Check Getxo 1&2 vs 3 on the gangway before following directions."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e29594a457063c6b6bac8d65e0c8f4d1fea5e8bfbeaa52fec757303d193accba",
+      "existing_guide_hash": "3ea557598b0511df",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bilbao-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.219Z",
+      "cache_key": "8c6a62010ea7fa9d9c10cb9981f96982fb68954855257c0e3837cff5fcbfa7e9",
+      "landing_slug": "bilbao-spain",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

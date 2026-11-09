@@ -31,6 +31,15 @@ function bulletLines(text) {
     .filter(Boolean);
 }
 
+function numberedListLines(text) {
+  return String(text || '')
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => /^\d+\.\s+/.test(line))
+    .map((line) => line.replace(/^\d+\.\s+/, '').replace(/\s*\[[^\]]+\]\s*$/g, '').trim())
+    .filter(Boolean);
+}
+
 function firstParagraph(text) {
   const lines = String(text || '')
     .split('\n')
@@ -178,5 +187,7 @@ module.exports = {
   firstMarkdownTableDataRow,
   proseAfterMarkdownTable,
   firstParagraph,
+  bulletLines,
+  numberedListLines,
   stripCitationMarkers,
 };

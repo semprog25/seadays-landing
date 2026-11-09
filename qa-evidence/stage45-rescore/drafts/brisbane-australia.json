@@ -1,0 +1,84 @@
+{
+  "landing_slug": "brisbane-australia",
+  "app_port_id": "brisbane",
+  "research_sha256": "80115fd3c298dad3077234f9731feb20167cba649b2a5286680fcb76f7b13cd7",
+  "draft": {
+    "landing_slug": "brisbane-australia",
+    "appPortId": "brisbane",
+    "portName": "Brisbane",
+    "country": "Australia",
+    "portInfo": {
+      "description": "Port of Brisbane publishes a Cruise hub covering the facility, getting here, the terminal, car parking, ship schedule, FAQs, contacts and accessibility. An important operational note states the BICT is only open when a cruise ship is at berth; prepaid parking is managed by Wilson Parking with limited drive-up in Car Park 3. Cruise guests seeking sailing details are directed to their line or travel agent. Quay engineering metrics were not on the captured overview HTML.",
+      "location": "",
+      "timezone": "AEST (UTC+10)",
+      "language": "English",
+      "currency": "Australian Dollar (AUD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Brisbane International Cruise Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Port precinct is distant from CBD — use port “Getting here” guidance / ship shuttles.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Port precinct is distant from CBD — use port “Getting here” guidance / ship shuttles."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "South Bank / CBD — ~180 min with transfer.",
+        "River ferry — scenic.",
+        "Lone Pine / hinterland — long call."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Don’t arrive on a non-ship day expecting the terminal to be open."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "80115fd3c298dad3077234f9731feb20167cba649b2a5286680fcb76f7b13cd7",
+      "existing_guide_hash": "83f027b919af5139",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/brisbane-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.235Z",
+      "cache_key": "8f502c3af577e74c5ab2b0d2b61698a60cb6309bbd0ce5eab00719b8cb39a0f1",
+      "landing_slug": "brisbane-australia",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

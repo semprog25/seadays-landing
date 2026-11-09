@@ -1,0 +1,86 @@
+{
+  "landing_slug": "gijon-spain",
+  "app_port_id": "gijon",
+  "research_sha256": "d979f8a28d6f997079928568bfb83bd31c232718ef9c1609b4b5d836a9a0e706",
+  "draft": {
+    "landing_slug": "gijon-spain",
+    "appPortId": "gijon",
+    "portName": "Gijón",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Gijón combines an industrial maritime economy with a very walkable historic city core. Cimadevilla and Santa Catalina rise between the marina and San Lorenzo beach, while museums and the Laboral complex offer different themes beyond that compact area. The industrial port is part of the city’s story, but it should not be mistaken for the tourist waterfront shown in most photographs.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Muelle Norte — Muelle Norte,El Musel,Port of Gijón",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "The authority lists shuttle and taxi services at the cruise facilities, but no current fare/frequency or universal drop-off. Allow 45–60 minutes outward for berth clearance, collection and city transfer, and up to 60 minutes for return traffic/port entry. These are editorial working-port budgets, not a measured road distance. In the city, Cimadevilla, Campo Valdés and the near end of San Lorenzo can be linked on foot. Laboral is another urban road transfer, not a neighbour of every old-town museum. Do not take an unapproved pedestrian route through El Musel.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "The authority lists shuttle and taxi services at the cruise facilities, but no current fare/frequency or universal drop-off. Allow 45–60 minutes outward for berth clearance, collection and city transfer, and up to 60 minutes for return traffic/port entry. These are editorial working-port budgets, not a measured road distance. In the city, Cimadevilla, Campo Valdés and the near end of San Lorenzo can be linked on foot. Laboral is another urban road transfer, not a neighbour of every old-town museum. Do not take an unapproved pedestrian route through El Musel."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cimadevilla and Elogio del Horizonte, Santa Catalina hill/Elogio del Horizonte, Gijón: A named hilltop sculpture anchors the historic fishing-quarter walk. Allow about 90 minutes (editorial estimate). Exposed to wind; inclines and uneven streets.",
+        "Campo Valdés Roman Baths, Campo Valdés beside San Pedro church, Gijón: A specific Roman archaeological museum close to the old town. Allow about 60 minutes (editorial estimate). Confirm current interior admission/opening.",
+        "Jovellanos Birthplace Museum, Plaza de Jovellanos, Gijón: A focused civic/art-history stop in the old quarter. Allow about 60 minutes (editorial estimate). Opening day/exhibitions need checking.",
+        "San Lorenzo seafront, San Lorenzo promenade at Campo Valdés/San Pedro end, Gijón: A defined start for a flexible beach-side walk. Allow about 75 minutes (editorial estimate). A promenade visit is not a promise of safe swimming.",
+        "Railway Museum of Asturias, Railway Museum by the city marina, Gijón: A distinct industrial-history alternative rather than another fortress. Allow about 90 minutes (editorial estimate). Public museum entry is separate from working railway/port areas."
+      ],
+      "shortCall": "Local-time window 09:00–13:30, ending at assumed all-aboard. 09:00–09:45 El Musel exit/vehicle to city; 09:45–11:15 Cimadevilla and Santa Catalina; 11:15–11:45 Campo Valdés/seafront exterior; 11:45–12:45 return vehicle, traffic and assigned quay entry; 12:45–13:30 explicit 45-minute aboard buffer. Skip a hill climb if transfer delays erode the margin.",
+      "standardCall": "Local-time window 09:00–16:00. 09:00–09:45 cruise/city connection; 09:45–11:00 Roman Baths when open; 11:00–12:00 Cimadevilla/Jovellanos area; 12:00–13:00 lunch; 13:00–14:00 San Lorenzo promenade; 14:00–15:15 pickup and full El Musel return; 15:15–16:00 explicit 45-minute aboard buffer. Choose one indoor museum priority if openings conflict.",
+      "longerCall": "Local-time window 09:00–18:00. 09:00–09:45 berth exit/vehicle; 09:45–10:15 additional road allowance to Laboral; 10:15–12:00 confirmed architecture/cultural visit; 12:00–13:00 lunch; 13:00–13:30 vehicle to old-town edge; 13:30–15:00 Cimadevilla; 15:00–16:00 flexible seafront time; 16:00–17:15 return vehicle, traffic and port entry; 17:15–18:00 explicit 45-minute aboard buffer. No Picos de Europa circuit is appended.",
+      "practicalTip": "Save the exact quay name as well as the ship name. “Gijón port” can be interpreted as the city marina instead of El Musel, and that is an expensive mistake near all-aboard."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d979f8a28d6f997079928568bfb83bd31c232718ef9c1609b4b5d836a9a0e706",
+      "existing_guide_hash": "995e27160cd32be0",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/gijon-spain.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.277Z",
+      "cache_key": "329ef941bf18680858382beceaedc4ec22306536765af88fc2152afd99e9cb27",
+      "landing_slug": "gijon-spain",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}
