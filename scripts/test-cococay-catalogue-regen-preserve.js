@@ -7,6 +7,7 @@ const { execSync } = require('child_process');
 const {
   countCallPlanArticleCards,
   mergePassengerEditorialBodyPreservation,
+  mergePublishedPortHtmlPreservation,
 } = require('./lib/publishedPortHtmlPreserve');
 const { containsInternalResearchLeak } = require('./lib/publicGuideCopySanitize');
 const { validateGeneratedPortHtml } = require('./lib/bulkPortPublication/validatePortHtml');
@@ -14,35 +15,29 @@ const { validateGeneratedPortHtml } = require('./lib/bulkPortPublication/validat
 const root = path.join(__dirname, '..');
 const slug = 'perfect-day-at-cococay-bahamas';
 const portPath = path.join(root, 'ports', slug, 'index.html');
+const thinFixturePath = path.join(__dirname, 'fixtures', 'cococay-catalogue-thin.html');
+const richFixturePath = path.join(__dirname, 'fixtures', 'cococay-passenger-rich.html');
 const guidesPath = path.join(root, 'data', 'public-port-guides.json');
+
+assert.ok(fs.existsSync(thinFixturePath), 'thin catalogue fixture required');
+assert.ok(fs.existsSync(richFixturePath), 'rich passenger fixture required');
+
+const thinHtml = fs.readFileSync(thinFixturePath, 'utf8');
+const richHtml = fs.readFileSync(richFixturePath, 'utf8');
+assert.ok(
+  countCallPlanArticleCards(thinHtml) < 3,
+  'thin fixture must lack 3 passenger call-plan article cards'
+);
+assert.strictEqual(
+  countCallPlanArticleCards(richHtml),
+  3,
+  'rich fixture must have 3 passenger call-plan article cards'
+);
 
 const guides = JSON.parse(fs.readFileSync(guidesPath, 'utf8'));
 const portGuide = guides.byAppPortId['coco-cay'];
 assert.ok(portGuide, 'coco-cay guide in JSON');
 assert.strictEqual(portGuide.researchImport?.publication_tier, 'passenger_editorial');
-
-const richHtml = fs.readFileSync(portPath, 'utf8');
-assert.ok(countCallPlanArticleCards(richHtml) >= 3, 'branch HTML must have passenger call-plan cards');
-
-function thinHtmlFromOriginMain() {
-  try {
-    return execSync(`git show origin/main:ports/${slug}/index.html`, {
-      cwd: root,
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'pipe'],
-    });
-  } catch (e) {
-    const stubPath = path.join(__dirname, 'fixtures', 'cococay-thin-stub.html');
-    if (fs.existsSync(stubPath)) return fs.readFileSync(stubPath, 'utf8');
-    throw e;
-  }
-}
-
-const thinHtml = thinHtmlFromOriginMain();
-assert.ok(
-  countCallPlanArticleCards(thinHtml) < 3,
-  'origin/main baseline should lack 3 passenger call-plan cards (regression repro)'
-);
 
 const degradedGenerated =
   '<!DOCTYPE html><html><body><main>' +
@@ -52,7 +47,7 @@ const degradedGenerated =
 const merged = mergePassengerEditorialBodyPreservation(degradedGenerated, richHtml, portGuide);
 assert.ok(
   countCallPlanArticleCards(merged) >= 3,
-  'mergePassengerEditorialBodyPreservation keeps richer on-disk things-to-do'
+  'mergePassengerEditorialBodyPreservation keeps richer passenger body'
 );
 const stubMain = thinHtml;
 const noGuideMerge = mergePassengerEditorialBodyPreservation(stubMain, richHtml, null);
@@ -61,6 +56,24 @@ assert.ok(
   'call-plan downgrade guard works without portGuide (full CI regen path)'
 );
 assert.ok(/id="getting-there"[\s\S]*?<dl class="pg-facts">/.test(merged), 'preserves rich getting-there');
+
+const preservedFull = mergePublishedPortHtmlPreservation(thinHtml, richHtml, {
+  portGuide,
+  affiliate: { url: 'https://example.test/viator' },
+});
+assert.strictEqual(
+  countCallPlanArticleCards(preservedFull),
+  3,
+  'mergePublishedPortHtmlPreservation must not downgrade call-plan cards'
+);
+const withoutExistingDisk = mergePublishedPortHtmlPreservation(thinHtml, '', {
+  portGuide,
+  affiliate: { url: null },
+});
+assert.ok(
+  countCallPlanArticleCards(withoutExistingDisk) < 3,
+  'regression control: no on-disk rich HTML → preservation cannot restore cards'
+);
 
 const backup = fs.readFileSync(portPath, 'utf8');
 try {
