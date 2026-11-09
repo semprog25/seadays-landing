@@ -1,0 +1,78 @@
+{
+  "landing_slug": "alghero-italy",
+  "draft": {
+    "landing_slug": "alghero-italy",
+    "appPortId": "alghero",
+    "portName": "Alghero",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Alghero (L’Alguer) is a fortified Catalan-speaking town on Sardinia’s northwest coast. The municipal tourism site (Fondazione Alghero) frames the destination around fortress walls, coral heritage, museums and the wider Capo Caccia coast, including Neptune’s Cave. Cruise passengers land in the harbour precinct; from there the historic centre is the natural walk-off loop, while Neptune’s Cave is reached by boat services that advertise departures from the port of Alghero. The Linea Grotte di Nettuno operator describes the caves as among Sardinia’s most famous, extending about 4 km with only a visitor portion open for safety, and markets daily battello (boat) links from Alghero harbour plus mini-cruises along the coral riviera. Exact 2026 seasonal timetables and ticket prices must be confirmed on the operator site or at the quay on the day — this guide does not invent slot times. Catalan Alghero’s visitor story on the municipal tourism site emphasises the fortress city, wall promenades, coral identity and museum network. That framing matters for cruise planning: the high-value walk-off sights are compact, while Neptune’s Cave is a boat-mediated add-on with weather risk. Passengers who try to force cave + full wall circuit + long lunch into a five-hour call routinely lose their buffer — the minute budgets below are deliberately conservative. Fondazione Alghero’s public contacts (tourist office phone/email and Largo Lo Quarter organisation phones) are listed so shore teams can verify day-of notices. They are not a substitute for the ship’s port agent on berthing questions."
+    },
+    "gettingThere": {
+      "fromTerminal": "Porto di Alghero — cruise / passenger landing — Porto di Alghero, 07041 Alghero (SS), Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Clear harbour / security: 20 min (estimate)",
+        "Walk to bastions / wall circuit: 25 min (estimate)",
+        "Return to landing: 25 min (estimate)",
+        "09:00–09:20 exit harbour",
+        "09:20–09:45 walk to bastions"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Buy Neptune’s Cave boat tickets only when you can name the return boat that still meets your buffer. Sea state can cancel services. Photograph all-aboard before you queue at the pier."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f8accee5d3fb51e53d3cb3548549aa94339328be38ab0ab9af5ceff2e58508d1",
+      "existing_guide_hash": "6ee730773eb6c7d2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/alghero-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.229Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

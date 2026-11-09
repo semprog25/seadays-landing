@@ -1,0 +1,71 @@
+{
+  "landing_slug": "rovinj-croatia",
+  "draft": {
+    "landing_slug": "rovinj-croatia",
+    "appPortId": "rovinj",
+    "portName": "Rovinj",
+    "country": "Croatia",
+    "portInfo": {
+      "description": "Lučka uprava Rovinj publishes cruise-port parameters: open 24 hours, position 45°05′ N 013°38′ E, maximum depth 5.50 m, maximum vessel length 200 m, with mooring and pilotage among facilities. Jurisdiction text also lists Valdibora basins for cargo and cruise ships and mega-yacht/cruise use. The compact old town is the natural shore day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Rovinj cruise port (Lučka uprava Rovinj) — Obala/Riva P. Budicin 1, 52210 Rovinj, Croatia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Old town. Short walk from typical riva landings — minutes estimated. Depth/LOA limits. 5.50 m / 200 m may force tender for larger ships — confirm docs.",
+      "distanceAnswer": "Old town. Short walk from typical riva landings — minutes estimated. Depth/LOA limits. 5.50 m / 200 m may force tender for larger ships — confirm docs.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Old town / St. Euphemia — ~90 min.",
+        "Harbour walk — ~30 min.",
+        "Rovinj old town / St. Euphemia area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If your ship exceeds 200 m or 5.50 m draft envelope, expect tender — verify before planning."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "48a079632cfae47cef463ffe7e39b6c380b53442dd532470f49b8409437aa015",
+      "existing_guide_hash": "29e55c828577e3b9",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/rovinj-croatia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.367Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,72 @@
+{
+  "landing_slug": "bremen-germany",
+  "draft": {
+    "landing_slug": "bremen-germany",
+    "appPortId": "bremen",
+    "portName": "Bremen",
+    "country": "Germany",
+    "portInfo": {
+      "description": "bremenports’ cruise-shipping competence page centres on Bremerhaven’s Columbus Quay facilities (up to four liners; check-in areas for around 4,000 passengers). This guide for Bremen city therefore does not invent a city ocean terminal. Confirm whether your itinerary is Bremen city or Bremerhaven before planning."
+    },
+    "gettingThere": {
+      "fromTerminal": "Bremen city landing (ocean cruise not evidenced on cited bremenports cruise pages) — Bremen, Germany",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "If berthed in Bremerhaven: city of Bremen is a separate inland transfer — minutes unverified here. If river/city berth confirmed by line: Marktplatz walk times still unverified.",
+      "distanceAnswer": "If berthed in Bremerhaven: city of Bremen is a separate inland transfer — minutes unverified here. If river/city berth confirmed by line: Marktplatz walk times still unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Schnoor — ~45 min.",
+        "Bremerhaven attractions — see other guide.",
+        "Marktplatz / Town Musicians — ~60 min (only if in Bremen).",
+        "Bremen Marktplatz / Schnoor"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ticket naming “Bremen” often means Bremerhaven for ocean ships — verify."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "1d459987d4583477e68aafe01ba33f49283fba06295983e64613634f51720efb",
+      "existing_guide_hash": "a3f0322a1f4d3ab5",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bremen-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.291Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

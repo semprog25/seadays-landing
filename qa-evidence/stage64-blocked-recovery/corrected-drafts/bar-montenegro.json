@@ -1,0 +1,74 @@
+{
+  "landing_slug": "bar-montenegro",
+  "draft": {
+    "landing_slug": "bar-montenegro",
+    "appPortId": "bar",
+    "portName": "Bar",
+    "country": "Montenegro",
+    "portInfo": {
+      "description": "Bar is Montenegro’s main commercial port city. Port of Adria frames cruise development from a first call in 2014 and notes acceptance of vessels over 300 m with further capacity for development. Bar Cruise Port publishes passenger-facing destination and port information with address Obala 13. jula. Luka Bar’s passenger terminal page describes specialisation in passenger and ro-pax ships with water depth up to 5.9 m. Because 5.9 m conflicts with “over 300 m ships” marketing unless different berths are meant, this guide quotes both and leaves reconciliation as a GAP."
+    },
+    "gettingThere": {
+      "fromTerminal": "Bar Cruise Port / Port of Bar passenger terminal — Obala 13. jula, 85000 Bar, Montenegro",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "Promenade: 75",
+        "Return: 15",
+        "Buffer: 60",
+        "Transfers: 2×30 (est./GAP)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask which berth depth applies to your ship given the 5.9 m passenger-page note vs >300 m marketing."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0be863ca44d26560c684e7c2b959314ee823fec056199726f2cb0c6fe390b903",
+      "existing_guide_hash": "d38ba7d7ad49f487",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bar-montenegro.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.257Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

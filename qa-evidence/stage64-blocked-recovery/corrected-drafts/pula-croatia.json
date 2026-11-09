@@ -1,0 +1,74 @@
+{
+  "landing_slug": "pula-croatia",
+  "draft": {
+    "landing_slug": "pula-croatia",
+    "appPortId": "pula",
+    "portName": "Pula",
+    "country": "Croatia",
+    "portInfo": {
+      "description": "Županijska lučka uprava Pula is the county port authority for Pula and nearby harbours. A dedicated passenger terminal is framed as a development project on the authority site; this guide does not invent an opening date. Cruise callers should verify the day’s quay on sailing documents. The Roman amphitheatre is the signature walk-off sight when the ship is on the city waterfront."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Pula — cruise landing (ŽLU Pula) — Riva 2 / Port of Pula, 52100 Pula, Croatia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Arena / centre. Typical short walk from city riva berths — minutes estimated, not surveyed. If berthed away from the riva, use taxi/shuttle.",
+      "distanceAnswer": "Arena / centre. Typical short walk from city riva berths — minutes estimated, not surveyed. If berthed away from the riva, use taxi/shuttle.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Pula Arena — ~60 min (ticket hours GAP).",
+        "Old town / Forum — ~45 min.",
+        "Temple of Augustus area — editorial short stop.",
+        "Pula Arena (Roman amphitheatre)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm riva vs outer berth before timing the Arena walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "097e361f09fa16c6dacda9715efe5fb7954bb5f0b950cfa114e0297fd9b6c734",
+      "existing_guide_hash": "f20a92548890b01d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/pula-croatia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.363Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,74 @@
+{
+  "landing_slug": "bastia-corsica-france",
+  "draft": {
+    "landing_slug": "bastia-corsica-france",
+    "appPortId": "bastia",
+    "portName": "Bastia",
+    "country": "France",
+    "portInfo": {
+      "description": "Bastia is Corsica’s northern commercial and ferry hub, also welcoming cruise ships under CCI Corse. The destination page groups Bastia with Ajaccio, Bonifacio, L’Île-Rousse, Porto-Vecchio and Propriano in a network attracting nearly half a million cruise visitors a year. Practical services include an information point in Terminal Nord open every day from the first to the last ship, plus PMR assistance."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port de Bastia — cruise / Terminal Nord context — Port de Bastia, Bastia, Haute-Corse, France",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "Vieux Port: 60",
+        "Return: 15",
+        "Buffer: 60",
+        "Citadel: 90"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Use Terminal Nord info for day-of notices. Photograph all-aboard before the citadel climb."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a975f0385c152381bad7bd2987a466ba63e0e817a9988952c668f3bef0dd3e32",
+      "existing_guide_hash": "105f18d464be1f6a",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bastia-corsica-france.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.263Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

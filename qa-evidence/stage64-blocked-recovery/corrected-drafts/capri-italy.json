@@ -1,0 +1,72 @@
+{
+  "landing_slug": "capri-italy",
+  "draft": {
+    "landing_slug": "capri-italy",
+    "appPortId": "capri",
+    "portName": "Capri",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Capri’s compact map hides substantial vertical separation. The commercial harbour, the Piazzetta and Anacapri offer different experiences, and trying to add a grotto boat trip to all three usually spends the day in queues. For a short call, one town and its nearby viewpoints are enough. The island’s Roman villas, monastic buildings and later literary connections give a culture-led visit substance beyond the shopping streets."
+    },
+    "gettingThere": {
+      "fromTerminal": "Marina Grande — commercial passenger harbour — Marina Grande,Capri",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "The municipality distinguishes the western commercial harbour from the eastern leisure-marina basin. Follow the ship’s actual Marina Grande landing, not the private marina’s published yacht coordinate. The funicular’s ride is described as four minutes, but add ticket and boarding queues; budget 45 minutes from landing to Capri town on a busy call. Allow 45 minutes outward tender time and 90 minutes at the end for queue, boat and aboard margin. Anacapri needs a separate bus/taxi, with road and queue allowances. Dock 0 is the Motoscafisti operator’s base, not proof that every cruise tender uses that exact dock.",
+      "distanceAnswer": "The municipality distinguishes the western commercial harbour from the eastern leisure-marina basin. Follow the ship’s actual Marina Grande landing, not the private marina’s published yacht coordinate. The funicular’s ride is described as four minutes, but add ticket and boarding queues; budget 45 minutes from landing to Capri town on a busy call. Allow 45 minutes outward tender time and 90 minutes at the end for queue, boat and aboard margin. Anacapri needs a separate bus/taxi, with road and queue allowances. Dock 0 is the Motoscafisti operator’s base, not proof that every cruise tender uses that exact dock.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Piazzetta, Piazza Umberto I, Capri town: A clear named meeting point and a compact introduction to the hill town. Allow about 45 minutes (editorial estimate). Funicular queue is separate from the published ride time.",
+        "Giardini di Augusto, Giardini di Augusto, Capri town: Sea views and garden time without committing to a distant road excursion. Allow about 60 minutes (editorial estimate). Do not assume Via Krupp is open or use it as the required return route.",
+        "Certosa di San Giacomo, Certosa di San Giacomo, south of the Piazzetta, Capri: A monastic-history alternative near the central walking route. Allow about 60 minutes (editorial estimate). Interior access and current exhibitions need a date-specific check.",
+        "Villa Jovis, Villa Jovis archaeological site, Capri: Explore the Roman imperial layer on a dedicated walking outing. Allow about 90 minutes (editorial estimate). Allow generous uphill approach and return; not a quick add-on to Anacapri.",
+        "Villa San Michele, Villa San Michele, Anacapri: Axel Munthe’s villa and garden provide a focused Anacapri visit. Allow about 90 minutes (editorial estimate). Requires a separate road transfer; confirm museum access."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "On the way down, do not join a queue merely because it leads toward the harbour:confirm it gets you to the ship’s actual tender pickup. Finish sightseeing while there is still time for both the downhill transfer and the tender."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e0c0c6f3798ac32d8ae94f5791426ada944e363472257648c101cd5583b8c7f6",
+      "existing_guide_hash": "bed260a6ac02e283",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/capri-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.308Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

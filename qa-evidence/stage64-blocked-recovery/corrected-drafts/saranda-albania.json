@@ -1,0 +1,73 @@
+{
+  "landing_slug": "saranda-albania",
+  "draft": {
+    "landing_slug": "saranda-albania",
+    "appPortId": "saranda",
+    "portName": "Saranda",
+    "country": "Albania",
+    "portInfo": {
+      "description": "Porti Detar Sarandë’s history page describes a dedicated 180-metre cruise-ship pier (Pier No. 2) handling tourist ferries and cruise vessels roughly 100–210 m long, plus seasonal dolphin-type ferries. Saranda is a gateway to the Albanian Riviera and Butrint; entry rules are Albanian, not Schengen."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Saranda — cruise/tourist pier (Pier No. 2) — Saranda, Albania",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town waterfront. Typically short from the pier — minutes estimated. Butrint. Road transfer; minutes GAP — long call only.",
+      "distanceAnswer": "Town waterfront. Typically short from the pier — minutes estimated. Butrint. Road transfer; minutes GAP — long call only.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Saranda waterfront — ~60 min.",
+        "Butrint — ~180 min on site + transfers.",
+        "Lëkurësi castle viewpoint — editorial if timing allows.",
+        "Saranda waterfront / town",
+        "Butrint archaeological park (excursion)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Carry passport for Albanian entry formalities — not Schengen."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2b4c32b80b049c46f9b1bc93e89ecb2ec667c137e5eb793409885125e181b193",
+      "existing_guide_hash": "59751d7abd41d95c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/saranda-albania.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.371Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

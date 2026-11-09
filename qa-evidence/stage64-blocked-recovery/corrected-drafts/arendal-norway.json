@@ -1,0 +1,72 @@
+{
+  "landing_slug": "arendal-norway",
+  "draft": {
+    "landing_slug": "arendal-norway",
+    "appPortId": "arendal",
+    "portName": "Arendal",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Arendal Havn places its cruise quays in the town centre of this Sørlandet harbour city, historically on seven small islands and often nicknamed the “Venice of the North” in port copy. Technical data for Batterikaien and Hotellkaien include published WGS positions, 110 m / 77 m lengths, 10 m max draught and 2.2 m quay height. The fender system suits vessels up to 80,000 GT and 280 m LOA; ships over 220 m require tug assistance under pilot regulations; bollards tested to SWL 50 t; ISPS-certified. Approach is through Galtesund (~4 nautical miles from the pilot), with a 120 m minimum entrance width between navigation lights. Contact +47 975 27 000 / VHF 12 or 16; post@arendalhavn.no."
+    },
+    "gettingThere": {
+      "fromTerminal": "Batterikaien — Batterikaien, Arendal centre",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Both quays are in the town centre — walk-off day possible.",
+      "distanceAnswer": "Both quays are in the town centre — walk-off day possible.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Historic centre / waterfront — ~90 min.",
+        "Glass elevator viewpoint — mentioned by port; hours not verified.",
+        "Skerry boat trip — if offered.",
+        "Arendal centre / Galtesund approaches"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ships over 220 m may work differently with tugs — expect slower all-clear."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "cb68ae9d3ff409ba7febbdc281d07866744f400ea890b128f05b04028a0821d4",
+      "existing_guide_hash": "1f8eb5f3a8e4a013",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/arendal-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.253Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

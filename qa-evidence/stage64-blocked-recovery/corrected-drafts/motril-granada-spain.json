@@ -1,0 +1,78 @@
+{
+  "landing_slug": "motril-granada-spain",
+  "draft": {
+    "landing_slug": "motril-granada-spain",
+    "appPortId": "motril",
+    "portName": "Motril (Granada)",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Motril’s museum, sanctuary hill, park and old-centre church offer a day with its own subject: cane sugar and the city that grew around it. Granada is not a port-side extension. A limited call should not sacrifice a proper local visit for several hours on the road and a ticket that has not been obtained."
+    },
+    "gettingThere": {
+      "fromTerminal": "Muelle Dique",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "The authority says Dique cruise passengers travel by bus. Budget 45 minutes for port clearance/bus and a city pickup, rather than advertising a walk from a secure cargo quay. The Granada plan uses a deliberately conservative 120-minute one-way road budget, not a sourced road-time promise; validate it with the actual transport operator and cancel the excursion if the full margin cannot be preserved.",
+      "distanceAnswer": "The authority says Dique cruise passengers travel by bus. Budget 45 minutes for port clearance/bus and a city pickup, rather than advertising a walk from a secure cargo quay. The Granada plan uses a deliberately conservative 120-minute one-way road budget, not a sourced road-time promise; validate it with the actual transport operator and cancel the excursion if the full margin cannot be preserved.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Museo Preindustrial del Azúcar — Calle Zafra 6, 18600 Motril. A specific preserved sugar-production site, not the separate Pilar factory. Allow 75 minutes; official source.",
+        "Santuario Nuestra Señora de la Cabeza — Avenida de la Constitución, Motril. Interior visits require an appointment on the municipal listing; the hill setting can be viewed without promising entry. Allow 40 minutes; official source.",
+        "Parque de los Pueblos de América — At the foot of the sanctuary hill, Motril. A planted outdoor pause between museum and hill. Allow 45 minutes; official source.",
+        "Iglesia Mayor de la Encarnación — Iglesia Mayor, Motril old centre. A religious/architectural stop, subject to worship access. Allow 35 minutes; official source.",
+        "Museo de Historia de Motril — Museo de Historia, Motril old centre. Check its restricted weekly opening before making it the afternoon anchor. Allow 60 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask for the assigned quay plus return port-bus location, not just “Motril port”. A Granada driver waiting at an unauthorized cargo gate does not solve the last transfer."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2903ac6a57781f388e8c4e099bc3b50cdb73fa52feb31c7dd0fd4389f574dd8e",
+      "existing_guide_hash": "b63ea8d9ea1d2b95",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/motril-granada-spain.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.350Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

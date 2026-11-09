@@ -1,0 +1,1876 @@
+{
+  "generated_at_utc": "2026-11-09T07:54:40.149Z",
+  "production_baseline_sha": "4fc0b2545da0210afad4a54b0114dfd4f9451273",
+  "worktree_head_sha": "4fc0b2545da0210afad4a54b0114dfd4f9451273",
+  "research_root": "/Users/sharanestone/Downloads/seadays-ports-deliverables-2026-11-06",
+  "blocked_unpublished": 184,
+  "inspected": 184,
+  "blocking_cause_counts": {
+    "import_missing_public_guide_entry": 175,
+    "research_metadata_needs_review": 177,
+    "research_qa_blocked": 27,
+    "multi_slug_ambiguity": 1,
+    "historical_policy_exclusion": 1,
+    "stage43_hard_exclude": 1
+  },
+  "bootstrap_policy_ok": 108,
+  "bootstrap_yaml_failures": 48,
+  "qa_blocked_in_blocked_cohort": 27,
+  "note": "Primary recoverable BLOCKED unpublished rows are qa PASS with missing public-port-guides entry; picker id becomes resolved after guide bootstrap.",
+  "inspected_sample": [
+    {
+      "landing_slug": "bremen-germany",
+      "app_port_id": "bremen",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "cartagena-colombia",
+      "app_port_id": "cartagena-colombia",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "cartagena-spain-spain",
+      "app_port_id": "cartagena-spain",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "chennai-india",
+      "app_port_id": "chennai",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review",
+        "multi_slug_ambiguity"
+      ]
+    },
+    {
+      "landing_slug": "falmouth-jamaica",
+      "app_port_id": "falmouth",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "gdansk-poland",
+      "app_port_id": "gdansk",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "gdynia-poland",
+      "app_port_id": "gdynia",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "glasgow-united-kingdom",
+      "app_port_id": "glasgow",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "goa-india",
+      "app_port_id": "goa",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "historical_policy_exclusion",
+        "stage43_hard_exclude",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "greenock-united-kingdom",
+      "app_port_id": "greenock",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "grundarfjor-ur-iceland",
+      "app_port_id": "grundarfjordur",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "jeddah-saudi-arabia",
+      "app_port_id": "jeddah",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "jeddah-islamic-port-saudi-arabia",
+      "app_port_id": "jeddah-islamic-port",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": "juneau",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "kefalonia-greece",
+      "app_port_id": "kefalonia",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "las-palmas-spain",
+      "app_port_id": "las-palmas",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": "long-beach",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "manama-bahrain",
+      "app_port_id": "manama",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "mina-salman-manama-bahrain",
+      "app_port_id": "mina-salman",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "nordkapp-norway",
+      "app_port_id": "nordkapp",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "reine-norway",
+      "app_port_id": "reine",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "rostock-germany",
+      "app_port_id": "rostock",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "rugen-germany",
+      "app_port_id": "rugen",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sassnitz-mukran-germany",
+      "app_port_id": "sassnitz",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "svolv-r-norway",
+      "app_port_id": "svolvaer",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sydney-ns-canada",
+      "app_port_id": "sydney-ns",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "taormina-italy",
+      "app_port_id": "taormina",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "visakhapatnam-india",
+      "app_port_id": "visakhapatnam",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "acapulco-mexico",
+      "app_port_id": "acapulco",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "adabya-egypt",
+      "app_port_id": "adabya",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked"
+      ]
+    },
+    {
+      "landing_slug": "adelaide-australia",
+      "app_port_id": "adelaide",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "alesund-norway",
+      "app_port_id": "alesund",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "alghero-italy",
+      "app_port_id": "alghero",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "anchorage-ak-united-states",
+      "app_port_id": "anchorage",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry"
+      ]
+    },
+    {
+      "landing_slug": "ancona-italy",
+      "app_port_id": "ancona",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "andalsnes-norway",
+      "app_port_id": "andalsnes",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "angra-do-heroismo-azores-portugal",
+      "app_port_id": "angra-do-heroismo",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "antwerp-belgium",
+      "app_port_id": "antwerp",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "arendal-norway",
+      "app_port_id": "arendal",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "balestrand-norway",
+      "app_port_id": "balestrand",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bangkok-laem-chabang-thailand",
+      "app_port_id": "laem-chabang",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bar-harbor-me-united-states",
+      "app_port_id": "bar-harbor",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bar-montenegro",
+      "app_port_id": "bar",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bastia-corsica-france",
+      "app_port_id": "bastia",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "beirut-lebanon",
+      "app_port_id": "beirut",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bimini-bahamas",
+      "app_port_id": "bimini",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bonaire-bonaire",
+      "app_port_id": "bonaire",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "bonifacio-france",
+      "app_port_id": "bonifacio",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "buenos-aires-argentina",
+      "app_port_id": "buenos-aires",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "cabo-san-lucas-mexico",
+      "app_port_id": "cabo-san-lucas",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "cadiz-seville-spain",
+      "app_port_id": "cadiz",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "calvi-corsica-france",
+      "app_port_id": "calvi",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "cape-liberty-bayonne-nj-united-states",
+      "app_port_id": "bayonne",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "capri-italy",
+      "app_port_id": "capri",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "castaway-cay-bahamas",
+      "app_port_id": "castaway-cay",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "chania-crete-greece",
+      "app_port_id": "chania",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "chios-greece",
+      "app_port_id": "chios",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "curacao-willemstad-curacao",
+      "app_port_id": "willemstad",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "cuxhaven-germany",
+      "app_port_id": "cuxhaven",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "dammam-saudi-arabia",
+      "app_port_id": "dammam",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "douglas-isle-of-man",
+      "app_port_id": "douglas",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "dunedin-new-zealand",
+      "app_port_id": "dunedin",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "durres-albania",
+      "app_port_id": "durres",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "eleuthera-bahamas",
+      "app_port_id": "eleuthera",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ensenada-mexico",
+      "app_port_id": "ensenada",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ephesus-kusadasi-turkey",
+      "app_port_id": "kusadasi",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "esbjerg-denmark",
+      "app_port_id": "esbjerg",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "flekkefjord-norway",
+      "app_port_id": "flekkefjord",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "flensburg-germany",
+      "app_port_id": "flensburg",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "florence-pisa-livorno-italy",
+      "app_port_id": "livorno",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": "fort-lauderdale",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "freeport-bahamas",
+      "app_port_id": "freeport",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "galveston-tx-united-states",
+      "app_port_id": "galveston",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "galway-ireland",
+      "app_port_id": "galway",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "geiranger-norway",
+      "app_port_id": "geiranger",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "george-town-cayman-islands",
+      "app_port_id": "george-town",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "gothenburg-sweden",
+      "app_port_id": "gothenburg",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "great-stirrup-cay-bahamas",
+      "app_port_id": "great-stirrup-cay",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "greifswald-germany",
+      "app_port_id": "greifswald",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "gudvangen-norway",
+      "app_port_id": "gudvangen",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "gythion-greece",
+      "app_port_id": "gythion",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry"
+      ]
+    },
+    {
+      "landing_slug": "half-moon-cay-bahamas",
+      "app_port_id": "half-moon-cay",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "halong-bay-vietnam",
+      "app_port_id": "halong-bay",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "hammerfest-norway",
+      "app_port_id": "hammerfest",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "harwich-united-kingdom",
+      "app_port_id": "harwich",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "hellesylt-norway",
+      "app_port_id": "hellesylt",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "heraklion-crete-greece",
+      "app_port_id": "heraklion",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "honfleur-france",
+      "app_port_id": "honfleur",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "hong-kong-hong-kong",
+      "app_port_id": "hong-kong",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "honningsvag-norway",
+      "app_port_id": "honningsvag",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "houston-tx-united-states",
+      "app_port_id": "houston",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry"
+      ]
+    },
+    {
+      "landing_slug": "huatulco-mexico",
+      "app_port_id": "huatulco",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "hurghada-egypt",
+      "app_port_id": "hurghada",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "hydra-greece",
+      "app_port_id": "hydra",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ibiza-spain",
+      "app_port_id": "ibiza",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "invergordon-loch-ness-united-kingdom",
+      "app_port_id": "invergordon",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "jakarta-indonesia",
+      "app_port_id": "jakarta",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "kalamata-greece",
+      "app_port_id": "kalamata",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "kauai-nawiliwili-hi-united-states",
+      "app_port_id": "kauai-nawiliwili",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ketchikan-ak-united-states",
+      "app_port_id": "ketchikan",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "key-west-fl-united-states",
+      "app_port_id": "key-west",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "khasab-oman",
+      "app_port_id": "khasab",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "app_port_id": "ko-samui",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "kolkata-india",
+      "app_port_id": "kolkata",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "kona-hi-united-states",
+      "app_port_id": "kona",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "kuwait-city-kuwait",
+      "app_port_id": "kuwait-city",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "la-paz-mexico",
+      "app_port_id": "la-paz",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "la-rochelle-france",
+      "app_port_id": "la-rochelle",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "la-spezia-cinque-terre-italy",
+      "app_port_id": "la-spezia",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "lerwick-shetland-united-kingdom",
+      "app_port_id": "lerwick",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "lesbos-greece",
+      "app_port_id": "lesbos",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "lima-callao-peru",
+      "app_port_id": "lima-callao",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "lisbon-portugal",
+      "app_port_id": "lisbon",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "lubeck-travemunde-germany",
+      "app_port_id": "lubeck-travemunde",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "manila-philippines",
+      "app_port_id": "manila",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "maui-kahului-hi-united-states",
+      "app_port_id": "maui-kahului",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "mazatlan-mexico",
+      "app_port_id": "mazatlan",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "milos-greece",
+      "app_port_id": "milos",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "mobile-al-united-states",
+      "app_port_id": "mobile",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "monemvasia-greece",
+      "app_port_id": "monemvasia",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry"
+      ]
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": "montreal",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "motril-granada-spain",
+      "app_port_id": "motril",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "nantes-france",
+      "app_port_id": "nantes",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "naxos-greece",
+      "app_port_id": "naxos",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry"
+      ]
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "app_port_id": "new-mangalore",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "new-orleans-la-united-states",
+      "app_port_id": "new-orleans",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "new-york-ny-united-states",
+      "app_port_id": "new-york",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "newcastle-united-kingdom",
+      "app_port_id": "newcastle",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ocean-cay-msc-reserve-bahamas",
+      "app_port_id": "ocean-cay",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "oslo-norway",
+      "app_port_id": "oslo",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "paros-greece",
+      "app_port_id": "paros",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "patmos-greece",
+      "app_port_id": "patmos",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "perfect-day-at-cococay-bahamas",
+      "app_port_id": "coco-cay",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "perth-australia",
+      "app_port_id": "perth",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "philadelphia-pa-united-states",
+      "app_port_id": "philadelphia",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "app_port_id": "ko-phuket",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "plymouth-united-kingdom",
+      "app_port_id": "plymouth",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": "ponce",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "port-blair-india",
+      "app_port_id": "port-blair",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "portimao-portugal",
+      "app_port_id": "portimao",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "porto-cervo-italy",
+      "app_port_id": "porto-cervo",
+      "qa_verdict": "BLOCKED",
+      "research_status": "blocked",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry"
+      ]
+    },
+    {
+      "landing_slug": "porto-leixoes-portugal",
+      "app_port_id": "porto",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "porto-vecchio-france",
+      "app_port_id": "porto-vecchio",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "portofino-italy",
+      "app_port_id": "portofino",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "progreso-mexico",
+      "app_port_id": "progreso",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "puerto-chiapas-mexico",
+      "app_port_id": "puerto-chiapas",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "pula-croatia",
+      "app_port_id": "pula",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "quebec-city-qc-canada",
+      "app_port_id": "quebec-city",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "ras-al-khaimah-united-arab-emirates",
+      "app_port_id": "ras-al-khaimah",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "roatan-honduras",
+      "app_port_id": "roatan",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "rovinj-croatia",
+      "app_port_id": "rovinj",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sao-paulo-santos-brazil",
+      "app_port_id": "santos",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "saranda-albania",
+      "app_port_id": "saranda",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "savona-italy",
+      "app_port_id": "savona",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "seattle-wa-united-states",
+      "app_port_id": "seattle",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "seward-ak-united-states",
+      "app_port_id": "seward",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sharjah-united-arab-emirates",
+      "app_port_id": "sharjah",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sibenik-croatia",
+      "app_port_id": "sibenik",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sitka-ak-united-states",
+      "app_port_id": "sitka",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "skagway-ak-united-states",
+      "app_port_id": "skagway",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "sorrento-italy",
+      "app_port_id": "sorrento",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "spetses-greece",
+      "app_port_id": "spetses",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+      "app_port_id": "frederiksted",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "st-kitts-basseterre-st-kitts",
+      "app_port_id": "basseterre",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "st-tropez-france",
+      "app_port_id": "st-tropez",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "stralsund-germany",
+      "app_port_id": "stralsund",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "suez-egypt",
+      "app_port_id": "suez",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "swinoujscie-poland",
+      "app_port_id": "swinoujscie",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "symi-greece",
+      "app_port_id": "symi",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "syracuse-italy",
+      "app_port_id": "syracuse",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "tampa-fl-united-states",
+      "app_port_id": "tampa",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "tel-aviv-israel",
+      "app_port_id": "tel-aviv",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "thessaloniki-greece",
+      "app_port_id": "thessaloniki",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "tianjin-beijing-china",
+      "app_port_id": "tianjin-beijing",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "tromso-norway",
+      "app_port_id": "tromso",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "valparaiso-chile",
+      "app_port_id": "valparaiso",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "vancouver-bc-canada",
+      "app_port_id": "vancouver",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "victoria-bc-canada",
+      "app_port_id": "victoria",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "vlore-albania",
+      "app_port_id": "vlore",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "waterford-ireland",
+      "app_port_id": "waterford",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "wilhelmshaven-germany",
+      "app_port_id": "wilhelmshaven",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "wismar-germany",
+      "app_port_id": "wismar",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "xiamen-china",
+      "app_port_id": "xiamen",
+      "qa_verdict": "BLOCKED",
+      "research_status": "needs_review",
+      "causes": [
+        "research_qa_blocked",
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    },
+    {
+      "landing_slug": "yanbu-saudi-arabia",
+      "app_port_id": "yanbu",
+      "qa_verdict": "PASS",
+      "research_status": "needs_review",
+      "causes": [
+        "import_missing_public_guide_entry",
+        "research_metadata_needs_review"
+      ]
+    }
+  ]
+}

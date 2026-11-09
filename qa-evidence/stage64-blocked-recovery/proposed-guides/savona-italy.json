@@ -1,0 +1,51 @@
+{
+  "appPortId": "savona",
+  "portName": "Savona, Italy",
+  "country": "Italy",
+  "portInfo": {
+    "description": "Palacrociere is Savona’s cruise terminal. Its how-to-reach page publishes GPS coordinates and states the port sits in front of the historic centre with about a 5–10 minute walk to main attractions across a pedestrian bridge. The city has no airport; road access is via A6 (Turin) and A10 (Genoa/Ventimiglia)."
+  },
+  "thingsToDo": {
+    "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+    "topThings": [
+      "Exit: 15",
+      "Centre walk: 75",
+      "Return: 15",
+      "Buffer: 60",
+      "Historic centre walk — 5–10 min from terminal. ~60 min."
+    ],
+    "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+    "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+    "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+    "practicalTip": "Use the pedestrian bridge route described by Palacrociere; photograph all-aboard before shopping streets."
+  },
+  "gettingThere": {
+    "fromTerminal": "Palacrociere Savona Cruise Terminal — Terminal Crociere Savona, 17100 Savona, Italy",
+    "transportation": [
+      "Walking",
+      "Taxi",
+      "Coach excursion"
+    ],
+    "distanceToCity": "Historic centre. ~5–10 minutes walk via pedestrian bridge. Airport. None in Savona; Genoa/other airports require road transfer.",
+    "distanceAnswer": "Historic centre. ~5–10 minutes walk via pedestrian bridge. Airport. None in Savona; Genoa/other airports require road transfer.",
+    "walkingTime": "",
+    "taxiInfo": "",
+    "publicTransport": "Confirm local transport options with the ship on your call date."
+  },
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "02b99922a17533cd75ca76fed9682bcf9be703d32fc49c6c61585b2a2af686b0",
+    "landing_slug": "savona-italy",
+    "candidate_content_hash": "853d631341437d9103da1c968c7abd53e721171c3560dee83ae8e3670bd0b9ec",
+    "locked_at_utc": "2026-11-09T07:54:40.211Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage64_blocked_release_candidate": true,
+    "owner_publication_authorized": false
+  }
+}
