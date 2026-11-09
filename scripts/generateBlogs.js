@@ -3525,6 +3525,7 @@ async function main() {
       const { mergePublishedPortHtmlPreservation } = require('./lib/publishedPortHtmlPreserve');
       portHtml = mergePublishedPortHtmlPreservation(portHtml, fs.readFileSync(outPath, 'utf8'), {
         affiliate,
+        portGuide,
       });
     }
     fs.writeFileSync(outPath, portHtml, 'utf8');
