@@ -1,0 +1,136 @@
+{
+  "generated_at_utc": "2026-11-09T19:56:54.897Z",
+  "research_composite_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "ports": [
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": "fort-lauderdale",
+      "research_qa_verdict": "PASS",
+      "research_sha256": "a91f75c3ef73503030f3cc60508787bd40791045ecfcbcd4bfb46092bb4f47fe",
+      "identity_disposition": "VERIFIED_MAPPING",
+      "stage77_wiring_evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "fort-lauderdale"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "fort-lauderdale"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "fort-lauderdale",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": "juneau",
+      "research_qa_verdict": "PASS",
+      "research_sha256": "46d0a4a7e63adf4be9806bbbb759d4337fbea79f1a24acc8584f7c96a9ddef71",
+      "identity_disposition": "VERIFIED_MAPPING",
+      "stage77_wiring_evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "juneau"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "juneau"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "juneau",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": "long-beach",
+      "research_qa_verdict": "PASS",
+      "research_sha256": "f991adc2cc5bd269cf4d7978241e68f40eda17b452f2832b0768c16538691a57",
+      "identity_disposition": "VERIFIED_MAPPING",
+      "stage77_wiring_evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "long-beach"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "long-beach"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "long-beach",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": "montreal",
+      "research_qa_verdict": "PASS",
+      "research_sha256": "41d07a7e1679f7c78a090e47e0f541f26ff8e06afe0acc1195ff04808f0c3b75",
+      "identity_disposition": "VERIFIED_MAPPING",
+      "stage77_wiring_evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "montreal"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "montreal"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "montreal",
+          "country_id": "canada"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": "ponce",
+      "research_qa_verdict": "PASS",
+      "research_sha256": "818249f65489606b04dff880301de944659b548cae22e966e80700e412e3647b",
+      "identity_disposition": "VERIFIED_MAPPING",
+      "stage77_wiring_evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "ponce"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "ponce"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "ponce",
+          "country_id": "puerto_rico"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    }
+  ]
+}

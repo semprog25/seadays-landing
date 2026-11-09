@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "status": "OWNER_REVIEW",
+  "safe_to_apply": false,
+  "production_apply_permitted": false,
+  "note": "Landing researchImport / byAppPortId wiring only — no app cruise-data mutation",
+  "mappings": [
+    {
+      "landing_slug": "anchorage-ak-united-states",
+      "app_port_id": "anchorage",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "anchorage"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "anchorage"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "anchorage",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "balestrand-norway",
+      "app_port_id": "balestrand",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "balestrand"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "balestrand"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "balestrand",
+          "country_id": "norway"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": "fort-lauderdale",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "fort-lauderdale"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "fort-lauderdale"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "fort-lauderdale",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "gythion-greece",
+      "app_port_id": "gythion",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "gythion"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "gythion"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "gythion",
+          "country_id": "greece"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "halong-bay-vietnam",
+      "app_port_id": "halong-bay",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "halong-bay"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "halong-bay"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "halong-bay",
+          "country_id": "vietnam"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "houston-tx-united-states",
+      "app_port_id": "houston",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "houston"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "houston"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "houston",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "jakarta-indonesia",
+      "app_port_id": "jakarta",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "jakarta"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "jakarta"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "jakarta",
+          "country_id": "indonesia"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": "juneau",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "juneau"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "juneau"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "juneau",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "khasab-oman",
+      "app_port_id": "khasab",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "khasab"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "khasab"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "khasab",
+          "country_id": "oman"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "kolkata-india",
+      "app_port_id": "kolkata",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "kolkata"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "kolkata"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "kolkata",
+          "country_id": "india"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "kuwait-city-kuwait",
+      "app_port_id": "kuwait-city",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "kuwait-city"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "kuwait-city"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "kuwait-city",
+          "country_id": "kuwait"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "lima-callao-peru",
+      "app_port_id": "lima-callao",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "lima-callao"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "lima-callao"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "lima-callao",
+          "country_id": "peru"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": "long-beach",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "long-beach"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "long-beach"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "long-beach",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "manila-philippines",
+      "app_port_id": "manila",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "manila"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "manila"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "manila",
+          "country_id": "philippines"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "monemvasia-greece",
+      "app_port_id": "monemvasia",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "monemvasia"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "monemvasia"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "monemvasia",
+          "country_id": "greece"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": "montreal",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "montreal"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "montreal"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "montreal",
+          "country_id": "canada"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "naxos-greece",
+      "app_port_id": "naxos",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "naxos"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "naxos"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "naxos",
+          "country_id": "greece"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": "ponce",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "ponce"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "ponce"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "ponce",
+          "country_id": "puerto_rico"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "port-blair-india",
+      "app_port_id": "port-blair",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "port-blair"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "port-blair"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "port-blair",
+          "country_id": "india"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "porto-cervo-italy",
+      "app_port_id": "porto-cervo",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "porto-cervo"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "porto-cervo"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "porto-cervo",
+          "country_id": "italy"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "sharjah-united-arab-emirates",
+      "app_port_id": "sharjah",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "sharjah"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "sharjah"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "sharjah",
+          "country_id": "uae"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "tianjin-beijing-china",
+      "app_port_id": "tianjin-beijing",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "tianjin-beijing"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "tianjin-beijing"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "tianjin-beijing",
+          "country_id": "china"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "visakhapatnam-india",
+      "app_port_id": "visakhapatnam",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "visakhapatnam"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "visakhapatnam"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "visakhapatnam",
+          "country_id": "india"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    },
+    {
+      "landing_slug": "xiamen-china",
+      "app_port_id": "xiamen",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "xiamen"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "xiamen"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "xiamen",
+          "country_id": "china"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ]
+    }
+  ]
+}

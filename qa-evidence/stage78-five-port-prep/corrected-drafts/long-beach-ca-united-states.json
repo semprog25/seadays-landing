@@ -1,0 +1,83 @@
+{
+  "landing_slug": "long-beach-ca-united-states",
+  "draft": {
+    "landing_slug": "long-beach-ca-united-states",
+    "appPortId": "long-beach",
+    "portName": "Long Beach, CA, United States",
+    "country": "United States",
+    "portInfo": {
+      "description": "Long Beach, CA, United States is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "timezone": "",
+      "language": "",
+      "currency": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Long Beach Cruise Terminal (231 Windsor Way) — Carnival-operated; door pin null",
+      "publicTransport": "Airports. Visit Long Beach publishes driving guidance from LAX and LGB (details on their cruise pages). Downtown. Short ride to Pine Avenue / Shoreline Village; walk minutes from Windsor Way Not verified.",
+      "distanceToCity": "Airports. Visit Long Beach publishes driving guidance from LAX and LGB (details on their cruise pages). Downtown. Short ride to Pine Avenue / Shoreline Village; walk minutes from Windsor Way Not verified.",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceAnswer": "Airports. Visit Long Beach publishes driving guidance from LAX and LGB (details on their cruise pages). Downtown. Short ride to Pine Avenue / Shoreline Village; walk minutes from Windsor Way Not verified.",
+      "walkingTime": "",
+      "taxiInfo": ""
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Shoreline Village / downtown dining — flexible.",
+        "Aquarium of the Pacific"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Double-check US LGB vs US LAX on your documents — rideshare to the wrong harbour wastes an embark morning."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f991adc2cc5bd269cf4d7978241e68f40eda17b452f2832b0768c16538691a57",
+      "existing_guide_hash": "c3f1d7ee7af6214e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/long-beach-ca-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_thingsBullet",
+        "insufficient_supported_attractions_2"
+      ],
+      "generated_at_utc": "2026-11-09T19:54:53.382Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": false,
+    "failures": [
+      "schema_top_things_2",
+      "passenger_top_things_2_of_3",
+      "factual_insufficient_attractions_2"
+    ],
+    "warnings": [],
+    "factual": {
+      "flags": [
+        "insufficient_attractions_2"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": false,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_EDITORIAL_FIX",
+  "recovery_mode": "stage78-five-port-prep"
+}

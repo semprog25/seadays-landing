@@ -1,0 +1,1764 @@
+{
+  "meta": {
+    "generatedAt": "2026-08-11T21:25:10.692Z",
+    "count": 75,
+    "portCount": 27,
+    "source": "public.port_terminals (anon select)",
+    "note": "Phase 1 enrichment merged additional researched terminals for priority ports",
+    "phase1CorrectionPassAt": "2026-08-11T21:41:35.430Z",
+    "kielEnrichmentAt": "2026-08-21T10:06:47.570Z",
+    "kielSource": "PORT OF KIEL official terminal pages (portofkiel.com)",
+    "terminalNote": "Barcelona distances follow the February 2025 Port of Barcelona brochure. Port Canaveral addresses follow the port directions page. Vigo lists one Trasatlánticos station. Barcelona/Miami terminal coords and status updated 2026-11-04 (status-aware map pilot)."
+  },
+  "byPortId": {
+    "barcelona": [
+      {
+        "name": "Moll Adossat Terminal A",
+        "slug": "adossat-terminal-a",
+        "description": "Southern Adossat berth. About 2 km from the center.",
+        "address": "Moll Adossat, 1, 08039 Barcelona",
+        "latitude": 41.362222,
+        "longitude": 2.181389,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "covered walkways",
+          "baggage",
+          "check-in"
+        ],
+        "distance_to_city_center_km": 2,
+        "transport_options": [
+          "Blue Port shuttle",
+          "taxi at Moll",
+          "cruise buses"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "spain"
+      },
+      {
+        "name": "Moll Adossat Terminal B",
+        "slug": "adossat-terminal-b",
+        "description": "Adossat berth beside Terminal A. About 2 km from the center.",
+        "address": "Moll Adossat, 3, 08039 Barcelona",
+        "latitude": 41.360628,
+        "longitude": 2.181075,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "security",
+          "seating",
+          "retail"
+        ],
+        "distance_to_city_center_km": 2,
+        "transport_options": [
+          "Blue Port shuttle",
+          "taxi",
+          "bus connections"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "spain"
+      },
+      {
+        "name": "Moll Adossat Terminal C",
+        "slug": "adossat-terminal-c",
+        "description": "Legacy Adossat Terminal C (not the future public Terminal C planned for ~2030). Cruise operations at this building ended 1 November 2026; it is being demolished.",
+        "terminal_type": "both",
+        "terminal_status": "closed",
+        "facilities": [
+          "baggage",
+          "check-in",
+          "seating"
+        ],
+        "distance_to_city_center_km": 2.5,
+        "transport_options": [
+          "shuttle",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "spain"
+      },
+      {
+        "name": "Moll Adossat Terminal D",
+        "slug": "adossat-terminal-d",
+        "description": "Palacruceros berth on Adossat. About 2.5 km from the center.",
+        "address": "C/ Moll Adossat, s/n, 08039 Barcelona",
+        "latitude": 41.354224,
+        "longitude": 2.176258,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "terminal building",
+          "baggage"
+        ],
+        "distance_to_city_center_km": 2.5,
+        "transport_options": [
+          "Blue Port shuttle",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "spain"
+      },
+      {
+        "name": "World Trade Center (WTC) Cruise Pier",
+        "slug": "world-trade-center-pier",
+        "description": "Port Vell / WTC cruise pier. About 400 m from the center.",
+        "terminal_type": "both",
+        "terminal_status": "transitioning",
+        "visitor_notice": "Under the Port of Barcelona and Barcelona City Council agreement, cruise use at the World Trade Center / Barcelona South wharf is winding down, with operations expected to end by late 2026. Confirm your assigned Adossat terminal (A, B, D, or E) on embarkation documents.",
+        "facilities": [
+          "passenger bridge",
+          "baggage",
+          "taxi rank"
+        ],
+        "distance_to_city_center_km": 0.4,
+        "transport_options": [
+          "Drassanes L3 Metro",
+          "walking",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 50,
+        "country_id": "spain"
+      },
+      {
+        "name": "Moll Adossat Terminal E (Helix)",
+        "slug": "adossat-terminal-e",
+        "description": "Helix terminal on Adossat. About 3 km from the center.",
+        "address": "Moll Adossat, s/n, 08039 Barcelona",
+        "latitude": 41.351014,
+        "longitude": 2.174199,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": 3,
+        "transport_options": [
+          "shuttle",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 45,
+        "country_id": "spain"
+      }
+    ],
+    "civitavecchia": [
+      {
+        "name": "Terminal Amerigo Vespucci",
+        "slug": "terminal-amerigo-vespucci",
+        "description": "Large Roma Cruise Terminal passenger building on Quay 12 North; major embarkation/turnaround hub with extensive check-in and baggage areas. Free port shuttles commonly link piers with the Largo della Pace service area.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in hall",
+          "security",
+          "baggage",
+          "coach parking",
+          "passenger services"
+        ],
+        "distance_to_city_center_km": 1.2,
+        "transport_options": [
+          "free RCT / port shuttle",
+          "taxi",
+          "links toward Civitavecchia station"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "italy"
+      },
+      {
+        "name": "Terminal Donato Bramante (Quay 12 South / Pier 12)",
+        "slug": "terminal-donato-bramante",
+        "description": "Canonical Pier 12 South passenger terminal operated by Roma Cruise Terminal (also referred to historically as Terminal Bramante). Modern check-in capacity beside the Vespucci complex; confirm Pier 12 assignment on arrival-day signage. This record replaces duplicate “Bramante / Donato Bramante” cards that previously described the same facility.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in hall",
+          "security",
+          "seating",
+          "covered pier access",
+          "passenger services"
+        ],
+        "distance_to_city_center_km": 1.3,
+        "transport_options": [
+          "free port shuttle to Largo della Pace",
+          "taxi",
+          "station transfer"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "italy"
+      },
+      {
+        "name": "Terminal 10",
+        "slug": "terminal-10-civitavecchia",
+        "description": "RCT cruise terminal at Quay 10 along the Cristoforo Colombo antemurale. Used for cruise operations alongside the larger Vespucci/Bramante buildings—follow ship documents for the assigned quay.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger processing",
+          "pier access",
+          "shuttle links"
+        ],
+        "distance_to_city_center_km": 1.5,
+        "transport_options": [
+          "port shuttle",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "italy"
+      },
+      {
+        "name": "Terminal 25 South",
+        "slug": "terminal-25-south-civitavecchia",
+        "description": "RCT terminal at Quay 25 South, on the opposite side of the antemurale from the main Quay 10–13 cruise cluster. Transfers still typically funnel through port shuttle / Largo della Pace patterns—allow a little extra orientation time.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger processing",
+          "pier access"
+        ],
+        "distance_to_city_center_km": 2,
+        "transport_options": [
+          "port shuttle",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "italy"
+      }
+    ],
+    "fort-lauderdale": [
+      {
+        "name": "Port Everglades Cruise Terminal 4",
+        "slug": "port-everglades-terminal-4",
+        "description": "Large dedicated cruise terminal building; high passenger throughput.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "expanded check-in",
+          "baggage",
+          "bridges to parking"
+        ],
+        "distance_to_city_center_km": 5.5,
+        "transport_options": [
+          "taxi",
+          "rideshare",
+          "shuttle"
+        ],
+        "is_primary": true,
+        "sort_order": 20,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Everglades Cruise Terminal 2",
+        "slug": "port-everglades-terminal-2",
+        "description": "North side cruise terminal; garage skywalk connections on some sailings.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "parking garage access",
+          "seating",
+          "food vending"
+        ],
+        "distance_to_city_center_km": 5.5,
+        "transport_options": [
+          "taxi",
+          "rideshare",
+          "cruise line shuttles"
+        ],
+        "is_primary": false,
+        "sort_order": 10,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Everglades Cruise Terminal 8",
+        "slug": "port-everglades-terminal-8",
+        "description": "Midport cruise terminal; follow port directional signs from Eller Dr.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "security",
+          "baggage",
+          "seating"
+        ],
+        "distance_to_city_center_km": 5.5,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Everglades Cruise Terminal 18",
+        "slug": "port-everglades-terminal-18",
+        "description": "Midport berth complex; used for assigned mega-ship operations.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "terminal facilities",
+          "baggage",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": 5.5,
+        "transport_options": [
+          "taxi",
+          "rideshare",
+          "shuttle"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Everglades Cruise Terminal 25",
+        "slug": "port-everglades-terminal-25",
+        "description": "Eastern midport cruise berth; follow gate and pier routing.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "baggage",
+          "seating"
+        ],
+        "distance_to_city_center_km": 5.5,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 50,
+        "country_id": "usa"
+      }
+    ],
+    "hamburg": [
+      {
+        "name": "Cruise Center HafenCity",
+        "slug": "cruise-center-hafencity",
+        "description": "Passenger check-in is at Überseeboulevard 7, inside Westfield Hamburg-Überseequartier, since spring 2025. This terminal has two berths. U4 Überseequartier is in the same complex, one stop from Jungfernstieg. The garage is reached from Osakaallee.",
+        "address": "Überseeboulevard 7, 20457 Hamburg",
+        "latitude": 53.5397349,
+        "longitude": 9.9991553,
+        "berth_count": 2,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in hall",
+          "taxi",
+          "parking via Osakaallee",
+          "U4 Überseequartier"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "S-Bahn to Hauptbahnhof",
+          "U4 Überseequartier",
+          "bus",
+          "taxi"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "germany"
+      },
+      {
+        "name": "Cruise Center Altona",
+        "slug": "cruise-center-altona",
+        "description": "The terminal at Van-der-Smissen-Straße 5 has one berth. HADAG ferry 62 from Landungsbrücken stops at Dockland next to the pier, and bus 111 stops at Große Elbstraße.",
+        "address": "Van-der-Smissen-Straße 5, 22767 Hamburg",
+        "latitude": 53.5436585,
+        "longitude": 9.9370696,
+        "berth_count": 1,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger hall",
+          "taxi rank",
+          "HADAG ferry 62",
+          "bus 111"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "HADAG ferry 62",
+          "bus 111",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "germany"
+      },
+      {
+        "name": "Cruise Center Steinwerder",
+        "slug": "cruise-center-steinwerder",
+        "description": "The large-ship terminal at Buchheisterstraße 16 has one berth and two halls, and it has taken cruise calls since June 2015. Ferry 73 runs on weekdays from Argentinienbrücke toward Landungsbrücken. Check the HVV timetable before relying on a bus, because those routes follow harbour shift times.",
+        "address": "Buchheisterstraße 16, 20457 Hamburg",
+        "latitude": 53.5294471,
+        "longitude": 9.9612949,
+        "berth_count": 1,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "two terminal halls",
+          "taxi",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "ferry 73 on weekdays",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "germany"
+      },
+      {
+        "name": "Baakenhöft",
+        "slug": "baakenhoeft",
+        "description": "Baakenhöft 1, in eastern HafenCity, is an extra berth for smaller and medium ships. It has one berth, a quay of about 230 metres, and a maximum draught of about 7 metres.",
+        "address": "Baakenhöft 1, 20457 Hamburg",
+        "latitude": 53.5378455,
+        "longitude": 10.0057058,
+        "berth_count": 1,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger hall",
+          "taxi",
+          "short-term parking"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "bus"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "germany"
+      }
+    ],
+    "istanbul": [
+      {
+        "name": "Galataport İstanbul Cruise Terminal",
+        "slug": "galataport-istanbul",
+        "description": "Main Istanbul cruise terminal and homeport on the Karaköy waterfront. Passenger and luggage flows are underground beneath the promenade (Galataport hatch system). When your ship uses the terminal building, official visitor access is via Block D. Galataport publishes design capacity of up to three ships alongside. Confirm your pier and entrance daily—SeaDays does not assign berths.",
+        "address": "Kılıçali Paşa Mah., Meclis-i Mebusan Cad. No: 8, İç Kapı No: 102, 34433 Beyoğlu, İstanbul",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "underground passport control",
+          "customs and baggage",
+          "Block D passenger entrance",
+          "surface promenade"
+        ],
+        "transport_options": [
+          "Karaköy T1 tram",
+          "F2 Tünel funicular",
+          "Taxi via underground road access",
+          "Ship shuttle or tour coach"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "turkey"
+      },
+      {
+        "name": "Salıpazarı / Sarayburnu (overflow berths)",
+        "slug": "salipazari-sarayburnu",
+        "description": "Some sailings reference Salıpazarı or Sarayburnu when the main Galataport quay is busy. These are nearby waterfront berths on the European side—not a different city. Confirm walking route, security exit, and meeting point with crew; do not assume the same Block D path as the main terminal.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "transport_options": [
+          "Confirm pier with ship staff",
+          "Karaköy T1 when pier is near Galata",
+          "Taxi from official ranks"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "turkey"
+      }
+    ],
+    "miami": [
+      {
+        "name": "PortMiami Cruise Terminal D",
+        "slug": "portmiami-terminal-d",
+        "description": "Major turnaround berth on Dodge Island; widely used by large contemporary fleets.",
+        "address": "1435 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.776512,
+        "longitude": -80.169859,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "full-service terminal",
+          "baggage",
+          "parking access routes"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "Metromover",
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": true,
+        "sort_order": 40,
+        "country_id": "usa"
+      },
+      {
+        "name": "PortMiami Cruise Terminal A",
+        "slug": "portmiami-terminal-a",
+        "description": "Dodge Island cruise berth on N Cruise Blvd; follow sailing-specific terminal letter on documents.",
+        "address": "2000 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.775097,
+        "longitude": -80.168737,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "curbside drop-off",
+          "parking garages nearby",
+          "baggage porters"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "Metromover to downtown",
+          "taxi",
+          "rideshare",
+          "hotel shuttles"
+        ],
+        "is_primary": false,
+        "sort_order": 10,
+        "country_id": "usa"
+      },
+      {
+        "name": "PortMiami Cruise Terminal B",
+        "slug": "portmiami-terminal-b",
+        "description": "Dodge Island berth; allow time for bridge traffic onto island.",
+        "address": "1761 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.774375,
+        "longitude": -80.16487,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "security screening",
+          "seating",
+          "retail"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "Metromover",
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "usa"
+      },
+      {
+        "name": "PortMiami Cruise Terminal C",
+        "slug": "portmiami-terminal-c",
+        "description": "Dodge Island cruise terminal; peak-day congestion common—arrive inside line window.",
+        "address": "1741 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.774759,
+        "longitude": -80.165954,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in desks",
+          "baggage",
+          "VIP services"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "taxi",
+          "rideshare",
+          "shuttle"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "usa"
+      },
+      {
+        "name": "PortMiami Cruise Terminal F",
+        "slug": "portmiami-terminal-f",
+        "description": "Dedicated cruise terminal facility on Dodge Island for assigned sailings.",
+        "address": "1103 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.779442,
+        "longitude": -80.176725,
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "modern check-in",
+          "baggage drop",
+          "seating"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "taxi",
+          "rideshare",
+          "shuttle"
+        ],
+        "is_primary": false,
+        "sort_order": 50,
+        "country_id": "usa"
+      },
+      {
+        "name": "PortMiami Cruise Terminal AA",
+        "slug": "portmiami-terminal-aa",
+        "description": "MSC Cruises’ Terminal AA (opened 2025): large multi-level facility designed to handle very high passenger volumes, including multi-ship operations.",
+        "address": "2200 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.771194,
+        "longitude": -80.158201,
+        "terminal_type": "homeport",
+        "terminal_status": "active",
+        "facilities": [
+          "large check-in halls",
+          "security screening",
+          "seating",
+          "baggage handling"
+        ],
+        "distance_to_city_center_km": 4.5,
+        "transport_options": [
+          "taxi / rideshare",
+          "on-port parking",
+          "hotel shuttle"
+        ],
+        "is_primary": false,
+        "sort_order": 5,
+        "country_id": "united-states"
+      },
+      {
+        "name": "PortMiami Cruise Terminal E",
+        "slug": "portmiami-terminal-e",
+        "description": "Carnival Cruise Line terminal complex (with D and F) on PortMiami; expanded to handle larger ships.",
+        "address": "1265 N Cruise Blvd, Miami, FL 33132",
+        "latitude": 25.777967,
+        "longitude": -80.173266,
+        "terminal_type": "homeport",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "security",
+          "baggage",
+          "seating"
+        ],
+        "distance_to_city_center_km": 4.2,
+        "transport_options": [
+          "taxi / rideshare",
+          "on-port parking"
+        ],
+        "is_primary": false,
+        "sort_order": 45,
+        "country_id": "united-states"
+      }
+    ],
+    "port-canaveral": [
+      {
+        "name": "Port Canaveral Cruise Terminal 1",
+        "slug": "cruise-terminal-1",
+        "description": "Cruise Terminal 1 is on the B side at 9050 Discovery Rd, Cape Canaveral, FL 32920. From State Road 528, use Exit 54B.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "baggage",
+          "security"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 2",
+        "slug": "cruise-terminal-2",
+        "description": "Cruise Terminal 2 is listed at 180 Christopher Columbus Dr, Cape Canaveral. Confirm this terminal on the boarding pass before traveling.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 15,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 3",
+        "slug": "cruise-terminal-3",
+        "description": "Cruise Terminal 3 is on the B side at 220 Christopher Columbus Dr. From State Road 528, use Exit 54B.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "baggage",
+          "security"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 5",
+        "slug": "cruise-terminal-5",
+        "description": "The port lists 9245 Charles Rowland Dr with the north-side terminals reached by Exit 54A, which it groups as terminals 5, 6, 8, and 10. Treat that address as Cruise Terminal 5 only after the boarding pass confirms it.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 25,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 6",
+        "slug": "cruise-terminal-6",
+        "description": "Cruise Terminal 6 is on the north side. From State Road 528, use Exit 54A. The port directions page does not print a street address for this building.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 8",
+        "slug": "cruise-terminal-8",
+        "description": "Cruise Terminal 8 is on the north side. From State Road 528, use Exit 54A. The port directions page does not print a street address for this building.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 35,
+        "country_id": "usa"
+      },
+      {
+        "name": "Port Canaveral Cruise Terminal 10",
+        "slug": "cruise-terminal-10",
+        "description": "Cruise Terminal 10 is on the north side. From State Road 528, use Exit 54A. The port directions page does not print a street address for this building.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal"
+        ],
+        "distance_to_city_center_km": null,
+        "transport_options": [
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "usa"
+      }
+    ],
+    "singapore": [
+      {
+        "name": "Marina Bay Cruise Centre Singapore (MBCCS)",
+        "slug": "marina-bay-cruise-centre",
+        "description": "Marina South purpose-built cruise terminal; large-ship operations and integrated arrival hall.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "immigration",
+          "baggage",
+          "retail",
+          "taxi queue"
+        ],
+        "distance_to_city_center_km": 3.5,
+        "transport_options": [
+          "MRT Marina South Pier / bus",
+          "taxi",
+          "rideshare"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "singapore"
+      },
+      {
+        "name": "Singapore Cruise Centre (HarbourFront)",
+        "slug": "singapore-cruise-centre-harbourfront",
+        "description": "HarbourFront regional ferry/cruise facility near VivoCity; MRT HarbourFront connectivity.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "baggage",
+          "mall link"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "HarbourFront MRT",
+          "walking to VivoCity",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "singapore"
+      }
+    ],
+    "southampton": [
+      {
+        "name": "City Cruise Terminal",
+        "slug": "city-cruise-terminal",
+        "description": "Western Docks cruise terminal (Berth 101); busy turnaround hub.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "full terminal",
+          "café",
+          "Wi‑Fi",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": 1.2,
+        "transport_options": [
+          "Southampton Central rail ~1 mi",
+          "taxi",
+          "bus"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "uk"
+      },
+      {
+        "name": "Horizon Cruise Terminal",
+        "slug": "horizon-cruise-terminal",
+        "description": "Newer Western Docks terminal (Berth 102) for large-guest-volume operations.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "spacious check-in",
+          "baggage",
+          "coach set-down"
+        ],
+        "distance_to_city_center_km": 1.3,
+        "transport_options": [
+          "taxi",
+          "bus",
+          "rail via Central"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "uk"
+      },
+      {
+        "name": "Ocean Cruise Terminal",
+        "slug": "ocean-cruise-terminal",
+        "description": "Eastern Docks large cruise terminal (Berth 46); major turnaround facility.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "full facilities",
+          "baggage",
+          "parking routes"
+        ],
+        "distance_to_city_center_km": 2,
+        "transport_options": [
+          "taxi",
+          "bus",
+          "Southampton Central"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "uk"
+      },
+      {
+        "name": "Mayflower Cruise Terminal",
+        "slug": "mayflower-cruise-terminal",
+        "description": "Western Docks terminal (Berth 106); used by major mass-market lines.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in hall",
+          "baggage",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": 1.4,
+        "transport_options": [
+          "taxi",
+          "bus",
+          "rail"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "uk"
+      },
+      {
+        "name": "QEII Cruise Terminal",
+        "slug": "qeii-cruise-terminal",
+        "description": "Eastern Docks cruise terminal (berths commonly referenced as 38/39). Access via Dock Gate 4; further along the docks from Ocean Cruise Terminal.",
+        "terminal_type": "homeport",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in hall",
+          "security",
+          "baggage",
+          "seating"
+        ],
+        "distance_to_city_center_km": 3.5,
+        "transport_options": [
+          "taxi",
+          "cruise transfer",
+          "car via Dock Gate 4"
+        ],
+        "is_primary": false,
+        "sort_order": 25,
+        "country_id": "united-kingdom"
+      }
+    ],
+    "sydney": [
+      {
+        "name": "Overseas Passenger Terminal (OPT)",
+        "slug": "overseas-passenger-terminal",
+        "description": "Circular Quay West cruise terminal; walkable to The Rocks and Circular Quay trains/ferries.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "customs/immigration",
+          "baggage",
+          "taxi rank"
+        ],
+        "distance_to_city_center_km": 1,
+        "transport_options": [
+          "Circular Quay train & ferry",
+          "bus",
+          "walking",
+          "taxi"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "australia"
+      }
+    ],
+    "venice": [
+      {
+        "name": "Venezia Terminal Passeggeri (Marittima / San Basilio area)",
+        "slug": "venezia-terminal-marittima",
+        "description": "Lagoon-side cruise and ferry passenger complex; water taxi and People Mover links toward historic Venice.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "baggage",
+          "water taxi quay"
+        ],
+        "distance_to_city_center_km": 1.5,
+        "transport_options": [
+          "People Mover to Piazzale Roma",
+          "vaporetto",
+          "water taxi",
+          "Alilaguna"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "italy"
+      },
+      {
+        "name": "Porto Marghera cruise berths",
+        "slug": "porto-marghera-cruise-berths",
+        "description": "Industrial lagoon port area used by many large cruise vessels; bus/coach transfers to Piazzale Roma or tours.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "tented/check-in facilities",
+          "coach parking",
+          "baggage"
+        ],
+        "distance_to_city_center_km": 8,
+        "transport_options": [
+          "cruise line shuttles",
+          "charter bus",
+          "taxi (limited)"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "italy"
+      }
+    ],
+    "vigo": [
+      {
+        "name": "Alberto Durán maritime station (Muelle de Trasatlánticos)",
+        "slug": "vigo-cruise-terminal-trasatlanticos",
+        "description": "Cruise ships use the Alberto Durán maritime station on Muelle de Trasatlánticos. Two concessionaires share this one building, so it is a single station rather than two piers. Casco Vello is a short walk.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in / passenger processing",
+          "immigration & customs support",
+          "tourist information",
+          "Wi-Fi",
+          "retail / catering nearby (A Laxe)"
+        ],
+        "distance_to_city_center_km": 0.4,
+        "transport_options": [
+          "walking to Casco Vello",
+          "taxi",
+          "city bus",
+          "train station ~15 min walk"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "spain"
+      },
+      {
+        "name": "El Tinglado del Puerto (Muelle de Comercio)",
+        "slug": "el-tinglado-muelle-comercio",
+        "description": "Secondary cruise terminal on Comercio Quay used especially on multi-ship days; modern open passenger hall near Plaza de Compostela park.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger hall",
+          "direct ship access",
+          "security"
+        ],
+        "distance_to_city_center_km": 0.6,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "city bus"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "spain"
+      }
+    ],
+    "dubrovnik": [
+      {
+        "name": "Port of Dubrovnik — Gruž Cruise Port",
+        "slug": "gruz-cruise-port",
+        "description": "Main Dubrovnik cruise harbor in Gruž with passenger facilities, taxi ranks, and bus access toward Pile Gate and the Old City.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal area",
+          "taxi rank",
+          "tour desks",
+          "bus stops nearby"
+        ],
+        "distance_to_city_center_km": 3,
+        "transport_options": [
+          "Libertas bus to Pile",
+          "taxi",
+          "cruise shuttle",
+          "walking ~30–40 min"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "croatia"
+      }
+    ],
+    "marseille": [
+      {
+        "name": "Marseille Provence Cruise Terminal (MPCT)",
+        "slug": "marseille-provence-cruise-terminal",
+        "description": "Primary large-ship cruise complex at Môle Léon Gourret in the commercial port zone north of the city center; use shuttle or taxi to reach Vieux-Port.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminals",
+          "security",
+          "coach parking",
+          "shuttle pickup"
+        ],
+        "distance_to_city_center_km": 8,
+        "transport_options": [
+          "port shuttle",
+          "taxi",
+          "cruise shuttle"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "france"
+      },
+      {
+        "name": "La Joliette Cruise Berths (J4 area)",
+        "slug": "la-joliette-cruise-berths",
+        "description": "Closer-in berths used mainly by smaller and mid-size ships near the Joliette waterfront redevelopment, with shorter transfers to Vieux-Port.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "taxi",
+          "nearby tram/metro connections"
+        ],
+        "distance_to_city_center_km": 1.5,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "tram/metro"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "france"
+      }
+    ],
+    "genua": [
+      {
+        "name": "Ponte dei Mille Cruise Terminal",
+        "slug": "ponte-dei-mille",
+        "description": "Primary Genoa cruise terminal managed by Stazioni Marittime; large multi-level passenger facility beside the historic waterfront. Exact berth assignment depends on ship and date.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in halls",
+          "security",
+          "escalators/lifts",
+          "taxi access",
+          "nearby retail"
+        ],
+        "distance_to_city_center_km": 0.8,
+        "transport_options": [
+          "walking to Porto Antico",
+          "taxi",
+          "bus",
+          "rail via Piazza Principe (~500 m area)"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "italy"
+      },
+      {
+        "name": "Ponte Andrea Doria Cruise Terminal",
+        "slug": "ponte-andrea-doria",
+        "description": "Second major Stazioni Marittime cruise terminal in Genoa’s passenger port area. Confirm whether your sailing uses Ponte dei Mille or Ponte Andrea Doria on cruise documents.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger halls",
+          "baggage/customs flows",
+          "taxi",
+          "coach access"
+        ],
+        "distance_to_city_center_km": 1,
+        "transport_options": [
+          "taxi",
+          "walking toward Porto Antico",
+          "bus"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "italy"
+      }
+    ],
+    "piraeus": [
+      {
+        "name": "Piraeus Cruise Terminal A (Miaoulis)",
+        "slug": "piraeus-terminal-a-miaoulis",
+        "description": "Main Piraeus cruise passenger terminal (commonly called Miaoulis / Terminal A) with check-in, border-control support, and coach parking. Outer berths may require an internal port shuttle to reach this hall.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "immigration desks",
+          "Wi-Fi",
+          "cafe/retail",
+          "taxi rank",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": 12,
+        "transport_options": [
+          "metro (after walk/transfer)",
+          "taxi",
+          "bus",
+          "port shuttle between berths"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "greece"
+      },
+      {
+        "name": "Piraeus outer cruise berths (often linked as Terminal B area)",
+        "slug": "piraeus-terminal-b",
+        "description": "Additional cruise berths within the passenger port. Guests are commonly directed to use free internal shuttles toward the main Terminal A / Miaoulis hall before leaving the port zone—follow day-of port signage.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "gangway access",
+          "shuttle to main terminal",
+          "security"
+        ],
+        "distance_to_city_center_km": 13,
+        "transport_options": [
+          "port shuttle to Terminal A",
+          "taxi",
+          "organized tours"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "greece"
+      }
+    ],
+    "copenhagen": [
+      {
+        "name": "Oceankaj (Ocean Quay)",
+        "slug": "oceankaj",
+        "description": "Large-ship cruise complex in Nordhavn with modern passenger facilities; about 8 km from the historic center per destination materials.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminals",
+          "security",
+          "coach parking",
+          "taxi"
+        ],
+        "distance_to_city_center_km": 8,
+        "transport_options": [
+          "bus + metro M4",
+          "taxi",
+          "cruise shuttle"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "denmark"
+      },
+      {
+        "name": "Langelinie Pier",
+        "slug": "langelinie-pier",
+        "description": "Classic Copenhagen cruise pier near the Langelinie promenade and Little Mermaid area; roughly 4 km from the city center.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "promenade",
+          "taxi",
+          "tour buses"
+        ],
+        "distance_to_city_center_km": 4,
+        "transport_options": [
+          "walking",
+          "bus",
+          "taxi",
+          "hop-on hop-off"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "denmark"
+      },
+      {
+        "name": "Nordre Toldbod",
+        "slug": "nordre-toldbod",
+        "description": "Inner-harbor cruise quay closest to central waterfront districts; about 3 km to the city center per destination materials.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "taxi",
+          "nearby waterfront walks"
+        ],
+        "distance_to_city_center_km": 3,
+        "transport_options": [
+          "walking",
+          "bus",
+          "metro connections",
+          "taxi"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "denmark"
+      }
+    ],
+    "amsterdam": [
+      {
+        "name": "Passenger Terminal Amsterdam (PTA)",
+        "slug": "passenger-terminal-amsterdam",
+        "description": "Modern IJ waterfront cruise terminal east of Amsterdam Centraal with passenger halls and direct city transit connections.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in halls",
+          "security",
+          "taxi rank",
+          "tram access",
+          "retail nearby"
+        ],
+        "distance_to_city_center_km": 2.5,
+        "transport_options": [
+          "tram",
+          "metro",
+          "taxi",
+          "walking",
+          "ferry"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "netherlands"
+      }
+    ],
+    "naples": [
+      {
+        "name": "Stazione Marittima di Napoli (Molo Angioino)",
+        "slug": "stazione-marittima-napoli",
+        "description": "Central Naples passenger terminal used by cruise and ferry traffic on the downtown waterfront near Piazza Municipio.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger halls",
+          "check-in",
+          "security",
+          "taxi rank",
+          "ferry connections nearby"
+        ],
+        "distance_to_city_center_km": 0.7,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "metro/bus",
+          "ferry to islands"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "italy"
+      }
+    ],
+    "valencia": [
+      {
+        "name": "Valenciaport Cruise Terminal",
+        "slug": "valenciaport-cruise-terminal",
+        "description": "Dedicated cruise passenger terminal within Valenciaport with check-in facilities and coach/taxi access toward the city.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal",
+          "security",
+          "taxi",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": 6,
+        "transport_options": [
+          "shuttle",
+          "taxi",
+          "bus"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "spain"
+      }
+    ],
+    "malaga": [
+      {
+        "name": "Málaga Cruise Terminal (Levante / Muelle Uno area)",
+        "slug": "malaga-cruise-terminal-muelle-uno",
+        "description": "Central cruise passenger facilities on Málaga’s downtown waterfront beside the Muelle Uno retail promenade. Many calls are within a short walk or brief taxi of the cathedral, Alcazaba approaches, and historic center.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal",
+          "security",
+          "taxi",
+          "waterfront retail nearby"
+        ],
+        "distance_to_city_center_km": 1,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "city bus"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "spain"
+      }
+    ],
+    "cozumel": [
+      {
+        "name": "Punta Langosta Cruise Pier",
+        "slug": "punta-langosta-cruise-pier",
+        "description": "Downtown San Miguel cruise pier. Guests often walk straight into the waterfront shopping district. Pier assignment is published by the ship—do not assume every Cozumel call uses Punta Langosta.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "retail nearby",
+          "taxi"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "beach-club transfers"
+        ],
+        "is_primary": false,
+        "sort_order": 10,
+        "country_id": "mexico"
+      },
+      {
+        "name": "Puerta Maya Cruise Pier",
+        "slug": "puerta-maya-cruise-pier",
+        "description": "Major purpose-built cruise pier complex south of downtown San Miguel with passenger buildings, retail, and taxi/tour access. Typically requires a short taxi to central San Miguel or beach clubs. Confirm assignment on the daily program.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger buildings",
+          "retail",
+          "taxi",
+          "tour desks"
+        ],
+        "distance_to_city_center_km": 4,
+        "transport_options": [
+          "taxi",
+          "tour shuttles",
+          "walking (long/hot—usually not preferred)"
+        ],
+        "is_primary": true,
+        "sort_order": 20,
+        "country_id": "mexico"
+      },
+      {
+        "name": "International Pier (Cozumel)",
+        "slug": "international-pier-cozumel",
+        "description": "Cruise pier adjacent to the Puerta Maya area south of town (also referenced with SSA/TMM operator names in local materials). Not a downtown walk for most guests—use taxis or prearranged transfers. Assignments vary by sailing.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "retail",
+          "taxi"
+        ],
+        "distance_to_city_center_km": 3.5,
+        "transport_options": [
+          "taxi",
+          "tour shuttles",
+          "walking between nearby pier complexes"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "mexico"
+      }
+    ],
+    "nassau": [
+      {
+        "name": "Nassau Cruise Port",
+        "slug": "nassau-cruise-port",
+        "description": "Downtown multi-berth cruise port complex with passenger amenities opening onto Bay Street and the historic harbor front.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminals",
+          "retail",
+          "security",
+          "taxi",
+          "waterfront access"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "jitney",
+          "water taxi"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "bahamas"
+      }
+    ],
+    "santorini": [
+      {
+        "name": "Santorini Old Port (Skala) tender landing",
+        "slug": "santorini-old-port-skala",
+        "description": "Primary tender landing beneath Fira for cruise ships anchored in the caldera; cable car, stairs, and donkey options ascend to town.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "tender quay",
+          "cable car access",
+          "kiosks",
+          "queue management"
+        ],
+        "distance_to_city_center_km": 0.5,
+        "transport_options": [
+          "cable car",
+          "stairs",
+          "donkey",
+          "excursion coaches via Athinios on some tours"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "greece"
+      }
+    ],
+    "bergen": [
+      {
+        "name": "Bergen downtown cruise quays (Skolten / central harbor area)",
+        "slug": "bergen-skolten-cruise-berths",
+        "description": "Cruise ships typically use downtown Bergen quays in the Skolten / central harbor area within walking distance of Bryggen. There is not always a single exclusive terminal building—follow your ship’s gangway directions and day-of port signage.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "taxi",
+          "tourist information nearby",
+          "coach pickup"
+        ],
+        "distance_to_city_center_km": 0.6,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "bus",
+          "Fløibanen"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "norway"
+      }
+    ],
+    "stockholm": [
+      {
+        "name": "Stadsgården Cruise Quay",
+        "slug": "stadsgarden-cruise-quay",
+        "description": "Inner-city Stockholm cruise quay on Södermalm’s north shore with comparatively short walks toward Slussen and Gamla Stan.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "taxi",
+          "nearby SL transit",
+          "coach pickup"
+        ],
+        "distance_to_city_center_km": 1.5,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "SL transit"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "sweden"
+      },
+      {
+        "name": "Värtahamnen Cruise Terminal",
+        "slug": "vartahamnen-cruise-terminal",
+        "description": "Northeast Stockholm cruise/ferry harbor area used by many large ships; expect bus, metro, or taxi into Gamla Stan rather than walking.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal",
+          "security",
+          "taxi",
+          "bus connections"
+        ],
+        "distance_to_city_center_km": 5,
+        "transport_options": [
+          "SL bus/metro",
+          "taxi",
+          "cruise shuttle"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "sweden"
+      },
+      {
+        "name": "Frihamnen Cruise Area",
+        "slug": "frihamnen-cruise-area",
+        "description": "Additional Ports of Stockholm cruise berths in the Frihamnen area; pair with local transit or taxi toward the historic center.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger access",
+          "taxi",
+          "coach parking"
+        ],
+        "distance_to_city_center_km": 5.5,
+        "transport_options": [
+          "taxi",
+          "SL transit",
+          "cruise shuttle"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "sweden"
+      }
+    ],
+    "palma-de-mallorca": [
+      {
+        "name": "Estació Marítima EM 1–4 (Poniente / Paraires)",
+        "slug": "palma-estacion-maritima-em1-4",
+        "description": "Main cruise passenger terminal cluster around Muelle de Poniente / Muelle de Paraires (Estació Marítima buildings commonly numbered 1–4). Typically the nearer commercial-port option toward Passeig Marítim; shuttle or taxi to La Seu / Old Town is still the usual cruise-day pattern.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminals",
+          "security",
+          "taxi",
+          "coach parking",
+          "shuttles"
+        ],
+        "distance_to_city_center_km": 4,
+        "transport_options": [
+          "cruise shuttle",
+          "taxi",
+          "city bus",
+          "long waterfront walk"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "spain"
+      },
+      {
+        "name": "Estació Marítima EM 5–6 (Dique del Oeste)",
+        "slug": "palma-dique-del-oeste-em5-6",
+        "description": "Outer cruise terminals on Dique del Oeste near Portopí. Farther from La Seu / Old Town than Poniente–Paraires—plan shuttle or taxi rather than a casual walk with limited hours ashore.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminals",
+          "security",
+          "taxi",
+          "shuttles"
+        ],
+        "distance_to_city_center_km": 6,
+        "transport_options": [
+          "cruise shuttle",
+          "taxi",
+          "city bus"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "spain"
+      }
+    ],
+    "kiel": [
+      {
+        "name": "Ostseekai Terminal 27",
+        "slug": "ostseekai-terminal-27",
+        "description": "City-centre cruise terminal building at Ostseekai berth 27. PORT OF KIEL lists ~300 m to the city centre, shore power, and a cruise passenger capacity of 6,500 for this berth facility.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "waiting areas",
+          "luggage handling",
+          "shore power",
+          "boarding bridge"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "local bus",
+          "Hauptbahnhof nearby"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "germany"
+      },
+      {
+        "name": "Ostseekai Terminal 28",
+        "slug": "ostseekai-terminal-28",
+        "description": "Second city-centre Ostseekai cruise terminal at berth 28 (paired with Terminal 27). PORT OF KIEL lists cruise passenger capacity of 4,500 for this facility and quay length of 285 m.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "check-in",
+          "waiting areas",
+          "luggage handling",
+          "shore power",
+          "boarding bridge"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "local bus",
+          "Hauptbahnhof nearby"
+        ],
+        "is_primary": false,
+        "sort_order": 20,
+        "country_id": "germany"
+      },
+      {
+        "name": "Ostuferhafen Berth No. 1",
+        "slug": "ostuferhafen-berth-1",
+        "description": "Cruise berth on the east bank designed for large ships. PORT OF KIEL lists ~8 km to the city centre, 395 m quay length, and capacity of 6,000 passengers—plan transport into town.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger terminal",
+          "baggage drop-off",
+          "mobile gangway",
+          "shore power"
+        ],
+        "distance_to_city_center_km": 8,
+        "transport_options": [
+          "cruise shuttle",
+          "taxi",
+          "public transport"
+        ],
+        "is_primary": false,
+        "sort_order": 30,
+        "country_id": "germany"
+      },
+      {
+        "name": "Norwegenkai (berth 22)",
+        "slug": "norwegenkai-berth-22",
+        "description": "City-centre terminal (~300 m to downtown per PORT OF KIEL) primarily known for Color Line Kiel–Oslo ferry service; also listed in the port’s cruise-terminal overview with berth 22.",
+        "terminal_type": "both",
+        "terminal_status": "active",
+        "facilities": [
+          "passenger facilities",
+          "boarding bridge"
+        ],
+        "distance_to_city_center_km": 0.3,
+        "transport_options": [
+          "walking",
+          "taxi",
+          "local bus"
+        ],
+        "is_primary": false,
+        "sort_order": 40,
+        "country_id": "germany"
+      }
+    ],
+    "marigot": [
+      {
+        "name": "Cruise anchorage and tender landings (Port of Saint-Martin)",
+        "slug": "marigot-cruise-anchorage-landings",
+        "description": "Port of Saint-Martin (portdemarigot.com) describes cruise operations as anchorage and landings—not the same pier setup as Philipsburg on Dutch Sint Maarten. The port authority cites about 10 minutes from the center of Marigot after landing. Confirm your ship's tender point and gangway instructions each call.",
+        "terminal_type": "transit",
+        "terminal_status": "active",
+        "facilities": [
+          "tender operations",
+          "waterfront access",
+          "port coordination (VHF channel 16)"
+        ],
+        "transport_options": [
+          "ship's tender",
+          "walking",
+          "taxi"
+        ],
+        "is_primary": true,
+        "sort_order": 10,
+        "country_id": "saint-martin"
+      }
+    ]
+  }
+}

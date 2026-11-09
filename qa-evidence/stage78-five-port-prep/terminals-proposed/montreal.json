@@ -1,0 +1,41 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "montreal-qc-canada--grand-quay-terminals-1-2",
+        "name": "Port of Montreal Grand Quay — Terminals 1 and 2",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "montreal-qc-canada--terminal-3",
+        "name": "Port of Montreal — Terminal 3",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "montreal-qc-canada--berths-b1-m5",
+        "name": "Port of Montreal — Berths B1 and M5",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}
