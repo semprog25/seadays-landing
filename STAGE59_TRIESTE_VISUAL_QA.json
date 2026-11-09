@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-11-09T05:49:48.264Z",
+  "status": "PLAYWRIGHT_PASS",
+  "release_bundle_hash": "d7ac66c00c4eef89011ead8dd189a2f791e1eec003d51a5877d000fad2b2150f",
+  "screenshots": [
+    "qa-evidence/stage59-trieste-pilot/visual/trieste-italy-desktop.png",
+    "qa-evidence/stage59-trieste-pilot/visual/trieste-italy-mobile.png"
+  ],
+  "ports": [
+    {
+      "landing_slug": "trieste-italy",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "faq": 1,
+            "tip": true,
+            "nav": true,
+            "logo": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false,
+            "canonical": "https://seadays.app/ports/trieste-italy/"
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "faq": 1,
+            "tip": true,
+            "nav": true,
+            "logo": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false,
+            "canonical": "https://seadays.app/ports/trieste-italy/"
+          }
+        }
+      ],
+      "pass": true
+    }
+  ]
+}
