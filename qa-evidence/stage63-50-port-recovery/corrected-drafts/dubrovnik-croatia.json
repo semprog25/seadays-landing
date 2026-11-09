@@ -1,0 +1,78 @@
+{
+  "landing_slug": "dubrovnik-croatia",
+  "draft": {
+    "landing_slug": "dubrovnik-croatia",
+    "appPortId": "dubrovnik",
+    "portName": "Dubrovnik",
+    "country": "Croatia",
+    "portInfo": {
+      "description": "Dubrovnik cruise ships use Port Gruž, about a 30–40 minute walk or short bus/taxi ride from the UNESCO-listed Old City. Most guests transfer to Pile Gate for the Stradun and city walls; tendering can occur when the harbor is congested.",
+      "location": "Southern Dalmatia, Croatia, on the Adriatic",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Croatian; English widely spoken in tourism",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 40,000–45,000 residents"
+    },
+    "gettingThere": {
+      "fromTerminal": "Most ships dock at Port Gruž (northwest of the Old City); some calls tender to the same harbor area",
+      "transportation": [
+        "Libertas city bus",
+        "Cruise shuttle",
+        "Walking (long)"
+      ],
+      "distanceToCity": "Approximately 3 km from Gruž to Pile Gate / Old City",
+      "walkingTime": "About 30–40 minutes along the coastal road; limited shade in summer—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxi ranks outside the port; short ride to Pile Gate—confirm fare approach before departure",
+      "publicTransport": "",
+      "distanceAnswer": "Approximately 3 km from Gruž to Pile Gate / Old City"
+    },
+    "thingsToDo": {
+      "intro": "Ships use Port Gruž, roughly 3 km from Pile Gate. Summer heat and wall queues define the day more than the attraction list.",
+      "topThings": [
+        "City Walls — the full circuit takes about an hour, longer when crowded. Go first thing.",
+        "Stradun — the Old City's main street, for a coffee and people-watching.",
+        "Rector's Palace — palace with a museum inside. 60 min.",
+        "Dubrovnik Cathedral — central Old City.",
+        "Banje Beach — a few minutes' walk east of the Old City."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "The coastal walk from Gruž is ~30–40 minutes with limited shade. In summer, bus/shuttle usually beats walking for both comfort and timing."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "566d314ab03a99af025363c54f9569b242aa30c537c13635269c416069394976",
+      "existing_guide_hash": "af14c4462bc6e1ac",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/dubrovnik-croatia.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_liveTop"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.314Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

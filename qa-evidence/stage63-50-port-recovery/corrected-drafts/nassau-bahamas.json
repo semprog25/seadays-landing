@@ -1,0 +1,78 @@
+{
+  "landing_slug": "nassau-bahamas",
+  "draft": {
+    "landing_slug": "nassau-bahamas",
+    "appPortId": "nassau",
+    "portName": "Nassau",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Nassau is the Bahamas’ capital cruise call, with ships docking at the downtown Nassau Cruise Port complex steps from Bay Street shopping and a short hop to Junkanoo Beach. Atlantis on Paradise Island remains a popular paid excursion for longer stays.",
+      "location": "New Providence Island, Bahamas",
+      "timezone": "Eastern Time (UTC−5 / UTC−4 DST)",
+      "language": "English",
+      "currency": "Bahamian dollar (BSD) pegged 1:1 with USD; USD widely accepted",
+      "population": "New Providence / Nassau area roughly 250,000+"
+    },
+    "gettingThere": {
+      "fromTerminal": "Downtown Nassau Cruise Port berths open directly toward Bay Street and the waterfront",
+      "transportation": [
+        "Walking",
+        "Jitney bus",
+        "Water taxi to Paradise Island"
+      ],
+      "distanceToCity": "Immediate downtown access from the cruise port complex",
+      "walkingTime": "Often 5–15 minutes to Bay Street shops and 10–20 minutes toward Junkanoo Beach—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis for Atlantis/Paradise Island or island tours—agree rates before departure",
+      "publicTransport": "Walking covers most downtown sights; jitneys serve local routes; water taxis link Paradise Island",
+      "distanceAnswer": "Immediate downtown access from the cruise port complex"
+    },
+    "thingsToDo": {
+      "intro": "Downtown Nassau Cruise Port opens onto Bay Street. Beach time and Paradise Island/Atlantis compete for the same clock.",
+      "topThings": [
+        "Queen’s Staircase, Queen’s Staircase, eastern downtown Nassau: A limestone-cut historic pedestrian link to the fort area. Allow about 45 minutes (editorial estimate). Steps and uphill approaches matter; vehicle access alternatives need checking.",
+        "Fort Fincastle, Fort Fincastle, Bennett’s Hill, Nassau: A compact fort/harbour-view stop paired with the staircase. Allow about 45 minutes (editorial estimate). Confirm interior admission; the hill is not a flat accessible walk.",
+        "Pompey Museum of Slavery and Emancipation, Vendue House, downtown Nassau waterfront: A serious cultural-history stop close to the port. Allow about 75 minutes (editorial estimate). Current museum hours/tickets must fit the visit.",
+        "National Art Gallery of The Bahamas, Villa Doyle, Nassau: Bahamian art rather than another duty-free shop. Allow about 90 minutes (editorial estimate). Check gallery schedule and the sloping approach.",
+        "Junkanoo Beach, Junkanoo Beach, west of downtown Nassau: A convenient urban waterfront break. Allow about 90 minutes (editorial estimate). Swimming is conditional on current sea quality, lifeguards and weather; do not assume beach services are included."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Agree taxi rates before Paradise Island runs. Walking covers most downtown sights if heat allows."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a433277e300897d3d9c48da43969ba4c034afdbaf6d6fe5d581a6b349e7fe7ca",
+      "existing_guide_hash": "6d3977ab95823577",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/nassau-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.354Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

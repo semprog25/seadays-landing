@@ -1,0 +1,77 @@
+{
+  "landing_slug": "genoa-italy",
+  "draft": {
+    "landing_slug": "genoa-italy",
+    "appPortId": "genua",
+    "portName": "Genoa",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Genoa (Genova) is a major Ligurian cruise and ferry hub. Cruise ships typically use the historic Stazioni Marittime area (Ponte dei Mille / nearby piers) within walking distance of the Porto Antico waterfront aquarium district and the steep medieval centro storico.",
+      "location": "Liguria, northwest Italy, on the Ligurian Sea",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian; English in tourist areas",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 550,000–600,000"
+    },
+    "gettingThere": {
+      "fromTerminal": "Most cruise calls use Stazioni Marittime facilities at Ponte dei Mille or Ponte Andrea Doria—check your cruise documents for the assigned terminal",
+      "transportation": [
+        "Walking",
+        "Local bus/metro elevators",
+        "Train station connections"
+      ],
+      "distanceToCity": "Passenger terminals sit beside Porto Antico; historic center is typically within about 0.5–1.5 km depending on berth and route",
+      "walkingTime": "Often 5–20 minutes to aquarium/waterfront; longer uphill into historic lanes—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis available for hill neighborhoods, Nervi, or Cinque Terre connections when time allows",
+      "publicTransport": "On foot: the city centre is a few hundred metres away. Allow about 15 min to the Porto Antico and Aquarium (estimate). Metro and rail: metro stops are nearby, and Genova Piazza Principe station is about 500 m away. Regional trains toward La Spezia/Cinque Terre exist in principle; no dated Trenitalia sample is cited here — do not plan Cinque Terre independently from this guide. Airport: 5 km.",
+      "distanceAnswer": "Passenger terminals sit beside Porto Antico; historic center is typically within about 0.5–1.5 km depending on berth and route"
+    },
+    "thingsToDo": {
+      "intro": "Genoa’s Stazioni Marittime berths put Porto Antico and the steep centro storico within walking range—comfortable shoes matter as much as the itinerary.",
+      "topThings": [
+        "Via Garibaldi and the Palazzi dei Rolli, Renaissance palaces. 75 min.",
+        "Caruggi of the old town (editorial). 60 min.",
+        "Palazzo Ducale. 60 min.",
+        "Acquario di Genova. 2 h.",
+        "Porto Antico waterfront (editorial)."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Ponte dei Mille vs Ponte Andrea Doria on your documents. Both sit by the passenger complex, but walking routes differ slightly."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4ce85f8892d2c51db2bebd367c862c405e71fabe89397dec6adbeb84d9d70b38",
+      "existing_guide_hash": "e2b32c39e6d3f98f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/genoa-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.318Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

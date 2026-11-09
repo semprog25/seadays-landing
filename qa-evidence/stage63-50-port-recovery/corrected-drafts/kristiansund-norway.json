@@ -1,0 +1,78 @@
+{
+  "landing_slug": "kristiansund-norway",
+  "draft": {
+    "landing_slug": "kristiansund-norway",
+    "appPortId": "kristiansund",
+    "portName": "Kristiansund",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Nordmøre coastal town marketed as Atlantic Ocean Road gateway. Centre calls are pier-side; the Ocean Road is a coach outing (~30 minutes drive per PDF).",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Storkaia — Kristiansund inner harbour — Storkaia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "PDF: two cruise quays in town centre; coaches park on quay. Airport Kvernberget 8 km.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "PDF: two cruise quays in town centre; coaches park on quay. Airport Kvernberget 8 km."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town centre / harbour shopping",
+        "Atlantic Ocean Road — ~30 min drive; return buffer critical",
+        "Kristiansund town centre / harbour shopping",
+        "Atlantic Ocean Road"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not start the Ocean Road without a timed last-call plan — it is not a harbour stroll."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a04dedcb26b93e48c39fd5fae1d7bc4d6e72eec8bc027cc5f9eaab53a8e508e4",
+      "existing_guide_hash": "c3eb4fabc093dbf2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kristiansund-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.267Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

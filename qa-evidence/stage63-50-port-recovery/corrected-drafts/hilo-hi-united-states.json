@@ -1,0 +1,78 @@
+{
+  "landing_slug": "hilo-hi-united-states",
+  "draft": {
+    "landing_slug": "hilo-hi-united-states",
+    "appPortId": "hilo",
+    "portName": "Hilo",
+    "country": "United States",
+    "portInfo": {
+      "description": "Hilo Harbor on the windward side of Hawaiʻi Island is managed by the State of Hawaiʻi Department of Transportation Harbors Division and regularly hosts cruise ships. HDOT’s Hawaiʻi Island Commercial Harbors 2035 Master Plan states Pier 1 is used by interisland container barges, cargo ships and large cruise ships, and that Pier 1 can accommodate cruise ships measuring up to 965 feet long. HDOT has also published Pier 1 shed / passenger-terminal improvement projects aimed at a more comfortable cruise passenger environment. A future dedicated passenger Pier 5 appears in the master plan preferred alternative; it is not treated here as the current landing. Berth reservations for Hawaiʻi commercial ports run through Hawaii.PortCall.Com per HDOT scheduling notice.",
+      "location": "Located on the Big Island of Hawaii, USA",
+      "timezone": "HST (UTC-10)",
+      "language": "English, Hawaiian",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Hilo Harbor cruise terminal",
+      "transportation": [
+        "Rental car",
+        "Local bus"
+      ],
+      "distanceToCity": "Terminal located about 3 km from downtown Hilo",
+      "walkingTime": "Not recommended, use transportation",
+      "taxiInfo": "",
+      "publicTransport": "Hele-On bus service available",
+      "distanceAnswer": "Terminal located about 3 km from downtown Hilo"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Hilo bayfront / downtown — ~90 min.",
+        "Hawaiʻi Volcanoes National Park — long call only; NPS fees/hours Not verified here.",
+        "Hawaiʻi Volcanoes National Park",
+        "Hilo bayfront / downtown"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Pier 1 is a shared cargo/cruise facility — expect industrial harbour surroundings and confirm passenger routing through the Pier 1 shed area rather than assuming a resort-style terminal campus."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "5ab522f9ebe17e27f5a5e81b273666b1c36be43cc86cdde86b756c307fbd6c5d",
+      "existing_guide_hash": "c388470970f20752",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/hilo-hi-united-states.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_longerCall",
+        "replaced_research_itinerary_longerCall",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.219Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

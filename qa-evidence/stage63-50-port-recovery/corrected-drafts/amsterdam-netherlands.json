@@ -1,0 +1,79 @@
+{
+  "landing_slug": "amsterdam-netherlands",
+  "draft": {
+    "landing_slug": "amsterdam-netherlands",
+    "appPortId": "amsterdam",
+    "portName": "Amsterdam",
+    "country": "Netherlands",
+    "portInfo": {
+      "description": "Amsterdam cruise calls commonly use Passenger Terminal Amsterdam (PTA) on the IJ waterfront east of Centraal Station, with some ships using alternative berths or the IJmuiden sea lock complex on certain itineraries. From PTA, trams, metro, ferries, and taxis connect quickly into the historic canal belt.",
+      "location": "North Holland, Netherlands, on the IJ inlet",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Dutch; English extremely widely spoken",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 900,000; metro area well over 2 million"
+    },
+    "gettingThere": {
+      "fromTerminal": "Most downtown calls use Passenger Terminal Amsterdam (PTA). Confirm if your ship instead uses an outlying berth such as IJmuiden.",
+      "transportation": [
+        "Tram",
+        "Metro",
+        "Ferry",
+        "Bicycle rental",
+        "Walking"
+      ],
+      "distanceToCity": "PTA is roughly 2–3 km east of Centraal / historic core",
+      "walkingTime": "About 25–40 minutes to Centraal area; trams are faster in wet weather—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis available at PTA; trams are usually sufficient for the center",
+      "publicTransport": "GVB trams/metro connect PTA toward Centraal and Museumplein; free GVB ferries cross the IJ for north-shore neighborhoods",
+      "distanceAnswer": "PTA is roughly 2–3 km east of Centraal / historic core"
+    },
+    "thingsToDo": {
+      "intro": "Downtown calls usually use Passenger Terminal Amsterdam (PTA) on the IJ. Some itineraries use outlying options such as IJmuiden—confirm before planning a walk.",
+      "topThings": [
+        "Rijksmuseum, Museumstraat 1: allow 2–3 hours for a focused art visit. Book an entry time. The museum describes metro 52 to Vijzelgracht followed by less than ten minutes walking; confirm the terminal-to-station connection separately.",
+        "Anne Frank House, entrance Westermarkt 20: allow 60–90 minutes. Admission is time-specific and online. The official page gives about one hour inside and warns of steep stairs, limited luggage space and no photography. It also reports no tram to Westermarkt from February 2025 to February 2028.",
+        "National Maritime Museum, Kattenburgerplein 1: allow two hours. The museum describes a 19-minute walk from Centraal. Galleries have lift access; the replica ship is only partly accessible. Check individual exhibit closures.",
+        "NEMO, Oosterdok 2: allow two hours for a family science visit. Its route page gives 15 minutes walking from Centraal and directs visitors to current journey planners. Check admission and access for the intended visit; rooftop availability is not assumed.",
+        "Royal Palace, Dam Square: allow 60–90 minutes when open to visitors. It remains an official reception palace, with an opening calendar subject to change. Do not treat the building's presence on Dam as guaranteed interior access."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Trams beat a long walk in rain. If your ship lists IJmuiden or another outlying berth, rebuild the day around transfers."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "978964e7b8797249c1ad3f6f595447ef17341f9a751c0060a7ee0ea15da4c69a",
+      "existing_guide_hash": "a871d414e8a2f797",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/amsterdam-netherlands.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.380Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

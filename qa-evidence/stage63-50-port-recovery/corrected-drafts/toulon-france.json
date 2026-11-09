@@ -1,0 +1,78 @@
+{
+  "landing_slug": "toulon-france",
+  "draft": {
+    "landing_slug": "toulon-france",
+    "appPortId": "toulon",
+    "portName": "Toulon / La Seyne",
+    "country": "France",
+    "portInfo": {
+      "description": "VPCC is the Var cruise industry alliance for transit/turnaround queries. Destination colour beyond the network page is thin in this capture — city monuments need separate primaries (gap).",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "French",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Toulon cruise terminal",
+      "transportation": [
+        "Walking to city center",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Toulon city",
+      "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Good local bus network",
+      "distanceAnswer": "Within Toulon city"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Assigned waterfront town",
+        "La Seyne or Toulon centre per berth",
+        "Toulon waterfront / harbour town",
+        "La Seyne-sur-Mer call area",
+        "Mont Faron / cable car"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the berth name twice — Toulon and La Seyne are not interchangeable walks."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "300d547365d8e4a2f261ce36e426b1d0dbcdfe6d2ce439d899aaa7e03008d242",
+      "existing_guide_hash": "a7f01b70bbfb0d06",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/toulon-france.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.214Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

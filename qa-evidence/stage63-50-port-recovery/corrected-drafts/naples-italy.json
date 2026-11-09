@@ -1,0 +1,78 @@
+{
+  "landing_slug": "naples-italy",
+  "draft": {
+    "landing_slug": "naples-italy",
+    "appPortId": "naples",
+    "portName": "Naples",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Naples cruise ships normally berth at the central Stazione Marittima / Molo Angioino complex on the waterfront, within walking distance of the historic center and ferry quays for Capri and Ischia. Pompeii and the Amalfi Coast are popular longer excursions requiring trains, coaches, or organized tours.",
+      "location": "Campania, southern Italy, on the Bay of Naples",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian; English in tourist services",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 900,000+"
+    },
+    "gettingThere": {
+      "fromTerminal": "Central cruise berths at Stazione Marittima / Molo Angioino on the downtown waterfront",
+      "transportation": [
+        "Walking",
+        "Metro/bus",
+        "Circumvesuviana / rail for Pompeii",
+        "Ferry"
+      ],
+      "distanceToCity": "Terminal sits beside the historic center and ferry port",
+      "walkingTime": "Often 10–25 minutes to Piazza del Plebiscito / centro storico edges—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis for Pompeii or coast trips—use official ranks and confirm destination",
+      "publicTransport": "City centre: walk from the terminal to Piazza Municipio and Castel Nuovo, then about 10 min on to Piazza del Plebiscito (estimate). Pompeii: take the Circumvesuviana Napoli–Sorrento line to Pompei Villa dei Misteri (the Porta Marina and Piazza Esedra entrances), or the FS Napoli–Salerno train to Pompei. Circumvesuviana trains leave from Napoli Porta Nolana / Garibaldi; allow about 45 min (estimate",
+      "distanceAnswer": "Terminal sits beside the historic center and ferry port"
+    },
+    "thingsToDo": {
+      "intro": "The central Stazione Marittima berth is walkable to the historic core, but Pompeii, Herculaneum, and Capri each consume most of a call on their own.",
+      "topThings": [
+        "Castel Nuovo, right by the port. 60 min.",
+        "Piazza del Plebiscito and the Royal Palace. 30–60 min.",
+        "Spaccanapoli and the historic centre (UNESCO). 90 min.",
+        "Museo Archeologico Nazionale, with Pompeii's finds. 2 h.",
+        "Pompeii archaeological park. 3 h on site."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Circumvesuviana/trains toward Pompeii need station transfer time. Prefer official taxis and keep a wide return margin."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "13cd5348ad2bdcdbb4ee715c59dcecffb9eacb4ce280ddd820a1ea203d49b185",
+      "existing_guide_hash": "79f91d665b67dff3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/naples-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.350Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

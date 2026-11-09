@@ -1,0 +1,80 @@
+{
+  "landing_slug": "miami-fl-united-states",
+  "draft": {
+    "landing_slug": "miami-fl-united-states",
+    "appPortId": "miami",
+    "portName": "Miami",
+    "country": "United States",
+    "portInfo": {
+      "description": "PortMiami brands itself the Cruise Capital of the World® and is the primary U.S. embarkation hub for Caribbean and Bahamas itineraries. Multiple modern terminals line Dodge Island, connected to mainland Miami via the PortMiami Tunnel and MacArthur Causeway. Expect airline-style check-in halls, on-port parking, and heavy turnaround traffic on weekends.",
+      "location": "Dodge Island, Biscayne Bay, Miami, Florida, USA",
+      "timezone": "Eastern Time (UTC−5 / UTC−4 DST)",
+      "language": "English; Spanish widely spoken",
+      "currency": "US Dollar (USD)",
+      "population": "City of Miami roughly 450,000; metro area several million"
+    },
+    "gettingThere": {
+      "fromTerminal": "Ships are assigned a lettered PortMiami terminal (e.g., AA, A, B, C, D–F)—confirm your terminal on cruise documents before driving or rideshare drop-off",
+      "transportation": [
+        "Taxi / rideshare",
+        "Hotel shuttle",
+        "Rental car",
+        "Limited public transit + transfer"
+      ],
+      "distanceToCity": "Roughly 3–5 km to downtown Miami / Brickell depending on terminal and route",
+      "walkingTime": "Not practical between mainland hotels and terminals—use vehicle access",
+      "taxiInfo": "Rideshare and taxi drop-off zones serve each terminal; allow extra time on weekend turnarounds",
+      "publicTransport": "Most guests use private transfer, taxi, or hotel shuttle from MIA or downtown; plan buffer for tunnel/causeway traffic Confirm your lettered terminal before rideshare drop-off. Weekend turnarounds are slow—leave generous airport→port buffer. PortMiami is primarily an embarkation hub rather than a long shore-day destination.",
+      "distanceAnswer": "Roughly 3–5 km to downtown Miami / Brickell depending on terminal and route"
+    },
+    "thingsToDo": {
+      "intro": "PortMiami is primarily an embarkation/turnaround hub. Shore “sightseeing” usually means pre-cruise hotel time or a short post-arrival window—not a classic 6-hour transit call.",
+      "topThings": [
+        "Downtown / Bayfront — Metromover-adjacent framing — ~120 min.",
+        "Wynwood / museums — short rideshare; minutes Not verified.",
+        "South Beach — heavy traffic risk; long buffer only.",
+        "Vizcaya — organised timing.",
+        "Little Havana food stroll — mid-length call."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Weekend turnarounds congest the PortMiami Tunnel and causeway. Arrive inside your cruise line’s check-in window with luggage already organized."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a58ba8c5bdb333926fc5c365f6d1001baaacef9644a36ea223c87184f432b051",
+      "existing_guide_hash": "921a38a5e573cbb4",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/miami-fl-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.332Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

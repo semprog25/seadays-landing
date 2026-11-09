@@ -1,0 +1,81 @@
+{
+  "landing_slug": "warnemunde-berlin-germany",
+  "draft": {
+    "landing_slug": "warnemunde-berlin-germany",
+    "appPortId": "warnem-nde",
+    "portName": "Warnemünde (Berlin)",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Warnemünde combines a beach-resort promenade with a serious cruise terminal. Guests split between lighthouse/Alter Strom strolls, Rostock’s city centre via S-Bahn, and ambitious Berlin day coaches. Multi-ship days (165 calls in 2025) mean queues—protect the return buffer.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "German",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Warnemünde cruise terminal",
+      "transportation": [
+        "Walking to village",
+        "Train to Rostock/Berlin",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Warnemünde village",
+      "walkingTime": "5-10 minutes to village center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Train station with connections to Rostock and Berlin",
+      "distanceAnswer": "Within Warnemünde village"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Alter Strom / Warnemünde lighthouse and beach promenade: allow 60–90 minutes. Sand and wind.",
+        "Rostock old town (via S-Bahn): allow 2.5–3.5 hours including the ~20-minute S-Bahn each way and a city walk—estimate.",
+        "Local seafood lunch along Alter Strom: allow 45–60 minutes.",
+        "Organised Berlin day tour: only with ship-timed coaches; independent Berlin needs ≥2h rail each way plus urban time and contingency.",
+        "Tea-museum / local indoor option: rainy-day spare—check hours."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph the Cruise Center lettering before boarding a Berlin coach; Warnemünde and Rostock returns can confuse tired guests."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "539d9e99f3c6c5e870d622ac3a140c46b4e3f82b93d588f6cec2b28e479023c5",
+      "existing_guide_hash": "bf32526c6eea2384",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/warnemunde-berlin-germany.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.245Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

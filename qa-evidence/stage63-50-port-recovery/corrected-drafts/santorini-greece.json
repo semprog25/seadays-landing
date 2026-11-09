@@ -1,0 +1,79 @@
+{
+  "landing_slug": "santorini-greece",
+  "draft": {
+    "landing_slug": "santorini-greece",
+    "appPortId": "santorini",
+    "portName": "Santorini",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Santorini is primarily a tender port: ships anchor in the caldera and boats run to the Old Port (Skala) below Fira, with some calls using Athinios for coaches. From Skala, guests reach Fira by cable car, donkey, or the steep stairs—queues form quickly on multi-ship days.",
+      "location": "Cyclades, Greece, in the Aegean Sea",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek; English widely spoken in tourism",
+      "currency": "Euro (EUR)",
+      "population": "Island roughly 15,000 permanent residents"
+    },
+    "gettingThere": {
+      "fromTerminal": "Most cruise guests tender to the Old Port beneath Fira; some shore excursions use Athinios coach transfers instead",
+      "transportation": [
+        "Tender boat",
+        "Cable car",
+        "Donkey (optional)",
+        "Stairs",
+        "Taxi / ATV after reaching clifftop"
+      ],
+      "distanceToCity": "Vertical ascent from Old Port to Fira; Oia is a further island transfer",
+      "walkingTime": "Stairs from Old Port to Fira are steep and strenuous (hundreds of steps)",
+      "taxiInfo": "Taxis and buses operate from Fira once you reach the clifftop",
+      "publicTransport": "",
+      "distanceAnswer": "Vertical ascent from Old Port to Fira; Oia is a further island transfer"
+    },
+    "thingsToDo": {
+      "intro": "Santorini is primarily a tender call to the Old Port (Skala) below Fira; some excursions use Athinios for coaches. Cable-car queues dominate the clock.",
+      "topThings": [
+        "≥8.5 h ashore: standard plan (≈410 min) + Imerovigli rim walk (≈75 min, estimate) ≈485 min.",
+        "≥9.5 h ashore: standard plan + Nea Kameni boat trip from the Old Port (≈150 min, estimate) ≈560 min.",
+        "Fira caldera rim — the classic view, a few minutes from the cable car top.",
+        "Museum of Prehistoric Thera, Fira — Akrotiri finds; good heat refuge. ~60 min.",
+        "Fira–Imerovigli rim walk — ~2 km straight-line north (pins); 60–75 min return at an easy pace (estimate)."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Budget tender + cable-car queues as real attractions that consume time. On multi-ship days, prioritize getting up to Fira early and leaving extra time to descend."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "805f7230afc3cf836b3ea484594b1902288fd80aaa2e698bbcae74c254c06cbd",
+      "existing_guide_hash": "ea00a4c8cfc5c6a7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/santorini-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.346Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

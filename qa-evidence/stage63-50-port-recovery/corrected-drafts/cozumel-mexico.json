@@ -1,0 +1,77 @@
+{
+  "landing_slug": "cozumel-mexico",
+  "draft": {
+    "landing_slug": "cozumel-mexico",
+    "appPortId": "cozumel",
+    "portName": "Cozumel",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "Cozumel is a western Caribbean staple known for reefs, beach clubs, and downtown San Miguel. Ships normally dock at one of three piers—Punta Langosta, Puerta Maya, or International Pier—rather than tendering. Check your daily program for the assigned pier before planning a walk into town.",
+      "location": "Cozumel Island, Quintana Roo, Mexico (Caribbean)",
+      "timezone": "Eastern Time (UTC−5 year-round in Quintana Roo)",
+      "language": "Spanish; English widely spoken in tourist zones",
+      "currency": "Mexican peso (MXN); USD often accepted in tourist areas",
+      "population": "Island population roughly 80,000–100,000"
+    },
+    "gettingThere": {
+      "fromTerminal": "Cozumel uses three main cruise piers—Punta Langosta (downtown), Puerta Maya, and International Pier (south of town, near each other). Confirm the assigned pier on your ship’s daily program; line patterns exist but are not guaranteed.",
+      "transportation": [
+        "Walking (Punta Langosta)",
+        "Beach-club shuttle",
+        "Rental scooter/car"
+      ],
+      "distanceToCity": "Punta Langosta: waterfront downtown. Puerta Maya / International Pier: typically a few kilometres south of San Miguel (often ~10 minutes by taxi in light traffic)",
+      "walkingTime": "Easy from Punta Langosta. From Puerta Maya / International Pier, walking to downtown is long and hot—taxis are the usual choice",
+      "taxiInfo": "Fixed-rate taxi boards are common—agree destination and rate before departure",
+      "publicTransport": "Limited urban transit for visitors; most independents walk near downtown or taxi to beaches/ruins. Tendering is uncommon and usually only when pier capacity or operations require it.",
+      "distanceAnswer": "Punta Langosta: waterfront downtown. Puerta Maya / International Pier: typically a few kilometres south of San Miguel (often ~10 minutes by taxi in light traffic)"
+    },
+    "thingsToDo": {
+      "intro": "Cozumel has three main cruise piers. Your assigned pier (posted on the daily program) changes whether downtown is a walk or a taxi.",
+      "topThings": [
+        "Chankanaab, Carretera Costera Sur km 9, Zona Hotelera Sur, Cozumel 77600: A reef/lagoon family-park day, reached by taxi or organised vehicle. Allow about 240 minutes (editorial estimate). Normally closed Sundays unless an opening is announced; water access depends on conditions.",
+        "Punta Sur Ecotourism Park, Laguna Colombia State Ecological Park, southern Cozumel: Lagoons, mangroves, coastal wildlife and maritime history. Allow about 360 minutes (editorial estimate). Normally closed Sundays; opening listed 09:00–16:00 and only selected lighthouse/museum areas remain available later.",
+        "San Gervasio, San Gervasio archaeological visitor centre, inland Cozumel: A Maya-history alternative with uneven outdoor walking. Allow about 120 minutes (editorial estimate). Allow the internal access-road leg; highway entrance closes 15:45 under the captured schedule.",
+        "Island Museum of Cozumel, Av. Rafael E. Melgar at Calle 6 Norte, San Miguel: Indoor interpretation of the island’s nature, origins and cultural identity. Allow about 60 minutes (editorial estimate). Closed Mondays under the schedule read 5 November 2026.",
+        "Punta Celarain Lighthouse and Navigation Museum, Lighthouse keeper’s house/lighthouse area inside Punta Sur, Cozumel: A focused maritime-history component of the Punta Sur outing, not an additional distant park. Allow about 60 minutes (editorial estimate). Lighthouse climbing requires a personal mobility assessment; do not count this again as a separate admission/transfer."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Puerta Maya and International Pier sit near each other south of town; Punta Langosta is the downtown pier. Tendering is uncommon and usually only when pier capacity or operations require it—follow ship instructions."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a2e4a59a1f4f5e881e90511d9b5996a9486958e7395339a10acaf0d2c0fb7843",
+      "existing_guide_hash": "747b75f9d8a2abed",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/cozumel-mexico.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.306Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}
