@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "stage": "stage76-publication-candidate",
+  "status": "READY_FOR_OWNER_REVIEW",
+  "candidate_only": true,
+  "owner_publication_authorized": false,
+  "production_apply_permitted": false,
+  "publication_candidate_apply_permitted": true,
+  "slugs_approved": [],
+  "slugs_publication_candidate": [
+    "hobart-australia",
+    "marigot-st-maarten",
+    "nagasaki-japan",
+    "nordfjordeid-norway",
+    "okinawa-naha-japan",
+    "stornoway-united-kingdom"
+  ],
+  "preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+  "preparation_pr": "https://github.com/semprog25/seadays-landing/pull/102",
+  "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+  "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "baseline_main": "59653e6203ab66623a7f53e5572395b401ec140b",
+  "baseline_live_passenger_editorial": 344,
+  "projected_passenger_editorial_if_merged": 350,
+  "production_public_port_guides_sha256_at_prep": "1b51c98620e92d40ed63913311dcd6b2dffd6f5dd1f88975f60b083079441852",
+  "factual_signoff": [
+    {
+      "landing_slug": "hobart-australia",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "marigot-st-maarten",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "nagasaki-japan",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "nordfjordeid-norway",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "okinawa-naha-japan",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    },
+    {
+      "landing_slug": "stornoway-united-kingdom",
+      "ok": true,
+      "exclude_reason": null,
+      "flags": []
+    }
+  ],
+  "created_at_utc": "2026-11-09T18:57:34.475Z"
+}

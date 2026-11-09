@@ -11342,7 +11342,7 @@
       "portName": "Hobart",
       "country": "Australia",
       "portInfo": {
-        "description": "Capital of Tasmania, known for its colonial architecture, vibrant arts scene, and proximity to natural wilderness.",
+        "description": "TasPorts operates Hobart’s commercial harbour including Macquarie Wharf berths (Nos. 1–6) and Princes Wharf berths, with a Cruise section for visiting Tasmania by cruise and berthing facilities information. Project QuayLink / Macquarie Wharf is listed among major projects reshaping the waterfront cruise precinct. Exact LOA/depth for the cruise-preferred berth was not isolated from the cruise overview HTML captured.",
         "location": "",
         "timezone": "AEST (UTC+10) / AEDT (UTC+11)",
         "language": "English",
@@ -11390,16 +11390,52 @@
         "entryRequirements": "Valid passport required, ETA for eligible nationalities"
       },
       "gettingThere": {
-        "fromTerminal": "Hobart cruise terminal at Macquarie Wharf",
+        "fromTerminal": "Hobart Macquarie Wharf cruise berths — Macquarie Wharf, Hobart, Tasmania",
         "transportation": [
           "Walking",
           "Local bus"
         ],
         "distanceToCity": "Terminal located in downtown Hobart",
-        "walkingTime": "10-15 minutes to Salamanca Place and CBD",
+        "walkingTime": "10-15 minutes to Salamanca Place and CBD—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Metro Tasmania bus service available"
-      }
+        "publicTransport": "Salamanca / CBD waterfront are often walkable when alongside Macquarie — confirm security gate.",
+        "distanceAnswer": "Terminal located in downtown Hobart"
+      },
+      "researchImport": {
+        "landing_slug": "hobart-australia",
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "0962a34ff2eb5621cc772b0eda10a6bf5cd660085fd1b4171952198d88d16c28",
+        "candidate_content_hash": "162879a3ae7804a89d5584a74651486339487661d50988939c132198d94dcd81",
+        "locked_at_utc": "2026-11-09T18:09:16.341Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage75_deferred_release_candidate": true,
+        "owner_publication_authorized": false,
+        "identifier_confidence": "inferred_not_canonical",
+        "stage76_publication_candidate": true,
+        "stage75_preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+        "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T18:57:41.482Z"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Salamanca / waterfront — ~120 min.",
+          "MONA — ferry timed return.",
+          "kunanyi / Mount Wellington — weather-dependent.",
+          "Salamanca / waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Antarctic wind can be sharp — layers even in summer."
+      },
+      "shorePlansFirst": true
     },
     "honolulu": {
       "appPortId": "honolulu",
@@ -18063,26 +18099,48 @@
           "Taxi",
           "Local minibus"
         ],
-        "distanceToCity": "The port authority states cruise anchorage and landings are about 10 minutes from the center of Marigot—actual time depends on tender point, queues, and mobility.",
+        "distanceToCity": "Port of Saint-Martin public information cites about 10 minutes from central Marigot after cruise landings; tender location and crowds change that in practice.",
         "distanceAnswer": "Port of Saint-Martin public information cites about 10 minutes from central Marigot after cruise landings; tender location and crowds change that in practice.",
         "walkingTime": "From many landings, the Marigot waterfront and lower town are often walkable if you are mobile—Fort Louis adds a steep uphill segment.",
         "taxiInfo": "Taxis and informal transport serve Marigot; agree on destination and return timing, and keep payment options your driver accepts.",
-        "publicTransport": "There is no standard cruise-shuttle contract—use ship tenders first. Trips toward Philipsburg or Dutch-side beaches involve border crossing and separate transport planning."
+        "publicTransport": "Tender to ferry terminal on the market square. Fort Louis / marina walks — minutes not verified. Cross-border day to Philipsburg only with passport/ID rules and long buffers — do not treat as a short call default."
       },
       "thingsToDo": {
         "intro": "A Marigot call is usually a compact French-side day: harbour front, shopping streets, and Fort Louis views—unless your ship sells a Dutch-side or island-wide excursion instead.",
         "topThings": [
-          "Marigot waterfront and harbour promenade near the ferry terminal",
-          "Fort Louis (uphill; allow time, water, and heat margin)",
-          "Marina Fort Louis and harbour views",
-          "Waterfront cafés and duty-free shopping streets",
-          "Inter-island ferries (Anguilla, Saint-Barthélemy) only with confirmed schedules and all-aboard buffer"
+          "Market square / waterfront — ~90–120 min.",
+          "Marigot shops / cafés opposite the terminal.",
+          "Island tours — coach; confirm French-side vs Dutch-side drop-offs.",
+          "Marigot market square / waterfront",
+          "Marigot waterfront and harbour promenade near the ferry terminal"
         ],
-        "shortCall": "Stay on the Marigot waterfront and skip Fort Louis if heat or tender timing is tight.",
-        "standardCall": "Waterfront stroll plus Fort Louis or a relaxed lunch is realistic when landings are close to town and return tenders run on schedule.",
-        "longerCall": "A Dutch-side beach or Philipsburg run is possible but eats time for border crossing and transport—only if your French-side window and ship timing allow.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Confirm your sailing's arrival details before booking independent transport. All-aboard time matters more than map distance on tender days."
-      }
+      },
+      "researchImport": {
+        "landing_slug": "marigot-st-maarten",
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "52380dd23c2e632bcf6fa1b3fc41593a6e11888664db06adc17e7f2412dddbf9",
+        "candidate_content_hash": "24251cf3e5445795c7bc302240f4f743c3c95b8f591921708ceceb27ccddabda",
+        "locked_at_utc": "2026-11-09T18:09:16.341Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage75_deferred_release_candidate": true,
+        "owner_publication_authorized": false,
+        "identifier_confidence": "inferred_not_canonical",
+        "stage76_publication_candidate": true,
+        "stage75_preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+        "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T18:57:41.482Z"
+      },
+      "shorePlansFirst": true
     },
     "marmaris": {
       "appPortId": "marmaris",
@@ -19877,7 +19935,7 @@
       "portName": "Nagasaki",
       "country": "Japan",
       "portInfo": {
-        "description": "A historic port city in Japan, known for its international heritage, tragic history, and beautiful harbor.",
+        "description": "Nagasaki Port is a mountain-ringed natural harbour opened in 1571 with a long foreign-trade history visible in streets and food culture. Cruise ships pass under the Venus-Wing Bridge to a central terminal with Japan’s largest-class CIQ facilities and free Wi-Fi; a UNESCO World Heritage site is within walking distance and major districts are reachable by streetcar. Bus tours commonly include Huis Ten Bosch, onsen and Shimabara Castle. Berth length/depth were not published on the captured MLIT guide page.",
         "location": "",
         "timezone": "JST (UTC+9)",
         "language": "Japanese",
@@ -19925,20 +19983,60 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Nagasaki Port cruise terminal (city-centre pier) — Nagasaki Port centre, Nagasaki",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Walk/streetcar from pier — exact metres unverified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
-      }
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Walk/streetcar from pier — exact metres unverified."
+      },
+      "researchImport": {
+        "landing_slug": "nagasaki-japan",
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "4c0b59f393ecbda2eae4cec11c282771c2dadf1e38423d09c03df87f93b238eb",
+        "candidate_content_hash": "0a776374ec63fd5ae8b833f36116855ba775abaea811135fb60bcde639bab279",
+        "locked_at_utc": "2026-11-09T18:09:16.341Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage75_deferred_release_candidate": true,
+        "owner_publication_authorized": false,
+        "identifier_confidence": "inferred_not_canonical",
+        "stage76_publication_candidate": true,
+        "stage75_preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+        "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T18:57:41.482Z"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Glover Garden — ~120 min.",
+          "Dejima / Chinatown — walkable cluster.",
+          "Peace Park — allow transit.",
+          "Glover Garden / waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Huis Ten Bosch needs a longer coach day — skip on short calls."
+      },
+      "shorePlansFirst": true
     },
     "naha": {
       "appPortId": "naha",
       "portName": "Naha",
       "country": "Japan",
       "portInfo": {
-        "description": "The capital city of Okinawa Prefecture, Japan, a major port and commercial center of the Ryukyu Islands.",
+        "description": "Naha Port is Okinawa’s historic gateway, once a Ryukyu trading hub toward China and Southeast Asia, now a tourism and commerce harbour. MLIT notes Kokusai-dori (International Street) is about a 20-minute walk from Naha Cruise Terminal, with Tsuboya pottery street and Makishi Public Market among nearby attractions. Published location lines include Wakasa and Minatomachi areas of Naha. Berth length/depth were not on the captured guide page.",
         "location": "",
         "timezone": "JST (UTC+9)",
         "language": "Japanese, Okinawan",
@@ -19987,13 +20085,53 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Naha Cruise Terminal — Wakasa / Minatomachi area, Naha, Okinawa",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Walk ~20 min to Kokusai-dori per MLIT; monorail/taxi for farther sights.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
-      }
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Walk ~20 min to Kokusai-dori per MLIT; monorail/taxi for farther sights."
+      },
+      "researchImport": {
+        "landing_slug": "okinawa-naha-japan",
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "55e978d1d0bf644bc216ad4edb8c64b1261c8707f9703019cfad9bcca15eb154",
+        "candidate_content_hash": "d62c00b659e10364abb0abefd83be47d3aff9beeca7b3189b152ba6fe5998c0e",
+        "locked_at_utc": "2026-11-09T18:09:16.341Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage75_deferred_release_candidate": true,
+        "owner_publication_authorized": false,
+        "identifier_confidence": "inferred_not_canonical",
+        "stage76_publication_candidate": true,
+        "stage75_preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+        "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T18:57:41.482Z"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Kokusai-dori / Makishi — ~150 min.",
+          "Shuri Castle area — allow transit.",
+          "Beach — coach/taxi.",
+          "Kokusai-dori / Makishi Market"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Heat and humidity high — hydrate for the Kokusai walk."
+      },
+      "shorePlansFirst": true
     },
     "nanortalik": {
       "appPortId": "nanortalik",
@@ -20955,7 +21093,7 @@
       "portName": "Nordfjordeid",
       "country": "Norway",
       "portInfo": {
-        "description": "A village in Norway located at the end of Nordfjord, known for its beautiful fjord scenery and outdoor activities.",
+        "description": "Port of Nordfjordeid sits at the head of Eidsfjord in Vestland and markets a rural fjord call between Bergen and Ålesund. Larger ships (port text: 150 m+) typically use the SeaWalk — a foldable floating walkway the docking procedure says can serve ships up to 340 m and up to 7000 passengers between mooring buoys — while other calls tender; once at the dock the guest flow is described as identical. The terminal building holds souvenir shop, toilets, tourist/excursion desk and port security. Confirm SeaWalk vs tender on the daily programme before timing Sagastad. Gangway GPS pins remain null.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -21002,13 +21140,53 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "SeaWalk pier 1 (SWN 1) — Osvegen 10, 6770 Nordfjordeid",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
-      }
+        "publicTransport": "",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "researchImport": {
+        "landing_slug": "nordfjordeid-norway",
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "4b43eecf3734a89f5faf7fc2be4b3d6f6fa0872f8cd85ef8306234f33730bebd",
+        "candidate_content_hash": "efb60be820e5b75533a0a480a85234eed167885923248e19a9974214d1fcfaa8",
+        "locked_at_utc": "2026-11-09T18:09:16.341Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage75_deferred_release_candidate": true,
+        "owner_publication_authorized": false,
+        "identifier_confidence": "inferred_not_canonical",
+        "stage76_publication_candidate": true,
+        "stage75_preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+        "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T18:57:41.482Z"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Sagastad Viking Centre — 10–15 min walk; opens on cruise days — ~60–120 min.",
+          "Eidsgata / wooden-house centre + grave mounds on the Sagastad recommended route — ~45–90 min.",
+          "Regional Loen Skylift / Briksdal — only with line-confirmed coaches and large buffers; minutes not verified here.",
+          "Sagastad Viking Centre"
+        ],
+        "shortCall": "≥4 h. Exit/SeaWalk 30 + Sagastad 90 + centre 30 + return 30 + 75 min buffer ≈ 255 — tight; drop centre loop if SeaWalk queues.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask the ship whether you are on SeaWalk or tender before locking Sagastad timing."
+      },
+      "shorePlansFirst": true
     },
     "norfolk": {
       "appPortId": "norfolk",
@@ -30354,7 +30532,7 @@
       "portName": "Stornoway",
       "country": "UK",
       "portInfo": {
-        "description": "The main town of the Isle of Lewis in the Outer Hebrides.",
+        "description": "Stornoway Harbour on the Isle of Lewis is the main seaport of the Outer Hebrides and an established cruise call. The Port Authority’s cruise page states the new Deep Water Terminal handles vessels up to 360 m, while ships under 156 m use Inner Harbour piers 1 and 3 in the town centre. Cruise Ambassadors meet passengers and distribute town/island maps (Lews Castle, Callanish, Carloway Broch, blackhouses). A Cruise Scotland industry member page adds berth depths, a tender pontoon note and “town centre 5 km / shuttle yes” framing for the deep-water facility — treat those figures as secondary unless matched on SPA pages.",
         "location": "",
         "timezone": "GMT (UTC+0) / BST (UTC+1)",
         "language": "English, Scottish Gaelic",
@@ -30396,13 +30574,53 @@
         "entryRequirements": "Valid passport required. EU citizens may need visa depending on nationality."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Stornoway Deep Water Terminal — Stornoway Harbour, Isle of Lewis",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
-      }
+        "publicTransport": "",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "researchImport": {
+        "landing_slug": "stornoway-united-kingdom",
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "b072fc2ccfd0c98aec3277724668952932589606f5a571ee54fafe4ab8bd2023",
+        "candidate_content_hash": "1b9997dae39abbf7e27e2d619367942bf983decb4eece27543795e2d3a485337",
+        "locked_at_utc": "2026-11-09T18:09:16.341Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage75_deferred_release_candidate": true,
+        "owner_publication_authorized": false,
+        "identifier_confidence": "inferred_not_canonical",
+        "stage76_publication_candidate": true,
+        "stage75_preparation_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+        "preparation_pr_head": "69e60d30ab1ae455e6ae59efc72d235b6f33a7c5",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "candidate_applied_at_utc": "2026-11-09T18:57:41.482Z"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Lews Castle / Stornoway town — ~90 min.",
+          "Callanish Standing Stones — coach; long call.",
+          "Carloway Broch / Gearrannan blackhouses — coach.",
+          "Lews Castle / town waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Deep Water Terminal vs Inner Harbour before planning a walk-off day."
+      },
+      "shorePlansFirst": true
     },
     "subic-bay": {
       "appPortId": "subic-bay",
