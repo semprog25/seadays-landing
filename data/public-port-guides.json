@@ -20627,11 +20627,11 @@
       "thingsToDo": {
         "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
         "topThings": [
-          "Castle Hill park — Parc de la Colline du Château, Nice. A viewpoint/park with steep approaches; verify the accessible option. Allow 75 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
-          "Cours Saleya — Cours Saleya, Vieux-Nice. The market street is a useful fixed meeting landmark; market days/hours vary. Allow 45 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
-          "Sainte-Réparate Cathedral — Place Rossetti, Vieux-Nice. Church entry is subject to worship; the square remains an outdoor target. Allow 35 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
-          "Vieux-Nice lanes — Old town between Place Rossetti and Cours Saleya, Nice. Choose a small loop instead of losing the return meeting point. Allow 60 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).",
-          "Promenade des Anglais / Rauba Capeu — Seafront at Quai Rauba Capeu and the Promenade des Anglais, Nice. A seafront walk with sun exposure, not an assurance of swimming conditions. Allow 60 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/)."
+          "Villefranche village waterfront",
+          "Nice Promenade — only with transfer timing",
+          "Villefranche old village / waterfront",
+          "Nice Promenade des Anglais",
+          "Citadel museums"
         ],
         "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
         "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
@@ -20643,12 +20643,11 @@
         "schema_version": 1,
         "publication_tier": "passenger_editorial",
         "stage24_release_candidate": true,
-        "draft_id": "08639fcf98fea1012a48ae5e",
-        "draft_version": "stage22-deterministic-v2.4",
-        "research_sha256": "a920d7c48f97e1f8a0057812bab82c98ca8a5e79cb10bd77a5ca2376c367bfe6",
-        "landing_slug": "nice-france",
-        "candidate_content_hash": "94caaea4e06536c770df70c12cc9d74d1736749cfb55ad0b082105a286e2b3d1",
-        "locked_at_utc": "2026-11-08T13:11:36.792Z",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "cf2fb8dc83e24f47eaeca2d9eaa811928d40a3de201d3e6a648899d78914348f",
+        "landing_slug": "villefranche-nice-france",
+        "candidate_content_hash": "da40f5dad345e96dd15cd2da35be43ee950c52c9e490fd6a3e351c9bf71946e8",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
         "field_exclusions": [],
         "owner_approved": false,
         "import_tier": "stage24_dry_run_only",
@@ -20658,8 +20657,11 @@
         "owner_publication_authorized": false,
         "stage33_source_bundle_hash": "2b15a9d47cd2a964ab9fb9a214522b4116ddde4b514b978d8c70e308cbfd80fa",
         "stage34_release_bundle_hash": "de3707a73b6abe37e51f1197a4d04d454aefab5c3f870d1e18b9ca11accee14b",
-        "applied_at_utc": "2026-11-08T13:18:28.226Z",
-        "stage33_candidate_content_hash": "e1ffbe229a7b525855aae2e7bccd531540fe9d995beb383a2ec497ee7ff36c14"
+        "applied_at_utc": "2026-11-09T08:19:54.378Z",
+        "stage33_candidate_content_hash": "e1ffbe229a7b525855aae2e7bccd531540fe9d995beb383a2ec497ee7ff36c14",
+        "stage65_next_25_release_candidate": true,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1"
       }
     },
     "niigata": {
@@ -34814,6 +34816,1343 @@
         "stage64_blocked_release_prep": true,
         "stage64_blocked_bundle_hash": "62dabec5bb8bb4700e6078a3c99160e8788671dac3b15631e5cff1615f3ae3d8",
         "applied_at_utc": "2026-11-09T07:54:45.657Z"
+      }
+    },
+    "beirut": {
+      "appPortId": "beirut",
+      "portName": "Beirut, Lebanon",
+      "country": "Lebanon",
+      "portInfo": {
+        "description": "Beirut rewards a tightly focused cultural day rather than an unsupported promise to cover Lebanon from a ship. Sursock offers art in Ashrafieh, AUB’s museum traces the region’s archaeology, and the National Museum provides another substantial collection. The Barakat Building’s civil-war history needs careful interpretation, not a glib photo-stop description. Those researched places do not establish that a cruise can currently discharge passengers safely. A viable day begins with a real call, approved port transport, a route-specific security decision and confirmed venue access. Keep northern/eastern city museum choices separate from districts under different warnings; this guide does not certify any route as safe based on a city label."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Sursock Museum, Greek Orthodox Archbishopric Street, Ashrafieh: 90 minutes for art; its visit page confirms wheelchair-accessible galleries/facilities and Wednesday–Sunday opening.",
+          "National Museum of Beirut, Council of Europe location 33.879143, 35.515040 / VGH8+92: allow two hours; published institutional coordinates locate the museum, not a port or security-approved route. Confirm current admission.",
+          "AUB Archaeological Museum, Bliss Street campus: the museum recommends one hour and lists weekday seasonal hours; campus entry and holidays must be checked separately.",
+          "Beit Beirut / Barakat Building, Damascus Street at Independence Street, Sodeco: 45 minutes of historically informed exterior context only if the route is permitted and safe. The old official project site does not establish interior opening; do not promise a museum tour.",
+          "Saint Nicolas stairs / Gemmayzeh, starting at the top near Sursock and ending on Gouraud Street: a 45-minute heritage streetscape walk. The museum locates itself 40 metres left of the stair top; a stepped route is unsuitable for some mobility needs. Reconfirm local conditions; this is not an approved port-to-city walk."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Evidence of a lounge is not evidence of a sailing; evidence of a museum address is not evidence of a safe route. Resolve both before turning contingency research into a visitor recommendation."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Beirut passenger lounge (tariff terminology) — Port of Beirut, Beirut, Lebanon; public passenger gate not verified",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "The port contact page locates administration in Quarantaine; that is not proof of the passenger exit. No verified walking route or current cruise shuttle timetable is established. Use only ship-authorised transfers from the actual assigned berth/gate. The contingency plans reserve 45–60 minutes for each first/last port leg and 30–45 minutes for city transfers, all editorial allowances requiring the local driver and line to validate. They are not road times derived from a port centroid. Cancel/shorten sightseeing if controls, congestion, alerts or site opening invalidate the route.",
+        "distanceAnswer": "The port contact page locates administration in Quarantaine; that is not proof of the passenger exit. No verified walking route or current cruise shuttle timetable is established. Use only ship-authorised transfers from the actual assigned berth/gate. The contingency plans reserve 45–60 minutes for each first/last port leg and 30–45 minutes for city transfers, all editorial allowances requiring the local driver and line to validate. They are not road times derived from a port centroid. Cancel/shorten sightseeing if controls, congestion, alerts or site opening invalidate the route.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "12f58bbd3209634feed14a678fa5dab672d72c0d519e9c2a0c21c140f6739f77",
+        "landing_slug": "beirut-lebanon",
+        "candidate_content_hash": "c15c5d756f3d15c3af7f0dd5a1c41128b352608457304ac1b578a3e157346fd6",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.376Z"
+      }
+    },
+    "castaway-cay": {
+      "appPortId": "castaway-cay",
+      "portName": "Castaway Cay, Bahamas",
+      "country": "Bahamas",
+      "portInfo": {
+        "description": "Castaway Cay’s useful planning unit is an activity area, not a list of public monuments. The family beaches, Snorkeling Lagoon, Pelican Plunge, In Da Shade games and Serenity Bay give different groups room to build a day without leaving the island. These are genuine mapped places, but inclusion, staffing and water access still depend on Disney’s operating decisions. The FAQ describes a direct dock and tram service. Personal/electric wheelchairs can be accommodated on trams, but sand wheelchairs are different and a beach surface is not made step-free by a tram ride. Serenity Bay is adults 18+, and the map requires a flotation vest in the Snorkeling Lagoon. No excursion price, all-day buffet hours or guaranteed parasailing programme is invented."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Castaway Family Beaches, Castaway Family Beaches, Castaway Cay; Scuttle’s Cove/Pelican Point tram areas: A family-oriented beach base rather than a rapid circuit. Allow about 150 minutes (editorial estimate). Current swimming flags, lifeguard directions and activity availability govern use.",
+          "Snorkeling Lagoon, Snorkeling Lagoon, Castaway Family Beach area, Castaway Cay: A bounded snorkelling option close to the family beach. Allow about 90 minutes (editorial estimate). Flotation vest mandatory per map; gear/inclusions and individual ability require confirmation.",
+          "Pelican Plunge, Pelican Plunge, near Pelican Point, Castaway Cay: A mapped water-play alternative to a land excursion. Allow about 60 minutes (editorial estimate). Height/ability/sea restrictions and current opening must be checked with staff.",
+          "In Da Shade Games, In Da Shade game pavilion, Castaway Cay: A lower-transfer land-activity option when you want a break from water. Allow about 60 minutes (editorial estimate). No promise that every table/game is staffed or available.",
+          "Serenity Bay, Serenity Bay, adults-only beach; tram areaD, Castaway Cay: An 18+ quieter-beach option with its own transport allowance. Allow about 180 minutes (editorial estimate). Adults 18+ only; confirm return tram routing and current services."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask staff for the final tram/boarding instruction and follow the ship’s clock. An island day is still a time-limited port call; access is not guaranteed when weather prevents docking."
+      },
+      "gettingThere": {
+        "fromTerminal": "Castaway Cay cruise dock — Castaway Cay,Bahamas;arrival approach to Arrival Plaza",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Disney provides trams. The official map labels Kargo Handling(A), Scuttle’s Cove(B), Pelican Point(C) and Serenity Bay(D); check which service/transfer is operating for the chosen area. No guaranteed frequency or on-call accessible vehicle is asserted. The plans reserve 30–60 minutes for first/last walking, trams and the dock approach. These are editorial allowances, not official journey times. Return to the ship’s actual boarding location, not merely the nearest beach tram stop. The island is private; do not assume an independent boat to another Bahamian island or a public overnight stay.",
+        "distanceAnswer": "Disney provides trams. The official map labels Kargo Handling(A), Scuttle’s Cove(B), Pelican Point(C) and Serenity Bay(D); check which service/transfer is operating for the chosen area. No guaranteed frequency or on-call accessible vehicle is asserted. The plans reserve 30–60 minutes for first/last walking, trams and the dock approach. These are editorial allowances, not official journey times. Return to the ship’s actual boarding location, not merely the nearest beach tram stop. The island is private; do not assume an independent boat to another Bahamian island or a public overnight stay.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a5df1e22c56e714a01984300d2035cd3f73bcac12a30bf68bc0f3c714ac4ca44",
+        "landing_slug": "castaway-cay-bahamas",
+        "candidate_content_hash": "d8144f25b582c4339e5a3c782b57de5b36a2e231eddfe269ea52f2f8e15837a5",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "chania": {
+      "appPortId": "chania",
+      "portName": "Chania (Crete), Greece",
+      "country": "Greece",
+      "portInfo": {
+        "description": "Western Crete’s Chania has a layered Venetian and Ottoman old town, a historic seafront and a newer museum district at Halepa. Souda is the port-side starting point for this guide; the old harbour in the photographs is a different place. A relaxed day can combine the harbour lanes with one museum or Nea Hora, without turning the call into an all-island coach marathon."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old Venetian Harbour and lighthouse view, Landward promenade facing the Egyptian lighthouse, Old Harbour, Chania: A specific seafront focus for the city’s Venetian and later maritime layers. Allow about 90 minutes (editorial estimate). Do not assume the outer breakwater/lighthouse interior is accessible.",
+          "Splantzia old-town streets, Splantzia district square/lanes, old Chania: An Ottoman-era neighbourhood contrast to the open waterfront. Allow about 60 minutes (editorial estimate). Use an agreed square-side meeting point; lanes may have uneven paving.",
+          "Archaeological Museum of Chania, Archaeological Museum, Halepa, Chania: Use the current Halepa museum location rather than the former old-town address. Allow about 120 minutes (editorial estimate). Confirm admission/opening day and accessible transfer.",
+          "Eleftherios Venizelos house museum, Venizelos house museum, Halepa, Chania: A focused modern-history visit within the Halepa quarter. Allow about 75 minutes (editorial estimate). Separate museum admission; not guaranteed by entry to the archaeological museum.",
+          "Nea Hora seafront and beach, Nea Hora beach/harbour promenade, Chania: A nearby coastal pause with a different pace from the historic lanes. Allow about 90 minutes (editorial estimate). Swimming, facilities and public access depend on conditions; retain Souda pickup time."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Tell the driver “Souda cruise passenger gate” and show the ship’s pickup instructions, not merely “Chania harbour.” An old-town taxi rank and the cruise berth are not the same destination."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Souda — passenger-port complex — Souda port,Souda,Chania",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "The Greek ports association places Souda 7 km from the city centre and lists passenger stations, bus/taxi access and ISPS arrangements. Its regional Port Fund portfolio covers many harbours; those are not all Chania cruise terminals. Allow 45 minutes outward for assigned Souda exit plus bus/taxi to the old-town edge, and up to 60 minutes on return including pickup, traffic and port entry. These are planning allowances, not a verified current bus schedule. Halepa requires another local transfer or a longer walk; do not send passengers to an obsolete museum address in the old town.",
+        "distanceAnswer": "The Greek ports association places Souda 7 km from the city centre and lists passenger stations, bus/taxi access and ISPS arrangements. Its regional Port Fund portfolio covers many harbours; those are not all Chania cruise terminals. Allow 45 minutes outward for assigned Souda exit plus bus/taxi to the old-town edge, and up to 60 minutes on return including pickup, traffic and port entry. These are planning allowances, not a verified current bus schedule. Halepa requires another local transfer or a longer walk; do not send passengers to an obsolete museum address in the old town.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "8d6a12ec7f24ba20de63897383de9e3dccd7d14e7cde9b9c772fb047b7b6efb0",
+        "landing_slug": "chania-crete-greece",
+        "candidate_content_hash": "d3e5501da78c9f263da95f1f772b9ace85ff10eed80e67563adf3f8932a4ac7d",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "chios": {
+      "appPortId": "chios",
+      "portName": "Chios, Greece",
+      "country": "Greece",
+      "portInfo": {
+        "description": "Chios mixes an urban harbour with an island hinterland shaped by mastic cultivation and medieval fortified villages. A town call can focus on the castle and museum quarter; Pyrgi, Mesta and Nea Moni require deliberate road time. Do not let a compact island outline turn those into adjacent old-town streets."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Castle of Chios, Castle of Chios, Chios town: An inhabited fortified quarter, not just an isolated ruin. Allow about 90 minutes (editorial estimate). Keep to public streets; individual monuments may have separate entry.",
+          "Byzantine Museum at Mecidiye Cami, Vounaki Square, Chios 82100: A named town-centre museum building with Byzantine-to-modern material. Allow about 75 minutes (editorial estimate). Opening/fees on the undated regional listing need a current venue check.",
+          "Chios Municipal Art Gallery, 1 Andreas Syggros Street, Chios 82100: A compact art stop with a source-backed street address. Allow about 60 minutes (editorial estimate). Confirm current exhibition and public hours.",
+          "Pyrgi medieval village, Pyrgi village centre, Chios: A focused southern-village visit within the mastic-country defensive network. Allow about 90 minutes (editorial estimate). Driver pickup at the agreed village-edge point; not a port-side walk.",
+          "Mesta medieval village, Mesta village centre, Chios: An inhabited fortified village distinct from Mesta’s cruise harbour. Allow about 90 minutes (editorial estimate). Narrow lanes; confirm accessible route and a specific vehicle meeting point."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Write the port name and town/landing in the driver agreement. Mesta VILLAGE and Mesta PORT are also different meeting places; do not use the name alone for your return pickup."
+      },
+      "gettingThere": {
+        "fromTerminal": "Central Port of Chios — passenger/cruise complex — Central harbour,Chios town",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "ee07f856c855b31abe4bd11e59d7a4bd3b8884d6ab8a724a6b7e632233402ed0",
+        "landing_slug": "chios-greece",
+        "candidate_content_hash": "81610c8b55d6bc32212509ca017f6da4060de7da8d84b2562d968113c3b3af04",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "cuxhaven": {
+      "appPortId": "cuxhaven",
+      "portName": "Cuxhaven, Germany",
+      "country": "Germany",
+      "portInfo": {
+        "description": "Cuxhaven is a cruise call—confirm your berth on the daily programme before you plan the day."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town / shore — ~90 min.",
+          "Mudflat walks — tide-dependent.",
+          "Day coaches — long-call.",
+          "Cuxhaven town / North Sea shore"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask ship for exact quay — cruise table not extracted."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Cuxhaven (NPorts) — Cuxhaven, Germany",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town/shore minutes unverified.",
+        "distanceAnswer": "Town/shore minutes unverified.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "6d0b4d2ea91ed2ca139c415c571117f200cf70e91badc05b6ffb01daccb34d81",
+        "landing_slug": "cuxhaven-germany",
+        "candidate_content_hash": "4ae955e5f8202075d746b253f769a366aa889c11fcec012b1e27da6f45a223cb",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "dammam": {
+      "appPortId": "dammam",
+      "portName": "Dammam, Saudi Arabia",
+      "country": "Saudi Arabia",
+      "portInfo": {
+        "description": "Dammam’s cruise gateway sits inside King Abdulaziz commercial port on Saudi Arabia’s Arabian Gulf coast. An itinerary needs a controlled-port exit before it becomes a city day. The operator’s own city-centre estimate is 17.9 km/30 minutes, not “walk from the terminal.” Ground transportation and luggage handling are listed services; a daily shuttle schedule is not supplied. The destination is broader than a corniche photograph. Souq Al Hob offers a market-based introduction; Ithra in neighbouring Dhahran centres the day on art and culture. Al Ahsa’s caves and Hofuf market are separate inland ambitions requiring a long, line-validated excursion. They are not casually added to a short Dammam call."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Ithra Museum, 8386 Ring Road, Gharb Al Dhahran, Dhahran 34461: allow 2½ hours; check the actual gallery programme and accessible route with the venue.",
+          "Souq Al Hob/Love Market, Dammam: 75 minutes for market lanes and local retail. Meet at the operator’s specified market drop-off, not an unnamed city-centre point.",
+          "King Abdullah Park, Dammam Corniche: a 60-minute named waterfront stop instead of an undefined “corniche” address.",
+          "Murjan Island, Dammam: a separate 60-minute waterfront outlook, with transport arranged back to the same island drop-off. No boat operation is assumed.",
+          "Al-Qarah Caves, Al Ahsa: a 90-minute site block on a long escorted inland excursion only; verify cave paths/heat and admission."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Facility capability and sailing operation are separate. The operator’s undated “shuttle Yes” and “one berth” are useful logistics evidence, not a dated promise that tomorrow’s ship will call."
+      },
+      "gettingThere": {
+        "fromTerminal": "King Abdulaziz Port cruise terminal, Dammam — King Abdulaziz Port, Dammam, Saudi Arabia; passenger gate not verified",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Cruise Saudi quotes 17.9 km/30 minutes to the city centre and 52.8 km/46 minutes to the airport; its distance table says shuttle service Yes, without a dated timetable. These are operator indicative routes, not a guarantee from every berth. Obtain the line’s pickup, security and return arrangements. City plans reserve 45–60 minutes per first/last leg, including extra port/gate slack. Ithra legs and inland excursion thresholds below are editorial allowances requiring a local operator’s confirmation; no straight-line distance is relabelled driving time. No independent pedestrian exit is established.",
+        "distanceAnswer": "Cruise Saudi quotes 17.9 km/30 minutes to the city centre and 52.8 km/46 minutes to the airport; its distance table says shuttle service Yes, without a dated timetable. These are operator indicative routes, not a guarantee from every berth. Obtain the line’s pickup, security and return arrangements. City plans reserve 45–60 minutes per first/last leg, including extra port/gate slack. Ithra legs and inland excursion thresholds below are editorial allowances requiring a local operator’s confirmation; no straight-line distance is relabelled driving time. No independent pedestrian exit is established.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e4a45532285ae1332f6fd1408c59a148c0a38bc152cd0bcc3f4478c3613fc0db",
+        "landing_slug": "dammam-saudi-arabia",
+        "candidate_content_hash": "6214f0ba7538334dffaef37238fdd0e17398b43eb4d82bccb0eb1da6458a0c30",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "douglas": {
+      "appPortId": "douglas",
+      "portName": "Douglas (Isle of Man), Isle of Man",
+      "country": "Isle of Man",
+      "portInfo": {
+        "description": "Isle of Man Government describes Douglas as the main port and the only Manx port with dedicated passenger handling and RoRo, and publishes a harbour position. Cruise berth maxima are not on that page — left as gaps."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Promenade / town — ~90 min.",
+          "Seafront heritage — seasonal.",
+          "Island tours — long-call.",
+          "Douglas promenade / town"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm cruise vs ferry berth."
+      },
+      "gettingThere": {
+        "fromTerminal": "Douglas Harbour (passenger)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Promenade/town adjacent — minutes unverified.",
+        "distanceAnswer": "Promenade/town adjacent — minutes unverified.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e3d24a596f0dabc8e93c7a24a99fe3c844d57ce2f3bdc475431f5a1a4c117139",
+        "landing_slug": "douglas-isle-of-man",
+        "candidate_content_hash": "4c37c13f2be7750d74594a9c261804f0e79789b1094461174e8996782c293b83",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "ensenada": {
+      "appPortId": "ensenada",
+      "portName": "Ensenada, Mexico",
+      "country": "Mexico",
+      "portInfo": {
+        "description": "Ensenada’s cruise product is the specialised Ensenada Cruiseport Village terminal on the Bahía de Todos Santos waterfront, operated in the Hutchison Ports ECV concession and described by ASIPONA Ensenada as a cruise dock with customs/migration module, two gangways and two berthing positions. ASIPONA states operating capacity for vessels up to 3,200 passengers and a projected 800,000 passengers per year; the same page’s update stamp is 14 May 2015, so treat capacity figures as dated until a newer official year is found. Pier lengths and depths disagree slightly between ASIPONA and Hutchison — both are cited, neither door GPS is invented."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Zona Centro / Malecón waterfront near the harbour — ~90 min.",
+          "Local market / Avenida López Mateos corridor — hours and named shops not verified on primary pages used here.",
+          "Malecón / Zona Centro waterfront",
+          "Valle de Guadalupe wine region"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Reconcile which ECV pier you are on before planning LOA/draft assumptions — ASIPONA and Hutchison publish different pier lengths and depths for the same two docks."
+      },
+      "gettingThere": {
+        "fromTerminal": "Ensenada Cruiseport Village — Pier / Dock 1 — Blvd. Costero S/N, Zona Centro, 22800 Ensenada, Baja California, México",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Centro. Terminal sits on Blvd. Costero in Zona Centro. Published walking minutes from gangway to Malecón gate are not on the cited official pages — treat as unverified. Transfers. Port shuttle/taxi arrangements vary by call; not inventoried here. From US border. Road distance/time from San Diego not used as a cruise-day fact.",
+        "distanceAnswer": "Centro. Terminal sits on Blvd. Costero in Zona Centro. Published walking minutes from gangway to Malecón gate are not on the cited official pages — treat as unverified. Transfers. Port shuttle/taxi arrangements vary by call; not inventoried here. From US border. Road distance/time from San Diego not used as a cruise-day fact.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "bd5080f31ce8172ff7b2eb0ebdde93b68c3484dfcce1203aa483d360199adcab",
+        "landing_slug": "ensenada-mexico",
+        "candidate_content_hash": "885f51cc18e78398cc4ef28fa88778ac94b7bfb279ce2d8fe46832ddcd6193e1",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "esbjerg": {
+      "appPortId": "esbjerg",
+      "portName": "Esbjerg, Denmark",
+      "country": "Denmark",
+      "portInfo": {
+        "description": "Port Esbjerg announced turnaround capability using airport security screening and shuttles rather than a purpose-built cruise terminal. Cruise Esbjerg operations pages publish quay maxima including Englandskaj and Trafikhavnen."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town / harbour — ~90 min.",
+          "Wadden Sea / Fanø — long-call ferry/coach.",
+          "Fisheries museum — hours unverified.",
+          "Esbjerg town / waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Turnaround days: airport process can consume buffer."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port Esbjerg cruise quays — Esbjerg, Denmark",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town. Minutes unverified. Turnaround. Airport security then bus to ship.",
+        "distanceAnswer": "Town. Minutes unverified. Turnaround. Airport security then bus to ship.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d9918c88707256c4cc5ee22e29d526bd9f7a4579d0384ec9c45adf1e242dc166",
+        "landing_slug": "esbjerg-denmark",
+        "candidate_content_hash": "a0534f1eb912d4046ef2fa1cc5cf979058fb03c43f9610746ac0f752f28cbe77",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "flekkefjord": {
+      "appPortId": "flekkefjord",
+      "portName": "Flekkefjord, Norway",
+      "country": "Norway",
+      "portInfo": {
+        "description": "Hidrasundet entrance, protected basin, and Dutch-heritage wooden centre are the port’s own framing — not a megaport. Centre walking is the default short call; Hidra/Andabeløy need confirmed excursion timing."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Dutch Town / wooden centre walk",
+          "Dutch Town / historic wooden centre",
+          "Hidra / Andabeløy island trips"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "One-boat-per-day and 200 m LOA cap — confirm the published berth is Eschebrygga, not a logistics quay."
+      },
+      "gettingThere": {
+        "fromTerminal": "Eschebrygga — Port of Flekkefjord — Eschebrygga (old-town waterfront)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "32cf86ef54e1fc66101f8fc1838907fd579dfa22580cf582b9eacd8749d8f92f",
+        "landing_slug": "flekkefjord-norway",
+        "candidate_content_hash": "da5aaea0ca08899ccf3b3aa23134f516a1363ae1a6831eb7d474a3ec393d784d",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "flensburg": {
+      "appPortId": "flensburg",
+      "portName": "Flensburg, Germany",
+      "country": "Germany",
+      "portInfo": {
+        "description": "Flensburger Hafen’s security page records that cruise ships have called since 2004 (first noted MS Lili Marleen) under ISPS arrangements. City site provides municipal context. No berth maxima table was found on these pages — left as gaps."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Altstadt / harbour — ~90 min.",
+          "Museums — hours unverified.",
+          "Förde boats — schedule unverified.",
+          "Flensburg old town / harbour"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm exact quay — LOA table missing on cited pages."
+      },
+      "gettingThere": {
+        "fromTerminal": "Flensburg harbour (cruise berth TBD) — Flensburg, Germany",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Old town. Likely short if central quay — minutes unverified.",
+        "distanceAnswer": "Old town. Likely short if central quay — minutes unverified.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d1e394e32e1f7d1bcc74ae06710a3d1eacbf8112c051bed1dea8fbd46379afc2",
+        "landing_slug": "flensburg-germany",
+        "candidate_content_hash": "568bc168637d94820ad7282d25d8e219ea480e7e13a889832f785568f91ac504",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "galveston": {
+      "appPortId": "galveston",
+      "portName": "Galveston, TX, United States",
+      "country": "United States",
+      "portInfo": {
+        "description": "Galveston Wharves markets itself as the only cruise homeport in Texas and a major Gulf embarkation point for Caribbean itineraries. The facilities page documents four cruise piers with berth lengths and terminal floor areas: Pier 10 (1,343 ft berth), Pier 16 (1,203 ft berth), Pier 25 (1,000 ft), and Pier 27/28 Cruise Terminal 2 (1,000+ ft). A 7 Nov 2025 port press release announces the opening of the fourth terminal (Terminal 16) with MSC Seascape as first homeport ship and projects 445 sailings / about 3.9–4 million passenger movements for 2026. March 2026 Wharves brochure restates four cruise terminals totaling 715,000 sq ft and 45-minute sailing time to open water. Passenger door street addresses and WGS84 entrance pins were not found on the pages reviewed — pins remain null."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "The Strand Historic District — shops/restaurants near the port commercial area — ~120 min.",
+          "Seawall Boulevard / beach — transfer minutes Not verified.",
+          "Texas Seaport Museum / Elissa — tourist piers 19–22 area listed on facilities page — hours Not verified.",
+          "Moody Gardens — longer organised transfer.",
+          "Pleasure Pier — evening option with overnight buffer."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask your driver for the named cruise terminal / pier number (10, 16, 25, or 27/28). Galveston is not interchangeable with Houston container gates."
+      },
+      "gettingThere": {
+        "fromTerminal": "Cruise Terminal 10 (Pier 10)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Airports. March 2026 brochure states two major international airports within about 1.5 hours; named airports and timed routes Not verified on that brochure excerpt. Parking. Port parking page: online reservations, economy outdoor and garage options, lots within walking distance of each terminal, ADA spaces first-come, Port Police patrol. Rideshare. Brochure cites Lyft/Uber curbside drop-off/pickup. Houston Ship Channel confusion. Galveston Island cruise piers are not Port Houston Bayport — keep itineraries and rideshare destinations labeled Galveston Wharves.",
+        "distanceAnswer": "Airports. March 2026 brochure states two major international airports within about 1.5 hours; named airports and timed routes Not verified on that brochure excerpt. Parking. Port parking page: online reservations, economy outdoor and garage options, lots within walking distance of each terminal, ADA spaces first-come, Port Police patrol. Rideshare. Brochure cites Lyft/Uber curbside drop-off/pickup. Houston Ship Channel confusion. Galveston Island cruise piers are not Port Houston Bayport — keep itineraries and rideshare destinations labeled Galveston Wharves.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "86dee6a75887f26a0de57b10062120e9d47be8715584931f4109a3fa9af3f1b3",
+        "landing_slug": "galveston-tx-united-states",
+        "candidate_content_hash": "46ee67768745fe2f04f21c5847a15923d73637cbbfe535f8a47d17419aa65d12",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "galway": {
+      "appPortId": "galway",
+      "portName": "Galway, Ireland",
+      "country": "Ireland",
+      "portInfo": {
+        "description": "Port of Galway (Galway Harbour Company) sits in the city and welcomes cruise ships as a Cruise Ireland member. About pages note ~6,000 t DWT regular callers and inner-dock capacity for up to six vessels depending on size. The cruise schedule lists ship-by-ship LOA/beam/draft rather than one static maximum."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Latin Quarter / Shop Street — ~90 min.",
+          "Spanish Arch / harbour — ~45 min.",
+          "Cliffs of Moher coaches — long-call only.",
+          "Galway city centre / Latin Quarter"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Check schedule row for your ship’s LOA/draft."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Galway / Galway Harbour — Galway, Ireland",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Latin Quarter / centre. Harbour is in-city — walk minutes unverified.",
+        "distanceAnswer": "Latin Quarter / centre. Harbour is in-city — walk minutes unverified.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "550764ab3dc7a1aa752c4ca6742e2552cebe7fae4e90527e26672fe2ee8ac9dc",
+        "landing_slug": "galway-ireland",
+        "candidate_content_hash": "4d9fe17a8157eccc8c878051599917969bdcfff17ada0cd970cadf59ce74784c",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "gdansk": {
+      "appPortId": "gdansk",
+      "portName": "Gdańsk, Poland",
+      "country": "Poland",
+      "portInfo": {
+        "description": "Westerplatte berth is the history-first landing: authority text puts the Westerplatte monument and Wisłoujście fortress within a short walk. Main Town is a transfer, not a pier stroll."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Westerplatte monument",
+          "Główne Miasto — transfer",
+          "Westerplatte monument / approaches",
+          "Twierdza Wisłoujście",
+          "Główne Miasto / Main Town"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not treat Main Town as walkable from the entrance berths."
+      },
+      "gettingThere": {
+        "fromTerminal": "Nabrzeże Obrońców Westerplatte — Port Gdańsk — entrance / Westerplatte",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Authority: about 15 minutes berth→centre by road; licensed taxis on cruise berths.",
+        "distanceAnswer": "Authority: about 15 minutes berth→centre by road; licensed taxis on cruise berths.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "8bb4461b3d459a79c65a4684a6c661427ae5ddfcba4de2466736127094afd6fe",
+        "landing_slug": "gdansk-poland",
+        "candidate_content_hash": "d0761bfe3e8276c30098e7aacc9309793cb9a6282a9771903e516098f8649284",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "gdynia": {
+      "appPortId": "gdynia",
+      "portName": "Gdynia, Poland",
+      "country": "Poland",
+      "portInfo": {
+        "description": "Gdynia is a cruise call—confirm your berth on the daily programme before you plan the day."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Orłowo — transfer gap",
+          "Gdynia centre / Kościuszki approaches",
+          "Waterfront museum ships / Emigration Museum area",
+          "Orłowo cliff / pier"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not conflate Gdynia berths with Port Gdańsk Westerplatte landings."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Gdynia cruise berths — Port of Gdynia Authority S.A., ul. Rotterdamska 9, 81-337 Gdynia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Centre adjacency is likely but minutes not invented without a quay map.",
+        "distanceAnswer": "Centre adjacency is likely but minutes not invented without a quay map.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "ce77b9e055481cfaedc78ab570b8f23f2078a197ac7d6d606e29f230fe77be3f",
+        "landing_slug": "gdynia-poland",
+        "candidate_content_hash": "c49343dd6a3872a1345215a478264a60305f3b04969b2488e000928511af6ab3",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "glasgow": {
+      "appPortId": "glasgow",
+      "portName": "Glasgow, United Kingdom",
+      "country": "United Kingdom",
+      "portInfo": {
+        "description": "Treat a “Glasgow” cruise day as a coach/rail product unless the programme explicitly names a city quay. peoplemakeglasgow.com is the destination marketing capture for in-city planning."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "City centre / Merchant City",
+          "Kelvingrove — hours gap",
+          "Glasgow city centre / Merchant City approaches",
+          "Glasgow Cathedral / Necropolis",
+          "Kelvingrove Art Gallery and Museum"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Read Greenock vs Glasgow on the ticket before planning a walk-off."
+      },
+      "gettingThere": {
+        "fromTerminal": "Clydeport / River Clyde context (cruise often Greenock) — River Clyde / Peel Ports Clydeport estate",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Greenock→Glasgow is a scheduled transfer — no invented minutes.",
+        "distanceAnswer": "Greenock→Glasgow is a scheduled transfer — no invented minutes.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a8c2547cbbb1acfbb904a4ac1095b4467f8359b4f30481a6b77b05405e161cb5",
+        "landing_slug": "glasgow-united-kingdom",
+        "candidate_content_hash": "10d2512c91c2f6b3cf90979548942f9849fdfe2ca96e52d9741e2b55ca7b89ef",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "gothenburg": {
+      "appPortId": "gothenburg",
+      "portName": "Gothenburg, Sweden",
+      "country": "Sweden",
+      "portInfo": {
+        "description": "West-Sweden commercial gateway with published cruise seasons. Confirm which terminal before planning a walk into Avenyn or an archipelago boat."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "City centre approaches",
+          "Archipelago boat sightseeing",
+          "Liseberg — hours gap",
+          "Gothenburg archipelago boat sightseeing",
+          "City centre / Avenyn approaches"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Archipelago boats need a verified return before all-aboard."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Gothenburg cruise terminals — Port of Gothenburg",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Landing-dependent — no invented minutes.",
+        "distanceAnswer": "Landing-dependent — no invented minutes.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "120c1d8f4b024f795b473a8bdbbb36849bbc8af3e77b78934a79d191c18395f6",
+        "landing_slug": "gothenburg-sweden",
+        "candidate_content_hash": "67af0626fb3c9d3d34f297f948066b9caaef75c3f4d451f3c1d362a0de81322a",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "greenock": {
+      "appPortId": "greenock",
+      "portName": "Greenock, United Kingdom",
+      "country": "United Kingdom",
+      "portInfo": {
+        "description": "Greenock is the berth; Glasgow is usually the city product. Do not invent pier-to-George-Square walk times."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Greenock waterfront / town",
+          "Glasgow city transfer",
+          "Greenock waterfront / town approaches",
+          "Glasgow city (transfer)",
+          "Edinburgh day coach"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If the itinerary says “Glasgow,” confirm you are actually at Greenock before planning a walk-off."
+      },
+      "gettingThere": {
+        "fromTerminal": "Greenock Ocean Terminal / Greenock cruise vessel berth — Greenock, Inverclyde — Peel Ports Clydeport",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town waterfront may be near the terminal; Glasgow needs a transfer — no invented minutes.",
+        "distanceAnswer": "Town waterfront may be near the terminal; Glasgow needs a transfer — no invented minutes.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "190e600bba3c3d63ea2659651f3fb28d130ca6d9dbc097c8353e6be2e59cc180",
+        "landing_slug": "greenock-united-kingdom",
+        "candidate_content_hash": "1df3991accab523a15548cd42a76fcbf76c858a633e5fff53d57bfbeacc4fa0b",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "savona": {
+      "appPortId": "savona",
+      "portName": "Savona, Italy",
+      "country": "Italy",
+      "portInfo": {
+        "description": "Palacrociere is Savona’s cruise terminal. Its how-to-reach page publishes GPS coordinates and states the port sits in front of the historic centre with about a 5–10 minute walk to main attractions across a pedestrian bridge. The city has no airport; road access is via A6 (Turin) and A10 (Genoa/Ventimiglia)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Exit: 15",
+          "Centre walk: 75",
+          "Return: 15",
+          "Buffer: 60",
+          "Historic centre walk — 5–10 min from terminal. ~60 min."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Use the pedestrian bridge route described by Palacrociere; photograph all-aboard before shopping streets."
+      },
+      "gettingThere": {
+        "fromTerminal": "Palacrociere Savona Cruise Terminal — Terminal Crociere Savona, 17100 Savona, Italy",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Historic centre. ~5–10 minutes walk via pedestrian bridge. Airport. None in Savona; Genoa/other airports require road transfer.",
+        "distanceAnswer": "Historic centre. ~5–10 minutes walk via pedestrian bridge. Airport. None in Savona; Genoa/other airports require road transfer.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "02b99922a17533cd75ca76fed9682bcf9be703d32fc49c6c61585b2a2af686b0",
+        "landing_slug": "savona-italy",
+        "candidate_content_hash": "853d631341437d9103da1c968c7abd53e721171c3560dee83ae8e3670bd0b9ec",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "sibenik": {
+      "appPortId": "sibenik",
+      "portName": "Sibenik, Croatia",
+      "country": "Croatia",
+      "portInfo": {
+        "description": "Lučka uprava Šibenik publishes operational-coast data including dedicated cruise berths at Vrulje: S1 (133 m, 8.00 m depth) and E (191 m, 10.00 m depth). The authority also maintains a Šibenik cruise destination page. The UNESCO cathedral anchors shore days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Cathedral of St. James — ~45 min.",
+          "Old town lanes — ~60 min.",
+          "Krka — long call only.",
+          "Cathedral of St. James (UNESCO)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Note whether you are on Vrulje S1 or E — lengths differ."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Šibenik — Vrulje cruise berths — Vladimira Nazora 53 / Port of Šibenik, 22000 Šibenik, Croatia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Cathedral / old town. Short walk from Vrulje when berthed there — minutes estimated. Krka National Park. Long-call coach only — minutes GAP.",
+        "distanceAnswer": "Cathedral / old town. Short walk from Vrulje when berthed there — minutes estimated. Krka National Park. Long-call coach only — minutes GAP.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d5140ce190505385809cc8c0314b0647ead587caf5e70e628b5f38dd7e5ffcff",
+        "landing_slug": "sibenik-croatia",
+        "candidate_content_hash": "3e6f01cf6debbfd5fcd64c71937977f6ae39c04a57e63ba05db2f1dc3647771b",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.377Z"
+      }
+    },
+    "sorrento": {
+      "appPortId": "sorrento",
+      "portName": "Sorrento, Italy",
+      "country": "Italy",
+      "portInfo": {
+        "description": "Sorrento’s Marina Piccola is the ferry and tender interface for the cliff-top town. The marina consortium publishes geographic coordinates Lat. 40°37’.83 N, Long. 14°22’.70 E and harbour services. Cruise ships generally anchor and tender; sea state can disrupt landings."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Centro / Piazza Tasso — ~75 min.",
+          "Cliff viewpoints — ~30 min.",
+          "Capri ferry — long call only.",
+          "Sorrento centro / Piazza Tasso area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Last tender beats Capri FOMO."
+      },
+      "gettingThere": {
+        "fromTerminal": "Marina Piccola — tender / ferry harbour (Sorrento) — Via Marina Piccola, Sorrento, Italy",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Piazza Tasso / centro. Uphill from marina — walk, road or lift; minutes estimated; lift hours GAP. Capri / Amalfi. Ferries from Marina Piccola — only with return before last tender.",
+        "distanceAnswer": "Piazza Tasso / centro. Uphill from marina — walk, road or lift; minutes estimated; lift hours GAP. Capri / Amalfi. Ferries from Marina Piccola — only with return before last tender.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "8df0e64b755663ceccedde4ecacb59ce5385fa8fa61a6cc58b252962ad8c0304",
+        "landing_slug": "sorrento-italy",
+        "candidate_content_hash": "68d2d64b5193b63c406235a01ea677970c0bc4e895bfe65720869609f8c412c3",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.378Z"
+      }
+    },
+    "st-tropez": {
+      "appPortId": "st-tropez",
+      "portName": "Saint-Tropez, France",
+      "country": "France",
+      "portInfo": {
+        "description": "sainttropeztourisme.com (Office de Tourisme) presents a Provençal village on a peninsula — fishing harbour, events, and Côte d’Azur light. VPCC adds Place des Lices pétanque, Citadel and Annonciade Museum as heritage stops amid the fashion mythology."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Vieux Port + lanes",
+          "Citadel when open",
+          "Beaches only with last-tender margin (gap on operator hours)",
+          "Vieux Port and village lanes",
+          "Citadel of Saint-Tropez"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Photograph tender number before climbing into the lanes."
+      },
+      "gettingThere": {
+        "fromTerminal": "Saint-Tropez tender landing (Vieux Port / harbour area) — Quai / Vieux Port area, 83990 Saint-Tropez",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Tender ~1 NM then short walk into village. No cruise shuttle per VPCC.",
+        "distanceAnswer": "Tender ~1 NM then short walk into village. No cruise shuttle per VPCC.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "851e68618dd6d8966509b491368690674c4778d07092e6b9f3d06b1f74d5f729",
+        "landing_slug": "st-tropez-france",
+        "candidate_content_hash": "2890ec833bb6e33be28def0d7759761f195057f357b41ab4c27dfe9941ce1077",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.378Z"
+      }
+    },
+    "syracuse": {
+      "appPortId": "syracuse",
+      "portName": "Syracuse (Siracusa), Italy",
+      "country": "Italy",
+      "portInfo": {
+        "description": "Ortigia is the walkable historic island; the Archaeological Park sits on the mainland. AdSP Mar di Sicilia Orientale manages the regional port system including Syracuse (MedCruise). Direct AdSP HTML was partially captured; pier lengths cited from the MedCruise member text."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Ortigia lanes + Duomo square",
+          "Neapolis Archaeological Park",
+          "Pantalica — not for short calls (gap)",
+          "Ortigia historic island",
+          "Pantalica necropolis"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm dock vs Ortigia tender before planning the first walk."
+      },
+      "gettingThere": {
+        "fromTerminal": "Porto Grande cruise landing area (Siracusa) — Porto Grande waterfront, Siracusa",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Ortigia via short bridges from mainland quays. Park needs road/taxi — no invented minutes.",
+        "distanceAnswer": "Ortigia via short bridges from mainland quays. Park needs road/taxi — no invented minutes.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d044b9e29eabee2bef1b942c074fdf7088fab702ffdf5cdf5d90b2fc72ed7a5f",
+        "landing_slug": "syracuse-italy",
+        "candidate_content_hash": "5a9dc126069d1245f9d91d745bdd6f04a80aef428eb5b4b480eae3e1af062aba",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.378Z"
+      }
+    },
+    "tromso": {
+      "appPortId": "tromso",
+      "portName": "Tromsø, Norway",
+      "country": "Norway",
+      "portInfo": {
+        "description": "Tromsø Harbour publishes a quay map with 2,100 m total quay length and depths from 3.5 to 22 m. For cruise, Quay 8 in the city centre (300 m, 7.9–9.5 m) is explicitly listed for cruise ships, while Quay 24 at Breivika (410 m, 10.4–11.0 m) also lists cruise among cargo/fishing uses. Quay 7 Prostneset (190 m) is centre-side for coastal/service traffic. Port Control +47 91 10 74 44 / VHF 12. Door GPS not published as verified decimals on the captured page."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Centre / waterfront — ~90 min from Quay 8.",
+          "Arctic Cathedral / cable car — allow transit.",
+          "Tromsø centre / waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Breivika vs Quay 8 changes the entire independent day plan."
+      },
+      "gettingThere": {
+        "fromTerminal": "Quay 8 — City centre — City centre, Tromsø",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Quay 8 is city-centre; Breivika needs bus/taxi — confirm berth.",
+        "distanceAnswer": "Quay 8 is city-centre; Breivika needs bus/taxi — confirm berth.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "7c821817f640094226d0c25df1dca233605c08c2ed6fecd2cf1a98b0661b0fe0",
+        "landing_slug": "tromso-norway",
+        "candidate_content_hash": "c9c0e57953937e767d14cdaf83171703ae0a9f572515dbfa9be9c80d5d0c9f75",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "7afa59d484ddb6df9cb8f20e69c0a9ca8044d6b2202b759fea45a5ca3ba013e1",
+        "applied_at_utc": "2026-11-09T08:19:54.378Z"
+      }
+    },
+    "greifswald": {
+      "appPortId": "greifswald",
+      "portName": "Greifswald, Germany",
+      "country": "Germany",
+      "portInfo": {
+        "description": "Expect a small Bodden/Ryck passenger harbour and a Hanseatic university town. Museumshafen in the Altstadt is the cultural target; Wieck is the waterfront village with the drawbridge."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Museumshafen (year-round free access)",
+          "Wieck drawbridge / village",
+          "Museumshafen Greifswald",
+          "Wieck wooden drawbridge",
+          "Klosterruine Eldena"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm vessel size vs the Ryck passenger pier before promising a call here."
+      },
+      "gettingThere": {
+        "fromTerminal": "Wieck passenger pier (Fahrgastschiffe) — Am Hafen 4, 17493 Greifswald-Wieck",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Wieck ≠ Altstadt Museumshafen — plan the hop.",
+        "distanceAnswer": "Wieck ≠ Altstadt Museumshafen — plan the hop.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "11ab6472546c34e74bcc7b72a8f6bdfe5a939d4fa907f2c053f2a0cfd843c6b2",
+        "landing_slug": "greifswald-germany",
+        "candidate_content_hash": "4574f466a88fb609fa88a2244b763f6c0453352aacc8dafd0ea47dd0746bcc4e",
+        "locked_at_utc": "2026-11-09T08:19:50.674Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage65_next_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage65_next_25_release_prep": true,
+        "stage65_next_25_bundle_hash": "4f8ad40fd7c138c2b3bf52579fb7787e28ff9c168433b2e478653a6c6ccab490",
+        "applied_at_utc": "2026-11-09T08:20:52.999Z"
       }
     }
   },

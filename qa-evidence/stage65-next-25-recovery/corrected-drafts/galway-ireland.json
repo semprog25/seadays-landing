@@ -1,0 +1,72 @@
+{
+  "landing_slug": "galway-ireland",
+  "draft": {
+    "landing_slug": "galway-ireland",
+    "appPortId": "galway",
+    "portName": "Galway",
+    "country": "Ireland",
+    "portInfo": {
+      "description": "Port of Galway (Galway Harbour Company) sits in the city and welcomes cruise ships as a Cruise Ireland member. About pages note ~6,000 t DWT regular callers and inner-dock capacity for up to six vessels depending on size. The cruise schedule lists ship-by-ship LOA/beam/draft rather than one static maximum."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Galway / Galway Harbour — Galway, Ireland",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Latin Quarter / centre. Harbour is in-city — walk minutes unverified.",
+      "distanceAnswer": "Latin Quarter / centre. Harbour is in-city — walk minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Latin Quarter / Shop Street — ~90 min.",
+        "Spanish Arch / harbour — ~45 min.",
+        "Cliffs of Moher coaches — long-call only.",
+        "Galway city centre / Latin Quarter"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check schedule row for your ship’s LOA/draft."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "550764ab3dc7a1aa752c4ca6742e2552cebe7fae4e90527e26672fe2ee8ac9dc",
+      "existing_guide_hash": "5a97fbdabb4b8a96",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/galway-ireland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.811Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

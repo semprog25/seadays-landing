@@ -1,0 +1,73 @@
+{
+  "landing_slug": "chios-greece",
+  "draft": {
+    "landing_slug": "chios-greece",
+    "appPortId": "chios",
+    "portName": "Chios",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Chios mixes an urban harbour with an island hinterland shaped by mastic cultivation and medieval fortified villages. A town call can focus on the castle and museum quarter; Pyrgi, Mesta and Nea Moni require deliberate road time. Do not let a compact island outline turn those into adjacent old-town streets."
+    },
+    "gettingThere": {
+      "fromTerminal": "Central Port of Chios — passenger/cruise complex — Central harbour,Chios town",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Castle of Chios, Castle of Chios, Chios town: An inhabited fortified quarter, not just an isolated ruin. Allow about 90 minutes (editorial estimate). Keep to public streets; individual monuments may have separate entry.",
+        "Byzantine Museum at Mecidiye Cami, Vounaki Square, Chios 82100: A named town-centre museum building with Byzantine-to-modern material. Allow about 75 minutes (editorial estimate). Opening/fees on the undated regional listing need a current venue check.",
+        "Chios Municipal Art Gallery, 1 Andreas Syggros Street, Chios 82100: A compact art stop with a source-backed street address. Allow about 60 minutes (editorial estimate). Confirm current exhibition and public hours.",
+        "Pyrgi medieval village, Pyrgi village centre, Chios: A focused southern-village visit within the mastic-country defensive network. Allow about 90 minutes (editorial estimate). Driver pickup at the agreed village-edge point; not a port-side walk.",
+        "Mesta medieval village, Mesta village centre, Chios: An inhabited fortified village distinct from Mesta’s cruise harbour. Allow about 90 minutes (editorial estimate). Narrow lanes; confirm accessible route and a specific vehicle meeting point."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Write the port name and town/landing in the driver agreement. Mesta VILLAGE and Mesta PORT are also different meeting places; do not use the name alone for your return pickup."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ee07f856c855b31abe4bd11e59d7a4bd3b8884d6ab8a724a6b7e632233402ed0",
+      "existing_guide_hash": "25cf72a4f43650d3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/chios-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.768Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,74 @@
+{
+  "landing_slug": "cuxhaven-germany",
+  "draft": {
+    "landing_slug": "cuxhaven-germany",
+    "appPortId": "cuxhaven",
+    "portName": "Cuxhaven",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Cuxhaven is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Cuxhaven (NPorts) — Cuxhaven, Germany",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town/shore minutes unverified.",
+      "distanceAnswer": "Town/shore minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town / shore — ~90 min.",
+        "Mudflat walks — tide-dependent.",
+        "Day coaches — long-call.",
+        "Cuxhaven town / North Sea shore"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask ship for exact quay — cruise table not extracted."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6d0b4d2ea91ed2ca139c415c571117f200cf70e91badc05b6ffb01daccb34d81",
+      "existing_guide_hash": "61483378b240643a",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/cuxhaven-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.772Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

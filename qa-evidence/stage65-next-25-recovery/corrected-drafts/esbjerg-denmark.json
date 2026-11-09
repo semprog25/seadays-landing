@@ -1,0 +1,72 @@
+{
+  "landing_slug": "esbjerg-denmark",
+  "draft": {
+    "landing_slug": "esbjerg-denmark",
+    "appPortId": "esbjerg",
+    "portName": "Esbjerg",
+    "country": "Denmark",
+    "portInfo": {
+      "description": "Port Esbjerg announced turnaround capability using airport security screening and shuttles rather than a purpose-built cruise terminal. Cruise Esbjerg operations pages publish quay maxima including Englandskaj and Trafikhavnen."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port Esbjerg cruise quays — Esbjerg, Denmark",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town. Minutes unverified. Turnaround. Airport security then bus to ship.",
+      "distanceAnswer": "Town. Minutes unverified. Turnaround. Airport security then bus to ship.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town / harbour — ~90 min.",
+        "Wadden Sea / Fanø — long-call ferry/coach.",
+        "Fisheries museum — hours unverified.",
+        "Esbjerg town / waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Turnaround days: airport process can consume buffer."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d9918c88707256c4cc5ee22e29d526bd9f7a4579d0384ec9c45adf1e242dc166",
+      "existing_guide_hash": "69e91624be9961eb",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/esbjerg-denmark.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.791Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

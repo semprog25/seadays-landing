@@ -1,0 +1,74 @@
+{
+  "landing_slug": "gdansk-poland",
+  "draft": {
+    "landing_slug": "gdansk-poland",
+    "appPortId": "gdansk",
+    "portName": "Gdańsk",
+    "country": "Poland",
+    "portInfo": {
+      "description": "Westerplatte berth is the history-first landing: authority text puts the Westerplatte monument and Wisłoujście fortress within a short walk. Main Town is a transfer, not a pier stroll."
+    },
+    "gettingThere": {
+      "fromTerminal": "Nabrzeże Obrońców Westerplatte — Port Gdańsk — entrance / Westerplatte",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Authority: about 15 minutes berth→centre by road; licensed taxis on cruise berths.",
+      "distanceAnswer": "Authority: about 15 minutes berth→centre by road; licensed taxis on cruise berths.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Westerplatte monument",
+        "Główne Miasto — transfer",
+        "Westerplatte monument / approaches",
+        "Twierdza Wisłoujście",
+        "Główne Miasto / Main Town"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not treat Main Town as walkable from the entrance berths."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8bb4461b3d459a79c65a4684a6c661427ae5ddfcba4de2466736127094afd6fe",
+      "existing_guide_hash": "552e1b325bd6254e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/gdansk-poland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.815Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

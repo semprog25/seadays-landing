@@ -1,0 +1,73 @@
+{
+  "landing_slug": "hellesylt-norway",
+  "draft": {
+    "landing_slug": "hellesylt-norway",
+    "appPortId": "hellesylt",
+    "portName": "Hellesylt",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Outer Geirangerfjord village quay — scenery-first, compact ashore. LOA “decided by master/pilot” on the 2026 facilities sheet — no fixed max LOA claimed here."
+    },
+    "gettingThere": {
+      "fromTerminal": "Hellesylt Cruise Pier — Hellesylt — Geirangerfjord Cruise Port",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Authority: direct access to the village from the modern cruise quay. No timed shuttle claim captured.",
+      "distanceAnswer": "Authority: direct access to the village from the modern cruise quay. No timed shuttle claim captured.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Hellesylt village / nature walk",
+        "Geiranger continuation — ship-dependent",
+        "Hellesylt village / waterfall approaches",
+        "Geiranger (same-day fjord call continuation)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Half-day Hellesylt + Geiranger split is a ship decision — do not leave luggage plans ashore assuming a full day."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f48928b9ab9de420d51f30aafad16447bbff62dbbad1f58a9f6d82f72be11117",
+      "existing_guide_hash": "c021416b6ca3a76b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/hellesylt-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.853Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

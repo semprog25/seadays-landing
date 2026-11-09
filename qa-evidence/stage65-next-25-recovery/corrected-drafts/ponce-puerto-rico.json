@@ -1,0 +1,77 @@
+{
+  "landing_slug": "ponce-puerto-rico",
+  "draft": {
+    "landing_slug": "ponce-puerto-rico",
+    "appPortId": "ponce",
+    "portName": "Ponce",
+    "country": "Puerto Rico",
+    "portInfo": {
+      "description": "South-coast Puerto Rico municipal port. Logistics HTML pier remarks for 4–6 emphasise cargo uses — cruise assignment taken from the nautical PDF’s explicit cruise line; reconcile as an open gap."
+    },
+    "gettingThere": {
+      "fromTerminal": "Piers 4, 5, 6 (cruise ships) — Port of Ponce / Autoridad del Puerto de Ponce",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Historic centre transfer metres/time gap on fetched port PDFs (third-party “10-minute ride” not promoted to fact). Confirm taxi/shorex.",
+      "distanceAnswer": "Historic centre transfer metres/time gap on fetched port PDFs (third-party “10-minute ride” not promoted to fact). Confirm taxi/shorex.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Ponce historic centre"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm alongside vs tender — PDF documents both modes."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "818249f65489606b04dff880301de944659b548cae22e966e80700e412e3647b",
+      "existing_guide_hash": "6eba9015a32667c0",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ponce-puerto-rico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet",
+        "insufficient_supported_attractions_1"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.705Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": false,
+    "failures": [
+      "schema_top_things_1",
+      "passenger_top_things_1_of_3",
+      "factual_insufficient_attractions_1"
+    ],
+    "warnings": [],
+    "factual": {
+      "flags": [
+        "insufficient_attractions_1"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": false,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_EDITORIAL_FIX",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

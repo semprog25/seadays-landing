@@ -1,0 +1,72 @@
+{
+  "landing_slug": "flensburg-germany",
+  "draft": {
+    "landing_slug": "flensburg-germany",
+    "appPortId": "flensburg",
+    "portName": "Flensburg",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Flensburger Hafen’s security page records that cruise ships have called since 2004 (first noted MS Lili Marleen) under ISPS arrangements. City site provides municipal context. No berth maxima table was found on these pages — left as gaps."
+    },
+    "gettingThere": {
+      "fromTerminal": "Flensburg harbour (cruise berth TBD) — Flensburg, Germany",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Old town. Likely short if central quay — minutes unverified.",
+      "distanceAnswer": "Old town. Likely short if central quay — minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Altstadt / harbour — ~90 min.",
+        "Museums — hours unverified.",
+        "Förde boats — schedule unverified.",
+        "Flensburg old town / harbour"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm exact quay — LOA table missing on cited pages."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d1e394e32e1f7d1bcc74ae06710a3d1eacbf8112c051bed1dea8fbd46379afc2",
+      "existing_guide_hash": "70cde0241241a1a5",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/flensburg-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.799Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

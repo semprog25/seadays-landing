@@ -1,0 +1,72 @@
+{
+  "landing_slug": "sorrento-italy",
+  "draft": {
+    "landing_slug": "sorrento-italy",
+    "appPortId": "sorrento",
+    "portName": "Sorrento",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Sorrento’s Marina Piccola is the ferry and tender interface for the cliff-top town. The marina consortium publishes geographic coordinates Lat. 40°37’.83 N, Long. 14°22’.70 E and harbour services. Cruise ships generally anchor and tender; sea state can disrupt landings."
+    },
+    "gettingThere": {
+      "fromTerminal": "Marina Piccola — tender / ferry harbour (Sorrento) — Via Marina Piccola, Sorrento, Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Piazza Tasso / centro. Uphill from marina — walk, road or lift; minutes estimated; lift hours GAP. Capri / Amalfi. Ferries from Marina Piccola — only with return before last tender.",
+      "distanceAnswer": "Piazza Tasso / centro. Uphill from marina — walk, road or lift; minutes estimated; lift hours GAP. Capri / Amalfi. Ferries from Marina Piccola — only with return before last tender.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Centro / Piazza Tasso — ~75 min.",
+        "Cliff viewpoints — ~30 min.",
+        "Capri ferry — long call only.",
+        "Sorrento centro / Piazza Tasso area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Last tender beats Capri FOMO."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8df0e64b755663ceccedde4ecacb59ce5385fa8fa61a6cc58b252962ad8c0304",
+      "existing_guide_hash": "911dc13eb462772c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/sorrento-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.721Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}
