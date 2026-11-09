@@ -110,6 +110,7 @@ const {
   buildSlugToAppPortIdMap,
   extractAllPublicPortGuides,
   writePublicPortGuidesFile,
+  sanitizeBootstrapPublicPortGuidesExtract,
 } = require('./lib/publicPortGuideAdapter');
 const {
   loadKnownAffiliatePortIds,
@@ -141,7 +142,7 @@ function ensurePublicPortGuides(repoRoot, appRoot) {
   let payload = loadPublicPortGuidesFile(repoRoot);
   if (payload?.byAppPortId && Object.keys(payload.byAppPortId).length) return payload;
   console.log('[generateBlogs] public-port-guides.json missing/empty — extracting from app…');
-  payload = extractAllPublicPortGuides(appRoot);
+  payload = sanitizeBootstrapPublicPortGuidesExtract(extractAllPublicPortGuides(appRoot));
   writePublicPortGuidesFile(repoRoot, payload);
   return payload;
 }

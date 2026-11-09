@@ -336,6 +336,8 @@ function computePolicyApply({
   };
 }
 
+const { writePublicPortGuidesFileAtomic } = require('../publicPortGuideAdapter');
+
 function atomicWriteJson(filePath, data) {
   const dir = path.dirname(filePath);
   fs.mkdirSync(dir, { recursive: true });
@@ -382,7 +384,7 @@ function writeApplyBatch({ landingRepoRoot, appPortId, guidesPayload, terminalsP
   if (fs.existsSync(guidesPath)) fs.copyFileSync(guidesPath, guidesBackup);
   if (fs.existsSync(terminalsPath)) fs.copyFileSync(terminalsPath, terminalsBackup);
   try {
-    atomicWriteJson(guidesPath, nextGuides);
+    writePublicPortGuidesFileAtomic(landingRepoRoot, nextGuides);
     atomicWriteJson(terminalsPath, nextTerminals);
     fs.unlinkSync(guidesBackup);
     fs.unlinkSync(terminalsBackup);
@@ -415,7 +417,7 @@ function writeContentOnlyGuide({ landingRepoRoot, appPortId, guidesPayload, next
   const guidesBackup = `${guidesPath}.bak-content-only-${process.pid}`;
   if (fs.existsSync(guidesPath)) fs.copyFileSync(guidesPath, guidesBackup);
   try {
-    atomicWriteJson(guidesPath, nextGuides);
+    writePublicPortGuidesFileAtomic(landingRepoRoot, nextGuides);
     if (fs.existsSync(guidesBackup)) fs.unlinkSync(guidesBackup);
   } catch (err) {
     if (fs.existsSync(guidesBackup)) fs.copyFileSync(guidesBackup, guidesPath);

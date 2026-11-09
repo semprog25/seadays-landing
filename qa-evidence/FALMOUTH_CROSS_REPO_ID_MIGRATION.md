@@ -12,7 +12,25 @@ This is **not** an intentional alias (unlike Nice/Villefranche in `collisionGrou
 
 - `scripts/lib/bulkPortPublication/crossCountryHomonymPublicationGuards.js`
 - Blocks `falmouth-jamaica` from writing `byAppPortId.falmouth` while UK passenger editorial is present
-- Validated on `writePublicPortGuidesFile`, `applyPortResearch` atomic writes, and stage `*-apply-*` assignment
+- **Persistence boundary:** `writePublicPortGuidesFile` / `writePublicPortGuidesFileAtomic` (payload assert before any disk write)
+- **Assignment boundary:** `assignPublicPortGuideByAppPortId` on stage `*-apply-*` and `applyPortResearch` merges
+- **Empty bootstrap:** `sanitizeBootstrapPublicPortGuidesExtract` in `generateBlogs` / `regenerate-port-pages` omits unsafe `falmouth` slot from app extract only (does not run when guides JSON already populated)
+
+### Writer coverage
+
+| Path | Class | Guard |
+|------|-------|-------|
+| Stage `29–67` apply + `applyPortResearch` | Active publication | assign + `writePublicPortGuidesFile` / `writePublicPortGuidesFileAtomic` |
+| `stage55-scope-pr-to-five.js` | Legacy release scope (maintenance) | `writePublicPortGuidesFile` |
+| `strip-public-port-guide-research-markers.js` (`--write`) | Maintenance | `writePublicPortGuidesFile` |
+| `strip-port-guide-boilerplate.js` | Maintenance | `writePublicPortGuidesFile` |
+| `enrich-priority-port-guides.js` | Maintenance | `writePublicPortGuidesFile` |
+| `phase1-correction-pass.js` | Maintenance | `writePublicPortGuidesFile` |
+| `correct-phase1-port-quality.js` | Maintenance | `writePublicPortGuidesFile` |
+| `extract-public-port-guides.js` | Active bootstrap tool | `writePublicPortGuidesFile` |
+| `generateBlogs.js` / `regenerate-port-pages.js` empty guides | CI bootstrap | sanitize + `writePublicPortGuidesFile` |
+| Stage validators / reconcile (read-only) | Read-only | N/A — cannot modify Falmouth slot |
+| Manual `fs.writeFileSync` / editor | Out of band | Not guardable in repo |
 
 ## Required cross-repo migration (not done here)
 

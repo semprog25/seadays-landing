@@ -10,6 +10,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
 
 const REPO = path.join(__dirname, '..');
 const GUIDES_PATH = path.join(REPO, 'data', 'public-port-guides.json');
@@ -250,7 +251,7 @@ function main() {
     kielEnrichmentSource: 'PORT OF KIEL official terminal pages (portofkiel.com)',
   };
 
-  fs.writeFileSync(GUIDES_PATH, JSON.stringify(guidesDoc, null, 2) + '\n');
+  writePublicPortGuidesFile(REPO, guidesDoc);
   fs.writeFileSync(TERMINALS_PATH, JSON.stringify(terminalsDoc, null, 2) + '\n');
   fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
   fs.writeFileSync(REPORT_PATH, JSON.stringify(stats, null, 2) + '\n');

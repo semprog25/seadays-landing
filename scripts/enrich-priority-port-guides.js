@@ -12,6 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
 
 const REPO = path.join(__dirname, '..');
 const GUIDES_PATH = path.join(REPO, 'data', 'public-port-guides.json');
@@ -2294,7 +2295,7 @@ function main() {
   };
   overrides.updatedAt = new Date().toISOString();
 
-  fs.writeFileSync(GUIDES_PATH, JSON.stringify(guides, null, 2) + '\n', 'utf8');
+  writePublicPortGuidesFile(REPO, guides);
   fs.writeFileSync(TERMINALS_PATH, JSON.stringify(terminals, null, 2) + '\n', 'utf8');
   fs.writeFileSync(OVERRIDES_PATH, JSON.stringify(overrides, null, 2) + '\n', 'utf8');
   fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2) + '\n', 'utf8');

@@ -16,6 +16,7 @@ const GUIDES_PATH = path.join(REPO, 'data', 'public-port-guides.json');
 const REPORT_PATH = path.join(REPO, 'data', 'reports', 'port-guide-research-marker-strip-report.json');
 
 const { stripWikiCitationMarkers } = require('./lib/portCopyHygiene');
+const { writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
 const { listPassengerTextFields, containsResearchSourceMarker } = require('./lib/publicPortGuidePassengerTextFields');
 
 const WRITE = process.argv.includes('--write');
@@ -65,7 +66,7 @@ function main() {
   fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
   fs.writeFileSync(REPORT_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), write: WRITE, ...report }, null, 2)}\n`, 'utf8');
   if (WRITE) {
-    fs.writeFileSync(GUIDES_PATH, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+    writePublicPortGuidesFile(REPO, payload);
   }
   console.log(
     `[strip-public-port-guide-research-markers] ports=${new Set(report.ports.map((p) => p.portId)).size} fields=${report.fieldsTouched} markers=${report.totalMarkers} write=${WRITE}`
