@@ -1,0 +1,77 @@
+{
+  "landing_slug": "st-lucia-castries-st-lucia",
+  "draft": {
+    "landing_slug": "st-lucia-castries-st-lucia",
+    "appPortId": "st-lucia",
+    "portName": "St. Lucia (Castries)",
+    "country": "Saint Lucia",
+    "portInfo": {
+      "description": "Castries concentrates Saint Lucia’s cruise traffic. SLASPA describes Pointe Seraphine as the island’s dedicated cruise shopping/berth complex within walking distance of the city, with La Place Carenage serving ships at the Queen Elizabeth II docks and water taxis linking the two retail hubs; it also publishes Pointe Seraphine berth lengths/depths and multi-use berth dimensions. The commercial Saint Lucia Cruise Port site (GPH) markets a redeveloped arrivals terminal, lists Pointe Seraphine PS1/PS2 at 250 m / 245 m LOA with 9.0 m draught plus larger numbered berths, and reports 2024 call/passenger totals. Because the two official-facing tables do not match line-for-line, SeaDays records both citations and leaves reconciliation as an open question rather than picking a silent “winner.”",
+      "location": "",
+      "timezone": "AST (UTC-4)",
+      "language": "English, Saint Lucian Creole",
+      "currency": "East Caribbean Dollar (XCD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Pointe Seraphine / Saint Lucia Cruise Port (Castries) — Castries, Saint Lucia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City/market walk marketed as very short from terminal; minutes still treat as unsurveyed. Soufrière / Pitons are long coach days — ≥120 min buffer.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "City/market walk marketed as very short from terminal; minutes still treat as unsurveyed. Soufrière / Pitons are long coach days — ≥120 min buffer."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Pointe Seraphine / Carenage shopping — ~90–120 min.",
+        "Castries market — hours not verified.",
+        "Soufrière / Pitons — long call only.",
+        "Pointe Seraphine / La Place Carenage shopping"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask which berth number you are on — Castries can host multiple ships."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "85274325b3cc47df7216ba029641a45e6d2557fe9c5c077cdba195347c3b08af",
+      "existing_guide_hash": "29a544e95e843890",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/st-lucia-castries-st-lucia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.542Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

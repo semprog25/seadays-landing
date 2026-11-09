@@ -1,0 +1,76 @@
+{
+  "landing_slug": "ulvik-norway",
+  "draft": {
+    "landing_slug": "ulvik-norway",
+    "appPortId": "ulvik",
+    "portName": "Ulvik",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Picturesque Norwegian village in Hardangerfjord known for fruit growing and scenic beauty.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Ulvik pier",
+      "transportation": [
+        "Tender service",
+        "Walking to village"
+      ],
+      "distanceToCity": "Directly in Ulvik village",
+      "walkingTime": "5-10 minutes to village center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Limited taxis available",
+      "publicTransport": "Limited local service",
+      "distanceAnswer": "Directly in Ulvik village"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Ulvik village / waterfront — ~60–90 min.",
+        "Olav H. Hauge Centre — hours not verified.",
+        "Fruit & Cider Route farms — seasonal; transfer not surveyed.",
+        "Olav H. Hauge Centre / village orchards"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Treat Ulvik as tender-first until a municipal quay sheet is on file."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "759da02cce3fbcedda684cf128a33681f50c2fc39665c02f650bf87e633e58e4",
+      "existing_guide_hash": "1658a7ccb053b529",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ulvik-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.565Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

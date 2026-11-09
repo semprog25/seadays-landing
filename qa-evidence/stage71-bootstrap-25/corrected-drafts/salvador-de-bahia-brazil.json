@@ -1,0 +1,79 @@
+{
+  "landing_slug": "salvador-de-bahia-brazil",
+  "draft": {
+    "landing_slug": "salvador-de-bahia-brazil",
+    "appPortId": "salvador",
+    "portName": "Salvador de Bahia",
+    "country": "Brazil",
+    "portInfo": {
+      "description": "Brazil's first capital, known for its Portuguese colonial architecture and Afro-Brazilian culture.",
+      "location": "",
+      "timezone": "BRT (UTC-3)",
+      "language": "Portuguese",
+      "currency": "Brazilian Real (BRL)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal Marítimo de Passageiros do Porto de Salvador (Contermas) — Avenida da França, Comércio, Salvador, Bahia (southern end of organised port polygonal)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Waterfront Comércio location; Elevador Lacerda links lower city to Pelourinho. Taxi/rideshare; prices null. Steep hills and heat affect walkers.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Waterfront Comércio location; Elevador Lacerda links lower city to Pelourinho. Taxi/rideshare; prices null. Steep hills and heat affect walkers."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Elevador Lacerda + Mercado Modelo — next to the terminal zone.",
+        "Pelourinho historic centre — uphill from the elevator.",
+        "Forte São Marcelo views — offshore fort named by operator.",
+        "Barra lighthouse / beaches — longer transfer; buffer required.",
+        "Pelourinho / Elevador Lacerda area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Budget time for the Elevador queue and the climb into Pelourinho in heat/humidity."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "5be90f919f833edb7817261f23326af1939c75c9d0c5cd73f584717b305d9f5c",
+      "existing_guide_hash": "c24748c50a11e3f1",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/salvador-de-bahia-brazil.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.511Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

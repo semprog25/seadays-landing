@@ -1,0 +1,79 @@
+{
+  "landing_slug": "santiago-san-antonio-chile",
+  "draft": {
+    "landing_slug": "santiago-san-antonio-chile",
+    "appPortId": "san-antonio",
+    "portName": "Santiago (San Antonio)",
+    "country": "Chile",
+    "portInfo": {
+      "description": "This SeaDays entry is the Santiago-market cruise gateway at San Antonio on Chile’s central Pacific coast. DP World holds the multipurpose terminal concession (from 2011) and publishes a 700 m berthing facility with cruise among quayside services. A November 2025 DP World news release marks the 2025–26 cruise season (15 ships, Oct 2025–Apr 2026) and states more than 450,000 visitors since cruise operations began in 2017. Valparaíso is a separate SeaDays port — do not conflate the two.",
+      "location": "",
+      "timezone": "CLT (UTC-4) / CLST (UTC-3)",
+      "language": "Spanish",
+      "currency": "Chilean Peso (CLP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "DP World San Antonio (cruise / multipurpose) — San Antonio, Valparaíso Region, Chile",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "San Antonio coastal walk / market — short call.",
+        "Cajón del Maipo / Santiago city — long road day; only with confirmed timing.",
+        "Valparaíso/Viña day — separate port city; do not assume same pier.",
+        "Wine valleys — Casablanca corridor common on excursions; operator-specific.",
+        "San Antonio / Llolleo coastal area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Your luggage tag may say Santiago, but you are in San Antonio — plan the road time explicitly."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0e1eef9f5432d66d9808faf2b4ea4e34ff1bfe94cc37980b91d7613edfc731da",
+      "existing_guide_hash": "ca7cc165e9a59cec",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/santiago-san-antonio-chile.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.520Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

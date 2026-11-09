@@ -1,0 +1,76 @@
+{
+  "landing_slug": "narvik-norway",
+  "draft": {
+    "landing_slug": "narvik-norway",
+    "appPortId": "narvik",
+    "portName": "Narvik",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise (central harbour Pier 1/3 / Norkaia NONVK0001 in the ISPS description). The Cruise Norway destination sheet states cruise berths at Pier 3, 500 m to town centre, and landing largest ship 350 m. The live Pir 3 facility page publishes a 150 m quay length and LAT depth figure — treat the 350 m ship line as a sheet claim that still needs a primary LOA/assignment table before map import. Anchorage is also described on the sheet (inner ~1,000 m / outer ~3,000 m to tender pier). Door GPS remains null.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Pier 3 (Narvik Central Harbour) — Havnegata 2, 8514 Narvik",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Cruise Norway sheet: 500 m to town centre; tourist information 600 m from port. Independent walk-minute survey not done — budget ISPS exit time. Max ships/day 1 and max pax/day 4,000 on the sheet.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Cruise Norway sheet: 500 m to town centre; tourist information 600 m from port. Independent walk-minute survey not done — budget ISPS exit time. Max ships/day 1 and max pax/day 4,000 on the sheet."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Narvik centre / harbour waterfront — ~60–90 min.",
+        "Winter northern-lights / summer Skjomen excursions — line products only; not independently timed.",
+        "Ofoten Railway / town war-history framing"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Reconcile your line’s Pier 3 assignment with the published 150 m quay length vs 350 m sheet LOA before assuming alongside."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a67616811a3804ecd8139cd4b749ca826e6c9db8059838551a026296ff3f61f2",
+      "existing_guide_hash": "4b0ac72efdee1260",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/narvik-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.482Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

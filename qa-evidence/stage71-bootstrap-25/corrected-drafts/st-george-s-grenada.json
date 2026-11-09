@@ -1,0 +1,77 @@
+{
+  "landing_slug": "st-george-s-grenada",
+  "draft": {
+    "landing_slug": "st-george-s-grenada",
+    "appPortId": "grenada",
+    "portName": "St. George's",
+    "country": "Grenada",
+    "portInfo": {
+      "description": "GPA is the statutory port authority for St. George’s and other Grenadian harbours. Its public harbour notes place St George’s at 12°03′N, 61°45′W on the south-west coast, describe the Carenage and Lagoon basins sharing an entrance, and note ISPS implementation at the Port of St. George’s in 2004. A dedicated “cruise terminus” path on grenadaports.com returned HTTP 404 during this research, so published LOA, pier names and passenger-door coordinates are not invented from older secondary guides. Confirm which pier/pontoon your ship uses on the day.",
+      "location": "",
+      "timezone": "AST (UTC-4)",
+      "language": "English",
+      "currency": "Eastern Caribbean Dollar (XCD), US Dollar accepted",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "St. George's cruise terminal",
+      "transportation": [
+        "Water taxi",
+        "Local buses",
+        "Walking (to nearby attractions)"
+      ],
+      "distanceToCity": "Terminal is in St. George's city center",
+      "walkingTime": "10-20 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis available at terminal with fixed rates to popular sites",
+      "publicTransport": "Local buses available but irregular",
+      "distanceAnswer": "Terminal is in St. George's city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Carenage / market streets — ~90–120 min if walk-off allowed.",
+        "Fort George views — climb minutes unverified.",
+        "Spice / waterfall tours — coach; standard+ calls.",
+        "Carenage / St. George's harbour town"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not trust outdated “Melville Street LOA” tables until GPA republishes a terminus sheet."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2c64f1d3b87afeef34d8a5235662414ac0b624be1180cc9c4e757e9f71c69b58",
+      "existing_guide_hash": "c4a6fa9e7b98d99b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/st-george-s-grenada.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.538Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

@@ -1,0 +1,76 @@
+{
+  "landing_slug": "turku-finland",
+  "draft": {
+    "landing_slug": "turku-finland",
+    "appPortId": "turku",
+    "portName": "Turku",
+    "country": "Finland",
+    "portInfo": {
+      "description": "Port of Turku positions itself as a smaller, service-intensive Finnish cruise alternative to the capitals. Complimentary shuttle buses run between the inner-harbour pier and the city centre throughout the call; tourist information staff and port Wi‑Fi are offered at the pier. Berth guidance splits larger ships to the inner harbour (~3 km out) and ships ≤130 m to Aura riverbanks closer to downtown. Use the published 2026 call list only as a planning hint — times may change.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Finnish, Swedish",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Turku cruise terminal",
+      "transportation": [
+        "Walking to city center",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Turku city",
+      "walkingTime": "15-20 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Good local bus network",
+      "distanceAnswer": "Within Turku city"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "River Aura waterfront / Market Square area — ~90–120 min.",
+        "Archipelago boat trips — only with long calls; not verified for self-timing.",
+        "Turku city centre / riverfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Reconcile your ship’s LOA with the 240 m vs 290 m figures before assuming an inner-harbour berth."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c75427b9c91e0f3ae7e0986f3260efb0123587134941917a783eb96353762f0f",
+      "existing_guide_hash": "d5bdea771169d2a3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/turku-finland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.561Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

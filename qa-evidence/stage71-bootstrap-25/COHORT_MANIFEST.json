@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "lock_version": "stage71-bootstrap-25-v1",
+  "generated_at_utc": "2026-11-09T15:00:27.312Z",
+  "landing_baseline_sha": "989c709f82ab8642ff285468998e41d8895a6a8c",
+  "merged_research_commit": "77968a38ba420a4011af3b83b9d444c3e1552ad1",
+  "source_manifest": "qa-evidence/stage70-yaml-repair-31/post_repair_COHORT_MANIFEST.json",
+  "selected_count": 25,
+  "selected_slugs": [
+    "lanzarote-spain",
+    "madeira-funchal-portugal",
+    "melbourne-australia",
+    "molde-norway",
+    "narvik-norway",
+    "olden-norway",
+    "ponta-delgada-azores-portugal",
+    "port-canaveral-fl-united-states",
+    "safaga-egypt",
+    "salvador-de-bahia-brazil",
+    "santiago-san-antonio-chile",
+    "sharm-el-sheikh-egypt",
+    "skagen-denmark",
+    "skjolden-norway",
+    "st-george-s-grenada",
+    "st-lucia-castries-st-lucia",
+    "tauranga-new-zealand",
+    "tenerife-spain",
+    "tortola-british-virgin-islands",
+    "trondheim-norway",
+    "turku-finland",
+    "ulvik-norway",
+    "ushuaia-argentina",
+    "visby-sweden",
+    "wellington-new-zealand"
+  ],
+  "pilot_held_from_cohort": [
+    {
+      "landing_slug": "hamburg-germany",
+      "reason": "pilot_pass_bucket_not_net_new"
+    }
+  ],
+  "category_a_deferred_excluded": [
+    "falmouth-jamaica",
+    "glasgow-united-kingdom",
+    "hamburg-germany",
+    "kirkenes-norway",
+    "ocho-rios-jamaica",
+    "rostock-germany",
+    "tokyo-yokohama-japan"
+  ],
+  "publication_status_policy": "UNCHANGED_NEEDS_REVIEW"
+}

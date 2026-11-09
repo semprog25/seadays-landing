@@ -1,0 +1,50 @@
+{
+  "verified_at_utc": "2026-11-09T15:02:00.000Z",
+  "verdict": "PASS",
+  "landing_pr": {
+    "number": 98,
+    "merge_commit": "989c709f82ab8642ff285468998e41d8895a6a8c"
+  },
+  "research_pr": {
+    "number": 2,
+    "merge_commit": "77968a38ba420a4011af3b83b9d444c3e1552ad1"
+  },
+  "main_head_sha": "989c709f82ab8642ff285468998e41d8895a6a8c",
+  "github_pages": {
+    "api_status": "built",
+    "cname": "seadays.app",
+    "pages_build_run_id": 42639513202,
+    "pages_build_conclusion": "success",
+    "pages_build_head_sha": "989c709f82ab8642ff285468998e41d8895a6a8c",
+    "landing_deploy_run_id": 42639514418,
+    "landing_deploy_conclusion": "success"
+  },
+  "live_production": {
+    "public_port_guides_last_modified": "Mon, 09 Nov 2026 14:58:46 GMT",
+    "passenger_editorial_slug_count": 319,
+    "homepage_http_status": 200,
+    "ports_directory_http_status": 200,
+    "spot_checks": [
+      {
+        "slug": "perfect-day-at-cococay-bahamas",
+        "http_status": 200,
+        "call_plan_cards": 9,
+        "internal_qa_leak_hits": 0
+      },
+      {
+        "slug": "oslo-norway",
+        "http_status": 200,
+        "call_plan_cards": 9,
+        "internal_qa_leak_hits": 0
+      },
+      {
+        "slug": "kefalonia-greece",
+        "http_status": 200,
+        "call_plan_cards": 9,
+        "internal_qa_leak_hits": 0
+      }
+    ]
+  },
+  "production_json_unchanged_by_stage71": true,
+  "notes": "Stage 70 evidence-only merge; no guide publication. Passenger count uses usesPassengerEditorialLead on live byAppPortId."
+}

@@ -1,0 +1,77 @@
+{
+  "landing_slug": "skjolden-norway",
+  "draft": {
+    "landing_slug": "skjolden-norway",
+    "appPortId": "skjolden",
+    "portName": "Skjolden",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Port of Skjolden markets itself as a call at the head of Lustrafjord, on Norway’s longest ice-free fjord system about 205 km from the open sea. The port’s own one-page fact sheet (updated content captured this research turn) publishes a 127.5 m cruise pier with 12 m alongside, maximum LOA 400 m and draft 12 m, plus a 36 m tender pier and Haugsbukta anchorage about 600 m from the tender pier. Technical pages repeat the same LOA/draft envelope and note a 45 m charted clearance at an overhead line as a limiting dimension on the approach. Season framing mid-April to mid-October. Door GPS null.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Skjolden Cruise Pier — Skjolden (Lustrafjord)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Fact sheet does not publish a surveyed walk-minute from pier to village centre this capture — gap. Port recommends roughly 10 h at port ≈ 9 h ashore for a full excursion programme; treat that as operational guidance, not a passenger walking survey.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Fact sheet does not publish a surveyed walk-minute from pier to village centre this capture — gap. Port recommends roughly 10 h at port ≈ 9 h ashore for a full excursion programme; treat that as operational guidance, not a passenger walking survey."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Village / fjord-head walk — ~60–120 min.",
+        "Port shore-excursion programme — port cites 2026 excursion uptake figures; individual tour durations vary.",
+        "Catamaran M/S Holly — port lists 73-guest catamaran among assets; ticket hours not verified.",
+        "Skjolden village / Lustrafjord head"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm cruise-pier vs tender/anchorage before timing walks."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2ee0da2610a597afe91b13d6d66fea6cbf0ca68616f3148ea040446f94883bcf",
+      "existing_guide_hash": "fdeb0e55e63bbe69",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/skjolden-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "excursion_on_short_call_research"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.534Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

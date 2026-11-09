@@ -1,0 +1,78 @@
+{
+  "landing_slug": "port-canaveral-fl-united-states",
+  "draft": {
+    "landing_slug": "port-canaveral-fl-united-states",
+    "appPortId": "port-canaveral",
+    "portName": "Port Canaveral",
+    "country": "United States",
+    "portInfo": {
+      "description": "Port Canaveral is one of the busiest cruise ports in the world, near Orlando and Kennedy Space Center. Passenger terminals sit on the north side (Exit 54A) and the B side (Exit 54B).",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise Terminal 1 — 9050 Discovery Rd., Cape Canaveral, FL 32920",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adjacent; no reservations; opens 10 a.m. embarkation; disabled fee-waiver rules listed. Terminal assignment. Subject to change — verify with cruise line.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "MCO. Port states approximately 45 minutes via S.R. 528 East to Exit 54A (A terminals) or 54B (B terminals). Parking. Adjacent; no reservations; opens 10 a.m. embarkation; disabled fee-waiver rules listed. Terminal assignment. Subject to change — verify with cruise line."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cocoa Beach / Jetty Park area — shorter transfer than Orlando theme parks — ~120 min.",
+        "Kennedy Space Center Visitor Complex — half-day minimum — ~240 min.",
+        "Cocoa Village — mid-length call.",
+        "Cape Canaveral lighthouse area — timing Not verified.",
+        "Orlando theme parks — embarkation-eve hotel nights only; not a realistic same-day turnaround."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Know your Exit 54A vs 54B before the toll road fork — north and south terminal clusters are different exits."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9c97c4416c61a5cb4f45cb193aacf23a31a51fe45f87bcefd092daab8d9e0a97",
+      "existing_guide_hash": "489916747b222854",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/port-canaveral-fl-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.500Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

@@ -1,0 +1,80 @@
+{
+  "landing_slug": "melbourne-australia",
+  "draft": {
+    "landing_slug": "melbourne-australia",
+    "appPortId": "melbourne",
+    "portName": "Melbourne",
+    "country": "Australia",
+    "portInfo": {
+      "description": "Melbourne is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "location": "",
+      "timezone": "AEST (UTC+10) / AEDT (UTC+11)",
+      "language": "English",
+      "currency": "Australian Dollar (AUD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Station Pier — Station Pier, Port Melbourne VIC, Australia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "~3 km to CBD; tram Route 109; taxis. Public access to the southern end of the pier is time-limited and often closed on ship days — follow Ports Victoria notices. Shuttle provision varies by line (null here).",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "~3 km to CBD; tram Route 109; taxis. Public access to the southern end of the pier is time-limited and often closed on ship days — follow Ports Victoria notices. Shuttle provision varies by line (null here)."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Melbourne CBD / Federation Square precinct — tram 109.",
+        "Southbank / Yarra — short CBD extension.",
+        "St Kilda / beach — opposite direction; allow extra transit.",
+        "Laneways / coffee culture — walk once in CBD.",
+        "Melbourne CBD / Southbank"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check Ports Victoria’s public closure calendar before planning a pier walk; ship days often close visitor access."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a540815ac226b22b698c746f74cd4bc76d307aeaadfa9a4c9425edcdca06caa2",
+      "existing_guide_hash": "81541d1e799daa4f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/melbourne-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T15:00:27.472Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

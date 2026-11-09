@@ -1,0 +1,30 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "ponta-delgada-azores-portugal--portas-do-mar",
+        "name": "Terminal Marítimo das Portas do Mar",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "ponta-delgada-azores-portugal--commercial-port",
+        "name": "Ponta Delgada commercial port (alternate cruise)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}
