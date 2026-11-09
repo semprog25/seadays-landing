@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-11-09T09:21:15.086Z",
+  "ports": [
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": "ponce",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_top_things_1",
+        "passenger_top_things_1_of_3",
+        "factual_insufficient_attractions_1"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": "fort-lauderdale",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": "juneau",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": "long-beach",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_top_things_2",
+        "passenger_top_things_2_of_3",
+        "factual_insufficient_attractions_2"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": "montreal",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_missing_gettingThere_fromTerminal",
+        "passenger_missing_from_terminal"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "victoria-bc-canada",
+      "app_port_id": "victoria",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "vlore-albania",
+      "app_port_id": "vlore",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    }
+  ]
+}
