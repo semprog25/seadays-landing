@@ -1,0 +1,73 @@
+{
+  "landing_slug": "porto-vecchio-france",
+  "draft": {
+    "landing_slug": "porto-vecchio-france",
+    "appPortId": "porto-vecchio",
+    "portName": "Porto-Vecchio",
+    "country": "France",
+    "portInfo": {
+      "description": "Porto-Vecchio is one of six Corsican commercial ports managed by CCI Corse that together attract nearly half a million cruise visitors a year (Ajaccio, Bastia, Bonifacio, L’Île-Rousse, Porto-Vecchio, Propriano). The destination page calls it a port in the town with centre access in only a few minutes’ walk. Ferry links (La Méridionale to Marseille; Corsica Ferries seasonal) share the commercial port. Published cruise planning lists small-ship overnight/day calls in autumn 2026."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port de Porto-Vecchio — Quai Syracuse / ferry-cruise landing — Quai Syracuse, 20137 Porto-Vecchio, France",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Old town / citadel. Port destination page: a few minutes’ walk to centre. Allow 10–20 min estimate uphill; not surveyed. Beaches. Regional beaches are coach/taxi territory — minutes GAP.",
+      "distanceAnswer": "Old town / citadel. Port destination page: a few minutes’ walk to centre. Allow 10–20 min estimate uphill; not surveyed. Beaches. Regional beaches are coach/taxi territory — minutes GAP.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "Climb/walk to citadel: 20 (est.)",
+        "Citadel/old town: 75",
+        "Return: 20",
+        "Buffer: 60"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm alongside vs any tender note on the gangway; small-ship schedule examples on the port page are not your sailing letter."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e0f88243347911c07cbac2a32b626502e05f777119dd1a6d45d94d2d9e8d40e8",
+      "existing_guide_hash": "bc7433d38ea1ef89",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/porto-vecchio-france.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.360Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

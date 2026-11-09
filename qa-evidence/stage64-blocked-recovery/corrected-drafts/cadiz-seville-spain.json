@@ -1,0 +1,76 @@
+{
+  "landing_slug": "cadiz-seville-spain",
+  "draft": {
+    "landing_slug": "cadiz-seville-spain",
+    "appPortId": "cadiz",
+    "portName": "Cadiz / Seville",
+    "country": "Spain",
+    "portInfo": {
+      "description": "The Autoridad Portuaria de la Bahía de Cádiz publishes cruise facilities centred on the Terminal de Cruceros at Muelle Alfonso XIII: a recently renovated 1,300 m² terminal, quays advertised at 12 and 13 metres draught and 800 metres length with appropriate fenders, plus large bus and taxi parking and ship-supply installations. The dársenas technical table lists Alfonso XIII passenger cruise terminal at 180 m length, 10 m draught and 12,550 m², with La Galeona as a separate longer berth row. SeaDays keeps both primary figures visible. Commercial itineraries sometimes brand “Cádiz/Seville,” but Seville is an inland excursion from this port, not a second APBC cruise terminal in the fetched pages."
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal de Cruceros — Muelle Alfonso XIII (Cádiz) — Muelle Alfonso XIII, Cádiz, Spain",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit terminal: 15 min",
+        "To cathedral area: 20 min (estimate)",
+        "Old-town loop: 45 min",
+        "Return: 20 min",
+        "Buffer: 60 min"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph all-aboard before entering the old-town lane grid; Alfonso XIII is city-adjacent but not inside every alley."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "119d7c6ebb081e06e426f34bd4426f1d1d648dfa7e39f42be2a8595159115c61",
+      "existing_guide_hash": "8f12b6c5dd04e716",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/cadiz-seville-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.295Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

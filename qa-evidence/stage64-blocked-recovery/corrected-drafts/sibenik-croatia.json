@@ -1,0 +1,72 @@
+{
+  "landing_slug": "sibenik-croatia",
+  "draft": {
+    "landing_slug": "sibenik-croatia",
+    "appPortId": "sibenik",
+    "portName": "Sibenik",
+    "country": "Croatia",
+    "portInfo": {
+      "description": "Lučka uprava Šibenik publishes operational-coast data including dedicated cruise berths at Vrulje: S1 (133 m, 8.00 m depth) and E (191 m, 10.00 m depth). The authority also maintains a Šibenik cruise destination page. The UNESCO cathedral anchors shore days."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Šibenik — Vrulje cruise berths — Vladimira Nazora 53 / Port of Šibenik, 22000 Šibenik, Croatia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Cathedral / old town. Short walk from Vrulje when berthed there — minutes estimated. Krka National Park. Long-call coach only — minutes GAP.",
+      "distanceAnswer": "Cathedral / old town. Short walk from Vrulje when berthed there — minutes estimated. Krka National Park. Long-call coach only — minutes GAP.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cathedral of St. James — ~45 min.",
+        "Old town lanes — ~60 min.",
+        "Krka — long call only.",
+        "Cathedral of St. James (UNESCO)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Note whether you are on Vrulje S1 or E — lengths differ."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d5140ce190505385809cc8c0314b0647ead587caf5e70e628b5f38dd7e5ffcff",
+      "existing_guide_hash": "97b3c318d222fd8f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/sibenik-croatia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.378Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,72 @@
+{
+  "landing_slug": "antwerp-belgium",
+  "draft": {
+    "landing_slug": "antwerp-belgium",
+    "appPortId": "antwerp",
+    "portName": "Antwerp",
+    "country": "Belgium",
+    "portInfo": {
+      "description": "Port of Antwerp-Bruges manages the combined Antwerp and Bruges/Zeebrugge port system. The authority’s cited cruise arrivals page is Zeebrugge-specific. SeaDays therefore does not copy Zeebrugge terminal metrics into this Antwerp city guide. City Scheldt berth names, LOA, draught and door pins remain unverified pending a city-berth primary."
+    },
+    "gettingThere": {
+      "fromTerminal": "Antwerp city Scheldt cruise landing (unverified berth id) — Antwerp, Belgium",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "If alongside in the city centre, expect a short walk to the historic core — minutes unverified. If your ticket says Zeebrugge, use the Zeebrugge guide instead.",
+      "distanceAnswer": "If alongside in the city centre, expect a short walk to the historic core — minutes unverified. If your ticket says Zeebrugge, use the Zeebrugge guide instead.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cathedral / Grote Markt area — ~90 min (hours not verified).",
+        "Scheldt waterfront — ~40 min.",
+        "MAS — long-call; ticket hours unverified.",
+        "Antwerp historic centre / cathedral area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the ticket: Antwerp vs Zeebrugge are different landings under one authority."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d96a82507c87007e695a17a4a5f474cc31b7f444857da434fb9efd72984ab6f2",
+      "existing_guide_hash": "28ba811ab4ef8e21",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/antwerp-belgium.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.246Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}

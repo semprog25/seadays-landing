@@ -1,0 +1,73 @@
+{
+  "landing_slug": "grundarfjor-ur-iceland",
+  "draft": {
+    "landing_slug": "grundarfjor-ur-iceland",
+    "appPortId": "grundarfjordur",
+    "portName": "Grundarfjörður",
+    "country": "Iceland",
+    "portInfo": {
+      "description": "Snæfellsnes fishing harbour with alongside cruise berths and a short tender option. Kirkjufell is the named landmark on the Cruise Iceland harbour page — treat as a transfer/walk, not a pier-side photo stop, until a municipal hours primary is on file."
+    },
+    "gettingThere": {
+      "fromTerminal": "Norðurgarður Berth No. 1 — Grundarfjarðarhöfn — Norðurgarður Pier",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Authority: 500 m to town centre. Anchorage tender ~0.5 n.m. when used.",
+      "distanceAnswer": "Authority: 500 m to town centre. Anchorage tender ~0.5 n.m. when used.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town / pier-area walk (500 m centre)",
+        "Mt. Kirkjufell (viewpoint / walks)",
+        "Information centre / heritage museum (near pier)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm alongside vs tender on the day — authority supports both modes."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "33a741d3a4ceb69043f57b23f5b1d112292e75d6b2c89bc2aaff077a4e185037",
+      "existing_guide_hash": "0a3a94ba288401e7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/grundarfjor-ur-iceland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:54:40.341Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage64-blocked-bootstrap-editorial"
+}
