@@ -1,0 +1,19 @@
+{
+  "repaired_at_utc": "2026-11-09T19:33:00.000Z",
+  "slugs_repaired": {
+    "hobart-australia": ["portInfo.description"],
+    "marigot-st-maarten": ["gettingThere.publicTransport"],
+    "nagasaki-japan": ["portInfo.description", "gettingThere.distanceToCity", "gettingThere.distanceAnswer"],
+    "okinawa-naha-japan": ["portInfo.description"],
+    "nordfjordeid-norway": ["portInfo.description", "thingsToDo.topThings[2]"],
+    "stornoway-united-kingdom": []
+  },
+  "additional_leaks_found": 3,
+  "note": "Stornoway had no internal-research phrasing; five other candidate guides required copy repair in JSON + HTML regen.",
+  "tests": [
+    "test-stage76-candidate-leak-guard.js",
+    "test-stage76-publication-6.js",
+    "stage76-validate-publication-candidate.js"
+  ],
+  "passenger_editorial_count": 350
+}

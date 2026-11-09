@@ -23,6 +23,7 @@ function main() {
   assert.strictEqual(validation.baseline_rollback_passenger_editorial, 344)
   assert.strictEqual(validation.ok, true)
   execSync('node scripts/stage76-validate-publication-candidate.js', { cwd: REPO, stdio: 'pipe' })
+  execSync('node scripts/test-stage76-candidate-leak-guard.js', { cwd: REPO, stdio: 'pipe' })
   console.log('test-stage76-publication-6: PASS')
 }
 
