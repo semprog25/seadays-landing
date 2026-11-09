@@ -1,0 +1,13 @@
+{
+  "reverted_at_utc": "2026-11-09T08:38:56.200Z",
+  "baseline_main_sha": "8fd113c609f9f036b91e7ccbfea523c19d42beec",
+  "root_cause": "Stage 65 apply swapped glasgow-united-kingdom for greifswald-germany in slugs_approved but left glasgow passenger guide JSON in public-port-guides.json (PR #85 merge). Catalogue regen did not introduce the tier.",
+  "guides_sha256_before": "ad34578504a8bcc9f20b39ad2532ff75665293342807e491befa282aff5b65d5",
+  "passenger_editorial_before": 221,
+  "passenger_editorial_after": 220,
+  "removed_app_port_ids": [
+    "glasgow"
+  ],
+  "html_action": "no change — glasgow-united-kingdom remains legacy HTML without call-plan cards",
+  "guides_sha256_after": "5f3788c6c92209e03640b1ae28d73ad8a685ffc6cb8f5c3cc89e28e19dec4bf4"
+}
