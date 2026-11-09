@@ -1,0 +1,78 @@
+{
+  "landing_slug": "seattle-wa-united-states",
+  "draft": {
+    "landing_slug": "seattle-wa-united-states",
+    "appPortId": "seattle",
+    "portName": "Seattle",
+    "country": "United States",
+    "portInfo": {
+      "description": "Port of Seattle operates two Alaska-season cruise terminals: Smith Cove at Pier 91 north of downtown and Bell Street at Pier 66 on the central waterfront. Pier 91’s place page lists 2001 W Garfield Way (and also shows 2001 West Garfield Street wording on the same page), describes a ground-transportation lot for buses/taxis/shuttles/private drop-off, complimentary shuttle from parking to terminal, and explicitly states public transit is not available to Pier 91. Pier 66 lists 2225 Alaskan Way, curb-lane drop-off on Alaskan Way with a security officer directing traffic, and general parking at $30 per day not including taxes via the cited parking operator. Passenger Information frames Seattle as an Alaska cruise home port with roughly 35 minutes from SEA to hotels/terminals in marketing copy. Door pins remain null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Smith Cove Cruise Terminal at Pier 91 — 2001 W Garfield Way, Seattle, WA 98119",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "SEA. 30–40 minute ride stated to each terminal; rideshare/taxi pickup described on SEA garage Level 3; some lines offer motor coaches. Pier 91 parking. Complimentary shuttle from parking; seattleportparking.com cited. Pier 66 parking. $30/day before tax; Republic Parking phone 206-443-1793. Downtown. Walk/taxi/rideshare to Pier 66; Pier 91 needs dedicated transfer.",
+      "distanceAnswer": "SEA. 30–40 minute ride stated to each terminal; rideshare/taxi pickup described on SEA garage Level 3; some lines offer motor coaches. Pier 91 parking. Complimentary shuttle from parking; seattleportparking.com cited. Pier 66 parking. $30/day before tax; Republic Parking phone 206-443-1793. Downtown. Walk/taxi/rideshare to Pier 66; Pier 91 needs dedicated transfer.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Pike Place Market — walkable framing from Pier 66; transfer from Pier 91 — ~120 min.",
+        "Seattle waterfront / Great Wheel area — Pier 66 adjacent context.",
+        "Chihuly / Space Needle — Seattle Center; transfer minutes Not verified.",
+        "Museum of Pop Culture / Chihuly cluster — mid call.",
+        "Ferry to Bainbridge — only with long buffer and schedule discipline."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Pier 91 is not a downtown walk-off. If your documents say Smith Cove / Pier 91, budget a transfer before you plan Pike Place as “steps away”."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8a4dd89f3d6942b1d7cb3236939adbd6fc9f6d73efed61bb6d812e81d528dde7",
+      "existing_guide_hash": "4fba343af531b6a9",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/seattle-wa-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.035Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

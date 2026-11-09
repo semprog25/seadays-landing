@@ -1,0 +1,76 @@
+{
+  "landing_slug": "hurghada-egypt",
+  "draft": {
+    "landing_slug": "hurghada-egypt",
+    "appPortId": "hurghada",
+    "portName": "Hurghada",
+    "country": "Egypt",
+    "portInfo": {
+      "description": "Hurghada Port sits on Egypt’s western Red Sea coast near the Gulf of Suez entrance, about 370 km south of Suez per the Maritime Transport & Logistics Sector port page. MTS describes tourism, yacht, cruise and ferry traffic (including Hurghada–Duba and Hurghada–Sharm links) and lists a modern passenger lounge of 900 m² with inspection equipment, plus a planned additional travel hall. The detailed berth table shows a single Passengers berth 330 m / 10 m. Land area 43,040 m² and navigational waterway depth 15 m are also tabulated. Separately, AD Ports Group announced commencement of cruise and ferry terminal services at Hurghada, Safaga and Sharm El Sheikh on 19 May 2026 under its 15-year Red Sea Ports Authority concession. Door GPS remains null; MTS contact address text on the page references Safaga — not treated as the Hurghada street address."
+    },
+    "gettingThere": {
+      "fromTerminal": "Hurghada Port — Passengers berth — Hurghada Port, Red Sea (MTS contact block oddly lists Safaga Port address — treat as unverified street address)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Airport distance ~5 km in MTS text. City/resort transfers depend on berth-day traffic — confirm onboard.",
+      "distanceAnswer": "Airport distance ~5 km in MTS text. City/resort transfers depend on berth-day traffic — confirm onboard.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Reef / glass-bottom boat — licensed operators only; ~180 min.",
+        "Marina / corniche — heat-aware.",
+        "Desert safari — only with reliable return buffer.",
+        "Hurghada marina / Red Sea reef day trips"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ferry vs ocean-cruise passenger flows can share the maritime passenger complex — follow ship instructions."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f2cc06aa465215e3d0ced7309d8b06362e97a9a170698b090245a4ebc42acac6",
+      "existing_guide_hash": "2ed2009819622a02",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/hurghada-egypt.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.979Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

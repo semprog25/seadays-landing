@@ -1,0 +1,77 @@
+{
+  "landing_slug": "acapulco-mexico",
+  "draft": {
+    "landing_slug": "acapulco-mexico",
+    "appPortId": "acapulco",
+    "portName": "Acapulco",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "Acapulco’s cruise gateway is the downtown Puerto Transatlántico Internacional Teniente José Azueta, marketed by Global Ports Holding as Acapulco Cruise Port after a 24-year concession with ASIPONA Acapulco signed April 2026, with GPH operations beginning in Q2 2026. GPH publishes one berth with 406 m berthing line, maximum ship length 333 m, draught 9.1 m and quay depth 9 m. In parallel, ASIPONA is constructing a new 350-meter cruise pier funded publicly and scheduled for completion in Q1 2027. ASIPONA Acapulco’s site lists Av Costera Miguel Alemán s/n, Centro, and recent news of Carnival Firenze and Holland America Eurodam calls. Passenger door WGS84 pins are not published — null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Acapulco Cruise Port (Puerto Transatlántico Internacional Teniente José Azueta) — Av Costera Miguel Alemán s/n, Col. Acapulco de Juárez Centro, 39300 Acapulco de Juárez, Gro. (ASIPONA office framing)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Walk. ~500 m to city centre per GPH. Airport. 26 km; shuttle No. Timed taxi fares Not verified. New pier. Until the 350 m pier opens (scheduled Q1 2027), use current berth limits published by GPH.",
+      "distanceAnswer": "Walk. ~500 m to city centre per GPH. Airport. 26 km; shuttle No. Timed taxi fares Not verified. New pier. Until the 350 m pier opens (scheduled Q1 2027), use current berth limits published by GPH.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Zócalo / historic centre — walkable framing — ~90 min.",
+        "Fuerte de San Diego — nearby framing — hours Not verified.",
+        "La Quebrada cliff divers — organised timing.",
+        "Caleta / beach time — heat and transfer buffer.",
+        "Coyuca lagoon / Pie de la Cuesta — longer organised only."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm whether your sailing uses the current ACP berth or any temporary arrangements during the ASIPONA 350 m pier project through 2027."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7ea23a3b415bc6a7f90d9002faa2bdf6fe15d5d0bc058f24b46762f5e49e234c",
+      "existing_guide_hash": "31ccd219d293e668",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/acapulco-mexico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.942Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

@@ -1,0 +1,77 @@
+{
+  "landing_slug": "perth-australia",
+  "draft": {
+    "landing_slug": "perth-australia",
+    "appPortId": "perth",
+    "portName": "Perth",
+    "country": "Australia",
+    "portInfo": {
+      "description": "Cruise calls for the Perth market dock at Fremantle, not in Perth CBD. Fremantle Ports’ facilities page (archived 2025 after a live 403) places the Fremantle Passenger Terminal on F and G berths at Victoria Quay, with two berths, 11 m design depth, 204/206 m maximum lengths and a 40,000-tonne displacement note requiring Harbour Master approval above that figure. The cruise page (archived 2024) states visiting cruise ships berth at the Passenger Terminal or at D Berth, and describes a free shuttle to Fremantle Train Station on ship days. Treat archive captures as provisional until the live site is re-readable."
+    },
+    "gettingThere": {
+      "fromTerminal": "Fremantle Passenger Terminal — Victoria Quay, Fremantle WA, Australia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Archive: ~1 km to Fremantle centre; free ship-day shuttle to train station ~every 20 minutes; taxis/rideshare at Peter Hughes Drive; pedestrian bridge to station noted as no longer accessible. Perth Airport transfers exist via shuttle companies — prices null.",
+      "distanceAnswer": "Archive: ~1 km to Fremantle centre; free ship-day shuttle to train station ~every 20 minutes; taxis/rideshare at Peter Hughes Drive; pedestrian bridge to station noted as no longer accessible. Perth Airport transfers exist via shuttle companies — prices null.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Fremantle West End / markets — short walk from Victoria Quay.",
+        "WA Maritime Museum / harbour — waterfront.",
+        "Perth CBD — train from Fremantle Station; allow round-trip buffer.",
+        "Rottnest Island — ferry day; only with long call + confirmed last ferry.",
+        "Fremantle West End / Victoria Quay"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "SeaDays slug says Perth, but you land in Fremantle — budget train time if your plan is the CBD."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ef53b7bd1718e18a0673b40f6e270981ab8e1343329d712ec774289c87762515",
+      "existing_guide_hash": "e60026a95ab5caf9",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/perth-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.016Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

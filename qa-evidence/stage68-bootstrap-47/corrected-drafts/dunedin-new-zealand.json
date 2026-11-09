@@ -1,0 +1,76 @@
+{
+  "landing_slug": "dunedin-new-zealand",
+  "draft": {
+    "landing_slug": "dunedin-new-zealand",
+    "appPortId": "dunedin",
+    "portName": "Dunedin",
+    "country": "New Zealand",
+    "portInfo": {
+      "description": "Port Otago Limited describes itself as New Zealand’s always-open primary export port for the lower South Island. Its site includes a Cruise section covering cruise schedule, wharf access, passenger information, tour operators’ information and cruise-specific policies. General enquiries +64 3 472 7890. Dedicated cruise berth LOA was not published on the captured homepage (cruise deep URL 404)."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port Otago cruise landing (Port Chalmers / Dunedin harbour) — Port Otago, Otago Harbour",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Expect shuttle/coach to Dunedin CBD / peninsula tours.",
+      "distanceAnswer": "Expect shuttle/coach to Dunedin CBD / peninsula tours.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Dunedin city / railway station — ~180 min with transfer.",
+        "Otago Peninsula wildlife — half day.",
+        "Speight’s / local food — short.",
+        "Dunedin city / Otago Peninsula"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Layer up — harbour wind chill is real."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fac4f0e658948762dbefd44b35a98dbaa1d2e54df33972354d633e89a12cc657",
+      "existing_guide_hash": "cf2f1815ea95e345",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/dunedin-new-zealand.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.968Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

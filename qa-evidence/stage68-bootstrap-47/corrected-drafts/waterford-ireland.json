@@ -1,0 +1,76 @@
+{
+  "landing_slug": "waterford-ireland",
+  "draft": {
+    "landing_slug": "waterford-ireland",
+    "appPortId": "waterford",
+    "portName": "Waterford",
+    "country": "Ireland",
+    "portInfo": {
+      "description": "Port of Waterford (commercial state company) lists cruise landings at Belview, Waterford city (berth reopening 2026), and Dunmore East. Belview is the main operations centre 8 km down the Suir from the city. Larger ships may anchor and tender into Dunmore East village. Confirm which of the three models your line uses before planning a walk-off day — city-quay reopening status must be checked against the live call list for 2026."
+    },
+    "gettingThere": {
+      "fromTerminal": "Belview Port (cruise landing option) — Belview Port, Waterford",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City Quays (when open): walk into the compact historic centre. Belview: plan shuttle/taxi for ~8 km. Dunmore East: tender then regional coach/taxi.",
+      "distanceAnswer": "City Quays (when open): walk into the compact historic centre. Belview: plan shuttle/taxi for ~8 km. Dunmore East: tender then regional coach/taxi.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Waterford Viking Triangle / city museums — ~120 min.",
+        "Mount Congreve / regional gardens — coach; long call.",
+        "Waterford city historic centre"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check whether 2026 calls use the reopened city berth, Belview, or Dunmore tender."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d85e3ee303d7e5ec82114c20472edd20530aa811fc72097b7973ef8ce4fc3f30",
+      "existing_guide_hash": "828beca9b71c00b8",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/waterford-ireland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.062Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

@@ -1,0 +1,30 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "seattle-wa-united-states--pier-91",
+        "name": "Smith Cove Cruise Terminal at Pier 91",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "seattle-wa-united-states--pier-66",
+        "name": "Bell Street Cruise Terminal at Pier 66",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}

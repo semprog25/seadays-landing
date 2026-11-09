@@ -1,0 +1,78 @@
+{
+  "landing_slug": "alesund-norway",
+  "draft": {
+    "landing_slug": "alesund-norway",
+    "appPortId": "alesund",
+    "portName": "Ålesund",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Ålesund is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ålesund cruise mooring (assignment via mooring plan) — Ålesund harbour (Skansekaia area HQ)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Most plans put ships near the harbour/centre — still confirm the day’s PDF.",
+      "distanceAnswer": "Most plans put ships near the harbour/centre — still confirm the day’s PDF.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Art Nouveau centre — ~90–120 min.",
+        "Aksla / Fjellstua viewpoint — stairs; weather-dependent.",
+        "Atlantic Sea-Park — allow transit.",
+        "Ålesund Art Nouveau centre / Aksla viewpoint"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check the published mooring plan the morning of arrival — assignments change."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "53a1d8e5fcf58822dac61635cfa2cccb1bc659e7404752cccddc76111b2e703d",
+      "existing_guide_hash": "3b537a2b9ee933ec",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/alesund-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.891Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

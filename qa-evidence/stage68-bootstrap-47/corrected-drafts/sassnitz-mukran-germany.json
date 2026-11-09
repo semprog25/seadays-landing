@@ -1,0 +1,76 @@
+{
+  "landing_slug": "sassnitz-mukran-germany",
+  "draft": {
+    "landing_slug": "sassnitz-mukran-germany",
+    "appPortId": "sassnitz",
+    "portName": "Sassnitz (Mukran)",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Fährhafen Sassnitz GmbH (brand Mukran Port) operates the deep-water ferry/multipurpose harbour at Neu Mukran and publishes a side-by-side cruise facts table against Sassnitz City Harbour. Mukran has been a cruise call for “more than 20 years” per the tourism page and sits ~12 km south of Nationalpark Jasmund. Confirm which harbour your ship uses: Mukran is industrial/deep-water with a longer transfer; City Harbour is walkable into town but with shorter/shallower limits."
+    },
+    "gettingThere": {
+      "fromTerminal": "Mukran Port — cruise quays — Im Fährhafen 20, 18546 Sassnitz / Neu Mukran",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Mukran → centre: 6.5 km — plan shuttle/taxi. City Harbour → centre: 0.6 km walk. Jasmund / Binz need coaches from either start.",
+      "distanceAnswer": "Mukran → centre: 6.5 km — plan shuttle/taxi. City Harbour → centre: 0.6 km walk. Jasmund / Binz need coaches from either start.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Sassnitz mole / harbour stroll — best from City Harbour.",
+        "Nationalpark Jasmund — transfer.",
+        "Binz or Kap Arkona — long call.",
+        "Sassnitz outer mole / harbour"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Mukran does not allow boat tendering; City Harbour does."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7f489a05f847b08a678672e6ee04fc23c427adac5705b47b506daa4dfdaee5b3",
+      "existing_guide_hash": "cf73a328e86b6c53",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/sassnitz-mukran-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.032Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

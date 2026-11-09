@@ -1,0 +1,30 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "roatan-honduras--isla-tropicale",
+        "name": "Isla Tropicale (Dixon Cove; formerly Mahogany Bay)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "roatan-honduras--coxen-hole",
+        "name": "Port of Roatán / Coxen Hole (unverified primary this pass)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}
