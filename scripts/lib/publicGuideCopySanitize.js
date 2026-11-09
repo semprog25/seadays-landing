@@ -20,6 +20,13 @@ const INTERNAL_RESEARCH_LEAK_RE = [
   /\bpins stay null\b/i,
   /\bberth metrics stay null\b/i,
   /\bNot verified on (?:the )?[\w\s/&.'’-]+(?:operations |passenger )?page\b/i,
+  /\bnot isolated from\b/i,
+  /\bHTML captured\b/i,
+  /\bcaptured (?:MLIT |guide )?page\b/i,
+  /\bminutes not verified\b/i,
+  /\bexact metres unverified\b/i,
+  /\bpins remain null\b/i,
+  /\bGangway GPS pins remain null\b/i,
 ];
 
 const MAX_QUICK_FACT_CHARS = 120;

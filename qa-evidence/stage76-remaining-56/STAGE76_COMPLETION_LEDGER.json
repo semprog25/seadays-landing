@@ -1,0 +1,1357 @@
+{
+  "generated_at_utc": "2026-11-09T18:57:55.017Z",
+  "stage": 76,
+  "landing_main_sha": "59653e6203ab66623a7f53e5572395b401ec140b",
+  "research_commit_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "stage75_prep_pr": "https://github.com/semprog25/seadays-landing/pull/102",
+  "deferred_6_bundle_hash": "87483ccb0c21b1d92b6aa119231369b7e5309ec6ba5e020424f33478a2f8233c",
+  "publication_candidate_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+  "publication_candidate_head": "9a57ada59f2108076616ba80dbd8ffd622e00097",
+  "totals": {
+    "publication_candidate_ready": 6,
+    "requiring_owner_approval": 46,
+    "unresolvable_with_available_evidence": 32,
+    "genuine_aliases_not_separate": 2,
+    "owner_policy_holds": 21,
+    "pilot_holds": 1,
+    "current_live_passenger_editorial": 344,
+    "projected_on_candidate_branch": 350,
+    "max_after_owner_merge_publication_pr": 350,
+    "catalogue_slots": 406,
+    "max_evidence_supported_future_publication": "6 publication-candidate + 0 additional net-new without identity/research/owner gates",
+    "owner_approvals_needed": [
+      "Merge publication PR #TBD (6 guides) with owner_publication_authorized=true on apply stage only",
+      "Per-slug owner policy holds (21) — factual vs intentional exclusion review",
+      "Hamburg pilot: upgrade vs net-new decision",
+      "Identity: confirm proposed mappings where disposition=INFERRED_NOT_OWNER_VERIFIED or GENUINE_COLLISION"
+    ]
+  },
+  "owner_hold_table": [
+    {
+      "landing_slug": "bod-norway",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "colombo-sri-lanka",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "doha-cruise-terminal-qatar",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "dubai-cruise-terminal-united-arab-emirates",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "eilat-israel",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "falmouth-jamaica",
+      "subtype": "intentional_exclusion",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Cross-country homonym; Jamaica Falmouth excluded until identifier migration approved"
+    },
+    {
+      "landing_slug": "glasgow-united-kingdom",
+      "subtype": "factual_blocker",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Owner factual hold"
+    },
+    {
+      "landing_slug": "goa-india",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "haifa-israel",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "kirkenes-norway",
+      "subtype": "factual_blocker",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Owner factual hold"
+    },
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "mumbai-india",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "nice-france",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Ledger slug only; not live passenger editorial — canonical elsewhere or hold"
+    },
+    {
+      "landing_slug": "ocho-rios-jamaica",
+      "subtype": "factual_blocker",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Owner factual hold"
+    },
+    {
+      "landing_slug": "port-of-ashdod-israel",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "port-of-haifa-israel",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "port-zayed-abu-dhabi-united-arab-emirates",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    },
+    {
+      "landing_slug": "rostock-germany",
+      "subtype": "factual_blocker",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Owner factual hold"
+    },
+    {
+      "landing_slug": "tokyo-yokohama-japan",
+      "subtype": "factual_blocker",
+      "decision": "OWNER_REVIEW",
+      "evidence": "Owner factual hold"
+    },
+    {
+      "landing_slug": "venice-ravenna-trieste-italy",
+      "subtype": "policy_hold_owner_review_candidate",
+      "decision": "OWNER_REVIEW",
+      "evidence": "historical_policy_hold"
+    }
+  ],
+  "rows": [
+    {
+      "landing_slug": "adabya-egypt",
+      "app_port_id": "adabya",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "research_status:blocked; port_id null; no verified terminal",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "anchorage-ak-united-states",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed anchorage (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "balestrand-norway",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed balestrand (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "bangkok-laem-chabang-thailand",
+      "app_port_id": "bangkok-laem-chabang",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED — needs independent terminal/source verification",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "bod-norway",
+      "app_port_id": null,
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "buenos-aires-argentina",
+      "app_port_id": "buenos-aires",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "chennai-india",
+      "app_port_id": "chennai",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "colombo-sri-lanka",
+      "app_port_id": "colombo",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "doha-cruise-terminal-qatar",
+      "app_port_id": "doha",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "dubai-cruise-terminal-united-arab-emirates",
+      "app_port_id": "dubai",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "eilat-israel",
+      "app_port_id": "eilat",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "falmouth-jamaica",
+      "app_port_id": null,
+      "category": "E",
+      "original_blocker": "falmouth_homonym_excluded",
+      "resolution_or_hold": "Cross-country homonym; Jamaica Falmouth excluded until identifier migration approved",
+      "stage76_disposition": "intentional_exclusion",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed fort-lauderdale (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "freeport-bahamas",
+      "app_port_id": "freeport",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "glasgow-united-kingdom",
+      "app_port_id": null,
+      "category": "E",
+      "original_blocker": "owner_factual_hold",
+      "resolution_or_hold": "Owner factual hold",
+      "stage76_disposition": "factual_blocker",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "goa-india",
+      "app_port_id": null,
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "gythion-greece",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed gythion (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "haifa-israel",
+      "app_port_id": "haifa",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "halong-bay-vietnam",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed halong-bay (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "hamburg-germany",
+      "app_port_id": "hamburg",
+      "category": "A",
+      "original_blocker": null,
+      "resolution_or_hold": "PASS-bucket pilot; upgrade-only path — do not force duplicate passenger page without owner editorial decision",
+      "stage76_disposition": "pilot_hold",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EXISTING_GUIDE_PASS_BUCKET",
+      "publication_eligibility": "PILOT_HOLD_NOT_NET_NEW",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "hobart-australia",
+      "app_port_id": "hobart",
+      "category": "B",
+      "original_blocker": "policy_yaml_or_terminal_gate_repair",
+      "resolution_or_hold": "Stage 76 publication candidate (6-guide PR); authorization flags false",
+      "stage76_disposition": "awaiting_owner_merge_publication_pr",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EDITORIAL_PASS_ALL_GATES",
+      "publication_eligibility": "PUBLICATION_CANDIDATE_READY",
+      "proposed_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "houston-tx-united-states",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed houston (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "jakarta-indonesia",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed jakarta (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed juneau (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "khasab-oman",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed khasab (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "kirkenes-norway",
+      "app_port_id": "kirkenes",
+      "category": "E",
+      "original_blocker": "owner_factual_hold",
+      "resolution_or_hold": "Owner factual hold",
+      "stage76_disposition": "factual_blocker",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "app_port_id": "ko-samui",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "kolkata-india",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed kolkata (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "kuwait-city-kuwait",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed kuwait-city (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "lima-callao-peru",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed lima-callao (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed long-beach (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "manila-philippines",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed manila (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "marigot-st-maarten",
+      "app_port_id": "marigot",
+      "category": "B",
+      "original_blocker": "policy_yaml_or_terminal_gate_repair",
+      "resolution_or_hold": "Stage 76 publication candidate (6-guide PR); authorization flags false",
+      "stage76_disposition": "awaiting_owner_merge_publication_pr",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EDITORIAL_PASS_ALL_GATES",
+      "publication_eligibility": "PUBLICATION_CANDIDATE_READY",
+      "proposed_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "monemvasia-greece",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed monemvasia (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed montreal (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "app_port_id": "mormugao",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "mumbai-india",
+      "app_port_id": "mumbai",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "nagasaki-japan",
+      "app_port_id": "nagasaki",
+      "category": "B",
+      "original_blocker": "policy_yaml_or_terminal_gate_repair",
+      "resolution_or_hold": "Stage 76 publication candidate (6-guide PR); authorization flags false",
+      "stage76_disposition": "awaiting_owner_merge_publication_pr",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EDITORIAL_PASS_ALL_GATES",
+      "publication_eligibility": "PUBLICATION_CANDIDATE_READY",
+      "proposed_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "naxos-greece",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed naxos (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "app_port_id": "new-mangalore",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "nice-france",
+      "app_port_id": "nice",
+      "category": "E",
+      "original_blocker": "historical_ledger_not_live_passenger_editorial",
+      "resolution_or_hold": "Ledger slug only; not live passenger editorial — canonical elsewhere or hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "nordfjordeid-norway",
+      "app_port_id": "nordfjordeid",
+      "category": "B",
+      "original_blocker": "policy_yaml_or_terminal_gate_repair",
+      "resolution_or_hold": "Stage 76 publication candidate (6-guide PR); authorization flags false",
+      "stage76_disposition": "awaiting_owner_merge_publication_pr",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EDITORIAL_PASS_ALL_GATES",
+      "publication_eligibility": "PUBLICATION_CANDIDATE_READY",
+      "proposed_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "ocho-rios-jamaica",
+      "app_port_id": "ocho-rios",
+      "category": "E",
+      "original_blocker": "owner_factual_hold",
+      "resolution_or_hold": "Owner factual hold",
+      "stage76_disposition": "factual_blocker",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "okinawa-naha-japan",
+      "app_port_id": "naha",
+      "category": "B",
+      "original_blocker": "policy_yaml_or_terminal_gate_repair",
+      "resolution_or_hold": "Stage 76 publication candidate (6-guide PR); authorization flags false",
+      "stage76_disposition": "awaiting_owner_merge_publication_pr",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EDITORIAL_PASS_ALL_GATES",
+      "publication_eligibility": "PUBLICATION_CANDIDATE_READY",
+      "proposed_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "app_port_id": "ko-phuket",
+      "category": "C",
+      "original_blocker": "research_qa_not_pass",
+      "resolution_or_hold": "qa_verdict BLOCKED",
+      "stage76_disposition": "research_blocked",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true",
+        "blocker:research_qa_not_pass"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "RESEARCH_UNRESOLVABLE_WITHOUT_EVIDENCE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed ponce (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "port-blair-india",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed port-blair (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "port-of-aqaba-jordan",
+      "app_port_id": "aqaba",
+      "category": "F",
+      "original_blocker": "app_port_id_occupied_by_passenger_editorial",
+      "resolution_or_hold": "app_port_id_occupied_by_passenger_editorial; canonical passenger page already live for app_port_id slot",
+      "stage76_disposition": "alias_preserved",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "ALIAS_NOT_SEPARATELY_PUBLISHABLE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "port-of-ashdod-israel",
+      "app_port_id": "ashdod",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "port-of-haifa-israel",
+      "app_port_id": "haifa",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "port-sultan-qaboos-muscat-oman",
+      "app_port_id": "muscat",
+      "category": "F",
+      "original_blocker": "app_port_id_occupied_by_passenger_editorial",
+      "resolution_or_hold": "app_port_id_occupied_by_passenger_editorial; canonical passenger page already live for app_port_id slot",
+      "stage76_disposition": "alias_preserved",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "ALIAS_NOT_SEPARATELY_PUBLISHABLE",
+      "proposed_pr": null,
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "port-zayed-abu-dhabi-united-arab-emirates",
+      "app_port_id": "abu-dhabi",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "porto-cervo-italy",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed porto-cervo (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "app_port_id": "ravenna",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "rostock-germany",
+      "app_port_id": "rostock",
+      "category": "E",
+      "original_blocker": "owner_factual_hold",
+      "resolution_or_hold": "Owner factual hold",
+      "stage76_disposition": "factual_blocker",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "sharjah-united-arab-emirates",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed sharjah (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "stornoway-united-kingdom",
+      "app_port_id": "stornoway",
+      "category": "B",
+      "original_blocker": "policy_yaml_or_terminal_gate_repair",
+      "resolution_or_hold": "Stage 76 publication candidate (6-guide PR); authorization flags false",
+      "stage76_disposition": "awaiting_owner_merge_publication_pr",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "EDITORIAL_PASS_ALL_GATES",
+      "publication_eligibility": "PUBLICATION_CANDIDATE_READY",
+      "proposed_pr": "https://github.com/semprog25/seadays-landing/pull/103",
+      "owner_decision_needed": false
+    },
+    {
+      "landing_slug": "tianjin-beijing-china",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed tianjin-beijing (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "tokyo-yokohama-japan",
+      "app_port_id": "yokohama",
+      "category": "E",
+      "original_blocker": "owner_factual_hold",
+      "resolution_or_hold": "Owner factual hold",
+      "stage76_disposition": "factual_blocker",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "venice-ravenna-trieste-italy",
+      "app_port_id": "venice",
+      "category": "E",
+      "original_blocker": "historical_policy_hold",
+      "resolution_or_hold": "historical_policy_hold",
+      "stage76_disposition": "policy_hold_owner_review_candidate",
+      "research_evidence": [
+        "qa_verdict:PASS",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:resolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "OWNER_POLICY_HOLD",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "visakhapatnam-india",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed visakhapatnam (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    },
+    {
+      "landing_slug": "xiamen-china",
+      "app_port_id": null,
+      "category": "D",
+      "original_blocker": "missing_app_port_id",
+      "resolution_or_hold": "missing_app_port_id; Stage76 identity: INFERRED_NOT_OWNER_VERIFIED; proposed xiamen (not applied)",
+      "stage76_disposition": "INFERRED_NOT_OWNER_VERIFIED",
+      "research_evidence": [
+        "qa_verdict:BLOCKED",
+        "research_sha_verified:true"
+      ],
+      "identity_evidence": [
+        "identifier_status:unresolved"
+      ],
+      "editorial_verification": "NOT_PREPARED",
+      "publication_eligibility": "IDENTITY_UNRESOLVED",
+      "proposed_pr": null,
+      "owner_decision_needed": true
+    }
+  ],
+  "publication_candidate_manifest": {
+    "slugs": [
+      "hobart-australia",
+      "marigot-st-maarten",
+      "nagasaki-japan",
+      "nordfjordeid-norway",
+      "okinawa-naha-japan",
+      "stornoway-united-kingdom"
+    ],
+    "owner_publication_authorized": false,
+    "projected_passenger_editorial": 350
+  }
+}
