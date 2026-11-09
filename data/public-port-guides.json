@@ -38780,6 +38780,112 @@
         "stage66_next_50_bundle_hash": "0d1e71cb015d0dc4c9de83b6a33c445e06457d9c8b769a15fc5009aec4173274",
         "applied_at_utc": "2026-11-09T08:47:48.621Z"
       }
+    },
+    "victoria": {
+      "appPortId": "victoria",
+      "portName": "Victoria, BC, Canada",
+      "country": "Canada",
+      "portInfo": {
+        "description": "Greater Victoria Harbour Authority operates the deep-water cruise terminal at Ogden Point under the Breakwater District brand. Terminal information lists Pier A (1,100 ft and 800 ft berths; 100,000 ft² warehouse) and Pier B berths extended to 1,040 ft. Passenger guidance highlights James Bay adjacency and walk/shuttle options into the Inner Harbour for the Royal BC Museum, Parliament Buildings and downtown. Many Alaska-season calls are evening arrivals — verify hours ashore before booking distant gardens."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Inner Harbour / Parliament — shuttle/walk — ~120 min.",
+          "Royal BC Museum — adjacent harbour framing; hours Not verified.",
+          "James Bay stroll — nearest.",
+          "Butchart Gardens — organised long call.",
+          "Whale watching — weather/season dependent."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Evening Alaska-itinerary calls are common — do not book a 4-hour Butchart tour without checking actual shore hours against all-aboard."
+      },
+      "gettingThere": {
+        "fromTerminal": "The Breakwater District at Ogden Point (Piers A & B) — Ogden Point / Breakwater District, Victoria, BC (James Bay)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Inner Harbour / downtown. Walk or shuttle — minutes Not verified. James Bay. Adjacent neighbourhood. Butchart Gardens. Organised only. Airport (YYJ): Not verified.",
+        "distanceAnswer": "Inner Harbour / downtown. Walk or shuttle — minutes Not verified. James Bay. Adjacent neighbourhood. Butchart Gardens. Organised only. Airport (YYJ): Not verified.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "9246ceca38320c64cb08c39fae04bc9d2bf9ce9413e0b8ad3e74c4c3d9e0266f",
+        "landing_slug": "victoria-bc-canada",
+        "candidate_content_hash": "50d1a5505da31963814504a106ba70e0a04b96784fc76a1207f12349f4ca8443",
+        "locked_at_utc": "2026-11-09T09:21:15.086Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage67_next_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage67_next_50_release_prep": true,
+        "stage67_next_50_bundle_hash": "d80526154dbd3d5d11116a312231f6b6a5b229faea68a5ec99fe8414f1cbd767",
+        "applied_at_utc": "2026-11-09T09:21:28.924Z"
+      }
+    },
+    "vlore": {
+      "appPortId": "vlore",
+      "portName": "Vlorë, Albania",
+      "country": "Albania",
+      "portInfo": {
+        "description": "Albania is outside Schengen. Evidence depth is limited: treat this guide as a gap-led stub until portivlore.com or an Albanian port-authority PDF is captured. Do not invent pier walks or museum hours."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Lungomare / waterfront",
+          "Independence Monument / flag square area",
+          "City museums"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Until the authority page loads, keep plans reversible and short."
+      },
+      "gettingThere": {
+        "fromTerminal": "Port of Vlorë / Porti i Vlorës — Vlorë, Albania",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "City adjacency claimed only in general terms — no invented minutes.",
+        "distanceAnswer": "City adjacency claimed only in general terms — no invented minutes.",
+        "walkingTime": "",
+        "taxiInfo": "",
+        "publicTransport": "Confirm local transport options with the ship on your call date."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c8a944469362e9f6a88bede26908659b4ef182cae4fd5199cc10acb67c791cba",
+        "landing_slug": "vlore-albania",
+        "candidate_content_hash": "d668e05adae09cf8dbc0f3c9b22e11ecb33e89b2e50302ddf16a144dabd19247",
+        "locked_at_utc": "2026-11-09T09:21:15.086Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage67_next_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage67_next_50_release_prep": true,
+        "stage67_next_50_bundle_hash": "d80526154dbd3d5d11116a312231f6b6a5b229faea68a5ec99fe8414f1cbd767",
+        "applied_at_utc": "2026-11-09T09:21:28.926Z"
+      }
     }
   },
   "meta": {
