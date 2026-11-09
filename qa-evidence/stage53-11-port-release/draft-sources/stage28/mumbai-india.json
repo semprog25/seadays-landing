@@ -1,0 +1,84 @@
+{
+  "landing_slug": "mumbai-india",
+  "app_port_id": "mumbai",
+  "research_sha256": "9f2197b3a0b75e968c553a2735c4bc01f5b6d7359a46ec88eca32b3180be35a7",
+  "draft": {
+    "landing_slug": "mumbai-india",
+    "appPortId": "mumbai",
+    "portName": "Mumbai",
+    "country": "India",
+    "portInfo": {
+      "description": "Mumbai Port Authority publishes Ballard Pier Extension as the Passenger Terminal berth: maximum normal/oversize LOA 221 m, designed draft 9.75 m, permissible displacement 50,000 tons, beam up to 32 m oversize. The Passenger cum Cargo Berths table lists the same berth at 244 m wharf length and designed draft 9.5 m CD. MbPA general-cargo text states these berths mainly cater to cruise when occupied [S1 context via facility pages]. Door GPS remain null; confirm MICT building exit with the line. Expect dense traffic to Colaba/Gateway.",
+      "location": "",
+      "timezone": "IST (UTC+5:30)",
+      "language": "Marathi, Hindi, English",
+      "currency": "Indian Rupee (INR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Ballard Pier Extension Passenger Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Confirm with ship — minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Confirm with ship — minutes unverified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Gateway of India / Colaba (transfer) — with transfer as needed.",
+        "Ship excursion — safest timing.",
+        "Local centre — hours not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Traffic is severe — over-budget return time."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.4",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9f2197b3a0b75e968c553a2735c4bc01f5b6d7359a46ec88eca32b3180be35a7",
+      "existing_guide_hash": "3cb3f887c574505d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/mumbai-india.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T12:15:57.668Z",
+      "cache_key": "7fba883d320aa262555f75fef487405877c92caecd22181e6c9189d534e0c0e7",
+      "landing_slug": "mumbai-india",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

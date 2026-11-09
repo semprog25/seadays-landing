@@ -1,0 +1,87 @@
+{
+  "landing_slug": "ravenna-italy",
+  "app_port_id": "ravenna",
+  "research_sha256": "aef11192c59ec7fa6ffea672cf1a5d87380a6f551a847c6f5e8c097d41c23c5a",
+  "draft": {
+    "landing_slug": "ravenna-italy",
+    "appPortId": "ravenna",
+    "portName": "Ravenna",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Ravenna Civitas Cruise Port operates a dedicated cruise terminal at Molo Crociere, Porto Corsini, with two berths for simultaneous ships. AdSP’s November 2025 briefing for the 2026 season describes completion of a new maritime station (~5,000 m², two floors, 250×6 m elevated walkway) enabling two-ship operations (~7,000 pax), with 111 planned calls (71 homeport / 40 transit) and about 390,000 passenger movements (~58% above 2025). Historic Ravenna’s UNESCO monuments are inland of Porto Corsini.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Ravenna Civitas Cruise Port — Molo Crociere, Porto Corsini — Molo Crociere, Porto Corsini, 48123 Ravenna, Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Historic Ravenna. Not a short waterfront walk from Porto Corsini. Use ship shuttle or verified coach; minutes not published on fetched RCCP/AdSP pages — GAP. San Vitale / mosaics. City visit only after transfer timing is known.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Historic Ravenna. Not a short waterfront walk from Porto Corsini. Use ship shuttle or verified coach; minutes not published on fetched RCCP/AdSP pages — GAP. San Vitale / mosaics. City visit only after transfer timing is known."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "UNESCO mosaics circuit (San Vitale et al.) — RCCP destination framing. ~90–120 min on site.",
+        "Porto Corsini waterfront — only if transfer time is short (editorial local option).",
+        "Transfer in: 30 (est./GAP)",
+        "One mosaic site: 60",
+        "Transfer out: 30"
+      ],
+      "shortCall": "Only if a shuttle round-trip ≤40 min total is confirmed. Otherwise stay near terminal.\n- Transfer in: 30 (est./GAP)\n- One mosaic site: 60\n- Transfer out: 30\n- Buffer: 60\nSum: 180 — needs ≥4 h 30 and verified shuttle.",
+      "standardCall": "≥7 h with city mosaics.\n- Transfers: 2×35 (est.)\n- Two sites + lunch: 180\n- Buffer: 75\nSum: 325. Prefer ship excursion if shuttle unknown.",
+      "longerCall": "Full UNESCO circuit + lunch with ≥8 h. Overnight: evening city (editorial).",
+      "practicalTip": "Porto Corsini ≠ Ravenna centro — budget transfer before mosaics [S1][S2]."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.4",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "aef11192c59ec7fa6ffea672cf1a5d87380a6f551a847c6f5e8c097d41c23c5a",
+      "existing_guide_hash": "85c2457ee54960ac",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ravenna-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T12:15:57.681Z",
+      "cache_key": "3bf0447ba61f3fb1e6b2a221e9762abff5751f7025a49f1db0aacf152c0ee84a",
+      "landing_slug": "ravenna-italy",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

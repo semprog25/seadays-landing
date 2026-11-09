@@ -1,0 +1,80 @@
+{
+  "landing_slug": "la-romana-dominican-republic",
+  "app_port_id": "la-romana",
+  "research_sha256": "ca3cd52952ac36ec75e1c4a51eb9a19acad3b838e54a9313a13fb64dae055d1e",
+  "draft": {
+    "landing_slug": "la-romana-dominican-republic",
+    "appPortId": "la-romana",
+    "portName": "La Romana",
+    "country": "Dominican Republic",
+    "portInfo": {
+      "description": "La Romana’s cruise facility is a privately operated river-mouth terminal run by Central Romana Corporation, which also owns the historic sugar industrial complex. The operator’s technical sheet distinguishes a West Berth (sugar/molasses) from an East Berth used exclusively for cruise ships, with published pier length 256 m and maximum ship dimensions 360 × 61 m and 226,000 GT, channel entrance 11.5 m and maximum draft 10.5 m, 24/7 operations, and ISPS certification coded DOLRM / DOLRM-0001 (certificate dated 26 May 2006). Marketing pages position the port as both a port of call and a homeport with integrated transfers to La Romana International Airport (LRM), claiming ~45 minutes to Punta Cana and ~90 minutes to Santo Domingo. Cruise operations at Catalina Island (from 1992 with Costa) and the East Berth cruise pier (from 2002) are part of the same corporate story — for SeaDays mapping, keep la-romana-dominican-republic on the river terminal unless a separate Catalina slug is confirmed.",
+      "location": "",
+      "timezone": "AST (UTC-4)",
+      "language": "Spanish",
+      "currency": "Dominican Peso (DOP), US Dollar accepted",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "East Berth cruise pier",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "On-site terminal services per the port operator. City-centre walk times vary—confirm with the ship before you plan a self-guided town walk.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "On-site terminal services per the port operator. City-centre walk times vary—confirm with the ship before you plan a self-guided town walk."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Terminal / local operator tours — duration varies.",
+        "Town / Casa de Campo area — transfer minutes unverified.",
+        "Catalina Island day if your sailing uses that product — not the East Berth walk-off."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm whether passengers land at the East Berth or tender/transfer to Catalina before planning a self-guided town walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ca3cd52952ac36ec75e1c4a51eb9a19acad3b838e54a9313a13fb64dae055d1e",
+      "existing_guide_hash": "b8fd60cc9b769500",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/la-romana-dominican-republic.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.304Z",
+      "cache_key": "ff1aebd670b25c1b18cc2c679cac96b2a49868badc362a643cac1cb94ee5d756",
+      "landing_slug": "la-romana-dominican-republic",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_OWNER_APPROVAL"
+  },
+  "cache_hit": false
+}

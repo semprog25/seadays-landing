@@ -1,0 +1,91 @@
+{
+  "landing_slug": "eilat-israel",
+  "app_port_id": "eilat",
+  "research_sha256": "98ee6d361590a896d5b3b0c17a01ef97e6ce3d6b297242b9891bb4423046b276",
+  "draft": {
+    "landing_slug": "eilat-israel",
+    "appPortId": "eilat",
+    "portName": "Eilat",
+    "country": "Israel",
+    "portInfo": {
+      "description": "At Israel’s small Red Sea frontage, Eilat pairs a southern-shore reef with a desert hinterland. Underwater observation, controlled reef access and inland wildlife conservation are genuinely different ways to spend a day; they need not be padded into a generic city shopping itinerary. The Nature and Parks Authority explains Coral Beach’s protected habitat and Hai-Bar’s wildlife restoration role. A mapped harbour centroid would not help passengers find the correct exit. This revision instead records the passenger hall explicitly mentioned by the port, leaves its geometry null and separates general accessibility arrangements from ship-specific clearance. A sheltered museum-like aquarium visit may suit a different traveller from snorkelling or a vehicle-based reserve circuit.",
+      "location": "",
+      "timezone": "IST (UTC+2) / IDT (UTC+3)",
+      "language": "Hebrew, Arabic",
+      "currency": "Israeli Shekel (ILS)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Eilat Port passenger hall — Eilat Port, southern shore / Route 90, Eilat, Israel; exact hall entrance unverified",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Coral Beach Nature Reserve, Eilat southern shore: allow two hours for authorised reef viewing/snorkelling if suitable. The authority confirms beach services and reef-access bridges, not a day-specific swimming guarantee.",
+        "Underwater Observatory Marine Park, Coral Beach: two hours to see underwater viewing/aquarium exhibits without requiring a snorkel session. The operator describes stairs down to the underwater observatory; check mobility alternatives.",
+        "Dolphin Reef, southern Eilat: 90 minutes for observation/beach setting, conditional on current operator admission policy. The city guide corroborates the attraction; do not promise wildlife interaction or rely on an unextracted operator page for present encounter schedules.",
+        "Timna Park, named visitor entrance north of Eilat: 2½ hours for a preselected short route such as the Mushroom/arches area. The city guide documents its rock formations; use the operator for current trail/heat/access arrangements. No long desert hike is fitted into this visit block.",
+        "Hai-Bar Yotvata, Route 90 between Yotvata and Samar: 90 minutes for a vehicle-based reserve circuit; the official page locates it 35 km north of Eilat. Remain inside the vehicle as required and reserve/confirm admission."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not mistake an accessible hall for an accessible ship excursion. Confirm each ramp, vehicle, stair and reserve surface for the actual passenger and sailing. [S4][S6]"
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.4",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "98ee6d361590a896d5b3b0c17a01ef97e6ce3d6b297242b9891bb4423046b276",
+      "existing_guide_hash": "1690ec214593a9c8",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/eilat-israel.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-08T12:15:57.762Z",
+      "cache_key": "465abc50674579925af1723ed4583b46f9633d9c91ece5518b2d994c8d15ad94",
+      "landing_slug": "eilat-israel",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

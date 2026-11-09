@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-11-09T05:12:00.000Z",
+  "status": "STRUCTURAL_PASS",
+  "browser_visual_pass_claimed": false,
+  "playwright_matrix": {
+    "attempted": true,
+    "result": "VISUAL_QA_INCOMPLETE",
+    "reason": "playwright_module_unavailable"
+  },
+  "structural_heuristic": {
+    "slug_count": 11,
+    "passing": 11,
+    "checks": [
+      "pg-call-plan-card x3",
+      "getting-there anchor",
+      "no [S#] markers in HTML",
+      "no raw **markdown**",
+      "terminal map not introduced"
+    ]
+  },
+  "release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f"
+}

@@ -1,0 +1,85 @@
+{
+  "landing_slug": "mormugao-port-goa-india",
+  "app_port_id": "mormugao",
+  "research_sha256": "2f823be6c62f9da5d7eab23f896e2066cb7c122770e3d9801c190231200b18da",
+  "draft": {
+    "landing_slug": "mormugao-port-goa-india",
+    "appPortId": "mormugao",
+    "portName": "Mormugao Port (Goa)",
+    "country": "India",
+    "portInfo": {
+      "description": "The main port of Goa, India, located on the mouth of the Zuari River, serving the state's mining and tourism industries.",
+      "location": "",
+      "timezone": "IST (UTC+5:30)",
+      "language": "Konkani, English",
+      "currency": "Indian Rupee (INR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Mormugao Break Water Berth (cruise)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Confirm with ship — minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Confirm with ship — minutes unverified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Vasco / beach belt (transfer) — with transfer as needed.",
+        "Ship excursion — safest timing.",
+        "Local centre — hours not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm your berth name on the daily programme before you commit to a return time."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.4",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2f823be6c62f9da5d7eab23f896e2066cb7c122770e3d9801c190231200b18da",
+      "existing_guide_hash": "d64a49548588049b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/mormugao-port-goa-india.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "dropped_research_practicalTip"
+      ],
+      "generated_at_utc": "2026-11-08T12:15:57.666Z",
+      "cache_key": "888b5cbc22eb4b61577876b0902651dde678db5eab79b0a6900d098bceb12ec3",
+      "landing_slug": "mormugao-port-goa-india",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

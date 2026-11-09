@@ -1,0 +1,83 @@
+{
+  "landing_slug": "harstad-norway",
+  "app_port_id": "harstad",
+  "research_sha256": "93a321b550fcab1890f4baba1aff47e6578273ee61deca46acfc52198adcda9e",
+  "draft": {
+    "landing_slug": "harstad-norway",
+    "appPortId": "harstad",
+    "portName": "Harstad",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Norwegian port city in the Arctic region, known for midnight sun, northern lights, and beautiful coastal scenery.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Harstad cruise quay",
+      "transportation": [
+        "Walking",
+        "Local bus"
+      ],
+      "distanceToCity": "Quay located near city center",
+      "walkingTime": "10-20 minutes to downtown—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis available at quay",
+      "publicTransport": "Local bus system available",
+      "distanceAnswer": "Quay located near city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Harstad sentrum walk",
+        "Trondenes / peninsula sights",
+        "Harbourfront and church district near the quay"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm “Larsneset Nord” on the day’s programme — older industrial berths are not assumed here."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "93a321b550fcab1890f4baba1aff47e6578273ee61deca46acfc52198adcda9e",
+      "existing_guide_hash": "a6a5dee0f916a27f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/harstad-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "dropped_truncated_thingsBullet",
+        "insufficient_supported_attractions_2"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.284Z",
+      "cache_key": "6ea870ffe693a1624b88ec8ee21b836a26aa555bd8ab85363b9c03e5de024352",
+      "landing_slug": "harstad-norway",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_OWNER_APPROVAL"
+  },
+  "cache_hit": false
+}
