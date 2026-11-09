@@ -30,9 +30,21 @@ function main() {
   const onlyFilter = onlyArg ? new Set(onlyArg.replace('--only=', '').split(',').map((s) => s.trim())) : null;
 
   const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
-  let slugs = (manifest.slugs_approved || []).slice().sort();
+  const approvedAll = (manifest.slugs_approved || []).slice().sort();
+  let slugs = approvedAll.slice();
   if (onlyFilter) slugs = slugs.filter((s) => onlyFilter.has(s));
   if (!slugs.length) fail('no approved slugs to apply');
+  const allowPartialEvidence = process.argv.includes('--allow-partial-evidence');
+  if (
+    onlyFilter &&
+    slugs.length < approvedAll.length &&
+    !allowPartialEvidence &&
+    !dryRun
+  ) {
+    fail(
+      `refusing to overwrite APPLY_REPORT: --only=${[...onlyFilter].join(',')} is partial (${slugs.length}/${approvedAll.length}). Use stage66-regenerate-release-evidence.js or pass --allow-partial-evidence.`
+    );
+  }
 
   const portsBySlug = new Map(manifest.ports.map((p) => [p.landing_slug, p]));
   const researchRoot = process.env.PORT_RESEARCH_ROOT || DEFAULT_RESEARCH;
