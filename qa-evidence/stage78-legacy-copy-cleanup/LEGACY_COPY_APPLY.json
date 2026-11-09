@@ -1,0 +1,94 @@
+{
+  "applied_at": "2026-11-09T19:57:46.927Z",
+  "rows": [
+    {
+      "landing_slug": "boston-ma-united-states",
+      "appPortId": "boston",
+      "fields": [
+        {
+          "path": "portInfo.description",
+          "evidence": "Massport Flynn Cruiseport; removed WGS84 pin research wording",
+          "before_snippet": "Massport’s Flynn Cruiseport Boston sits in the Seaport District and publishes the cruise terminal address as 1 Black Falcon Avenue on its Pa"
+        },
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "Massport directions; removed timed taxi “Not verified” leak",
+          "before_snippet": "Driving. Massport publishes I-93 / Seaport Boulevard / Drydock Avenue / Black Falcon Avenue approaches. Parking. 93 Fargo Street; reserve on"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Driving. Massport publishes I-93 / Seaport Boulevard / Drydock Avenue / Black Falcon Avenue approaches. Parking. 93 Fargo Street; reserve on"
+        }
+      ]
+    },
+    {
+      "landing_slug": "cabo-san-lucas-mexico",
+      "appPortId": "cabo-san-lucas",
+      "fields": [
+        {
+          "path": "portInfo.description",
+          "evidence": "Passenger tender guidance; removed SEMAR questionnaire wording",
+          "before_snippet": "Cabo San Lucas at the tip of Baja California Sur is a classic Mexican Riviera tender port. A Secretaría de Marina (SEMAR) port questionnaire"
+        },
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "Tender-first guidance; removed SEMAR doc leak",
+          "before_snippet": "Ship → shore. Tender to marina; queue risk in swell. Airport (SJD). Transfer minutes from marina Not verified in SEMAR doc. Downtown. Marina"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Ship → shore. Tender to marina; queue risk in swell. Airport (SJD). Transfer minutes from marina Not verified in SEMAR doc. Downtown. Marina"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Ship → shore. Tender to marina; queue risk in swell. Airport (SJD). Transfer minutes from marina Not verified in SEMAR doc. Downtown. Marina"
+        }
+      ]
+    },
+    {
+      "landing_slug": "galveston-tx-united-states",
+      "appPortId": "galveston",
+      "fields": [
+        {
+          "path": "portInfo.description",
+          "evidence": "Galveston Wharves facilities; removed pin-null research wording",
+          "before_snippet": "Galveston Wharves markets itself as the only cruise homeport in Texas and a major Gulf embarkation point for Caribbean itineraries. The faci"
+        },
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "Wharves brochure excerpt rephrased",
+          "before_snippet": "Airports. March 2026 brochure states two major international airports within about 1.5 hours; named airports and timed routes Not verified o"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Airports. March 2026 brochure states two major international airports within about 1.5 hours; named airports and timed routes Not verified o"
+        },
+        {
+          "path": "thingsToDo.topThings",
+          "evidence": "passenger durations without research leak tokens",
+          "before_snippet": "[\"The Strand Historic District — shops/restaurants near the port commercial area — ~120 min.\",\"Seawall Boulevard / beach — transfer minutes "
+        }
+      ]
+    },
+    {
+      "landing_slug": "seattle-wa-united-states",
+      "appPortId": "seattle",
+      "fields": [
+        {
+          "path": "portInfo.description",
+          "evidence": "Port of Seattle place pages; removed door-pin research wording",
+          "before_snippet": "Port of Seattle operates two Alaska-season cruise terminals: Smith Cove at Pier 91 north of downtown and Bell Street at Pier 66 on the centr"
+        },
+        {
+          "path": "thingsToDo.topThings",
+          "evidence": "passenger durations without research leak tokens",
+          "before_snippet": "[\"Pike Place Market — walkable framing from Pier 66; transfer from Pier 91 — ~120 min.\",\"Seattle waterfront / Great Wheel area — Pier 66 adj"
+        }
+      ]
+    }
+  ]
+}
