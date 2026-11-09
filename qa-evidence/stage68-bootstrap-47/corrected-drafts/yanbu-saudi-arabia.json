@@ -1,0 +1,78 @@
+{
+  "landing_slug": "yanbu-saudi-arabia",
+  "draft": {
+    "landing_slug": "yanbu-saudi-arabia",
+    "appPortId": "yanbu",
+    "portName": "Yanbu",
+    "country": "Saudi Arabia",
+    "portInfo": {
+      "description": "Yanbu is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Yanbu Commercial Port Cruise Terminal — Yanbu Commercial Port, Saudi Arabia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town may be ~1 km — still confirm security perimeter.",
+      "distanceAnswer": "Town may be ~1 km — still confirm security perimeter.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Corniche / town — ~120 min.",
+        "Marine/snorkel products — licensed only.",
+        "Saba Beach / Baridi — only if the itinerary includes those landings.",
+        "Yanbu waterfront / Red Sea marine areas"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Tenders not allowed per MedCruise — plan for alongside ops only."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fa404f02ff0590f7b530e23cbf4792b180c1a89393aaaa09c762d7c5e4d51d47",
+      "existing_guide_hash": "8505ed29d0c2d05f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/yanbu-saudi-arabia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.072Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

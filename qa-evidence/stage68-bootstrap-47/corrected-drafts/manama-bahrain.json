@@ -1,0 +1,76 @@
+{
+  "landing_slug": "manama-bahrain",
+  "draft": {
+    "landing_slug": "manama-bahrain",
+    "appPortId": "manama",
+    "portName": "Manama",
+    "country": "Bahrain",
+    "portInfo": {
+      "description": "Manama is Bahrain’s capital and the usual urban focus of cruise shore programmes. The Bahrain National Portal’s Borders and Ports page explains that Ports and Maritime Affairs (PMA) under the Ministry of Transportation and Telecommunications oversees the maritime sector and that Khalifa Bin Salman Port, inaugurated in 2009, accommodates cruise ships, container ships and cargo carriers with road links toward Saudi Arabia and other GCC states. APM Terminals Bahrain’s public materials describe KBSP as the kingdom’s modern commercial port with a dedicated passenger terminal for cruise and ferry calls. This destination guide does not treat historic Mina Salman as the cruise pier — see the companion Mina Salman slug for that distinction."
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise calls via Khalifa Bin Salman Port (KBSP) — Khalifa Bin Salman Port, Hidd — capital tours typically coach into Manama",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Budget coach time from KBSP into Manama souq / fort — exact minutes not verified.",
+      "distanceAnswer": "Budget coach time from KBSP into Manama souq / fort — exact minutes not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Bahrain Fort / museum — ~90 min.",
+        "Manama souq — heat-aware.",
+        "National Museum / waterfront — confirm hours.",
+        "Bahrain Fort (Qal’at al-Bahrain)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not assume a downtown berth — plan for KBSP transfer."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "24a04e9b79a92466abe09292e26e3187201ca657d66582a1d5898190e27e349b",
+      "existing_guide_hash": "5ed266d79919fcf6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/manama-bahrain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.998Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

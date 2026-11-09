@@ -1,0 +1,30 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "sassnitz-mukran-germany--mukran",
+        "name": "Mukran Port — cruise quays",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "sassnitz-mukran-germany--city-harbour",
+        "name": "Sassnitz City Harbour — cruise quay",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}

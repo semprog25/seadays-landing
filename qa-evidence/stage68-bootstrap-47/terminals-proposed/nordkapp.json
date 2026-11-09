@@ -1,0 +1,41 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "nordkapp-norway--berth-north",
+        "name": "Berth North (Port of North Cape / Honningsvåg)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "nordkapp-norway--berth-3",
+        "name": "Berth 3 (Port of North Cape / Honningsvåg)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "nordkapp-norway--berth-south",
+        "name": "Berth South",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}

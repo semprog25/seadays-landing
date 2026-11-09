@@ -1,0 +1,76 @@
+{
+  "landing_slug": "stralsund-germany",
+  "draft": {
+    "landing_slug": "stralsund-germany",
+    "appPortId": "stralsund",
+    "portName": "Stralsund",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Seehafen Stralsund GmbH presents a multimodal universal port in north-east Germany (bulk/general cargo, rail-connected Frankenhafen development) at about 54°18′N 13°06′E. Cruise-specific berth diagrams were not on the English home page. The 2026 Regulations and Charges PDF nonetheless tariffs ocean cruise vessels and other passenger/cruise categories, which is evidence that cruise calls are handled under port rules. City tourism markets UNESCO World Heritage brick Gothic, museums including OZEANEUM/Meeresmuseum, and a short urban beach. Do not invent a Stadthafen vs Frankenhafen assignment without a primary cruise berthing sheet."
+    },
+    "gettingThere": {
+      "fromTerminal": "Stralsund cruise landing (berth not specified on primary HTML)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Walk/shuttle minutes from gangway to Alter Markt / OZEANEUM not verified. Treat as a compact city once ashore, but keep a buffer until the berth is known.",
+      "distanceAnswer": "Walk/shuttle minutes from gangway to Alter Markt / OZEANEUM not verified. Treat as a compact city once ashore, but keep a buffer until the berth is known.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "UNESCO old town / Alter Markt — ~90–120 min.",
+        "OZEANEUM — ticket hours not verified here.",
+        "Gorch Fock / harbour island area — berth proximity unverified.",
+        "OZEANEUM / old town"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask the ship which Stralsund quay before timing a museum ticket."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e6c8f5d65d655163575dec694641b4da74142566bba30437c9fbd45430dce5fc",
+      "existing_guide_hash": "9f28e74c375e6967",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/stralsund-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.039Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

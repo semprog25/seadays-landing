@@ -1,0 +1,79 @@
+{
+  "landing_slug": "cape-liberty-bayonne-nj-united-states",
+  "draft": {
+    "landing_slug": "cape-liberty-bayonne-nj-united-states",
+    "appPortId": "bayonne",
+    "portName": "Cape Liberty (Bayonne)",
+    "country": "United States",
+    "portInfo": {
+      "description": "Cape Liberty (Bayonne) is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Cape Liberty Cruise Port — 4 Port Terminal Boulevard, Bayonne, NJ 07002-5038",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Driving. NJTP Exit 14A → Route 440 → Port Terminal Blvd left at light → past guard gate → terminal signs. Airports. Timed EWR/JFK/LGA transfers Not verified on the FAQ page. Transit. Public-transit walk-up Not verified.",
+      "distanceAnswer": "Driving. NJTP Exit 14A → Route 440 → Port Terminal Blvd left at light → past guard gate → terminal signs. Airports. Timed EWR/JFK/LGA transfers Not verified on the FAQ page. Transit. Public-transit walk-up Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Bayonne / harbor viewpoints — limited walk-off retail compared with Manhattan.",
+        "Statue of Liberty / NYC — long organised transfer only.",
+        "Liberty State Park (Jersey City) — mid transfer; minutes Not verified.",
+        "Newark airport hotel day — embarkation-eve practicality.",
+        "Onboard day — often rational on turnaround mornings."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Program the GPS for 4 Port Terminal Boulevard, Bayonne — not “New York Cruise Terminal” — or you may be sent to Manhattan/Brooklyn."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0219b97899881fa14a0d561b88554b5c5bad7dda64093aaa0ebcbf98ca51c55f",
+      "existing_guide_hash": "92507e383553d8db",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/cape-liberty-bayonne-nj-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.964Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

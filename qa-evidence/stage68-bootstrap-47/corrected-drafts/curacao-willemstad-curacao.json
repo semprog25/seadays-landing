@@ -1,0 +1,76 @@
+{
+  "landing_slug": "curacao-willemstad-curacao",
+  "draft": {
+    "landing_slug": "curacao-willemstad-curacao",
+    "appPortId": "willemstad",
+    "portName": "Curacao (Willemstad)",
+    "country": "Curacao",
+    "portInfo": {
+      "description": "CPA states cruise ships dock at the Mega Pier Cruise facility or the Otrobanda wharves in St. Anna Bay, both with full ship services. The Willemstad port page places the Megapier jetty about 200 m west of the bay entrance with 15 m draft alongside and notes it is not subject to St. Anna Bay restrictions that affect traffic under the Queen Emma pontoon bridge and Queen Juliana bridge. Entrance channel navigable width 263.6 m, minimum depth 15.2 m. Rif Seaport master plan (2014 unveil) describes a second mega pier and waterfront village to expand capacity — treat build-out status as unverified unless confirmed on a current CPA schedule page."
+    },
+    "gettingThere": {
+      "fromTerminal": "Megapier Cruise Terminal — Rif / entrance St. Anna Bay, Willemstad",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Otrobanda assignment: walk toward Queen Emma Bridge / Punda. Megapier: Rif waterfront; exact walk minutes to Punda not published as a number on the pages used — plan heat, hills and a return buffer. Confirm which facility before timing a walking day.",
+      "distanceAnswer": "Otrobanda assignment: walk toward Queen Emma Bridge / Punda. Megapier: Rif waterfront; exact walk minutes to Punda not published as a number on the pages used — plan heat, hills and a return buffer. Confirm which facility before timing a walking day.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Punda / Otrobanda colourful harbourfront — ~120 min.",
+        "Floating market / Fort Amsterdam area — hours not verified.",
+        "West-punt beaches / snorkeling — coach; long call.",
+        "Willemstad UNESCO harbour (Punda / Otrobanda)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Megapier vs Otrobanda changes walking time — check the ship board."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8d6c2dd40b9d53fe7fa043fa66fe941e3f7e62347e672bf3041948ce9dfea900",
+      "existing_guide_hash": "5f73b70a8c75ce8e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/curacao-willemstad-curacao.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.903Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

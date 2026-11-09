@@ -1,0 +1,80 @@
+{
+  "landing_slug": "sao-paulo-santos-brazil",
+  "draft": {
+    "landing_slug": "sao-paulo-santos-brazil",
+    "appPortId": "santos",
+    "portName": "Sao Paulo (Santos)",
+    "country": "Brazil",
+    "portInfo": {
+      "description": "Sao Paulo (Santos) is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal Marítimo de Passageiros Giusfredo Santini (Concais)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Road coaches to São Paulo (~72 km per S1); minutes/prices null. Local Santos beach zone for short calls. Taxi/rideshare — prices null.",
+      "distanceAnswer": "Road coaches to São Paulo (~72 km per S1); minutes/prices null. Local Santos beach zone for short calls. Taxi/rideshare — prices null.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Santos beach / Orla — short call.",
+        "Coffee Museum / Centro — local heritage.",
+        "São Paulo city — long road day only.",
+        "Guarujá beaches — separate transfer; buffer required.",
+        "Santos beachfront / Centro"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Luggage may say São Paulo, but you land in Santos — plan the highway time."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "10366506ebefbab680d74fd674e2ab72f684b112b28946dabad46e459731eb98",
+      "existing_guide_hash": "7a7e2819b1a922f5",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/sao-paulo-santos-brazil.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.029Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

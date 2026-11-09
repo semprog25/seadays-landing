@@ -1,0 +1,76 @@
+{
+  "landing_slug": "jeddah-saudi-arabia",
+  "draft": {
+    "landing_slug": "jeddah-saudi-arabia",
+    "appPortId": "jeddah",
+    "portName": "Jeddah",
+    "country": "Saudi Arabia",
+    "portInfo": {
+      "description": "Jeddah is Saudi Arabia’s Red Sea commercial and cultural hub and the traditional maritime gateway toward Makkah and Madinah. Cruise guests reach the city after clearing through Jeddah Islamic Port, which Cruise Saudi and MedCruise describe as the Kingdom’s primary cruise homeport with a single cruise quay sized to 365 m / 11 m draught. Visit Saudi’s Jeddah destination page frames coastal experiences and top attractions for leisure visitors. This guide focuses on the city call experience; facility engineering details stay on jeddah-islamic-port-saudi-arabia to avoid duplicated berth claims."
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise calls via Jeddah Islamic Port — Jeddah Islamic Port (see companion slug jeddah-islamic-port-saudi-arabia)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Plan a coach/taxi segment from Islamic Port into Al-Balad or the Corniche; MedCruise’s ~15-minute city-centre figure is indicative only.",
+      "distanceAnswer": "Plan a coach/taxi segment from Islamic Port into Al-Balad or the Corniche; MedCruise’s ~15-minute city-centre figure is indicative only.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Al-Balad (Historic Jeddah) — UNESCO-listed Hijazi architecture — ~150 min.",
+        "Corniche — waterfront walk; heat caution.",
+        "Art / contemporary districts — check Visit Saudi listings.",
+        "Historic Jeddah (Al-Balad)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Keep passport/visa status compatible with any inland religious-site visits; follow line briefings."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "13b5079ce4747b17eb4ec5e2e453aae1dd85526308850963e8831288510efbc4",
+      "existing_guide_hash": "e70cfad7ae370ddd",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/jeddah-saudi-arabia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.986Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

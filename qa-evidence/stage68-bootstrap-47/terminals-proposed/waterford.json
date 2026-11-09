@@ -1,0 +1,41 @@
+{
+  "terminals": [],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "waterford-ireland--belview",
+        "name": "Belview Port (cruise landing option)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "waterford-ireland--city-quays",
+        "name": "Waterford City Quays (Frank Cassin Wharf)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      },
+      {
+        "terminal_id": "waterford-ireland--dunmore-east-tender",
+        "name": "Dunmore East (tender)",
+        "importable": false,
+        "tier": "none",
+        "reasons": [
+          "missing_finite_coordinates"
+        ],
+        "lat": null,
+        "lng": null
+      }
+    ],
+    "importable_count": 0
+  }
+}
