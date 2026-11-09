@@ -7,6 +7,7 @@ const crypto = require('crypto')
 const { execSync } = require('child_process')
 const { loadPublicPortGuidesFile, writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter')
 const { verifyResearchPortSha } = require('./lib/portResearchImport/verifyResearchSha')
+const { assignPublicPortGuideByAppPortId } = require('./lib/bulkPortPublication/crossCountryHomonymPublicationGuards')
 
 const REPO = path.join(__dirname, '..')
 const EVIDENCE = path.join(REPO, 'qa-evidence', 'bulk-50-port-release')
@@ -78,7 +79,12 @@ function main() {
       applied_at_utc: new Date().toISOString(),
       field_exclusions: row.field_exclusions || [],
     }
-    nextGuides.byAppPortId[row.app_port_id] = g
+    assignPublicPortGuideByAppPortId(nextGuides, {
+      landingSlug,
+      appPortId: row.app_port_id,
+      guide: g,
+      priorGuideAtSlot: guides.byAppPortId[row.app_port_id],
+    })
   }
 
   if (dryRun) {

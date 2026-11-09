@@ -467,6 +467,10 @@ function loadPublicPortGuidesFile(repoRoot) {
 }
 
 function writePublicPortGuidesFile(repoRoot, payload) {
+  const {
+    assertPublicPortGuidesPayloadSafe,
+  } = require('./bulkPortPublication/crossCountryHomonymPublicationGuards');
+  assertPublicPortGuidesPayloadSafe(payload);
   const dir = path.join(repoRoot, 'data');
   fs.mkdirSync(dir, { recursive: true });
   const p = path.join(dir, 'public-port-guides.json');

@@ -2,6 +2,7 @@
 'use strict';
 
 const fs = require('fs');
+const { assignPublicPortGuideByAppPortId } = require('./lib/bulkPortPublication/crossCountryHomonymPublicationGuards');
 const path = require('path');
 const crypto = require('crypto');
 const { loadPublicPortGuidesFile, writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
@@ -75,7 +76,7 @@ function main() {
       applied_at_utc: new Date().toISOString(),
       field_exclusions: row.field_exclusions || [],
     };
-    nextGuides.byAppPortId[row.app_port_id] = g;
+    assignPublicPortGuideByAppPortId(nextGuides, { landingSlug, appPortId: row.app_port_id, guide: g, priorGuideAtSlot: guides.byAppPortId[row.app_port_id] });
     appIds.push(row.app_port_id);
   }
 
