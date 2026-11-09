@@ -1,0 +1,77 @@
+{
+  "landing_slug": "wellington-new-zealand",
+  "draft": {
+    "landing_slug": "wellington-new-zealand",
+    "appPortId": "wellington",
+    "portName": "Wellington",
+    "country": "New Zealand",
+    "portInfo": {
+      "description": "Wellington’s cruise passengers land at CentrePort, which publishes a dedicated cruise passenger zone and city shuttle rules. The cruise-line information page states over 900 m of dedicated quay berth with in-house gangways and marine services. Queens Wharf is a separate city waterfront facility — not treated as the CentrePort cruise door here.",
+      "location": "Located at southern tip of North Island, New Zealand",
+      "timezone": "NZST (UTC+12) / NZDT (UTC+13)",
+      "language": "English, Māori",
+      "currency": "New Zealand Dollar (NZD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Wellington cruise terminal",
+      "transportation": [
+        "Walking to city center",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Wellington city",
+      "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Excellent public transport system",
+      "distanceAnswer": "Within Wellington city"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Waterfront / Te Papa — after shuttle.",
+        "Cable Car / Botanic Garden — classic.",
+        "Cuba Street — short walk from shuttle area.",
+        "Wairarapa wine / Zealandia — longer transfers.",
+        "Wellington waterfront / Te Papa area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Arrange city meetups off-port — no public/taxi access at the berth."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "99a6c12ff13ea0da9d46a3b501315885e82412e09ff30df0e6582b91c025ba2a",
+      "existing_guide_hash": "7bd6768ac156d02f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/wellington-new-zealand.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.634Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

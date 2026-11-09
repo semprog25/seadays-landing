@@ -1,0 +1,76 @@
+{
+  "landing_slug": "trondheim-norway",
+  "draft": {
+    "landing_slug": "trondheim-norway",
+    "appPortId": "trondheim",
+    "portName": "Trondheim",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Trondheim Port Authority (TPA) operates ISPS cruise facilities in Trondheim. Cruise quay 68 at Brattøra is published at 96 m length and 13 m depth and has received large ships including Queen Mary 2 and MSC Meraviglia. Ila 30 (280 m / 8 m) is used when 68 is unavailable; Pir 1 appears in the cruise quay table with afternoon availability notes. Anchored ships may tender to the Skansen floating bridge (~1300 m from anchorage per 2026 terms). The port terms sheet cites up to four cruise ships and 9,000 passengers per day.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Trondheim cruise terminal",
+      "transportation": [
+        "Walking to city center",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Trondheim city",
+      "walkingTime": "15-20 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Cruise berths are centrally located for city exploring. Confirm whether you start from Brattøra (quay 68) or Ila — walk times differ. Prefer your ship’s pier map for the gangway you use.",
+      "distanceAnswer": "Within Trondheim city"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City centre / waterfront — ~90–180 min.",
+        "Regional Trøndelag excursions — line products.",
+        "Trondheim city centre / Nidaros area (destination framing)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Quay 68 vs Ila 30 vs Skansen tender before planning walk times."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2411ceb360cc8a2a719d350ec91650c659e210e6af8f34b51efebeb9cebbe8e2",
+      "existing_guide_hash": "2f52598ade1c4e8d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/trondheim-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.612Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.694Z"
+}

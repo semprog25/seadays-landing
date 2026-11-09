@@ -1,0 +1,79 @@
+{
+  "landing_slug": "molde-norway",
+  "draft": {
+    "landing_slug": "molde-norway",
+    "appPortId": "molde",
+    "portName": "Molde",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Molde sits on Romsdalsfjord and is one of three cruise destinations under Molde og Romsdal Havn IKS (with Åndalsnes and Eresfjord). Storkaia and Moldegård are the ISPS quays named for cruise on the Cruise Norway destination sheet. Ships typically dock in town rather than at a remote industrial pier. Confirm which quay and LOA/draft your line is assigned before planning walk times.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Storkaia — Molde (Molde og Romsdal Havn)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Molde waterfront / town centre walk — fjord and “222 peaks” panorama framing — ~60–120 min.",
+        "Atlantic Road scenic drive — needs a long call and confirmed coach timing.",
+        "Romsdalen / Trollstigen day trips — longer-call only; return buffers required.",
+        "Molde town / Romsdalsfjord panorama"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask whether you are on Storkaia or Moldegård before assuming the 100 m centre walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b3b7b1f4d03bb904414c24c1427d6be723704ec0c64cbeca4407328ae15b89db",
+      "existing_guide_hash": "125d557b9dd44598",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/molde-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.531Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_repair_at_utc": "2026-11-09T15:08:10.508Z",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.685Z"
+}

@@ -1,0 +1,79 @@
+{
+  "landing_slug": "skagen-denmark",
+  "draft": {
+    "landing_slug": "skagen-denmark",
+    "appPortId": "skagen",
+    "portName": "Skagen",
+    "country": "Denmark",
+    "portInfo": {
+      "description": "Port of Skagen markets itself as Denmark’s northernmost cruise stop between Norwegian fjord itineraries and Baltic destinations, with the harbour on the south coast close to the town centre. Published pier data: one 500 m quay giving LOA 400 m and 12 m water depth; one 190 m quay giving LOA 220 m and 9 m; from 2021 a third secondary cruise pier 295 m long for max LOA 300 m and 13 m depth. Welcome facilities (information, lounge, restrooms, showroom, souvenir shop, free Wi‑Fi) are stated at the cruise piers.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Danish",
+      "currency": "Danish Krone (DKK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Skagen — cruise piers — Havnevagtvej 30, 9990 Skagen, Denmark",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walking time or use your cruise line shuttle. Grenen and inland sights need a coach or taxi.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walking time or use your cruise line shuttle. Grenen and inland sights need a coach or taxi."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town centre / marina precinct — ~90 min.",
+        "Grenen sand spit — coach outing; allow a long call and confirm transfer time locally.",
+        "Skagen pedestrian precinct / marina area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm which of the three piers you are on — depth/LOA differ."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ca852b1d700cf6e46771a4f206211118035f33238de8ca35c326500538b8022e",
+      "existing_guide_hash": "26eb89c84616565b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/skagen-denmark.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.581Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_repair_at_utc": "2026-11-09T15:08:10.508Z",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.690Z"
+}

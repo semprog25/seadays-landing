@@ -1,0 +1,78 @@
+{
+  "landing_slug": "safaga-egypt",
+  "draft": {
+    "landing_slug": "safaga-egypt",
+    "appPortId": "safaga",
+    "portName": "Safaga",
+    "country": "Egypt",
+    "portInfo": {
+      "description": "A Red Sea port known for diving and water sports, with access to desert attractions.",
+      "location": "",
+      "timezone": "EET (UTC+2)",
+      "language": "Arabic",
+      "currency": "Egyptian Pound (EGP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Safaga Port Passenger / Cruise Terminal — Safaga Port, Red Sea, Egypt",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Expect shuttle/taxi for town; Luxor is a long coach day — only with ship-rated timing.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Expect shuttle/taxi for town; Luxor is a long coach day — only with ship-rated timing."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Luxor temples — full-day product.",
+        "Red Sea beach / snorkel — local.",
+        "Safaga town — short call option (~3 km).",
+        "Luxor day excursion (typical long call)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ferry and cruise passenger flows may share the maritime complex — follow ship directions."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f1497201593904f0bd0d7c3e5118c876bc8f76e74de54ea435b1e286481e612d",
+      "existing_guide_hash": "09bf27fb1f365b30",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/safaga-egypt.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.562Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

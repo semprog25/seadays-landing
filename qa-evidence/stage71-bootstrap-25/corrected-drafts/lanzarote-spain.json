@@ -1,0 +1,77 @@
+{
+  "landing_slug": "lanzarote-spain",
+  "draft": {
+    "landing_slug": "lanzarote-spain",
+    "appPortId": "lanzarote",
+    "portName": "Lanzarote",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Lanzarote cruise calls use Arrecife, documented under MedCruise’s Las Palmas Ports member facts with seven quays totalling 3,441 m, quay depth 20 m, one passenger terminal, tugs and tenders available. Destination copy on the same MedCruise page references the “Lanzarote Effect” and island experiences for cruise guests. A standalone MedCruise /port/lanzarote URL returned 404; port-authority HTML was not captured live.",
+      "location": "",
+      "timezone": "WET (UTC+0) / WEST (UTC+1)",
+      "language": "Spanish",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Arrecife (Lanzarote) cruise terminal — Arrecife, Lanzarote",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town short; Timanfaya needs a longer organised tour.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Town short; Timanfaya needs a longer organised tour."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Arrecife / Charco — short call.",
+        "Timanfaya — half/full day.",
+        "César Manrique sites — half day.",
+        "Timanfaya National Park"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Book Timanfaya via ship if call is short — park entry is controlled."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "37383e1a4a5d22c76b472dbae0cc1c26393aadb6b9de8c30b0e57b9377c49619",
+      "existing_guide_hash": "2512262f32ff1b6f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/lanzarote-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.484Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial"
+}

@@ -1,0 +1,78 @@
+{
+  "landing_slug": "tenerife-spain",
+  "draft": {
+    "landing_slug": "tenerife-spain",
+    "appPortId": "tenerife",
+    "portName": "Tenerife",
+    "country": "Spain",
+    "portInfo": {
+      "description": "SeaDays Tenerife maps to the Port Authority of Santa Cruz de Tenerife’s cruise gateway at Muelle Sur. The authority publishes cruise-operations materials specifically for Muelle Sur and a quay inventory showing Tercera Muelle Sur at 805 m / 12 m within Anaga Dock. Other Canary ports under the same authority (La Palma, La Gomera, El Hierro) have separate protocols — out of scope for this slug unless itineraries call there.",
+      "location": "",
+      "timezone": "WET (UTC+0) / WEST (UTC+1)",
+      "language": "Spanish",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Santa Cruz de Tenerife cruise terminal",
+      "transportation": [
+        "Walking to city center",
+        "Local buses"
+      ],
+      "distanceToCity": "Directly in Santa Cruz city center",
+      "walkingTime": "5-10 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Santa Cruz urban core is the nearest option via taxi or bus — confirm fares locally. Teide National Park and southern resort areas need substantial road time; book only on longer calls with confirmed return transport.",
+      "distanceAnswer": "Directly in Santa Cruz city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Santa Cruz centre / Auditorio — short call.",
+        "La Laguna (UNESCO) — short coach.",
+        "Teide — half/full day; altitude/cold.",
+        "Los Gigantes / south beaches — long transfer.",
+        "Santa Cruz de Tenerife centre / Auditorio area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Santa Cruz berth vs any secondary Canary call on multi-island itineraries."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "826841d8a32802a0fbe09f179ae0148a92332e12600c318e644e4d5a3475ac43",
+      "existing_guide_hash": "7eaeac757e03dc48",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tenerife-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.603Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.693Z"
+}

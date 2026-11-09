@@ -1,0 +1,80 @@
+{
+  "landing_slug": "ponta-delgada-azores-portugal",
+  "draft": {
+    "landing_slug": "ponta-delgada-azores-portugal",
+    "appPortId": "ponta-delgada",
+    "portName": "Ponta Delgada (Azores)",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "Ponta Delgada on São Miguel is the Azores’ main large-ship cruise call. Portos dos Açores identifies Terminal Marítimo das Portas do Mar as one of only two dedicated passenger/cruise terminals in the archipelago (with Horta), in service since 2008, and notes that the largest ships can also use the commercial quay. The Azores Cruise port sheet (Visit Azores / ATA) publishes Portas do Mar dimensions (360 m line, 340 m ships, 11 m depth, 9.2 m max draught) and a 200 m downtown figure, plus commercial-port alternatives. Portas do Mar also hosts leisure/commercial waterfront facilities under Portos dos Açores management.",
+      "location": "",
+      "timezone": "AZOT (UTC-1) / AZOST (UTC+0)",
+      "language": "Portuguese",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal Marítimo das Portas do Mar — Av. Infante D. Henrique, 9500-767 Ponta Delgada",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in.",
+      "distanceAnswer": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Portas do Mar waterfront / city centre — walk.",
+        "Portas da Cidade (city gates) — short stroll inland.",
+        "Sete Cidades or Furnas — half-day road trips; only with confirmed timing.",
+        "Pineapple plantation / tea estate tours — island specialities; book buffers.",
+        "Portas do Mar waterfront / city gates area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If assigned the commercial quay, budget the extra ~2 km to centre versus Portas do Mar."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e5338e0ae4093a9b46c133a8d3921f4c1bb79f6c3bc118274a5c70813f382555",
+      "existing_guide_hash": "fcef6b7eb888a344",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ponta-delgada-azores-portugal.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.551Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.687Z"
+}

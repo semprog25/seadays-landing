@@ -1,0 +1,76 @@
+{
+  "landing_slug": "olden-norway",
+  "draft": {
+    "landing_slug": "olden-norway",
+    "appPortId": "olden",
+    "portName": "Olden",
+    "country": "Norway",
+    "portInfo": {
+      "description": "A village at the end of the Nordfjord in Norway, offering access to glaciers, waterfalls, and spectacular scenery.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Access via tender boats from cruise ships",
+      "transportation": [
+        "Walking"
+      ],
+      "distanceToCity": "Village center nearby",
+      "walkingTime": "5-15 minutes—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Limited taxis available",
+      "publicTransport": "Limited public transport",
+      "distanceAnswer": "Village center nearby"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Olden quayside — compact village staging; keep plans flexible until your berth or tender assignment is announced.",
+        "Loen Skylift — popular add-on; confirm shuttle or tender timing with your cruise line.",
+        "Briksdal Glacier / Loen Skylift (excursion destinations)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask whether you are alongside Olden, Olden Cruise Park tender, or Loen tender before any village walk plan."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "263d71ea030a3df33c897c42df8ac0a8ac491e6c8edae098ac12b7576cd1f992",
+      "existing_guide_hash": "c165efe98c67b4cf",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/olden-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_description",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.544Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_repair_at_utc": "2026-11-09T15:08:10.508Z"
+}

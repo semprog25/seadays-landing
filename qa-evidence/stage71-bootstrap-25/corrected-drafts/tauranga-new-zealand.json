@@ -1,0 +1,80 @@
+{
+  "landing_slug": "tauranga-new-zealand",
+  "draft": {
+    "landing_slug": "tauranga-new-zealand",
+    "appPortId": "tauranga",
+    "portName": "Tauranga",
+    "country": "New Zealand",
+    "portInfo": {
+      "description": "Tauranga is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "location": "",
+      "timezone": "NZST (UTC+12) / NZDT (UTC+13)",
+      "language": "English, Māori",
+      "currency": "New Zealand Dollar (NZD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Tauranga cruise berth (Mount Maunganui / Pilot Bay) — Mount Maunganui, Tauranga, New Zealand",
+      "transportation": [
+        "Walking to Mount Maunganui",
+        "Local buses"
+      ],
+      "distanceToCity": "6 km to Tauranga city center",
+      "walkingTime": "5 minutes to Mount Maunganui shops",
+      "taxiInfo": "",
+      "publicTransport": "The port cites easy access to Tauranga city and Bay of Plenty attractions. Shuttle provision varies by sailing — confirm with your ship. Taxis and rideshare are available; confirm pricing locally.",
+      "distanceAnswer": "6 km to Tauranga city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Mount Maunganui summit / beaches — iconic short call.",
+        "Pilot Bay waterfront — adjacent.",
+        "Tauranga CBD — short transfer.",
+        "Rotorua / Hobbiton — long day; only with confirmed timing."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not go to Sulphur Point container gates looking for the cruise gangway."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "bc468ddc186d045d26dc97cf06c48ec27fc1137647d15095e44cedd4b9581437",
+      "existing_guide_hash": "488ccf7e0cf1c85d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tauranga-new-zealand.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_truncated_attraction"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.600Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.693Z"
+}

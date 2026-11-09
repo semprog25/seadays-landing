@@ -1,0 +1,2062 @@
+{
+  "schema_version": 1,
+  "stage": "stage72-editorial-review-25",
+  "generated_at_utc": "2026-11-09T15:08:19.505Z",
+  "preparation_bundle_hash": "ad302209b9024cb33def7bed45e6b3558c5deaafc5b91b5eb41ebac2c4f54ace",
+  "baseline_live_passenger_editorial": 319,
+  "counts": {
+    "EDITORIAL_PASS": 25,
+    "EDITORIAL_REPAIR_REQUIRED": 0,
+    "EDITORIAL_HOLD": 0
+  },
+  "buckets": {
+    "EDITORIAL_PASS": [
+      "lanzarote-spain",
+      "madeira-funchal-portugal",
+      "melbourne-australia",
+      "molde-norway",
+      "narvik-norway",
+      "olden-norway",
+      "ponta-delgada-azores-portugal",
+      "port-canaveral-fl-united-states",
+      "safaga-egypt",
+      "salvador-de-bahia-brazil",
+      "santiago-san-antonio-chile",
+      "sharm-el-sheikh-egypt",
+      "skagen-denmark",
+      "skjolden-norway",
+      "st-george-s-grenada",
+      "st-lucia-castries-st-lucia",
+      "tauranga-new-zealand",
+      "tenerife-spain",
+      "tortola-british-virgin-islands",
+      "trondheim-norway",
+      "turku-finland",
+      "ulvik-norway",
+      "ushuaia-argentina",
+      "visby-sweden",
+      "wellington-new-zealand"
+    ],
+    "EDITORIAL_REPAIR_REQUIRED": [],
+    "EDITORIAL_HOLD": []
+  },
+  "ports": [
+    {
+      "landing_slug": "lanzarote-spain",
+      "app_port_id": "lanzarote",
+      "country": "Spain",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "lanzarote-spain",
+        "app_port_id": "lanzarote",
+        "port_name": "Lanzarote",
+        "country": "Spain",
+        "from_terminal": "Port of Arrecife (Lanzarote) cruise terminal — Arrecife, Lanzarote"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Lanzarote cruise calls use Arrecife, documented under MedCruise’s Las Palmas Ports member facts with seven quays totalli"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Port of Arrecife (Lanzarote) cruise terminal — Arrecife, Lanzarote"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Town short; Timanfaya needs a longer organised tour."
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "madeira-funchal-portugal",
+      "app_port_id": "madeira",
+      "country": "Portugal",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "madeira-funchal-portugal",
+        "app_port_id": "madeira",
+        "port_name": "Madeira (Funchal)",
+        "country": "Portugal",
+        "from_terminal": "Cais 2 (Terminal Sul / Pontinha) — Gare Marítima da Madeira, Molhe da Pontinha, Porto do Funchal, 9004-518 Funchal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Funchal is Madeira’s capital cruise gateway under APRAM. The authority’s characteristics page lists dedicated cruise qua"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Cais 2 (Terminal Sul / Pontinha) — Gare Marítima da Madeira, Molhe da Pontinha, Porto do Funchal, 9004-518 Funchal"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "melbourne-australia",
+      "app_port_id": "melbourne",
+      "country": "Australia",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "melbourne-australia",
+        "app_port_id": "melbourne",
+        "port_name": "Melbourne",
+        "country": "Australia",
+        "from_terminal": "Station Pier — Station Pier, Port Melbourne VIC, Australia"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "boilerplate",
+        "notes": "Generic marketing copy"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Melbourne is a cruise call—confirm your berth on the daily programme before you plan the day."
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Station Pier — Station Pier, Port Melbourne VIC, Australia"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "~3 km to CBD; tram Route 109; taxis. Public access to the southern end of the pier is time-limited and often closed on s"
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "molde-norway",
+      "app_port_id": "molde",
+      "country": "Norway",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "molde-norway",
+        "app_port_id": "molde",
+        "port_name": "Molde",
+        "country": "Norway",
+        "from_terminal": "Storkaia — Molde (Molde og Romsdal Havn)"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Storkaia — Molde (Molde og Romsdal Havn)"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "narvik-norway",
+      "app_port_id": "narvik",
+      "country": "Norway",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "narvik-norway",
+        "app_port_id": "narvik",
+        "port_name": "Narvik",
+        "country": "Norway",
+        "from_terminal": "Pier 3 (Narvik Central Harbour) — Havnegata 2, 8514 Narvik"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise (central harbour Pier 1/3 / Norkaia NONVK0001 in t"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Pier 3 (Narvik Central Harbour) — Havnegata 2, 8514 Narvik"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Cruise Norway sheet: 500 m to town centre; tourist information 600 m from port. Independent walk-minute survey not done "
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "olden-norway",
+      "app_port_id": "olden",
+      "country": "Norway",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "olden-norway",
+        "app_port_id": "olden",
+        "port_name": "Olden",
+        "country": "Norway",
+        "from_terminal": "Access via tender boats from cruise ships"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Village center nearby"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "5-15 minutes—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        },
+        {
+          "field": "thingsToDo.longerCall",
+          "change": "added",
+          "preview": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "ponta-delgada-azores-portugal",
+      "app_port_id": "ponta-delgada",
+      "country": "Portugal",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "ponta-delgada-azores-portugal",
+        "app_port_id": "ponta-delgada",
+        "port_name": "Ponta Delgada (Azores)",
+        "country": "Portugal",
+        "from_terminal": "Terminal Marítimo das Portas do Mar — Av. Infante D. Henrique, 9500-767 Ponta Delgada"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "boilerplate",
+        "notes": "Generic marketing copy"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Ponta Delgada on São Miguel is the Azores’ main large-ship cruise call. Portos dos Açores identifies Terminal Marítimo d"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Terminal Marítimo das Portas do Mar — Av. Infante D. Henrique, 9500-767 Ponta Delgada"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "~200 m to downtown from Portas do Mar per Azores Cruise sheet; taxis and bus parking listed among general services. Airp"
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "port-canaveral-fl-united-states",
+      "app_port_id": "port-canaveral",
+      "country": "United States",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "port-canaveral-fl-united-states",
+        "app_port_id": "port-canaveral",
+        "port_name": "Port Canaveral",
+        "country": "United States",
+        "from_terminal": "Cruise Terminal 1 — 9050 Discovery Rd., Cape Canaveral, FL 32920"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Cruise Terminal 1 — 9050 Discovery Rd., Cape Canaveral, FL 32920"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "From Orlando International Airport (MCO), the port authority cites about 45 minutes via S.R. 528 East to Exit 54A (north"
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm shuttles, taxis, and parking exits with the port or your cruise line on embarkation day."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "safaga-egypt",
+      "app_port_id": "safaga",
+      "country": "Egypt",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "safaga-egypt",
+        "app_port_id": "safaga",
+        "port_name": "Safaga",
+        "country": "Egypt",
+        "from_terminal": "Safaga Port Passenger / Cruise Terminal — Safaga Port, Red Sea, Egypt"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Safaga Port Passenger / Cruise Terminal — Safaga Port, Red Sea, Egypt"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Expect shuttle/taxi for town; Luxor is a long coach day — only with ship-rated timing."
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "salvador-de-bahia-brazil",
+      "app_port_id": "salvador",
+      "country": "Brazil",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "salvador-de-bahia-brazil",
+        "app_port_id": "salvador",
+        "port_name": "Salvador de Bahia",
+        "country": "Brazil",
+        "from_terminal": "Terminal Marítimo de Passageiros do Porto de Salvador (Contermas) — Avenida da França, Comércio, Salvador, Bahia (southern end of organised port polygonal)"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Terminal Marítimo de Passageiros do Porto de Salvador (Contermas) — Avenida da França, Comércio, Salvador, Bahia (southe"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Waterfront Comércio location; Elevador Lacerda links lower city to Pelourinho. Taxi/rideshare; prices null. Steep hills "
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "santiago-san-antonio-chile",
+      "app_port_id": "san-antonio",
+      "country": "Chile",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "santiago-san-antonio-chile",
+        "app_port_id": "san-antonio",
+        "port_name": "Santiago (San Antonio)",
+        "country": "Chile",
+        "from_terminal": "DP World San Antonio (cruise / multipurpose) — San Antonio, Valparaíso Region, Chile"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "thin",
+        "notes": "Short or empty overview"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "This SeaDays entry is the Santiago-market cruise gateway at San Antonio on Chile’s central Pacific coast. DP World holds"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "DP World San Antonio (cruise / multipurpose) — San Antonio, Valparaíso Region, Chile"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "sharm-el-sheikh-egypt",
+      "app_port_id": "sharm-el-sheikh",
+      "country": "Egypt",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "sharm-el-sheikh-egypt",
+        "app_port_id": "sharm-el-sheikh",
+        "port_name": "Sharm El Sheikh",
+        "country": "Egypt",
+        "from_terminal": "Sharm El Sheikh Port — Passengers berths — Sharm El Sheikh Port, South Sinai"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "boilerplate",
+        "notes": "Generic marketing copy"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Sharm El Sheikh Port (UNCTAD EGSSH) sits on the southern Sinai Red Sea coast. The Maritime Transport & Logistics Sector "
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Sharm El Sheikh Port — Passengers berths — Sharm El Sheikh Port, South Sinai"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Naama Bay / town typically short road hops if MedCruise’s ~2 km city figure holds — verify."
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "skagen-denmark",
+      "app_port_id": "skagen",
+      "country": "Denmark",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "skagen-denmark",
+        "app_port_id": "skagen",
+        "port_name": "Skagen",
+        "country": "Denmark",
+        "from_terminal": "Port of Skagen — cruise piers — Havnevagtvej 30, 9990 Skagen, Denmark"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Port of Skagen markets itself as Denmark’s northernmost cruise stop between Norwegian fjord itineraries and Baltic desti"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Port of Skagen — cruise piers — Havnevagtvej 30, 9990 Skagen, Denmark"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Port states 1600 yards from cruise piers to the pedestrian precinct and marina area. Convert/plan ~1.5 km walk or use an"
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "skjolden-norway",
+      "app_port_id": "skjolden",
+      "country": "Norway",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "skjolden-norway",
+        "app_port_id": "skjolden",
+        "port_name": "Skjolden",
+        "country": "Norway",
+        "from_terminal": "Skjolden Cruise Pier — Skjolden (Lustrafjord)"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Port of Skjolden markets itself as a call at the head of Lustrafjord, on Norway’s longest ice-free fjord system about 20"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Skjolden Cruise Pier — Skjolden (Lustrafjord)"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Fact sheet does not publish a surveyed walk-minute from pier to village centre this capture — gap. Port recommends rough"
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "st-george-s-grenada",
+      "app_port_id": "grenada",
+      "country": "Grenada",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "st-george-s-grenada",
+        "app_port_id": "grenada",
+        "port_name": "St. George's",
+        "country": "Grenada",
+        "from_terminal": "St. George's cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "GPA is the statutory port authority for St. George’s and other Grenadian harbours. Its public harbour notes place St Geo"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Terminal is in St. George's city center"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "10-20 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "st-lucia-castries-st-lucia",
+      "app_port_id": "st-lucia",
+      "country": "Saint Lucia",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "st-lucia-castries-st-lucia",
+        "app_port_id": "st-lucia",
+        "port_name": "St. Lucia (Castries)",
+        "country": "Saint Lucia",
+        "from_terminal": "Pointe Seraphine / Saint Lucia Cruise Port (Castries) — Castries, Saint Lucia"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Castries concentrates Saint Lucia’s cruise traffic. SLASPA describes Pointe Seraphine as the island’s dedicated cruise s"
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "added",
+          "preview": "Pointe Seraphine / Saint Lucia Cruise Port (Castries) — Castries, Saint Lucia"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "City/market walk marketed as very short from terminal; minutes still treat as unsurveyed. Soufrière / Pitons are long co"
+        },
+        {
+          "field": "gettingThere.publicTransport",
+          "change": "added",
+          "preview": "Confirm local transport options with the ship on your call date."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "tauranga-new-zealand",
+      "app_port_id": "tauranga",
+      "country": "New Zealand",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "tauranga-new-zealand",
+        "app_port_id": "tauranga",
+        "port_name": "Tauranga",
+        "country": "New Zealand",
+        "from_terminal": "Port of Tauranga cruise berth (Mount Maunganui / Pilot Bay) — Mount Maunganui, Tauranga, New Zealand"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Tauranga is a cruise call—confirm your berth on the daily programme before you plan the day."
+        },
+        {
+          "field": "gettingThere.fromTerminal",
+          "change": "rewritten",
+          "preview": "Port of Tauranga cruise berth (Mount Maunganui / Pilot Bay) — Mount Maunganui, Tauranga, New Zealand"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "6 km to Tauranga city center"
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "tenerife-spain",
+      "app_port_id": "tenerife",
+      "country": "Spain",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "tenerife-spain",
+        "app_port_id": "tenerife",
+        "port_name": "Tenerife",
+        "country": "Spain",
+        "from_terminal": "Santa Cruz de Tenerife cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "SeaDays Tenerife maps to the Port Authority of Santa Cruz de Tenerife’s cruise gateway at Muelle Sur. The authority publ"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Directly in Santa Cruz city center"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "5-10 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "tortola-british-virgin-islands",
+      "app_port_id": "tortola",
+      "country": "British Virgin Islands",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "tortola-british-virgin-islands",
+        "app_port_id": "tortola",
+        "port_name": "Tortola",
+        "country": "British Virgin Islands",
+        "from_terminal": "Road Town cruise pier"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "The British Virgin Islands Ports Authority manages the Cyril B. Romney Tortola Pier Park cruise pier in Road Town: 1,312"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Directly in Road Town"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "5-10 minutes to town center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "trondheim-norway",
+      "app_port_id": "trondheim",
+      "country": "Norway",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "trondheim-norway",
+        "app_port_id": "trondheim",
+        "port_name": "Trondheim",
+        "country": "Norway",
+        "from_terminal": "Trondheim cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Trondheim Port Authority (TPA) operates ISPS cruise facilities in Trondheim. The dedicated cruise quay 68 at Brattøra is"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Within Trondheim city"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "15-20 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "turku-finland",
+      "app_port_id": "turku",
+      "country": "Finland",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "turku-finland",
+        "app_port_id": "turku",
+        "port_name": "Turku",
+        "country": "Finland",
+        "from_terminal": "Turku cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Port of Turku positions itself as a smaller, service-intensive Finnish cruise alternative to the capitals. Complimentary"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Within Turku city"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "15-20 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates",
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "ulvik-norway",
+      "app_port_id": "ulvik",
+      "country": "Norway",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "ulvik-norway",
+        "app_port_id": "ulvik",
+        "port_name": "Ulvik",
+        "country": "Norway",
+        "from_terminal": "Ulvik pier"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Directly in Ulvik village"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "5-10 minutes to village center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        },
+        {
+          "field": "thingsToDo.longerCall",
+          "change": "added",
+          "preview": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "ushuaia-argentina",
+      "app_port_id": "ushuaia",
+      "country": "Argentina",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "ushuaia-argentina",
+        "app_port_id": "ushuaia",
+        "port_name": "Ushuaia",
+        "country": "Argentina",
+        "from_terminal": "Ushuaia cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Ushuaia is the southernmost major cruise and Antarctic gateway in Argentina. National port agency materials cite a 550 m"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Within Ushuaia"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "visby-sweden",
+      "app_port_id": "visby",
+      "country": "Sweden",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "visby-sweden",
+        "app_port_id": "visby",
+        "port_name": "Visby",
+        "country": "Sweden",
+        "from_terminal": "Visby cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "mixed",
+        "notes": "Some fields usable; shore plans may be thin"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Copenhagen Malmö Port (CMP) operates Visby’s cruise terminal on Gotland. CMP states nearly 170,000 cruise guests were ex"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Adjacent to medieval city"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "5-10 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    },
+    {
+      "landing_slug": "wellington-new-zealand",
+      "app_port_id": "wellington",
+      "country": "New Zealand",
+      "editorial_verdict": "EDITORIAL_PASS",
+      "reasons": [],
+      "remaining_uncertainties": [
+        "research_status_needs_review",
+        "truncated_table_cell_in_research_metadata",
+        "terminal_coordinates_not_importable"
+      ],
+      "identity": {
+        "landing_slug": "wellington-new-zealand",
+        "app_port_id": "wellington",
+        "port_name": "Wellington",
+        "country": "New Zealand",
+        "from_terminal": "Wellington cruise terminal"
+      },
+      "call_plans": {
+        "short": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standard": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longer": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window."
+      },
+      "validation_ok": true,
+      "validation_warnings": [],
+      "factual_risk_flags": [],
+      "consequential_exclude": false,
+      "material_improvement": true,
+      "production_quality_before": {
+        "tier": "boilerplate",
+        "notes": "Generic marketing copy"
+      },
+      "compare_summary": [
+        {
+          "field": "portInfo.description",
+          "change": "rewritten",
+          "preview": "Wellington’s cruise passengers land at CentrePort, which publishes a dedicated cruise passenger zone and city shuttle ru"
+        },
+        {
+          "field": "gettingThere.distanceAnswer",
+          "change": "added",
+          "preview": "Within Wellington city"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "change": "rewritten",
+          "preview": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time."
+        },
+        {
+          "field": "thingsToDo.intro",
+          "change": "added",
+          "preview": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back."
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "change": "added",
+          "preview": "Stay near the port area and keep a generous buffer before all-aboard."
+        },
+        {
+          "field": "thingsToDo.standardCall",
+          "change": "added",
+          "preview": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard."
+        }
+      ],
+      "viator": {
+        "ok": false,
+        "reason": "invalid_input"
+      },
+      "terminal_gate": {
+        "importable_count": 0,
+        "reasons": [
+          "missing_finite_coordinates"
+        ]
+      },
+      "owner_approval_status": "PENDING",
+      "publication_apply_allowed": false,
+      "leak_scan": true,
+      "truncated_fields": []
+    }
+  ],
+  "maximum_safe_publication_cohort": [
+    "lanzarote-spain",
+    "madeira-funchal-portugal",
+    "melbourne-australia",
+    "molde-norway",
+    "narvik-norway",
+    "olden-norway",
+    "ponta-delgada-azores-portugal",
+    "port-canaveral-fl-united-states",
+    "safaga-egypt",
+    "salvador-de-bahia-brazil",
+    "santiago-san-antonio-chile",
+    "sharm-el-sheikh-egypt",
+    "skagen-denmark",
+    "skjolden-norway",
+    "st-george-s-grenada",
+    "st-lucia-castries-st-lucia",
+    "tauranga-new-zealand",
+    "tenerife-spain",
+    "tortola-british-virgin-islands",
+    "trondheim-norway",
+    "turku-finland",
+    "ulvik-norway",
+    "ushuaia-argentina",
+    "visby-sweden",
+    "wellington-new-zealand"
+  ],
+  "projected_live_passenger_editorial_if_cohort_applied": 344,
+  "policy_notes": [
+    "EDITORIAL_PASS does not set owner_publication_authorized or production_apply_allowed.",
+    "research_status_needs_review in metadata alone does not confer EDITORIAL_PASS.",
+    "Terminal coordinate import gaps are listed as uncertainties, not automatic HOLD."
+  ]
+}

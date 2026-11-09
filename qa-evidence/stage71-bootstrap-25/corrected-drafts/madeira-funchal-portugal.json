@@ -1,0 +1,79 @@
+{
+  "landing_slug": "madeira-funchal-portugal",
+  "draft": {
+    "landing_slug": "madeira-funchal-portugal",
+    "appPortId": "madeira",
+    "portName": "Madeira (Funchal)",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "Funchal is Madeira’s capital cruise gateway under APRAM. The authority’s characteristics page lists dedicated cruise quays (Cais Norte, Cais 2, Cais 3, Cais 8) with published lengths and charted depths. The passenger hub is the Gare Marítima da Madeira on the Molhe da Pontinha. Local agent berth tables (Pier 2/3/6) match those lengths but are marked indicative and subject to APRAM confirmation. Visit Madeira positions the port as walkable to the capital’s attractions on a short call. Berth assignment is not guaranteed for every sailing.",
+      "location": "",
+      "timezone": "WET (UTC+0) / WEST (UTC+1)",
+      "language": "Portuguese",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Cais 2 (Terminal Sul / Pontinha) — Gare Marítima da Madeira, Molhe da Pontinha, Porto do Funchal, 9004-518 Funchal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Funchal old town / seafront — short shore call focus.",
+        "Mercado dos Lavradores — check market hours on your call day.",
+        "Cable car to Monte — allow queue and return time; confirm pier-to-station transfer locally.",
+        "Cable car to Monte — allow queue and return time; confirm pier-to-station transfer locally.",
+        "Funchal old town / seafront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Terminal Sul vs Norte on your boarding pass; both appear on APRAM movements."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fcf521d7d84bf98132dd0bef99f5eb2543ef6cf6cc8d7a7983e19a9dd62aec81",
+      "existing_guide_hash": "d9dbae1f0a12e0e2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/madeira-funchal-portugal.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.506Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.683Z"
+}

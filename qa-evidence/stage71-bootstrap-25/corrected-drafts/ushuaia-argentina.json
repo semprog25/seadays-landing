@@ -1,0 +1,77 @@
+{
+  "landing_slug": "ushuaia-argentina",
+  "draft": {
+    "landing_slug": "ushuaia-argentina",
+    "appPortId": "ushuaia",
+    "portName": "Ushuaia",
+    "country": "Argentina",
+    "portInfo": {
+      "description": "Ushuaia is the southernmost major cruise and Antarctic gateway in Argentina. National port agency materials cite a 550 m × 28 m multipurpose quay, more than 500 international cruise calls, and roughly 250,000 seasonal visitors. Administrative changes were reported for early 2026 — confirm embarkation details with your cruise line.",
+      "location": "",
+      "timezone": "ART (UTC-3)",
+      "language": "Spanish",
+      "currency": "Argentine Peso (ARS)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Ushuaia cruise terminal",
+      "transportation": [
+        "Walking to city center"
+      ],
+      "distanceToCity": "Within Ushuaia",
+      "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Local buses available",
+      "distanceAnswer": "Within Ushuaia"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Beagle Channel catamaran — separate pontoons.",
+        "Town / End of the World museum — walkable if weather allows.",
+        "Tierra del Fuego NP — half day.",
+        "Laguna Esmeralda — hike; fitness/weather dependent.",
+        "Ushuaia waterfront / Beagle Channel viewpoints"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Wind and sudden weather changes can cancel boats — keep a town backup plan."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9000fa2046600837a72436ae2bab6d1e59bcbda6b0a0ebf9d95880fc51ad3729",
+      "existing_guide_hash": "6d0cf3ed256a4958",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ushuaia-argentina.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T15:03:59.626Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_repair_at_utc": "2026-11-09T15:08:10.508Z"
+}
