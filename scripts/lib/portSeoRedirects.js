@@ -166,8 +166,23 @@ function parseStage68StandaloneAliasSlugs() {
   );
 }
 
-function writePortSeoRedirectPages(repoRoot, seoPorts = []) {
+/** Landing slugs with live passenger guides — must not be overwritten by alias redirect stubs. */
+function collectPassengerEditorialLandingSlugs(publicGuidesPayload) {
+  const slugs = new Set();
+  const byId = publicGuidesPayload?.byAppPortId || {};
+  for (const guide of Object.values(byId)) {
+    if (!guide || typeof guide !== 'object') continue;
+    const tier = guide.researchImport?.publication_tier;
+    const landingSlug = String(guide.researchImport?.landing_slug || '').trim();
+    if (tier === 'passenger_editorial' && landingSlug) slugs.add(landingSlug);
+  }
+  return slugs;
+}
+
+function writePortSeoRedirectPages(repoRoot, seoPorts = [], options = {}) {
   const standaloneAliasSlugs = parseStage68StandaloneAliasSlugs();
+  const passengerEditorialLandingSlugs =
+    options.passengerEditorialLandingSlugs || new Set();
   const bySlug = new Map(
     (Array.isArray(seoPorts) ? seoPorts : []).map((p) => [String(p.slug || ''), p])
   );
@@ -196,6 +211,7 @@ function writePortSeoRedirectPages(repoRoot, seoPorts = []) {
 
   for (const [aliasSlug, targetSlug] of Object.entries(PORT_ALIAS_REDIRECTS)) {
     if (standaloneAliasSlugs.has(aliasSlug)) continue;
+    if (passengerEditorialLandingSlugs.has(aliasSlug)) continue;
     const dir = path.join(repoRoot, 'ports', aliasSlug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(
@@ -227,5 +243,6 @@ module.exports = {
   isPortSplitSlug,
   isPortSeoRedirectSlug,
   getPreservedPortDirectorySlugs,
+  collectPassengerEditorialLandingSlugs,
   writePortSeoRedirectPages,
 };
