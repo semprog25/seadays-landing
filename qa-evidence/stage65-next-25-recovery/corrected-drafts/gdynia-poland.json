@@ -1,0 +1,75 @@
+{
+  "landing_slug": "gdynia-poland",
+  "draft": {
+    "landing_slug": "gdynia-poland",
+    "appPortId": "gdynia",
+    "portName": "Gdynia",
+    "country": "Poland",
+    "portInfo": {
+      "description": "Gdynia is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Gdynia cruise berths — Port of Gdynia Authority S.A., ul. Rotterdamska 9, 81-337 Gdynia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Centre adjacency is likely but minutes not invented without a quay map.",
+      "distanceAnswer": "Centre adjacency is likely but minutes not invented without a quay map.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Orłowo — transfer gap",
+        "Gdynia centre / Kościuszki approaches",
+        "Waterfront museum ships / Emigration Museum area",
+        "Orłowo cliff / pier"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not conflate Gdynia berths with Port Gdańsk Westerplatte landings."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ce77b9e055481cfaedc78ab570b8f23f2078a197ac7d6d606e29f230fe77be3f",
+      "existing_guide_hash": "48df3751c606ab44",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/gdynia-poland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.819Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,74 @@
+{
+  "landing_slug": "glasgow-united-kingdom",
+  "draft": {
+    "landing_slug": "glasgow-united-kingdom",
+    "appPortId": "glasgow",
+    "portName": "Glasgow",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Treat a “Glasgow” cruise day as a coach/rail product unless the programme explicitly names a city quay. peoplemakeglasgow.com is the destination marketing capture for in-city planning."
+    },
+    "gettingThere": {
+      "fromTerminal": "Clydeport / River Clyde context (cruise often Greenock) — River Clyde / Peel Ports Clydeport estate",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Greenock→Glasgow is a scheduled transfer — no invented minutes.",
+      "distanceAnswer": "Greenock→Glasgow is a scheduled transfer — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City centre / Merchant City",
+        "Kelvingrove — hours gap",
+        "Glasgow city centre / Merchant City approaches",
+        "Glasgow Cathedral / Necropolis",
+        "Kelvingrove Art Gallery and Museum"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read Greenock vs Glasgow on the ticket before planning a walk-off."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a8c2547cbbb1acfbb904a4ac1095b4467f8359b4f30481a6b77b05405e161cb5",
+      "existing_guide_hash": "c175dd5054fe203c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/glasgow-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.823Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

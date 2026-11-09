@@ -1,0 +1,74 @@
+{
+  "landing_slug": "ensenada-mexico",
+  "draft": {
+    "landing_slug": "ensenada-mexico",
+    "appPortId": "ensenada",
+    "portName": "Ensenada",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "Ensenada’s cruise product is the specialised Ensenada Cruiseport Village terminal on the Bahía de Todos Santos waterfront, operated in the Hutchison Ports ECV concession and described by ASIPONA Ensenada as a cruise dock with customs/migration module, two gangways and two berthing positions. ASIPONA states operating capacity for vessels up to 3,200 passengers and a projected 800,000 passengers per year; the same page’s update stamp is 14 May 2015, so treat capacity figures as dated until a newer official year is found. Pier lengths and depths disagree slightly between ASIPONA and Hutchison — both are cited, neither door GPS is invented."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ensenada Cruiseport Village — Pier / Dock 1 — Blvd. Costero S/N, Zona Centro, 22800 Ensenada, Baja California, México",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Centro. Terminal sits on Blvd. Costero in Zona Centro. Published walking minutes from gangway to Malecón gate are not on the cited official pages — treat as unverified. Transfers. Port shuttle/taxi arrangements vary by call; not inventoried here. From US border. Road distance/time from San Diego not used as a cruise-day fact.",
+      "distanceAnswer": "Centro. Terminal sits on Blvd. Costero in Zona Centro. Published walking minutes from gangway to Malecón gate are not on the cited official pages — treat as unverified. Transfers. Port shuttle/taxi arrangements vary by call; not inventoried here. From US border. Road distance/time from San Diego not used as a cruise-day fact.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Zona Centro / Malecón waterfront near the harbour — ~90 min.",
+        "Local market / Avenida López Mateos corridor — hours and named shops not verified on primary pages used here.",
+        "Malecón / Zona Centro waterfront",
+        "Valle de Guadalupe wine region"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Reconcile which ECV pier you are on before planning LOA/draft assumptions — ASIPONA and Hutchison publish different pier lengths and depths for the same two docks."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "bd5080f31ce8172ff7b2eb0ebdde93b68c3484dfcce1203aa483d360199adcab",
+      "existing_guide_hash": "e3cd9663bd35c89d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ensenada-mexico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.787Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

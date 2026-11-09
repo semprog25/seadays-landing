@@ -1,0 +1,72 @@
+{
+  "landing_slug": "tromso-norway",
+  "draft": {
+    "landing_slug": "tromso-norway",
+    "appPortId": "tromso",
+    "portName": "Tromsø",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Tromsø Harbour publishes a quay map with 2,100 m total quay length and depths from 3.5 to 22 m. For cruise, Quay 8 in the city centre (300 m, 7.9–9.5 m) is explicitly listed for cruise ships, while Quay 24 at Breivika (410 m, 10.4–11.0 m) also lists cruise among cargo/fishing uses. Quay 7 Prostneset (190 m) is centre-side for coastal/service traffic. Port Control +47 91 10 74 44 / VHF 12. Door GPS not published as verified decimals on the captured page."
+    },
+    "gettingThere": {
+      "fromTerminal": "Quay 8 — City centre — City centre, Tromsø",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Quay 8 is city-centre; Breivika needs bus/taxi — confirm berth.",
+      "distanceAnswer": "Quay 8 is city-centre; Breivika needs bus/taxi — confirm berth.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Centre / waterfront — ~90 min from Quay 8.",
+        "Arctic Cathedral / cable car — allow transit.",
+        "Tromsø centre / waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Breivika vs Quay 8 changes the entire independent day plan."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7c821817f640094226d0c25df1dca233605c08c2ed6fecd2cf1a98b0661b0fe0",
+      "existing_guide_hash": "179f8de80a5a96d8",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tromso-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.742Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

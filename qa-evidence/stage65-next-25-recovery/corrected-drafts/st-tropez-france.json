@@ -1,0 +1,73 @@
+{
+  "landing_slug": "st-tropez-france",
+  "draft": {
+    "landing_slug": "st-tropez-france",
+    "appPortId": "st-tropez",
+    "portName": "Saint-Tropez",
+    "country": "France",
+    "portInfo": {
+      "description": "sainttropeztourisme.com (Office de Tourisme) presents a Provençal village on a peninsula — fishing harbour, events, and Côte d’Azur light. VPCC adds Place des Lices pétanque, Citadel and Annonciade Museum as heritage stops amid the fashion mythology."
+    },
+    "gettingThere": {
+      "fromTerminal": "Saint-Tropez tender landing (Vieux Port / harbour area) — Quai / Vieux Port area, 83990 Saint-Tropez",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Tender ~1 NM then short walk into village. No cruise shuttle per VPCC.",
+      "distanceAnswer": "Tender ~1 NM then short walk into village. No cruise shuttle per VPCC.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Vieux Port + lanes",
+        "Citadel when open",
+        "Beaches only with last-tender margin (gap on operator hours)",
+        "Vieux Port and village lanes",
+        "Citadel of Saint-Tropez"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph tender number before climbing into the lanes."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "851e68618dd6d8966509b491368690674c4778d07092e6b9f3d06b1f74d5f729",
+      "existing_guide_hash": "dbd99822c335238c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/st-tropez-france.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.727Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

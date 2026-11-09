@@ -1,0 +1,74 @@
+{
+  "landing_slug": "dammam-saudi-arabia",
+  "draft": {
+    "landing_slug": "dammam-saudi-arabia",
+    "appPortId": "dammam",
+    "portName": "Dammam",
+    "country": "Saudi Arabia",
+    "portInfo": {
+      "description": "Dammam’s cruise gateway sits inside King Abdulaziz commercial port on Saudi Arabia’s Arabian Gulf coast. An itinerary needs a controlled-port exit before it becomes a city day. The operator’s own city-centre estimate is 17.9 km/30 minutes, not “walk from the terminal.” Ground transportation and luggage handling are listed services; a daily shuttle schedule is not supplied. The destination is broader than a corniche photograph. Souq Al Hob offers a market-based introduction; Ithra in neighbouring Dhahran centres the day on art and culture. Al Ahsa’s caves and Hofuf market are separate inland ambitions requiring a long, line-validated excursion. They are not casually added to a short Dammam call."
+    },
+    "gettingThere": {
+      "fromTerminal": "King Abdulaziz Port cruise terminal, Dammam — King Abdulaziz Port, Dammam, Saudi Arabia; passenger gate not verified",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Cruise Saudi quotes 17.9 km/30 minutes to the city centre and 52.8 km/46 minutes to the airport; its distance table says shuttle service Yes, without a dated timetable. These are operator indicative routes, not a guarantee from every berth. Obtain the line’s pickup, security and return arrangements. City plans reserve 45–60 minutes per first/last leg, including extra port/gate slack. Ithra legs and inland excursion thresholds below are editorial allowances requiring a local operator’s confirmation; no straight-line distance is relabelled driving time. No independent pedestrian exit is established.",
+      "distanceAnswer": "Cruise Saudi quotes 17.9 km/30 minutes to the city centre and 52.8 km/46 minutes to the airport; its distance table says shuttle service Yes, without a dated timetable. These are operator indicative routes, not a guarantee from every berth. Obtain the line’s pickup, security and return arrangements. City plans reserve 45–60 minutes per first/last leg, including extra port/gate slack. Ithra legs and inland excursion thresholds below are editorial allowances requiring a local operator’s confirmation; no straight-line distance is relabelled driving time. No independent pedestrian exit is established.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Ithra Museum, 8386 Ring Road, Gharb Al Dhahran, Dhahran 34461: allow 2½ hours; check the actual gallery programme and accessible route with the venue.",
+        "Souq Al Hob/Love Market, Dammam: 75 minutes for market lanes and local retail. Meet at the operator’s specified market drop-off, not an unnamed city-centre point.",
+        "King Abdullah Park, Dammam Corniche: a 60-minute named waterfront stop instead of an undefined “corniche” address.",
+        "Murjan Island, Dammam: a separate 60-minute waterfront outlook, with transport arranged back to the same island drop-off. No boat operation is assumed.",
+        "Al-Qarah Caves, Al Ahsa: a 90-minute site block on a long escorted inland excursion only; verify cave paths/heat and admission."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Facility capability and sailing operation are separate. The operator’s undated “shuttle Yes” and “one berth” are useful logistics evidence, not a dated promise that tomorrow’s ship will call."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e4a45532285ae1332f6fd1408c59a148c0a38bc152cd0bcc3f4478c3613fc0db",
+      "existing_guide_hash": "927a9f4710a5d000",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/dammam-saudi-arabia.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.778Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

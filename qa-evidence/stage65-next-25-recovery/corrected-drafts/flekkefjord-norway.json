@@ -1,0 +1,73 @@
+{
+  "landing_slug": "flekkefjord-norway",
+  "draft": {
+    "landing_slug": "flekkefjord-norway",
+    "appPortId": "flekkefjord",
+    "portName": "Flekkefjord",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Hidrasundet entrance, protected basin, and Dutch-heritage wooden centre are the port’s own framing — not a megaport. Centre walking is the default short call; Hidra/Andabeløy need confirmed excursion timing."
+    },
+    "gettingThere": {
+      "fromTerminal": "Eschebrygga — Port of Flekkefjord — Eschebrygga (old-town waterfront)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Dutch Town / wooden centre walk",
+        "Dutch Town / historic wooden centre",
+        "Hidra / Andabeløy island trips"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "One-boat-per-day and 200 m LOA cap — confirm the published berth is Eschebrygga, not a logistics quay."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "32cf86ef54e1fc66101f8fc1838907fd579dfa22580cf582b9eacd8749d8f92f",
+      "existing_guide_hash": "1967ae2f8ae7c363",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/flekkefjord-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.794Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

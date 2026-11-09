@@ -1,0 +1,73 @@
+{
+  "landing_slug": "syracuse-italy",
+  "draft": {
+    "landing_slug": "syracuse-italy",
+    "appPortId": "syracuse",
+    "portName": "Syracuse (Siracusa)",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Ortigia is the walkable historic island; the Archaeological Park sits on the mainland. AdSP Mar di Sicilia Orientale manages the regional port system including Syracuse (MedCruise). Direct AdSP HTML was partially captured; pier lengths cited from the MedCruise member text."
+    },
+    "gettingThere": {
+      "fromTerminal": "Porto Grande cruise landing area (Siracusa) — Porto Grande waterfront, Siracusa",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Ortigia via short bridges from mainland quays. Park needs road/taxi — no invented minutes.",
+      "distanceAnswer": "Ortigia via short bridges from mainland quays. Park needs road/taxi — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Ortigia lanes + Duomo square",
+        "Neapolis Archaeological Park",
+        "Pantalica — not for short calls (gap)",
+        "Ortigia historic island",
+        "Pantalica necropolis"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm dock vs Ortigia tender before planning the first walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d044b9e29eabee2bef1b942c074fdf7088fab702ffdf5cdf5d90b2fc72ed7a5f",
+      "existing_guide_hash": "5e98378136753574",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/syracuse-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.736Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

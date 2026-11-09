@@ -1,0 +1,79 @@
+{
+  "landing_slug": "villefranche-nice-france",
+  "draft": {
+    "landing_slug": "villefranche-nice-france",
+    "appPortId": "nice",
+    "portName": "Villefranche / Nice",
+    "country": "France",
+    "portInfo": {
+      "description": "A city on the French Riviera, known for its beautiful Promenade des Anglais, Mediterranean climate, and cultural attractions.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "French",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port Lympia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Budget 30 minutes from the ship through the confirmed exit towards the Castle Hill/old-town circuit; allow 30–45 minutes to regain the exact gate and complete security. Use an agreed road transfer for Cimiez, budgeting 45 minutes each way rather than claiming it is a flat waterfront stroll. The operator’s shuttle/tram references are not a current frequency/fare promise.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Budget 30 minutes from the ship through the confirmed exit towards the Castle Hill/old-town circuit; allow 30–45 minutes to regain the exact gate and complete security. Use an agreed road transfer for Cimiez, budgeting 45 minutes each way rather than claiming it is a flat waterfront stroll. The operator’s shuttle/tram references are not a current frequency/fare promise."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Villefranche village waterfront",
+        "Nice Promenade — only with transfer timing",
+        "Villefranche old village / waterfront",
+        "Nice Promenade des Anglais",
+        "Citadel museums"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Keep the precise port name on the transport booking. “Nice” in a regional excursion description does not prove that the ship is at Lympia rather than Villefranche."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "cf2fb8dc83e24f47eaeca2d9eaa811928d40a3de201d3e6a648899d78914348f",
+      "existing_guide_hash": "f49f137e2c8c0de2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/villefranche-nice-france.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.692Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}

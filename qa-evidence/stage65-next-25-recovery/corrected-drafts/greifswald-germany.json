@@ -1,0 +1,74 @@
+{
+  "landing_slug": "greifswald-germany",
+  "draft": {
+    "landing_slug": "greifswald-germany",
+    "appPortId": "greifswald",
+    "portName": "Greifswald",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Expect a small Bodden/Ryck passenger harbour and a Hanseatic university town. Museumshafen in the Altstadt is the cultural target; Wieck is the waterfront village with the drawbridge."
+    },
+    "gettingThere": {
+      "fromTerminal": "Wieck passenger pier (Fahrgastschiffe) — Am Hafen 4, 17493 Greifswald-Wieck",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Wieck ≠ Altstadt Museumshafen — plan the hop.",
+      "distanceAnswer": "Wieck ≠ Altstadt Museumshafen — plan the hop.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Museumshafen (year-round free access)",
+        "Wieck drawbridge / village",
+        "Museumshafen Greifswald",
+        "Wieck wooden drawbridge",
+        "Klosterruine Eldena"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm vessel size vs the Ryck passenger pier before promising a call here."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "11ab6472546c34e74bcc7b72a8f6bdfe5a939d4fa907f2c053f2a0cfd843c6b2",
+      "existing_guide_hash": "e511df6edeea02db",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/greifswald-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:19:50.834Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage65-blocked-bootstrap-editorial"
+}
