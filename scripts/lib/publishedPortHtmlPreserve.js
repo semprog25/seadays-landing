@@ -40,6 +40,7 @@ const FOOTER_SHELL_RE =
   /<!--\s*seadays-site-shell:footer\s*-->[\s\S]*?<!--\s*seadays-site-shell:footer-end\s+seadays-site-shell\s*-->/i;
 const MORE_READING_RE = /<section class="seo-cross-block" id="more-reading"[\s\S]*?<\/section>/i;
 const CONTEXTUAL_CTA_RE = /<p class="seo-inline-more seadays-contextual-cta"[\s\S]*?<\/p>/i;
+const CONTEXTUAL_CTA_SECTION_RE = /<section class="seadays-contextual-cta"[^>]*>[\s\S]*?<\/section>/i;
 const THINGS_TO_DO_SECTION_RE = /<section class="pg-section" id="things-to-do"[\s\S]*?<\/section>/i;
 const GETTING_THERE_SECTION_RE = /<section class="pg-section" id="getting-there"[\s\S]*?<\/section>/i;
 const TRAVELER_QUESTIONS_SECTION_RE = /<section class="pg-section" id="traveler-questions"[\s\S]*?<\/section>/i;
@@ -158,7 +159,7 @@ function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, po
  * - Head styles: keep committed inline `<style>` after `/assets/css/site-shell.css` when regen uses minimal INDEX_STYLES.
  * - Site shell: keep committed header/footer HTML between `seadays-site-shell` markers when generator ships a newer shell.
  * - More reading: keep committed `#more-reading` cards so local blog picks do not churn vs production.
- * - Contextual CTA: keep committed `seo-inline-more seadays-contextual-cta` before the footer marker.
+ * - Contextual CTA: retain one block inside <main>, never adjacent to the footer.
  * - Body tail: keep scripts after the starfield bootstrap (`directoryRuntimeImageGuard`) when generator omits them.
  */
 function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = {}) {
@@ -203,10 +204,19 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
   const existingMore = extractFirstMatch(existingHtml, MORE_READING_RE);
   if (existingMore) html = replaceFirstMatch(html, MORE_READING_RE, existingMore);
 
-  const existingCta = extractFirstMatch(existingHtml, CONTEXTUAL_CTA_RE);
-  html = String(html).replace(CONTEXTUAL_CTA_RE, '');
-  if (existingCta && /<!--\s*seadays-site-shell:footer\s*-->/i.test(html)) {
-    html = html.replace(/(<!--\s*seadays-site-shell:footer\s*-->)/i, `${existingCta}\n$1`);
+  const existingCta =
+    extractFirstMatch(existingHtml, CONTEXTUAL_CTA_SECTION_RE) ||
+    extractFirstMatch(existingHtml, CONTEXTUAL_CTA_RE);
+  const generatedCta =
+    extractFirstMatch(html, CONTEXTUAL_CTA_SECTION_RE) ||
+    extractFirstMatch(html, CONTEXTUAL_CTA_RE);
+  // Preserve a single CTA in the layout; never restore the footer orphan.
+  html = String(html)
+    .replace(new RegExp(CONTEXTUAL_CTA_RE.source, 'gi'), '')
+    .replace(new RegExp(CONTEXTUAL_CTA_SECTION_RE.source, 'gi'), '');
+  const retainedCta = generatedCta || existingCta;
+  if (retainedCta && /<\/main>/i.test(html)) {
+    html = html.replace(/<\/main>/i, `${retainedCta}\n    </main>`);
   }
 
   const existingTail = extractFirstMatch(existingHtml, TAIL_FROM_STARFIELD_SCRIPT_RE);
@@ -226,6 +236,7 @@ module.exports = {
   FOOTER_SHELL_RE,
   MORE_READING_RE,
   CONTEXTUAL_CTA_RE,
+  CONTEXTUAL_CTA_SECTION_RE,
   TAIL_FROM_STARFIELD_SCRIPT_RE,
   extractFirstMatch,
   extractSiteShellHeadStyleBlock,
