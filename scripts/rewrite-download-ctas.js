@@ -83,9 +83,9 @@ function contextualBlock(rel, quotedHref) {
 }
 
 const LEGACY_CONTEXTUAL_RE =
-  /<p class="seo-inline-more seadays-contextual-cta"[^>]*>[\s\S]*?<\/p>\s*/gi;
+  /[ \t]*<p class="seo-inline-more seadays-contextual-cta"[^>]*>[\s\S]*?<\/p>\s*/gi;
 const SECTION_CONTEXTUAL_RE =
-  /<section class="seadays-contextual-cta"[^>]*>[\s\S]*?<\/section>\s*/gi;
+  /[ \t]*<section class="seadays-contextual-cta"[^>]*>[\s\S]*?<\/section>\s*/gi;
 
 function insertDetailCtaInsideMain(html, block) {
   // Never generate a CTA outside the layout. Redirect-only pages without <main>
@@ -94,7 +94,7 @@ function insertDetailCtaInsideMain(html, block) {
   const withoutOld = html
     .replace(LEGACY_CONTEXTUAL_RE, '')
     .replace(SECTION_CONTEXTUAL_RE, '');
-  return withoutOld.replace(/<\/main>/i, `${block}    </main>`);
+  return withoutOld.replace(/[ \t]*<\/main>/i, `    ${block.trimEnd()}\n    </main>`);
 }
 
 function rewriteHtml(html, rel) {
