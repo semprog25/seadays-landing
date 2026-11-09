@@ -1,0 +1,964 @@
+[
+  {
+    "landing_slug": "alesund-norway",
+    "sha_match": true,
+    "sha_expected": "53a1d8e5fcf58822dac61635cfa2cccb1bc659e7404752cccddc76111b2e703d",
+    "sha_actual": "53a1d8e5fcf58822dac61635cfa2cccb1bc659e7404752cccddc76111b2e703d",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "alesund",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "curacao-willemstad-curacao",
+    "sha_match": true,
+    "sha_expected": "8d6c2dd40b9d53fe7fa043fa66fe941e3f7e62347e672bf3041948ce9dfea900",
+    "sha_actual": "8d6c2dd40b9d53fe7fa043fa66fe941e3f7e62347e672bf3041948ce9dfea900",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "willemstad",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "eleuthera-bahamas",
+    "sha_match": true,
+    "sha_expected": "8ee67b55b55395e09a1fff37f4258ac609db8c79a339d167fc62442c69e0ea84",
+    "sha_actual": "8ee67b55b55395e09a1fff37f4258ac609db8c79a339d167fc62442c69e0ea84",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "eleuthera",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "falmouth-jamaica",
+    "sha_match": true,
+    "sha_expected": "5f6b0490c1e9536a71eb42d040ab8c2c6387854e678c7528d4b3bd30beab32ce",
+    "sha_actual": "5f6b0490c1e9536a71eb42d040ab8c2c6387854e678c7528d4b3bd30beab32ce",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "falmouth",
+    "identifier_status": "inferred",
+    "guide_classification": "falmouth_homonym_identifier_hold",
+    "policy_ok": false,
+    "policy_blockers": [
+      "identifier_inferred"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [
+      "falmouth_homonym_publication_guard"
+    ],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "geiranger-norway",
+    "sha_match": true,
+    "sha_expected": "79a03c5a36c017b3287772d5d35cae89872b6a8429c2d4c9db94b8ac5baf0c2a",
+    "sha_actual": "79a03c5a36c017b3287772d5d35cae89872b6a8429c2d4c9db94b8ac5baf0c2a",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "geiranger",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "george-town-cayman-islands",
+    "sha_match": true,
+    "sha_expected": "de760911b8487190258075fcffae1470b3c444a0e0e16fe167fca65d65dd4d90",
+    "sha_actual": "de760911b8487190258075fcffae1470b3c444a0e0e16fe167fca65d65dd4d90",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "george-town",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "oslo-norway",
+    "sha_match": true,
+    "sha_expected": "134152278e9d571426ad51af952f763eb25c4f09ec496394daf210fd9dd30c8e",
+    "sha_actual": "134152278e9d571426ad51af952f763eb25c4f09ec496394daf210fd9dd30c8e",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "oslo",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "roatan-honduras",
+    "sha_match": true,
+    "sha_expected": "4eff1d1ba6f6c6d601e31852f7dcce001199cecbd7f9fa74e9e6fc06dedfee14",
+    "sha_actual": "4eff1d1ba6f6c6d601e31852f7dcce001199cecbd7f9fa74e9e6fc06dedfee14",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "roatan",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+    "sha_match": true,
+    "sha_expected": "ed25345a7123a103b1686511542af0741c57437f40f7fd0413ed705fca52a626",
+    "sha_actual": "ed25345a7123a103b1686511542af0741c57437f40f7fd0413ed705fca52a626",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "frederiksted",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "st-kitts-basseterre-st-kitts",
+    "sha_match": true,
+    "sha_expected": "f54a5c5520024490d3f58fcf9d30658d9bf79693b05f28c916a1a545a09fe243",
+    "sha_actual": "f54a5c5520024490d3f58fcf9d30658d9bf79693b05f28c916a1a545a09fe243",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "basseterre",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "acapulco-mexico",
+    "sha_match": true,
+    "sha_expected": "7ea23a3b415bc6a7f90d9002faa2bdf6fe15d5d0bc058f24b46762f5e49e234c",
+    "sha_actual": "7ea23a3b415bc6a7f90d9002faa2bdf6fe15d5d0bc058f24b46762f5e49e234c",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "acapulco",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "adelaide-australia",
+    "sha_match": true,
+    "sha_expected": "4352cf619090e9e100fac133f312e045f469deb421d8938cbb8514e8728909f5",
+    "sha_actual": "4352cf619090e9e100fac133f312e045f469deb421d8938cbb8514e8728909f5",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "adelaide",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "andalsnes-norway",
+    "sha_match": true,
+    "sha_expected": "797711bd136f4a65d49d3639c4560108fba3de39b98c11308dfcb20efa2072e8",
+    "sha_actual": "797711bd136f4a65d49d3639c4560108fba3de39b98c11308dfcb20efa2072e8",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "andalsnes",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "angra-do-heroismo-azores-portugal",
+    "sha_match": true,
+    "sha_expected": "cc61c544002023e579e63f3ffdf1a138dd7f3aefe34bf7887e64597643fae7b9",
+    "sha_actual": "cc61c544002023e579e63f3ffdf1a138dd7f3aefe34bf7887e64597643fae7b9",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "angra-do-heroismo",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "bar-harbor-me-united-states",
+    "sha_match": true,
+    "sha_expected": "6ac08401417e0532f76d3ed96639f82e1054fdec8392919ae1bb6aef5302b889",
+    "sha_actual": "6ac08401417e0532f76d3ed96639f82e1054fdec8392919ae1bb6aef5302b889",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "bar-harbor",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "cabo-san-lucas-mexico",
+    "sha_match": true,
+    "sha_expected": "dd1160f88f8bce262bcedb927bdcbd7e3c2253dec28e075e04e8d5e89531719d",
+    "sha_actual": "dd1160f88f8bce262bcedb927bdcbd7e3c2253dec28e075e04e8d5e89531719d",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "cabo-san-lucas",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "cape-liberty-bayonne-nj-united-states",
+    "sha_match": true,
+    "sha_expected": "0219b97899881fa14a0d561b88554b5c5bad7dda64093aaa0ebcbf98ca51c55f",
+    "sha_actual": "0219b97899881fa14a0d561b88554b5c5bad7dda64093aaa0ebcbf98ca51c55f",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "bayonne",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "dunedin-new-zealand",
+    "sha_match": true,
+    "sha_expected": "fac4f0e658948762dbefd44b35a98dbaa1d2e54df33972354d633e89a12cc657",
+    "sha_actual": "fac4f0e658948762dbefd44b35a98dbaa1d2e54df33972354d633e89a12cc657",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "dunedin",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "great-stirrup-cay-bahamas",
+    "sha_match": true,
+    "sha_expected": "7ce447b1500be6d5cbf2d223251f3690d7437f40a6691e9210950becc14a5f9c",
+    "sha_actual": "7ce447b1500be6d5cbf2d223251f3690d7437f40a6691e9210950becc14a5f9c",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "great-stirrup-cay",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "half-moon-cay-bahamas",
+    "sha_match": true,
+    "sha_expected": "1abc87bdfa7d97243ec1913b36116959c55014ab442e182a80b015730fda0d5f",
+    "sha_actual": "1abc87bdfa7d97243ec1913b36116959c55014ab442e182a80b015730fda0d5f",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "half-moon-cay",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "hurghada-egypt",
+    "sha_match": true,
+    "sha_expected": "f2cc06aa465215e3d0ced7309d8b06362e97a9a170698b090245a4ebc42acac6",
+    "sha_actual": "f2cc06aa465215e3d0ced7309d8b06362e97a9a170698b090245a4ebc42acac6",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "hurghada",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "jeddah-islamic-port-saudi-arabia",
+    "sha_match": true,
+    "sha_expected": "71662f9c6a1dc50fd39b4269bf32690fadd0a981a2f8e142b3f0cee2e1b48861",
+    "sha_actual": "71662f9c6a1dc50fd39b4269bf32690fadd0a981a2f8e142b3f0cee2e1b48861",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "jeddah-islamic-port",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "jeddah-saudi-arabia",
+    "sha_match": true,
+    "sha_expected": "13b5079ce4747b17eb4ec5e2e453aae1dd85526308850963e8831288510efbc4",
+    "sha_actual": "13b5079ce4747b17eb4ec5e2e453aae1dd85526308850963e8831288510efbc4",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "jeddah",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "kefalonia-greece",
+    "sha_match": true,
+    "sha_expected": "0134c810ec7d2195ce36552f85247d54f3cede3d9a62100a5d903b7b8c24f447",
+    "sha_actual": "0134c810ec7d2195ce36552f85247d54f3cede3d9a62100a5d903b7b8c24f447",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "kefalonia",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "las-palmas-spain",
+    "sha_match": true,
+    "sha_expected": "e50e31e918973596dfca70229176a4d28b9484635a64257653c154bc11b1e8d4",
+    "sha_actual": "e50e31e918973596dfca70229176a4d28b9484635a64257653c154bc11b1e8d4",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "las-palmas",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "manama-bahrain",
+    "sha_match": true,
+    "sha_expected": "24a04e9b79a92466abe09292e26e3187201ca657d66582a1d5898190e27e349b",
+    "sha_actual": "24a04e9b79a92466abe09292e26e3187201ca657d66582a1d5898190e27e349b",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "manama",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "mina-salman-manama-bahrain",
+    "sha_match": true,
+    "sha_expected": "0b67f3e68b7604b702958e97674a81877cc8f942c3cbf710bea0f0beddbd4030",
+    "sha_actual": "0b67f3e68b7604b702958e97674a81877cc8f942c3cbf710bea0f0beddbd4030",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "mina-salman",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "new-york-ny-united-states",
+    "sha_match": true,
+    "sha_expected": "89922750e035f722f58d350e07cd02d59026d18066fe33a03498d80ca5b0082f",
+    "sha_actual": "89922750e035f722f58d350e07cd02d59026d18066fe33a03498d80ca5b0082f",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "new-york",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "nordkapp-norway",
+    "sha_match": true,
+    "sha_expected": "d878b789d80bfb1958629dc3506a76fa01585a3da13927a9d65c17b8f66971d8",
+    "sha_actual": "d878b789d80bfb1958629dc3506a76fa01585a3da13927a9d65c17b8f66971d8",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "nordkapp",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "ocean-cay-msc-reserve-bahamas",
+    "sha_match": true,
+    "sha_expected": "c659592c16828ed07255972e5f5d2b836c10414c6b5f3d02f8816d86b0ac0723",
+    "sha_actual": "c659592c16828ed07255972e5f5d2b836c10414c6b5f3d02f8816d86b0ac0723",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "ocean-cay",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "perth-australia",
+    "sha_match": true,
+    "sha_expected": "ef53b7bd1718e18a0673b40f6e270981ab8e1343329d712ec774289c87762515",
+    "sha_actual": "ef53b7bd1718e18a0673b40f6e270981ab8e1343329d712ec774289c87762515",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "perth",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "ras-al-khaimah-united-arab-emirates",
+    "sha_match": true,
+    "sha_expected": "e3fd24f9d620c5adf2cf4c3aa2ffd2bcddd8765442faa2374aeb4a08685d8500",
+    "sha_actual": "e3fd24f9d620c5adf2cf4c3aa2ffd2bcddd8765442faa2374aeb4a08685d8500",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "ras-al-khaimah",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "reine-norway",
+    "sha_match": true,
+    "sha_expected": "c0cabb476604909cc560710afd9f5db54e226443bfefc12283eb60f9ac3d224a",
+    "sha_actual": "c0cabb476604909cc560710afd9f5db54e226443bfefc12283eb60f9ac3d224a",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "reine",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "rugen-germany",
+    "sha_match": true,
+    "sha_expected": "aa2d064a8190d3e74259e1eb2dbfdaba253c7a2a4f387f6bc4d9cdc07fa00021",
+    "sha_actual": "aa2d064a8190d3e74259e1eb2dbfdaba253c7a2a4f387f6bc4d9cdc07fa00021",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "rugen",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "sao-paulo-santos-brazil",
+    "sha_match": true,
+    "sha_expected": "10366506ebefbab680d74fd674e2ab72f684b112b28946dabad46e459731eb98",
+    "sha_actual": "10366506ebefbab680d74fd674e2ab72f684b112b28946dabad46e459731eb98",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "santos",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "sassnitz-mukran-germany",
+    "sha_match": true,
+    "sha_expected": "7f489a05f847b08a678672e6ee04fc23c427adac5705b47b506daa4dfdaee5b3",
+    "sha_actual": "7f489a05f847b08a678672e6ee04fc23c427adac5705b47b506daa4dfdaee5b3",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "sassnitz",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "seattle-wa-united-states",
+    "sha_match": true,
+    "sha_expected": "8a4dd89f3d6942b1d7cb3236939adbd6fc9f6d73efed61bb6d812e81d528dde7",
+    "sha_actual": "8a4dd89f3d6942b1d7cb3236939adbd6fc9f6d73efed61bb6d812e81d528dde7",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "seattle",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "stralsund-germany",
+    "sha_match": true,
+    "sha_expected": "e6c8f5d65d655163575dec694641b4da74142566bba30437c9fbd45430dce5fc",
+    "sha_actual": "e6c8f5d65d655163575dec694641b4da74142566bba30437c9fbd45430dce5fc",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "stralsund",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "suez-egypt",
+    "sha_match": true,
+    "sha_expected": "1064d851875e8282a73caff755feae035f4997c0eafaca00b30ebb2f5213a09d",
+    "sha_actual": "1064d851875e8282a73caff755feae035f4997c0eafaca00b30ebb2f5213a09d",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "suez",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "svolv-r-norway",
+    "sha_match": true,
+    "sha_expected": "6de777dbd2101af41fb870601ddea04a043fdaf5bc21ee3db0bbe4548cc38194",
+    "sha_actual": "6de777dbd2101af41fb870601ddea04a043fdaf5bc21ee3db0bbe4548cc38194",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "svolvaer",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "swinoujscie-poland",
+    "sha_match": true,
+    "sha_expected": "ed79f7d82548234112900c81033d52c6d813c5f1ecff51ad9d200c3b6a549418",
+    "sha_actual": "ed79f7d82548234112900c81033d52c6d813c5f1ecff51ad9d200c3b6a549418",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "swinoujscie",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "tel-aviv-israel",
+    "sha_match": true,
+    "sha_expected": "8d88ace92c1948070a1581cb09bdf877fba713223a09ed40bb2e173c823f339b",
+    "sha_actual": "8d88ace92c1948070a1581cb09bdf877fba713223a09ed40bb2e173c823f339b",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "tel-aviv",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "valparaiso-chile",
+    "sha_match": true,
+    "sha_expected": "6744b148852be36b6b2f71a4e7f1b1c53e8280ce736f9b6544d47cd62983da82",
+    "sha_actual": "6744b148852be36b6b2f71a4e7f1b1c53e8280ce736f9b6544d47cd62983da82",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "valparaiso",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "vancouver-bc-canada",
+    "sha_match": true,
+    "sha_expected": "ea37ebd7893d11546bb3952d28d398290b9374ffe38281c3ccb4e22bf324dd18",
+    "sha_actual": "ea37ebd7893d11546bb3952d28d398290b9374ffe38281c3ccb4e22bf324dd18",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "vancouver",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "waterford-ireland",
+    "sha_match": true,
+    "sha_expected": "d85e3ee303d7e5ec82114c20472edd20530aa811fc72097b7973ef8ce4fc3f30",
+    "sha_actual": "d85e3ee303d7e5ec82114c20472edd20530aa811fc72097b7973ef8ce4fc3f30",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "waterford",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "wilhelmshaven-germany",
+    "sha_match": true,
+    "sha_expected": "6aa53036eec1d08fd91a646cd9fb43f36cf4b7fba1cc885f4cd77456e6b900db",
+    "sha_actual": "6aa53036eec1d08fd91a646cd9fb43f36cf4b7fba1cc885f4cd77456e6b900db",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "wilhelmshaven",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "wismar-germany",
+    "sha_match": true,
+    "sha_expected": "ae7e2612c36655ec63a2e152e4ea26289bc0036617294edeca8feeca48f1b07c",
+    "sha_actual": "ae7e2612c36655ec63a2e152e4ea26289bc0036617294edeca8feeca48f1b07c",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "wismar",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  },
+  {
+    "landing_slug": "yanbu-saudi-arabia",
+    "sha_match": true,
+    "sha_expected": "fa404f02ff0590f7b530e23cbf4792b180c1a89393aaaa09c762d7c5e4d51d47",
+    "sha_actual": "fa404f02ff0590f7b530e23cbf4792b180c1a89393aaaa09c762d7c5e4d51d47",
+    "yaml_parse": true,
+    "yaml_error": null,
+    "research_qa": "PASS",
+    "app_port_id": "yanbu",
+    "identifier_status": "inferred",
+    "guide_classification": "bootstrap_missing_guide",
+    "policy_ok": false,
+    "policy_blockers": [
+      "no_guide"
+    ],
+    "publication_bucket": "BLOCKED",
+    "research_sha_verified": true,
+    "factual_editorial_holds": [],
+    "eligible_for_publication_apply": false
+  }
+]
