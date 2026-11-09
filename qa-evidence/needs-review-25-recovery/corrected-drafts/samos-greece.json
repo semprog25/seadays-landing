@@ -1,0 +1,77 @@
+{
+  "landing_slug": "samos-greece",
+  "draft": {
+    "landing_slug": "samos-greece",
+    "appPortId": "samos",
+    "portName": "Samos",
+    "country": "Greece",
+    "portInfo": {
+      "description": "The Municipal Port Fund of Samos oversees island harbours including Vathy (Samos town), Karlovasi and Pythagoreio. Its site states that the port of Samos town and Pythagoreio provide cruise handling. Passengers must not assume Vathy if the ship is assigned to Pythagoreio.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Samos (Vathy) — cruise/passenger harbour — Vathy, Samos, Greece",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Vathy town. Walk-off when berthed there — minutes estimated. Pythagoreio / Heraion. Road transfer if not berthed there — minutes GAP.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Vathy town. Walk-off when berthed there — minutes estimated. Pythagoreio / Heraion. Road transfer if not berthed there — minutes GAP."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Vathy waterfront — ~60 min.",
+        "Pythagoreio harbour town — transfer.",
+        "Heraion archaeological site — transfer; hours GAP.",
+        "Vathy waterfront / town"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read Vathy vs Pythagoreio on the gangway board."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c4bd4c842383bbe306e8819bd7722f50ac72e000a77769fd1867a5b2adec1991",
+      "existing_guide_hash": "0159defc542f9809",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/samos-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.323Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

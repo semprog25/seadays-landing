@@ -1,0 +1,77 @@
+{
+  "landing_slug": "santander-spain",
+  "draft": {
+    "landing_slug": "santander-spain",
+    "appPortId": "santander",
+    "portName": "Santander",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Cruise Santander’s infrastructures page highlights a Maritime Station in the heart of the city that lets cruise passengers move between ship and city with complete flexibility, and notes citizens can view ships from the city. Shore-excursion themes on the same site include Santillana/Altamira, Cabárceno and Picos de Europa — those are coach products, not walk-offs.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Santander Maritime Station (cruise) — Santander, Cantabria, Spain",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City centre. Maritime Station described as in the heart of the city. Minutes not surveyed — allow 10–20 min estimate. Cabárceno / Altamira / Picos. Site lists shore excursions — long calls only.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "City centre. Maritime Station described as in the heart of the city. Minutes not surveyed — allow 10–20 min estimate. Cabárceno / Altamira / Picos. Site lists shore excursions — long calls only."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City centre / waterfront. ~75 min.",
+        "Cabárceno Nature Park — long call.",
+        "Santillana & Altamira area — long call.",
+        "Santander city centre / waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm you are at the Maritime Station, not a remote cargo quay."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b296f787fbfe7140ec77b3404bad05cc571b740dbb69ce5bbd2caa49108976ef",
+      "existing_guide_hash": "6850b0bec7a08554",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/santander-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.334Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

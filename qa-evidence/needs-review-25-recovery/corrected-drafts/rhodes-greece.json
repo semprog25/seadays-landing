@@ -1,0 +1,78 @@
+{
+  "landing_slug": "rhodes-greece",
+  "draft": {
+    "landing_slug": "rhodes-greece",
+    "appPortId": "rhodes",
+    "portName": "Rhodes",
+    "country": "Greece",
+    "portInfo": {
+      "description": "The Municipal Port Fund of South Dodecanese operates Rhodes’s Tourist Port cruise facilities, marketing homeport capability with a Home Port Lounge, duty-free, medical-capable waiting area, information desk and prepaid excursion bus parking. ISPS-related wording states the Tourist Port and Akandia together can handle up to five cruise ships and over 10,000 passengers and crew in a day. Ferry traffic concentrates at Akandia; cruise berths are normally at the Tourist Port.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Tourist Port of Rhodes — cruise operations — Tourist Port of Rhodes / Akti Sachtouri, 85100 Rhodes, Greece",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Medieval Old Town. Port fund describes land-zone access toward the city centre. Allow 15–25 min walk estimate; not surveyed. Lindos. Long-call coach only — minutes GAP.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Medieval Old Town. Port fund describes land-zone access toward the city centre. Allow 15–25 min walk estimate; not surveyed. Lindos. Long-call coach only — minutes GAP."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "To Old Town: 20 (est.)",
+        "Old Town: 90",
+        "Return: 20",
+        "Buffer: 60"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Tourist Port vs Akandia on the gangway."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2c44a8bf97276949160845d0bbfc9a122cdfc865f2ecb1881b94daf1d862f4a8",
+      "existing_guide_hash": "5e0dbfaa2239bdd3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/rhodes-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.313Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

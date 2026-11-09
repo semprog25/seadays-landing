@@ -1,0 +1,77 @@
+{
+  "landing_slug": "portland-me-united-states",
+  "draft": {
+    "landing_slug": "portland-me-united-states",
+    "appPortId": "portland",
+    "portName": "Portland",
+    "country": "United States",
+    "portInfo": {
+      "description": "Portland’s cruise landings sit on the downtown waterfront. The Cruise Portland Maine industry page (City of Portland waterfront contact listed) publishes critical terminal data: capacity framing up to 1,100′ vessels and up to 5,000 passengers, with separate specs for Portland Ocean Terminal and Ocean Gateway Berths 1 and 2. Guest services listed include visitor information, comfort station, on-site restrooms, free Wi-Fi, taxis and public transport, with Maine Medical Center/Mercy Hospital at 1.5 miles and Portland International Jetport at 7 miles. Berth assignment is call-specific — confirm Ocean Gateway vs Portland Ocean Terminal on the day’s schedule before planning a tight museum itinerary.",
+      "location": "",
+      "timezone": "PST (UTC-8) / PDT (UTC-7)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Ocean Gateway Terminal — Ocean Gateway / 14 Ocean Gateway Pier area, Portland, ME (Visit Portland Information Center address 14 Ocean Gateway Pier)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Downtown. Direct walking access from berth claimed; exact minutes to Old Port Not verified. Airport. Jetport 7 miles; transfer duration Not verified. Taxis / public transport listed among guest services.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Downtown. Direct walking access from berth claimed; exact minutes to Old Port Not verified. Airport. Jetport 7 miles; transfer duration Not verified. Taxis / public transport listed among guest services."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Old Port / downtown waterfront — walk-from-berth framing — ~120 min.",
+        "Ocean Gateway Information Center — 14 Ocean Gateway Pier — ~20 min.",
+        "Portland Museum of Art / Arts District — uphill/inland; minutes Not verified.",
+        "Lighthouse / coastal tours — organised only; return buffer required.",
+        "Food markets / wharf dining — seasonal hours Not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask which berth (Ocean Gateway 1/2 vs Portland Ocean Terminal) is assigned before setting a walking clock — lengths and gangway heights differ in the industry FAQ."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b2654de2b895ba0bc7629247592cc0577a28d8cf1381324c442064cca6e0be6f",
+      "existing_guide_hash": "4a02066b085336c1",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/portland-me-united-states.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.304Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

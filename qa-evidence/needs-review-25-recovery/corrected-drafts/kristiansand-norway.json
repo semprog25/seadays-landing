@@ -1,0 +1,77 @@
+{
+  "landing_slug": "kristiansand-norway",
+  "draft": {
+    "landing_slug": "kristiansand-norway",
+    "appPortId": "kristiansand",
+    "portName": "Kristiansand",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Skagerrak south-coast city call between Oslo and Bergen on the port’s own framing. Factsheet — short walk from pier into town; timed metres still a gap.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Quay 10 / Berth 10 (Pier 10) — Port of Kristiansand — Quay 10 / Lagmannsholmen cruise area",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Factsheet: short walk from cruise pier. Exact metres / shuttle claims gap on English extract.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Factsheet: short walk from cruise pier. Exact metres / shuttle claims gap on English extract."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Pier 10 / harbour walk into town",
+        "Posebyen / Old Town",
+        "Kunstsilo (Odderøya)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Pier 10 — Mandal/Lindesnes are separate port calls on the same authority, not this slug."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e13e31b3380ddec5e4f9e5bb6ce84b094495799446efbd500fb56e48a956d7c1",
+      "existing_guide_hash": "881af6fc9435aaae",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kristiansand-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.236Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

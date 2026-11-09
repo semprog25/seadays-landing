@@ -1,0 +1,78 @@
+{
+  "landing_slug": "liverpool-united-kingdom",
+  "draft": {
+    "landing_slug": "liverpool-united-kingdom",
+    "appPortId": "liverpool",
+    "portName": "Liverpool",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "A historic maritime city and UNESCO World Heritage site, known for its music heritage, waterfront, and modern cruise facilities.",
+      "location": "",
+      "timezone": "GMT (UTC+0) / BST (UTC+1)",
+      "language": "English",
+      "currency": "British Pound (GBP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Liverpool Cruise Port / City of Liverpool Cruise Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Operator: ~50 m to city centre — still confirm gate exit.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Operator: ~50 m to city centre — still confirm gate exit."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Royal Albert Dock / waterfront",
+        "The Beatles Story",
+        "Museum of Liverpool"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ignore “UNESCO waterfront” marketing for WH planning — the inscription was deleted in 2021."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fa1a92259e0db8fa62f305b3e671cdfc2891113013d578cb83a2faeedc239852",
+      "existing_guide_hash": "75a4972807d04faa",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/liverpool-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.251Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

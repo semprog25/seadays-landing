@@ -1,0 +1,79 @@
+{
+  "landing_slug": "san-francisco-ca-united-states",
+  "draft": {
+    "landing_slug": "san-francisco-ca-united-states",
+    "appPortId": "san-francisco",
+    "portName": "San Francisco",
+    "country": "United States",
+    "portInfo": {
+      "description": "A iconic American port city known for the Golden Gate Bridge, hills, and cultural diversity.",
+      "location": "",
+      "timezone": "PST (UTC-8) / PDT (UTC-7)",
+      "language": "English, Spanish, Chinese",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Pier 27 James R. Herman Cruise Terminal — Pier 27, The Embarcadero, San Francisco (northern waterfront)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "BART/Muni. ~20 min walk Embarcadero station to Pier 27; streetcar Embarcadero/Sansome. Pier 35. Embarcadero/Bay Street stop. Piers 30/32. Embarcadero/Brannan; ~20 min walk from Ferry Building. Parking. Not at terminals; Metropolis 55 & 80 Francisco Street per Port courtesy note.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "BART/Muni. ~20 min walk Embarcadero station to Pier 27; streetcar Embarcadero/Sansome. Pier 35. Embarcadero/Bay Street stop. Piers 30/32. Embarcadero/Brannan; ~20 min walk from Ferry Building. Parking. Not at terminals; Metropolis 55 & 80 Francisco Street per Port courtesy note."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Embarcadero / Ferry Building — walkable from Pier 27 with time — ~90 min.",
+        "Fisherman’s Wharf / Pier 39 — north; confirm distance vs Pier 35 assignment.",
+        "Cable cars / Union Square — hills; longer call.",
+        "Alcatraz — advance tickets; timing critical.",
+        "Golden Gate — organised / long buffer."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Pier 27 vs 35 vs 30/32 before rideshare — they are not interchangeable walking distances."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "cc96fe4dc3a786e191f4749b0bdaba5bf3c33760126edd20ed17108edbec30f4",
+      "existing_guide_hash": "13b1a3bb9d09f1fa",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/san-francisco-ca-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.331Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

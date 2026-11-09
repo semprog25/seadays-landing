@@ -1,0 +1,77 @@
+{
+  "landing_slug": "honolulu-hi-united-states",
+  "draft": {
+    "landing_slug": "honolulu-hi-united-states",
+    "appPortId": "honolulu",
+    "portName": "Honolulu",
+    "country": "United States",
+    "portInfo": {
+      "description": "Honolulu Harbor on Oʻahu has two cruise ship terminals identified by HDOT Harbors Division: Pier 2 (primary) and Pier 11 (alternate). The Pier 2 entrance is at the west end of Channel Street off Ala Moana Boulevard; Pier 11’s entrance is on the north extension of Aloha Tower Drive. HDOT published a 2023 reorganisation of the ground-transportation area fronting Pier 2 to reduce Channel Street congestion and streamline exit toward Papu Street. Passenger and cruise schedules for Hawaiʻi’s commercial harbours are reserved through Hawaii.PortCall.Com. Aloha Tower itself is listed “Closed Indefinitely” on the HDOT visitor page — do not plan a tower visit from that citation.",
+      "location": "Located on Oahu, Hawaii, USA",
+      "timezone": "HST (UTC-10)",
+      "language": "English, Hawaiian",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Honolulu Harbor cruise terminals",
+      "transportation": [
+        "TheBus (public transit)",
+        "Walking"
+      ],
+      "distanceToCity": "Terminals located near downtown Honolulu",
+      "walkingTime": "15-30 minutes to Waikiki (2-3 km)—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis readily available at terminals",
+      "publicTransport": "TheBus system covers entire island",
+      "distanceAnswer": "Terminals located near downtown Honolulu"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Ala Moana / downtown Honolulu corridor near Pier 2 — ~90–120 min.",
+        "Waikīkī Beach / Kalākaua — allow traffic; ~180 min round-ish with buffer.",
+        "Waikīkī",
+        "Pearl Harbor National Memorial area"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Pier 2 vs Pier 11 on the PortCall/line documents before booking a Waikīkī or airport transfer — the two entrances are on different street systems."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "96449f802c445af711eae5b45cfc240cb28e140f00daeb5445c24379c126ac49",
+      "existing_guide_hash": "f0e11aa4a521fa43",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/honolulu-hi-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.202Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

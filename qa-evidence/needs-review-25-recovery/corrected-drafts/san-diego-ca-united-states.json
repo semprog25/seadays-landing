@@ -1,0 +1,78 @@
+{
+  "landing_slug": "san-diego-ca-united-states",
+  "draft": {
+    "landing_slug": "san-diego-ca-united-states",
+    "appPortId": "san-diego",
+    "portName": "San Diego",
+    "country": "United States",
+    "portInfo": {
+      "description": "The Port of San Diego operates two Embarcadero cruise terminals on North Harbor Drive. Most ships use the larger B-Street Pier & Cruise Ship Terminal; Broadway Pier’s Port Pavilion also handles cruise ships and doubles as an events/public venue. Boarding guidance: do not arrive before 10 a.m.; arrive at the assigned boarding time; drop-off beyond the gate on the pier; passports required for Mexico cruises. Passengers may not park on the pier during the cruise. West Coast homeport framing for Mexico, Hawaii and Pacific Coast itineraries appears on cruise-operations pages.",
+      "location": "",
+      "timezone": "PST (UTC-8) / PDT (UTC-7)",
+      "language": "English, Spanish",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "B Street Pier & Cruise Ship Terminal — 1140 N Harbor Dr, San Diego, CA 92101",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Airport. SAN ~2 miles north / <10 min drive stated. Rail. Santa Fe Depot two blocks east. Parking. Paid Embarcadero options; no on-pier cruise parking. Drop-off. Beyond the gate on the pier.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Airport. SAN ~2 miles north / <10 min drive stated. Rail. Santa Fe Depot two blocks east. Parking. Paid Embarcadero options; no on-pier cruise parking. Drop-off. Beyond the gate on the pier."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Embarcadero waterfront — immediate — ~90 min.",
+        "USS Midway / museums — walkable corridor; ticket hours Not verified.",
+        "Gaslamp Quarter — short transfer; minutes Not verified.",
+        "Balboa Park — longer call.",
+        "La Jolla / beaches — organised / long buffer."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "For Mexico itineraries, Port of San Diego states passports are required — do not rely on birth-certificate-only myths."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c5e15e4aa2a2b752860fa443b9973d4af36342c6d31bd6af1ea4ee519991edfa",
+      "existing_guide_hash": "0d56325726e87ef7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/san-diego-ca-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.327Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

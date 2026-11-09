@@ -1,0 +1,77 @@
+{
+  "landing_slug": "le-havre-paris-france",
+  "draft": {
+    "landing_slug": "le-havre-paris-france",
+    "appPortId": "le-havre",
+    "portName": "Le Havre (Paris)",
+    "country": "France",
+    "portInfo": {
+      "description": "A major port in Normandy, France, rebuilt after WWII and now a UNESCO World Heritage site for its modernist architecture.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "French",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Le Havre Cruise Terminal – Pointe de Floride — Quai Roger Meunier, 76000 Le Havre",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City / station: 2.5 km. Taxi rank and a Terminal–city-centre shuttle (conditions and payment depend on the company; timetable not published). Allow 15–35 min including the wait (estimate).",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "City / station: 2.5 km. Taxi rank and a Terminal–city-centre shuttle (conditions and payment depend on the company; timetable not published). Allow 15–35 min including the wait (estimate). Paris: taxi to Gare du Havre, then a reserved NOMAD / SNCF train to Paris Saint-Lazare. SNCF Connect publishes about 2 h 05 for the shortest journeys and about 2 h 15 on average. Book a return with spare trains",
+      "distanceAnswer": "City / station: 2.5 km. Taxi rank and a Terminal–city-centre shuttle (conditions and payment depend on the company; timetable not published). Allow 15–35 min including the wait (estimate)."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Église Saint-Joseph (Perret). 30 min.",
+        "MuMa modern-art museum. 75 min.",
+        "Le Havre beach and Volcan cultural centre (editorial).",
+        "Étretat cliffs; allow a half-day.",
+        "Honfleur harbour; allow a half-day."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If your documents say \"Le Havre (Paris)\", that is marketing. The train is over two hours each way. On calls under about 11 h, stay in Normandy."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b984dd0f3756d7c7bdb8ceaa4bf6eddf2ac863c541d224ece7ecf6f709117204",
+      "existing_guide_hash": "b2238b3afd223afa",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/le-havre-paris-france.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.244Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

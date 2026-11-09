@@ -1,0 +1,83 @@
+{
+  "landing_slug": "olbia-italy",
+  "draft": {
+    "landing_slug": "olbia-italy",
+    "appPortId": "olbia",
+    "portName": "Olbia",
+    "country": "Italy",
+    "portInfo": {
+      "description": "The city links a working passenger harbour to Roman/punic archaeology, a Romanesque basilica and nearby sandy beaches. San Paolo’s tiled dome and the archaeological museum provide different city stops; Sa Testa and Pittulongu require road transport. Porto Cervo is a separate resort/call, not another Olbia tender landing.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian, Sardinian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Isola Bianca — Molo 9",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Use the ship/port-authorized exit or shuttle rather than assuming pedestrians can cut through the secure pier. Budget 45 minutes to the city museum area and 45–60 minutes for the correct-pier return. For Pittulongu or Sa Testa, retain a road return and confirm any site/beach access. The allowances are not measured walking distances.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Use the ship/port-authorized exit or shuttle rather than assuming pedestrians can cut through the secure pier. Budget 45 minutes to the city museum area and 45–60 minutes for the correct-pier return. For Pittulongu or Sa Testa, retain a road return and confirm any site/beach access. The allowances are not measured walking distances."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Archaeological Museum of Olbia — Peddone islet, Olbia waterfront. Maritime archaeology anchors a port-town visit; current museum access needs checking. Allow 90 minutes; official source.",
+        "Basilica of San Simplicio — San Simplicio basilica, central Olbia. A Romanesque religious monument; worship may restrict the interior. Allow 45 minutes; official source.",
+        "San Simplicio necropolis museum — Necropolis below/by the San Simplicio church area, Olbia. A distinct underground archaeological attraction, not the basilica itself; opening unverified. Allow 45 minutes; official source.",
+        "Church of San Paolo — San Paolo church, Olbia historic centre. The tiled dome is an architectural sight even without interior access. Allow 30 minutes; official source.",
+        "Sa Testa sacred well — Sa Testa archaeological site, Olbia outskirts. Requires a road stop and a current access check. Allow 45 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If the ship uses Cocciani Sud, do not wait for it at an Isola Bianca shuttle point. The exceptional assignment is explicitly allowed by the ordinance but remains conditional, not a routine terminal substitution."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d5e357d5bd827bb0b4d030abe96270196cc46e84d428b5c001f2f1a70f826e29",
+      "existing_guide_hash": "b680f8d3de22e5ed",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/olbia-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.294Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

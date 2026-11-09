@@ -1,0 +1,77 @@
+{
+  "landing_slug": "salerno-italy",
+  "draft": {
+    "landing_slug": "salerno-italy",
+    "appPortId": "salerno",
+    "portName": "Salerno",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Salerno is the practical cruise gateway to the Amalfi Coast. Amalfi Cruise Terminal markets coast access from Salerno. The Port of Salerno site describes Masuccio Salernitano as the tourist port for ferries toward Amalfi Coast destinations — distinct from cruise alongside operations. Shore plans that stack Amalfi + Positano without timed returns routinely miss all-aboard.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Salerno / Amalfi Coast Cruise Terminal (Molo Manfredi area) — Molo Manfredi / Salerno passenger cruise area, Salerno, Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Salerno centro. Short walk/taxi from cruise harbour — minutes estimated. Amalfi / Positano. Ferry from Masuccio or coach — only with return ≥90 min before all-aboard.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Salerno centro. Short walk/taxi from cruise harbour — minutes estimated. Amalfi / Positano. Ferry from Masuccio or coach — only with return ≥90 min before all-aboard."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Salerno centro / lungomare — ~75 min.",
+        "Amalfi town — long call with timed ferry/coach.",
+        "Pompeii — long call only (not on Salerno port pages as a timed transfer).",
+        "Salerno centro / lungomare"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not confuse Masuccio ferry piers with the cruise terminal."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2ed7879dfdea4b2a8b1f2005b29aad0c501d937b9c8d8c5e9875ead460f869ac",
+      "existing_guide_hash": "e4fc72f6a9552e7d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/salerno-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.320Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}
