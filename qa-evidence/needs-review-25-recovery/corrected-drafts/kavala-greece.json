@@ -1,0 +1,78 @@
+{
+  "landing_slug": "kavala-greece",
+  "draft": {
+    "landing_slug": "kavala-greece",
+    "appPortId": "kavala",
+    "portName": "Kavala",
+    "country": "Greece",
+    "portInfo": {
+      "description": "OLK manages four ports in the Kavala system; Apostolos Pavlos is the city-wrapped passenger harbour with about 1,950 m of platform and depths 4–10 m on the passenger-port page (cruise page also cites depths up to 14 m — reconcile on the day). Contact block Averof 1, 65403; cruising@portkavala.gr.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Passenger Port «Apostolos Pavlos» — Averof 1, 65403 Kavala",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City centre is described as walkable from the passenger port. Philippi requires road transport — no editorial minute invent.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "City centre is described as walkable from the passenger port. Philippi requires road transport — no editorial minute invent."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Harbour / Panagia waterfront — city-wrapped Apostolos Pavlos.",
+        "Philippi UNESCO site — timed coach only.",
+        "Imaret / old-town interiors — gap until a venue primary is captured.",
+        "Apostolos Pavlos harbour and Panagia waterfront",
+        "Archaeological Site of Philippi"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "OLK gives cruise ships berthing priority over passenger ships — still confirm your gangway on the daily programme."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "1eb7b155c0d94d66431cd4a6ef7e081df0f12f7930904b389b39459a737253dc",
+      "existing_guide_hash": "49d959278a0aa98d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kavala-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.230Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

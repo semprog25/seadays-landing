@@ -1,0 +1,83 @@
+{
+  "landing_slug": "messina-sicily-italy",
+  "draft": {
+    "landing_slug": "messina-sicily-italy",
+    "appPortId": "messina",
+    "portName": "Messina (Sicily)",
+    "country": "Italy",
+    "portInfo": {
+      "description": "The strait gives the city its maritime identity, while the cathedral square, Annunziata dei Catalani and the regional museum provide a day that need not leave Messina. Taormina is a possible longer road excursion, not the same place as the Messina waterfront. Do not confuse this catalog entry with Taormina/Giardini Naxos.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal crociere I Settembre",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Budget 25 minutes from the assigned berth through its permitted exit to Piazza Duomo, with 30 minutes for the return/security. An outer or temporarily restricted face can need a shuttle, so obtain the gate before setting off. For the regional museum or Taormina, use a prearranged road pickup outside the controlled port; no fare or departure frequency was verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Budget 25 minutes from the assigned berth through its permitted exit to Piazza Duomo, with 30 minutes for the return/security. An outer or temporarily restricted face can need a shuttle, so obtain the gate before setting off. For the regional museum or Taormina, use a prearranged road pickup outside the controlled port; no fare or departure frequency was verified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cathedral and Piazza Duomo — Piazza Duomo, Messina. The civic/religious centre is the core short-call stop. Allow 50 minutes; official source.",
+        "Astronomical clock tower — Cathedral campanile, Piazza Duomo, Messina. A distinct clock/bell-tower sight; do not promise an interior climb or performance time without checking. Allow 30 minutes; official source.",
+        "Orion Fountain — Piazza Duomo, Messina. Study it together with the square rather than driving to another town. Allow 20 minutes; official source.",
+        "Santissima Annunziata dei Catalani — Annunziata dei Catalani church, central Messina. A different architectural layer from the cathedral; worship can limit entry. Allow 30 minutes; official source.",
+        "Regional Museum of Messina — Maria Accascina Regional Museum, Messina; use its municipal map link. Plan a separate local transfer and check current ticket/opening rules. Allow 100 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "A clock-tower ambition must fit the return plan. Check the actual viewing/performance arrangements rather than delaying departure for an unsourced “daily show” promise."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "974eefd744f15d134a4843d2303cb0a9599289b5e755341b28dd8aa047ce639c",
+      "existing_guide_hash": "9ad0cfa9d00c93ce",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/messina-sicily-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.267Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

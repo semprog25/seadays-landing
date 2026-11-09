@@ -1,0 +1,77 @@
+{
+  "landing_slug": "izmir-turkey",
+  "draft": {
+    "landing_slug": "izmir-turkey",
+    "appPortId": "izmir",
+    "portName": "Izmir",
+    "country": "Turkey",
+    "portInfo": {
+      "description": "Turkish port city on the Aegean coast, known for its ancient history, vibrant bazaar, and seaside promenade.",
+      "location": "Located on Turkey's Aegean coast",
+      "timezone": "TRT (UTC+3)",
+      "language": "Turkish",
+      "currency": "Turkish Lira (TRY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Izmir Cruise Port",
+      "transportation": [
+        "Bus",
+        "Walking (to nearby areas)"
+      ],
+      "distanceToCity": "Terminal located in Alsancak district",
+      "walkingTime": "15-25 minutes to Konak Square—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Good bus and ferry network",
+      "distanceAnswer": "Terminal located in Alsancak district"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Alsancak Kordon — waterfront immediately tied to the port address.",
+        "Ephesus (UNESCO) — only with a timed excursion and confirmed all-aboard.",
+        "Konak / Agora — gap: no usable primary venue page captured; do not pad with catalog blurbs.",
+        "Alsancak Kordon waterfront",
+        "Ancient city of Ephesus (day trip)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Alsancak looks walkable; Ephesus is not. Treat “İzmir call” and “Ephesus day” as different plans."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8fb344066f3a3b5ced6eead675671e15107d7a57e93cbc8d86347a2edb510a10",
+      "existing_guide_hash": "5d037400d07701c5",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/izmir-turkey.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.217Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

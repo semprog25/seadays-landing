@@ -1,0 +1,77 @@
+{
+  "landing_slug": "osaka-kyoto-kobe-japan",
+  "draft": {
+    "landing_slug": "osaka-kyoto-kobe-japan",
+    "appPortId": "kobe",
+    "portName": "Osaka / Kyoto / Kobe",
+    "country": "Japan",
+    "portInfo": {
+      "description": "Kansai cruise calls use Osaka Port or the Port of Kobe rather than a Kyoto quay. MLIT’s Osaka Port guide places facilities at Chikko, Minato-ku (552-0021), about 30 minutes by car from Kansai International Airport, with Osaka Metro Chuo Line Osakako Station for city access. Kobe’s guide lists Kobe Port Terminal at Shinko Pier No.4 (berth groups Q1/Q2/R and O1/O2) plus Naka Pier Cruise Terminal, address 4-5 Shinko-cho, Chuo-ku, with Port Liner Port Terminal Station and Kobe Airport about 13 minutes by train. Kyoto sightseeing requires rail/coach time beyond a short call. Berth length tables were not on the captured English guide pages.",
+      "location": "",
+      "timezone": "JST (UTC+9)",
+      "language": "Japanese",
+      "currency": "Japanese Yen (JPY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Osaka Port cruise area (Tempozan / Chikko) — 11-8, 3-Chome, Chikko, Minato-ku, Osaka",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Osaka Metro / Kobe Port Liner for centres; Kyoto = Shinkansen/JR — confirm berth city first.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Osaka Metro / Kobe Port Liner for centres; Kyoto = Shinkansen/JR — confirm berth city first."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Osaka Castle / Dotonbori — if Osaka berth.",
+        "Kobe waterfront / Sannomiya — if Kobe berth.",
+        "Kyoto temples — full-day only.",
+        "Osaka Dotonbori / castle OR Kobe waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the exact city on sailing docs — Osaka ≠ Kobe ≠ Kyoto."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c6c17d3987d5270a66695df731d5143e3f3fe4507f12168ec5e0e810fd367928",
+      "existing_guide_hash": "63a371f1e5091237",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/osaka-kyoto-kobe-japan.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.298Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

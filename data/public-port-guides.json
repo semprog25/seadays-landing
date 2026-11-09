@@ -11167,7 +11167,7 @@
       "portName": "Honolulu",
       "country": "USA",
       "portInfo": {
-        "description": "Capital of Hawaii and major Pacific cruise hub, known for Waikiki Beach, Pearl Harbor, and Polynesian culture.",
+        "description": "Honolulu Harbor on Oʻahu has two cruise ship terminals identified by HDOT Harbors Division: Pier 2 (primary) and Pier 11 (alternate). The Pier 2 entrance is at the west end of Channel Street off Ala Moana Boulevard; Pier 11’s entrance is on the north extension of Aloha Tower Drive. HDOT published a 2023 reorganisation of the ground-transportation area fronting Pier 2 to reduce Channel Street congestion and streamline exit toward Papu Street. Passenger and cruise schedules for Hawaiʻi’s commercial harbours are reserved through Hawaii.PortCall.Com. Aloha Tower itself is listed “Closed Indefinitely” on the HDOT visitor page — do not plan a tower visit from that citation.",
         "location": "Located on Oahu, Hawaii, USA",
         "timezone": "HST (UTC-10)",
         "language": "English, Hawaiian",
@@ -11218,9 +11218,42 @@
           "Walking"
         ],
         "distanceToCity": "Terminals located near downtown Honolulu",
-        "walkingTime": "15-30 minutes to Waikiki (2-3 km)",
+        "walkingTime": "15-30 minutes to Waikiki (2-3 km)—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis readily available at terminals",
-        "publicTransport": "TheBus system covers entire island"
+        "publicTransport": "TheBus system covers entire island",
+        "distanceAnswer": "Terminals located near downtown Honolulu"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Ala Moana / downtown Honolulu corridor near Pier 2 — ~90–120 min.",
+          "Waikīkī Beach / Kalākaua — allow traffic; ~180 min round-ish with buffer.",
+          "Waikīkī",
+          "Pearl Harbor National Memorial area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Pier 2 vs Pier 11 on the PortCall/line documents before booking a Waikīkī or airport transfer — the two entrances are on different street systems."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "96449f802c445af711eae5b45cfc240cb28e140f00daeb5445c24379c126ac49",
+        "landing_slug": "honolulu-hi-united-states",
+        "candidate_content_hash": "5f1ca611365ab1ca6c97204425ca948f48ca74eaeb6dec2818d2875f36da83da",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.137Z"
       }
     },
     "horta": {
@@ -11996,9 +12029,43 @@
           "Walking (to nearby areas)"
         ],
         "distanceToCity": "Terminal located in Alsancak district",
-        "walkingTime": "15-25 minutes to Konak Square",
+        "walkingTime": "15-25 minutes to Konak Square—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Good bus and ferry network"
+        "publicTransport": "Good bus and ferry network",
+        "distanceAnswer": "Terminal located in Alsancak district"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Alsancak Kordon — waterfront immediately tied to the port address.",
+          "Ephesus (UNESCO) — only with a timed excursion and confirmed all-aboard.",
+          "Konak / Agora — gap: no usable primary venue page captured; do not pad with catalog blurbs.",
+          "Alsancak Kordon waterfront",
+          "Ancient city of Ephesus (day trip)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Alsancak looks walkable; Ephesus is not. Treat “İzmir call” and “Ephesus day” as different plans."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "8fb344066f3a3b5ced6eead675671e15107d7a57e93cbc8d86347a2edb510a10",
+        "landing_slug": "izmir-turkey",
+        "candidate_content_hash": "0adf28a79b435280a71a646fa6e6ea8132ff3f6613926d7a7246b1f4ea87769a",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "jacksonville": {
@@ -12006,7 +12073,7 @@
       "portName": "Jacksonville",
       "country": "USA",
       "portInfo": {
-        "description": "Largest city by area in the contiguous US, known for its riverfront, beaches, and Southern hospitality.",
+        "description": "Jacksonville Port Authority operates a dedicated cruise terminal at 9810 August Drive with cruise contact (904) 357-3006. Berth #10 is published at 1,289 feet (393 m) length, 40 feet (12.2 m) depth along mean low water, deck height 9 feet (2.7 m) above mean sea level, 80-foot-wide apron, no published maximum beam, and 15.3 nautical miles from the sea buoy. Terminal building figures: 63,000 sq ft overall, 28,000 sq ft baggage handling, 15,000 sq ft passenger embarkation. Parking is on-site adjacent to the terminal without reservations; payment is credit-card only at published daily rates. Large-vessel entry follows St. Johns Bar Pilot Association procedures per JAXPORT.",
         "location": "",
         "timezone": "EST (UTC-5) / EDT (UTC-4)",
         "language": "English",
@@ -12062,7 +12129,39 @@
         "distanceToCity": "Terminal about 10 km from downtown",
         "walkingTime": "Not recommended, use transportation",
         "taxiInfo": "",
-        "publicTransport": "Limited public transport from terminal"
+        "publicTransport": "Limited public transport from terminal",
+        "distanceAnswer": "Terminal about 10 km from downtown"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Organised beach or city transfer — ~180 min with traffic buffer.",
+          "Terminal-area time — limited independent walk attractions at the industrial Dames Point setting.",
+          "Jacksonville Beaches / Atlantic coast"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Use 9810 August Drive in navigation apps — JAXPORT’s corporate Talleyrand Avenue HQ is a different facility."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "29b4501d3bcb96d9d8986d9b032cba0744b71a415c744a7708e56c310cb95565",
+        "landing_slug": "jacksonville-fl-united-states",
+        "candidate_content_hash": "08fa42bef3253306ab78748713274e4e07e65c865d988ed61f2a018081df70e9",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "kagoshima": {
@@ -12684,7 +12783,7 @@
       "portName": "Kavala",
       "country": "Greece",
       "portInfo": {
-        "description": "A beautiful port city in northern Greece, known for its historic old town and proximity to ancient Philippi.",
+        "description": "OLK manages four ports in the Kavala system; Apostolos Pavlos is the city-wrapped passenger harbour with about 1,950 m of platform and depths 4–10 m on the passenger-port page (cruise page also cites depths up to 14 m — reconcile on the day). Contact block Averof 1, 65403; cruising@portkavala.gr.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -12725,12 +12824,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Passenger Port «Apostolos Pavlos» — Averof 1, 65403 Kavala",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "City centre is described as walkable from the passenger port. Philippi requires road transport — no editorial minute invent.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "City centre is described as walkable from the passenger port. Philippi requires road transport — no editorial minute invent."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Harbour / Panagia waterfront — city-wrapped Apostolos Pavlos.",
+          "Philippi UNESCO site — timed coach only.",
+          "Imaret / old-town interiors — gap until a venue primary is captured.",
+          "Apostolos Pavlos harbour and Panagia waterfront",
+          "Archaeological Site of Philippi"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "OLK gives cruise ships berthing priority over passenger ships — still confirm your gangway on the daily programme."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "1eb7b155c0d94d66431cd4a6ef7e081df0f12f7930904b389b39459a737253dc",
+        "landing_slug": "kavala-greece",
+        "candidate_content_hash": "1efa240171567480fc557104fd9ba921c011909c7fc62c80caa48cb52d9b41b5",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "keelung": {
@@ -13520,7 +13657,7 @@
       "portName": "Kobe",
       "country": "Japan",
       "portInfo": {
-        "description": "A Japanese port destination with excellent facilities, unique culture, and access to beautiful Japanese attractions.",
+        "description": "Kansai cruise calls use Osaka Port or the Port of Kobe rather than a Kyoto quay. MLIT’s Osaka Port guide places facilities at Chikko, Minato-ku (552-0021), about 30 minutes by car from Kansai International Airport, with Osaka Metro Chuo Line Osakako Station for city access. Kobe’s guide lists Kobe Port Terminal at Shinko Pier No.4 (berth groups Q1/Q2/R and O1/O2) plus Naka Pier Cruise Terminal, address 4-5 Shinko-cho, Chuo-ku, with Port Liner Port Terminal Station and Kobe Airport about 13 minutes by train. Kyoto sightseeing requires rail/coach time beyond a short call. Berth length tables were not on the captured English guide pages.",
         "location": "",
         "timezone": "JST (UTC+9)",
         "language": "Japanese",
@@ -13561,12 +13698,49 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Osaka Port cruise area (Tempozan / Chikko) — 11-8, 3-Chome, Chikko, Minato-ku, Osaka",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Osaka Metro / Kobe Port Liner for centres; Kyoto = Shinkansen/JR — confirm berth city first.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Osaka Metro / Kobe Port Liner for centres; Kyoto = Shinkansen/JR — confirm berth city first."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Osaka Castle / Dotonbori — if Osaka berth.",
+          "Kobe waterfront / Sannomiya — if Kobe berth.",
+          "Kyoto temples — full-day only.",
+          "Osaka Dotonbori / castle OR Kobe waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Read the exact city on sailing docs — Osaka ≠ Kobe ≠ Kyoto."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c6c17d3987d5270a66695df731d5143e3f3fe4507f12168ec5e0e810fd367928",
+        "landing_slug": "osaka-kyoto-kobe-japan",
+        "candidate_content_hash": "f436a915f5768c93d6ac9e7718e21f57f742b85b802f5cd29d13b30b072a6ba9",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "kochi": {
@@ -14275,7 +14449,7 @@
       "portName": "Kristiansand",
       "country": "Norway",
       "portInfo": {
-        "description": "A city and port in southern Norway, known as the capital of the Norwegian Riviera with beaches and attractions.",
+        "description": "Skagerrak south-coast city call between Oslo and Bergen on the port’s own framing. Factsheet — short walk from pier into town; timed metres still a gap.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -14314,12 +14488,48 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Quay 10 / Berth 10 (Pier 10) — Port of Kristiansand — Quay 10 / Lagmannsholmen cruise area",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Factsheet: short walk from cruise pier. Exact metres / shuttle claims gap on English extract.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Factsheet: short walk from cruise pier. Exact metres / shuttle claims gap on English extract."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Pier 10 / harbour walk into town",
+          "Posebyen / Old Town",
+          "Kunstsilo (Odderøya)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Pier 10 — Mandal/Lindesnes are separate port calls on the same authority, not this slug."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e13e31b3380ddec5e4f9e5bb6ce84b094495799446efbd500fb56e48a956d7c1",
+        "landing_slug": "kristiansand-norway",
+        "candidate_content_hash": "6a9d2f70b043b76ab05e0e879826043bec1eec5c759c7333468a106e3ddaa6c6",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "kristiansund": {
@@ -15272,12 +15482,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Le Havre Cruise Terminal – Pointe de Floride — Quai Roger Meunier, 76000 Le Havre",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "City / station: 2.5 km. Taxi rank and a Terminal–city-centre shuttle (conditions and payment depend on the company; timetable not published). Allow 15–35 min including the wait (estimate).",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "City / station: 2.5 km. Taxi rank and a Terminal–city-centre shuttle (conditions and payment depend on the company; timetable not published). Allow 15–35 min including the wait (estimate). Paris: taxi to Gare du Havre, then a reserved NOMAD / SNCF train to Paris Saint-Lazare. SNCF Connect publishes about 2 h 05 for the shortest journeys and about 2 h 15 on average. Book a return with spare trains",
+        "distanceAnswer": "City / station: 2.5 km. Taxi rank and a Terminal–city-centre shuttle (conditions and payment depend on the company; timetable not published). Allow 15–35 min including the wait (estimate)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Église Saint-Joseph (Perret). 30 min.",
+          "MuMa modern-art museum. 75 min.",
+          "Le Havre beach and Volcan cultural centre (editorial).",
+          "Étretat cliffs; allow a half-day.",
+          "Honfleur harbour; allow a half-day."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If your documents say \"Le Havre (Paris)\", that is marketing. The train is over two hours each way. On calls under about 11 h, stay in Normandy."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "b984dd0f3756d7c7bdb8ceaa4bf6eddf2ac863c541d224ece7ecf6f709117204",
+        "landing_slug": "le-havre-paris-france",
+        "candidate_content_hash": "16e38b0f10cf1fabef69b884a2361fbb8adbee46991b9c96b67672e0f4ed0aad",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "le-port": {
@@ -15844,12 +16092,48 @@
         "entryRequirements": "Valid passport required. EU citizens may need visa depending on nationality."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Liverpool Cruise Port / City of Liverpool Cruise Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Operator: ~50 m to city centre — still confirm gate exit.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Operator: ~50 m to city centre — still confirm gate exit."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Royal Albert Dock / waterfront",
+          "The Beatles Story",
+          "Museum of Liverpool"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ignore “UNESCO waterfront” marketing for WH planning — the inscription was deleted in 2021."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "fa1a92259e0db8fa62f305b3e671cdfc2891113013d578cb83a2faeedc239852",
+        "landing_slug": "liverpool-united-kingdom",
+        "candidate_content_hash": "ebebd7dc6bf153b8d586aba1817cd8c72b11eee9bc353104fe57e8e6117d5b0d",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "lofoten": {
@@ -16509,7 +16793,7 @@
       "portName": "Mahon",
       "country": "Spain",
       "portInfo": {
-        "description": "The capital of Menorca in the Balearic Islands, known for having one of the world's largest natural harbors.",
+        "description": "The port is a long inlet, not a single waterfront stop. Above it, Santa María, the town hall and the Carmen cloister form a compact cultural circuit; the Museu de Menorca gives the island’s archaeology context. Trepucó, Talatí de Dalt and S’Albufera des Grau are separate excursions, not sights beside the gangway. Spain’s tourism page is used for these places, but its erroneous Vespasian chronology is not repeated here.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish, Catalan",
@@ -16558,12 +16842,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Estación Marítima de Cruceros",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "From the mapped cruise quay, budget 30 minutes for controlled exit and the climb towards Plaza de España; allow the same on return, more if using a taxi for the slope. These are planning allowances, not measured walking distances. A remote/north-side reassignment invalidates this walking start: obtain the ship’s actual shuttle/gate instructions instead of navigating to the Cós Nou ferry station.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "From the mapped cruise quay, budget 30 minutes for controlled exit and the climb towards Plaza de España; allow the same on return, more if using a taxi for the slope. These are planning allowances, not measured walking distances. A remote/north-side reassignment invalidates this walking start: obtain the ship’s actual shuttle/gate instructions instead of navigating to the Cós Nou ferry station."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Santa María — Plaza de España, Mahón. The central church anchors the upper-town circuit; interior access depends on services. Allow 35 minutes; official source.",
+          "Sa Sala town hall — Plaza de España, Mahón. Look at the civic frontage alongside the church, not an assumed open municipal interior. Allow 20 minutes; official source.",
+          "Carmen church and cloister — Carmen cloister complex, Mahón old town. A distinct former religious/market setting worth exploring at a slower pace. Allow 45 minutes; official source.",
+          "Museu de Menorca — Former Sant Francesc convent, Mahón. Choose this for island history instead of adding another cross-island drive. Allow 75 minutes; official source.",
+          "Trepucó — Trepucó archaeological settlement, near Mahón. A vehicle excursion to prehistoric remains, not a waterfront walk. Allow 60 minutes; official source."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Photograph the ship’s quay/gate instruction. A search for “Estació Marítima” can lead to Cós Nou, which the authority map shows as a different building."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a8dd8a0656696ec6e51aae8255075e9fb2fc02270ebdd905c911a5acc4d96a94",
+        "landing_slug": "menorca-mahon-spain",
+        "candidate_content_hash": "b313014bdc926581e652368c2d546045bd25e2aa6c3b93bf8319ffda0c4333e1",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "malacca": {
@@ -17571,7 +17893,7 @@
       "portName": "Messina",
       "country": "Italy",
       "portInfo": {
-        "description": "A port city in northeast Sicily, Italy, located on the Strait of Messina opposite mainland Italy.",
+        "description": "The strait gives the city its maritime identity, while the cathedral square, Annunziata dei Catalani and the regional museum provide a day that need not leave Messina. Taormina is a possible longer road excursion, not the same place as the Messina waterfront. Do not confuse this catalog entry with Taormina/Giardini Naxos.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Italian",
@@ -17620,12 +17942,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Terminal crociere I Settembre",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Budget 25 minutes from the assigned berth through its permitted exit to Piazza Duomo, with 30 minutes for the return/security. An outer or temporarily restricted face can need a shuttle, so obtain the gate before setting off. For the regional museum or Taormina, use a prearranged road pickup outside the controlled port; no fare or departure frequency was verified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Budget 25 minutes from the assigned berth through its permitted exit to Piazza Duomo, with 30 minutes for the return/security. An outer or temporarily restricted face can need a shuttle, so obtain the gate before setting off. For the regional museum or Taormina, use a prearranged road pickup outside the controlled port; no fare or departure frequency was verified."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Cathedral and Piazza Duomo — Piazza Duomo, Messina. The civic/religious centre is the core short-call stop. Allow 50 minutes; official source.",
+          "Astronomical clock tower — Cathedral campanile, Piazza Duomo, Messina. A distinct clock/bell-tower sight; do not promise an interior climb or performance time without checking. Allow 30 minutes; official source.",
+          "Orion Fountain — Piazza Duomo, Messina. Study it together with the square rather than driving to another town. Allow 20 minutes; official source.",
+          "Santissima Annunziata dei Catalani — Annunziata dei Catalani church, central Messina. A different architectural layer from the cathedral; worship can limit entry. Allow 30 minutes; official source.",
+          "Regional Museum of Messina — Maria Accascina Regional Museum, Messina; use its municipal map link. Plan a separate local transfer and check current ticket/opening rules. Allow 100 minutes; official source."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "A clock-tower ambition must fit the return plan. Check the actual viewing/performance arrangements rather than delaying departure for an unsourced “daily show” promise."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "974eefd744f15d134a4843d2303cb0a9599289b5e755341b28dd8aa047ce639c",
+        "landing_slug": "messina-sicily-italy",
+        "candidate_content_hash": "cf716a9dca2449f7ddb3d59cdb25159e4f655494d50a01265166895fd2f817c0",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "miami": {
@@ -18630,7 +18990,7 @@
       "portName": "Mykonos",
       "country": "Greece",
       "portInfo": {
-        "description": "A Greek island in the Cyclades, known for its vibrant nightlife, beaches, and iconic white-washed buildings.",
+        "description": "Chora’s sea-edge Little Venice, nearby windmills and paved lanes make an achievable walking day once the landing issue is solved. The archaeological museum adds finds from Rheneia and Delos. Delos itself requires another boat and a verified round trip; it is not an automatic extension of reaching Chora.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -18678,12 +19038,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "New Port — Tourlos",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Use the ship’s authorized shuttle/road transfer from Tourlos unless current SeaBus operation is confirmed. The operator explicitly connects Tourlos and Chora and names a cruise-dock station, but its page has both 8- and 12-minute trip wording; neither is used as a door-to-door guarantee. Budget 45–60 minutes each way including port exit, waiting or tender queue. Outside its printed April–October season, do not assume service.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Use the ship’s authorized shuttle/road transfer from Tourlos unless current SeaBus operation is confirmed. The operator explicitly connects Tourlos and Chora and names a cruise-dock station, but its page has both 8- and 12-minute trip wording; neither is used as a door-to-door guarantee. Budget 45–60 minutes each way including port exit, waiting or tender queue. Outside its printed April–October season, do not assume service."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Little Venice — Little Venice waterfront, Chora, Mykonos. Sea-edge houses are best viewed without assuming a restaurant terrace is public access. Allow 45 minutes; official source.",
+          "Kato Mili windmills — Windmill ridge beside Little Venice, Chora. An exposed landmark stop with a short uphill approach. Allow 35 minutes; official source.",
+          "Chora historic lanes — Whitewashed historic centre, Mykonos Town. Choose a compact loop and remember the meeting point in the maze of lanes. Allow 75 minutes; official source.",
+          "Archaeological Museum of Mykonos — Kaminaki, Mykonos Town. A distinct indoor collection; current winter calendar is closed Tuesday. Allow 90 minutes; official source.",
+          "Delos archaeological site — Delos island, reached by separately confirmed boat from Mykonos. A separate island/site, not a guaranteed daily excursion or part of the port inventory. Allow 150 minutes; official source."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Before buying a SeaBus ticket, check that the call is within an operating service period and which of its Tourlos/Old Port stops you need. Its advertised wheelchair access does not certify the cruise tender."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "f348a10f03b73b37c60363b04109ab0364961ac13a755e5229bfa12edd0df323",
+        "landing_slug": "mykonos-greece",
+        "candidate_content_hash": "3410a0939bd8f9297a5a997e91dcb0db8338119282baa17c08d34fee7d02c19f",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "mystery-island": {
@@ -18757,7 +19155,7 @@
       "portName": "Nafplio",
       "country": "Greece",
       "portInfo": {
-        "description": "A beautiful Peloponnesian port town, Greece's first capital, featuring Venetian fortresses and charming architecture.",
+        "description": "The lower town’s Venetian and neoclassical layers make a rewarding circuit around Syntagma Square. Palamidi rises above it; Akronafplia is a separate peninsula/fortification; Bourtzi sits on an islet. The archaeological, war and komboloi museums offer genuinely different indoor subjects rather than several names for one site.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -18806,12 +19204,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "West quay",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Budget 45 minutes from ship release through the assigned berth/tender landing to Syntagma Square; 45–60 minutes on the return accommodates tender waiting if used. For Palamidi, use a retained/confirmed road pickup rather than assuming every visitor can climb the stair route. A Bourtzi boat needs its own schedule and return and is not included by default.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Budget 45 minutes from ship release through the assigned berth/tender landing to Syntagma Square; 45–60 minutes on the return accommodates tender waiting if used. For Palamidi, use a retained/confirmed road pickup rather than assuming every visitor can climb the stair route. A Bourtzi boat needs its own schedule and return and is not included by default."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Palamidi fortress — Palamidi hill above Nafplio. A strenuous fortress visit; road approach and site opening must be checked. Allow 90 minutes; official source.",
+          "Akronafplia — Fortified peninsula above Nafplio old town. A separate elevated walk, not another name for Palamidi. Allow 60 minutes; official source.",
+          "Bourtzi fortress — Agioi Theodoroi islet off Nafplio. View from shore or visit only with a separately confirmed boat return. Allow 60 minutes; official source.",
+          "Archaeological Museum — West side of Syntagma Square, Nafplio. Housed in the Venetian former naval storehouse; Dendra armour is a noted collection highlight. Allow 90 minutes; official source.",
+          "War Museum — Nafplio branch — 22 Vasilissis Amalias Avenue, Nafplio. A distinct museum of modern military history; current opening not assumed. Allow 60 minutes; official source."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask whether “terminal” on the ship’s instruction means an actual passenger building or only the assigned quay. The sources disagree on the building’s existence; neither provides a verified door."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d0650e09a1534e58d1fc96f12340d3611d6ff7e3c335e88e377dcd22558cde4f",
+        "landing_slug": "nafplio-greece",
+        "candidate_content_hash": "f5cef04b9fba1baca157b0181e60972376cb754c0495d468d9f5b3ac89c77e7a",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.138Z"
       }
     },
     "nagasaki": {
@@ -19878,7 +20314,7 @@
       "portName": "Norfolk",
       "country": "United States",
       "portInfo": {
-        "description": "A city in Virginia, USA, with one of the world's largest natural harbors and major US Navy facilities.",
+        "description": "Cruise Norfolk’s passenger facility is the Half Moone Cruise Terminal on Waterside Drive in downtown Norfolk, sharing a campus with Nauticus and the historic Battleship Wisconsin. VisitNorfolk describes an 80,000 sq. ft. Half Moone Cruise Celebration Center as home to Virginia’s only cruise ship program. Embarking passengers who park at Cedar Grove check luggage at the lot before the free shuttle drops them curbside at the terminal; taxi/Uber/Lyft drop-off is on Waterside Drive just outside the terminal (personal vehicles not allowed in the bus/shuttle lane). Norfolk International Airport (ORF) is stated as 10.8 miles from the terminal. Do not confuse this municipal cruise program with Port of Virginia cargo facilities.",
         "location": "",
         "timezone": "EST (UTC-5) / EDT (UTC-4)",
         "language": "English",
@@ -19927,12 +20363,50 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Half Moone Cruise Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Cedar Grove lot. 1000 Monticello Ave; 1.5 miles from terminal; $15/day for passenger vehicles including vans up to 15 passengers; cash or credit; prepaid options exist. Opening times on cruise days have been published as 10 a.m. (city Cruises page) and 9:45 a.m. with shuttle ~10:15 a.m. (parking page), with a further change Effective Sunday, July 12, 2026 to 9:30 a.m. open / ~9:45 a.m. shuttle — verify the date-specific notice before sailing. Airport. ORF 10.8 miles from Half Moone; transfer duration Not verified. Rideshare. Waterside Drive drop-off past the terminal in front of Town Point Park; no personal vehicles in bus/shuttle lane.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Cedar Grove lot. 1000 Monticello Ave; 1.5 miles from terminal; $15/day for passenger vehicles including vans up to 15 passengers; cash or credit; prepaid options exist. Opening times on cruise days have been published as 10 a.m. (city Cruises page) and 9:45 a.m. with shuttle ~10:15 a.m. (parking page), with a further change Effective Sunday, July 12, 2026 to 9:30 a.m. open / ~9:45 a.m. shuttle — verify the date-specific notice before sailing. Airport. ORF 10.8 miles from Half Moone; transfer duration Not verified. Rideshare. Waterside Drive drop-off past the terminal in front of Town Point Park; no personal vehicles in bus/shuttle lane."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Nauticus / Battleship Wisconsin — shared campus; VisitNorfolk states cruise passengers receive Buy One, Get One Free admission to Nauticus (purchase online or onsite) — ~120 min.",
+          "Downtown Norfolk / Waterside — hotels walkable per VisitNorfolk — ~60–90 min.",
+          "Town Point Park area — adjacent drop-off framing.",
+          "Light rail / Amtrak day — accessibility claimed; schedules Not verified.",
+          "Nauticus Maritime Discovery Center / Battleship Wisconsin campus"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If you park at Cedar Grove, budget shuttle wait both ways and use the lot luggage check — the published 1.5-mile gap is not a walk-with-bags plan."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "513bce1114e535b9beb37df17add9438cf4c7d5b2dd5a727126de19cdff3b5ce",
+        "landing_slug": "norfolk-va-united-states",
+        "candidate_content_hash": "5f8049b7a9354f163f8ccc915d313213a095804765f977a29add08d50fcb5271",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "nosy-be": {
@@ -20493,7 +20967,7 @@
       "portName": "Olbia",
       "country": "Italy",
       "portInfo": {
-        "description": "A town in northeast Sardinia, Italy, serving as the main ferry and cruise port for the Costa Smeralda.",
+        "description": "The city links a working passenger harbour to Roman/punic archaeology, a Romanesque basilica and nearby sandy beaches. San Paolo’s tiled dome and the archaeological museum provide different city stops; Sa Testa and Pittulongu require road transport. Porto Cervo is a separate resort/call, not another Olbia tender landing.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Italian, Sardinian",
@@ -20542,12 +21016,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Isola Bianca — Molo 9",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Use the ship/port-authorized exit or shuttle rather than assuming pedestrians can cut through the secure pier. Budget 45 minutes to the city museum area and 45–60 minutes for the correct-pier return. For Pittulongu or Sa Testa, retain a road return and confirm any site/beach access. The allowances are not measured walking distances.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Use the ship/port-authorized exit or shuttle rather than assuming pedestrians can cut through the secure pier. Budget 45 minutes to the city museum area and 45–60 minutes for the correct-pier return. For Pittulongu or Sa Testa, retain a road return and confirm any site/beach access. The allowances are not measured walking distances."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Archaeological Museum of Olbia — Peddone islet, Olbia waterfront. Maritime archaeology anchors a port-town visit; current museum access needs checking. Allow 90 minutes; official source.",
+          "Basilica of San Simplicio — San Simplicio basilica, central Olbia. A Romanesque religious monument; worship may restrict the interior. Allow 45 minutes; official source.",
+          "San Simplicio necropolis museum — Necropolis below/by the San Simplicio church area, Olbia. A distinct underground archaeological attraction, not the basilica itself; opening unverified. Allow 45 minutes; official source.",
+          "Church of San Paolo — San Paolo church, Olbia historic centre. The tiled dome is an architectural sight even without interior access. Allow 30 minutes; official source.",
+          "Sa Testa sacred well — Sa Testa archaeological site, Olbia outskirts. Requires a road stop and a current access check. Allow 45 minutes; official source."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If the ship uses Cocciani Sud, do not wait for it at an Isola Bianca shuttle point. The exceptional assignment is explicitly allowed by the ordinance but remains conditional, not a routine terminal substitution."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d5e357d5bd827bb0b4d030abe96270196cc46e84d428b5c001f2f1a70f826e29",
+        "landing_slug": "olbia-italy",
+        "candidate_content_hash": "a502de6cb44346005d4cd6ed144eb82c42c99129025d5b520758cd639ab4b27f",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "olden": {
@@ -20788,12 +21300,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Palermo — Molo Vittorio Veneto cruise area — Molo Vittorio Veneto, Palermo, Italy",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Centro / cathedral. Walk or short taxi — minutes estimated. Monreale. Coach; long-call only.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Centro / cathedral. Walk or short taxi — minutes estimated. Monreale. Coach; long-call only."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Centro / cathedral — ~90 min.",
+          "Ballarò / markets — ~45 min.",
+          "Monreale — long call.",
+          "Palermo centro / cathedral area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Vittorio Veneto vs other moles on the gangway."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "92eb15bb18c1a85769b6c15ec0185c353f82fb8fce7a66faea54dcb3298f78e9",
+        "landing_slug": "sicily-palermo-italy",
+        "candidate_content_hash": "9c30d595220e99e3c3704b145dfa75fd9e8a2b42450d9785ef9e8a0a901f0d28",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "palma-de-mallorca": {
@@ -22051,7 +22600,7 @@
       "portName": "Portland",
       "country": "USA",
       "portInfo": {
-        "description": "An American port destination with excellent facilities and access to diverse American attractions.",
+        "description": "Portland’s cruise landings sit on the downtown waterfront. The Cruise Portland Maine industry page (City of Portland waterfront contact listed) publishes critical terminal data: capacity framing up to 1,100′ vessels and up to 5,000 passengers, with separate specs for Portland Ocean Terminal and Ocean Gateway Berths 1 and 2. Guest services listed include visitor information, comfort station, on-site restrooms, free Wi-Fi, taxis and public transport, with Maine Medical Center/Mercy Hospital at 1.5 miles and Portland International Jetport at 7 miles. Berth assignment is call-specific — confirm Ocean Gateway vs Portland Ocean Terminal on the day’s schedule before planning a tight museum itinerary.",
         "location": "",
         "timezone": "PST (UTC-8) / PDT (UTC-7)",
         "language": "English",
@@ -22091,12 +22640,50 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Ocean Gateway Terminal — Ocean Gateway / 14 Ocean Gateway Pier area, Portland, ME (Visit Portland Information Center address 14 Ocean Gateway Pier)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Downtown. Direct walking access from berth claimed; exact minutes to Old Port Not verified. Airport. Jetport 7 miles; transfer duration Not verified. Taxis / public transport listed among guest services.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Downtown. Direct walking access from berth claimed; exact minutes to Old Port Not verified. Airport. Jetport 7 miles; transfer duration Not verified. Taxis / public transport listed among guest services."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Old Port / downtown waterfront — walk-from-berth framing — ~120 min.",
+          "Ocean Gateway Information Center — 14 Ocean Gateway Pier — ~20 min.",
+          "Portland Museum of Art / Arts District — uphill/inland; minutes Not verified.",
+          "Lighthouse / coastal tours — organised only; return buffer required.",
+          "Food markets / wharf dining — seasonal hours Not verified."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask which berth (Ocean Gateway 1/2 vs Portland Ocean Terminal) is assigned before setting a walking clock — lengths and gangway heights differ in the industry FAQ."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "b2654de2b895ba0bc7629247592cc0577a28d8cf1381324c442064cca6e0be6f",
+        "landing_slug": "portland-me-united-states",
+        "candidate_content_hash": "d63bfdc76d80010d874529c8796c33d5c530cb857e644ce9f3f43d33afe5e993",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "porto-leix-es": {
@@ -22264,7 +22851,7 @@
       "portName": "Portsmouth",
       "country": "UK",
       "portInfo": {
-        "description": "A historic British port city with naval heritage and excellent facilities.",
+        "description": "Portsmouth International Port is Britain’s largest municipal port (Portsmouth City Council) and a ferry, freight and cruise gateway on the Solent. Cruise operations use dedicated passenger facilities at the port’s extended berth, ceremonially named the Ayrton Berth after Hertha Ayrton. The port’s cruise-trade pages position Portsmouth for boutique/mid-size turnarounds and calls, with a complimentary water shuttle to the waterfront for calling ships when operated. Confirm berth assignment and shuttle on the day — do not assume walk-off into Gunwharf Quays from the cruise berth without the shuttle or a taxi.",
         "location": "",
         "timezone": "GMT (UTC+0) / BST (UTC+1)",
         "language": "English",
@@ -22304,12 +22891,48 @@
         "entryRequirements": "Valid passport required. EU citizens may need visa depending on nationality."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Portsmouth International Port — cruise (Ayrton Berth)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Historic Dockyard / HMS Victory area (waterfront) — ~120 min; tickets/hours not verified here.",
+          "Old Portsmouth / seafront — weather-dependent.",
+          "Portsmouth Historic Dockyard / waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Portsmouth homepage notes that EU EES checks happen at destination ports, not at Portsmouth International Port, for ferry travellers — still irrelevant to UK arrival rules for cruise passengers entering the UK here."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "67b025119271c8247a6f5db43787690c9bbf1e5966d54274ada905324fe574ef",
+        "landing_slug": "portsmouth-united-kingdom",
+        "candidate_content_hash": "751eee1981c90b4d82b226182f752fef1b79cec4189bb03523ad99211fc5fff2",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "praslin": {
@@ -23760,7 +24383,7 @@
       "portName": "Rhodes",
       "country": "Greece",
       "portInfo": {
-        "description": "A Greek island port with medieval old town, beautiful beaches, and excellent facilities.",
+        "description": "The Municipal Port Fund of South Dodecanese operates Rhodes’s Tourist Port cruise facilities, marketing homeport capability with a Home Port Lounge, duty-free, medical-capable waiting area, information desk and prepaid excursion bus parking. ISPS-related wording states the Tourist Port and Akandia together can handle up to five cruise ships and over 10,000 passengers and crew in a day. Ferry traffic concentrates at Akandia; cruise berths are normally at the Tourist Port.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -23802,12 +24425,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Tourist Port of Rhodes — cruise operations — Tourist Port of Rhodes / Akti Sachtouri, 85100 Rhodes, Greece",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Medieval Old Town. Port fund describes land-zone access toward the city centre. Allow 15–25 min walk estimate; not surveyed. Lindos. Long-call coach only — minutes GAP.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Medieval Old Town. Port fund describes land-zone access toward the city centre. Allow 15–25 min walk estimate; not surveyed. Lindos. Long-call coach only — minutes GAP."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Exit: 15",
+          "To Old Town: 20 (est.)",
+          "Old Town: 90",
+          "Return: 20",
+          "Buffer: 60"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Tourist Port vs Akandia on the gangway."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2c44a8bf97276949160845d0bbfc9a122cdfc865f2ecb1881b94daf1d862f4a8",
+        "landing_slug": "rhodes-greece",
+        "candidate_content_hash": "d593d9b1e1c4e6398127e0ad4cc2c72eeba9c3e2a0f24d250018c3647b24cf61",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "richards-bay": {
@@ -24829,7 +25490,7 @@
       "portName": "Saint John",
       "country": "Canada",
       "portInfo": {
-        "description": "A Canadian port destination with excellent facilities and access to beautiful Canadian attractions.",
+        "description": "Port Saint John markets modern cruise terminals built in 2009 and 2012 with tidal-adjusting FMT gangways. Marco Polo (388 m) and Diamond Jubilee (340 m) are named with Yokohama fendering and large elevators/escalators; a third 301 m berth appears in the same facility list. Passenger pages highlight AREA 506 Waterfront Container Village next to Marco Polo and note peak season in the fall foliage period. Bay of Fundy tides affect the waterfront — gangway adjustability is part of the port’s published design story.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English, French",
@@ -24869,12 +25530,50 @@
         "entryRequirements": "Valid passport usually required. Many visa-exempt visitors need an Electronic Travel Authorization (eTA) from the Government of Canada—confirm before you sail."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Marco Polo Cruise Terminal — Port Saint John waterfront (street address Not verified beyond terminal name)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Downtown / uptown. Walk-to-attractions framing; use Port Saint John 2026 walking maps. Fundy shore excursions need organised timing. Airport (YSJ): Not verified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Downtown / uptown. Walk-to-attractions framing; use Port Saint John 2026 walking maps. Fundy shore excursions need organised timing. Airport (YSJ): Not verified."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "AREA 506 Container Village — adjacent to Marco Polo — ~60 min.",
+          "Uptown / historic district — hills; minutes Not verified.",
+          "Reversing Falls — transfer Not verified.",
+          "Bay of Fundy viewpoints — organised.",
+          "City Market — hours Not verified."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If berthed at Marco Polo, AREA 506 is the lowest-friction first stop before climbing uptown hills."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "39f5f4c9dcda7771c9d1a8cc9981875dd447b723c82b6c0009620710aa0e3da8",
+        "landing_slug": "saint-john-nb-canada",
+        "candidate_content_hash": "48c373e15ff952d5e5b541adf6b0c7a2d039ead9ca5807714cb2ed647d8d8b80",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.139Z"
       }
     },
     "saint-malo": {
@@ -25145,7 +25844,7 @@
       "portName": "Salerno",
       "country": "Italy",
       "portInfo": {
-        "description": "A beautiful port city on the Amalfi Coast, gateway to one of Italy's most stunning coastal regions.",
+        "description": "Salerno is the practical cruise gateway to the Amalfi Coast. Amalfi Cruise Terminal markets coast access from Salerno. The Port of Salerno site describes Masuccio Salernitano as the tourist port for ferries toward Amalfi Coast destinations — distinct from cruise alongside operations. Shore plans that stack Amalfi + Positano without timed returns routinely miss all-aboard.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Italian",
@@ -25189,12 +25888,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Salerno / Amalfi Coast Cruise Terminal (Molo Manfredi area) — Molo Manfredi / Salerno passenger cruise area, Salerno, Italy",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Salerno centro. Short walk/taxi from cruise harbour — minutes estimated. Amalfi / Positano. Ferry from Masuccio or coach — only with return ≥90 min before all-aboard.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Salerno centro. Short walk/taxi from cruise harbour — minutes estimated. Amalfi / Positano. Ferry from Masuccio or coach — only with return ≥90 min before all-aboard."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Salerno centro / lungomare — ~75 min.",
+          "Amalfi town — long call with timed ferry/coach.",
+          "Pompeii — long call only (not on Salerno port pages as a timed transfer).",
+          "Salerno centro / lungomare"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not confuse Masuccio ferry piers with the cruise terminal."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2ed7879dfdea4b2a8b1f2005b29aad0c501d937b9c8d8c5e9875ead460f869ac",
+        "landing_slug": "salerno-italy",
+        "candidate_content_hash": "1db71ecc7dc4c9dcdc61b42aa3cc303733d37ad03265ddfe1264e8ab90995fe1",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "salvador": {
@@ -25315,7 +26051,7 @@
       "portName": "Samos",
       "country": "Greece",
       "portInfo": {
-        "description": "A Greek island port known for its wine production and ancient history.",
+        "description": "The Municipal Port Fund of Samos oversees island harbours including Vathy (Samos town), Karlovasi and Pythagoreio. Its site states that the port of Samos town and Pythagoreio provide cruise handling. Passengers must not assume Vathy if the ship is assigned to Pythagoreio.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -25360,12 +26096,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Samos (Vathy) — cruise/passenger harbour — Vathy, Samos, Greece",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Vathy town. Walk-off when berthed there — minutes estimated. Pythagoreio / Heraion. Road transfer if not berthed there — minutes GAP.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Vathy town. Walk-off when berthed there — minutes estimated. Pythagoreio / Heraion. Road transfer if not berthed there — minutes GAP."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Vathy waterfront — ~60 min.",
+          "Pythagoreio harbour town — transfer.",
+          "Heraion archaeological site — transfer; hours GAP.",
+          "Vathy waterfront / town"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Read Vathy vs Pythagoreio on the gangway board."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c4bd4c842383bbe306e8819bd7722f50ac72e000a77769fd1867a5b2adec1991",
+        "landing_slug": "samos-greece",
+        "candidate_content_hash": "3757abd8c7014f791e9fac37f42065871563a0d247acd027a7315b426115b118",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "san-antonio": {
@@ -25427,7 +26200,7 @@
       "portName": "San Diego",
       "country": "USA",
       "portInfo": {
-        "description": "A beautiful California port city, known for perfect weather, beaches, and excellent facilities.",
+        "description": "The Port of San Diego operates two Embarcadero cruise terminals on North Harbor Drive. Most ships use the larger B-Street Pier & Cruise Ship Terminal; Broadway Pier’s Port Pavilion also handles cruise ships and doubles as an events/public venue. Boarding guidance: do not arrive before 10 a.m.; arrive at the assigned boarding time; drop-off beyond the gate on the pier; passports required for Mexico cruises. Passengers may not park on the pier during the cruise. West Coast homeport framing for Mexico, Hawaii and Pacific Coast itineraries appears on cruise-operations pages.",
         "location": "",
         "timezone": "PST (UTC-8) / PDT (UTC-7)",
         "language": "English, Spanish",
@@ -25467,12 +26240,50 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "B Street Pier & Cruise Ship Terminal — 1140 N Harbor Dr, San Diego, CA 92101",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Airport. SAN ~2 miles north / <10 min drive stated. Rail. Santa Fe Depot two blocks east. Parking. Paid Embarcadero options; no on-pier cruise parking. Drop-off. Beyond the gate on the pier.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Airport. SAN ~2 miles north / <10 min drive stated. Rail. Santa Fe Depot two blocks east. Parking. Paid Embarcadero options; no on-pier cruise parking. Drop-off. Beyond the gate on the pier."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Embarcadero waterfront — immediate — ~90 min.",
+          "USS Midway / museums — walkable corridor; ticket hours Not verified.",
+          "Gaslamp Quarter — short transfer; minutes Not verified.",
+          "Balboa Park — longer call.",
+          "La Jolla / beaches — organised / long buffer."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "For Mexico itineraries, Port of San Diego states passports are required — do not rely on birth-certificate-only myths."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c5e15e4aa2a2b752860fa443b9973d4af36342c6d31bd6af1ea4ee519991edfa",
+        "landing_slug": "san-diego-ca-united-states",
+        "candidate_content_hash": "adec64ca5688bfbd479b169ff5e053d006d37113bbf50e859530db21636c8330",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "san-francisco": {
@@ -25521,12 +26332,50 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Pier 27 James R. Herman Cruise Terminal — Pier 27, The Embarcadero, San Francisco (northern waterfront)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "BART/Muni. ~20 min walk Embarcadero station to Pier 27; streetcar Embarcadero/Sansome. Pier 35. Embarcadero/Bay Street stop. Piers 30/32. Embarcadero/Brannan; ~20 min walk from Ferry Building. Parking. Not at terminals; Metropolis 55 & 80 Francisco Street per Port courtesy note.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "BART/Muni. ~20 min walk Embarcadero station to Pier 27; streetcar Embarcadero/Sansome. Pier 35. Embarcadero/Bay Street stop. Piers 30/32. Embarcadero/Brannan; ~20 min walk from Ferry Building. Parking. Not at terminals; Metropolis 55 & 80 Francisco Street per Port courtesy note."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Embarcadero / Ferry Building — walkable from Pier 27 with time — ~90 min.",
+          "Fisherman’s Wharf / Pier 39 — north; confirm distance vs Pier 35 assignment.",
+          "Cable cars / Union Square — hills; longer call.",
+          "Alcatraz — advance tickets; timing critical.",
+          "Golden Gate — organised / long buffer."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Pier 27 vs 35 vs 30/32 before rideshare — they are not interchangeable walking distances."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "cc96fe4dc3a786e191f4749b0bdaba5bf3c33760126edd20ed17108edbec30f4",
+        "landing_slug": "san-francisco-ca-united-states",
+        "candidate_content_hash": "1ac68e005bd0459e526eda5fb054288060d4207d94e60436c12a270577c067b4",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "san-juan": {
@@ -25796,7 +26645,7 @@
       "portName": "Santander",
       "country": "Spain",
       "portInfo": {
-        "description": "A beautiful Spanish port city in Cantabria with excellent beaches and facilities.",
+        "description": "Cruise Santander’s infrastructures page highlights a Maritime Station in the heart of the city that lets cruise passengers move between ship and city with complete flexibility, and notes citizens can view ships from the city. Shore-excursion themes on the same site include Santillana/Altamira, Cabárceno and Picos de Europa — those are coach products, not walk-offs.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish",
@@ -25839,12 +26688,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Santander Maritime Station (cruise) — Santander, Cantabria, Spain",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "City centre. Maritime Station described as in the heart of the city. Minutes not surveyed — allow 10–20 min estimate. Cabárceno / Altamira / Picos. Site lists shore excursions — long calls only.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "City centre. Maritime Station described as in the heart of the city. Minutes not surveyed — allow 10–20 min estimate. Cabárceno / Altamira / Picos. Site lists shore excursions — long calls only."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "City centre / waterfront. ~75 min.",
+          "Cabárceno Nature Park — long call.",
+          "Santillana & Altamira area — long call.",
+          "Santander city centre / waterfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm you are at the Maritime Station, not a remote cargo quay."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "b296f787fbfe7140ec77b3404bad05cc571b740dbb69ce5bbd2caa49108976ef",
+        "landing_slug": "santander-spain",
+        "candidate_content_hash": "e38d6462d2867fb82cd84a71e919f16abd9cb4be73233182d627cd46548534b2",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "santar-m": {
@@ -27551,7 +28437,7 @@
       "portName": "Split",
       "country": "Croatia",
       "portInfo": {
-        "description": "Croatia's second-largest city, featuring Diocletian's Palace, a UNESCO World Heritage site, and beautiful waterfront.",
+        "description": "Lučka uprava Split manages Croatia’s major passenger port. The City Port Basin handles passenger traffic, cruise ships and catamarans. Cruise technical pages publish berth and ship-size figures that differ between the English technical-data page (250 m length, 8.2 m draft, 10 berths, centre 200 m walk) and the Croatian cruising page (345 m length, 10.5 m draft, berths 150–265 m). SeaDays keeps both. Cruise traffic has grown since first calls in 2002 per the authority narrative.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Croatian",
@@ -27595,12 +28481,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Split — City Port Basin (cruise) — Gat sv. Duje 1, 21000 Split, Croatia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Diocletian’s Palace / old town. Authority: city centre 200 m walking. Allow 5–15 min estimate; not independently surveyed. Railway station. 100 m walking per same page. Airport. 20 km on technical page (port overview also states 24 km — both noted).",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Diocletian’s Palace / old town. Authority: city centre 200 m walking. Allow 5–15 min estimate; not independently surveyed. Railway station. 100 m walking per same page. Airport. 20 km on technical page (port overview also states 24 km — both noted)."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Exit: 15",
+          "Palace/old town: 90",
+          "Riva: 30",
+          "Return: 15",
+          "Buffer: 60"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask which City Port berth you are on — ferry traffic shares the basin."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "39e002726575957af86babac47b4f4f42705ba29af7d9015ecfbe35a1a519b15",
+        "landing_slug": "split-croatia",
+        "candidate_content_hash": "35ffffa746bbb8da4eaf6a6b25468998413a52036d7418f61ea3d032d3ed5c20",
+        "locked_at_utc": "2026-11-09T06:54:09.180Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "needs_review_25_release_candidate": true,
+        "owner_publication_authorized": false,
+        "needs_review_25_release_prep": true,
+        "needs_review_25_bundle_hash": "9183aac34842fcd9c72f349e69b21237fb0a441b6362605034a85117c71ba421",
+        "applied_at_utc": "2026-11-09T06:54:11.140Z"
       }
     },
     "st-helier": {

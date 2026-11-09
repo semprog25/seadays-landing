@@ -1,0 +1,89 @@
+{
+  "appPortId": "san-francisco",
+  "portName": "San Francisco",
+  "country": "USA",
+  "portInfo": {
+    "description": "A iconic American port city known for the Golden Gate Bridge, hills, and cultural diversity.",
+    "location": "",
+    "timezone": "PST (UTC-8) / PDT (UTC-7)",
+    "language": "English, Spanish, Chinese",
+    "currency": "US Dollar (USD)",
+    "population": ""
+  },
+  "facts": {
+    "established": "",
+    "significance": "",
+    "notableFeatures": [
+      "Golden Gate Bridge",
+      "Historic landmarks"
+    ],
+    "culturalHighlights": []
+  },
+  "size": {
+    "portCapacity": "",
+    "terminalCount": 1,
+    "berthCount": 2,
+    "annualVisitors": "",
+    "citySize": ""
+  },
+  "climate": {
+    "type": "Mediterranean",
+    "averageTemp": "14°C (57°F)",
+    "bestMonths": [
+      "September",
+      "October"
+    ],
+    "rainySeason": "December to February",
+    "humidity": "Moderate",
+    "description": "Mediterranean climate with cool summers and mild winters"
+  },
+  "politics": {
+    "governmentType": "Federal presidential constitutional republic",
+    "stability": "Highly stable",
+    "visaRequirements": "Visa-free for citizens of Visa Waiver Program countries (ESTA required). Others need visa.",
+    "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
+  },
+  "gettingThere": {
+    "fromTerminal": "Pier 27 James R. Herman Cruise Terminal — Pier 27, The Embarcadero, San Francisco (northern waterfront)",
+    "transportation": [
+      "Walking",
+      "Taxi",
+      "Coach excursion"
+    ],
+    "distanceToCity": "BART/Muni. ~20 min walk Embarcadero station to Pier 27; streetcar Embarcadero/Sansome. Pier 35. Embarcadero/Bay Street stop. Piers 30/32. Embarcadero/Brannan; ~20 min walk from Ferry Building. Parking. Not at terminals; Metropolis 55 & 80 Francisco Street per Port courtesy note.",
+    "walkingTime": "",
+    "taxiInfo": "",
+    "publicTransport": "Confirm local transport options with the ship on your call date.",
+    "distanceAnswer": "BART/Muni. ~20 min walk Embarcadero station to Pier 27; streetcar Embarcadero/Sansome. Pier 35. Embarcadero/Bay Street stop. Piers 30/32. Embarcadero/Brannan; ~20 min walk from Ferry Building. Parking. Not at terminals; Metropolis 55 & 80 Francisco Street per Port courtesy note."
+  },
+  "thingsToDo": {
+    "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+    "topThings": [
+      "Embarcadero / Ferry Building — walkable from Pier 27 with time — ~90 min.",
+      "Fisherman’s Wharf / Pier 39 — north; confirm distance vs Pier 35 assignment.",
+      "Cable cars / Union Square — hills; longer call.",
+      "Alcatraz — advance tickets; timing critical.",
+      "Golden Gate — organised / long buffer."
+    ],
+    "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+    "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+    "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+    "practicalTip": "Confirm Pier 27 vs 35 vs 30/32 before rideshare — they are not interchangeable walking distances."
+  },
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "cc96fe4dc3a786e191f4749b0bdaba5bf3c33760126edd20ed17108edbec30f4",
+    "landing_slug": "san-francisco-ca-united-states",
+    "candidate_content_hash": "1ac68e005bd0459e526eda5fb054288060d4207d94e60436c12a270577c067b4",
+    "locked_at_utc": "2026-11-09T06:54:09.180Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "needs_review_25_release_candidate": true,
+    "owner_publication_authorized": false
+  }
+}

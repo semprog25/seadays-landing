@@ -1,0 +1,75 @@
+{
+  "landing_slug": "jacksonville-fl-united-states",
+  "draft": {
+    "landing_slug": "jacksonville-fl-united-states",
+    "appPortId": "jacksonville",
+    "portName": "Jacksonville",
+    "country": "United States",
+    "portInfo": {
+      "description": "Jacksonville Port Authority operates a dedicated cruise terminal at 9810 August Drive with cruise contact (904) 357-3006. Berth #10 is published at 1,289 feet (393 m) length, 40 feet (12.2 m) depth along mean low water, deck height 9 feet (2.7 m) above mean sea level, 80-foot-wide apron, no published maximum beam, and 15.3 nautical miles from the sea buoy. Terminal building figures: 63,000 sq ft overall, 28,000 sq ft baggage handling, 15,000 sq ft passenger embarkation. Parking is on-site adjacent to the terminal without reservations; payment is credit-card only at published daily rates. Large-vessel entry follows St. Johns Bar Pilot Association procedures per JAXPORT.",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Jacksonville Cruise Terminal",
+      "transportation": [
+        "Rental car"
+      ],
+      "distanceToCity": "Terminal about 10 km from downtown",
+      "walkingTime": "Not recommended, use transportation",
+      "taxiInfo": "",
+      "publicTransport": "Limited public transport from terminal",
+      "distanceAnswer": "Terminal about 10 km from downtown"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Organised beach or city transfer — ~180 min with traffic buffer.",
+        "Terminal-area time — limited independent walk attractions at the industrial Dames Point setting.",
+        "Jacksonville Beaches / Atlantic coast"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Use 9810 August Drive in navigation apps — JAXPORT’s corporate Talleyrand Avenue HQ is a different facility."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "29b4501d3bcb96d9d8986d9b032cba0744b71a415c744a7708e56c310cb95565",
+      "existing_guide_hash": "b13842878eb80ade",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/jacksonville-fl-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.223Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

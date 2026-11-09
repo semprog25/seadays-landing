@@ -1,0 +1,83 @@
+{
+  "landing_slug": "mykonos-greece",
+  "draft": {
+    "landing_slug": "mykonos-greece",
+    "appPortId": "mykonos",
+    "portName": "Mykonos",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Chora’s sea-edge Little Venice, nearby windmills and paved lanes make an achievable walking day once the landing issue is solved. The archaeological museum adds finds from Rheneia and Delos. Delos itself requires another boat and a verified round trip; it is not an automatic extension of reaching Chora.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "New Port — Tourlos",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Use the ship’s authorized shuttle/road transfer from Tourlos unless current SeaBus operation is confirmed. The operator explicitly connects Tourlos and Chora and names a cruise-dock station, but its page has both 8- and 12-minute trip wording; neither is used as a door-to-door guarantee. Budget 45–60 minutes each way including port exit, waiting or tender queue. Outside its printed April–October season, do not assume service.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Use the ship’s authorized shuttle/road transfer from Tourlos unless current SeaBus operation is confirmed. The operator explicitly connects Tourlos and Chora and names a cruise-dock station, but its page has both 8- and 12-minute trip wording; neither is used as a door-to-door guarantee. Budget 45–60 minutes each way including port exit, waiting or tender queue. Outside its printed April–October season, do not assume service."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Little Venice — Little Venice waterfront, Chora, Mykonos. Sea-edge houses are best viewed without assuming a restaurant terrace is public access. Allow 45 minutes; official source.",
+        "Kato Mili windmills — Windmill ridge beside Little Venice, Chora. An exposed landmark stop with a short uphill approach. Allow 35 minutes; official source.",
+        "Chora historic lanes — Whitewashed historic centre, Mykonos Town. Choose a compact loop and remember the meeting point in the maze of lanes. Allow 75 minutes; official source.",
+        "Archaeological Museum of Mykonos — Kaminaki, Mykonos Town. A distinct indoor collection; current winter calendar is closed Tuesday. Allow 90 minutes; official source.",
+        "Delos archaeological site — Delos island, reached by separately confirmed boat from Mykonos. A separate island/site, not a guaranteed daily excursion or part of the port inventory. Allow 150 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Before buying a SeaBus ticket, check that the call is within an operating service period and which of its Tourlos/Old Port stops you need. Its advertised wheelchair access does not certify the cruise tender."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f348a10f03b73b37c60363b04109ab0364961ac13a755e5229bfa12edd0df323",
+      "existing_guide_hash": "3640e54c99e89692",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/mykonos-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.274Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

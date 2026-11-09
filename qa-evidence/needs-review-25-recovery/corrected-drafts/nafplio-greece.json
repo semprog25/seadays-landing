@@ -1,0 +1,83 @@
+{
+  "landing_slug": "nafplio-greece",
+  "draft": {
+    "landing_slug": "nafplio-greece",
+    "appPortId": "nafplio",
+    "portName": "Nafplio",
+    "country": "Greece",
+    "portInfo": {
+      "description": "The lower town’s Venetian and neoclassical layers make a rewarding circuit around Syntagma Square. Palamidi rises above it; Akronafplia is a separate peninsula/fortification; Bourtzi sits on an islet. The archaeological, war and komboloi museums offer genuinely different indoor subjects rather than several names for one site.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "West quay",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Budget 45 minutes from ship release through the assigned berth/tender landing to Syntagma Square; 45–60 minutes on the return accommodates tender waiting if used. For Palamidi, use a retained/confirmed road pickup rather than assuming every visitor can climb the stair route. A Bourtzi boat needs its own schedule and return and is not included by default.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Budget 45 minutes from ship release through the assigned berth/tender landing to Syntagma Square; 45–60 minutes on the return accommodates tender waiting if used. For Palamidi, use a retained/confirmed road pickup rather than assuming every visitor can climb the stair route. A Bourtzi boat needs its own schedule and return and is not included by default."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Palamidi fortress — Palamidi hill above Nafplio. A strenuous fortress visit; road approach and site opening must be checked. Allow 90 minutes; official source.",
+        "Akronafplia — Fortified peninsula above Nafplio old town. A separate elevated walk, not another name for Palamidi. Allow 60 minutes; official source.",
+        "Bourtzi fortress — Agioi Theodoroi islet off Nafplio. View from shore or visit only with a separately confirmed boat return. Allow 60 minutes; official source.",
+        "Archaeological Museum — West side of Syntagma Square, Nafplio. Housed in the Venetian former naval storehouse; Dendra armour is a noted collection highlight. Allow 90 minutes; official source.",
+        "War Museum — Nafplio branch — 22 Vasilissis Amalias Avenue, Nafplio. A distinct museum of modern military history; current opening not assumed. Allow 60 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask whether “terminal” on the ship’s instruction means an actual passenger building or only the assigned quay. The sources disagree on the building’s existence; neither provides a verified door."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d0650e09a1534e58d1fc96f12340d3611d6ff7e3c335e88e377dcd22558cde4f",
+      "existing_guide_hash": "7a2303ed1f21b043",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/nafplio-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.283Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

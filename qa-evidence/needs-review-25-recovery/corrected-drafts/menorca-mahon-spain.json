@@ -1,0 +1,83 @@
+{
+  "landing_slug": "menorca-mahon-spain",
+  "draft": {
+    "landing_slug": "menorca-mahon-spain",
+    "appPortId": "mahon",
+    "portName": "Menorca (Mahon)",
+    "country": "Spain",
+    "portInfo": {
+      "description": "The port is a long inlet, not a single waterfront stop. Above it, Santa María, the town hall and the Carmen cloister form a compact cultural circuit; the Museu de Menorca gives the island’s archaeology context. Trepucó, Talatí de Dalt and S’Albufera des Grau are separate excursions, not sights beside the gangway. Spain’s tourism page is used for these places, but its erroneous Vespasian chronology is not repeated here.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish, Catalan",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Estación Marítima de Cruceros",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "From the mapped cruise quay, budget 30 minutes for controlled exit and the climb towards Plaza de España; allow the same on return, more if using a taxi for the slope. These are planning allowances, not measured walking distances. A remote/north-side reassignment invalidates this walking start: obtain the ship’s actual shuttle/gate instructions instead of navigating to the Cós Nou ferry station.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "From the mapped cruise quay, budget 30 minutes for controlled exit and the climb towards Plaza de España; allow the same on return, more if using a taxi for the slope. These are planning allowances, not measured walking distances. A remote/north-side reassignment invalidates this walking start: obtain the ship’s actual shuttle/gate instructions instead of navigating to the Cós Nou ferry station."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Santa María — Plaza de España, Mahón. The central church anchors the upper-town circuit; interior access depends on services. Allow 35 minutes; official source.",
+        "Sa Sala town hall — Plaza de España, Mahón. Look at the civic frontage alongside the church, not an assumed open municipal interior. Allow 20 minutes; official source.",
+        "Carmen church and cloister — Carmen cloister complex, Mahón old town. A distinct former religious/market setting worth exploring at a slower pace. Allow 45 minutes; official source.",
+        "Museu de Menorca — Former Sant Francesc convent, Mahón. Choose this for island history instead of adding another cross-island drive. Allow 75 minutes; official source.",
+        "Trepucó — Trepucó archaeological settlement, near Mahón. A vehicle excursion to prehistoric remains, not a waterfront walk. Allow 60 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph the ship’s quay/gate instruction. A search for “Estació Marítima” can lead to Cós Nou, which the authority map shows as a different building."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a8dd8a0656696ec6e51aae8255075e9fb2fc02270ebdd905c911a5acc4d96a94",
+      "existing_guide_hash": "29c53611d35a5308",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/menorca-mahon-spain.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.258Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}

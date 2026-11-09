@@ -1,0 +1,80 @@
+{
+  "landing_slug": "norfolk-va-united-states",
+  "draft": {
+    "landing_slug": "norfolk-va-united-states",
+    "appPortId": "norfolk",
+    "portName": "Norfolk",
+    "country": "United States",
+    "portInfo": {
+      "description": "Cruise Norfolk’s passenger facility is the Half Moone Cruise Terminal on Waterside Drive in downtown Norfolk, sharing a campus with Nauticus and the historic Battleship Wisconsin. VisitNorfolk describes an 80,000 sq. ft. Half Moone Cruise Celebration Center as home to Virginia’s only cruise ship program. Embarking passengers who park at Cedar Grove check luggage at the lot before the free shuttle drops them curbside at the terminal; taxi/Uber/Lyft drop-off is on Waterside Drive just outside the terminal (personal vehicles not allowed in the bus/shuttle lane). Norfolk International Airport (ORF) is stated as 10.8 miles from the terminal. Do not confuse this municipal cruise program with Port of Virginia cargo facilities.",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Half Moone Cruise Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Cedar Grove lot. 1000 Monticello Ave; 1.5 miles from terminal; $15/day for passenger vehicles including vans up to 15 passengers; cash or credit; prepaid options exist. Opening times on cruise days have been published as 10 a.m. (city Cruises page) and 9:45 a.m. with shuttle ~10:15 a.m. (parking page), with a further change Effective Sunday, July 12, 2026 to 9:30 a.m. open / ~9:45 a.m. shuttle — verify the date-specific notice before sailing. Airport. ORF 10.8 miles from Half Moone; transfer duration Not verified. Rideshare. Waterside Drive drop-off past the terminal in front of Town Point Park; no personal vehicles in bus/shuttle lane.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Cedar Grove lot. 1000 Monticello Ave; 1.5 miles from terminal; $15/day for passenger vehicles including vans up to 15 passengers; cash or credit; prepaid options exist. Opening times on cruise days have been published as 10 a.m. (city Cruises page) and 9:45 a.m. with shuttle ~10:15 a.m. (parking page), with a further change Effective Sunday, July 12, 2026 to 9:30 a.m. open / ~9:45 a.m. shuttle — verify the date-specific notice before sailing. Airport. ORF 10.8 miles from Half Moone; transfer duration Not verified. Rideshare. Waterside Drive drop-off past the terminal in front of Town Point Park; no personal vehicles in bus/shuttle lane."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Nauticus / Battleship Wisconsin — shared campus; VisitNorfolk states cruise passengers receive Buy One, Get One Free admission to Nauticus (purchase online or onsite) — ~120 min.",
+        "Downtown Norfolk / Waterside — hotels walkable per VisitNorfolk — ~60–90 min.",
+        "Town Point Park area — adjacent drop-off framing.",
+        "Light rail / Amtrak day — accessibility claimed; schedules Not verified.",
+        "Nauticus Maritime Discovery Center / Battleship Wisconsin campus"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If you park at Cedar Grove, budget shuttle wait both ways and use the lot luggage check — the published 1.5-mile gap is not a walk-with-bags plan."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "513bce1114e535b9beb37df17add9438cf4c7d5b2dd5a727126de19cdff3b5ce",
+      "existing_guide_hash": "ef2ca077d515a984",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/norfolk-va-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T06:54:09.288Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage62-targeted-editorial"
+}
