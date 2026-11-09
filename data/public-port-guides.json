@@ -994,7 +994,7 @@
       "portName": "Almeria",
       "country": "Spain",
       "portInfo": {
-        "description": "A Spanish port destination with excellent facilities, Mediterranean charm, and access to beautiful Spanish attractions.",
+        "description": "Almería’s Autoridad Portuaria manages passenger ferries and growing cruise traffic. The published Estación Marítima is an 8,400 m² two-floor building for regular North Africa ferry embarkation/disembarkation with ticket offices in public areas. APA news states a dedicated cruise passenger terminal will be completed in the first four months of 2027, following ~€2.8M of related investment already noted by APA president Rosario Soto in the same release. Cruise callers before that opening should expect existing passenger infrastructure and verify the day’s landing with sailing documents.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish",
@@ -1035,12 +1035,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Estación Marítima / cruise landing — Puerto de Almería — Puerto de Almería, Almería, Spain",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "The Estación Marítima sits beside central Almería. Allow extra time in summer heat for the walk uphill to the Alcazaba.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "The Estación Marítima sits beside central Almería. Allow extra time in summer heat for the walk uphill to the Alcazaba."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Alcazaba fortress and mirador views",
+          "Cathedral and historic centre lanes",
+          "Cable Inglés waterfront heritage walk"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "Add Cable Inglés and a longer lunch once your standard buffer is safe. Confirm whether your ship uses the ferry estación or a temporary cruise setup—the dedicated cruise terminal is not yet in service.",
+        "practicalTip": "Ask whether you are using the ferry estación or a temporary cruise setup — APA’s dedicated terminal is due in the first four months of 2027."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "ff9198b49460ce402dfdbcc9",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c1ea7d63ebfd8719a67ed707150fc9bd3f03fb15d35330a1db638d364a8e031f",
+        "landing_slug": "almeria-spain",
+        "candidate_content_hash": "2b326ed262b2456a4d3b9f714cafbf898edd23536e3918ad09cd8d14185cab3b",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "stage53_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage53_release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f",
+        "applied_at_utc": "2026-11-09T05:11:00.687Z"
       }
     },
     "alta": {
@@ -7106,7 +7144,7 @@
       "portName": "Dominica",
       "country": "Dominica",
       "portInfo": {
-        "description": "The Nature Island of the Caribbean, known for rainforests, volcanoes, and excellent eco-tourism.",
+        "description": "Dominica Air and Sea Ports Authority documents a dedicated Roseau Cruise Ship Berth in the capital, giving an explicit WGS-compatible latitude/longitude, platform dimensions (160 ft / 49 m by 37 ft / 11.30 m), an 88 m access walkway, 13 m depth alongside, five berthing dolphins and six mooring dolphins. DASPA states the berth is within walking distance of Roseau’s business and shopping areas and close to the Tourism Information Centre, Dominica Museum and Craft Center. Inland waterfalls and national-park roads need coaches timed to all-aboard — those minutes are not on the berth page.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English",
@@ -7147,12 +7185,50 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Roseau Cruise Ship Berth",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "DASPA places the berth within walking distance of central Roseau. Inland waterfalls need a booked coach timed to all-aboard.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "DASPA places the berth within walking distance of central Roseau. Inland waterfalls need a booked coach timed to all-aboard."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Roseau waterfront and craft centre",
+          "Rainforest or waterfall tours by coach",
+          "Dominica Museum and Old Market"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Platform is only 49 m — large ships may use dolphins/breast lines; follow crew directions."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "63abd73dded23490c2dfd31b",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d8dd30f8067ce1b581b135eaf30851dc5cf00797845a871fefdf9e2916a88b03",
+        "landing_slug": "roseau-dominica",
+        "candidate_content_hash": "9ded4b5decbbd285d6920d30ee3615bb38d9d89992d2c8c6ae7b8838f02bc54f",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "stage53_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage53_release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f",
+        "applied_at_utc": "2026-11-09T05:11:00.688Z"
       }
     },
     "dover": {
@@ -10579,9 +10655,43 @@
           "Local bus"
         ],
         "distanceToCity": "Quay located near city center",
-        "walkingTime": "10-20 minutes to downtown",
+        "walkingTime": "10-20 minutes to downtown—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis available at quay",
-        "publicTransport": "Local bus system available"
+        "publicTransport": "Local bus system available",
+        "distanceAnswer": "Quay located near city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Harstad sentrum walk",
+          "Trondenes / peninsula sights",
+          "Harbourfront and church district near the quay"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm “Larsneset Nord” on the day’s programme — older industrial berths are not assumed here."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "c2df998a728c3e92275ef03c",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "93a321b550fcab1890f4baba1aff47e6578273ee61deca46acfc52198adcda9e",
+        "landing_slug": "harstad-norway",
+        "candidate_content_hash": "929d6f71ce7ff647797f68f6575a39a073a60f68c11c7824b324000baf3959f3",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "stage53_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage53_release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f",
+        "applied_at_utc": "2026-11-09T05:11:00.688Z"
       }
     },
     "haugesund": {
@@ -14621,7 +14731,7 @@
       "portName": "La Romana",
       "country": "Dominican Republic",
       "portInfo": {
-        "description": "A port city in the Dominican Republic, known for its sugar industry and proximity to luxury resorts.",
+        "description": "La Romana’s cruise facility is a privately operated river-mouth terminal run by Central Romana Corporation, which also owns the historic sugar industrial complex. The operator’s technical sheet distinguishes a West Berth (sugar/molasses) from an East Berth used exclusively for cruise ships, with published pier length 256 m and maximum ship dimensions 360 × 61 m and 226,000 GT, channel entrance 11.5 m and maximum draft 10.5 m, 24/7 operations, and ISPS certification coded DOLRM / DOLRM-0001 (certificate dated 26 May 2006). Marketing pages position the port as both a port of call and a homeport with integrated transfers to La Romana International Airport (LRM), claiming ~45 minutes to Punta Cana and ~90 minutes to Santo Domingo. Cruise operations at Catalina Island (from 1992 with Costa) and the East Berth cruise pier (from 2002) are part of the same corporate story — for SeaDays mapping, keep la-romana-dominican-republic on the river terminal unless a separate Catalina slug is confirmed.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "Spanish",
@@ -14662,12 +14772,50 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "East Berth cruise pier",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "On-site terminal services per the port operator. City-centre walk times vary—confirm with the ship before you plan a self-guided town walk.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "On-site terminal services per the port operator. City-centre walk times vary—confirm with the ship before you plan a self-guided town walk."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Terminal / local operator tours — duration varies.",
+          "Town / Casa de Campo area — transfer minutes unverified.",
+          "Catalina Island day if your sailing uses that product — not the East Berth walk-off."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm whether passengers land at the East Berth or tender/transfer to Catalina before planning a self-guided town walk."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "e7b3e75b0765e869b1985408",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "ca3cd52952ac36ec75e1c4a51eb9a19acad3b838e54a9313a13fb64dae055d1e",
+        "landing_slug": "la-romana-dominican-republic",
+        "candidate_content_hash": "0a4575042665a11129d24d625cedd0214370241cec00a2c98e475cf9b5b0757a",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "stage53_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage53_release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f",
+        "applied_at_utc": "2026-11-09T05:11:00.688Z"
       }
     },
     "la-seyne-sur-mer": {
@@ -17856,7 +18004,7 @@
       "portName": "Montego Bay",
       "country": "Jamaica",
       "portInfo": {
-        "description": "Jamaica's main tourist port, known for beaches, resorts, and excellent facilities.",
+        "description": "Montego Bay is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "EST (UTC-5)",
         "language": "English, Jamaican Patois",
@@ -17904,12 +18052,50 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Montego Bay",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Beaches and town are marketed as accessible; walk/shuttle minutes from the cruise gate are unverified. Falmouth and Ocho Rios are separate PAJ ports — do not assume a short hop without a timed coach.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Beaches and town are marketed as accessible; walk/shuttle minutes from the cruise gate are unverified. Falmouth and Ocho Rios are separate PAJ ports — do not assume a short hop without a timed coach."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Doctor’s Cave and nearby beach areas (confirm access with your ship)",
+          "Inland falls or estate tours by coach",
+          "Gloucester Avenue (Hip Strip) and downtown markets"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Montego Bay Freeport / SEZ addresses on PAJ contact pages are not automatically the cruise gangway — use Mantica Way cruise contact."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "44701ff04f237520ef67be4d",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "64c978c424c46c2d983fcaae4177957d488fe9877b6982ba0b39cb596e88fe89",
+        "landing_slug": "montego-bay-jamaica",
+        "candidate_content_hash": "eba5c107f2f197fe8219bc44b643e3caba23cd2f1a2d4873638cd3a48cb661a2",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "stage53_release_prep": true,
+        "owner_publication_authorized": false,
+        "stage53_release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f",
+        "applied_at_utc": "2026-11-09T05:11:00.688Z"
       }
     },
     "montevideo": {

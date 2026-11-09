@@ -1,0 +1,4092 @@
+{
+  "generated_at": "2026-11-09T05:11:00.574Z",
+  "ports": [
+    {
+      "landing_slug": "almeria-spain",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad",
+          "url": "https://www.apalmeria.com/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:55Z",
+          "published_updated": "not shown",
+          "claim_supported": "Cruise & passenger hubs; Cable Inglés; port-city heritage"
+        },
+        {
+          "id": "S2",
+          "publisher": "APA Almería — Estación marítima",
+          "url": "https://www.apalmeria.com/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:55Z",
+          "published_updated": "not shown",
+          "claim_supported": "2 floors; 8400 m²; North Africa ferry passengers; ticket offices"
+        },
+        {
+          "id": "S3",
+          "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news",
+          "url": "https://www.apalmeria.com/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:55Z",
+          "published_updated": "not shown",
+          "claim_supported": "Dedicated cruise terminal in first four months of 2027; ~€2.8M context; Rosario Soto quote"
+        },
+        {
+          "id": "S4",
+          "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)",
+          "url": "https://nominatim.openstreetmap.org/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T23:10Z",
+          "published_updated": "live data",
+          "claim_supported": "Named feature coordinates"
+        },
+        {
+          "id": "S5",
+          "publisher": "Open-Meteo ERA5 archive",
+          "url": "https://archive-api.open-meteo.com/v1/archive",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05",
+          "published_updated": "dataset",
+          "claim_supported": "2015–2024 monthly climatology"
+        },
+        {
+          "id": "S6",
+          "publisher": "European Commission — Travel to the EU / Schengen short-stay documents",
+          "url": "https://travel-europe.europa.eu/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Passport validity and short-stay Schengen framing for non-EU visitors"
+        },
+        {
+          "id": "S7",
+          "publisher": "European Union — EES FAQ",
+          "url": "https://travel-europe.europa.eu/en/ees/faq",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "EES progressive rollout ended 9 Apr 2026; full external-border operation from 10 Apr 2026"
+        },
+        {
+          "id": "S8",
+          "publisher": "European Union — ETIAS",
+          "url": "https://travel-europe.europa.eu/en/etias",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "ETIAS not in operation; no applications collected on research date"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — Estación marítima"
+            },
+            {
+              "id": "S3",
+              "url": "https://www.apalmeria.com/",
+              "accessed_utc": "2026-11-05T22:55Z",
+              "publisher": "APA Almería — cruise terminal “primer cuatrimestre de 2027” news"
+            },
+            {
+              "id": "S4",
+              "url": "https://nominatim.openstreetmap.org/",
+              "accessed_utc": "2026-11-05T23:10Z",
+              "publisher": "OpenStreetMap Nominatim (© OSM contributors, ODbL)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad",
+              "url": "https://www.apalmeria.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:55Z",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise & passenger hubs; Cable Inglés; port-city heritage"
+            },
+            {
+              "id": "S2",
+              "publisher": "APA Almería — Estación marítima",
+              "url": "https://www.apalmeria.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:55Z",
+              "published_updated": "not shown",
+              "claim_supported": "2 floors; 8400 m²; North Africa ferry passengers; ticket offices"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad",
+              "url": "https://www.apalmeria.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:55Z",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise & passenger hubs; Cable Inglés; port-city heritage"
+            },
+            {
+              "id": "S2",
+              "publisher": "APA Almería — Estación marítima",
+              "url": "https://www.apalmeria.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:55Z",
+              "published_updated": "not shown",
+              "claim_supported": "2 floors; 8400 m²; North Africa ferry passengers; ticket offices"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "APA Almería — Cruceros / Pasajeros / Puerto-ciudad",
+              "url": "https://www.apalmeria.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:55Z",
+              "published_updated": "not shown",
+              "claim_supported": "Cruise & passenger hubs; Cable Inglés; port-city heritage"
+            },
+            {
+              "id": "S2",
+              "publisher": "APA Almería — Estación marítima",
+              "url": "https://www.apalmeria.com/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:55Z",
+              "published_updated": "not shown",
+              "claim_supported": "2 floors; 8400 m²; North Africa ferry passengers; ticket offices"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "bod-norway",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Bodø Havn — Cruise",
+          "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "Cruise development; memberships; contacts"
+        },
+        {
+          "id": "S2",
+          "publisher": "WMO normals — BODO VI",
+          "url": null,
+          "evidence_path": "evidence/BODO_VI_01152.csv",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "1991-2020 WMO",
+          "claim_supported": "Climate"
+        },
+        {
+          "id": "S3",
+          "publisher": "EU — EES FAQ",
+          "url": "https://travel-europe.europa.eu/en/ees/faq",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "EES since 2026-04-10"
+        },
+        {
+          "id": "S4",
+          "publisher": "EU — ETIAS",
+          "url": "https://travel-europe.europa.eu/en/etias",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "live",
+          "claim_supported": "ETIAS not operating"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Bodø Havn — Cruise"
+            },
+            {
+              "id": "S3",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — EES FAQ"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/en/etias",
+              "accessed_utc": "2026-11-06",
+              "publisher": "EU — ETIAS"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Bodø Havn — Cruise",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Cruise development; memberships; contacts"
+            },
+            {
+              "id": "S3",
+              "publisher": "EU — EES FAQ",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "EES since 2026-04-10"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Bodø Havn — Cruise",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Cruise development; memberships; contacts"
+            },
+            {
+              "id": "S3",
+              "publisher": "EU — EES FAQ",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "EES since 2026-04-10"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Bodø Havn — Cruise",
+              "url": "https://www.bodohavn.no/en/services/passenger-and-cruise/cruise/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "Cruise development; memberships; contacts"
+            },
+            {
+              "id": "S3",
+              "publisher": "EU — EES FAQ",
+              "url": "https://travel-europe.europa.eu/en/ees/faq",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "live",
+              "claim_supported": "EES since 2026-04-10"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.distanceAnswer",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Centre vs terminal distance not verified — ask ship for shuttle/walk guidance."
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "eilat-israel",
+      "sources_table": [
+        {
+          "id": "S2",
+          "publisher": "UK FCDO — Israel",
+          "url": "https://www.gov.uk/foreign-travel-advice/israel",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:22:07.839815Z",
+          "published_updated": "2026-10-27",
+          "claim_supported": "Area-specific warnings and regional risk; not blanket Eilat legal ban"
+        },
+        {
+          "id": "S4",
+          "publisher": "Eilat Port — accessibility (Hebrew)",
+          "url": "https://eilatport.co.il/accessibility/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+          "published_updated": "not shown",
+          "claim_supported": "Passenger hall, accessible check-in/hearing loop, general Route 90/south-gate directions"
+        },
+        {
+          "id": "S5",
+          "publisher": "Israel Nature and Parks Authority — Coral Beach",
+          "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:22:07.839815Z",
+          "published_updated": "not shown",
+          "claim_supported": "Protected reef, bridges and services; WebFetch content successful despite requests403"
+        },
+        {
+          "id": "S6",
+          "publisher": "Underwater Observatory operator",
+          "url": "https://coralworld.co.il/en/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+          "published_updated": "not shown",
+          "claim_supported": "Aquarium/reef exhibits and underwater stairs"
+        },
+        {
+          "id": "S7",
+          "publisher": "Eilat city guide — leading attractions",
+          "url": "https://eilat.city/en/info/eilats-leading-attractions",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:14:22.161810+00:00",
+          "published_updated": "not shown",
+          "claim_supported": "Dolphin Reef and named Timna formations, southern shore Coral Reserve"
+        },
+        {
+          "id": "S8",
+          "publisher": "Timna Park operator",
+          "url": "https://parktimna.co.il/en/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:14:26.289159+00:00",
+          "published_updated": "not shown",
+          "claim_supported": "Named park/visit planning; specific formations corroborated by city guide"
+        },
+        {
+          "id": "S9",
+          "publisher": "Israel Nature and Parks Authority — Hai-Bar",
+          "url": "https://en.parks.org.il/reserve-park/hay-bar-yotvata-nature-reserve",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:22:07.839815Z",
+          "published_updated": "not shown",
+          "claim_supported": "Road90 location/35km, city baseline half-hour and vehicle circuit; WebFetch succeeded"
+        },
+        {
+          "id": "S10",
+          "publisher": "Israel PIBA entry portal",
+          "url": "https://israel-entry.piba.gov.il/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:10:12.509986+00:00",
+          "published_updated": "not shown",
+          "claim_supported": "Official portal reachable, detailed eligibility not extracted"
+        },
+        {
+          "id": "S11",
+          "publisher": "UK FCDO — Israel entry",
+          "url": "https://www.gov.uk/foreign-travel-advice/israel/entry-requirements",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:15:34.085800+00:00",
+          "published_updated": "not shown",
+          "claim_supported": "British-citizen-scoped entry guidance only"
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo — ERA5 historical daily data, recomputed",
+          "url": "https://archive-api.open-meteo.com/v1/archive?latitude=29.54&longitude=34.95&start_date=2015-01-01&end_date=2024-12-31&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum&timezone=UTC&models=era5",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-05T22:06:32.046849+00:00",
+          "published_updated": "dataset 2015-01-01 to 2024-12-31",
+          "claim_supported": "2015–2024 ten-year modeled monthly means; raw input and method retained"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "UK FCDO — Israel"
+            },
+            {
+              "id": "S4",
+              "url": "https://eilatport.co.il/accessibility/",
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "publisher": "Eilat Port — accessibility (Hebrew)"
+            },
+            {
+              "id": "S5",
+              "url": "https://en.parks.org.il/reserve-park/eilat-coral-beach-nature-reserve/",
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "publisher": "Israel Nature and Parks Authority — Coral Beach"
+            },
+            {
+              "id": "S6",
+              "url": "https://coralworld.co.il/en/",
+              "accessed_utc": "2026-11-05T22:14:23.188811+00:00",
+              "publisher": "Underwater Observatory operator"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "UK FCDO — Israel",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "published_updated": "2026-10-27",
+              "claim_supported": "Area-specific warnings and regional risk; not blanket Eilat legal ban"
+            },
+            {
+              "id": "S4",
+              "publisher": "Eilat Port — accessibility (Hebrew)",
+              "url": "https://eilatport.co.il/accessibility/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "published_updated": "not shown",
+              "claim_supported": "Passenger hall, accessible check-in/hearing loop, general Route 90/south-gate directions"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "UK FCDO — Israel",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "published_updated": "2026-10-27",
+              "claim_supported": "Area-specific warnings and regional risk; not blanket Eilat legal ban"
+            },
+            {
+              "id": "S4",
+              "publisher": "Eilat Port — accessibility (Hebrew)",
+              "url": "https://eilatport.co.il/accessibility/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "published_updated": "not shown",
+              "claim_supported": "Passenger hall, accessible check-in/hearing loop, general Route 90/south-gate directions"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "UK FCDO — Israel",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "published_updated": "2026-10-27",
+              "claim_supported": "Area-specific warnings and regional risk; not blanket Eilat legal ban"
+            },
+            {
+              "id": "S4",
+              "publisher": "Eilat Port — accessibility (Hebrew)",
+              "url": "https://eilatport.co.il/accessibility/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "published_updated": "not shown",
+              "claim_supported": "Passenger hall, accessible check-in/hearing loop, general Route 90/south-gate directions"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "UK FCDO — Israel",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "published_updated": "2026-10-27",
+              "claim_supported": "Area-specific warnings and regional risk; not blanket Eilat legal ban"
+            },
+            {
+              "id": "S4",
+              "publisher": "Eilat Port — accessibility (Hebrew)",
+              "url": "https://eilatport.co.il/accessibility/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "published_updated": "not shown",
+              "claim_supported": "Passenger hall, accessible check-in/hearing loop, general Route 90/south-gate directions"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[4]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "UK FCDO — Israel",
+              "url": "https://www.gov.uk/foreign-travel-advice/israel",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:22:07.839815Z",
+              "published_updated": "2026-10-27",
+              "claim_supported": "Area-specific warnings and regional risk; not blanket Eilat legal ban"
+            },
+            {
+              "id": "S4",
+              "publisher": "Eilat Port — accessibility (Hebrew)",
+              "url": "https://eilatport.co.il/accessibility/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-05T22:10:09.322309+00:00",
+              "published_updated": "not shown",
+              "claim_supported": "Passenger hall, accessible check-in/hearing loop, general Route 90/south-gate directions"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "harstad-norway",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Harstad Havn — Cruise; Larsneset quay",
+          "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:00Z",
+          "published_updated": "Larsneset landing; 2-min walk; length 275 m; call-list berth name",
+          "claim_supported": null
+        },
+        {
+          "id": "S2",
+          "publisher": "Open-Meteo archive",
+          "url": null,
+          "evidence_path": "evidence/pass2/om-harstad.json",
+          "accessed_utc": "2026-11-06T00:26:00Z",
+          "published_updated": "Interim means 1991–2020",
+          "claim_supported": null
+        },
+        {
+          "id": "S3",
+          "publisher": "EU EES / ETIAS FAQ",
+          "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:26:00Z",
+          "published_updated": "Entry status",
+          "claim_supported": null
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay"
+            },
+            {
+              "id": "S3",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "publisher": "EU EES / ETIAS FAQ"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "published_updated": "Larsneset landing; 2-min walk; length 275 m; call-list berth name",
+              "claim_supported": null
+            },
+            {
+              "id": "S3",
+              "publisher": "EU EES / ETIAS FAQ",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "published_updated": "Entry status",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "published_updated": "Larsneset landing; 2-min walk; length 275 m; call-list berth name",
+              "claim_supported": null
+            },
+            {
+              "id": "S3",
+              "publisher": "EU EES / ETIAS FAQ",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "published_updated": "Entry status",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Harstad Havn — Cruise; Larsneset quay",
+              "url": "https://harstadhavn.no/cruise-og-cruiseanlop/ ; https://harstadhavn.no/tjenester/havn-og-anlop/kaier/larsneset/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "published_updated": "Larsneset landing; 2-min walk; length 275 m; call-list berth name",
+              "claim_supported": null
+            },
+            {
+              "id": "S3",
+              "publisher": "EU EES / ETIAS FAQ",
+              "url": "home-affairs.ec.europa.eu ; travel-europe.europa.eu",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:26:00Z",
+              "published_updated": "Entry status",
+              "claim_supported": null
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "la-romana-dominican-republic",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "La Romana Cruise Terminal — Technical specifications",
+          "url": "https://cruiselaromana.com/technical-specifications/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "East Berth 256 m; LOA/draft; ISPS DOLRM"
+        },
+        {
+          "id": "S2",
+          "publisher": "La Romana Cruise Terminal — Ports / About",
+          "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Homeport/LRM; Catalina 1992; East Berth 2002; road marketing"
+        },
+        {
+          "id": "S3",
+          "publisher": "La Romana Cruise Terminal — Contact",
+          "url": "https://cruiselaromana.com/es/contact/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Buena Vista Sur address; phone"
+        },
+        {
+          "id": "S4",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/pass3/om-laromana.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "dataset 2015–2024",
+          "claim_supported": "Climate"
+        },
+        {
+          "id": "S5",
+          "publisher": "migracion.gob.do (attempted)",
+          "url": "https://migracion.gob.do/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "incomplete",
+          "claim_supported": "Entry gap"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Technical specifications"
+            },
+            {
+              "id": "S2",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Ports / About"
+            },
+            {
+              "id": "S3",
+              "url": "https://cruiselaromana.com/es/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "La Romana Cruise Terminal — Contact"
+            },
+            {
+              "id": "S5",
+              "url": "https://migracion.gob.do/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "migracion.gob.do (attempted)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "La Romana Cruise Terminal — Technical specifications",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "East Berth 256 m; LOA/draft; ISPS DOLRM"
+            },
+            {
+              "id": "S2",
+              "publisher": "La Romana Cruise Terminal — Ports / About",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Homeport/LRM; Catalina 1992; East Berth 2002; road marketing"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "La Romana Cruise Terminal — Technical specifications",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "East Berth 256 m; LOA/draft; ISPS DOLRM"
+            },
+            {
+              "id": "S2",
+              "publisher": "La Romana Cruise Terminal — Ports / About",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Homeport/LRM; Catalina 1992; East Berth 2002; road marketing"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "La Romana Cruise Terminal — Technical specifications",
+              "url": "https://cruiselaromana.com/technical-specifications/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "East Berth 256 m; LOA/draft; ISPS DOLRM"
+            },
+            {
+              "id": "S2",
+              "publisher": "La Romana Cruise Terminal — Ports / About",
+              "url": "https://cruiselaromana.com/la-romana-ports/ ; https://cruiselaromana.com/about-us/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Homeport/LRM; Catalina 1992; East Berth 2002; road marketing"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "montego-bay-jamaica",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Port Authority of Jamaica — Cruise Shipping",
+          "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "MoBay among 5 ports; NW gateway description"
+        },
+        {
+          "id": "S2",
+          "publisher": "PAJ — Contact (Port of Montego Bay)",
+          "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Mantica Way; phones"
+        },
+        {
+          "id": "S3",
+          "publisher": "PAJ — Our Business in Brief",
+          "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Multi-use; PHL management"
+        },
+        {
+          "id": "S4",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/pass3/om-montego.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "dataset 2015–2024",
+          "claim_supported": "Climate"
+        },
+        {
+          "id": "S5",
+          "publisher": "Jamaican entry primary",
+          "url": "(not captured)",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "—",
+          "claim_supported": "Entry gap"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping"
+            },
+            {
+              "id": "S2",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Contact (Port of Montego Bay)"
+            },
+            {
+              "id": "S3",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/our-business-in-brief/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "PAJ — Our Business in Brief"
+            },
+            {
+              "id": "S5",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Jamaican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "MoBay among 5 ports; NW gateway description"
+            },
+            {
+              "id": "S2",
+              "publisher": "PAJ — Contact (Port of Montego Bay)",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Mantica Way; phones"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "MoBay among 5 ports; NW gateway description"
+            },
+            {
+              "id": "S2",
+              "publisher": "PAJ — Contact (Port of Montego Bay)",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Mantica Way; phones"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Port Authority of Jamaica — Cruise Shipping",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/cruise-shipping/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "MoBay among 5 ports; NW gateway description"
+            },
+            {
+              "id": "S2",
+              "publisher": "PAJ — Contact (Port of Montego Bay)",
+              "url": "https://portauthorityofjamaica.azurewebsites.net/contact/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Mantica Way; phones"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "MPA — Facility details (Wayback; live TLS fail)",
+          "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T12:08:17Z",
+          "published_updated": "archive of live page",
+          "claim_supported": "Break Water Berth cruise LOA/quay/draft; Berth No.1 not in operation"
+        },
+        {
+          "id": "S2",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-mormugao-port-goa-india.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "published_updated": "archive of live page",
+              "claim_supported": "Break Water Berth cruise LOA/quay/draft; Berth No.1 not in operation"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "MPA — Facility details (Wayback; live TLS fail)",
+              "url": "https://web.archive.org/web/20260421074704/https://mptgoa.gov.in/business/facility-details/1",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:08:17Z",
+              "published_updated": "archive of live page",
+              "claim_supported": "Break Water Berth cruise LOA/quay/draft; Berth No.1 not in operation"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "mumbai-india",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels",
+          "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T12:08:55Z",
+          "published_updated": "live (updated label Feb 2024 on page)",
+          "claim_supported": "Ballard Pier Extension Passenger Terminal LOA 221 m; draft 9.75 m; 50kt"
+        },
+        {
+          "id": "S2",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/climate/om-mumbai-india.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2015-2024 ERA5 Open-Meteo",
+          "claim_supported": "Climate"
+        },
+        {
+          "id": "S3",
+          "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths",
+          "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T12:08:55Z",
+          "published_updated": "live",
+          "claim_supported": "Ballard Pier Extension wharf 244 m; draft 9.5 m CD"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels"
+            },
+            {
+              "id": "S3",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "published_updated": "live (updated label Feb 2024 on page)",
+              "claim_supported": "Ballard Pier Extension Passenger Terminal LOA 221 m; draft 9.75 m; 50kt"
+            },
+            {
+              "id": "S3",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "published_updated": "live",
+              "claim_supported": "Ballard Pier Extension wharf 244 m; draft 9.5 m CD"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "authoritative",
+          "confidence": "high",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Mumbai Port Authority — Permissible dimensions of Vessels",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&ls_id=850&lid=580",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "published_updated": "live (updated label Feb 2024 on page)",
+              "claim_supported": "Ballard Pier Extension Passenger Terminal LOA 221 m; draft 9.75 m; 50kt"
+            },
+            {
+              "id": "S3",
+              "publisher": "Mumbai Port Authority — Passenger cum Cargo Berths",
+              "url": "https://mumbaiport.gov.in/show_content.php?lang=1&level=3&lid=579&ls_id=849",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T12:08:55Z",
+              "published_updated": "live",
+              "claim_supported": "Ballard Pier Extension wharf 244 m; draft 9.5 m CD"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Ravenna Civitas Cruise Port (RCCP)",
+          "url": "https://rccp.it/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Dedicated terminal; two berths; Molo Crociere Porto Corsini; UNESCO city framing"
+        },
+        {
+          "id": "S2",
+          "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication",
+          "url": "https://www.port.ravenna.it/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "2025-11-07",
+          "claim_supported": "111 calls; ~390k pax; new station 5000 m²; 250×6 m walkway; 71 homeport/40 transit; +58%"
+        },
+        {
+          "id": "S3",
+          "publisher": "Open-Meteo ERA5 — Ravenna grid",
+          "url": "https://archive-api.open-meteo.com/v1/archive",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "dataset",
+          "claim_supported": "Monthly climatology"
+        },
+        {
+          "id": "S4",
+          "publisher": "European Commission — Travel to the EU",
+          "url": "https://travel-europe.europa.eu/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Schengen framing"
+        },
+        {
+          "id": "S5",
+          "publisher": "European Union — EES FAQ",
+          "url": "https://travel-europe.europa.eu/en/ees/faq",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "EES from 10 April 2026"
+        },
+        {
+          "id": "S6",
+          "publisher": "European Union — ETIAS",
+          "url": "https://travel-europe.europa.eu/en/etias",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "ETIAS not in operation"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://rccp.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)"
+            },
+            {
+              "id": "S2",
+              "url": "https://www.port.ravenna.it/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication"
+            },
+            {
+              "id": "S3",
+              "url": "https://archive-api.open-meteo.com/v1/archive",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Open-Meteo ERA5 — Ravenna grid"
+            },
+            {
+              "id": "S4",
+              "url": "https://travel-europe.europa.eu/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "European Commission — Travel to the EU"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)",
+              "url": "https://rccp.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Dedicated terminal; two berths; Molo Crociere Porto Corsini; UNESCO city framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication",
+              "url": "https://www.port.ravenna.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "2025-11-07",
+              "claim_supported": "111 calls; ~390k pax; new station 5000 m²; 250×6 m walkway; 71 homeport/40 transit; +58%"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)",
+              "url": "https://rccp.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Dedicated terminal; two berths; Molo Crociere Porto Corsini; UNESCO city framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication",
+              "url": "https://www.port.ravenna.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "2025-11-07",
+              "claim_supported": "111 calls; ~390k pax; new station 5000 m²; 250×6 m walkway; 71 homeport/40 transit; +58%"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)",
+              "url": "https://rccp.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Dedicated terminal; two berths; Molo Crociere Porto Corsini; UNESCO city framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication",
+              "url": "https://www.port.ravenna.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "2025-11-07",
+              "claim_supported": "111 calls; ~390k pax; new station 5000 m²; 250×6 m walkway; 71 homeport/40 transit; +58%"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)",
+              "url": "https://rccp.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Dedicated terminal; two berths; Molo Crociere Porto Corsini; UNESCO city framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication",
+              "url": "https://www.port.ravenna.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "2025-11-07",
+              "claim_supported": "111 calls; ~390k pax; new station 5000 m²; 250×6 m walkway; 71 homeport/40 transit; +58%"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[4]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "Ravenna Civitas Cruise Port (RCCP)",
+              "url": "https://rccp.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Dedicated terminal; two berths; Molo Crociere Porto Corsini; UNESCO city framing"
+            },
+            {
+              "id": "S2",
+              "publisher": "AdSP Ravenna — stagione crocieristica 2026 communication",
+              "url": "https://www.port.ravenna.it/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "2025-11-07",
+              "claim_supported": "111 calls; ~390k pax; new station 5000 m²; 250×6 m walkway; 71 homeport/40 transit; +58%"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.distanceAnswer",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Historic Ravenna. Not a short waterfront walk from Porto Corsini. Use ship shutt"
+        },
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        },
+        {
+          "field": "thingsToDo.shortCall",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Only if a shuttle round-trip ≤40 min total is confirmed. Otherwise stay near ter"
+        },
+        {
+          "field": "thingsToDo.topThings[2]",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Transfer in: 30 (est./GAP)"
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "roseau-dominica",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "DASPA — Roseau Cruise Ship Berth",
+          "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "not shown",
+          "claim_supported": "Lat/lon DMS; platform; depth; dolphins; walk-to-town"
+        },
+        {
+          "id": "S2",
+          "publisher": "Open-Meteo ERA5",
+          "url": null,
+          "evidence_path": "evidence/pass2/om-roseau.json",
+          "accessed_utc": "2026-11-06",
+          "published_updated": "dataset 2015–2024",
+          "claim_supported": "Climate"
+        },
+        {
+          "id": "S3",
+          "publisher": "Dominican entry primary",
+          "url": "(not captured)",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06",
+          "published_updated": "—",
+          "claim_supported": "Entry gap"
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "accessed_utc": "2026-11-06",
+              "publisher": "DASPA — Roseau Cruise Ship Berth"
+            },
+            {
+              "id": "S3",
+              "url": "(not captured)",
+              "accessed_utc": "2026-11-06",
+              "publisher": "Dominican entry primary"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "DASPA — Roseau Cruise Ship Berth",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Lat/lon DMS; platform; depth; dolphins; walk-to-town"
+            },
+            {
+              "id": "S3",
+              "publisher": "Dominican entry primary",
+              "url": "(not captured)",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "—",
+              "claim_supported": "Entry gap"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "DASPA — Roseau Cruise Ship Berth",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Lat/lon DMS; platform; depth; dolphins; walk-to-town"
+            },
+            {
+              "id": "S3",
+              "publisher": "Dominican entry primary",
+              "url": "(not captured)",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "—",
+              "claim_supported": "Entry gap"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S1",
+              "publisher": "DASPA — Roseau Cruise Ship Berth",
+              "url": "https://www.domports.daspa.dm/index.php/seaports/roseau-cruise-ship-berth/",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "not shown",
+              "claim_supported": "Lat/lon DMS; platform; depth; dolphins; walk-to-town"
+            },
+            {
+              "id": "S3",
+              "publisher": "Dominican entry primary",
+              "url": "(not captured)",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06",
+              "published_updated": "—",
+              "claim_supported": "Entry gap"
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "gettingThere.walkingTime",
+          "reason": "research_leak_or_unverified_wording",
+          "excerpt": ""
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    },
+    {
+      "landing_slug": "trieste-italy",
+      "sources_table": [
+        {
+          "id": "S1",
+          "publisher": "Open-Meteo",
+          "url": null,
+          "evidence_path": "evidence/pass3/om-trieste.json",
+          "accessed_utc": "2026-11-06T00:05:23Z",
+          "published_updated": "Interim means",
+          "claim_supported": null
+        },
+        {
+          "id": "S2",
+          "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture",
+          "url": "home-affairs ; travel-europe ; porto.trieste.it",
+          "evidence_path": null,
+          "accessed_utc": "2026-11-06T00:05:23Z",
+          "published_updated": "Entry status; authority HTML gap",
+          "claim_supported": null
+        }
+      ],
+      "claims": [
+        {
+          "area": "terminal_identity",
+          "field": "gettingThere.fromTerminal",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "transfer_guidance",
+          "field": "gettingThere.distanceAnswer",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "walking_guidance",
+          "field": "gettingThere.walkingTime",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "port_overview",
+          "field": "portInfo.description",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "excursion_short",
+          "field": "thingsToDo.shortCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "excursion_standard",
+          "field": "thingsToDo.standardCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "excursion_long",
+          "field": "thingsToDo.longerCall",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "practical_tip",
+          "field": "thingsToDo.practicalTip",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture"
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[0]",
+          "tier": "exclude",
+          "confidence": "exclude",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "published_updated": "Entry status; authority HTML gap",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[1]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "published_updated": "Entry status; authority HTML gap",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[2]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "published_updated": "Entry status; authority HTML gap",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[3]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "published_updated": "Entry status; authority HTML gap",
+              "claim_supported": null
+            }
+          ]
+        },
+        {
+          "area": "attraction",
+          "field": "thingsToDo.topThings[4]",
+          "tier": "secondary",
+          "confidence": "medium",
+          "supporting_sources": [
+            {
+              "id": "S2",
+              "publisher": "EU EES / ETIAS FAQ + note on thin porto.trieste.it capture",
+              "url": "home-affairs ; travel-europe ; porto.trieste.it",
+              "evidence_path": null,
+              "accessed_utc": "2026-11-06T00:05:23Z",
+              "published_updated": "Entry status; authority HTML gap",
+              "claim_supported": null
+            }
+          ]
+        }
+      ],
+      "high_risk_removed": [
+        {
+          "field": "thingsToDo.topThings[0]",
+          "reason": "explicit_evidence_gap",
+          "excerpt": "Waterfront / Piazza Unità approaches (tourism primary gap)"
+        }
+      ],
+      "exclude_from_release": false,
+      "exclude_reason": null
+    }
+  ],
+  "gate_rows": [
+    {
+      "landing_slug": "almeria-spain",
+      "app_port_id": "almeria",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage52_corrected"
+    },
+    {
+      "landing_slug": "bod-norway",
+      "app_port_id": "bodo",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage28"
+    },
+    {
+      "landing_slug": "eilat-israel",
+      "app_port_id": "eilat",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage28"
+    },
+    {
+      "landing_slug": "harstad-norway",
+      "app_port_id": "harstad",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage52_corrected"
+    },
+    {
+      "landing_slug": "la-romana-dominican-republic",
+      "app_port_id": "la-romana",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage52_corrected"
+    },
+    {
+      "landing_slug": "montego-bay-jamaica",
+      "app_port_id": "montego-bay",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage52_corrected"
+    },
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "app_port_id": "mormugao",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [
+        "thingsToDo.topThings[2]"
+      ],
+      "draft_source": "stage28"
+    },
+    {
+      "landing_slug": "mumbai-india",
+      "app_port_id": "mumbai",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [
+        "thingsToDo.topThings[2]"
+      ],
+      "draft_source": "stage28"
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "app_port_id": "ravenna",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage28"
+    },
+    {
+      "landing_slug": "roseau-dominica",
+      "app_port_id": "dominica",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage52_corrected"
+    },
+    {
+      "landing_slug": "trieste-italy",
+      "app_port_id": "trieste",
+      "pass": true,
+      "gates": [
+        {
+          "gate": "current_editorial_validation",
+          "ok": true
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        }
+      ],
+      "field_exclusions": [],
+      "draft_source": "stage28"
+    }
+  ]
+}

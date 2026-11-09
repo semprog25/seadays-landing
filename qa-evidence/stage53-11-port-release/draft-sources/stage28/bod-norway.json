@@ -1,0 +1,84 @@
+{
+  "landing_slug": "bod-norway",
+  "app_port_id": "bodo",
+  "research_sha256": "937ad03d7b3d328d8f147f3824f9d6dce461c9349b5b06aecdb33e2b11a434a5",
+  "draft": {
+    "landing_slug": "bod-norway",
+    "appPortId": "bodo",
+    "portName": "Bodø",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Port of Bodø states it collaborates with Visit Bodø and local tourism on sustainable cruise development and notes membership in Cruise Europe, Cruise Norway and Cruise Northern Norway and Svalbard (CNNS). The captured English cruise page does not publish a berth length/depth table, so this guide keeps the landing at port-area precision with null door GPS. Postal address Postboks 138, 8001 Bodø; visiting Bodøterminalen 4th floor, Rønvikleira; +47 75 55 10 80; firmapost@bodohavn.no.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Bodø cruise landing",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Centre vs terminal distance not verified — ask ship for shuttle/walk guidance.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Centre vs terminal distance not verified — ask ship for shuttle/walk guidance."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town centre / waterfront — ~90 min if walkable from berth.",
+        "Saltstraumen — coach; tidal timing critical.",
+        "Aviation / war museum"
+      ],
+      "shortCall": "Centre only + 75 min buffer.",
+      "standardCall": "Centre + one coach stop + 90 min buffer.",
+      "longerCall": "Saltstraumen-timed day with ≥120 min buffer.",
+      "practicalTip": "Without a published quay table, treat independent walking distance as unknown until the ship briefs [S1]."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.4",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "937ad03d7b3d328d8f147f3824f9d6dce461c9349b5b06aecdb33e2b11a434a5",
+      "existing_guide_hash": "1733dc8797242b0d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bod-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T12:15:57.656Z",
+      "cache_key": "ae7ff19afdc74ddc76c6b09736bbe4820f9aa2ded01f53948e7667736d2db187",
+      "landing_slug": "bod-norway",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

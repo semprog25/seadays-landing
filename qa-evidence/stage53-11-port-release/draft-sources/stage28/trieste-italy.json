@@ -1,0 +1,88 @@
+{
+  "landing_slug": "trieste-italy",
+  "app_port_id": "trieste",
+  "research_sha256": "c015164efee5670cd2f216f8939495bd79bd773d1e8fc2350b10e3ba9d3b1ddf",
+  "draft": {
+    "landing_slug": "trieste-italy",
+    "appPortId": "trieste",
+    "portName": "Trieste",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Trieste is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Trieste cruise terminal",
+      "transportation": [
+        "Walking to city center",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Trieste city",
+      "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Good local bus network",
+      "distanceAnswer": "Within Trieste city"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Waterfront / Piazza Unità approaches (tourism primary gap)",
+        "Canal Grande area",
+        "Miramare",
+        "Piazza Unità d’Italia approaches",
+        "Castello di Miramare"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Until Miramare hours are verified, keep the call inside the compact centre."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.4",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c015164efee5670cd2f216f8939495bd79bd773d1e8fc2350b10e3ba9d3b1ddf",
+      "existing_guide_hash": "9fcd593dc6b49d0e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/trieste-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-08T12:15:57.694Z",
+      "cache_key": "346879b7ade5b78ca2d65e22998fc4bea5c1f6825cea269f4a7416768879f04f",
+      "landing_slug": "trieste-italy",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}
