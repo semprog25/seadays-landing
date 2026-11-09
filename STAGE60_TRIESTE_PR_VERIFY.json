@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "failures": [],
+  "release_bundle_hash": "d7ac66c00c4eef89011ead8dd189a2f791e1eec003d51a5877d000fad2b2150f",
+  "verified_draft_sha256": "6f772bfeeba2ecd5782f450e8a2863bb2d15d1426da49124e2ca058bed859aea",
+  "passenger_delta_sha256": "a28c30054e25d07acb1927e501a8ee4b5651d667916ef1b3e992b25cc731f8b5",
+  "passenger_delta_sha256_stage59_artifact": "f86d3d9b6bf94af452becb2e8ecdfe632fee9693f15faf7544a6de13224550fe",
+  "passenger_delta_sha256_matches_stage59_artifact": false,
+  "safeguards": [
+    "berth_confirm",
+    "overflow_conditional",
+    "miramare_conditional",
+    "no_fixed_walk_guarantee"
+  ],
+  "stage60_policy_clearance": {
+    "schema_version": 1,
+    "recorded_at_utc": "2026-11-09T07:00:00.000Z",
+    "landing_slug": "trieste-italy",
+    "app_port_id": "trieste",
+    "owner_decision": "APPROVE_WITH_CONDITIONS",
+    "scope": "trieste-italy-only-single-port-pr",
+    "authorized_actions": [
+      "prepare_and_open_release_pr",
+      "passenger_editorial_candidate_on_trieste_guide_json"
+    ],
+    "not_authorized": [
+      "merge",
+      "deploy",
+      "global_hard_exclude_removal",
+      "other_port_imports"
+    ],
+    "scoped_policy_clearance_status": "APPROVED_WITH_CONDITIONS",
+    "owner_publication_authorized": true,
+    "owner_publication_authorized_at_utc": "2026-11-09T07:15:00.000Z",
+    "global_stage43_hard_exclude_unchanged": true,
+    "runtime_policy_exception": "trieste-italy removed from active STAGE43_HARD_EXCLUDE only; historical ledger preserved",
+    "other_holds_unchanged": [
+      "ravenna-italy",
+      "venice-ravenna-trieste-italy",
+      "bod-norway",
+      "mumbai-india",
+      "mormugao-port-goa-india",
+      "eilat-israel"
+    ],
+    "lineage": {
+      "stage58_factual": "CONDITIONAL — STAGE58_HOLD_CLEARANCE_MATRIX.md (stage57 worktree)",
+      "stage59_factual": "STAGE59_TRIESTE_FACTUAL_CLEARANCE.md",
+      "stage59_policy_exception": "STAGE59_TRIESTE_POLICY_EXCEPTION.md",
+      "stage59_release_bundle_hash": "d7ac66c00c4eef89011ead8dd189a2f791e1eec003d51a5877d000fad2b2150f",
+      "verified_draft_sha256": "6f772bfeeba2ecd5782f450e8a2863bb2d15d1426da49124e2ca058bed859aea",
+      "research_sha256": "c015164efee5670cd2f216f8939495bd79bd773d1e8fc2350b10e3ba9d3b1ddf",
+      "passenger_delta_sha256": "f86d3d9b6bf94af452becb2e8ecdfe632fee9693f15faf7544a6de13224550fe",
+      "production_baseline_sha": "8a6eec9f98f5220057a61ff63506f943b47c3cf0"
+    },
+    "remaining_uncertainties": [
+      "overflow_berth_transfer_not_verified",
+      "miramare_hours_not_verified",
+      "factually_verified_false"
+    ],
+    "factual_safeguards_confirmed": [
+      "no_guaranteed_central_berth_without_programme_confirm",
+      "overflow_berth_requires_ship_programme",
+      "miramare_conditional_transport_and_hours",
+      "no_invented_transfer_minutes_or_coordinates"
+    ]
+  }
+}

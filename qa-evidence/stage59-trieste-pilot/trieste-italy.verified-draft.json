@@ -1,0 +1,75 @@
+{
+  "landing_slug": "trieste-italy",
+  "app_port_id": "trieste",
+  "research_sha256": "c015164efee5670cd2f216f8939495bd79bd773d1e8fc2350b10e3ba9d3b1ddf",
+  "authority_sources": [
+    {
+      "label": "Trieste Terminal Passeggeri — cruise terminal (Stazione Marittima)",
+      "url": "https://www.triesteterminal.it/en/terminal-crocieristico/",
+      "used_for": "Central maritime station near Piazza Unità; berths 29–30; other seasons/Sistiana named only as conditional."
+    }
+  ],
+  "draft": {
+    "landing_slug": "trieste-italy",
+    "appPortId": "trieste",
+    "portName": "Trieste",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Trieste is a distinct Adriatic cruise gateway—not a substitute for Venice or Ravenna cruise terminals. Trieste Terminal Passeggeri operates the city-centre Stazione Marittima (passenger halls 41–42) a short walk from Piazza Unità d’Italia. Confirm your berth on the daily programme; some programmes use other landings (for example overflow berths or the Sistiana area) and may need a ship shuttle or taxi.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Stazione Marittima — Molo dei Bersaglieri area (confirm berth name on your sailing programme)",
+      "transportation": [
+        "Walking to Piazza Unità and the waterfront",
+        "Taxi",
+        "Local buses",
+        "Coach excursion"
+      ],
+      "distanceToCity": "When your ship uses the central Stazione Marittima, Piazza Unità d’Italia is a short waterfront walk. Other berths need the ship’s transfer guidance—do not assume the same walk.",
+      "walkingTime": "A few minutes on foot toward Piazza Unità d’Italia when berthed at the central maritime station—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Urban buses link the centre, railway station and Miramare corridor—confirm routes, tickets and timetables on your call date.",
+      "distanceAnswer": "When your ship uses the central Stazione Marittima, Piazza Unità d’Italia is a short waterfront walk. Other berths need the ship’s transfer guidance—do not assume the same walk."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Piazza Unità d’Italia and the Rive waterfront — straightforward on foot from the central terminal when your berth is confirmed there.",
+        "Canal Grande and Borgo Teresiano",
+        "Miramare Castle — treat as a half-day outing; use a ship excursion or pre-arranged taxi/bus and confirm opening hours before you commit."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "Miramare or a second stop is realistic only with confirmed transport, verified opening hours, and an eight-hour or longer window.",
+      "practicalTip": "Confirm berth and gangway first; Miramare is outside the compact waterfront core—do not squeeze it into a tight call without booked transport."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c015164efee5670cd2f216f8939495bd79bd773d1e8fc2350b10e3ba9d3b1ddf",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/trieste-italy.md",
+        "authority:triesteterminal.it/en/terminal-crocieristico/"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "overflow_berth_transfer_not_verified",
+        "miramare_hours_not_verified"
+      ],
+      "generated_at_utc": "2026-11-09T06:50:00.000Z",
+      "cache_key": null,
+      "landing_slug": "trieste-italy",
+      "stage59_trieste_pilot": true
+    }
+  }
+}
