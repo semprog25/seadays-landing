@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { stableStringify } = require('./lib/portResearchImport/jsonDiff');
+const { writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
 
 const REPO = path.join(__dirname, '..');
 const STAGE53 = path.join(REPO, 'qa-evidence', 'stage53-11-port-release');
@@ -56,7 +57,7 @@ function main() {
     fs.copyFileSync(htmlRollback, htmlLive);
   }
 
-  fs.writeFileSync(path.join(REPO, 'data/public-port-guides.json'), `${JSON.stringify(guides, null, 2)}\n`, 'utf8');
+  writePublicPortGuidesFile(REPO, guides);
 
   const oldManifest = JSON.parse(fs.readFileSync(path.join(STAGE53, 'STAGE53_RELEASE_MANIFEST.json'), 'utf8'));
   const ports = oldManifest.ports.filter((p) => APPROVED.includes(p.landing_slug));

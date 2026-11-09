@@ -30,6 +30,7 @@ const {
   buildSlugToAppPortIdMap,
   extractAllPublicPortGuides,
   writePublicPortGuidesFile,
+  sanitizeBootstrapPublicPortGuidesExtract,
 } = require('./lib/publicPortGuideAdapter');
 const {
   loadKnownAffiliatePortIds,
@@ -234,7 +235,7 @@ function main() {
 
   let guides = loadPublicPortGuidesFile(repoRoot);
   if (!guides?.byAppPortId || !Object.keys(guides.byAppPortId).length) {
-    guides = extractAllPublicPortGuides(appRoot);
+    guides = sanitizeBootstrapPublicPortGuidesExtract(extractAllPublicPortGuides(appRoot));
     writePublicPortGuidesFile(repoRoot, guides);
   }
   const terminals = loadTerminals(repoRoot);

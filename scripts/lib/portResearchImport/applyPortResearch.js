@@ -336,6 +336,8 @@ function computePolicyApply({
   };
 }
 
+const { writePublicPortGuidesFileAtomic } = require('../publicPortGuideAdapter');
+
 function atomicWriteJson(filePath, data) {
   const dir = path.dirname(filePath);
   fs.mkdirSync(dir, { recursive: true });
@@ -365,8 +367,14 @@ function writeApplyBatch({ landingRepoRoot, appPortId, guidesPayload, terminalsP
   const nextGuides = JSON.parse(JSON.stringify(guidesPayload));
   const nextTerminals = JSON.parse(JSON.stringify(terminalsPayload));
 
-  nextGuides.byAppPortId = nextGuides.byAppPortId || {};
-  nextGuides.byAppPortId[appPortId] = mergedGuide;
+  const { assignPublicPortGuideByAppPortId, assertPublicPortGuidesPayloadSafe } = require('../bulkPortPublication/crossCountryHomonymPublicationGuards');
+  assignPublicPortGuideByAppPortId(nextGuides, {
+    landingSlug: mergedGuide?.researchImport?.landing_slug,
+    appPortId,
+    guide: mergedGuide,
+    priorGuideAtSlot: guidesPayload?.byAppPortId?.[appPortId],
+  });
+  assertPublicPortGuidesPayloadSafe(nextGuides);
 
   if (!nextTerminals.byPortId) nextTerminals.byPortId = {};
   nextTerminals.byPortId[appPortId] = mergedTerminals;
@@ -376,7 +384,7 @@ function writeApplyBatch({ landingRepoRoot, appPortId, guidesPayload, terminalsP
   if (fs.existsSync(guidesPath)) fs.copyFileSync(guidesPath, guidesBackup);
   if (fs.existsSync(terminalsPath)) fs.copyFileSync(terminalsPath, terminalsBackup);
   try {
-    atomicWriteJson(guidesPath, nextGuides);
+    writePublicPortGuidesFileAtomic(landingRepoRoot, nextGuides);
     atomicWriteJson(terminalsPath, nextTerminals);
     fs.unlinkSync(guidesBackup);
     fs.unlinkSync(terminalsBackup);
@@ -398,12 +406,18 @@ function writeApplyBatch({ landingRepoRoot, appPortId, guidesPayload, terminalsP
 function writeContentOnlyGuide({ landingRepoRoot, appPortId, guidesPayload, nextGuide }) {
   const guidesPath = path.join(landingRepoRoot, 'data', 'public-port-guides.json');
   const nextGuides = JSON.parse(JSON.stringify(guidesPayload));
-  nextGuides.byAppPortId = nextGuides.byAppPortId || {};
-  nextGuides.byAppPortId[appPortId] = nextGuide;
+  const { assignPublicPortGuideByAppPortId, assertPublicPortGuidesPayloadSafe } = require('../bulkPortPublication/crossCountryHomonymPublicationGuards');
+  assignPublicPortGuideByAppPortId(nextGuides, {
+    landingSlug: nextGuide?.researchImport?.landing_slug,
+    appPortId,
+    guide: nextGuide,
+    priorGuideAtSlot: guidesPayload?.byAppPortId?.[appPortId],
+  });
+  assertPublicPortGuidesPayloadSafe(nextGuides);
   const guidesBackup = `${guidesPath}.bak-content-only-${process.pid}`;
   if (fs.existsSync(guidesPath)) fs.copyFileSync(guidesPath, guidesBackup);
   try {
-    atomicWriteJson(guidesPath, nextGuides);
+    writePublicPortGuidesFileAtomic(landingRepoRoot, nextGuides);
     if (fs.existsSync(guidesBackup)) fs.unlinkSync(guidesBackup);
   } catch (err) {
     if (fs.existsSync(guidesBackup)) fs.copyFileSync(guidesBackup, guidesPath);

@@ -9,6 +9,8 @@ const { loadPublicPortGuidesFile, writePublicPortGuidesFile } = require('./lib/p
 const { verifyResearchPortSha } = require('./lib/portResearchImport/verifyResearchSha');
 const { removeStage65ExcludedGuideEntries } = require('./lib/bulkPortPublication/stage65PublicationGuards');
 
+const { assignPublicPortGuideByAppPortId } = require('./lib/bulkPortPublication/crossCountryHomonymPublicationGuards');
+
 const REPO = path.join(__dirname, '..');
 const EVIDENCE = path.join(REPO, 'qa-evidence/stage66-next-50-recovery');
 const MANIFEST = path.join(EVIDENCE, 'STAGE66_NEXT_50_MANIFEST.json');
@@ -95,7 +97,7 @@ function main() {
       applied_at_utc: new Date().toISOString(),
       field_exclusions: row.field_exclusions || [],
     };
-    nextGuides.byAppPortId[row.app_port_id] = g;
+    assignPublicPortGuideByAppPortId(nextGuides, { landingSlug, appPortId: row.app_port_id, guide: g, priorGuideAtSlot: guides.byAppPortId[row.app_port_id] });
   }
 
   removeStage65ExcludedGuideEntries(nextGuides);

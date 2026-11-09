@@ -14,6 +14,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
 
 const REPO = path.join(__dirname, '..');
 const GUIDES_PATH = path.join(REPO, 'data', 'public-port-guides.json');
@@ -1176,7 +1177,7 @@ function main() {
   terminals.meta.phase1CorrectionPassAt = new Date().toISOString();
   overrides.updatedAt = new Date().toISOString();
 
-  writeJson(GUIDES_PATH, guides);
+  writePublicPortGuidesFile(REPO, guides);
   writeJson(TERMINALS_PATH, terminals);
   writeJson(OVERRIDES_PATH, overrides);
   writeJson(ACTIONS_PATH, { generatedAt: new Date().toISOString(), actions });

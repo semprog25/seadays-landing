@@ -466,12 +466,76 @@ function loadPublicPortGuidesFile(repoRoot) {
   }
 }
 
+function writeGuidesJsonAtomic(filePath, payload) {
+  const dir = path.dirname(filePath);
+  fs.mkdirSync(dir, { recursive: true });
+  const tmp = path.join(dir, `.${path.basename(filePath)}.${process.pid}.${Date.now()}.tmp`);
+  const content = `${JSON.stringify(payload, null, 2)}\n`;
+  try {
+    fs.writeFileSync(tmp, content, 'utf8');
+    fs.renameSync(tmp, filePath);
+  } catch (err) {
+    try {
+      if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
+    } catch (_e) {
+      /* ignore */
+    }
+    throw err;
+  }
+  return filePath;
+}
+
+function assertPublicPortGuidesBeforePersist(payload) {
+  const { assertPublicPortGuidesPayloadSafe } = require('./bulkPortPublication/crossCountryHomonymPublicationGuards');
+  assertPublicPortGuidesPayloadSafe(payload);
+}
+
 function writePublicPortGuidesFile(repoRoot, payload) {
+  assertPublicPortGuidesBeforePersist(payload);
   const dir = path.join(repoRoot, 'data');
   fs.mkdirSync(dir, { recursive: true });
   const p = path.join(dir, 'public-port-guides.json');
   fs.writeFileSync(p, JSON.stringify(payload, null, 2) + '\n', 'utf8');
   return p;
+}
+
+/** Same payload guard as writePublicPortGuidesFile; atomic rename for research apply batches. */
+function writePublicPortGuidesFileAtomic(repoRoot, payload) {
+  assertPublicPortGuidesBeforePersist(payload);
+  const p = path.join(repoRoot, 'data', 'public-port-guides.json');
+  return writeGuidesJsonAtomic(p, payload);
+}
+
+/**
+ * Empty-file bootstrap from app extract: drop unsafe cross-country homonym slots
+ * instead of failing the entire catalogue generation run.
+ */
+function sanitizeBootstrapPublicPortGuidesExtract(payload) {
+  const {
+    assertPublicPortGuidesPayloadSafe,
+    FALMOUTH_UK_APP_PORT_ID,
+    BLOCK_CODE,
+  } = require('./bulkPortPublication/crossCountryHomonymPublicationGuards');
+  const next = JSON.parse(JSON.stringify(payload || { byAppPortId: {} }));
+  if (!next.byAppPortId) next.byAppPortId = {};
+  const slot = next.byAppPortId[FALMOUTH_UK_APP_PORT_ID];
+  if (slot) {
+    try {
+      assertPublicPortGuidesPayloadSafe({ byAppPortId: { [FALMOUTH_UK_APP_PORT_ID]: slot } });
+    } catch (err) {
+      if (err.code === BLOCK_CODE) {
+        delete next.byAppPortId[FALMOUTH_UK_APP_PORT_ID];
+        next.meta = {
+          ...(next.meta || {}),
+          crossCountryHomonymBootstrapOmitted: [FALMOUTH_UK_APP_PORT_ID],
+        };
+      } else {
+        throw err;
+      }
+    }
+  }
+  assertPublicPortGuidesPayloadSafe(next);
+  return next;
 }
 
 module.exports = {
@@ -480,6 +544,8 @@ module.exports = {
   buildSlugToAppPortIdMap,
   loadPublicPortGuidesFile,
   writePublicPortGuidesFile,
+  writePublicPortGuidesFileAtomic,
+  sanitizeBootstrapPublicPortGuidesExtract,
   toPublicGuide,
   resolveGuideId,
   acceptGuideId,
