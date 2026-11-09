@@ -1,0 +1,34 @@
+{
+  "terminals": [
+    {
+      "name": "Argostoli cruise pier (north mole)",
+      "slug": "argostoli-cruise",
+      "description": "Approximate port-area reference — not a passenger door LTDKI states cruise approaches on the north section of the mole with alongside berthing; overflow may anchor/tender. Confirm programme. Map pin is a building or port-area centroid, not a guaranteed gangway or check-in door.",
+      "address": "Argostoli harbour, Kefalonia",
+      "latitude": null,
+      "longitude": null,
+      "terminal_type": "both",
+      "terminal_status": "active",
+      "is_primary": true,
+      "sort_order": 10,
+      "map_precision_tier": "none",
+      "map_precision_label": "No map pin — confirm gangway location on the daily programme."
+    }
+  ],
+  "gate": {
+    "gateReport": [
+      {
+        "terminal_id": "kefalonia-greece--argostoli-cruise",
+        "name": "Argostoli cruise pier (north mole)",
+        "importable": true,
+        "tier": "approximate_area",
+        "reasons": [
+          "approximate_area_pin"
+        ],
+        "lat": 38.1815838,
+        "lng": 20.4891844
+      }
+    ],
+    "importable_count": 1
+  }
+}
