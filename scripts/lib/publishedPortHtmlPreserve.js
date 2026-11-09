@@ -40,6 +40,13 @@ const FOOTER_SHELL_RE =
   /<!--\s*seadays-site-shell:footer\s*-->[\s\S]*?<!--\s*seadays-site-shell:footer-end\s+seadays-site-shell\s*-->/i;
 const MORE_READING_RE = /<section class="seo-cross-block" id="more-reading"[\s\S]*?<\/section>/i;
 const CONTEXTUAL_CTA_RE = /<p class="seo-inline-more seadays-contextual-cta"[\s\S]*?<\/p>/i;
+const THINGS_TO_DO_SECTION_RE = /<section class="pg-section" id="things-to-do"[\s\S]*?<\/section>/i;
+const GETTING_THERE_SECTION_RE = /<section class="pg-section" id="getting-there"[\s\S]*?<\/section>/i;
+const TRAVELER_QUESTIONS_SECTION_RE = /<section class="pg-section" id="traveler-questions"[\s\S]*?<\/section>/i;
+const QUICK_FACTS_SECTION_RE = /<section class="pg-section" id="quick-facts"[\s\S]*?<\/section>/i;
+const LEAD_GUIDE_RE = /<p class="pg-prose pg-lead-guide">[\s\S]*?<\/p>/i;
+const FAQ_JSON_LD_RE =
+  /<script type="application\/ld\+json">\s*\{[\s\S]*?"@type"\s*:\s*"FAQPage"[\s\S]*?<\/script>/i;
 
 /** Starfield init + optional directory runtime guard (signed-URL hygiene) before `</body>`. */
 const TAIL_FROM_STARFIELD_SCRIPT_RE =
@@ -72,6 +79,68 @@ function replaceSiteShellHeadStyleBlock(html, replacementBlock) {
   );
   if (!pattern.test(html)) return html;
   return String(html || '').replace(pattern, replacementBlock);
+}
+
+function countCallPlanArticleCards(html) {
+  return (String(html || '').match(/<article class="pg-call-plan-card/g) || []).length;
+}
+
+function passengerEditorialBodyScore(html) {
+  const s = String(html || '');
+  let score = countCallPlanArticleCards(s) * 20;
+  if (/<section[^>]*id="getting-there"[\s\S]*?<dl class="pg-facts">/.test(s)) score += 15;
+  if (/<section[^>]*id="traveler-questions"[\s\S]*?pg-qa-grid/.test(s)) score += 10;
+  if (/pg-lead-guide/.test(s)) score += 5;
+  if (/FAQPage/.test(s)) score += 5;
+  if (/pg-top-things-list/.test(s)) score += 5;
+  return score;
+}
+
+/**
+ * When catalogue regen emits stub prose but disk already has passenger editorial
+ * blocks, keep the richer on-disk body (guide JSON is source of truth).
+ */
+function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide) {
+  if (!existingHtml || !portGuide) return generatedHtml;
+  const { usesPassengerEditorialLead } = require('./publicGuideCopySanitize');
+  if (!usesPassengerEditorialLead(portGuide)) return generatedHtml;
+  if (passengerEditorialBodyScore(existingHtml) <= passengerEditorialBodyScore(generatedHtml)) {
+    return generatedHtml;
+  }
+  let html = generatedHtml;
+  for (const [re, existingBlock] of [
+    [THINGS_TO_DO_SECTION_RE, extractFirstMatch(existingHtml, THINGS_TO_DO_SECTION_RE)],
+    [GETTING_THERE_SECTION_RE, extractFirstMatch(existingHtml, GETTING_THERE_SECTION_RE)],
+    [TRAVELER_QUESTIONS_SECTION_RE, extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE)],
+    [QUICK_FACTS_SECTION_RE, extractFirstMatch(existingHtml, QUICK_FACTS_SECTION_RE)],
+  ]) {
+    if (existingBlock) html = replaceFirstMatch(html, re, existingBlock);
+  }
+  const lead = extractFirstMatch(existingHtml, LEAD_GUIDE_RE);
+  if (lead && !LEAD_GUIDE_RE.test(html)) {
+    html = html.replace(/(<nav class="port-jump"[\s\S]*?<\/nav>)/, `$1\n${lead}`);
+  }
+  const faqJsonLd = extractFirstMatch(existingHtml, FAQ_JSON_LD_RE);
+  if (faqJsonLd && !FAQ_JSON_LD_RE.test(html)) {
+    html = html.replace(
+      /(<script type="application\/ld\+json">[\s\S]*?BreadcrumbList[\s\S]*?<\/script>)/,
+      `$1\n  ${faqJsonLd}`
+    );
+  }
+  const existingDestinationLd = existingHtml.match(
+    /<script type="application\/ld\+json">\s*\{[\s\S]*?"@type"\s*:\s*"TouristDestination"[\s\S]*?<\/script>/
+  );
+  const generatedDestinationLd = html.match(
+    /<script type="application\/ld\+json">\s*\{[\s\S]*?"@type"\s*:\s*"TouristDestination"[\s\S]*?<\/script>/
+  );
+  if (existingDestinationLd && generatedDestinationLd) {
+    const existingDesc = /"description":"[^"]{20,}/.test(existingDestinationLd[0]);
+    const generatedDesc = /"description":"[^"]{20,}/.test(generatedDestinationLd[0]);
+    if (existingDesc && !generatedDesc) {
+      html = html.replace(generatedDestinationLd[0], existingDestinationLd[0]);
+    }
+  }
+  return html;
 }
 
 /**
@@ -137,6 +206,7 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
   if (existingTail && TAIL_FROM_STARFIELD_SCRIPT_RE.test(html)) {
     html = html.replace(TAIL_FROM_STARFIELD_SCRIPT_RE, existingTail);
   }
+  html = mergePassengerEditorialBodyPreservation(html, existingHtml, opts.portGuide);
   return html;
 }
 
@@ -154,6 +224,9 @@ module.exports = {
   extractSiteShellHeadStyleBlock,
   replaceSiteShellHeadStyleBlock,
   mergePublishedPortHtmlPreservation,
+  mergePassengerEditorialBodyPreservation,
+  countCallPlanArticleCards,
+  passengerEditorialBodyScore,
   replaceBookableExperiencesSection,
   sectionHasViatorAffiliate,
 };
