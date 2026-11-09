@@ -1,0 +1,53 @@
+{
+  "appPortId": "waterford",
+  "portName": "Waterford, Ireland",
+  "country": "Ireland",
+  "portInfo": {
+    "description": "Port of Waterford (commercial state company) lists cruise landings at Belview, Waterford city (berth reopening 2026), and Dunmore East. Belview is the main operations centre 8 km down the Suir from the city. Larger ships may anchor and tender into Dunmore East village. Confirm which of the three models your line uses before planning a walk-off day — city-quay reopening status must be checked against the live call list for 2026.",
+    "timezone": "",
+    "language": "",
+    "currency": ""
+  },
+  "thingsToDo": {
+    "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+    "topThings": [
+      "Waterford Viking Triangle / city museums — ~120 min.",
+      "Mount Congreve / regional gardens — coach; long call.",
+      "Waterford city historic centre"
+    ],
+    "shortCall": "Only realistic from City Quays or a fast Belview shuttle: city core (~90) + 75 min buffer. Tender days need larger buffers.",
+    "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+    "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+    "practicalTip": "Check whether 2026 calls use the reopened city berth, Belview, or Dunmore tender."
+  },
+  "researchImport": {
+    "landing_slug": "waterford-ireland",
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "d85e3ee303d7e5ec82114c20472edd20530aa811fc72097b7973ef8ce4fc3f30",
+    "candidate_content_hash": "a1e4b8092f47908ffed2428bce7a8b60edfff5ae84fbfb4b01d4502f9658d641",
+    "locked_at_utc": "2026-11-09T11:35:04.876Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage68_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false,
+    "identifier_confidence": "inferred_not_canonical"
+  },
+  "gettingThere": {
+    "fromTerminal": "Belview Port (cruise landing option) — Belview Port, Waterford",
+    "transportation": [
+      "Walking",
+      "Taxi",
+      "Coach excursion"
+    ],
+    "distanceToCity": "City Quays (when open): walk into the compact historic centre. Belview: plan shuttle/taxi for ~8 km. Dunmore East: tender then regional coach/taxi.",
+    "distanceAnswer": "City Quays (when open): walk into the compact historic centre. Belview: plan shuttle/taxi for ~8 km. Dunmore East: tender then regional coach/taxi.",
+    "walkingTime": "",
+    "taxiInfo": "",
+    "publicTransport": "City Quays (when open): walk into the compact historic centre. Belview: plan shuttle/taxi for ~8 km. Dunmore East: tender then regional coach/taxi."
+  },
+  "shorePlansFirst": true
+}

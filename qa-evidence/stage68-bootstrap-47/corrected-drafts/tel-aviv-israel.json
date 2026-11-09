@@ -1,0 +1,78 @@
+{
+  "landing_slug": "tel-aviv-israel",
+  "draft": {
+    "landing_slug": "tel-aviv-israel",
+    "appPortId": "tel-aviv",
+    "portName": "Tel Aviv",
+    "country": "Israel",
+    "portInfo": {
+      "description": "Tel Aviv is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Tel Aviv destination (ocean cruise pier not verified)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Usually motorcoach from Haifa (~1–1.5 h typical traffic-dependent — unverified) or Ashdod (shorter). Confirm onboard.",
+      "distanceAnswer": "Usually motorcoach from Haifa (~1–1.5 h typical traffic-dependent — unverified) or Ashdod (shorter). Confirm onboard.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Beach / promenade — ~180 min.",
+        "Jaffa Old City — culture walk.",
+        "Rothschild / museums — urban.",
+        "Tel Aviv beach / Rothschild / Jaffa"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not assume you can walk off a ship into downtown Tel Aviv."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8d88ace92c1948070a1581cb09bdf877fba713223a09ed40bb2e173c823f339b",
+      "existing_guide_hash": "9c1752f0a45f6287",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tel-aviv-israel.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.053Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

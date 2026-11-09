@@ -1,0 +1,78 @@
+{
+  "landing_slug": "angra-do-heroismo-azores-portugal",
+  "draft": {
+    "landing_slug": "angra-do-heroismo-azores-portugal",
+    "appPortId": "angra-do-heroismo",
+    "portName": "Angra do Heroísmo (Azores)",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "Angra do Heroísmo (Azores) is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Angra do Heroísmo / Terceira cruise landing — Angra do Heroísmo, Terceira, Azores",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Historic centre is typically near the harbour — confirm tender vs alongside.",
+      "distanceAnswer": "Historic centre is typically near the harbour — confirm tender vs alongside.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "UNESCO historic centre — ~150 min.",
+        "Monte Brasil views — walk.",
+        "Island interior — half day.",
+        "Angra do Heroísmo historic centre (UNESCO)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Atlantic swell can force tender cancellations — have a ship-day plan B."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "cc61c544002023e579e63f3ffdf1a138dd7f3aefe34bf7887e64597643fae7b9",
+      "existing_guide_hash": "ecf36ccfe6b31688",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/angra-do-heroismo-azores-portugal.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.954Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

@@ -1,0 +1,78 @@
+{
+  "landing_slug": "nordkapp-norway",
+  "draft": {
+    "landing_slug": "nordkapp-norway",
+    "appPortId": "nordkapp",
+    "portName": "Nordkapp",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Nordkapp is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Berth North (Port of North Cape / Honningsvåg) — Havnebygget Holmen 2, 9750 Honningsvåg",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Honningsvåg harbour / town — ~60–90 min (minutes not surveyed).",
+        "North Cape plateau — line/coach excursion — duration not verified here.",
+        "Seasonal Arctic experiences — framed by port as year-round destination; specifics not verified.",
+        "North Cape plateau (Nordkapp)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm which Honningsvåg berth you are on and whether a plateau coach is realistic for your all-aboard."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d878b789d80bfb1958629dc3506a76fa01585a3da13927a9d65c17b8f66971d8",
+      "existing_guide_hash": "bc1af01c8e7be95b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/nordkapp-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.009Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

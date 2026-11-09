@@ -1,0 +1,76 @@
+{
+  "landing_slug": "george-town-cayman-islands",
+  "draft": {
+    "landing_slug": "george-town-cayman-islands",
+    "appPortId": "george-town",
+    "portName": "George Town",
+    "country": "Cayman Islands",
+    "portInfo": {
+      "description": "PACI operates Port of George Town (19°18′N 81°23′W) with a Cruise Operations manager and published cruise-ship passenger/tender fees. Harbour cargo berths max out at 122 m LOA / 5.5 m draught, so typical cruise ships anchor and run tenders on VHF channel 10. Pre-arrival notification 24 hours ahead supports immigration pre-clearance so guests can start disembarking on arrival when granted. Weather can halt berthing with SW–NW onshore winds; daylight berthing only below 17 kt sustained for alongside moves."
+    },
+    "gettingThere": {
+      "fromTerminal": "North Terminal (tender landing) — Harbour Drive, George Town",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Tender ashore to Harbour Drive terminals. Exact tender ride minutes not stated as a single figure on PACI page — budget queue time both ways. Published illustrative bus fares from GT Port exist (e.g. beaches) — treat as PACI table subject to change.",
+      "distanceAnswer": "Tender ashore to Harbour Drive terminals. Exact tender ride minutes not stated as a single figure on PACI page — budget queue time both ways. Published illustrative bus fares from GT Port exist (e.g. beaches) — treat as PACI table subject to change.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "George Town harbour streets / shopping — ~90 min.",
+        "Seven Mile Beach — transfer; fare table on PACI.",
+        "Stingray / island tours — line or licensed operators; not verified individually here.",
+        "George Town harbour / duty-free streets"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Tender cancellations happen in rough weather — have a ship-day backup."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "de760911b8487190258075fcffae1470b3c444a0e0e16fe167fca65d65dd4d90",
+      "existing_guide_hash": "31dedc1bd4845d08",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/george-town-cayman-islands.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.918Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

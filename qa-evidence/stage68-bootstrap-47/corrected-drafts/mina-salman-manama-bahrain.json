@@ -1,0 +1,76 @@
+{
+  "landing_slug": "mina-salman-manama-bahrain",
+  "draft": {
+    "landing_slug": "mina-salman-manama-bahrain",
+    "appPortId": "mina-salman",
+    "portName": "Mina Salman (Manama)",
+    "country": "Bahrain",
+    "portInfo": {
+      "description": "Mina Salman is Bahrain’s historic Manama-area commercial harbour name that still appears on many cruise itineraries as “Mina Salman–Manama.” The Bahrain National Portal’s Borders and Ports briefing instead highlights Khalifa Bin Salman Port (opened 2009) as the strategic northern Gulf gateway that accommodates cruise ships alongside containers and cargo, under Ports and Maritime Affairs oversight. APM Terminals Bahrain operates KBSP and describes a dedicated passenger terminal for cruise and ferry calls; corporate reporting also references the earlier Mina Salman concession period as historical context. Until a line-issued berth plan or PMA notice shows a Mina Salman quay still receiving large cruise ships, treat KBSP as the evidenced cruise facility and keep Mina Salman metrics null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Mina Salman harbour area (historic) — cruise usually KBSP — Mina Salman / Manama waterfront (historic commercial harbour)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "If berthed at KBSP, Manama is a road transfer; if a rare city-side landing occurs, follow the ship’s map — not assumed here.",
+      "distanceAnswer": "If berthed at KBSP, Manama is a road transfer; if a rare city-side landing occurs, follow the ship’s map — not assumed here.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Manama souq — ~90 min.",
+        "Bahrain Fort — allow transit.",
+        "Museum / mosque visits — check dress codes.",
+        "Manama waterfront / souq (if pier near city)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask guest services whether today’s pier label “Mina Salman” actually means KBSP."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0b67f3e68b7604b702958e97674a81877cc8f942c3cbf710bea0f0beddbd4030",
+      "existing_guide_hash": "49aa6b3914dff92e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/mina-salman-manama-bahrain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.001Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

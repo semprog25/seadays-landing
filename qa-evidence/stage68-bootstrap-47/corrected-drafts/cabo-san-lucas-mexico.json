@@ -1,0 +1,77 @@
+{
+  "landing_slug": "cabo-san-lucas-mexico",
+  "draft": {
+    "landing_slug": "cabo-san-lucas-mexico",
+    "appPortId": "cabo-san-lucas",
+    "portName": "Cabo San Lucas",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "Cabo San Lucas at the tip of Baja California Sur is a classic Mexican Riviera tender port. A Secretaría de Marina (SEMAR) port questionnaire for Cabo San Lucas describes three first-class marinas, notes public-service tenders, and states that cruise ships are transported to the port by tenders. Marina Cabo San Lucas is located on Paseo de la Marina 853, Col. Centro, with shipyard services noted in the same document. Alongside berthing for large cruise ships is Not verified in that primary questionnaire — plan for tender weather delays. Puerto Los Cabos (San José del Cabo) is a different marina complex; do not merge without sailing documents."
+    },
+    "gettingThere": {
+      "fromTerminal": "Cabo San Lucas Marina tender landing (public tenders) — Marina / Paseo de la Marina area, Centro, Cabo San Lucas, B.C.S. (SEMAR notes Marina Cabo San Lucas on Paseo de la Marina 853 Col. Centro)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Ship → shore. Tender to marina; queue risk in swell. Airport (SJD). Transfer minutes from marina Not verified in SEMAR doc. Downtown. Marina boardwalk adjacency framed by tourism geography; walk minutes Not verified.",
+      "distanceAnswer": "Ship → shore. Tender to marina; queue risk in swell. Airport (SJD). Transfer minutes from marina Not verified in SEMAR doc. Downtown. Marina boardwalk adjacency framed by tourism geography; walk minutes Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Marina / downtown Cabo — after tender — ~90 min.",
+        "El Arco boat tour — ~120 min including tender buffer.",
+        "Médano Beach — short hop.",
+        "Lover’s Beach (boat) — weather/swell dependent.",
+        "Todos Santos day trip — organised long buffer only."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Build a tender-weather buffer before any inland tour — SEMAR documents tender conveyance as the cruise access mode."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "dd1160f88f8bce262bcedb927bdcbd7e3c2253dec28e075e04e8d5e89531719d",
+      "existing_guide_hash": "29227af4eee36c57",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/cabo-san-lucas-mexico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.960Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

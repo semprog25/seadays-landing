@@ -1,0 +1,76 @@
+{
+  "landing_slug": "half-moon-cay-bahamas",
+  "draft": {
+    "landing_slug": "half-moon-cay-bahamas",
+    "appPortId": "half-moon-cay",
+    "portName": "Half Moon Cay",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Half Moon Cay (Little San Salvador) is the Bahamas private-island product long associated with Holland America Line and now branded RelaxAway, Half Moon Cay. The HAL destination page frames it as a low-crowd beach day with roaming drinks carts, snorkel/kayak rentals, pickleball, Destination Dining BBQ and Lobster Shack, plus cabanas and Deluxe Beach Villas. A 10 Dec 2024 joint release with Carnival Cruise Line announces a multi-year enhancement: distinct south and north welcome plazas over more than one mile of beach, a refreshed south-side Beach Club, a newly developed north side with lunch venues/bars/tram, and a newly constructed north pier intended to allow ships to dock — including Carnival Excel-class ships visiting for the first time — with completion beginning summer 2026 and continuing through year-end. Until that pier is confirmed in service for a given sailing, treat transfer mode (tender vs alongside) as ship-day specific. This is a private / cruise-line destination, not a public ferry harbour."
+    },
+    "gettingThere": {
+      "fromTerminal": "RelaxAway, Half Moon Cay island landing — Half Moon Cay (Little San Salvador), Bahamas",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Ship transfer arranged by the calling line. Budget tender queues if still tendering; planned north pier may change logistics after mid-2026. Use 75 / 90 / 120 min return buffers by call length.",
+      "distanceAnswer": "Ship transfer arranged by the calling line. Budget tender queues if still tendering; planned north pier may change logistics after mid-2026. Use 75 / 90 / 120 min return buffers by call length.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Beach / Beach Club lounging — ~half-day.",
+        "Water rentals / snorkel — fees/hours not itemised on extract.",
+        "Horseback / other shore excursions marketed by HAL — book via ship."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not assume “always tender” or “always dock” during 2026 expansion — check the day’s port notes."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "1abc87bdfa7d97243ec1913b36116959c55014ab442e182a80b015730fda0d5f",
+      "existing_guide_hash": "74b8526624c0967f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/half-moon-cay-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_attraction"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.976Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

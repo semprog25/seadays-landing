@@ -1,0 +1,77 @@
+{
+  "landing_slug": "ras-al-khaimah-united-arab-emirates",
+  "draft": {
+    "landing_slug": "ras-al-khaimah-united-arab-emirates",
+    "appPortId": "ras-al-khaimah",
+    "portName": "Ras Al Khaimah",
+    "country": "United Arab Emirates",
+    "portInfo": {
+      "description": "RAK Ports operates several harbours; cruise is hosted at Ras Al Khaimah Port, described as a city-centre port with a modern passenger/cruise terminal beside Old Town. The cruise services page states the dedicated terminal accepts boutique cruise vessels up to 214 metres LOA, with e-gate immigration/customs, concierge, café, wifi and wheelchair accessibility. The May 2024 Ruling Depth & UKC manual (RP MD 005 V7.0) separately states maximum turning size guidance and that cruise vessels up to 210 m and 6.9 m draft (others case-by-case) use the harbour, listing Jetty 4–6 and 8 as cruise berths with lengths 125 / 125 / 130 / 180 m and ruling depths around 7.5 m on those jetties. Saqr Port / Free Zone is the emirate’s industrial bulk hub and is not treated here as the cruise pier. Door GPS remains null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ras Al Khaimah Port Cruise Terminal",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Old Town / museum / corniche are described as close; malls ~10 minutes by road per RAK Ports. Confirm gate exit with the ship.",
+      "distanceAnswer": "Old Town / museum / corniche are described as close; malls ~10 minutes by road per RAK Ports. Confirm gate exit with the ship.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Old Town / museum / corniche — ~120 min.",
+        "Manar or Naeem Mall — ~10 min drive claimed.",
+        "Jebel Jais — long road; only on long calls.",
+        "Ras Al Khaimah Old Town / Museum / Corniche"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not confuse Saqr industrial port with the city-centre cruise terminal."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e3fd24f9d620c5adf2cf4c3aa2ffd2bcddd8765442faa2374aeb4a08685d8500",
+      "existing_guide_hash": "af4f30fa53c80f2f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ras-al-khaimah-united-arab-emirates.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.019Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

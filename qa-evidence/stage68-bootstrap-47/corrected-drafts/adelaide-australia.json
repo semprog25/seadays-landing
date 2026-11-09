@@ -1,0 +1,76 @@
+{
+  "landing_slug": "adelaide-australia",
+  "draft": {
+    "landing_slug": "adelaide-australia",
+    "appPortId": "adelaide",
+    "portName": "Adelaide",
+    "country": "Australia",
+    "portInfo": {
+      "description": "Flinders Ports is South Australia’s leading private port operator, owning Port Adelaide and six regional ports. The company describes Outer Harbor’s shipping channel as a busy hub where hundreds of trade and cruise vessels move goods and tourists into and out of South Australia. Contact listed: 296 St Vincent Street, Port Adelaide SA 5015; +61 8 8447 0611. A dedicated passenger-terminal specification page was not captured (deep URL 404), so berth length/depth and door GPS remain null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port Adelaide / Outer Harbor cruise landing — Outer Harbor / Port Adelaide, South Australia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Plan a road transfer from Outer Harbor to North Terrace / CBD.",
+      "distanceAnswer": "Plan a road transfer from Outer Harbor to North Terrace / CBD.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "North Terrace museums / gardens — ~180 min.",
+        "Central Market — food.",
+        "Hills or Barossa — long-call only.",
+        "Adelaide CBD / North Terrace museums"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Outer Harbor is not walkable to CBD — budget transfer time."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4352cf619090e9e100fac133f312e045f469deb421d8938cbb8514e8728909f5",
+      "existing_guide_hash": "f7a5227b63c024af",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/adelaide-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.946Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

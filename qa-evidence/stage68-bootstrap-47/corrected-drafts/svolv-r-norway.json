@@ -1,0 +1,75 @@
+{
+  "landing_slug": "svolv-r-norway",
+  "draft": {
+    "landing_slug": "svolv-r-norway",
+    "appPortId": "svolvaer",
+    "portName": "Svolvær",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Svolvær is Lofoten’s administrative town harbour under Vågan Havnevesen KF, with separate west and east cruise-capable harbours. Visit Lofoten Cruise publishes the LOA/depth caps above and notes east-side tender distance 0.6 n. The municipal Øst page describes ~400 m of public quay used by Hurtigruten, cruise and cargo, with a stated depth limit of 7 m and weather drag from the southwest — reconcile with the 6 m Visit Lofoten figure before import. Door GPS null. Broader Lofoten landings also use Leknes (lofoten-islands-norway)."
+    },
+    "gettingThere": {
+      "fromTerminal": "Svolvær harbour west — Svolvær, Vågan",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Visit Lofoten Cruise frames both harbours as right by town / walk-ashore. Independent minute survey not done — gap. East vs west start points differ — confirm with the line.",
+      "distanceAnswer": "Visit Lofoten Cruise frames both harbours as right by town / walk-ashore. Independent minute survey not done — gap. East vs west start points differ — confirm with the line.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Svolvær harbour / town centre — ~60–90 min.",
+        "Magic Ice — ~15–45 min; hours not verified.",
+        "Trollfjord boat / RIB — line products; durations as sold.",
+        "Magic Ice"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask east vs west harbour before assuming a flat town walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6de777dbd2101af41fb870601ddea04a043fdaf5bc21ee3db0bbe4548cc38194",
+      "existing_guide_hash": "193f644f1382da18",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/svolv-r-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.045Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

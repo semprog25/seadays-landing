@@ -1,0 +1,77 @@
+{
+  "landing_slug": "valparaiso-chile",
+  "draft": {
+    "landing_slug": "valparaiso-chile",
+    "appPortId": "valparaiso",
+    "portName": "Valparaiso",
+    "country": "Chile",
+    "portInfo": {
+      "description": "Valparaíso is Chile’s classic Pacific cruise call and UNESCO-listed port city. Empresa Portuaria Valparaíso operates a 5,200 m² passenger terminal with inspection zones and a shuttle link from the working berths. The 2026–27 season calendar on the same page lists ships at TPV and TPS terminals with published LOAs. Do not confuse with San Antonio (separate SeaDays slug) though both serve the Santiago market."
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal de Pasajeros Puerto Valparaíso — Av. Errázuriz #25, Valparaíso, Chile",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Port shuttle to passenger terminal. City hills via ascensores/taxis. Santiago coaches ~120 km / <2 h claim — treat as operator claim; traffic can vary.",
+      "distanceAnswer": "Port shuttle to passenger terminal. City hills via ascensores/taxis. Santiago coaches ~120 km / <2 h claim — treat as operator claim; traffic can vary.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cerro Alegre / Concepción street art — core call.",
+        "Ascensores / viewpoints — iconic.",
+        "Viña del Mar — short coastal hop.",
+        "Santiago day — long call/homeport only.",
+        "Valparaíso cerros / Ascensores"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Budget time for the port shuttle plus steep streets — elevators/ascensores help."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6744b148852be36b6b2f71a4e7f1b1c53e8280ce736f9b6544d47cd62983da82",
+      "existing_guide_hash": "375c6824ec030115",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/valparaiso-chile.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.055Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

@@ -1047,7 +1047,7 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
     shoreFirst ? '' : things,
     buildWeatherMergedSection(guide, port, gate),
     buildEntryCollapsedSection(guide, gate, city, port),
-    buildTravelerQuestionsSection(guide, city, { gate, portSlug: port?.slug }),
+    buildTravelerQuestionsSection(guide, city, { gate: createSentenceGate(), portSlug: port?.slug }),
     buildSinglePortAppPrompt(city),
   ]
     .filter(Boolean)

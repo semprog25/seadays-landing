@@ -1,0 +1,78 @@
+{
+  "landing_slug": "bar-harbor-me-united-states",
+  "draft": {
+    "landing_slug": "bar-harbor-me-united-states",
+    "appPortId": "bar-harbor",
+    "portName": "Bar Harbor",
+    "country": "United States",
+    "portInfo": {
+      "description": "Bar Harbor on Mount Desert Island is Acadia National Park’s cruise gateway. The Town of Bar Harbor’s Cruise Ship Information page states that property owners need permits to disembark cruise passengers under Land Use §125-77(H), that the Town itself operates a licensed Cruise Ship Disembarkation Facility at Ells Pier (commonly the Town Pier), and that it is accepting disembarkation there under a Docking Use Agreement with American Cruise Lines, with a posted 2026 ACL schedule. The same page lists selected 2026 Norwegian Breakaway and Norwegian Jewel visit dates and links Chapter 52 (adopted 18 Jun 2024, effective 18 Jul 2024) plus litigation materials. Exact pier coordinates and whether each listed sailing uses alongside docking versus tender are Not verified beyond the town’s facility naming — pins null; treat as tender-capable planning."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ells Pier (Town Pier) — Town of Bar Harbor Cruise Ship Disembarkation Facility",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Bar Harbor village / Shore Path — immediate if landed at Town Pier — ~90 min.",
+        "Acadia National Park — Cadillac Mountain / Park Loop — organised or Island Explorer — ~240 min.",
+        "Jordan Pond — mid/long call.",
+        "Carriage roads bike — weather-dependent.",
+        "Whale watch (organised) — only with guaranteed return."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the Town’s current Cruise Ship Information page before travel — disembarkation permitting and which lines may use Ells Pier have been actively managed and litigated."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6ac08401417e0532f76d3ed96639f82e1054fdec8392919ae1bb6aef5302b889",
+      "existing_guide_hash": "f9e27aa0638949ba",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bar-harbor-me-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.957Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

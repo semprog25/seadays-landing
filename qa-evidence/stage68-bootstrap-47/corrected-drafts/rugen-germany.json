@@ -1,0 +1,76 @@
+{
+  "landing_slug": "rugen-germany",
+  "draft": {
+    "landing_slug": "rugen-germany",
+    "appPortId": "rugen",
+    "portName": "Rügen",
+    "country": "Germany",
+    "portInfo": {
+      "description": "SeaDays lists Rügen as its own catalog obligation, but the live directory card redirects to sassnitz-mukran-germany. This guide therefore describes the island product and points landings to facilities published by Mukran Port / Fährhafen Sassnitz GmbH, without inventing a third terminal or merging port_id values. Mukran’s sea-port cruise facts table compares Mukran Port vs Sassnitz City Harbour (quay counts, LOA/draught, city distances, tendering rules). Tourism copy places the port ~12 km south of UNESCO Nationalpark Jasmund and lists Binz, Putbus, Kap Arkona and Stralsund as excursion geography."
+    },
+    "gettingThere": {
+      "fromTerminal": "Rügen island cruise landing (see Sassnitz / Mukran)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "From Mukran, plan a coach/taxi for the 6.5 km into Sassnitz or onward to Jasmund/Binz. From City Harbour, centre is 0.6 km. Exact shuttle products are line-dependent and not verified here.",
+      "distanceAnswer": "From Mukran, plan a coach/taxi for the 6.5 km into Sassnitz or onward to Jasmund/Binz. From City Harbour, centre is 0.6 km. Exact shuttle products are line-dependent and not verified here.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Nationalpark Jasmund / chalk coast — long call; transfer from Mukran required.",
+        "Sassnitz mole / harbour — short call if berthed at City Harbour.",
+        "Binz / Kap Arkona — coach timing not verified.",
+        "Nationalpark Jasmund / chalk coast"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask whether the ship uses Mukran or Stadthafen Sassnitz — city distance differs by ~6 km."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "aa2d064a8190d3e74259e1eb2dbfdaba253c7a2a4f387f6bc4d9cdc07fa00021",
+      "existing_guide_hash": "c7e1d71d8f306fd1",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/rugen-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.025Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

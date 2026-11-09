@@ -1,0 +1,76 @@
+{
+  "landing_slug": "oslo-norway",
+  "draft": {
+    "landing_slug": "oslo-norway",
+    "appPortId": "oslo",
+    "portName": "Oslo",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Oslo Havn frames Oslo as a cruise destination combining urban waterfront and nature access. Cruise traffic uses two terminals: Revierkaia, described as the main cruise quay with shore power, and Filipstad, used until future urban redevelopment, with shore power for cruise ships noted as planned on the captured page. The port states quays in central Oslo are usually open to the public and points to an Oslo Cruise Port Manual for operational detail. Without published LOA/depth tables on the captured English page, berth metrics stay null beyond the named terminals."
+    },
+    "gettingThere": {
+      "fromTerminal": "Revierkaia — Revierkaia, Oslo",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Revierkaia is central; Filipstad may need tram/taxi — confirm onboard.",
+      "distanceAnswer": "Revierkaia is central; Filipstad may need tram/taxi — confirm onboard.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Opera House / Bjørvika — ~90 min from central quay.",
+        "Frogner Park / Vigeland — allow transit time.",
+        "Oslo Opera House / Bjørvika waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Revierkaia vs Filipstad before assuming a short walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "134152278e9d571426ad51af952f763eb25c4f09ec496394daf210fd9dd30c8e",
+      "existing_guide_hash": "f1ad0a5e2fb1d909",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/oslo-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.925Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_FACT_CHECK",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

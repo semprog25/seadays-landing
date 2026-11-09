@@ -1,0 +1,76 @@
+{
+  "landing_slug": "great-stirrup-cay-bahamas",
+  "draft": {
+    "landing_slug": "great-stirrup-cay-bahamas",
+    "appPortId": "great-stirrup-cay",
+    "portName": "Great Stirrup Cay",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Norwegian Cruise Line presents Great Stirrup Cay as its private Bahamas island destination, highlighting the Great Tides Waterpark (Tidal Tower slides, Wandering River ~250 m, Cliffside Cove, Splash Cay) alongside beach time. Access is for guests on scheduled NCL calls — not a public ferry port. Pier/tender minutes and capacity figures were not listed as engineering data on the marketing page used; keep pins null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Great Stirrup Cay tender / pier landing — Great Stirrup Cay, Bahamas",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Ship transfer arranged by NCL. Budget tender queues; 75–90 min return buffer on short calls.",
+      "distanceAnswer": "Ship transfer arranged by NCL. Budget tender queues; 75–90 min return buffer on short calls.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Beach.",
+        "Great Tides Waterpark — hours/fees not itemised on extract.",
+        "Great Tides Waterpark / beaches"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Private island — no independent town visit."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7ce447b1500be6d5cbf2d223251f3690d7437f40a6691e9210950becc14a5f9c",
+      "existing_guide_hash": "b05d2d831a8f76eb",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/great-stirrup-cay-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.973Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

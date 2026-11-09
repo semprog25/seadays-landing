@@ -157,7 +157,17 @@ function aliasRedirectLabel(aliasSlug, targetSlug, seoPortsBySlug) {
  * Write standalone + alias redirect pages. Safe to call after orphan cleanup.
  * @returns {{ written: string[], aliasCount: number, standaloneCount: number }}
  */
+function parseStage68StandaloneAliasSlugs() {
+  return new Set(
+    String(process.env.STAGE68_PUBLICATION_STANDALONE_ALIAS_SLUGS || '')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean)
+  );
+}
+
 function writePortSeoRedirectPages(repoRoot, seoPorts = []) {
+  const standaloneAliasSlugs = parseStage68StandaloneAliasSlugs();
   const bySlug = new Map(
     (Array.isArray(seoPorts) ? seoPorts : []).map((p) => [String(p.slug || ''), p])
   );
@@ -185,6 +195,7 @@ function writePortSeoRedirectPages(repoRoot, seoPorts = []) {
   }
 
   for (const [aliasSlug, targetSlug] of Object.entries(PORT_ALIAS_REDIRECTS)) {
+    if (standaloneAliasSlugs.has(aliasSlug)) continue;
     const dir = path.join(repoRoot, 'ports', aliasSlug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(
