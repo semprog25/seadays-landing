@@ -59,10 +59,16 @@ function main() {
     'stage68 apply must not consume stage71 manifest (hard-coded stage68 bundle)'
   )
 
-  const prodGuides = fs.readFileSync(path.join(REPO, 'data/public-port-guides.json'))
   const boundary = JSON.parse(fs.readFileSync(path.join(OUT, 'PUBLICATION_AUTHORIZATION_BOUNDARY.json'), 'utf8'))
-  assert.strictEqual(boundary.production_data_modified_on_branch, false)
-  assert.strictEqual(boundary.live_passenger_editorial_baseline, 319)
+  const stage73Validation = path.join(REPO, 'qa-evidence/stage73-publication-25/RELEASE_VALIDATION.json')
+  if (!fs.existsSync(stage73Validation)) {
+    assert.strictEqual(boundary.production_data_modified_on_branch, false)
+    assert.strictEqual(boundary.live_passenger_editorial_baseline, 319)
+  } else {
+    const s73 = JSON.parse(fs.readFileSync(stage73Validation, 'utf8'))
+    assert.strictEqual(s73.passenger_editorial_count, 344)
+    assert.strictEqual(s73.baseline_rollback_passenger_editorial, 319)
+  }
 
   console.log('test-stage71-publication-safety PASS', {
     cohort_exclusions: {

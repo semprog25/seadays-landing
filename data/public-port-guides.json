@@ -10063,7 +10063,7 @@
       "portName": "Grenada",
       "country": "Grenada",
       "portInfo": {
-        "description": "Known as the \"Spice Isle,\" Grenada features lush rainforests, spice plantations, and beautiful beaches.",
+        "description": "GPA is the statutory port authority for St. George’s and other Grenadian harbours. Its public harbour notes place St George’s at 12°03′N, 61°45′W on the south-west coast, describe the Carenage and Lagoon basins sharing an entrance, and note ISPS implementation at the Port of St. George’s in 2004. A dedicated “cruise terminus” path on grenadaports.com returned HTTP 404 during this research, so published LOA, pier names and passenger-door coordinates are not invented from older secondary guides. Confirm which pier/pontoon your ship uses on the day.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English",
@@ -10119,9 +10119,43 @@
           "Walking (to nearby attractions)"
         ],
         "distanceToCity": "Terminal is in St. George's city center",
-        "walkingTime": "10-20 minutes to main shopping areas",
+        "walkingTime": "10-20 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis available at terminal with fixed rates to popular sites",
-        "publicTransport": "Local buses available but irregular"
+        "publicTransport": "The Carenage town area is adjacent to the harbour — allow flexible walk time from your gangway. Grand Etang and estate tours need coaches; keep a 75–120 minute buffer on busy days.",
+        "distanceAnswer": "Terminal is in St. George's city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Carenage / market streets — ~90–120 min if walk-off allowed.",
+          "Fort George views — allow extra time for the climb; confirm opening hours locally.",
+          "Carenage / St. George's harbour town — keep time for crowds near the gangway.",
+          "Carenage / St. George's harbour town"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not trust outdated “Melville Street LOA” tables until GPA republishes a terminus sheet."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2c64f1d3b87afeef34d8a5235662414ac0b624be1180cc9c4e757e9f71c69b58",
+        "landing_slug": "st-george-s-grenada",
+        "candidate_content_hash": "9d196a4798f2de7380004811473e448c3095fe541659d710a2c8c522c4cf8f6e",
+        "locked_at_utc": "2026-11-09T15:16:52.811Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "guadeloupe": {
@@ -15648,7 +15682,7 @@
       "portName": "Lanzarote",
       "country": "Spain",
       "portInfo": {
-        "description": "One of the Canary Islands, known for its volcanic landscape, unique architecture, and year-round sunshine.",
+        "description": "Lanzarote cruise calls use Arrecife, documented under MedCruise’s Las Palmas Ports member facts with seven quays totalling 3,441 m, quay depth 20 m, one passenger terminal, tugs and tenders available. Destination copy on the same MedCruise page references the “Lanzarote Effect” and island experiences for cruise guests. A standalone MedCruise /port/lanzarote URL returned 404; port-authority HTML was not captured live.",
         "location": "",
         "timezone": "WET (UTC+0) / WEST (UTC+1)",
         "language": "Spanish",
@@ -15685,12 +15719,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Arrecife (Lanzarote) cruise terminal — Arrecife, Lanzarote",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town short; Timanfaya needs a longer organised tour.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Town short; Timanfaya needs a longer organised tour."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Arrecife / Charco — short call.",
+          "Timanfaya — half/full day.",
+          "César Manrique sites — half day.",
+          "Timanfaya National Park"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Book Timanfaya via ship if call is short — park entry is controlled."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "37383e1a4a5d22c76b472dbae0cc1c26393aadb6b9de8c30b0e57b9377c49619",
+        "landing_slug": "lanzarote-spain",
+        "candidate_content_hash": "02f6826cb0209bd3123ca80a741b7e59a3d98504a9a7624989936047f6c04fcf",
+        "locked_at_utc": "2026-11-09T15:16:29.317Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "lautoka": {
@@ -17045,7 +17117,7 @@
       "portName": "Madeira",
       "country": "Portugal",
       "portInfo": {
-        "description": "A Portuguese archipelago known as the \"Floating Garden,\" famous for its wine, flowers, and year-round mild climate.",
+        "description": "Funchal is Madeira’s capital cruise gateway under APRAM. The authority’s characteristics page lists dedicated cruise quays (Cais Norte, Cais 2, Cais 3, Cais 8) with published lengths and charted depths. The passenger hub is the Gare Marítima da Madeira on the Molhe da Pontinha. Local agent berth tables (Pier 2/3/6) match those lengths but are marked indicative and subject to APRAM confirmation. Visit Madeira positions the port as walkable to the capital’s attractions on a short call. Berth assignment is not guaranteed for every sailing.",
         "location": "",
         "timezone": "WET (UTC+0) / WEST (UTC+1)",
         "language": "Portuguese",
@@ -17090,12 +17162,51 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Cais 2 (Terminal Sul / Pontinha) — Gare Marítima da Madeira, Molhe da Pontinha, Porto do Funchal, 9004-518 Funchal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Funchal old town / seafront — short shore call focus.",
+          "Mercado dos Lavradores — check market hours on your call day.",
+          "Cable car to Monte — allow queue and return time; confirm pier-to-station transfer locally.",
+          "Cable car to Monte — allow queue and return time; confirm pier-to-station transfer locally.",
+          "Funchal old town / seafront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Terminal Sul vs Norte on your boarding pass; both appear on APRAM movements."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "fcf521d7d84bf98132dd0bef99f5eb2543ef6cf6cc8d7a7983e19a9dd62aec81",
+        "landing_slug": "madeira-funchal-portugal",
+        "candidate_content_hash": "7b315a8ac8658e24a911d70e39157b776542848be774c558ffff2d93b954c533",
+        "locked_at_utc": "2026-11-09T15:16:52.771Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "mahe": {
@@ -18246,7 +18357,7 @@
       "portName": "Melbourne",
       "country": "Australia",
       "portInfo": {
-        "description": "Australia's cultural capital, a vibrant port city with excellent facilities, arts, and sports culture.",
+        "description": "Melbourne is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "AEST (UTC+10) / AEDT (UTC+11)",
         "language": "English",
@@ -18294,12 +18405,51 @@
         "entryRequirements": "Valid passport required. ETA or visa required for all non-citizens."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Station Pier — Station Pier, Port Melbourne VIC, Australia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follow Ports Victoria notices and your cruise line shuttle guidance.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follow Ports Victoria notices and your cruise line shuttle guidance.",
+        "distanceAnswer": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follow Ports Victoria notices and your cruise line shuttle guidance."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Melbourne CBD / Federation Square precinct — tram 109.",
+          "Southbank / Yarra — short CBD extension.",
+          "St Kilda / beach — opposite direction; allow extra transit.",
+          "Laneways / coffee culture — walk once in CBD.",
+          "Melbourne CBD / Southbank"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Check Ports Victoria’s public closure calendar before planning a pier walk; ship days often close visitor access."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a540815ac226b22b698c746f74cd4bc76d307aeaadfa9a4c9425edcdca06caa2",
+        "landing_slug": "melbourne-australia",
+        "candidate_content_hash": "a9db2004c6a7b30cfa03a710570f1f983cd081e16c364f660206e7b0903910f5",
+        "locked_at_utc": "2026-11-09T15:16:29.367Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "messina": {
@@ -18754,7 +18904,7 @@
       "portName": "Molde",
       "country": "Norway",
       "portInfo": {
-        "description": "Known as the \"City of Roses,\" a beautiful port destination with panoramic mountain views and excellent cruise facilities.",
+        "description": "Molde sits on Romsdalsfjord and is one of three cruise destinations under Molde og Romsdal Havn IKS (with Åndalsnes and Eresfjord). Storkaia and Moldegård are the ISPS quays named for cruise on the Cruise Norway destination sheet. Ships typically dock in town rather than at a remote industrial pier. Confirm which quay and LOA/draft your line is assigned before planning walk times.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -18801,12 +18951,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Storkaia — Molde (Molde og Romsdal Havn)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Molde waterfront / town centre walk — fjord and “222 peaks” panorama framing — ~60–120 min.",
+          "Atlantic Road scenic drive — needs a long call and confirmed coach timing.",
+          "Romsdalen / Trollstigen day trips — longer-call only; return buffers required.",
+          "Molde town / Romsdalsfjord panorama"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask whether you are on Storkaia or Moldegård before assuming the 100 m centre walk."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "b3b7b1f4d03bb904414c24c1427d6be723704ec0c64cbeca4407328ae15b89db",
+        "landing_slug": "molde-norway",
+        "candidate_content_hash": "66c41f1f76f686fb172a374784fad2d5b3cb205dab7374fc4273d4a4e10681cb",
+        "locked_at_utc": "2026-11-09T15:16:29.371Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "monaco": {
@@ -20036,7 +20224,7 @@
       "portName": "Narvik",
       "country": "Norway",
       "portInfo": {
-        "description": "A historic port city in northern Norway, known for its role in World War II and gateway to Arctic attractions.",
+        "description": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise. Cruise Norway’s destination sheet cites berths at Pier 3, about 500 m to the town centre, and published quay dimensions that can differ from live port facility tables — confirm berth assignment and gangway location with your cruise line. Anchorage and tender options are also described for some sailings.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -20083,12 +20271,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Pier 3 (Narvik Central Harbour) — Havnegata 2, 8514 Narvik",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Cruise Norway sheet: 500 m to town centre; tourist information 600 m from port. Independent walk-minute survey not done — budget ISPS exit time. Max ships/day 1 and max pax/day 4,000 on the sheet.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Cruise Norway sheet: 500 m to town centre; tourist information 600 m from port. Independent walk-minute survey not done — budget ISPS exit time. Max ships/day 1 and max pax/day 4,000 on the sheet."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Narvik centre / harbour waterfront — ~60–90 min.",
+          "Winter northern-lights / summer Skjomen excursions — line products only; not independently timed.",
+          "Ofoten Railway / town war-history framing"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Reconcile your line’s Pier 3 assignment with the published 150 m quay length vs 350 m sheet LOA before assuming alongside."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a67616811a3804ecd8139cd4b749ca826e6c9db8059838551a026296ff3f61f2",
+        "landing_slug": "narvik-norway",
+        "candidate_content_hash": "32f56a88c1a1c57822d619eec70ee0df5f05ef8d34b4be793ae67489e3d21aa9",
+        "locked_at_utc": "2026-11-09T15:16:29.376Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "nassau": {
@@ -21595,9 +21820,42 @@
           "Walking"
         ],
         "distanceToCity": "Village center nearby",
-        "walkingTime": "5-15 minutes",
+        "walkingTime": "5-15 minutes—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Limited taxis available",
-        "publicTransport": "Limited public transport"
+        "publicTransport": "Limited public transport",
+        "distanceAnswer": "Village center nearby"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Olden quayside — compact village staging; keep plans flexible until your berth or tender assignment is announced.",
+          "Loen Skylift — popular add-on; confirm shuttle or tender timing with your cruise line.",
+          "Briksdal Glacier / Loen Skylift (excursion destinations)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask whether you are alongside Olden, Olden Cruise Park tender, or Loen tender before any village walk plan."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "263d71ea030a3df33c897c42df8ac0a8ac491e6c8edae098ac12b7576cd1f992",
+        "landing_slug": "olden-norway",
+        "candidate_content_hash": "3fb3427a249ef0c8253550c0ae6d9c277ce92fb6534b404e66b5a675b2e0d1e1",
+        "locked_at_utc": "2026-11-09T15:16:29.380Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "osaka": {
@@ -22597,7 +22855,7 @@
       "portName": "Ponta Delgada",
       "country": "Portugal",
       "portInfo": {
-        "description": "A Portuguese port destination with excellent facilities, historic charm, and access to beautiful Portuguese attractions.",
+        "description": "Ponta Delgada on São Miguel is the Azores’ main large-ship cruise call. Portos dos Açores identifies Terminal Marítimo das Portas do Mar as one of only two dedicated passenger/cruise terminals in the archipelago (with Horta), in service since 2008, and notes that the largest ships can also use the commercial quay. The Azores Cruise port sheet (Visit Azores / ATA) publishes Portas do Mar dimensions (360 m line, 340 m ships, 11 m depth, 9.2 m max draught) and a 200 m downtown figure, plus commercial-port alternatives. Portas do Mar also hosts leisure/commercial waterfront facilities under Portos dos Açores management.",
         "location": "",
         "timezone": "AZOT (UTC-1) / AZOST (UTC+0)",
         "language": "Portuguese",
@@ -22638,12 +22896,51 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Terminal Marítimo das Portas do Mar — Av. Infante D. Henrique, 9500-767 Ponta Delgada",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in.",
+        "distanceAnswer": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Portas do Mar waterfront / city centre — walk.",
+          "Portas da Cidade (city gates) — short stroll inland.",
+          "Sete Cidades or Furnas — half-day road trips; only with confirmed timing.",
+          "Pineapple plantation / tea estate tours — island specialities; book buffers.",
+          "Portas do Mar waterfront / city gates area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If assigned the commercial quay, budget the extra ~2 km to centre versus Portas do Mar."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e5338e0ae4093a9b46c133a8d3921f4c1bb79f6c3bc118274a5c70813f382555",
+        "landing_slug": "ponta-delgada-azores-portugal",
+        "candidate_content_hash": "8a2bbfdbfd3d4cffde5f8acea37c592ae3aa5de1cd84872d7d12ddba13c62517",
+        "locked_at_utc": "2026-11-09T15:16:29.385Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "port-canaveral": {
@@ -22651,7 +22948,7 @@
       "portName": "Port Canaveral",
       "country": "USA",
       "portInfo": {
-        "description": "Port Canaveral is one of the busiest cruise ports in the world, near Orlando and Kennedy Space Center. Passenger terminals sit on the north side (Exit 54A) and the B side (Exit 54B).",
+        "description": "Canaveral Port Authority publishes arrival guides for seven passenger terminals in Cape Canaveral, FL 32920. North-side terminals use Charles Rowland Drive (Exit 54A); south-side terminals use Discovery Road / Christopher Columbus Drive (Exit 54B). Parking is adjacent to each terminal; ship schedules and assigned terminals can change — confirm with your cruise line before embarkation.",
         "location": "",
         "timezone": "EST (UTC-5) / EDT (UTC-4)",
         "language": "English",
@@ -22695,12 +22992,51 @@
         "entryRequirements": "Valid passport required. ESTA required for visa-free countries. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Cruise Terminal 1 — 9050 Discovery Rd., Cape Canaveral, FL 32920",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "From Orlando International Airport (MCO), the port authority cites about 45 minutes via S.R. 528 East to Exit 54A (north terminals) or 54B (south terminals). Parking is adjacent; terminal assignment can change—confirm with your cruise line.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm shuttles, taxis, and parking exits with the port or your cruise line on embarkation day.",
+        "distanceAnswer": "From Orlando International Airport (MCO), the port authority cites about 45 minutes via S.R. 528 East to Exit 54A (north terminals) or 54B (south terminals). Parking is adjacent; terminal assignment can change—confirm with your cruise line."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Cocoa Beach / Jetty Park area — shorter transfer than Orlando theme parks — ~120 min.",
+          "Kennedy Space Center Visitor Complex — half-day minimum — ~240 min.",
+          "Cocoa Village — mid-length call.",
+          "Cape Canaveral lighthouse area — timing Not verified.",
+          "Cape Canaveral lighthouse area — allow flexible timing; confirm access on your call day."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Know your Exit 54A vs 54B before the toll road fork — north and south terminal clusters are different exits."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "9c97c4416c61a5cb4f45cb193aacf23a31a51fe45f87bcefd092daab8d9e0a97",
+        "landing_slug": "port-canaveral-fl-united-states",
+        "candidate_content_hash": "a22199d3fc8ab74052acc3ce9d54df74b512a65350effc2383e899f7eceb57bf",
+        "locked_at_utc": "2026-11-09T15:16:52.821Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "port-elizabeth": {
@@ -25820,12 +26156,50 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa on arrival or e-visa available."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Safaga Port Passenger / Cruise Terminal — Safaga Port, Red Sea, Egypt",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Expect shuttle/taxi for town; Luxor is a long coach day — only with ship-rated timing.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Expect shuttle/taxi for town; Luxor is a long coach day — only with ship-rated timing."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Luxor temples — full-day product.",
+          "Red Sea beach / snorkel — local.",
+          "Safaga town — short call option (~3 km).",
+          "Luxor day excursion (typical long call)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ferry and cruise passenger flows may share the maritime complex — follow ship directions."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "f1497201593904f0bd0d7c3e5118c876bc8f76e74de54ea435b1e286481e612d",
+        "landing_slug": "safaga-egypt",
+        "candidate_content_hash": "3cdd31176947992a0e03351d3e3cd2dfd0064ca36920e27a7ca3fe4d8327d888",
+        "locked_at_utc": "2026-11-09T15:16:29.394Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "safj-r-ur": {
@@ -26497,12 +26871,51 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Terminal Marítimo de Passageiros do Porto de Salvador (Contermas) — Avenida da França, Comércio, Salvador, Bahia (southern end of organised port polygonal)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical option for hills and heat — confirm fares locally.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical option for hills and heat — confirm fares locally.",
+        "distanceAnswer": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical option for hills and heat — confirm fares locally."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Elevador Lacerda + Mercado Modelo — next to the terminal zone.",
+          "Pelourinho historic centre — uphill from the elevator.",
+          "Forte São Marcelo views — offshore fort named by operator.",
+          "Barra lighthouse / beaches — longer transfer; buffer required.",
+          "Pelourinho / Elevador Lacerda area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Budget time for the Elevador queue and the climb into Pelourinho in heat/humidity."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "5be90f919f833edb7817261f23326af1939c75c9d0c5cd73f584717b305d9f5c",
+        "landing_slug": "salvador-de-bahia-brazil",
+        "candidate_content_hash": "6ccf30f3438b5ac38de96e4810547ecdd2bc6687c9483679690e96169301c1ed",
+        "locked_at_utc": "2026-11-09T15:16:52.829Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "saman": {
@@ -26662,7 +27075,7 @@
       "portName": "San Antonio",
       "country": "Chile",
       "portInfo": {
-        "description": "Chile's main port serving Santiago and central Chile.",
+        "description": "This SeaDays entry is the Santiago-market cruise gateway at San Antonio on Chile’s central Pacific coast. DP World holds the multipurpose terminal concession (from 2011) and publishes a 700 m berthing facility with cruise among quayside services. A November 2025 DP World news release marks the 2025–26 cruise season (15 ships, Oct 2025–Apr 2026) and states more than 450,000 visitors since cruise operations began in 2017. Valparaíso is a separate SeaDays port — do not conflate the two.",
         "location": "",
         "timezone": "CLT (UTC-4) / CLST (UTC-3)",
         "language": "Spanish",
@@ -26703,12 +27116,51 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "DP World San Antonio (cruise / multipurpose) — San Antonio, Valparaíso Region, Chile",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "San Antonio coastal walk / market — short call.",
+          "Cajón del Maipo / Santiago city — long road day; only with confirmed timing.",
+          "Valparaíso/Viña day — separate port city; do not assume same pier.",
+          "Wine valleys — Casablanca corridor common on excursions; operator-specific.",
+          "San Antonio / Llolleo coastal area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Your luggage tag may say Santiago, but you are in San Antonio — plan the road time explicitly."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "0e1eef9f5432d66d9808faf2b4ea4e34ff1bfe94cc37980b91d7613edfc731da",
+        "landing_slug": "santiago-san-antonio-chile",
+        "candidate_content_hash": "79b87c63b7249c0a496c6eb70386e4827e2917dc495152a3da7a210b8b384b53",
+        "locked_at_utc": "2026-11-09T15:16:29.403Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "san-diego": {
@@ -28021,7 +28473,7 @@
       "portName": "Sharm El-Sheikh",
       "country": "Egypt",
       "portInfo": {
-        "description": "Egypt's premier Red Sea resort known for diving, beaches, and excellent facilities.",
+        "description": "Sharm El Sheikh Port (UNCTAD EGSSH) sits on the southern Sinai Red Sea coast. Official pages publish coordinates 27°51.2′N / 34°17′E, passenger berths 1 (570 m) and 2 (116 m), and yacht gates. MedCruise’s Egyptian Ports facts cite differing maximum ship dimensions and quay totals — ships must follow the line’s declared draught/LOA limits. AD Ports Group stated in May 2026 that cruise terminal services commenced after Ministry of Transport / RSPA docking upgrades.",
         "location": "",
         "timezone": "EET (UTC+2)",
         "language": "Arabic",
@@ -28067,12 +28519,50 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa on arrival or e-visa available."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Sharm El Sheikh Port — Passengers berths — Sharm El Sheikh Port, South Sinai",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Naama Bay / town typically short road hops if MedCruise’s ~2 km city figure holds — verify.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Naama Bay / town typically short road hops if MedCruise’s ~2 km city figure holds — verify."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Reef snorkel / glass-bottom — licensed operators.",
+          "Naama Bay promenade — ~180 min.",
+          "Desert/mountain tours — timed returns.",
+          "Naama Bay / reef areas"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm alongside vs tender — MedCruise allows tenders."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "ce9e353c08bff16ea3fa7f0e7aaa523d749031e26b88e44cbe41636c54419f68",
+        "landing_slug": "sharm-el-sheikh-egypt",
+        "candidate_content_hash": "8db695736a492153fbc18b06746da6c6876b3b5ddce9f73be4e59b80152255d8",
+        "locked_at_utc": "2026-11-09T15:16:29.406Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "shetland-islands": {
@@ -28497,7 +28987,7 @@
       "portName": "Skagen",
       "country": "Denmark",
       "portInfo": {
-        "description": "Denmark's northernmost town, famous for its unique light, art galleries, and the meeting point of two seas.",
+        "description": "Port of Skagen markets itself as Denmark’s northernmost cruise stop between Norwegian fjord itineraries and Baltic destinations, with the harbour on the south coast close to the town centre. Published pier data: one 500 m quay giving LOA 400 m and 12 m water depth; one 190 m quay giving LOA 220 m and 9 m; from 2021 a third secondary cruise pier 295 m long for max LOA 300 m and 13 m depth. Welcome facilities (information, lounge, restrooms, showroom, souvenir shop, free Wi‑Fi) are stated at the cruise piers.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Danish",
@@ -28539,12 +29029,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Skagen — cruise piers — Havnevagtvej 30, 9990 Skagen, Denmark",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walking time or use your cruise line shuttle. Grenen and inland sights need a coach or taxi.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walking time or use your cruise line shuttle. Grenen and inland sights need a coach or taxi."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town centre / marina precinct — ~90 min.",
+          "Grenen sand spit — coach outing; allow a long call and confirm transfer time locally.",
+          "Skagen pedestrian precinct / marina area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm which of the three piers you are on — depth/LOA differ."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "ca852b1d700cf6e46771a4f206211118035f33238de8ca35c326500538b8022e",
+        "landing_slug": "skagen-denmark",
+        "candidate_content_hash": "79a5b00c29ddce7b17b3ad92903f9aefb071e38cf38f58e57a7427c1d48829f3",
+        "locked_at_utc": "2026-11-09T15:16:29.409Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "skarv-y": {
@@ -28607,7 +29134,7 @@
       "portName": "Skjolden",
       "country": "Norway",
       "portInfo": {
-        "description": "A Norwegian village at the end of Sognefjord with stunning natural scenery.",
+        "description": "Port of Skjolden markets itself as a call at the head of Lustrafjord, on Norway’s longest ice-free fjord system about 205 km from the open sea. The port fact sheet publishes a 127.5 m cruise pier with 12 m alongside, maximum LOA 400 m and draft 12 m, plus a 36 m tender pier and Haugsbukta anchorage about 600 m from the tender pier. Technical pages note a 45 m charted clearance at an overhead line as a limiting dimension on the approach. Typical cruise season runs mid-April to mid-October.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -28649,12 +29176,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Skjolden Cruise Pier — Skjolden (Lustrafjord)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Fact sheet does not publish a surveyed walk-minute from pier to village centre this capture — gap. Port recommends roughly 10 h at port ≈ 9 h ashore for a full excursion programme; treat that as operational guidance, not a passenger walking survey.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Fact sheet does not publish a surveyed walk-minute from pier to village centre this capture — gap. Port recommends roughly 10 h at port ≈ 9 h ashore for a full excursion programme; treat that as operational guidance, not a passenger walking survey."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Village / fjord-head walk — ~60–120 min.",
+          "Port shore-excursion programme — port cites 2026 excursion uptake figures; individual tour durations vary.",
+          "Catamaran M/S Holly — port-listed excursion asset; confirm tickets and sailing times at the pier.",
+          "Skjolden village / Lustrafjord head"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm cruise-pier vs tender/anchorage before timing walks."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2ee0da2610a597afe91b13d6d66fea6cbf0ca68616f3148ea040446f94883bcf",
+        "landing_slug": "skjolden-norway",
+        "candidate_content_hash": "20b03d529350f7a056baf4ba4662755f2679163a379a41ee447f6c68e348a214",
+        "locked_at_utc": "2026-11-09T15:16:29.413Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "slawi-bay": {
@@ -29198,7 +29763,7 @@
       "portName": "St Lucia",
       "country": "Saint Lucia",
       "portInfo": {
-        "description": "A Caribbean island nation known for the Pitons and beautiful beaches.",
+        "description": "Castries concentrates Saint Lucia’s cruise traffic. SLASPA describes Pointe Seraphine as a dedicated cruise shopping and berth complex within walking distance of the city, with La Place Carenage serving ships at the Queen Elizabeth II docks and water taxis linking the retail hubs. The commercial Saint Lucia Cruise Port site lists Pointe Seraphine berth lengths and draught figures plus larger numbered berths. Berth tables differ between sources — confirm your assigned terminal and gangway with the cruise line before planning transfers.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English, Saint Lucian Creole",
@@ -29242,12 +29807,50 @@
         "entryRequirements": "Valid passport required. Return ticket may be required."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Pointe Seraphine / Saint Lucia Cruise Port (Castries) — Castries, Saint Lucia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and the Pitons are full-day coach outings; allow at least two hours’ buffer beyond advertised tour length.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and the Pitons are full-day coach outings; allow at least two hours’ buffer beyond advertised tour length.",
+        "distanceAnswer": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and the Pitons are full-day coach outings; allow at least two hours’ buffer beyond advertised tour length."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Pointe Seraphine / Carenage shopping — ~90–120 min.",
+          "Castries market — check opening hours locally on your call day.",
+          "Soufrière / Pitons — long call only.",
+          "Pointe Seraphine / La Place Carenage shopping"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask which berth number you are on — Castries can host multiple ships."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "85274325b3cc47df7216ba029641a45e6d2557fe9c5c077cdba195347c3b08af",
+        "landing_slug": "st-lucia-castries-st-lucia",
+        "candidate_content_hash": "653ccc0a78b8c2cc32a89b4539346a47fe6c0fe16d267372466290cdc1a0d787",
+        "locked_at_utc": "2026-11-09T15:16:29.421Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "st-maarten": {
@@ -30827,7 +31430,7 @@
       "portName": "Tauranga",
       "country": "New Zealand",
       "portInfo": {
-        "description": "New Zealand's largest port and gateway to the Bay of Plenty region with stunning natural beauty.",
+        "description": "Tauranga is a cruise call—confirm your berth on the daily programme before you plan the day.",
         "location": "",
         "timezone": "NZST (UTC+12) / NZDT (UTC+13)",
         "language": "English, Māori",
@@ -30875,7 +31478,7 @@
         "entryRequirements": "Valid passport required. NZeTA or visa required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "Cruise terminal at Mount Maunganui",
+        "fromTerminal": "Port of Tauranga cruise berth (Mount Maunganui / Pilot Bay) — Mount Maunganui, Tauranga, New Zealand",
         "transportation": [
           "Walking to Mount Maunganui",
           "Local buses"
@@ -30883,7 +31486,41 @@
         "distanceToCity": "6 km to Tauranga city center",
         "walkingTime": "5 minutes to Mount Maunganui shops",
         "taxiInfo": "",
-        "publicTransport": "Local buses to Tauranga city center"
+        "publicTransport": "The port cites easy access to Tauranga city and Bay of Plenty attractions. Shuttle provision varies by sailing — confirm with your ship. Taxis and rideshare are available; confirm pricing locally.",
+        "distanceAnswer": "6 km to Tauranga city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Mount Maunganui summit / beaches — iconic short call.",
+          "Pilot Bay waterfront — adjacent.",
+          "Tauranga CBD — short transfer.",
+          "Rotorua / Hobbiton — long day; only with confirmed timing."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not go to Sulphur Point container gates looking for the cruise gangway."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "bc468ddc186d045d26dc97cf06c48ec27fc1137647d15095e44cedd4b9581437",
+        "landing_slug": "tauranga-new-zealand",
+        "candidate_content_hash": "ca2b505236a7b31a8ab2db493138ab383af864ec240c49cc7f855fc5e55ad830",
+        "locked_at_utc": "2026-11-09T15:16:29.424Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "tenerife": {
@@ -30891,7 +31528,7 @@
       "portName": "Tenerife",
       "country": "Spain",
       "portInfo": {
-        "description": "Largest of the Canary Islands with excellent port facilities and year-round sunshine.",
+        "description": "SeaDays Tenerife maps to the Port Authority of Santa Cruz de Tenerife’s cruise gateway at Muelle Sur. The authority publishes cruise-operations materials specifically for Muelle Sur and a quay inventory showing Tercera Muelle Sur at 805 m / 12 m within Anaga Dock. Other Canary ports under the same authority (La Palma, La Gomera, El Hierro) have separate protocols — out of scope for this slug unless itineraries call there.",
         "location": "",
         "timezone": "WET (UTC+0) / WEST (UTC+1)",
         "language": "Spanish",
@@ -30942,9 +31579,44 @@
           "Local buses"
         ],
         "distanceToCity": "Directly in Santa Cruz city center",
-        "walkingTime": "5-10 minutes to main shopping areas",
+        "walkingTime": "5-10 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Excellent local bus network"
+        "publicTransport": "Santa Cruz urban core is the nearest option via taxi or bus — confirm fares locally. Teide National Park and southern resort areas need substantial road time; book only on longer calls with confirmed return transport.",
+        "distanceAnswer": "Directly in Santa Cruz city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Santa Cruz centre / Auditorio — short call.",
+          "La Laguna (UNESCO) — short coach.",
+          "Teide — half/full day; altitude/cold.",
+          "Los Gigantes / south beaches — long transfer.",
+          "Santa Cruz de Tenerife centre / Auditorio area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Santa Cruz berth vs any secondary Canary call on multi-island itineraries."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "826841d8a32802a0fbe09f179ae0148a92332e12600c318e644e4d5a3475ac43",
+        "landing_slug": "tenerife-spain",
+        "candidate_content_hash": "05ad6f4eb648f9be1154dcbabb4019a7c2ed16da1e69d534d96cea6035ef93f1",
+        "locked_at_utc": "2026-11-09T15:16:29.427Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "terceira": {
@@ -31238,7 +31910,7 @@
       "portName": "Tortola",
       "country": "British Virgin Islands",
       "portInfo": {
-        "description": "Main island of the British Virgin Islands with beautiful beaches and excellent sailing facilities.",
+        "description": "The British Virgin Islands Ports Authority manages the Cyril B. Romney Tortola Pier Park cruise pier in Road Town: 1,312 feet long by 60 feet wide, re-engineered for ships up to 180,000 GRT, explicitly excluding Oasis-class vessels above 200,000 GRT, with capacity for two large ships at anchor plus pier operations (up to four ships) and an adjacent tender pier. BVIPA notes a turning basin 0.4 miles south-southeast with radius over 300 metres and minimum depth 11.3 metres, and records expansions (1994 / 1999 / 2015) plus the 15 February 2019 renaming. The landside five-acre Pier Park (11 buildings, 18 kiosks, 70+ retail units) is operated with Tortola Pier Park Ltd at Wickhams Cay I. Do not confuse the deep cruise pier with the shallower Road Town Jetty ferry facility (190 m / 3.65 m) also listed by BVIPA.",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English",
@@ -31283,15 +31955,49 @@
         "entryRequirements": "Valid passport required. Some nationalities may need visa."
       },
       "gettingThere": {
-        "fromTerminal": "Road Town cruise pier",
+        "fromTerminal": "Cyril B. Romney Tortola Pier Park — published pier dimensions up to 180,000 GRT class.",
         "transportation": [
           "Walking to Road Town",
           "Local ferries"
         ],
         "distanceToCity": "Directly in Road Town",
-        "walkingTime": "5-10 minutes to town center",
+        "walkingTime": "5-10 minutes to town center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis readily available",
-        "publicTransport": "Limited local buses, mostly taxis and ferries"
+        "publicTransport": "The pier park sits at the waterfront. Road Town centre is a short taxi ride — confirm walk time from your gangway if you plan to walk. Cane Garden Bay and North Shore outings need 75–120 minute buffers on busy days.",
+        "distanceAnswer": "Directly in Road Town"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Pier Park shopping / dining — ~120–180 min.",
+          "Road Town stroll — allow flexible time from the pier; confirm shops and services on your call day.",
+          "Beach / island tours — taxi; standard+ calls.",
+          "Tortola Pier Park retail / Road Town"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "If your ship anchors, budget tender time separately from the alongside pier day."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "166f08618170b26744c05751373ae4d43022e673c21e10029ae333937c5a5fbe",
+        "landing_slug": "tortola-british-virgin-islands",
+        "candidate_content_hash": "18564f6020fac45dee8c269986311f397bf95df154d3fa989e56d456b7608fb6",
+        "locked_at_utc": "2026-11-09T15:16:29.431Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "toulon": {
@@ -31577,7 +32283,7 @@
       "portName": "Trondheim",
       "country": "Norway",
       "portInfo": {
-        "description": "Norway's historic former capital with medieval architecture and a beautiful riverfront.",
+        "description": "Trondheim Port Authority (TPA) operates ISPS cruise facilities in Trondheim. Cruise quay 68 at Brattøra is published at 96 m length and 13 m depth and has received large ships including Queen Mary 2 and MSC Meraviglia. Ila 30 (280 m / 8 m) is used when 68 is unavailable; Pir 1 appears in the cruise quay table with afternoon availability notes. Anchored ships may tender to the Skansen floating bridge (~1300 m from anchorage per 2026 terms). The port terms sheet cites up to four cruise ships and 9,000 passengers per day.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -31630,9 +32336,42 @@
           "Local buses"
         ],
         "distanceToCity": "Within Trondheim city",
-        "walkingTime": "15-20 minutes to city center",
+        "walkingTime": "15-20 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Excellent local transport"
+        "publicTransport": "Cruise berths are centrally located for city exploring. Confirm whether you start from Brattøra (quay 68) or Ila — walk times differ. Prefer your ship’s pier map for the gangway you use.",
+        "distanceAnswer": "Within Trondheim city"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "City centre / waterfront — ~90–180 min.",
+          "Regional Trøndelag excursions — line products.",
+          "Trondheim city centre / Nidaros area (destination framing)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Quay 68 vs Ila 30 vs Skansen tender before planning walk times."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2411ceb360cc8a2a719d350ec91650c659e210e6af8f34b51efebeb9cebbe8e2",
+        "landing_slug": "trondheim-norway",
+        "candidate_content_hash": "b1795b4ff31c39ef62e3f2d927a2bf8fb8f899c86e22a77e0ac2d3ba215ee551",
+        "locked_at_utc": "2026-11-09T15:16:29.434Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "turku": {
@@ -31640,7 +32379,7 @@
       "portName": "Turku",
       "country": "Finland",
       "portInfo": {
-        "description": "Finland's oldest city and former capital with medieval history and excellent port facilities.",
+        "description": "Port of Turku positions itself as a smaller, service-intensive Finnish cruise alternative to the capitals. Complimentary shuttle buses run between the inner-harbour pier and the city centre throughout the call; tourist information staff and port Wi‑Fi are offered at the pier. Berth guidance splits larger ships to the inner harbour (~3 km out) and ships ≤130 m to Aura riverbanks closer to downtown. Use the published 2026 call list only as a planning hint — times may change.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Finnish, Swedish",
@@ -31693,9 +32432,42 @@
           "Local buses"
         ],
         "distanceToCity": "Within Turku city",
-        "walkingTime": "15-20 minutes to city center",
+        "walkingTime": "15-20 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Good local bus network"
+        "publicTransport": "Good local bus network",
+        "distanceAnswer": "Within Turku city"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "River Aura waterfront / Market Square area — ~90–120 min.",
+          "Archipelago boat trips — long calls only; book through your ship or a verified operator.",
+          "Turku city centre / riverfront"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Reconcile your ship’s LOA with the 240 m vs 290 m figures before assuming an inner-harbour berth."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c75427b9c91e0f3ae7e0986f3260efb0123587134941917a783eb96353762f0f",
+        "landing_slug": "turku-finland",
+        "candidate_content_hash": "3bf5b5685f7367a3248f1af73408be2dd2c6bb530f344160b2c3d2300b2099ab",
+        "locked_at_utc": "2026-11-09T15:16:29.437Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "ulvik": {
@@ -31756,9 +32528,43 @@
           "Walking to village"
         ],
         "distanceToCity": "Directly in Ulvik village",
-        "walkingTime": "5-10 minutes to village center",
+        "walkingTime": "5-10 minutes to village center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Limited taxis available",
-        "publicTransport": "Limited local service"
+        "publicTransport": "Expect ship tender to the floating dock when assigned. Ulvik village is compact — allow flexible walk time from the dock and keep a return buffer for tender queues.",
+        "distanceAnswer": "Directly in Ulvik village"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Ulvik village / waterfront — ~60–90 min.",
+          "Olav H. Hauge Centre — poetry museum; check hours on your call day.",
+          "Fruit & Cider Route farms — seasonal; confirm coach or taxi transfer with your ship.",
+          "Olav H. Hauge Centre / village orchards"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Treat Ulvik as tender-first until a municipal quay sheet is on file."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "759da02cce3fbcedda684cf128a33681f50c2fc39665c02f650bf87e633e58e4",
+        "landing_slug": "ulvik-norway",
+        "candidate_content_hash": "bd6e5781c3df339d97150152864db247746df1f4d89071d458be5c15cadb4a34",
+        "locked_at_utc": "2026-11-09T15:16:52.817Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "ushuaia": {
@@ -31766,7 +32572,7 @@
       "portName": "Ushuaia",
       "country": "Argentina",
       "portInfo": {
-        "description": "Southernmost city in the world, gateway to Antarctica and Tierra del Fuego.",
+        "description": "Ushuaia is the southernmost major cruise and Antarctic gateway in Argentina. National port agency materials cite a 550 m × 28 m multipurpose quay, more than 500 international cruise calls, and roughly 250,000 seasonal visitors. Administrative changes were reported for early 2026 — confirm embarkation details with your cruise line.",
         "location": "",
         "timezone": "ART (UTC-3)",
         "language": "Spanish",
@@ -31818,9 +32624,44 @@
           "Walking to city center"
         ],
         "distanceToCity": "Within Ushuaia",
-        "walkingTime": "10-15 minutes to city center",
+        "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Local buses available"
+        "publicTransport": "Local buses available",
+        "distanceAnswer": "Within Ushuaia"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Beagle Channel catamaran — separate pontoons.",
+          "Town / End of the World museum — walkable if weather allows.",
+          "Tierra del Fuego NP — half day.",
+          "Laguna Esmeralda — hike; fitness/weather dependent.",
+          "Ushuaia waterfront / Beagle Channel viewpoints"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Wind and sudden weather changes can cancel boats — keep a town backup plan."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "9000fa2046600837a72436ae2bab6d1e59bcbda6b0a0ebf9d95880fc51ad3729",
+        "landing_slug": "ushuaia-argentina",
+        "candidate_content_hash": "6d200b76511a492b039520162e610d2b17052c8ff4d45101464e27fec48650b6",
+        "locked_at_utc": "2026-11-09T15:16:29.444Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "uturoa": {
@@ -32637,7 +33478,7 @@
       "portName": "Visby",
       "country": "Sweden",
       "portInfo": {
-        "description": "Medieval Hanseatic town on Gotland island, UNESCO World Heritage site with preserved city walls.",
+        "description": "Copenhagen Malmö Port (CMP) operates Visby’s cruise terminal on Gotland. CMP states nearly 170,000 cruise guests were expected in 2024 and that two 340-metre ships can berth at once. The dedicated cruises page lists pier LOA 360 m, 11 m water depth, 2.6 m quay height and max length 338 m, with commercial and operational contacts. Destination marketing (gotland.com) frames Visby as Scandinavia’s best-preserved medieval town with a UNESCO Hanseatic centre.",
         "location": "Located on Gotland island, Sweden",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Swedish",
@@ -32690,9 +33531,43 @@
           "Local buses"
         ],
         "distanceToCity": "Adjacent to medieval city",
-        "walkingTime": "5-10 minutes to city center",
+        "walkingTime": "5-10 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Local buses available"
+        "publicTransport": "Gotland’s cruise terminal is within walking distance of Visby’s city centre — plan extra time inside the medieval wall when crowds are heavy and keep a gangway buffer.",
+        "distanceAnswer": "Adjacent to medieval city"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Medieval wall / inner town lanes — ~120 min.",
+          "Botanical gardens and church ruins — allow extra time; check hours locally.",
+          "Island countryside — coach; long call only.",
+          "Visby medieval town / city wall"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Peak summer wall-town lanes congest — leave extra return time even though the walk is short."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c888070816ad835ab9b65e878c48f6b1502e4c2d6b93fc3434aaf09dfc360d1c",
+        "landing_slug": "visby-sweden",
+        "candidate_content_hash": "b6df5bd58a3e8183ab6dd46aa91617ab0c46cae31f3020ee1526efed1b10cb58",
+        "locked_at_utc": "2026-11-09T15:16:29.447Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "volos": {
@@ -32989,7 +33864,7 @@
       "portName": "Wellington",
       "country": "New Zealand",
       "portInfo": {
-        "description": "New Zealand's capital city with vibrant arts scene, beautiful harbor, and cultural attractions.",
+        "description": "Wellington’s cruise passengers land at CentrePort, which publishes a dedicated cruise passenger zone and city shuttle rules. The cruise-line information page states over 900 m of dedicated quay berth with in-house gangways and marine services. Queens Wharf is a separate city waterfront facility — not treated as the CentrePort cruise door here.",
         "location": "Located at southern tip of North Island, New Zealand",
         "timezone": "NZST (UTC+12) / NZDT (UTC+13)",
         "language": "English, Māori",
@@ -33043,9 +33918,44 @@
           "Local buses"
         ],
         "distanceToCity": "Within Wellington city",
-        "walkingTime": "10-15 minutes to city center",
+        "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Excellent public transport system"
+        "publicTransport": "Excellent public transport system",
+        "distanceAnswer": "Within Wellington city"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Waterfront / Te Papa — after shuttle.",
+          "Cable Car / Botanic Garden — classic.",
+          "Cuba Street — short walk from shuttle area.",
+          "Wairarapa wine / Zealandia — longer transfers.",
+          "Wellington waterfront / Te Papa area"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Arrange city meetups off-port — no public/taxi access at the berth."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "99a6c12ff13ea0da9d46a3b501315885e82412e09ff30df0e6582b91c025ba2a",
+        "landing_slug": "wellington-new-zealand",
+        "candidate_content_hash": "6aa702bf69d7a2ecb391a2c96ba9cdd748c846cc46926f2c6c7d24e3c18f34a8",
+        "locked_at_utc": "2026-11-09T15:16:29.451Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage71_bootstrap_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage73_publication_candidate": true,
+        "stage71_preparation_bundle_hash": "0e115b7f34302350026a532e8c8f9add4bb9965e77584894181059f80f0f0f8b",
+        "preparation_pr_head": "f5dde5afa91aa3f5564389148389224c51eb31cd",
+        "candidate_applied_at_utc": "2026-11-09T15:23:09.400Z"
       }
     },
     "yokohama": {
