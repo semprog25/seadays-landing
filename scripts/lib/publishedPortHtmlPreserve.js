@@ -100,11 +100,18 @@ function passengerEditorialBodyScore(html) {
  * When catalogue regen emits stub prose but disk already has passenger editorial
  * blocks, keep the richer on-disk body (guide JSON is source of truth).
  */
-function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide) {
-  if (!existingHtml || !portGuide) return generatedHtml;
+function shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide) {
+  const existingCards = countCallPlanArticleCards(existingHtml);
+  const generatedCards = countCallPlanArticleCards(generatedHtml);
+  if (existingCards >= 3 && generatedCards < existingCards) return true;
   const { usesPassengerEditorialLead } = require('./publicGuideCopySanitize');
-  if (!usesPassengerEditorialLead(portGuide)) return generatedHtml;
-  if (passengerEditorialBodyScore(existingHtml) <= passengerEditorialBodyScore(generatedHtml)) {
+  if (!portGuide || !usesPassengerEditorialLead(portGuide)) return false;
+  return passengerEditorialBodyScore(existingHtml) > passengerEditorialBodyScore(generatedHtml);
+}
+
+function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide) {
+  if (!existingHtml) return generatedHtml;
+  if (!shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide)) {
     return generatedHtml;
   }
   let html = generatedHtml;
