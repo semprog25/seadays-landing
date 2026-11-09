@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "description": "Historical Stage 33/43 hard-exclude ledger. Trieste retained on ledger with stage60_active_exception.",
+  "historical_slugs": [
+    "bod-norway",
+    "colombo-sri-lanka",
+    "doha-cruise-terminal-qatar",
+    "dubai-cruise-terminal-united-arab-emirates",
+    "eilat-israel",
+    "goa-india",
+    "haifa-israel",
+    "mormugao-port-goa-india",
+    "mumbai-india",
+    "port-of-ashdod-israel",
+    "port-of-haifa-israel",
+    "port-zayed-abu-dhabi-united-arab-emirates",
+    "ravenna-italy",
+    "trieste-italy",
+    "venice-ravenna-trieste-italy"
+  ],
+  "active_runtime_excludes": "historical_slugs minus stage60_owner_exceptions",
+  "stage60_owner_exceptions": [
+    {
+      "landing_slug": "trieste-italy",
+      "record": "STAGE60_TRIESTE_POLICY_CLEARANCE.json",
+      "owner_decision": "APPROVE_WITH_CONDITIONS",
+      "global_ledger_unchanged": true
+    }
+  ]
+}
