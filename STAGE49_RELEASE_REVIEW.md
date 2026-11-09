@@ -6,7 +6,7 @@
 |------|--------|
 | Production baseline | `aa14e0f19f1df22f933fc25368bae82f5941a0e1` |
 | Stage 45 rescore file bundle | `f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214` |
-| Owner bundle ref (prompt) | `01fde17fccfd4708abd77664807d53773b2c7f5731c01e1f8efea113f53a34aa` (**does not match** on-disk rescore; see note below) |
+| Stage 45 rescore bundle (authoritative) | `f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214` |
 | Stage 49 release bundle | `74305cf8a7298f1ec9bcb23806119e12ace6448c25b02e80c7094738a606a789` |
 | Cohort | **33** ports (`READY_FOR_OWNER_APPROVAL`, minus PR #76 seven) |
 | Gates passing | **33 / 33** |
@@ -20,7 +20,7 @@ Remaining publish candidates: see `STAGE49_33_PORT_RELEASE_PROPOSAL.json` → `s
 
 ## Bundle hash note
 
-Step 1 used immutable `STAGE45_50_PORT_RESCORE.json` / `STAGE45_NEWLY_READY_QUEUE.json` (40 newly ready, 0 marker-blocked). The on-file `bundle_idempotency_hash` is **`f13e73e56c…`**, not the owner prompt value **`01fde17f…`**. No substitute ports were added. **`01fde17f` should be reconciled by owner** (alternate artifact or typo) before treating it as a hard gate.
+Step 1 used immutable `STAGE45_50_PORT_RESCORE.json` / `STAGE45_NEWLY_READY_QUEUE.json` (40 newly ready, 0 marker-blocked). Authoritative rescore bundle: **`f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214`** (see `STAGE50_BUNDLE_RECONCILIATION.md`).
 
 ## Pipeline integration
 
@@ -43,7 +43,7 @@ Rollback: `qa-evidence/stage49-33-port-release/rollback-pre-apply/` (guides, ter
 
 ## Outstanding owner decisions
 
-1. Reconcile **`01fde17f…`** vs **`f13e73e56c…`** rescore bundle reference.
+1. Authorize merge using rescore bundle **`f13e73e56c…`** (Stage 50 reconciliation).
 2. Spot-check gateway ports (e.g. `ho-chi-minh-city-phu-my-vietnam`, `port-said-egypt`, `princess-cays-bahamas`).
 3. Authorize publication (not done in this stage).
 4. Optional human visual pass on 3–5 sample pages before merge.
