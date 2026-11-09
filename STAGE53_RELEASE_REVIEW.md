@@ -1,6 +1,8 @@
 # Stage 53 — 11-port passenger-editorial release
 
-## Status: **READY FOR REVIEW**
+> **Stage 55 update:** PR #79 is now scoped to **5** editorial ports. See `STAGE55_SCOPE_DECISION.md` and bundle `6d6e0088…`. This file documents the original 11-port prep.
+
+## Status: **SUPERSEDED for merge scope** (5-port subset active)
 
 | Item | Value |
 |------|--------|

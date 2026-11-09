@@ -1,22 +1,339 @@
 {
-  "generated_at": "2026-11-09T05:12:00.000Z",
-  "status": "STRUCTURAL_PASS",
-  "browser_visual_pass_claimed": false,
-  "playwright_matrix": {
-    "attempted": true,
-    "result": "VISUAL_QA_INCOMPLETE",
-    "reason": "playwright_module_unavailable"
-  },
-  "structural_heuristic": {
-    "slug_count": 11,
-    "passing": 11,
-    "checks": [
-      "pg-call-plan-card x3",
-      "getting-there anchor",
-      "no [S#] markers in HTML",
-      "no raw **markdown**",
-      "terminal map not introduced"
-    ]
-  },
-  "release_bundle_hash": "d521c5a24120ae12a3dd7dd46a8238dc877e1ff745ec4324d86cdc241332285f"
+  "generated_at": "2026-11-09T05:15:48.041Z",
+  "status": "PLAYWRIGHT_PASS",
+  "browser_visual_pass_claimed": true,
+  "slug_count": 11,
+  "passing": 11,
+  "ports": [
+    {
+      "landing_slug": "almeria-spain",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "bod-norway",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "eilat-israel",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "harstad-norway",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "la-romana-dominican-republic",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "montego-bay-jamaica",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "mumbai-india",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "roseau-dominica",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "landing_slug": "trieste-italy",
+      "viewports": [
+        {
+          "viewport": "desktop",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        },
+        {
+          "viewport": "mobile",
+          "pass": true,
+          "check": {
+            "cards": 3,
+            "gettingThere": true,
+            "nav": true,
+            "overflow": false,
+            "markers": false,
+            "rawMd": false
+          }
+        }
+      ],
+      "pass": true
+    }
+  ]
 }
