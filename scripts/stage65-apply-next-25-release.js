@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const { execSync } = require('child_process');
 const { loadPublicPortGuidesFile, writePublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
 const { verifyResearchPortSha } = require('./lib/portResearchImport/verifyResearchSha');
+const { removeStage65ExcludedGuideEntries } = require('./lib/bulkPortPublication/stage65PublicationGuards');
 
 const REPO = path.join(__dirname, '..');
 const EVIDENCE = path.join(REPO, 'qa-evidence/stage65-next-25-recovery');
@@ -84,6 +85,8 @@ function main() {
     };
     nextGuides.byAppPortId[row.app_port_id] = g;
   }
+
+  removeStage65ExcludedGuideEntries(nextGuides);
 
   if (dryRun) {
     console.log(JSON.stringify({ dry_run: true, slugs }, null, 2));
