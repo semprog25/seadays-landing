@@ -1,0 +1,76 @@
+{
+  "landing_slug": "geiranger-norway",
+  "draft": {
+    "landing_slug": "geiranger-norway",
+    "appPortId": "geiranger",
+    "portName": "Geiranger",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Geiranger Port, run by Stranda Hamnevesen KF, sits deep in the UNESCO-listed Geirangerfjord with a dedicated cruise terminal concept built around the SeaWalk floating walkway, three anchorage positions, and a small fixed quay. The SeaWalk is published at 236 m long and 4.5 m wide, with >4,000 passengers/hour capacity and ADA compliance. The 2026 facilities PDF states the fixed Geiranger pier (49 m / 4.3–9 m draft) is not available for cruise ships (cargo only) and that passenger vessels should use the SeaWalk when available; on single-ship days ships ≥180 m are allocated to SeaWalk. Tender pier to centre is ~100 m / about five minutes. Stern-to at Lausneset max LOA 250 m; sway position 3S max 180 m."
+    },
+    "gettingThere": {
+      "fromTerminal": "Geiranger SeaWalk — Geirangerfjord, Geiranger",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "SeaWalk/tender pier into village (~5 min). Coach to viewpoints common — times vary.",
+      "distanceAnswer": "SeaWalk/tender pier into village (~5 min). Coach to viewpoints common — times vary.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Fjord viewpoints / Flydalsjuvet area — coach; ~120 min planning block.",
+        "Village / waterfall walks — weather-dependent.",
+        "Fjord sightseeing boat — if offered.",
+        "Geirangerfjord viewpoints"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask ship whether you are on SeaWalk or tender from anchorage — changes queues."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "79a03c5a36c017b3287772d5d35cae89872b6a8429c2d4c9db94b8ac5baf0c2a",
+      "existing_guide_hash": "55c12e8bc91bce86",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/geiranger-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.913Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

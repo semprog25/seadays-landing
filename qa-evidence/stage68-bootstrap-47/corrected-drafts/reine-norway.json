@@ -1,0 +1,75 @@
+{
+  "landing_slug": "reine-norway",
+  "draft": {
+    "landing_slug": "reine-norway",
+    "appPortId": "reine",
+    "portName": "Reine",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Reine Ytre Havn is Visit Lofoten Cruise’s southwest Lofoten cruise quay: a single berth in relatively calm water used as a gateway to Moskenesøya scenery. The page states the quay is 70 m long, bollards about 140 m apart, depth up to 6.5 m, and that ships up to 175 m can dock — while the embedded port-facts module lists max vessel length 150 m. Treat LOA as unresolved between those two on-page figures until the harbour authority publishes a single table. Port master phones listed: +47 416 55 920 / +47 76 05 59 20; havn@vestvagoy.kommune. Door GPS null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Reine Ytre Havn cruise quay — Reine, Moskenes",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Page frames the berth as central to Reine with village amenities close by. Independent walk-minute survey not done — gap. Hiking trailheads and coach tours toward Å / Vesterålen are mentioned as starting points.",
+      "distanceAnswer": "Page frames the berth as central to Reine with village amenities close by. Independent walk-minute survey not done — gap. Hiking trailheads and coach tours toward Å / Vesterålen are mentioned as starting points.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Reine village / harbour viewpoints — ~60–120 min.",
+        "Norwegian Fishing Village Museum at Å — listed activity; transfer not surveyed.",
+        "Kayak / bike rentals noted in village amenities list — hours not verified.",
+        "Reine fishing village / viewpoints"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Reconcile your ship’s LOA with the on-page 150 m vs 175 m figures before assuming alongside."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c0cabb476604909cc560710afd9f5db54e226443bfefc12283eb60f9ac3d224a",
+      "existing_guide_hash": "10c6834e1d30dc5a",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/reine-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.023Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

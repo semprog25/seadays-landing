@@ -1,0 +1,78 @@
+{
+  "landing_slug": "roatan-honduras",
+  "draft": {
+    "landing_slug": "roatan-honduras",
+    "appPortId": "roatan",
+    "portName": "Roatan",
+    "country": "Honduras",
+    "portInfo": {
+      "description": "Roatan is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Isla Tropicale (Dixon Cove; formerly Mahogany Bay) — Dixon Cove, Roatán, Honduras",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Port village amenities at Isla Tropicale. West End / Coxen Hole transfers — minutes unverified. Use 75–120 min buffers.",
+      "distanceAnswer": "Port village amenities at Isla Tropicale. West End / Coxen Hole transfers — minutes unverified. Use 75–120 min buffers.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Tropicale Beach / port retail if docking there.",
+        "West End snorkel — coach; confirm pier origin.",
+        "Island cultural stops — line tours only on short calls.",
+        "Tropicale Beach / port village"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Taxi drivers may assume Mahogany Bay vs Coxen Hole — show the pier name from your ship."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4eff1d1ba6f6c6d601e31852f7dcce001199cecbd7f9fa74e9e6fc06dedfee14",
+      "existing_guide_hash": "0c9f404ae209b319",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/roatan-honduras.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.930Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

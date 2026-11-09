@@ -1,0 +1,77 @@
+{
+  "landing_slug": "kefalonia-greece",
+  "draft": {
+    "landing_slug": "kefalonia-greece",
+    "appPortId": "kefalonia",
+    "portName": "Kefalonia (Argostoli)",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Visit Greece paints Kefalonia as lush Ionian terrain with Argostoli as cosmopolitan capital, Fiskardo’s preserved architecture (post-1953 earthquake contrast), Assos’s Venetian castle, and beaches including Myrtos. LTDKI contact: Metaxa Ioanni, 281 00 Argostoli; +30 26710 26541; ltkefa@gmail.com; Coast Guard kefalonia@hcg.gr."
+    },
+    "gettingThere": {
+      "fromTerminal": "Argostoli cruise pier (north mole) — Argostoli harbour, Kefalonia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town is adjacent per LTDKI. Melissani/Sami and Myrtos are cross-island drives — no invented minutes.",
+      "distanceAnswer": "Town is adjacent per LTDKI. Melissani/Sami and Myrtos are cross-island drives — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Argostoli waterfront / town — LTDKI’s “immediate connection.”",
+        "Melissani Cave — Visit Greece highlight; timed road trip.",
+        "Myrtos viewpoint — only with generous buffer; hours/parking gap.",
+        "Argostoli waterfront and town",
+        "Melissani Cave"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If the north mole is occupied, expect anchorage/tender — budget queue time the Cluster/port materials imply when multiple ships call."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0134c810ec7d2195ce36552f85247d54f3cede3d9a62100a5d903b7b8c24f447",
+      "existing_guide_hash": "1a4be7b47e9982c7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kefalonia-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.990Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

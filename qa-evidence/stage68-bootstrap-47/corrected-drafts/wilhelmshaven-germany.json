@@ -1,0 +1,81 @@
+{
+  "landing_slug": "wilhelmshaven-germany",
+  "draft": {
+    "landing_slug": "wilhelmshaven-germany",
+    "appPortId": "wilhelmshaven",
+    "portName": "Wilhelmshaven",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Niedersachsen Ports describes Wilhelmshaven as Germany’s sole deep-water port on the Jade, with an outer deep-water section and an inner harbour behind a dual-chamber sea lock that is independent of the tide. The published product mix is bulk, containers (JadeWeserPort), energy/LNG and project cargo — not a cruise brochure. The NPorts Port Information Guide nonetheless lists North Harbour / Hannoverkai with max LOA 300 m, ~325 m solid quay, 11 m alongside depth at harbour normal, electricity/freshwater/Wi‑Fi and no stationary cargo gear. A 2020 city press release documented Mein Schiff 6 berthing at Hannoverkai for classification/diving works with no crew shore leave during COVID restrictions — that is evidence the quay can take a large cruise ship for technical purposes, not evidence of a regular tourist call programme."
+    },
+    "gettingThere": {
+      "fromTerminal": "North Harbour — Hannoverkai — Nordhafen / Hannoverkai, Wilhelmshaven",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Sea lock transit into the inner harbour. Walk/shuttle minutes from Hannoverkai to city sights not verified. Do not assume a cruise shuttle exists.",
+      "distanceAnswer": "Sea lock transit into the inner harbour. Walk/shuttle minutes from Hannoverkai to city sights not verified. Do not assume a cruise shuttle exists.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City waterfront / Südstrand area — only if passenger landing confirmed; hours not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask whether the call is passenger or technical/repair before booking tours."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6aa53036eec1d08fd91a646cd9fb43f36cf4b7fba1cc885f4cd77456e6b900db",
+      "existing_guide_hash": "8c8953ed8b8473d6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/wilhelmshaven-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet",
+        "dropped_truncated_attraction",
+        "insufficient_supported_attractions_1"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:05.066Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": false,
+    "failures": [
+      "schema_top_things_1",
+      "passenger_top_things_1_of_3",
+      "factual_insufficient_attractions_1"
+    ],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred",
+        "insufficient_attractions_1"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": false,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_EDITORIAL_FIX",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

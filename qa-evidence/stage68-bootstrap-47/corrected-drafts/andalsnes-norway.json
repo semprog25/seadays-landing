@@ -1,0 +1,75 @@
+{
+  "landing_slug": "andalsnes-norway",
+  "draft": {
+    "landing_slug": "andalsnes-norway",
+    "appPortId": "andalsnes",
+    "portName": "Åndalsnes",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Åndalsnes (Rauma) is a Romsdalsfjord cruise destination under Molde og Romsdal Havn IKS. The authority’s Rauma quay page publishes Tindekaia (ISPS, 232 m, depth 8.0–12.0 m) and Søndre kai (ISPS, 116 m, 9.0–10.0 m). The Cruise Norway Molde/Åndalsnes sheet names Tindekaia as the designated cruise quay, states maximum ship length 330 m, and cites ~200 m to the city centre. Anchorage is also described on the sheet (Åndalsnes 40–60 m depth). Door GPS null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Tindekaia — Åndalsnes, Rauma",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Sheet cites ~200 m to Åndalsnes centre and shuttle bus No. Independent walk survey not done — treat 200 m as sheet claim.",
+      "distanceAnswer": "Sheet cites ~200 m to Åndalsnes centre and shuttle bus No. Independent walk survey not done — treat 200 m as sheet claim.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Åndalsnes centre / fjord front — ~45–90 min.",
+        "Romsdalen Gondola — sheet attraction; duration not verified beyond sheet.",
+        "Trollstigen — coach product; long day — buffers required.",
+        "Trollstigen / Romsdalen Gondola (excursion destinations)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Tindekaia vs Søndre kai vs tender before the 200 m centre assumption."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "797711bd136f4a65d49d3639c4560108fba3de39b98c11308dfcb20efa2072e8",
+      "existing_guide_hash": "34fa7ddc05033ce3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/andalsnes-norway.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.950Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

@@ -1,0 +1,54 @@
+{
+  "appPortId": "rugen",
+  "portName": "Rügen, Germany",
+  "country": "Germany",
+  "portInfo": {
+    "description": "SeaDays lists Rügen as its own catalog obligation, but the live directory card redirects to sassnitz-mukran-germany. This guide therefore describes the island product and points landings to facilities published by Mukran Port / Fährhafen Sassnitz GmbH, without inventing a third terminal or merging port_id values. Mukran’s sea-port cruise facts table compares Mukran Port vs Sassnitz City Harbour (quay counts, LOA/draught, city distances, tendering rules). Tourism copy places the port ~12 km south of UNESCO Nationalpark Jasmund and lists Binz, Putbus, Kap Arkona and Stralsund as excursion geography.",
+    "timezone": "",
+    "language": "",
+    "currency": ""
+  },
+  "thingsToDo": {
+    "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+    "topThings": [
+      "Nationalpark Jasmund / chalk coast — long call; transfer from Mukran required.",
+      "Sassnitz mole / harbour — short call if berthed at City Harbour.",
+      "Binz / Kap Arkona — coach timing not verified.",
+      "Nationalpark Jasmund / chalk coast"
+    ],
+    "shortCall": "≥4 h. Only realistic from City Harbour for Sassnitz mole (~60–90) + 75 min buffer. From Mukran, a short call may be shuttle-limited — confirm with the ship.",
+    "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+    "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+    "practicalTip": "Ask whether the ship uses Mukran or Stadthafen Sassnitz — city distance differs by ~6 km."
+  },
+  "researchImport": {
+    "landing_slug": "rugen-germany",
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "aa2d064a8190d3e74259e1eb2dbfdaba253c7a2a4f387f6bc4d9cdc07fa00021",
+    "candidate_content_hash": "16931af8cde80ccc231f02ca2913f739fd33c91a6464e5dc10226e973ed46272",
+    "locked_at_utc": "2026-11-09T11:35:04.876Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage68_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false,
+    "identifier_confidence": "inferred_not_canonical"
+  },
+  "gettingThere": {
+    "fromTerminal": "Mukran Port cruise quays — 2 quays; max 365 m / 9.50 m; 6.5 km to centre; tendering not allowed",
+    "transportation": [
+      "Walking",
+      "Taxi",
+      "Coach excursion"
+    ],
+    "distanceToCity": "From Mukran, plan a coach/taxi for the 6.5 km into Sassnitz or onward to Jasmund/Binz. From City Harbour, centre is 0.6 km. Exact shuttle products are line-dependent and not verified here.",
+    "distanceAnswer": "From Mukran, plan a coach/taxi for the 6.5 km into Sassnitz or onward to Jasmund/Binz. From City Harbour, centre is 0.6 km. Exact shuttle products are line-dependent and not verified here.",
+    "walkingTime": "",
+    "taxiInfo": "",
+    "publicTransport": "From Mukran, plan a coach/taxi for the 6.5 km into Sassnitz or onward to Jasmund/Binz. From City Harbour, centre is 0.6 km. Exact shuttle products are line-dependent and not verified here."
+  },
+  "shorePlansFirst": true
+}

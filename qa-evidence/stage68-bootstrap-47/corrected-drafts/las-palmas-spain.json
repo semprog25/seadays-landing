@@ -1,0 +1,76 @@
+{
+  "landing_slug": "las-palmas-spain",
+  "draft": {
+    "landing_slug": "las-palmas-spain",
+    "appPortId": "las-palmas",
+    "portName": "Las Palmas (Gran Canaria)",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Las Palmas de Gran Canaria is the Canary Islands’ major cruise hub. MedCruise’s Las Palmas Ports member page lists Las Palmas Port with 20 quays totalling 19,278 m, quay depth 24 m, one passenger terminal, tugs and tenders available, ~10 minutes to the city centre and ~27 km to the airport. The same MedCruise profile aggregates sister Canary ports (Arrecife, Puerto del Rosario) under the Ports of Las Palmas grouping. Live fetch of palmasport.es failed TLS, so door GPS and named terminal building details remain null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Las Palmas cruise / passenger terminal — Las Palmas de Gran Canaria",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City centre often a short transfer (~10 min per MedCruise).",
+      "distanceAnswer": "City centre often a short transfer (~10 min per MedCruise).",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Vegueta — ~150 min.",
+        "Las Canteras beach — walk/taxi.",
+        "Maspalomas dunes — longer transfer.",
+        "Vegueta historic centre"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Canaries are Spanish outermost region — entry rules may differ from mainland Schengen practice; confirm with the line."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e50e31e918973596dfca70229176a4d28b9484635a64257653c154bc11b1e8d4",
+      "existing_guide_hash": "745c1039759b7443",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/las-palmas-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T11:35:04.994Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [
+      "factual_identifier_inferred"
+    ],
+    "factual": {
+      "flags": [
+        "identifier_inferred"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage68-bootstrap-editorial"
+}

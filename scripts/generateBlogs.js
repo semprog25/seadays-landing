@@ -90,6 +90,7 @@ const { applyHasBookableExperiencesToSeoPorts } = require('./lib/portsDirectoryB
 const { resolvePortsDirectoryFeaturedGuideCardsHtml } = require('./lib/portsDirectoryFeaturedGuides');
 const {
   getAliasRedirectTarget,
+  collectPassengerEditorialLandingSlugs,
   getPreservedPortDirectorySlugs,
   isPortSeoRedirectSlug,
   writePortSeoRedirectPages,
@@ -3393,6 +3394,11 @@ async function main() {
     portSlugToReviewKey,
     publicGuides.byAppPortId || {}
   );
+  const stage68SlugMapPath = process.env.STAGE68_PUBLICATION_SLUG_MAP;
+  if (stage68SlugMapPath && fs.existsSync(stage68SlugMapPath)) {
+  Object.assign(slugToAppPortId, JSON.parse(fs.readFileSync(stage68SlugMapPath, 'utf8')));
+  }
+  const passengerEditorialLandingSlugs = collectPassengerEditorialLandingSlugs(publicGuides);
   const terminalsPayload = loadPublicPortTerminals(repoRoot);
   const knownAffiliatePortIds = (mode.ships || mode.ports) ? loadKnownAffiliatePortIds(appRoot) : new Set();
   const viatorConfig = mode.ports ? getViatorConfigFromEnv() : { configured: false };
@@ -3478,7 +3484,19 @@ async function main() {
       continue;
     }
     // Browse-hidden aliases: publish as noindex redirects (written after orphan cleanup).
-    if (getAliasRedirectTarget(port.slug)) continue;
+    const standaloneAliasSlugs = new Set(
+      String(process.env.STAGE68_PUBLICATION_STANDALONE_ALIAS_SLUGS || '')
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean)
+    );
+    if (
+      getAliasRedirectTarget(port.slug) &&
+      !standaloneAliasSlugs.has(port.slug) &&
+      !passengerEditorialLandingSlugs.has(port.slug)
+    ) {
+      continue;
+    }
     const dir = path.join(repoRoot, 'ports', port.slug);
     fs.mkdirSync(dir, { recursive: true });
     const relPorts = pickRelatedPorts(seoPorts, port, 5);
@@ -3543,7 +3561,9 @@ async function main() {
     console.log('[generateBlogs] skipping orphan catalogue cleanup');
   }
   if (mode.ports && !targetedOnly) {
-    const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts);
+    const portRedirects = writePortSeoRedirectPages(repoRoot, seoPorts, {
+      passengerEditorialLandingSlugs,
+    });
     console.log(
       `[generateBlogs] port SEO redirects: standalone=${portRedirects.standaloneCount} aliases=${portRedirects.aliasCount}`
     );
