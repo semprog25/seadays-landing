@@ -3,6 +3,7 @@
 - **Baseline main:** `59653e6203ab66623a7f53e5572395b401ec140b` (live **344/406** passenger editorial)
 - **Prep:** Stage 75 PR #102 bundle `87483ccb…` (unchanged)
 - **Research pin:** `e5680f19` (merged PR #3 — **not** re-run for Cape Liberty/Vancouver)
+- **Publication PR:** [#103](https://github.com/semprog25/seadays-landing/pull/103) @ `9a57ada59`
 - **Candidate branch:** `feat/stage76-six-guide-publication-candidate`
 - **Slugs (6):** hobart-australia, marigot-st-maarten, nagasaki-japan, nordfjordeid-norway, okinawa-naha-japan, stornoway-united-kingdom
 - **Projected if merged:** **350/406** on branch only
