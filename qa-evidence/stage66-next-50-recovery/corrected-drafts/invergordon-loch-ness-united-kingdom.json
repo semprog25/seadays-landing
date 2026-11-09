@@ -1,0 +1,74 @@
+{
+  "landing_slug": "invergordon-loch-ness-united-kingdom",
+  "draft": {
+    "landing_slug": "invergordon-loch-ness-united-kingdom",
+    "appPortId": "invergordon",
+    "portName": "Invergordon / Loch Ness",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Invergordon is the berth; Loch Ness and Inverness are coach excursions. High Street Duck Trail / murals are the on-foot town product."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Cromarty Firth — Invergordon cruise berths",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town High Street is the local walk; Loch Ness needs a coach — no invented minutes.",
+      "distanceAnswer": "Town High Street is the local walk; Loch Ness needs a coach — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "High Street Duck Trail / murals",
+        "Invergordon High Street / Duck Trail / murals",
+        "Loch Ness / Urquhart area",
+        "Inverness"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not attempt Loch Ness independently without a verified return before all-aboard."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d9025eb68f0dbf3f87ae24a39aa9825a54c94846fb5e9fceb03f5da120f5fc34",
+      "existing_guide_hash": "a1339118d019f235",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/invergordon-loch-ness-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.005Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,78 @@
+{
+  "landing_slug": "porto-leixoes-portugal",
+  "draft": {
+    "landing_slug": "porto-leixoes-portugal",
+    "appPortId": "porto",
+    "portName": "Porto (Leixoes)",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "Porto’s cathedral, São Bento tiles, Ribeira and trade/church architecture reward an uphill/downhill city walk. They are reached after a port-to-city transfer, not by stepping from the terminal onto the Douro. The iconic south building is itself a port/CIIMAR facility, but public architectural tours are not interchangeable with cruise passenger access."
+    },
+    "gettingThere": {
+      "fromTerminal": "Porto Cruise Terminal — South Pier building",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Reserve 60 minutes each way for permitted terminal exit, waiting/vehicle, central Porto approach and boarding on return; these are conservative budgets, not measured road durations. A Metro journey also needs a confirmed exit and station approach, so no “tram at the door” promise is made. Agree which terminal the vehicle returns to before descending to Ribeira.",
+      "distanceAnswer": "Reserve 60 minutes each way for permitted terminal exit, waiting/vehicle, central Porto approach and boarding on return; these are conservative budgets, not measured road durations. A Metro journey also needs a confirmed exit and station approach, so no “tram at the door” promise is made. Agree which terminal the vehicle returns to before descending to Ribeira.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Sé do Porto — Cathedral, Historic District, Porto. A hilltop landmark; ticketed/interior areas need a current access check. Allow 60 minutes; official source.",
+        "São Bento railway station — São Bento station, Historic District, Porto. Azulejo-lined public areas are a distinct stop, not a train booking. Allow 35 minutes; official source.",
+        "Ribeira — Ribeira riverfront, Historic District, Porto. A riverfront walk/rest area with a climb back towards upper-town pickups. Allow 60 minutes; official source.",
+        "Palácio da Bolsa — Palácio da Bolsa, Historic District, Porto. Guided/timed admission may constrain the sequence; do not assume a slot. Allow 90 minutes; official source.",
+        "São Francisco church — Igreja de São Francisco, Historic District, Porto. A separate church/museum visit, subject to current admission. Allow 60 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Give a driver the North or South terminal, not simply “Porto Cruise Terminal”. APDL’s two passenger buildings have different quay contexts and capacities."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "14f930ca76f54f35687e43ff8979b8e0cb9925acaaaa7af51b9063ec16d0dc82",
+      "existing_guide_hash": "e1ed8e866d4099cf",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/porto-leixoes-portugal.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.111Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

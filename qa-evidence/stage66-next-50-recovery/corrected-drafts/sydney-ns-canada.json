@@ -1,0 +1,74 @@
+{
+  "landing_slug": "sydney-ns-canada",
+  "draft": {
+    "landing_slug": "sydney-ns-canada",
+    "appPortId": "sydney-ns",
+    "portName": "Sydney",
+    "country": "Canada",
+    "portInfo": {
+      "description": "Port of Sydney’s cruise passenger facility is the Joan Harriss Cruise Pavilion on the Esplanade. Contact details published by the port include 90 Esplanade, admin@portofsydney.ca and 902-564-0800. A Visitor Information Centre operates June to late October. This catalog slug is Cape Breton, Nova Scotia — never collapse with Sydney, Australia."
+    },
+    "gettingThere": {
+      "fromTerminal": "Joan Harriss Cruise Pavilion",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Downtown / Esplanade. Walking-distance framing from pavilion. Cabot Trail / Louisbourg — organised only; road times Not verified. Airport (YQY): Not verified.",
+      "distanceAnswer": "Downtown / Esplanade. Walking-distance framing from pavilion. Cabot Trail / Louisbourg — organised only; road times Not verified. Airport (YQY): Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Esplanade / downtown Sydney — walk-off — ~90 min.",
+        "Big Fiddle / waterfront photos — short.",
+        "Louisbourg Fortress — organised long call.",
+        "Cabot Trail viewpoints — full-day.",
+        "Local Celtic music venues — evening/overnight."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm you are in Sydney, Nova Scotia on documents — the Australia namesake is a different continent and catalog family."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8adf5afa59c8e2a89aab61c7aae8798015422bffe7772d0108fc1b8df5d51284",
+      "existing_guide_hash": "9190ea6b79cdb463",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/sydney-ns-canada.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.142Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

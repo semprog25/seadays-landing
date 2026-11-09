@@ -1,0 +1,73 @@
+{
+  "landing_slug": "juneau-ak-united-states",
+  "draft": {
+    "landing_slug": "juneau-ak-united-states",
+    "appPortId": "juneau",
+    "portName": "Juneau",
+    "country": "United States",
+    "portInfo": {
+      "description": "Juneau’s cruise operation concentrates on the downtown Gastineau Channel waterfront. The City and Borough of Juneau Docks & Harbors page states two city cruise docks downtown and two private docks in the area, together serving over one million passengers each May–September season. City docks are described as berthing one Panamax ship up to 1,000 feet and one post-Panamax ship up to 1,100 feet, with berths completed in 2017 and later seawalk/bus-staging uplands work. Public amenities listed include a pedestrian promenade, visitor center, bus staging, public parking, and a Port/Customs building with a Port of Juneau Field Office and U.S. Customs and Border Protection offices. Exact berth names, private-dock operators, and passenger-door coordinates are Not verified on the page captured — pins stay null."
+    },
+    "gettingThere": {
+      "fromTerminal": "Downtown Juneau Cruise Ship Berths (CBJ)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "From the docks. CBJ lists promenade, visitor center and bus staging on the waterfront. Timed walks to specific downtown blocks Not verified. Airport (JNU). Transfer minutes from cruise docks Not verified on the harbors page. Tenders. Page describes dock berthing, not a primary tender operation — still confirm sailing documents if weather forces anchorage.",
+      "distanceAnswer": "From the docks. CBJ lists promenade, visitor center and bus staging on the waterfront. Timed walks to specific downtown blocks Not verified. Airport (JNU). Transfer minutes from cruise docks Not verified on the harbors page. Tenders. Page describes dock berthing, not a primary tender operation — still confirm sailing documents if weather forces anchorage.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Downtown Juneau waterfront / shops — adjacent framing — ~90 min.",
+        "Mendenhall Glacier — bus/tour; allow long buffer — ~180 min including transfer.",
+        "Mount Roberts Tramway — weather-dependent; hours Not verified.",
+        "Whale watching (organised) — only with guaranteed return.",
+        "Alaska State Museum — rainy-day option; hours Not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Identify whether you are on a city or private dock before assuming a two-minute walk to the same storefront block — CBJ itself distinguishes the two dock categories."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "46d0a4a7e63adf4be9806bbbb759d4337fbea79f1a24acc8584f7c96a9ddef71",
+      "existing_guide_hash": "6e7670b1fc896390",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/juneau-ak-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.009Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_FACT_CHECK",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

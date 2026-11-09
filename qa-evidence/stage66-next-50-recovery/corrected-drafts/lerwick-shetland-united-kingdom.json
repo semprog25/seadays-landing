@@ -1,0 +1,73 @@
+{
+  "landing_slug": "lerwick-shetland-united-kingdom",
+  "draft": {
+    "landing_slug": "lerwick-shetland-united-kingdom",
+    "appPortId": "lerwick",
+    "portName": "Lerwick",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Shetland’s principal commercial harbour and a northern cruise waypoint between Iceland/Faroes/Norway and the Scottish mainland. Town walking is the conservative plan; Jarlshof and beyond need coaches."
+    },
+    "gettingThere": {
+      "fromTerminal": "Mair's Pier / Holmsgarth 5 (alongside) + town-centre tender stage",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town centre near landing stage per authority; outer sites need coaches.",
+      "distanceAnswer": "Town centre near landing stage per authority; outer sites need coaches.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Lerwick town centre",
+        "Shetland Museum and Archives",
+        "Jarlshof / south Mainland"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Know whether you are alongside or tendering before timing the museum."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e27d0c06e1dba3f72d064d7af8549d0b2d4b17be54385c082042b63543a17184",
+      "existing_guide_hash": "ef86e4c6c27d2ecf",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/lerwick-shetland-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.044Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

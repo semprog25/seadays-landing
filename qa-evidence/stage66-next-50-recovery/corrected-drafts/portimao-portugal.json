@@ -1,0 +1,78 @@
+{
+  "landing_slug": "portimao-portugal",
+  "draft": {
+    "landing_slug": "portimao-portugal",
+    "appPortId": "portimao",
+    "portName": "Portimão",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "The old town and museum lie on the river side, while Praia da Rocha and Santa Catarina face the sea. Alcalar’s prehistoric monuments are outside the city; the museum’s related finds do not mean the tombs are inside the waterfront museum. Ferragudo and Benagil need extra transport research, not an assumed quick detour."
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal de Cruzeiros de Portimão",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Allow 30 minutes for the permitted terminal exit and waterfront museum approach; confirm whether the ship/port requires a shuttle before walking. Budget 30–45 minutes for Praia da Rocha by local vehicle/walk combination and 45–60 minutes for an Alcalar road approach, including access/pickup. These are planning allowances, not sourced road distances.",
+      "distanceAnswer": "Allow 30 minutes for the permitted terminal exit and waterfront museum approach; confirm whether the ship/port requires a shuttle before walking. Budget 30–45 minutes for Praia da Rocha by local vehicle/walk combination and 45–60 minutes for an Alcalar road approach, including access/pickup. These are planning allowances, not sourced road distances.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Portimão Museum — Museu de Portimão, Arade waterfront, Portimão. An indoor local-history/archaeology anchor; the Alcalar operator notes related finds here. Allow 90 minutes; official source.",
+        "Santa Catarina de Ribamar Fort — Av. Tomás Cabreira 4, 8500-802 Portimão. A specific fort at Praia da Rocha, not the cruise terminal. Allow 40 minutes; official source.",
+        "Praia da Rocha — Praia da Rocha seafront, Portimão. A beach/boardwalk choice; seasonal facilities and safe bathing are not guaranteed. Allow 90 minutes; official source.",
+        "Main Church of Portimão — Main Church of Nossa Senhora da Conceição, Portimão old town. A distinct old-town religious stop, subject to services. Allow 35 minutes; official source.",
+        "Jesuit College church — Igreja do Colégio, Portimão old town. A separate mapped civic/religious landmark. Allow 35 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "For Alcalar, specify the on-site monuments/interpretation centre. A search result that sends you only to Portimão Museum is not the same visit."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f8d5708f386d7f81d496049cad301aa8eac36df47ea591e50835f66f4f1216b1",
+      "existing_guide_hash": "2fdfa9d75b5cfc9e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/portimao-portugal.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.107Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

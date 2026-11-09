@@ -1,0 +1,74 @@
+{
+  "landing_slug": "seward-ak-united-states",
+  "draft": {
+    "landing_slug": "seward-ak-united-states",
+    "appPortId": "seward",
+    "portName": "Seward",
+    "country": "United States",
+    "portInfo": {
+      "description": "Seward’s cruise landing is the Dale R. Lindsey Alaska Railroad Intermodal Facility, nicknamed the cruise-ship dock locally. Visit Seward’s cruise guest page states ships moor alongside with no tendering. Alaska Railroad materials describe ownership of docks and adjacent uplands supporting intermodal passenger and freight moves toward Anchorage and Fairbanks. This is a classic southcentral Alaska embarkation/disembarkation gateway for Gulf of Alaska itineraries rather than a Southeast Alaska walk-ashore village call."
+    },
+    "gettingThere": {
+      "fromTerminal": "Dale R. Lindsey Alaska Railroad Intermodal Facility (Seward Cruise Ship Terminal) — 2001 Seward Highway, Seward, AK 99664 (Visit Seward site footer / facility framing)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Seward harbor / downtown — ~2 mile framing — ~90 min.",
+        "Exit Glacier / Kenai Fjords NP — organised; transfer Not verified.",
+        "Kenai Fjords boat tour — long-call / full-day.",
+        "Alaska SeaLife Center — hours Not verified.",
+        "Mount Marathon viewpoints — weather/fitness dependent."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "No tender — but still budget time for rail/bus connections if continuing to Anchorage the same day."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "d2af709601b570c213f7e46265b883c0484ac28baba962654a47bdfb8163d35e",
+      "existing_guide_hash": "ad4ba6e2ec873192",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/seward-ak-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.130Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

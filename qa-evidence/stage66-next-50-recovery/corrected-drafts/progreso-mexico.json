@@ -1,0 +1,73 @@
+{
+  "landing_slug": "progreso-mexico",
+  "draft": {
+    "landing_slug": "progreso-mexico",
+    "appPortId": "progreso",
+    "portName": "Progreso",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "Administración del Sistema Portuario Nacional (ASIPONA) Progreso operates Puerto Progreso on Yucatán’s Gulf coast and publicly discusses cruise passenger movements alongside commercial cargo growth in 2026 notices. A 27 October 2026 headline notes growth in commercial cargo and cruise passengers during 2026, but the captured news page did not yield a usable numeric passenger table in text form. Secondary commercial operators (e.g. SSA Marine México) appear in web indexes as terminal operators; this guide does not promote operator marketing as berth geometry. Until ASIPONA publishes a clear passenger-door plan with coordinates, shore itineraries must treat the landing pin as unverified."
+    },
+    "gettingThere": {
+      "fromTerminal": "Puerto Progreso cruise passenger facilities (ASIPONA Progreso) — Puerto Progreso, Yucatán, Mexico (ASIPONA Progreso)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town / beach. Transfer mode and minutes from ship door to Progreso malecón: Not verified on ASIPONA pages captured. Mérida day trips are common in secondary guides but road times are Not verified here — use only with cruise-line or licensed-operator timing. Airport (MID) for rare turnarounds: Not verified.",
+      "distanceAnswer": "Town / beach. Transfer mode and minutes from ship door to Progreso malecón: Not verified on ASIPONA pages captured. Mérida day trips are common in secondary guides but road times are Not verified here — use only with cruise-line or licensed-operator timing. Airport (MID) for rare turnarounds: Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Progreso malecón / beach — if transfer allows — ~90 min.",
+        "Mérida centro — organised only; minutes Not verified.",
+        "Dzibilchaltún / nearby ruins — organised only.",
+        "Uxmal or Chichén Itá — long-call / excursion only with early return buffer.",
+        "Local seafood markets — hygiene/hours Not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not treat Progreso as a “walk straight into town” stop until the day’s shuttle/pier instructions are posted — the passenger door pin remains unverified."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "78743431ee4e4488ad904580f4e3340a7f44291530778987ac0d54e0f52d31f5",
+      "existing_guide_hash": "5d90eea4ea9fc344",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/progreso-mexico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.117Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

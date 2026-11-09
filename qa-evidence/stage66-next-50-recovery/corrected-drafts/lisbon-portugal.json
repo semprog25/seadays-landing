@@ -1,0 +1,72 @@
+{
+  "landing_slug": "lisbon-portugal",
+  "draft": {
+    "landing_slug": "lisbon-portugal",
+    "appPortId": "lisbon",
+    "portName": "Lisbon",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "Lisbon's main cruise terminal sits on the Tagus beside Alfama, so you can walk into the old town. Lisbon Cruise Port (Global Ports Holding) lists two terminals and four main berths totalling 1,425 m, with another 483 m available from the Port Authority if needed. Oasis-class ships can use Berth 1. The Baixa, the castle and Belém are the classic day plan; Belém needs a tram, bus or taxi."
+    },
+    "gettingThere": {
+      "fromTerminal": "Lisbon Cruise Port Terminal (Jardim do Tabaco) — Av. Infante Dom Henrique, Alfama, Lisboa",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Walk: Praça do Comércio is about 1 km along the river (estimate); Alfama starts next to the terminal.",
+      "distanceAnswer": "Walk: Praça do Comércio is about 1 km along the river (estimate); Alfama starts next to the terminal.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": ""
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Alfama lanes and viewpoints (editorial). 60 min.",
+        "Castelo de São Jorge. 75 min.",
+        "Praça do Comércio and Baixa. 45 min.",
+        "Mosteiro dos Jerónimos, Belém. 75 min.",
+        "Torre de Belém — timed entry after May 2026 reopening; exterior-only without a slot. 15–45 min."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm which terminal (Jardim do Tabaco or Santa Apolónia) is on your boarding documents. Both are near the riverfront, but Santa Apolónia is closer to the metro station."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fe159bc596ec9514c36def8a555539e40b31a91eb6ae8f078a642cfd29d04b26",
+      "existing_guide_hash": "cee76dd02d634672",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/lisbon-portugal.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.050Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

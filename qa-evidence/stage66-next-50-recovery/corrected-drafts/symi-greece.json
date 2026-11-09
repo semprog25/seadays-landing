@@ -1,0 +1,73 @@
+{
+  "landing_slug": "symi-greece",
+  "draft": {
+    "landing_slug": "symi-greece",
+    "appPortId": "symi",
+    "portName": "Symi",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Gialos presents a neoclassical harbour front; Chorio sits above via the stepped street. Panormitis monastery is a separate south-coast boat commitment without a verified hours primary here."
+    },
+    "gettingThere": {
+      "fromTerminal": "Gialos (Yialos) harbour — tender / ferry landing area — Gialos waterfront, Symi",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Ashore on foot from tender. Water taxis for coves — no invented minutes.",
+      "distanceAnswer": "Ashore on foot from tender. Water taxis for coves — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Gialos harbour front",
+        "Chorio via Kali Strata if mobility allows",
+        "Panormitis — hours gap",
+        "Gialos harbour neoclassical frontage",
+        "Chorio upper town via Kali Strata"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Count steps before committing to Chorio on a short clock."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e2f5c8d28f0a85157191aecc33ff5897472f9cbc3fdddeb588a4c3c69da105d5",
+      "existing_guide_hash": "1ee74f65278ca31e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/symi-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.146Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

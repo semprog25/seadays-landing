@@ -1,0 +1,72 @@
+{
+  "landing_slug": "mazatlan-mexico",
+  "draft": {
+    "landing_slug": "mazatlan-mexico",
+    "appPortId": "mazatlan",
+    "portName": "Mazatlan",
+    "country": "Mexico",
+    "portInfo": {
+      "description": "Puerto Mazatlán’s ASIPONA cruise terminal page markets capacity for more than one million passengers per year, more than 80 commercial locales, tour and taxi services, car/moto rental, a restaurant and Mexican dance exhibitions. The Programa Institucional ASIPONA Mazatlán 2025–2030 quantifies two cruise berthing positions, an illustrative annual berth capacity of 272 ships at a 0.72 occupancy factor, and reports 2024 actuals of 122 cruise vessels and 470,475 cruise passengers (recovering to fourth place among Mexican Pacific cruise destinations in that narrative). The same programme notes cruise ships also use neighbouring public quays in some cases and discusses a future specialised cruise terminal project — treat the future terminal as not the current evidenced landing."
+    },
+    "gettingThere": {
+      "fromTerminal": "Puerto Mazatlán — Terminal de Cruceros / cruise berthing positions — Recinto portuario de Mazatlán, Sinaloa, México (ASIPONA Mazatlán)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Centro / Malecón. Typical taxi/tour transfer; published minutes Not verified on cited pages. Terminal amenities. Shops/tours on-site per ASIPONA marketing.",
+      "distanceAnswer": "Centro / Malecón. Typical taxi/tour transfer; published minutes Not verified on cited pages. Terminal amenities. Shops/tours on-site per ASIPONA marketing.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Centro Histórico / cathedral / plazas — ~150 min.",
+        "Malecón cliff views / lookouts — flexible.",
+        "Centro Histórico / Malecón"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm whether you are on the dedicated cruise terminal face or an adjacent public quay — the institutional programme acknowledges multi-quay cruise use."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ac2e166eed59b96c996c1f9cd98ca92d46bf4b2a5bfa0c7c7357cccbbdaa3381",
+      "existing_guide_hash": "e61ba37902853655",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/mazatlan-mexico.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.063Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

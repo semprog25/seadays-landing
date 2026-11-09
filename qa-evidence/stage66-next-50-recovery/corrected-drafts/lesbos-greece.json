@@ -1,0 +1,74 @@
+{
+  "landing_slug": "lesbos-greece",
+  "draft": {
+    "landing_slug": "lesbos-greece",
+    "appPortId": "lesbos",
+    "portName": "Lesbos (Mytilene)",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Lesbos is a large North Aegean island; Mytilene concentrates services, castle approaches and the commercial harbour. Without a port-authority brochure, berth geometry stays approximate (OSM harbour way)."
+    },
+    "gettingThere": {
+      "fromTerminal": "Mytilene commercial harbour area — Mytilene harbour, Lesbos",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town adjacent; island north needs taxi/bus — no invented minutes.",
+      "distanceAnswer": "Town adjacent; island north needs taxi/bus — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Mytilene harbour + castle approaches",
+        "North villages only with buffer (gap on operator hours)",
+        "Mytilene harbour and castle approaches",
+        "Mithymna / Molyvos or Petra",
+        "Port authority cruise specs"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not chase Molyvos on a 5-hour clock."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "85f6c0af99c1f45b4936f9d85a252b9fd37cc202b4af3bf9cc5e91b3e6f49933",
+      "existing_guide_hash": "08612a635d6d1abb",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/lesbos-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.047Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,72 @@
+{
+  "landing_slug": "spetses-greece",
+  "draft": {
+    "landing_slug": "spetses-greece",
+    "appPortId": "spetses",
+    "portName": "Spetses",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Spetses is a tender call under the Municipal Port Fund of Spetses. Reporting ahead of the 2026 season states Poseidonio becomes the main cruise passenger landing to relieve Dapia, with Dapia retained for exceptional cases such as weather. Always follow the ship’s tender instructions over press summaries."
+    },
+    "gettingThere": {
+      "fromTerminal": "Spetses — Poseidonio cruise tender landing (primary) — Spetses, Greece",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Dapia town. May require a short hop from Poseidonio — minutes GAP. Island beaches. Horse carriage/taxi patterns — not timed here.",
+      "distanceAnswer": "Dapia town. May require a short hop from Poseidonio — minutes GAP. Island beaches. Horse carriage/taxi patterns — not timed here.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Dapia / town waterfront — ~75 min.",
+        "Old harbour / Agios Nikolaos area — editorial walk.",
+        "Beach time — buffer permitting.",
+        "Dapia harbour / town"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask Poseidonio vs Dapia before walking away."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b56fb191375ad32ecd8dcaf75438871f138ebc678e14e67820f72e9d10e3b1de",
+      "existing_guide_hash": "22979cd562613005",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/spetses-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.139Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

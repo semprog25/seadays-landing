@@ -1,0 +1,74 @@
+{
+  "landing_slug": "portofino-italy",
+  "draft": {
+    "landing_slug": "portofino-italy",
+    "appPortId": "portofino",
+    "portName": "Portofino",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Portofino’s yacht marina (Comune-managed as Portofino Yacht Marina since March 2021) publishes a dedicated cruise-ship tender acceptance area next to Isolotto inside the harbour, separated by a moveable bulkhead. There is no alongside cruise terminal; passengers arrive by ship’s tender. The piazzetta sits at the water’s edge of the borgo."
+    },
+    "gettingThere": {
+      "fromTerminal": "Portofino harbour — cruise tender acceptance area (Isolotto) — Portofino harbour, Genova, Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Piazzetta. Immediate from tender landing when in Portofino harbour. Castello Brown. Uphill path; minutes estimate 15–25 climb — not surveyed. Santa Margherita. Some ships tender there instead — verify landing on the day (not asserted as default here).",
+      "distanceAnswer": "Piazzetta. Immediate from tender landing when in Portofino harbour. Castello Brown. Uphill path; minutes estimate 15–25 climb — not surveyed. Santa Margherita. Some ships tender there instead — verify landing on the day (not asserted as default here).",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Tender ashore: 30 (est./variable)",
+        "Piazzetta: 45",
+        "Tender return queue: 30",
+        "Buffer: 75 (tender risk)",
+        "Piazzetta / harbour. ~45 min."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph last-tender time before leaving the pier."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "01470cc450483fd6ac4eaa49a6c3f3ce5ecafe8dbec36d26efce9b0e88953fc2",
+      "existing_guide_hash": "f63f7fbbb318c0fe",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/portofino-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.114Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

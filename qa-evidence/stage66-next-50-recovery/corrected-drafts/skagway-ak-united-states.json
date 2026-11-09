@@ -1,0 +1,75 @@
+{
+  "landing_slug": "skagway-ak-united-states",
+  "draft": {
+    "landing_slug": "skagway-ak-united-states",
+    "appPortId": "skagway",
+    "portName": "Skagway",
+    "country": "United States",
+    "portInfo": {
+      "description": "Skagway is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Ore Dock (ORE) — Port of Skagway waterfront (street address Not verified)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Downtown. Compact town — exact dock-to-Broadway minutes Not verified. White Pass & Yukon Route excursions — book with verified return. Ferry (AMH) is separate from cruise docks.",
+      "distanceAnswer": "Downtown. Compact town — exact dock-to-Broadway minutes Not verified. White Pass & Yukon Route excursions — book with verified return. Ferry (AMH) is separate from cruise docks.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Broadway historic district — gold-rush storefronts — ~90 min.",
+        "White Pass railroad — organised; full half-day+.",
+        "Klondike Gold Rush NHP — hours Not verified.",
+        "Jewell Gardens / nearby — transfer Not verified.",
+        "Yukon day trip — long-call only with passport rules for Canada."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check today’s ORE / BRD / RRA / RRF code — Broadway Dock vs Ore changes walking distance to shops."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "da74ad5a877cb0720c7f01e48c8b7f1b3f9ca5d037ffa8aaf5fe9671978b595f",
+      "existing_guide_hash": "9178bc0f44611273",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/skagway-ak-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.136Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

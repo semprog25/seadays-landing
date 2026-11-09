@@ -1,0 +1,78 @@
+{
+  "landing_slug": "paros-greece",
+  "draft": {
+    "landing_slug": "paros-greece",
+    "appPortId": "paros",
+    "portName": "Paros",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Parikia’s church complex, archaeological museum and castle hill give the port town a substantive identity. Naoussa is a separate village and Lefkes an inland one; neither belongs in a supposedly walkable Parikia itinerary. The island’s marble history is useful context, not a reason to fill a day with unsourced quarry access."
+    },
+    "gettingThere": {
+      "fromTerminal": "Central Port of Paros — Parikia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Budget 45 minutes for the ship-to-confirmed-Parikia landing/queue and the same for return. Once there, the church/museum/Kastro circuit is a town walk; inland or Naoussa excursions need a retained vehicle. The authority describes a seasonal Parikia–Antiparos passenger crossing of about an hour; it must not be confused with a much shorter Pounta ferry crossing or sold as a verified cruise-day connection.",
+      "distanceAnswer": "Budget 45 minutes for the ship-to-confirmed-Parikia landing/queue and the same for return. Once there, the church/museum/Kastro circuit is a town walk; inland or Naoussa excursions need a retained vehicle. The authority describes a seasonal Parikia–Antiparos passenger crossing of about an hour; it must not be confused with a much shorter Pounta ferry crossing or sold as a verified cruise-day connection.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Panagia Ekatontapiliani — Ekatontapiliani church complex, Parikia, Paros. An active early-Christian monument; worship controls interior access. Allow 50 minutes; official source.",
+        "Archaeological Museum of Paros — Archaeological Museum, Parikia, Paros. A distinct collection of island archaeology; verify current opening. Allow 75 minutes; official source.",
+        "Kastro of Parikia — Kastro hill, Parikia old settlement. Castle remnants reuse ancient architectural pieces; expect uneven lanes. Allow 45 minutes; official source.",
+        "Ancient Cemetery — Ancient cemetery site, Parikia, Paros. A different archaeological site, not the museum entrance; check viewing/access. Allow 30 minutes; official source.",
+        "Naoussa — Naoussa village centre, Paros. A road excursion to another village, not a walk from the tender. Allow 75 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Label a boat ticket by its departure port. Parikia–Antiparos and Pounta–Antiparos are different journeys; neither is assumed available or safe within this tender day."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "3416162a32e0b2a001f49bdd00278fcab0cce323ad5841d6649280be04865c3b",
+      "existing_guide_hash": "5b9ed1f659dd15e3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/paros-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.090Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

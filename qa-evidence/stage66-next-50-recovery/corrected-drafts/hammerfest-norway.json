@@ -1,0 +1,72 @@
+{
+  "landing_slug": "hammerfest-norway",
+  "draft": {
+    "landing_slug": "hammerfest-norway",
+    "appPortId": "hammerfest",
+    "portName": "Hammerfest",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Arctic town-centre berths for smaller/mid ships; Fuglenes for larger LOA. Treat “northernmost town” tourism slogans as unverified marketing — not repeated as fact here."
+    },
+    "gettingThere": {
+      "fromTerminal": "Sentrum kai 1 — Hammerfest town-centre quays",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Sentrum quays: walkable centre per factsheet. Fuglenes: 2.5 km — plan coach/taxi; no timed shuttle primary captured. Anchorage→tender pier 1.5 n.m. on factsheet if used.",
+      "distanceAnswer": "Sentrum quays: walkable centre per factsheet. Fuglenes: 2.5 km — plan coach/taxi; no timed shuttle primary captured. Anchorage→tender pier 1.5 n.m. on factsheet if used.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town-centre walk (from Sentrum berths)",
+        "Museum of Reconstruction / town walk",
+        "Meridian Column (Struve Geodetic Arc)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the day’s quay — Fuglenes is not a pier stroll to Rådhusplassen."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "993c7d8519d9d552db1aabfb7f56b896ffc091540f8e85920dfc67fe4ae9038e",
+      "existing_guide_hash": "e5635dea04cb05a2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/hammerfest-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:55.961Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}
