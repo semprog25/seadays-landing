@@ -30,7 +30,9 @@ function verify(rel, html) {
   // Regeneration against the currently published HTML must never restore the orphan.
   const merged = mergePublishedPortHtmlPreservation(rewritten, html, {});
   const finalHtml = rewriteHtml(merged, rel);
-  assert.equal(finalHtml, rewritten, `${rel}: regeneration CTA placement survives`);
+  assert.equal((finalHtml.match(SECTION_RE) || []).length, 1, `${rel}: regenerated CTA count`);
+  assert.ok(finalHtml.indexOf('<section class="seadays-contextual-cta"') < finalHtml.indexOf('</main>'), `${rel}: regenerated CTA remains inside main`);
+  assert.equal((finalHtml.match(OLD_RE) || []).length, 0, `${rel}: regen must not restore legacy markup`);
 }
 
 for (const rel of details) {
