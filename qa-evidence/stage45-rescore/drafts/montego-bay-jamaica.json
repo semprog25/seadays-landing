@@ -1,0 +1,94 @@
+{
+  "landing_slug": "montego-bay-jamaica",
+  "app_port_id": "montego-bay",
+  "research_sha256": "64c978c424c46c2d983fcaae4177957d488fe9877b6982ba0b39cb596e88fe89",
+  "draft": {
+    "landing_slug": "montego-bay-jamaica",
+    "appPortId": "montego-bay",
+    "portName": "Montego Bay",
+    "country": "Jamaica",
+    "portInfo": {
+      "description": "Montego Bay is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "location": "",
+      "timezone": "EST (UTC-5)",
+      "language": "English, Jamaican Patois",
+      "currency": "Jamaican Dollar (JMD), US Dollar widely accepted",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Montego Bay",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Beaches and town are marketed as accessible; walk/shuttle minutes from the cruise gate are unverified. Falmouth and Ocho Rios are separate PAJ ports — do not assume a short hop without a timed coach.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Beaches and town are marketed as accessible; walk/shuttle minutes from the cruise gate are unverified. Falmouth and Ocho Rios are separate PAJ ports — do not assume a short hop without a timed coach."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Doctor’s Cave / local beaches — transfer unverified; ~120–180 min ashore block.",
+        "Inland falls / estate tours — coach; standard/long call only."
+      ],
+      "shortCall": "One nearby beach or strip block (~150) + 75 min buffer.",
+      "standardCall": "One regional excursion + 90 min buffer.",
+      "longerCall": "Further island touring with ≥120 min buffer.",
+      "practicalTip": "Montego Bay Freeport / SEZ addresses on PAJ contact pages are not automatically the cruise gangway — use Mantica Way cruise contact."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "64c978c424c46c2d983fcaae4177957d488fe9877b6982ba0b39cb596e88fe89",
+      "existing_guide_hash": "2083443de3257b43",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/montego-bay-jamaica.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_thingsBullet",
+        "insufficient_supported_attractions_2"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.314Z",
+      "cache_key": "93b125d50ef1c531354af0db38e74a7834d5e687f0b1622984f9f1ade9717b92",
+      "landing_slug": "montego-bay-jamaica",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": false,
+    "failures": [
+      "schema_top_things_2",
+      "passenger_top_things_2_of_3",
+      "factual_insufficient_attractions_2"
+    ],
+    "warnings": [],
+    "factual": {
+      "flags": [
+        "insufficient_attractions_2"
+      ],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": false,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "NEEDS_EDITORIAL_FIX",
+    "reasons": [
+      "schema_top_things_2",
+      "passenger_top_things_2_of_3",
+      "factual_insufficient_attractions_2"
+    ]
+  },
+  "cache_hit": false
+}

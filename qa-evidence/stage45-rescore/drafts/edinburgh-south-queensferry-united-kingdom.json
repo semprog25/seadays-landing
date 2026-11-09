@@ -1,0 +1,87 @@
+{
+  "landing_slug": "edinburgh-south-queensferry-united-kingdom",
+  "app_port_id": "edinburgh",
+  "research_sha256": "e2f92dde84cb880b25730dd87ee2bf7da9f3ac88b9946706a9e0e314a27b80b6",
+  "draft": {
+    "landing_slug": "edinburgh-south-queensferry-united-kingdom",
+    "appPortId": "edinburgh",
+    "portName": "Edinburgh (South Queensferry)",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Scotland's historic capital, a stunning city with medieval and Georgian architecture, accessible via nearby cruise ports.",
+      "location": "",
+      "timezone": "GMT (UTC+0) / BST (UTC+1)",
+      "language": "English, Scottish Gaelic",
+      "currency": "British Pound (GBP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Hawes Pier",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Lothian's X99 page gives approximately 30 minutes between Hawes Pier and Edinburgh. Its 2026 notice identifies the east end of George Street as the city terminus and at least 20-minute frequency on the listed cruise-call dates. The last bus aims to reach the pier 30 minutes before the final tender. Use an earlier return and check the actual call timetable; ship time can differ from local time. Rail is another option: tourism guidance gives about 20 minutes between Dalmeny and Waverley, then 15 minutes walking into South Queensferry. For the reverse uphill pier-to-station approach, budget 20–30 minutes as an editorial allowance and check the accessible route rather than assuming the steps suit everyone. Service 43 also appears in tourism guidance; its city stop differs from X99. No fare is asserted.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Lothian's X99 page gives approximately 30 minutes between Hawes Pier and Edinburgh. Its 2026 notice identifies the east end of George Street as the city terminus and at least 20-minute frequency on the listed cruise-call dates. The last bus aims to reach the pier 30 minutes before the final tender. Use an earlier return and check the actual call timetable; ship time can differ from local time. Rail is another option: tourism guidance gives about 20 minutes between Dalmeny and Waverley, then 15 minutes walking into South Queensferry. For the reverse uphill pier-to-station approach, budget 20–30 minutes as an editorial allowance and check the accessible route rather than assuming the steps suit everyone. Service 43 also appears in tourism guidance; its city stop differs from X99. No fare is asserted."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Edinburgh Castle, The Esplanade, EH1 2NG: allow two hours for selected highlights. Budget 75 minutes from Hawes Pier including waiting and the uphill approach. Book only a compatible slot; the operator warns of limited coach access and restricted parking.",
+        "Palace of Holyroodhouse, Canongate, EH8 8DX: allow 90 minutes plus 75–90 minutes from the pier. Check the working palace's calendar. Some historic rooms have access restrictions.",
+        "National Museum of Scotland, Chambers Street, EH1 1JF: allow 90 minutes plus 75–90 minutes from the pier. General admission is free; special exhibitions may cost extra. Lifts and ramps make it a useful indoor alternative, not a promise that every party can tour at the same speed.",
+        "Royal Yacht Britannia, Ocean Drive, EH6 6JJ: allow two hours, with a provisional 90–120-minute public-transport transfer from Hawes Pier. Visitor access is through Ocean Terminal's second floor. It is a separate Leith outing, not an easy extra after every old-town visit.",
+        "South Queensferry waterfront, Hawes Pier/Newhalls Road: allow an hour for a slow shore walk,10–20 minutes from the landing. Stay within the public shore route and return to the designated tender area, not another sightseeing-boat queue."
+      ],
+      "shortCall": "For five hours starting after landing at Hawes Pier, keep the day local:20 minutes out,60 minutes for waterfront views,45 minutes for lunch,60 minutes exploring nearby streets and 15 minutes back. Preserve 100 minutes for tender queue/recovery. This totals 300 minutes and avoids committing a short tender call to central-city admissions. Shorten the walk in poor conditions.",
+      "standardCall": "For seven hours from Hawes Pier, allow 75 minutes to the castle via X99/George Street and walking,120 minutes inside,45 minutes for lunch,30 minutes around the upper Royal Mile and 75 minutes back. Retain 75 minutes before the advertised last-tender deadline. Total 420 minutes. If the actual tender landing is delayed or the castle slot does not fit, replace the interior with a city walk rather than borrowing the return buffer.",
+      "longerCall": "For nine hours, allow 75 minutes outward,120 minutes at the castle,45 minutes for lunch,30 minutes walking through the old town towards Chambers Street,90 minutes at the museum and 75 minutes back. Keep 105 minutes before the last tender:540 minutes total. This does not also include Holyroodhouse or Britannia. An overnight still needs confirmed tender/reboarding arrangements; it is not permission to return whenever buses finish.",
+      "practicalTip": "These windows run from arrival ashore to the announced final-tender deadline, not from the ship's anchorage arrival to sailing time. Subtract any earlier last-tender requirement first. None of the buffers guarantees safe return if the ship changes landing operations."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e2f92dde84cb880b25730dd87ee2bf7da9f3ac88b9946706a9e0e314a27b80b6",
+      "existing_guide_hash": "515441b95ce082b7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/edinburgh-south-queensferry-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.273Z",
+      "cache_key": "6a4c76eb5adc59bdaa24ee640d9fa40717da2a4fe443054f7bd134ea8da03887",
+      "landing_slug": "edinburgh-south-queensferry-united-kingdom",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-11-09T06:19:30.000Z",
+  "status": "DEFERRED_MODULE_MISSING",
+  "note": "playwright is not a repo dependency on main; stage61-playwright-visual-audit.js could not run. Editorial/html gates passed in RELEASE_VALIDATION.json. Reuse stage53 playwright harness after npm add playwright in CI or local prep.",
+  "slugs": [
+    "corner-brook-canada",
+    "horta-azores-portugal",
+    "lofoten-islands-norway",
+    "reykjavik-iceland",
+    "sydney-australia"
+  ],
+  "fallback_checks": ["validateGeneratedPortHtml", "source_marker_regression", "passenger_leak_scan"]
+}

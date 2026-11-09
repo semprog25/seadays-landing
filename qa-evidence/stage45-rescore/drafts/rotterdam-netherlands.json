@@ -1,0 +1,91 @@
+{
+  "landing_slug": "rotterdam-netherlands",
+  "app_port_id": "rotterdam",
+  "research_sha256": "fe09f65c16794df576ab609ec5125fb4299769885b7b9a1f425e756fd1f0ab05",
+  "draft": {
+    "landing_slug": "rotterdam-netherlands",
+    "appPortId": "rotterdam",
+    "portName": "Rotterdam",
+    "country": "Netherlands",
+    "portInfo": {
+      "description": "Europe's largest port and a modern city, known for innovative architecture and excellent cruise terminal facilities.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Dutch",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise Terminal Rotterdam — Wilhelminakade 699, 3072 AP Rotterdam (building also indexed near 3072 MK)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Cruise Port Rotterdam places the terminal on Wilhelminapier with taxis, bus parking and public transport described as about a one-minute walk. Cruise-line materials commonly cite Wilhelminaplein metro at about a four-minute walk—treat both as operator/line estimates and confirm in RET for the call date. From Rotterdam Centraal: allow an editorial 20–35 minutes door-to-door including metro/tram, walking and orientation (estimate; NS/RET-verify). Schiphol (AMS): plan via NS to Rotterdam Centraal then RET; do not compress below a 90-minute risk buffer airport-to-gangway on embarkation day without a live journey plan. Resolve passenger paperwork showing Wilhelminakade 699 (operator) versus 669 (some cruise-line pages) before rideshare drop-off—both refer to the Wilhelminapier complex.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Cruise Port Rotterdam places the terminal on Wilhelminapier with taxis, bus parking and public transport described as about a one-minute walk. Cruise-line materials commonly cite Wilhelminaplein metro at about a four-minute walk—treat both as operator/line estimates and confirm in RET for the call date. From Rotterdam Centraal: allow an editorial 20–35 minutes door-to-door including metro/tram, walking and orientation (estimate; NS/RET-verify). Schiphol (AMS): plan via NS to Rotterdam Centraal then RET; do not compress below a 90-minute risk buffer airport-to-gangway on embarkation day without a live journey plan. Resolve passenger paperwork showing Wilhelminakade 699 (operator) versus 669 (some cruise-line pages) before rideshare drop-off—both refer to the Wilhelminapier complex."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Markthal (Market Hall), Dominee Jan Scharpstraat: allow 45–75 minutes for food stalls and the arched interior.",
+        "Euromast: allow 60–90 minutes including tickets and views; skip if wind/queue risk is high on a short call.",
+        "Wilhelminapier / Kop van Zuid waterfront walk from the terminal: allow 45–60 minutes without riding anywhere.",
+        "Cube Houses / Blaak area: allow ~60 minutes when combining with Markthal.",
+        "Erasmusbrug photo stop: allow 20–30 minutes as a connector between pier and centre."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "Add a harbour ferry hop or Museumpark only with confirmed timings; keep 120 minutes uncommitted ship buffer on a 9-hour clock. Overnight needs reboarding confirmation. Do not treat Delft or The Hague as casual add-ons without a full rail plan and ship approval.",
+      "practicalTip": "Resolve 699 vs 669 on your boarding pass before rideshare drop-off—both refer to the Wilhelminapier complex, but drivers follow the number you give."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fe09f65c16794df576ab609ec5125fb4299769885b7b9a1f425e756fd1f0ab05",
+      "existing_guide_hash": "2107d435b44d772d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/rotterdam-netherlands.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_description",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.358Z",
+      "cache_key": "6d80d642792fb60020836357211f0d32216389e21d75b7ba75e421b79cbd8ac9",
+      "landing_slug": "rotterdam-netherlands",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

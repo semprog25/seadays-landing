@@ -1,0 +1,86 @@
+{
+  "landing_slug": "boston-ma-united-states",
+  "app_port_id": "boston",
+  "research_sha256": "e45def63a871398ef778cfa48ef600d31083a90d1f846e1d8e01c461d377a4d4",
+  "draft": {
+    "landing_slug": "boston-ma-united-states",
+    "appPortId": "boston",
+    "portName": "Boston",
+    "country": "United States",
+    "portInfo": {
+      "description": "Massport’s Flynn Cruiseport Boston sits in the Seaport District and publishes the cruise terminal address as 1 Black Falcon Avenue on its Parking & Driving Directions page. Official parking is at 93 Fargo Street with mandatory advance online reservations and a complimentary shuttle; walking is described as about 0.4 miles or 10 minutes. The main Flynn Cruiseport page places the facility in South Boston’s Seaport with I-90/I-93 and Logan accessibility framing and lists homeport partners including Norwegian, Celebrity and Princess (Princess from 2024). Door WGS84 pins remain null.",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Flynn Cruiseport Boston",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Driving. Massport publishes I-93 / Seaport Boulevard / Drydock Avenue / Black Falcon Avenue approaches. Parking. 93 Fargo Street; reserve online; shuttle; ~10 min walk. Logan. Proximity framed on main page; timed taxi minutes Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Driving. Massport publishes I-93 / Seaport Boulevard / Drydock Avenue / Black Falcon Avenue approaches. Parking. 93 Fargo Street; reserve online; shuttle; ~10 min walk. Logan. Proximity framed on main page; timed taxi minutes Not verified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Seaport District waterfront — immediate — ~90 min.",
+        "Freedom Trail / downtown — transit/rideshare — ~180 min.",
+        "Boston Tea Party Ships / Harborwalk — mid call.",
+        "North End — food + history; buffer for traffic.",
+        "Harvard Square — longer organised only."
+      ],
+      "shortCall": "≥4 h. Seaport walk + one nearby museum; ≥90 min embarkation buffer.",
+      "standardCall": "≥6 h. Freedom Trail segment downtown; ≥90 min return.",
+      "longerCall": "Full Trail + North End with hotel night preferred.",
+      "practicalTip": "Reserve Fargo Street parking online before you drive — Massport requires advance arrangements for the official lot."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e45def63a871398ef778cfa48ef600d31083a90d1f846e1d8e01c461d377a4d4",
+      "existing_guide_hash": "105788a390b33346",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/boston-ma-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.229Z",
+      "cache_key": "4d6f4fa7b26579795e9cd1b46f6900825834e12dce345056b8552c669431c01d",
+      "landing_slug": "boston-ma-united-states",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

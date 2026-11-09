@@ -1,0 +1,84 @@
+{
+  "landing_slug": "reykjavik-iceland",
+  "app_port_id": "reykjavik",
+  "research_sha256": "bf91f415056c7f5d3b19569d0b13a8995241a1f6b7bbbd0e7046f806dd445177",
+  "draft": {
+    "landing_slug": "reykjavik-iceland",
+    "appPortId": "reykjavik",
+    "portName": "Reykjavik",
+    "country": "Iceland",
+    "portInfo": {
+      "description": "The Ports of Faxaflói (Faxaflóahafnir) handle Iceland’s capital-area cruise calls at Reykjavík and Akranes. Captured facility pages state all passenger-ship areas are ISPS-certified, fenced, and staffed with security while ships are alongside. A new two-floor, 5,500 m² multi-purpose passenger terminal is scheduled to open in spring 2026 to replace limited temporary facilities and grow turnaround traffic. The port participates in EPI environmental incentives. Quay-by-quay LOA and door coordinates were not on the captured English cruise pages, so pins stay null.",
+      "location": "",
+      "timezone": "GMT (UTC+0)",
+      "language": "Icelandic",
+      "currency": "Icelandic Króna (ISK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Reykjavík Faxaflói cruise area",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Downtown Reykjavík is near the main harbour cluster; Akranes needs a longer transfer — confirm berth.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Downtown Reykjavík is near the main harbour cluster; Akranes needs a longer transfer — confirm berth."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Harbour / downtown Reykjavík — ~120 min.",
+        "Hallgrímskirkja / centre — walk or short bus.",
+        "Golden Circle / Blue Lagoon — full-day coaches only."
+      ],
+      "shortCall": "Downtown loop + 75 min buffer (Reykjavík berth).",
+      "standardCall": "Centre + one nearby excursion + 90 min buffer.",
+      "longerCall": "Golden Circle-style day with ≥120 min buffer.",
+      "practicalTip": "Ask whether you are in Reykjavík or Akranes before booking independent taxis."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "bf91f415056c7f5d3b19569d0b13a8995241a1f6b7bbbd0e7046f806dd445177",
+      "existing_guide_hash": "a5004eb9dcd81ad4",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/reykjavik-iceland.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.345Z",
+      "cache_key": "6364ee8d39e1039f77faa48fb55219782d8334eb5991f06f43aaf0d2a54a5ab6",
+      "landing_slug": "reykjavik-iceland",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

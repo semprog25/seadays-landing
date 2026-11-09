@@ -1,0 +1,84 @@
+{
+  "landing_slug": "princess-cays-bahamas",
+  "app_port_id": "princess-cays",
+  "research_sha256": "8dba8eb9c0800a932f4895aff19a7b89acbe70eadaacea33750b6b109a54f170",
+  "draft": {
+    "landing_slug": "princess-cays-bahamas",
+    "appPortId": "princess-cays",
+    "portName": "Princess Cays",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Princess Cays is a purpose-built private beach destination on Eleuthera’s southern tip, described by Princess Cruises as exclusive to Princess guests and select sister lines under Carnival Corporation ownership. The line’s FAQ states explicitly that it is a tender port: ships remain offshore and guests ride smaller boats that operate regularly so passengers can shuttle back and forth. Amenities marketed include a beachside BBQ, bars, snorkel/kayak/glass-bottom excursions, and reservable cabanas or adults-only bungalows. Exact tender-pier coordinates are not published as WGS84 on the destination page — keep pins null. Catalog flag: private_or_cruise_line_destination.",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "Bahamian Dollar (BSD), US Dollar (USD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Princess Cays tender landing",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Tender from ship. Budget 75 / 90 / 120 min buffers including tender queues.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Tender from ship. Budget 75 / 90 / 120 min buffers including tender queues."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Main beach / BBQ.",
+        "Snorkel / kayak.",
+        "Cabana or bungalow rental — fees via ship."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Water shoes recommended — FAQ notes rocky shoreline patches."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8dba8eb9c0800a932f4895aff19a7b89acbe70eadaacea33750b6b109a54f170",
+      "existing_guide_hash": "f7ff519b65020087",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/princess-cays-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.336Z",
+      "cache_key": "12066e371530d4c63346c0d74c57f32bbbb2b6863a45720b648bedcfae5205ee",
+      "landing_slug": "princess-cays-bahamas",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

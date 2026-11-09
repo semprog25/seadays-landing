@@ -1,0 +1,89 @@
+{
+  "landing_slug": "bordeaux-france",
+  "app_port_id": "bordeaux",
+  "research_sha256": "3639bee2e883fc2ff3a53048b5c28fa93f3353f21d809b6357df19b0318664b3",
+  "draft": {
+    "landing_slug": "bordeaux-france",
+    "appPortId": "bordeaux",
+    "portName": "Bordeaux",
+    "country": "France",
+    "portInfo": {
+      "description": "The Port of Bordeaux sits on the Gironde estuary and Garonne with seven specialised port terminals handling nearly a thousand ships a year. Its maritime and river cruise page distinguishes three cruise terminals — Bordeaux, Pauillac and Le Verdon — and publishes a traffic snapshot of 64 calls and 67,000 passengers. Le Verdon-sur-Mer is described as a true deep-water port for large ships; smaller river pontoons extend calls to towns along the estuary and river including Royan, Blaye, Bourg-sur-Gironde, Cussac-Fort-Médoc, Libourne and Cadillac. Cruise passengers must read their berthing letter: a city pontoon day and a Verdon day are different itineraries.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "French",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Bordeaux — city / river cruise terminals (Bordeaux, Pauillac, Verdon) — Port de Bordeaux terminals along the Gironde / Garonne, France",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Clear gangway: 15 min (estimate)",
+        "Riverfront to Place de la Bourse: 25 min (estimate)",
+        "Return: 25 min (estimate)",
+        "Buffer: 60 min",
+        "To Cité du Vin: 40 min (estimate — replace with live timing)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "City berth ≥6 h 30: add Cité du Vin only if you can show tram/taxi timing on the day.\n- To Cité du Vin: 40 min (estimate — replace with live timing)\n- Visit: 120 min\n- Lunch: 60 min\n- Return toward ship via riverfront: 40 min (estimate)\n- Buffer: 60 min\nPlus morning Bourse 45 + short walks — total easily ≥6 h 30. Cut Cité du Vin first if late. Verdon/Pauillac berth: treat as transfer day — prefer ship excursion unless a coach return ≥90 min before all-aboard is confirmed.",
+      "longerCall": "City overnight: Cité du Vin afternoon + evening riverfront (editorial evening plan; restaurant hours not fetched). Médoc cellar visits belong to Pauillac-berth or dedicated coach days with verified returns.",
+      "practicalTip": "Read the berthing letter for Bordeaux vs Pauillac vs Verdon before packing walking shoes vs transfer patience."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "3639bee2e883fc2ff3a53048b5c28fa93f3353f21d809b6357df19b0318664b3",
+      "existing_guide_hash": "b5fcad87182222a0",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bordeaux-france.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.225Z",
+      "cache_key": "17188d0a5db603021eeaea50d341210f4c3c4bab09a293c13a7c18a853495152",
+      "landing_slug": "bordeaux-france",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,90 @@
+{
+  "landing_slug": "bari-italy",
+  "app_port_id": "bari",
+  "research_sha256": "c4ef2c63dd961faa738c1333b89cfa020370d39e8370257237a721affd5029d5",
+  "draft": {
+    "landing_slug": "bari-italy",
+    "appPortId": "bari",
+    "portName": "Bari",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Bari is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Bari — cruise facilities (Pier 10 terminal project) — Porto di Bari, Bari, Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit: 15",
+        "To Vecchia: 20 (est.)",
+        "Basilica + streets: 90",
+        "Return: 20",
+        "Buffer: 60"
+      ],
+      "shortCall": "≥4 h.\n- Exit: 15\n- To Vecchia: 20 (est.)\n- Basilica + streets: 90\n- Return: 20\n- Buffer: 60\nSum: 205.",
+      "standardCall": "≥6 h. Add lunch 60 + longer Vecchia 40 on top of short plan; keep buffer 60.",
+      "longerCall": "Add museum/shopping only after buffer safe. Overnight: evening Vecchia (editorial).",
+      "practicalTip": "Because AdSP pages were WAF-blocked, trust the ship’s berth letter over web memory."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c4ef2c63dd961faa738c1333b89cfa020370d39e8370257237a721affd5029d5",
+      "existing_guide_hash": "700af54f02905302",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/bari-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.212Z",
+      "cache_key": "07e0e19aedfcb2cf1c639beaf9474b8658f2d7c84fd45ac4973bab8fd71578a1",
+      "landing_slug": "bari-italy",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -6258,7 +6258,6 @@
       "portName": "Corner Brook",
       "country": "Canada",
       "portInfo": {
-        "description": "A Canadian port city in Newfoundland with excellent facilities and access to natural attractions.",
         "location": "",
         "timezone": "NST (UTC-3:30) / NDT (UTC-2:30)",
         "language": "English",
@@ -6298,12 +6297,54 @@
         "entryRequirements": "Valid passport usually required. Many visa-exempt visitors need an Electronic Travel Authorization (eTA) from the Government of Canada—confirm before you sail."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Western Terminal / 5878",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "From berth. Downtown transfer minutes Not verified. Airport (YTQ/others). Not verified on pages extracted. Tender. Specifications include tender-dock fields; whether routine passenger tendering occurs is Not verified beyond the field labels.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "From berth. Downtown transfer minutes Not verified. Airport (YTQ/others). Not verified on pages extracted. Tender. Specifications include tender-dock fields; whether routine passenger tendering occurs is Not verified beyond the field labels."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Corner Brook downtown / Captains Brook waterfront — ~120 min; transfer Not verified.",
+          "Marble Mountain area views — mid call.",
+          "Steady Brook / scenic drives — organised.",
+          "Gros Morne National Park — long organised only.",
+          "Local trails / Lookout — weather-dependent."
+        ],
+        "shortCall": "≥4 h. Downtown waterfront only; skip Gros Morne. ≥90 min buffer.",
+        "standardCall": "≥6 h. One nearby scenic stop or town museums; ≥90 min return.",
+        "longerCall": "Gros Morne with overnight preferred — not a short-call add-on.",
+        "practicalTip": "Newfoundland uses America/St_Johns time (UTC−3:30 / −2:30 DST) — confirm ship clocks vs local shore clocks before tours [timezone convention]."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "892c17dc140ea77e49fadd15",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2ddc2ea9092ec85781348262ee4882d78f0c4873353fd759f96b25b9d0ab7f07",
+        "landing_slug": "corner-brook-canada",
+        "candidate_content_hash": "ccb7d709f672622bed21cf4078572083ebb66847d74212c79a41ceb5a551018f",
+        "locked_at_utc": "2026-11-09T06:18:32.698Z",
+        "field_exclusions": [
+          "portInfo.description"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "bulk_50_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "bulk_50_release_prep": true,
+        "owner_publication_authorized": false,
+        "bulk_50_release_bundle_hash": "516b00b7956318f98362637259392aed988b064e053fc0acc045efa03fe2287c",
+        "applied_at_utc": "2026-11-09T06:18:34.616Z"
       }
     },
     "coron": {
@@ -11186,7 +11227,6 @@
       "portName": "Horta",
       "country": "Portugal",
       "portInfo": {
-        "description": "Main port of the Azores archipelago, famous for its marina with painted murals and volcanic landscapes.",
         "location": "Located on Faial Island, Azores, Portugal",
         "timezone": "AZOT (UTC-1) / AZOST (UTC+0)",
         "language": "Portuguese",
@@ -11241,9 +11281,45 @@
           "Local bus"
         ],
         "distanceToCity": "Terminal located in Horta town center",
-        "walkingTime": "5-15 minutes to most attractions",
+        "walkingTime": "5-15 minutes to most attractions—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Limited taxis available",
-        "publicTransport": "Limited bus service on island"
+        "publicTransport": "Limited bus service on island",
+        "distanceAnswer": "Terminal located in Horta town center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Marina / café culture — ~90 min.",
+          "Capelinhos volcano — half day.",
+          "Caldeira rim — weather-dependent."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Atlantic swell — confirm tender status early."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "c7b107596266a681195c9d52",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "ca5c8e6d790d9402cc641880e8d6205c711873de05a2fbb8ed7acde9722559af",
+        "landing_slug": "horta-azores-portugal",
+        "candidate_content_hash": "a3ee7b97915dac124903c90ea42a793b365b9667899fb3779b0db391f9643d28",
+        "locked_at_utc": "2026-11-09T06:18:32.698Z",
+        "field_exclusions": [
+          "portInfo.description"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "bulk_50_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "bulk_50_release_prep": true,
+        "owner_publication_authorized": false,
+        "bulk_50_release_bundle_hash": "516b00b7956318f98362637259392aed988b064e053fc0acc045efa03fe2287c",
+        "applied_at_utc": "2026-11-09T06:18:34.617Z"
       }
     },
     "hvar": {
@@ -15779,7 +15855,6 @@
       "portName": "Lofoten",
       "country": "Norway",
       "portInfo": {
-        "description": "A stunning archipelago in northern Norway known for dramatic mountains, fishing villages, and the midnight sun.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -15825,12 +15900,52 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Leknes cruise quay",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Lofotr Viking Museum, Borg — listed from Leknes on Visit Lofoten Cruise — ~90–150 min on site; transfer not surveyed.",
+          "Scenic island coach / fishing-village viewpoints — line excursions; independent self-drive timing not verified.",
+          "Reine / Hamnøy photo stops — only with confirmed return; Reine also has its own catalog slug."
+        ],
+        "shortCall": "≥4 h. Exit/tender 40 + one nearby harbour-area stop 60 + return 40 + 75 min buffer ≈ 215. Skip Borg unless transfer is pre-confirmed under 30 min each way.",
+        "standardCall": "≥6 h. Lofotr or a single island loop with 90 min return buffer; do not stack Reine + Borg without line timing.",
+        "longerCall": "Cross-island itineraries only with ≥120 min return buffer and published shuttle/coach plan — not verified as independent.",
+        "practicalTip": "Confirm Leknes alongside vs tender and whether your ticket is actually Svolvær before planning."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "d538555e34daad3044e8a238",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "6d519f09471e43d5e7b807fb16397a0dfbaf52cb5e93036fc145c6e74064acf5",
+        "landing_slug": "lofoten-islands-norway",
+        "candidate_content_hash": "80ffe7a6613722f1f6bf853cb49191230d5dc40d2e3e9bd8201cca1bea6c205e",
+        "locked_at_utc": "2026-11-09T06:18:32.698Z",
+        "field_exclusions": [
+          "portInfo.description"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "bulk_50_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "bulk_50_release_prep": true,
+        "owner_publication_authorized": false,
+        "bulk_50_release_bundle_hash": "516b00b7956318f98362637259392aed988b064e053fc0acc045efa03fe2287c",
+        "applied_at_utc": "2026-11-09T06:18:34.617Z"
       }
     },
     "lombok": {
@@ -23548,7 +23663,6 @@
       "portName": "Reykjavik",
       "country": "Iceland",
       "portInfo": {
-        "description": "Iceland's capital and largest city, a modern port destination known for its vibrant culture, geothermal pools, and gateway to natural wonders.",
         "location": "",
         "timezone": "GMT (UTC+0)",
         "language": "Icelandic",
@@ -23589,12 +23703,52 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Reykjavík Faxaflói cruise area",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Downtown Reykjavík is near the main harbour cluster; Akranes needs a longer transfer — confirm berth.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Downtown Reykjavík is near the main harbour cluster; Akranes needs a longer transfer — confirm berth."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Harbour / downtown Reykjavík — ~120 min.",
+          "Hallgrímskirkja / centre — walk or short bus.",
+          "Golden Circle / Blue Lagoon — full-day coaches only."
+        ],
+        "shortCall": "Downtown loop + 75 min buffer (Reykjavík berth).",
+        "standardCall": "Centre + one nearby excursion + 90 min buffer.",
+        "longerCall": "Golden Circle-style day with ≥120 min buffer.",
+        "practicalTip": "Ask whether you are in Reykjavík or Akranes before booking independent taxis."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "6fa11ae014a981b3eacaf057",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "bf91f415056c7f5d3b19569d0b13a8995241a1f6b7bbbd0e7046f806dd445177",
+        "landing_slug": "reykjavik-iceland",
+        "candidate_content_hash": "d2c56358f888917af296f7009626017b849288b57f104f7ee186a29bb88d870c",
+        "locked_at_utc": "2026-11-09T06:18:32.698Z",
+        "field_exclusions": [
+          "portInfo.description"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "bulk_50_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "bulk_50_release_prep": true,
+        "owner_publication_authorized": false,
+        "bulk_50_release_bundle_hash": "516b00b7956318f98362637259392aed988b064e053fc0acc045efa03fe2287c",
+        "applied_at_utc": "2026-11-09T06:18:34.617Z"
       }
     },
     "rhodes": {
@@ -28514,7 +28668,6 @@
       "portName": "Sydney (Australia)",
       "country": "Australia",
       "portInfo": {
-        "description": "Australia's largest city with iconic harbor, Opera House, and Bridge.",
         "location": "",
         "timezone": "AEST (UTC+10) / AEDT (UTC+11)",
         "language": "English",
@@ -28560,12 +28713,52 @@
         "entryRequirements": "Valid passport required. ETA or visa required for all non-citizens."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Overseas Passenger Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "OPT guests often walk into Circular Quay; White Bay needs bus/taxi — confirm which terminal your ship uses.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "OPT guests often walk into Circular Quay; White Bay needs bus/taxi — confirm which terminal your ship uses."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Opera House / Circular Quay — ~120 min.",
+          "Harbour Bridge / The Rocks — walking.",
+          "Bondi or ferry to Manly — timed returns."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Check OPT vs White Bay on the ship’s daily program before planning a walk-off."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "d870ea1a03441d8a4c632397",
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "d188145110f736f0ad1bf1518b2cb68f10183fd036aec6347860a9e243e76cc1",
+        "landing_slug": "sydney-australia",
+        "candidate_content_hash": "eff7e30e5fcfdf33c705265a7e32f03ec338ac79ea91611742c56502c37f0884",
+        "locked_at_utc": "2026-11-09T06:18:32.698Z",
+        "field_exclusions": [
+          "portInfo.description"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "bulk_50_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "bulk_50_release_prep": true,
+        "owner_publication_authorized": false,
+        "bulk_50_release_bundle_hash": "516b00b7956318f98362637259392aed988b064e053fc0acc045efa03fe2287c",
+        "applied_at_utc": "2026-11-09T06:18:34.617Z"
       }
     },
     "sydney-canada": {

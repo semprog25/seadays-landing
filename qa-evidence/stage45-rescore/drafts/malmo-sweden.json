@@ -1,0 +1,87 @@
+{
+  "landing_slug": "malmo-sweden",
+  "app_port_id": "malm",
+  "research_sha256": "c0e3a653e53b5dde7d590bd0db0c59e96c43034f4055a45651051224d512684c",
+  "draft": {
+    "landing_slug": "malmo-sweden",
+    "appPortId": "malm",
+    "portName": "Malmö",
+    "country": "Sweden",
+    "portInfo": {
+      "description": "Öresund Swedish-side cruise call under the shared CMP operator with Copenhagen. Keep Copenhagen as an optional long product, not the default short call.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Swedish",
+      "currency": "Swedish Krona (SEK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "CMP Malmö cruise quay — Copenhagen Malmö Port — Malmö",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "CMP: walking distance to centre — confirm quay exit.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "CMP: walking distance to centre — confirm quay exit."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City centre / Gamla Staden",
+        "Malmö city centre / Gamla Staden approaches",
+        "Västra hamnen / Turning Torso area",
+        "Copenhagen day trip"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not dual-commit Malmö museums and Copenhagen on a short clock."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c0e3a653e53b5dde7d590bd0db0c59e96c43034f4055a45651051224d512684c",
+      "existing_guide_hash": "33079562cec9e8b2",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/malmo-sweden.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.307Z",
+      "cache_key": "1be1eda558cb283e4515c781e88986403a12bf58490c28de1051fb460f58cdca",
+      "landing_slug": "malmo-sweden",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

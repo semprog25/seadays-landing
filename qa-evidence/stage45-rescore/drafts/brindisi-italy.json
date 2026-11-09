@@ -1,0 +1,90 @@
+{
+  "landing_slug": "brindisi-italy",
+  "app_port_id": "brindisi",
+  "research_sha256": "0c670489d68627655fe41bdb89761fc09a17ee077839a8adcaba8dce74094327",
+  "draft": {
+    "landing_slug": "brindisi-italy",
+    "appPortId": "brindisi",
+    "portName": "Brindisi",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Brindisi shares Bari Brindisi Cruise Terminal (BBCT) development planning with Bari. After describing Bari’s Pier 10 fit-out, the same BBCT Development Plans page states that the main project for Brindisi is redevelopment of the Costa Morena area through construction of a new cruise terminal. The municipal/port authority site porto.brindisi.it did not return usable content in earlier research fetches, so LOA, draught and current gangway coordinates remain unverified pending a successful primary fetch.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Brindisi — Costa Morena cruise development / current landing — Porto di Brindisi, Brindisi, Italy",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Exit + transfer to waterfront: 30 min (estimate — replace if berth is in-town)",
+        "Return: 30 min",
+        "Buffer: 60 min",
+        "Monumento al Marinaio d’Italia. ~30 min.",
+        "Centro / corso waterfront — ~60 min."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "≥6 h. Extend centro/lunch by 90 min on the short plan; keep buffer 60. Do not invent inland Lecce timing without a coach return ≥90 min before all-aboard (Lecce not sourced on BBCT page).",
+      "longerCall": "Lecce or Ostuni only as verified long-call coaches — not claimed from BBCT sources. Overnight: waterfront evening (editorial).",
+      "practicalTip": "Ask explicitly “Costa Morena or inner harbour?” before timing the monument walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "0c670489d68627655fe41bdb89761fc09a17ee077839a8adcaba8dce74094327",
+      "existing_guide_hash": "10a599f5c29845ee",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/brindisi-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.232Z",
+      "cache_key": "1ac7d7c62567efd77487a504da2707215906260dddedb0e5766454e0b04b99bb",
+      "landing_slug": "brindisi-italy",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

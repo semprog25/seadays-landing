@@ -1,0 +1,83 @@
+{
+  "landing_slug": "horta-azores-portugal",
+  "app_port_id": "horta",
+  "research_sha256": "ca5c8e6d790d9402cc641880e8d6205c711873de05a2fbb8ed7acde9722559af",
+  "draft": {
+    "landing_slug": "horta-azores-portugal",
+    "appPortId": "horta",
+    "portName": "Horta (Azores)",
+    "country": "Portugal",
+    "portInfo": {
+      "description": "Horta on Faial is the Azores’ classic mid-Atlantic yachting crossroads and an occasional cruise call. Portos dos Açores has publicly discussed improving port spaces that serve Horta Marina. Captured pages do not provide a cruise-ship quay LOA/depth table distinct from marina infrastructure, so capacity stays unverified. Treat tender vs alongside as line-declared until a berth sheet is captured.",
+      "location": "Located on Faial Island, Azores, Portugal",
+      "timezone": "AZOT (UTC-1) / AZOST (UTC+0)",
+      "language": "Portuguese",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Horta cruise terminal",
+      "transportation": [
+        "Walking",
+        "Local bus"
+      ],
+      "distanceToCity": "Terminal located in Horta town center",
+      "walkingTime": "5-15 minutes to most attractions—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Limited taxis available",
+      "publicTransport": "Limited bus service on island",
+      "distanceAnswer": "Terminal located in Horta town center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Marina / café culture — ~90 min.",
+        "Capelinhos volcano — half day.",
+        "Caldeira rim — weather-dependent."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Atlantic swell — confirm tender status early."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ca5c8e6d790d9402cc641880e8d6205c711873de05a2fbb8ed7acde9722559af",
+      "existing_guide_hash": "060276c0a9b77793",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/horta-azores-portugal.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.289Z",
+      "cache_key": "ab60fae725331dd93924b006c9d95350d7b3288344efdef4919d93acdfc2624f",
+      "landing_slug": "horta-azores-portugal",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

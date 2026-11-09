@@ -1,0 +1,89 @@
+{
+  "landing_slug": "panama-city-panama",
+  "app_port_id": "panama-city",
+  "research_sha256": "7cac795d3cd4fbbd4ac2ac0cff1f01b40aa280ee7a42aeb7ff63d9fdf64d2d7f",
+  "draft": {
+    "landing_slug": "panama-city-panama",
+    "appPortId": "panama-city",
+    "portName": "Panama City",
+    "country": "Panama",
+    "portInfo": {
+      "description": "Panama City’s Pacific cruise landing is the Amador Causeway terminal on Isla Perico, described by the Autoridad Marítima de Panamá as the country’s modern Pacific cruise facility. An AMP technical inspection ahead of the 2025–2026 season framed preliminary bookings at 246 cruise reservations (76 home-port operations and 170 port-of-call). The AMP passenger-infrastructure page lists Isla Perico berth data (two berths, 460 m quay length, 11.30 m operating draft, 10.5 ha land area) but still shows an “EN CONSTRUCCIÓN” status label that conflicts with the later operational inspection narrative — this guide treats the terminal as current based on the season press while flagging the stale status string. Coordinates printed on that AMP table (9.36°N / 79.89°W) are identical to the Colón 2000 row and are rejected as Amador pins.",
+      "location": "",
+      "timezone": "EST (UTC-5)",
+      "language": "Spanish",
+      "currency": "US Dollar (USD), Panamanian Balboa",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal de Cruceros de Panamá (Amador / Isla Perico) — Calzada de Amador, Isla Perico, Ancón, Panamá (AMP framing)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Amador Causeway / Isla Perico environs — immediate terminal setting — ~90 min.",
+        "Casco Viejo (historic district) — classic Panama City call; transfer minutes Not verified.",
+        "Panama Canal visitor experiences (Miraflores or similar) — longer call only; booking/queue Not verified.",
+        "Causeway bike/walk — heat/humidity caution year-round.",
+        "Calzada de Amador (Amador Causeway)"
+      ],
+      "shortCall": "≥4 h. Stay on Amador Causeway 90 + buffer 90 = 180 illustrative. Skip Canal locks if transfer unconfirmed.",
+      "standardCall": "≥6 h. Organised Casco Viejo circuit only if the line or a licensed operator publishes timed returns; keep ≥90–120 min buffer.",
+      "longerCall": "Canal + Casco combo needs homeport overnight or verified long call; do not stack both without a timed plan.",
+      "practicalTip": "If documents say Colón or Cristóbal, that is the Atlantic Colón 2000 complex — not Amador Isla Perico — and is outside this catalog slug."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7cac795d3cd4fbbd4ac2ac0cff1f01b40aa280ee7a42aeb7ff63d9fdf64d2d7f",
+      "existing_guide_hash": "415c2fb13d82af09",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/panama-city-panama.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.325Z",
+      "cache_key": "6899fb5829386174a44979e77a86e3a52036bf1d8239b2b0dc700bb003c44d70",
+      "landing_slug": "panama-city-panama",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

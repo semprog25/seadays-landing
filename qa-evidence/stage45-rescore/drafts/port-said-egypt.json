@@ -1,0 +1,84 @@
+{
+  "landing_slug": "port-said-egypt",
+  "app_port_id": "port-said",
+  "research_sha256": "4475c81c247ce8539bf667797c0705ba15be514eb29f02b9475318abd2956b42",
+  "draft": {
+    "landing_slug": "port-said-egypt",
+    "appPortId": "port-said",
+    "portName": "Port Said",
+    "country": "Egypt",
+    "portInfo": {
+      "description": "Port Said sits at the Mediterranean mouth of the Suez Canal. SCZONE’s West Port Said page describes multiple commercial berths, services and logistics areas next to the touristic berth designated to receive cruise ships and yachts. Development works on Abbas berth as a multipurpose facility 670 m long / 17 m deep are noted, along with dry-bulk grain storage (100,000 tons) and a liquid petrochemical terminal (51,163 m³). SCZONE’s ports index also lists East Port Said as a separate deep-water sister facility. Door GPS for the cruise/yacht touristic berth was not published on the captured pages.",
+      "location": "",
+      "timezone": "EET (UTC+2)",
+      "language": "Arabic",
+      "currency": "Egyptian Pound (EGP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "West Port Said touristic berth",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Central Port Said is generally near the west harbour — confirm pier-to-corniche minutes onboard.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Central Port Said is generally near the west harbour — confirm pier-to-corniche minutes onboard."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Suez Canal waterfront / ferry views — ~90 min.",
+        "Historic Port Said centre — architecture walk.",
+        "Military / canal museums — check hours."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not confuse West Port Said touristic berth with East Port Said container complex."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4475c81c247ce8539bf667797c0705ba15be514eb29f02b9475318abd2956b42",
+      "existing_guide_hash": "d565e26709354c2b",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/port-said-egypt.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.333Z",
+      "cache_key": "3f412c6420e5732146d04b898a1d4cb9bb24d13f488a6ed3d70b1b3a64090670",
+      "landing_slug": "port-said-egypt",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

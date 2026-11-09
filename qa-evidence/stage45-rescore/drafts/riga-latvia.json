@@ -1,0 +1,87 @@
+{
+  "landing_slug": "riga-latvia",
+  "app_port_id": "riga",
+  "research_sha256": "fab3a7e6328a58e17fbc13b11f54c742decd504fee332bad69b130a9ed0c42a9",
+  "draft": {
+    "landing_slug": "riga-latvia",
+    "appPortId": "riga",
+    "portName": "Riga",
+    "country": "Latvia",
+    "portInfo": {
+      "description": "The Freeport of Riga Authority presents Riga as a growing Baltic cruise call. Most cruise ships use Riga Passenger Port on Eksporta iela, described as central and a short walk from Old Town attractions. Operator Rīgas pasažieru osta publishes the same address and cruise service contacts. A future Riga RoPax terminal in Eksportosta is in development planning — do not treat it as today’s gangway. Largest recorded call cited by Freeport: Celebrity Silhouette (319 m LOA, 8.6 m max draught, ~2,700 passengers).",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Latvian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Riga Passenger Port — 3a Eksporta Street, Riga, LV-1010",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Old Town (Vecrīga) — ~120 min.",
+        "Art Nouveau streets (Alberta iela area) — transfer time not verified.",
+        "Riga Old Town"
+      ],
+      "shortCall": "≥4 h. Walk/exit 25 + Old Town 90 + return 25 + 75 min buffer ≈ 215.",
+      "standardCall": "≥6 h. Add Art Nouveau or market (~90) + lunch; 90 min return buffer.",
+      "longerCall": "Day trips elsewhere in Latvia are marketed as feasible via the road network but need line coaches and ≥120 min buffer — not verified for self-timed public transport.",
+      "practicalTip": "There is no ATM in the terminal — withdraw or use cards in town."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fab3a7e6328a58e17fbc13b11f54c742decd504fee332bad69b130a9ed0c42a9",
+      "existing_guide_hash": "bf5cea0f855bcfe3",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/riga-latvia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.348Z",
+      "cache_key": "6804c14e62cc5b27edd51c881ac66d8c60bea8c417ce0f0831977e28ca994b36",
+      "landing_slug": "riga-latvia",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

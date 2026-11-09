@@ -1,0 +1,92 @@
+{
+  "landing_slug": "monaco-monaco",
+  "app_port_id": "monaco",
+  "research_sha256": "c911684703618d283bbfdc78639d7d73eafbe81d4fe3232dd33ab4075b596900",
+  "draft": {
+    "landing_slug": "monaco-monaco",
+    "appPortId": "monaco",
+    "portName": "Monaco",
+    "country": "Monaco",
+    "portInfo": {
+      "description": "The Rock’s palace, cathedral and sea-facing museum make a coherent visit without crossing to every glamorous district. Fontvieille offers a quieter garden alternative; the Japanese Garden is by Larvotto, not in Fontvieille. Distinguish the principality, its neighbourhoods and the two harbours before arranging a pickup.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "French",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Terminal Croisières de Monaco",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Allow 45–60 minutes from a tender call through landing and local transfer to Monaco-Ville; a docked seawall call still has a controlled exit and uphill approach. The itineraries budget the slower arrangement. Obtain the lift/bus or taxi route for the assigned harbour, and arrange a return to that same landing rather than relying on an assumed flat waterfront walk.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Allow 45–60 minutes from a tender call through landing and local transfer to Monaco-Ville; a docked seawall call still has a controlled exit and uphill approach. The itineraries budget the slower arrangement. Obtain the lift/bus or taxi route for the assigned harbour, and arrange a return to that same landing rather than relying on an assumed flat waterfront walk."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Prince’s Palace frontage — Place du Palais, Monaco-Ville. The square/view is a dependable outdoor objective; palace interiors are seasonal and not presumed open. Allow 40 minutes; official source.",
+        "Monaco Cathedral — Cathedral, Monaco-Ville. A separate religious stop; services and respectful clothing govern entry. Allow 35 minutes; official source.",
+        "Oceanographic Museum — Oceanographic Museum, Monaco-Ville. Use one substantial indoor visit rather than several cross-principality transfers. Allow 120 minutes; official source.",
+        "Saint-Martin Gardens — Jardins Saint-Martin, Monaco-Ville. Sea-facing paths provide a break from museum and stone lanes. Allow 40 minutes; official source.",
+        "Monaco-Ville lanes and fortifications — Old town on the Rock, Monaco. A distinct historic neighbourhood walk with slopes and steps. Allow 60 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Write down the landing harbour before ascending the Rock. “Return to Monaco port” is not precise enough when Fontvieille and Hercule are both authorized tender areas."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c911684703618d283bbfdc78639d7d73eafbe81d4fe3232dd33ab4075b596900",
+      "existing_guide_hash": "bc1a0ee5da52576d",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/monaco-monaco.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.311Z",
+      "cache_key": "0b59c5f34e5ebab18b7c6129a2d457d4cea94160db10b680c179174286f74ff0",
+      "landing_slug": "monaco-monaco",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

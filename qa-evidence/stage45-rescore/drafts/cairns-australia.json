@@ -1,0 +1,84 @@
+{
+  "landing_slug": "cairns-australia",
+  "app_port_id": "cairns",
+  "research_sha256": "3f075090e71097a3f00e46f2dff48aee5ee006595c485230104ef5c3dd8cf348",
+  "draft": {
+    "landing_slug": "cairns-australia",
+    "appPortId": "cairns",
+    "portName": "Cairns",
+    "country": "Australia",
+    "portInfo": {
+      "description": "Ports North manages the Port of Cairns as a multi-purpose regional port serving project/bulk/general cargo, cruise shipping, fishing fleet and reef passenger ferries. The authority states Cairns is one of the country’s busiest cruise destinations for major international cruise ships and publishes cruise ship schedules and cruise contacts. Marlin Marina is marketed for super yachts — do not treat it as the ocean-liner berth without line confirmation. LOA/depth for cruise quays were not on the captured homepage (dedicated cruise URL 404).",
+      "location": "",
+      "timezone": "AEST (UTC+10)",
+      "language": "English",
+      "currency": "Australian Dollar (AUD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Cairns cruise berths",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Esplanade/CBD are often close — confirm pier and security fence path.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Esplanade/CBD are often close — confirm pier and security fence path."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Reef day trip — full day if call length allows.",
+        "Esplanade / lagoon — short call.",
+        "Kuranda / rainforest — half/full day."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Wet-season thunderstorms can cancel reef boats — have a backup."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "3f075090e71097a3f00e46f2dff48aee5ee006595c485230104ef5c3dd8cf348",
+      "existing_guide_hash": "fd7afff3931d1586",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/cairns-australia.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.242Z",
+      "cache_key": "ceea79ba96ed0395f1f3a8e819ed0d82270eb5b2e83af94327067f968c5c436c",
+      "landing_slug": "cairns-australia",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

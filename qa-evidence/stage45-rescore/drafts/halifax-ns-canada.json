@@ -1,0 +1,87 @@
+{
+  "landing_slug": "halifax-ns-canada",
+  "app_port_id": "halifax",
+  "research_sha256": "35e6a6dedb1ffcc2f30d79fbbda9e302d92f491e3ef15c943667e6add1381bf4",
+  "draft": {
+    "landing_slug": "halifax-ns-canada",
+    "appPortId": "halifax",
+    "portName": "Halifax",
+    "country": "Canada",
+    "portInfo": {
+      "description": "Halifax Port Authority markets Halifax as Atlantic Canada’s marquee cruise port, with more than 2,000 feet (611 m) of continuous Seaport berth space and dedicated passenger terminals at Pavilions 20 and 22. Principal cruise berths are Piers 22 and 20 with direct ship-to-shore access; Pier 23 is also used for cruise activities. The published 2026 cruise schedule is updated by the port and marks some calls as TND — passengers arrive/depart Pier 24 by ship’s tenders — so the landing is not always a Seaport alongside berth. Season framing on the schedule page runs roughly April–November.",
+      "location": "",
+      "timezone": "AST (UTC-4) / ADT (UTC-3)",
+      "language": "English",
+      "currency": "Canadian Dollar (CAD)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Halifax Seaport",
+      "transportation": [
+        "Waterfront boardwalk",
+        "Ferry",
+        "Local buses"
+      ],
+      "distanceToCity": "Terminal located on downtown waterfront",
+      "walkingTime": "5-15 minutes to downtown attractions—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis readily available at terminal",
+      "publicTransport": "Good bus and ferry connections",
+      "distanceAnswer": "Terminal located on downtown waterfront"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Halifax Seaport waterfront — shops, market days, boardwalk — ~90 min.",
+        "Downtown / Citadel Hill — uphill time not measured here; long-call only if buffer allows.",
+        "Halifax Seaport / waterfront district"
+      ],
+      "shortCall": "≥4 h. Exit 20 + Seaport/waterfront 90 + return 20 + buffer 75 = 205 illustrative. Skip Citadel if tendering or late all-aboard.",
+      "standardCall": "≥6 h. Add museum 120 + lunch 60; keep ≥90 min return buffer (longer if TND).",
+      "longerCall": "Peggy’s Cove or further South Shore only with organised timing and ≥120 min return buffer; road times not verified here.",
+      "practicalTip": "Check whether your call is Pier 20/22/23 or TND on the Port of Halifax schedule before planning a tight museum itinerary — tender calls use Pier 24 and all-aboard is earlier than the listed departure."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "35e6a6dedb1ffcc2f30d79fbbda9e302d92f491e3ef15c943667e6add1381bf4",
+      "existing_guide_hash": "cf90e7b818973754",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/halifax-ns-canada.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_research_thingsBullet",
+        "dropped_truncated_attraction"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.281Z",
+      "cache_key": "9c121ca4353c447c19b3b5e0fb8f828862b536af212a3dabc85e258aecb6d643",
+      "landing_slug": "halifax-ns-canada",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

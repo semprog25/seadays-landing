@@ -1,0 +1,93 @@
+{
+  "landing_slug": "alanya-turkey",
+  "app_port_id": "alanya",
+  "research_sha256": "bd57821e2400afcec3c4471c459f2aa17df82f4885cc2e3075a3218f96c3fa71",
+  "draft": {
+    "landing_slug": "alanya-turkey",
+    "appPortId": "alanya",
+    "portName": "Alanya",
+    "country": "Turkey",
+    "portInfo": {
+      "description": "Alanya occupies a fortified peninsula on Türkiye’s Mediterranean Riviera. MedCruise summarises the destination as a Turkish city of about 100,000 people that attracts about 2.5 million tourists annually, with Turkish lira as the official currency and euros and US dollars widely accepted in tourist zones. The same MedCruise port page notes that Alanya Castle, the historic dockyard and the Red Tower were added to the UNESCO World Heritage Tentative List in 2009, and that cruise passengers arriving at Alanya Cruise Port can visit these attractions. ALİDAŞ Alanya Liman İşletmesi operates the cruise passenger terminal. The operator site describes a terminal dedicated to cruise ships and the Kyrenia–Alanya fast ferry service, with ISPS alignment since August 2004, a cruise quay of 533 metres, a maximum draught of 8.5 metres, and simultaneous capacity for six ships. MedCruise’s technical block lists a maximum ship length of 300 metres, no width limit, a draught of 8.5 metres, six quays totalling 966 metres, quay depths between 5 and 15 metres, one passenger terminal, anchorage, tugs and ship’s tenders allowed. Those two quay-length figures (533 m vs 966 m) are left unreconciled in this guide; both are primary-sourced and may describe different measuring conventions. Beyond the walkable harbour, classical sites at Side, Aspendos and Perge appear in both the operator kilometre table and MedCruise’s minute table. They are coach-day destinations, not walk-off sights. A separate marina with 287 yacht berths plus leisure facilities is noted by MedCruise and should not be confused with the cruise passenger terminal.",
+      "location": "",
+      "timezone": "TRT (UTC+3)",
+      "language": "Turkish",
+      "currency": "Turkish Lira (TRY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "ALİDAŞ Alanya Cruise Port — Çarşı Mah. İskele Meydanı / Rıhtım Caddesi, 07400 Alanya, Antalya, Türkiye",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Clear gangway and leave the terminal precinct: 15 minutes (estimate)",
+        "Harbour walk toward Red Tower / shipyard: 10 minutes (estimate; centre is 0 km per MedCruise; Go Türkiye ~5 min)",
+        "Red Tower exterior and short interior/circuit if open: 45 minutes",
+        "Pedestrian bazaar and waterfront pause: 40 minutes",
+        "Return walk to the terminal gate: 15 minutes (estimate)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph the all-aboard time and any tender/alongside notice before you leave the terminal. MedCruise lists ship’s tenders as allowed; if swell or traffic moves you to tender mid-day, your walking plan still has to meet the last tender, not the quay. Carry more water than you think you need when ERA5 mean highs are near or above 28 °C."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "bd57821e2400afcec3c4471c459f2aa17df82f4885cc2e3075a3218f96c3fa71",
+      "existing_guide_hash": "16117d0e6e5d59fb",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/alanya-turkey.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_research_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.203Z",
+      "cache_key": "d664af93612a2862fe2b1c847067dcae4c90ab0fa3f4cd4b6980a7ba7f56a238",
+      "landing_slug": "alanya-turkey",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

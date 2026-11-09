@@ -1,0 +1,86 @@
+{
+  "landing_slug": "belfast-united-kingdom",
+  "app_port_id": "belfast",
+  "research_sha256": "a870323fe3af34730168032e20711e041cf089c5dd28aa7c04eb6a83d69321cd",
+  "draft": {
+    "landing_slug": "belfast-united-kingdom",
+    "appPortId": "belfast",
+    "portName": "Belfast",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Cruise Belfast publishes berthing metrics for D1 Belfast Cruise Terminal (480 m / 55 m / 10.1 m), notes Stormont Wharf currently closed, and lists Pollock Dock limits (200 m / 8.5 m). Belfast Harbour is the port context.",
+      "location": "",
+      "timezone": "GMT (UTC+0) / BST (UTC+1)",
+      "language": "English",
+      "currency": "British Pound (GBP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "D1 Belfast Cruise Terminal — Belfast Harbour, Belfast, Northern Ireland",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City / Titanic Quarter. Page frames location vs centre — walk/shuttle minutes not independently surveyed.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "City / Titanic Quarter. Page frames location vs centre — walk/shuttle minutes not independently surveyed."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City centre — ~90 min.",
+        "Titanic Belfast / Quarter — ~90 min (ticket hours unverified).",
+        "Giant’s Causeway — long-call coach only.",
+        "Belfast city centre / Titanic Quarter area"
+      ],
+      "shortCall": "≥4 h. Exit 25 + one city block 90 + return 25 + buffer 60 = 200.",
+      "standardCall": "≥6 h. Titanic + lunch; buffer 60. Skip Causeway.",
+      "longerCall": "Causeway coaches only with ≥90 min return buffer.",
+      "practicalTip": "Confirm D1 vs Pollock — LOA/draught differ sharply."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a870323fe3af34730168032e20711e041cf089c5dd28aa7c04eb6a83d69321cd",
+      "existing_guide_hash": "5b5e6701f0f98021",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/belfast-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.215Z",
+      "cache_key": "181512e75ce8d2083e440b305b8487948d9fc2e3dff4eac6d9f21de05d620d67",
+      "landing_slug": "belfast-united-kingdom",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,86 @@
+{
+  "landing_slug": "crotone-italy",
+  "app_port_id": "crotone",
+  "research_sha256": "8169df629cb7a6f352a0c6528ad7a5d2e7ac3f4c6c2b59d5b431fb7ea702b42c",
+  "draft": {
+    "landing_slug": "crotone-italy",
+    "appPortId": "crotone",
+    "portName": "Crotone",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Crotone’s identity is rooted in the Greek colony of Kroton and the later walled city. The cathedral and fortress sit within the older urban fabric, while Capo Colonna, Le Castella and Santa Severina belong to the wider province. A cruise day should distinguish that regional reach from a short stroll out of the port.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Riva Quay — Banchina di Riva — Banchina di Riva,Port of Crotone",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "The operator locates the terminal at Banchina di Riva and gives the city centre as 250 m away without specifying endpoints. Budget 30–45 minutes for gangway, controlled exit and a town approach rather than turning that into an exact walking route. Capo Colonna needs a separate road transfer; allow 45 minutes each way as a cautious planning block, including pickup. Le Castella or Santa Severina require their own longer road plan, not a few extra minutes tacked onto a city walk.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "The operator locates the terminal at Banchina di Riva and gives the city centre as 250 m away without specifying endpoints. Budget 30–45 minutes for gangway, controlled exit and a town approach rather than turning that into an exact walking route. Capo Colonna needs a separate road transfer; allow 45 minutes each way as a cautious planning block, including pickup. Le Castella or Santa Severina require their own longer road plan, not a few extra minutes tacked onto a city walk."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Cathedral of Santa Maria Assunta, Cathedral of Santa Maria Assunta, Crotone old town: A defined historic-city stop close to the old lanes. Allow about 45 minutes (editorial estimate). Worship and visitor entry differ; confirm interior access.",
+        "Castle of Charles V, Castello di Carlo V, Crotone historic acropolis: Read the fortress exteriors and changing defensive architecture. Allow about 75 minutes (editorial estimate). Interior/tower access not established; do not promise a castle museum tour.",
+        "Capo Colonna archaeological area, Sanctuary of Hera Lacinia, Capo Colonna, Crotone: A separate coastal archaeological destination associated with ancient Kroton. Allow about 120 minutes (editorial estimate). Road transfer and current public visitor route must be confirmed.",
+        "Le Castella fortress setting, Aragonese Castle, Le Castella, Isola di Capo Rizzuto: A provincial coastal-castle alternative for a dedicated longer excursion. Allow about 90 minutes (editorial estimate). Not Crotone centre; confirm castle admission and a waiting return vehicle.",
+        "Santa Severina village and castle, Norman Castle/Santa Severina village centre, Crotone province: An inland hill-village alternative, not another stop in the harbour district. Allow about 120 minutes (editorial estimate). Separate road itinerary; steps and current castle entry need checking."
+      ],
+      "shortCall": "Local-time window 09:00–13:30, ending at assumed all-aboard. 09:00–09:45 Riva exit/town approach; 09:45–10:30 cathedral area; 10:30–11:30 fortress exterior/old streets; 11:30–12:15 snack and lower-town return; 12:15–12:45 controlled port return; 12:45–13:30 explicit 45-minute aboard buffer. The closed archaeological museum is NOT included.",
+      "standardCall": "Local-time window 09:00–16:00. 09:00–09:45 exit/vehicle collection; 09:45–10:30 road allowance to Capo Colonna; 10:30–12:15 confirmed public archaeological/coastal route; 12:15–13:00 return vehicle to Crotone; 13:00–14:00 lunch; 14:00–14:30 cathedral/nearby streets; 14:30–15:15 gate/ship return; 15:15–16:00 explicit 45-minute aboard buffer. If the park route is not open, substitute a local city day rather than assume entry.",
+      "longerCall": "Local-time window 09:00–18:00. 09:00–09:45 exit/vehicle collection; 09:45–11:00 conservative road block to Santa Severina; 11:00–13:00 village/castle only with confirmed access; 13:00–14:00 lunch; 14:00–15:15 return road block; 15:15–16:15 Crotone waterfront/contingency; 16:15–17:15 final port approach and clearance; 17:15–18:00 explicit 45-minute aboard buffer. Choose this OR Le Castella/Capo Colonna, not every provincial site together.",
+      "practicalTip": "Do not rely on an English museum timetable while a specific Italian visitor notice announces closure. Recheck the operator’s notice and use an exterior/city alternative until reopening is confirmed."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "8169df629cb7a6f352a0c6528ad7a5d2e7ac3f4c6c2b59d5b431fb7ea702b42c",
+      "existing_guide_hash": "38360f36a76e5066",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/crotone-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.261Z",
+      "cache_key": "4218b92d51352402f2f26f21f1636d22f6ba520ca186c7a433a1120f94d5436a",
+      "landing_slug": "crotone-italy",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}

@@ -1,0 +1,89 @@
+{
+  "landing_slug": "kiel-germany",
+  "app_port_id": "kiel",
+  "research_sha256": "1f1812bea45760bf12251e7e255fcfe511df9a77d9bb271025d4853e3569d71c",
+  "draft": {
+    "landing_slug": "kiel-germany",
+    "appPortId": "kiel",
+    "portName": "Kiel",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Baltic Sea port city at the western end of the Kiel Canal (Nord-Ostsee-Kanal), with city-centre cruise terminals on the Kiel Fjord and a larger Ostuferhafen berth farther from downtown.",
+      "location": "Kiel, Schleswig-Holstein, Germany (Kiel Fjord / Baltic Sea)",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "German",
+      "currency": "Euro (EUR)",
+      "population": "State capital of Schleswig-Holstein; municipal population on the order of ~250,000 (confirm current census figures from official city statistics)"
+    },
+    "gettingThere": {
+      "fromTerminal": "Ostseekai and Norwegenkai sit about 300 m from the city centre per PORT OF KIEL; Ostuferhafen berth no. 1 is about 8 km from the city centre and typically needs a shuttle, taxi, or public transport.",
+      "transportation": [
+        "Walking (Ostseekai / Norwegenkai)",
+        "Taxi",
+        "Local bus",
+        "Cruise shuttle (especially Ostuferhafen)",
+        "Train station near city-centre terminals"
+      ],
+      "distanceToCity": "Ostseekai / Norwegenkai ~300 m; Ostuferhafen ~8 km (PORT OF KIEL)",
+      "walkingTime": "City-centre terminals: short walk to downtown and Hauptbahnhof; Ostuferhafen is not a practical walk to the centre",
+      "taxiInfo": "Taxis are available at the cruise terminals; allow extra time from Ostuferhafen",
+      "publicTransport": "City buses and the main railway station are convenient from Ostseekai/Norwegenkai; plan a transfer if assigned to Ostuferhafen",
+      "distanceAnswer": "Ostseekai / Norwegenkai ~300 m; Ostuferhafen ~8 km (PORT OF KIEL)"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Schifffahrtsmuseum Fischhalle, Wall 65: allow 60–90 minutes for maritime history. The current municipal page contains conflicting closure notices, one until 4 December and another 11 November–2 December, without consistent year labels. Treat interior access as unresolved until rechecked; use the exterior waterfront if closed. The page documents an automatic entrance door and wheelchair toilet.",
+        "Stadtmuseum Warleberger Hof, Dänische Straße 19: allow an hour for city history in the former aristocratic house. The city lists Tuesday–Sunday hours; holidays may differ. The entrance is level, but paving is partly cobbled and the exhibitions are not described as fully accessible.",
+        "St. Nikolai, Alter Markt: allow 30 minutes for art and quiet time, subject to services. The church publishes weekday and Saturday visiting hours and warns that volunteer staffing can cause unexpected closures.",
+        "Kiellinie: allow 60–90 minutes along the western waterfront, turning back according to your clock rather than walking its full length. Ferry timetables differ between summer and winter; no ferry departure is assumed here.",
+        "Alter Botanischer Garten, Schwanenweg 14: allow 45–60 minutes for a green-space extension to the promenade. Admission conditions, slopes and current opening hours need a further official check; do not present it as a guaranteed step-free option."
+      ],
+      "shortCall": "For five hours from Terminal 27 or 28, allow 20 minutes to the old town, 45 minutes around Alter Markt and St. Nikolai, 60 minutes at Warleberger Hof when open, 45 minutes for lunch, 40 minutes along the waterfront and 15 minutes back. The remaining 75 minutes is the ship-return buffer. If the museum is closed, substitute an outdoor stroll. For a five-hour Ostuferhafen alternative, reserve 60 minutes outward to Alter Markt, 45 minutes around St. Nikolai and the square, 30 minutes for lunch, 30 minutes for nearby old-town walking, 60 minutes returning and a 75-minute ship buffer. Drop Warleberger Hof entirely. This requires a confirmed direct organised transfer or taxi, not an unverified bus connection.",
+      "standardCall": "For seven hours from Ostuferhafen 1, reserve 60 minutes each way for a confirmed direct taxi or organised transfer between Ostuferhafen 1 and Alter Markt drop-off, 75 minutes at Warleberger Hof, 30 minutes at St. Nikolai, 60 minutes on the Kiellinie and 45 minutes for lunch. The remaining 90 minutes is a return buffer. From Ostseekai, the saved transfer time can support a Fischhalle visit only after its closure conflict is resolved. The Warleberger Hof block includes walking from Alter Markt; the Kiellinie block includes its connecting walk. If the actual drop-off is Hauptbahnhof instead, this precise plan needs extra walking time and a shorter promenade visit. Do not assume a bus dropped you at Alter Markt.",
+      "longerCall": "For nine hours from Ostseekai, allow 30 minutes to the garden, 60 minutes there, 75 minutes on the Kiellinie, 60 minutes for lunch, 90 minutes at Fischhalle if confirmed open, 30 minutes at St. Nikolai, 45 minutes for connecting walks and 30 minutes back. Leave 120 minutes for the ship. If Fischhalle is closed, use Warleberger Hof and a longer break. An overnight allows a later waterfront meal only after reboarding arrangements are confirmed.",
+      "practicalTip": "Read the berth number as well as the port name. LP27 and LP28 mean Ostseekai, LP1 means Ostuferhafen, and LP26 appears for smaller ships at Sartorikai. A generic taxi request for the cruise terminal can therefore be ambiguous."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "1f1812bea45760bf12251e7e255fcfe511df9a77d9bb271025d4853e3569d71c",
+      "existing_guide_hash": "91efe33d97a72184",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kiel-germany.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_attraction"
+      ],
+      "generated_at_utc": "2026-11-08T17:38:56.298Z",
+      "cache_key": "cd9916f85df16fa5d0f5c2c3e47e77a2f67d053da5ff48a51707da32f80adee8",
+      "landing_slug": "kiel-germany",
+      "stage28_candidate": true
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "risk": {
+    "bucket": "READY_FOR_REVIEW",
+    "reasons": [
+      "automated_gates_passed",
+      "owner_fact_check_still_required"
+    ]
+  },
+  "cache_hit": false
+}
