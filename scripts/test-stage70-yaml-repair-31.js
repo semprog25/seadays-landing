@@ -15,7 +15,10 @@ function main() {
   const summary = JSON.parse(fs.readFileSync(path.join(OUT, 'RECONCILE_SUMMARY.json'), 'utf8'))
   assert.strictEqual(summary.cohort_gate_pass.yaml_parse, 31)
   assert.strictEqual(summary.cohort_gate_pass.sha_match, 31)
-  assert.strictEqual(summary.genuinely_eligible_passenger_editorial_apply, 31)
+  assert.strictEqual(summary.cohort_gate_pass.policy_dry_run_ok, 31)
+  assert.strictEqual(summary.preparation_technical_gate_pass_count, 31)
+  assert.strictEqual(summary.live_passenger_editorial_slug_count, 319)
+  assert.strictEqual(summary.remaining_unpublished_slug_count, 87)
   const gates = JSON.parse(fs.readFileSync(path.join(OUT, 'GATE_REPORT.json'), 'utf8'))
   assert.strictEqual(gates.length, 31)
   for (const g of gates) {
@@ -26,8 +29,10 @@ function main() {
   const delta = JSON.parse(fs.readFileSync(path.join(OUT, 'POST_REPAIR_CATEGORY_B_DELTA.json'), 'utf8'))
   assert.strictEqual(delta.still_category_b_among_original_31, 0)
   assert.strictEqual(delta.original_category_b_count, 31)
+  assert.strictEqual(summary.cohort_gate_pass.bootstrap_policy_ok_cohort.count, 0)
+  assert.strictEqual(summary.cohort_gate_pass.bootstrap_policy_ok_cohort.cohort_members_in_bootstrap_pool, 0)
   console.log('test-stage70-yaml-repair-31 PASS', {
-    policy_ok: summary.cohort_gate_pass,
+    preparation_technical_gate_pass: summary.preparation_technical_gate_pass_count,
     post_repair_cohort: delta.cohort_selected,
   })
 }

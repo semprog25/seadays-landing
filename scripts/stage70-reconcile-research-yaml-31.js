@@ -36,6 +36,18 @@ const STAGE67_OWNER_HOLD = new Set([
 
 const FALMOUTH_JAMAICA_SLUG = 'falmouth-jamaica';
 
+function buildLivePassengerSlugSet(repoRoot) {
+  const guides = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/public-port-guides.json'), 'utf8'));
+  const { usesPassengerEditorialLead } = require('./lib/publicGuideCopySanitize');
+  const slugs = new Set();
+  for (const g of Object.values(guides.byAppPortId || {})) {
+    if (!usesPassengerEditorialLead(g)) continue;
+    const slug = g.researchImport?.landing_slug;
+    if (slug) slugs.add(slug);
+  }
+  return slugs;
+}
+
 function loadCohortSlugs() {
   const data = JSON.parse(fs.readFileSync(FIXTURE, 'utf8'));
   return data.landing_slugs;
@@ -79,7 +91,7 @@ function classifyGuide(row, publishedSet) {
   return 'existing_guide';
 }
 
-function gateRow({ slug, manifestRow, eligRow, publishedSet, researchRoot }) {
+function gateRow({ slug, manifestRow, eligRow, publishedSet, livePassengerSlugs, researchRoot }) {
   const mdPath = path.join(researchRoot, 'by-port', `${slug}.md`);
   let yamlOk = false;
   let yamlError = null;
@@ -97,7 +109,7 @@ function gateRow({ slug, manifestRow, eligRow, publishedSet, researchRoot }) {
     manifestRow: manifestRow,
   });
 
-  return {
+  const row = {
     landing_slug: slug,
     sha_match: sha.ok,
     sha_expected: sha.expected,
@@ -117,17 +129,24 @@ function gateRow({ slug, manifestRow, eligRow, publishedSet, researchRoot }) {
       ...(slug === FALMOUTH_JAMAICA_SLUG ? ['falmouth_homonym_publication_guard'] : []),
       ...(eligRow?.publication_bucket === 'NEEDS_REVIEW' ? ['needs_review_existing_guide'] : []),
     ],
-    eligible_for_publication_apply:
-      sha.ok &&
-      yamlOk &&
-      manifestRow?.qa_verdict === 'PASS' &&
-      manifestRow?.identifier_status === 'resolved' &&
-      eligRow?.policy_dry_run?.ok === true &&
-      !publishedSet.has(slug) &&
-      !STAGE43_HARD_EXCLUDE.has(slug) &&
-      !STAGE67_OWNER_HOLD.has(slug) &&
-      slug !== FALMOUTH_JAMAICA_SLUG &&
-      Boolean(manifestRow?.has_public_port_guide),
+    editorial_publication_approved: false,
+  };
+  const preparationTechnicalGatePass =
+    row.sha_match &&
+    row.yaml_parse &&
+    row.research_qa === 'PASS' &&
+    row.identifier_status === 'resolved' &&
+    row.policy_ok === true &&
+    !livePassengerSlugs.has(slug) &&
+    !STAGE43_HARD_EXCLUDE.has(slug) &&
+    !STAGE67_OWNER_HOLD.has(slug) &&
+    slug !== FALMOUTH_JAMAICA_SLUG &&
+    Boolean(manifestRow?.has_public_port_guide);
+  return {
+    ...row,
+    preparation_technical_gate_pass: preparationTechnicalGatePass,
+    /** Same boolean as preparation_technical_gate_pass; name kept for stage67 script parity only */
+    eligible_for_publication_apply: preparationTechnicalGatePass,
   };
 }
 
@@ -137,6 +156,7 @@ function main() {
 
   const head = execSync('git rev-parse HEAD', { cwd: REPO, encoding: 'utf8' }).trim();
   const publishedSet = buildPublishedSlugSet(REPO);
+  const livePassengerSlugs = buildLivePassengerSlugSet(REPO);
   const { usesPassengerEditorialLead } = require('./lib/publicGuideCopySanitize');
   const liveGuides = JSON.parse(fs.readFileSync(path.join(REPO, 'data/public-port-guides.json'), 'utf8'));
   let passengerEditorialGuideCount = 0;
@@ -183,11 +203,12 @@ function main() {
       manifestRow: bySlugManifest.get(slug),
       eligRow: bySlugElig.get(slug),
       publishedSet,
+      livePassengerSlugs,
       researchRoot: compositeRoot,
     })
   );
 
-  const eligible = gates.filter((g) => g.eligible_for_publication_apply);
+  const preparationPass = gates.filter((g) => g.preparation_technical_gate_pass);
   const cohortBootstrap = (analysis.bootstrap_pool || []).filter((p) => slugs.includes(p.landing_slug));
   const bootstrapPolicyOk = cohortBootstrap.filter((p) => p.policy_ok && !p.yaml_parse_error);
   const bootstrapApplyReady = bootstrapPolicyOk.filter(
@@ -212,25 +233,40 @@ function main() {
     status: 'READY_FOR_OWNER_REVIEW',
     landing_head_sha: head,
     verified_research_commit: VERIFIED_RESEARCH_COMMIT,
-    published_passenger_editorial_slug_count: publishedSet.size,
-    published_passenger_editorial_guide_count: passengerEditorialGuideCount,
-    owner_universe_remaining: 406 - publishedSet.size,
+    live_passenger_editorial_guide_count: passengerEditorialGuideCount,
+    live_passenger_editorial_slug_count: livePassengerSlugs.size,
+    historical_published_slug_set_size: publishedSet.size,
+    ledger_not_live_passenger_editorial: [...publishedSet].filter((s) => !livePassengerSlugs.has(s)),
+    remaining_unpublished_slug_count: 406 - livePassengerSlugs.size,
     reconciled_sha_count: patchArtifact.reconciled_count,
+    gate_definitions: {
+      policy_dry_run_ok:
+        'buildBulkEligibilityReport policy_dry_run on current manifest/guide linkage (import path).',
+      bootstrap_policy_ok:
+        'analyzeBlockedCohort computePolicyApply on empty guide shell — only unpublished ports with publication_bucket BLOCKED in bootstrap_pool.',
+      preparation_technical_gate_pass:
+        'SHA + YAML + research QA PASS + resolved identifier + policy_dry_run.ok + existing public guide + not live passenger editorial. Does NOT imply editorial approval; publication_bucket may remain NEEDS_REVIEW.',
+    },
     cohort_gate_pass: {
       sha_match: gates.filter((g) => g.sha_match).length,
       yaml_parse: gates.filter((g) => g.yaml_parse).length,
       research_qa_pass: gates.filter((g) => g.research_qa === 'PASS').length,
       app_port_id_resolved: gates.filter((g) => Boolean(g.app_port_id)).length,
       identifier_status_resolved: gates.filter((g) => g.identifier_status === 'resolved').length,
-      bootstrap_policy_ok: bootstrapPolicyOk.length,
+      policy_dry_run_ok: gates.filter((g) => g.policy_ok).length,
+      preparation_technical_gate_pass: preparationPass.length,
+      bootstrap_policy_ok_cohort: {
+        count: bootstrapPolicyOk.length,
+        cohort_members_in_bootstrap_pool: cohortBootstrap.length,
+        note: 'Expected 0 when cohort ports are NEEDS_REVIEW existing guides (not BLOCKED bootstrap candidates).',
+      },
     },
-    genuinely_eligible_passenger_editorial_apply: eligible.length,
-    eligible_passenger_editorial_slugs: eligible.map((g) => g.landing_slug),
-    bootstrap_policy_ok_cohort: bootstrapPolicyOk.length,
+    preparation_technical_gate_pass_count: preparationPass.length,
+    preparation_technical_gate_pass_slugs: preparationPass.map((g) => g.landing_slug),
+    bootstrap_policy_ok_global_pool: analysis.bootstrap_pool.filter((p) => p.policy_ok).length,
     bootstrap_apply_ready_excluding_homonym_and_owner_holds: bootstrapApplyReady.length,
     bootstrap_apply_ready_slugs: bootstrapApplyReady.map((p) => p.landing_slug),
-    holds: gates.filter((g) => !g.eligible_for_publication_apply),
-    bootstrap_policy_ok_global_pool: analysis.bootstrap_pool.filter((p) => p.policy_ok).length,
+    preparation_gate_holds: gates.filter((g) => !g.preparation_technical_gate_pass),
     regression: {
       public_port_guides_mutated: false,
       port_html_mutated: false,
@@ -257,8 +293,10 @@ function main() {
       `- **Research commit (base):** \`${VERIFIED_RESEARCH_COMMIT}\` + Stage 70 syntax repair`,
       `- **Landing HEAD:** \`${head}\``,
       `- **Reconciled SHA rows:** ${patchArtifact.reconciled_count}/31`,
-      `- **Published passenger editorial:** ${passengerEditorialGuideCount} guides / ${publishedSet.size} slugs / 406 universe`,
-      `- **Genuinely eligible (post-reconcile, no apply):** ${eligible.length}`,
+      `- **Live passenger editorial:** ${passengerEditorialGuideCount} guides / ${livePassengerSlugs.size} slugs (${publishedSet.size} historical ledger)`,
+      `- **Preparation technical gate pass (not editorial approval):** ${preparationPass.length}`,
+      `- **policy_dry_run.ok:** ${gates.filter((g) => g.policy_ok).length}/31`,
+      `- **bootstrap_policy_ok (BLOCKED pool only):** ${bootstrapPolicyOk.length} (${cohortBootstrap.length} cohort rows in pool)`,
       '',
       'No `public-port-guides.json`, port HTML, or terminal JSON mutated in this pass.',
       '',

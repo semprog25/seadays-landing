@@ -69,15 +69,18 @@ Artifacts: `GATE_REPORT.json`, `RECONCILE_SUMMARY.json`, `PORTS_MASTER_INDEX_SHA
 
 ## Policy / identity gates (31-cohort)
 
-From `GATE_REPORT.json` (per slug):
+See **`GATE_GLOSSARY.md`** — `bootstrap_policy_ok = 0/31` is **expected**, not a contradiction with `policy_dry_run.ok = 31/31`:
 
-- **YAML parse:** 31/31  
-- **SHA match (patched index):** 31/31  
-- **policy_dry_run.ok:** 31/31  
-- **identifier resolved:** 31/31  
-- **publication_bucket:** NEEDS_REVIEW (unchanged — not elevated to PASS)
+| Gate | Result |
+|------|--------|
+| `policy_dry_run.ok` | **31/31** |
+| `bootstrap_policy_ok` (BLOCKED bootstrap pool only) | **0/31** (no cohort slug in pool) |
+| `preparation_technical_gate_pass` | **31/31** (`editorial_publication_approved: false`) |
 
-## Net-new publication candidates (not applied)
+- **Live publication (authoritative):** **319** guides / **319** slugs; ledger **320** (`nice-france` only); **87** unpublished.
+- **`publication_bucket`:** NEEDS_REVIEW on all 31 (unchanged).
+
+## Preparation cohort (not publication apply)
 
 `stage69-select-next-cohort.js` with composite research patch:
 
@@ -106,10 +109,12 @@ node scripts/stage70-reconcile-remaining-87-after-repair.js
 node scripts/test-stage70-yaml-repair-31.js
 ```
 
-## PRs (owner to open/merge)
+## Merge safety (owner)
 
-1. **Research:** branch `feat/stage70-research-yaml-31` → `seadays-ports-deliverables` `main`  
-2. **Landing evidence (optional):** branch `feat/stage70-research-yaml-31` — validation artifacts only  
+| PR | Safe to merge? | Notes |
+|----|----------------|-------|
+| [deliverables #2](https://github.com/semprog25/seadays-ports-deliverables/pull/2) | **Yes** (syntax-only) | Quoting preserves field values; `research_status: needs_review`; Safaga `transit_notes` text unchanged |
+| [landing #98](https://github.com/semprog25/seadays-landing/pull/98) | **Yes** (evidence-only) | After reconciliation commit; no prod JSON/HTML |
 
 Do **not** merge PR #97 for this work. Hamburg pilot promotion remains a separate owner decision.
 

@@ -51,6 +51,10 @@ function main() {
   const baseB = new Set(baseline.filter((r) => r.category === 'B').map((r) => r.landing_slug))
   const stillB = inventory.filter((r) => r.category === 'B' && baseB.has(r.landing_slug))
   const movedFromB = inventory.filter((r) => r.category !== 'B' && baseB.has(r.landing_slug))
+  const gates = fs.existsSync(path.join(OUT, 'GATE_REPORT.json'))
+    ? JSON.parse(fs.readFileSync(path.join(OUT, 'GATE_REPORT.json'), 'utf8'))
+    : [];
+  const gateBySlug = new Map(gates.map((g) => [g.landing_slug, g]));
 
   const report = {
     generated_at_utc: new Date().toISOString(),
@@ -60,7 +64,10 @@ function main() {
       landing_slug: r.landing_slug,
       new_category: r.category,
       blocker: r.blocker,
-      policy_ok: r.bootstrap_policy_ok,
+      policy_dry_run_ok: gateBySlug.get(r.landing_slug)?.policy_ok ?? null,
+      bootstrap_policy_ok: r.bootstrap_policy_ok,
+      preparation_candidate: r.preparation_candidate,
+      publication_bucket: r.publication_bucket,
     })),
     still_blocked_category_b: stillB.map((r) => ({
       landing_slug: r.landing_slug,
