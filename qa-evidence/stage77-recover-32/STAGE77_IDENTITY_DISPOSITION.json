@@ -1,0 +1,1071 @@
+{
+  "generated_at_utc": "2026-11-09T19:47:05.522Z",
+  "app_repo_root": "/Users/sharanestone/Semprog/Seadays-main",
+  "landing_origin_main": "79bad4262963a7299304a406c4b0dd755c80ec48",
+  "summary": {
+    "category_d_count": 24,
+    "verified_mapping": 24,
+    "owner_decision_required": 0,
+    "no_match": 0,
+    "collision": 0,
+    "safe_corrections_prepared": 24
+  },
+  "rows": [
+    {
+      "landing_slug": "anchorage-ak-united-states",
+      "seo_name": "Anchorage, AK, United States",
+      "seo_country": "United States",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "anchorage",
+      "mapped_app_port_id": "anchorage",
+      "review_matches_map": true,
+      "country_alignment": false,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "anchorage"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "anchorage"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "anchorage",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "anchorage-ak-united-states",
+        "app_port_id": "anchorage",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "balestrand-norway",
+      "seo_name": "Balestrand, Norway",
+      "seo_country": "Norway",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "balestrand",
+      "mapped_app_port_id": "balestrand",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "balestrand"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "balestrand"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "balestrand",
+          "country_id": "norway"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "balestrand-norway",
+        "app_port_id": "balestrand",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "seo_name": "Fort Lauderdale, FL, United States",
+      "seo_country": "United States",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "fort-lauderdale",
+      "mapped_app_port_id": "fort-lauderdale",
+      "review_matches_map": true,
+      "country_alignment": false,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "fort-lauderdale"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "fort-lauderdale"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "fort-lauderdale",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "fort-lauderdale-fl-united-states",
+        "app_port_id": "fort-lauderdale",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "gythion-greece",
+      "seo_name": "Gythion, Greece",
+      "seo_country": "Greece",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "gythion",
+      "mapped_app_port_id": "gythion",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "gythion"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "gythion"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "gythion",
+          "country_id": "greece"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "gythion-greece",
+        "app_port_id": "gythion",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "halong-bay-vietnam",
+      "seo_name": "Halong Bay, Vietnam",
+      "seo_country": "Vietnam",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "halong-bay",
+      "mapped_app_port_id": "halong-bay",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "halong-bay"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "halong-bay"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "halong-bay",
+          "country_id": "vietnam"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "halong-bay-vietnam",
+        "app_port_id": "halong-bay",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "houston-tx-united-states",
+      "seo_name": "Houston, TX, United States",
+      "seo_country": "United States",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "houston",
+      "mapped_app_port_id": "houston",
+      "review_matches_map": true,
+      "country_alignment": false,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "houston"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "houston"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "houston",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "houston-tx-united-states",
+        "app_port_id": "houston",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "jakarta-indonesia",
+      "seo_name": "Jakarta, Indonesia",
+      "seo_country": "Indonesia",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "jakarta",
+      "mapped_app_port_id": "jakarta",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "jakarta"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "jakarta"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "jakarta",
+          "country_id": "indonesia"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "jakarta-indonesia",
+        "app_port_id": "jakarta",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "seo_name": "Juneau, AK, United States",
+      "seo_country": "United States",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "juneau",
+      "mapped_app_port_id": "juneau",
+      "review_matches_map": true,
+      "country_alignment": false,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "juneau"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "juneau"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "juneau",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "juneau-ak-united-states",
+        "app_port_id": "juneau",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "khasab-oman",
+      "seo_name": "Khasab, Oman",
+      "seo_country": "Oman",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "khasab",
+      "mapped_app_port_id": "khasab",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "khasab"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "khasab"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "khasab",
+          "country_id": "oman"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "khasab-oman",
+        "app_port_id": "khasab",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "kolkata-india",
+      "seo_name": "Kolkata, India",
+      "seo_country": "India",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "kolkata",
+      "mapped_app_port_id": "kolkata",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "kolkata"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "kolkata"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "kolkata",
+          "country_id": "india"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "kolkata-india",
+        "app_port_id": "kolkata",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "kuwait-city-kuwait",
+      "seo_name": "Kuwait City, Kuwait",
+      "seo_country": "Kuwait",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "kuwait-city",
+      "mapped_app_port_id": "kuwait-city",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "kuwait-city"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "kuwait-city"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "kuwait-city",
+          "country_id": "kuwait"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "kuwait-city-kuwait",
+        "app_port_id": "kuwait-city",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "lima-callao-peru",
+      "seo_name": "Lima (Callao), Peru",
+      "seo_country": "Peru",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "lima-callao",
+      "mapped_app_port_id": "lima-callao",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "lima-callao"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "lima-callao"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "lima-callao",
+          "country_id": "peru"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "lima-callao-peru",
+        "app_port_id": "lima-callao",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "seo_name": "Long Beach, CA, United States",
+      "seo_country": "United States",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "long-beach",
+      "mapped_app_port_id": "long-beach",
+      "review_matches_map": true,
+      "country_alignment": false,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "long-beach"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "long-beach"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "long-beach",
+          "country_id": "usa"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "long-beach-ca-united-states",
+        "app_port_id": "long-beach",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "manila-philippines",
+      "seo_name": "Manila, Philippines",
+      "seo_country": "Philippines",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "manila",
+      "mapped_app_port_id": "manila",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "manila"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "manila"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "manila",
+          "country_id": "philippines"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "manila-philippines",
+        "app_port_id": "manila",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "monemvasia-greece",
+      "seo_name": "Monemvasia, Greece",
+      "seo_country": "Greece",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "monemvasia",
+      "mapped_app_port_id": "monemvasia",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "monemvasia"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "monemvasia"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "monemvasia",
+          "country_id": "greece"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "monemvasia-greece",
+        "app_port_id": "monemvasia",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "seo_name": "Montreal, QC, Canada",
+      "seo_country": "Canada",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "montreal",
+      "mapped_app_port_id": "montreal",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "montreal"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "montreal"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "montreal",
+          "country_id": "canada"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "montreal-qc-canada",
+        "app_port_id": "montreal",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "naxos-greece",
+      "seo_name": "Naxos, Greece",
+      "seo_country": "Greece",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "naxos",
+      "mapped_app_port_id": "naxos",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "naxos"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "naxos"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "naxos",
+          "country_id": "greece"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "naxos-greece",
+        "app_port_id": "naxos",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "seo_name": "Ponce, Puerto Rico",
+      "seo_country": "Puerto Rico",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "ponce",
+      "mapped_app_port_id": "ponce",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "ponce"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "ponce"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "ponce",
+          "country_id": "puerto_rico"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "ponce-puerto-rico",
+        "app_port_id": "ponce",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "port-blair-india",
+      "seo_name": "Port Blair, India",
+      "seo_country": "India",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "port-blair",
+      "mapped_app_port_id": "port-blair",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "port-blair"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "port-blair"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "port-blair",
+          "country_id": "india"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "port-blair-india",
+        "app_port_id": "port-blair",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "porto-cervo-italy",
+      "seo_name": "Porto Cervo, Italy",
+      "seo_country": "Italy",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "porto-cervo",
+      "mapped_app_port_id": "porto-cervo",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "porto-cervo"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "porto-cervo"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "porto-cervo",
+          "country_id": "italy"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "porto-cervo-italy",
+        "app_port_id": "porto-cervo",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "sharjah-united-arab-emirates",
+      "seo_name": "Sharjah, United Arab Emirates",
+      "seo_country": "United Arab Emirates",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "sharjah",
+      "mapped_app_port_id": "sharjah",
+      "review_matches_map": true,
+      "country_alignment": false,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "sharjah"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "sharjah"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "sharjah",
+          "country_id": "uae"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "sharjah-united-arab-emirates",
+        "app_port_id": "sharjah",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "tianjin-beijing-china",
+      "seo_name": "Tianjin (Beijing), China",
+      "seo_country": "China",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "tianjin-beijing",
+      "mapped_app_port_id": "tianjin-beijing",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "tianjin-beijing"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "tianjin-beijing"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "tianjin-beijing",
+          "country_id": "china"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "tianjin-beijing-china",
+        "app_port_id": "tianjin-beijing",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "visakhapatnam-india",
+      "seo_name": "Visakhapatnam, India",
+      "seo_country": "India",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "visakhapatnam",
+      "mapped_app_port_id": "visakhapatnam",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "visakhapatnam"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "visakhapatnam"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "visakhapatnam",
+          "country_id": "india"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "visakhapatnam-india",
+        "app_port_id": "visakhapatnam",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    },
+    {
+      "landing_slug": "xiamen-china",
+      "seo_name": "Xiamen, China",
+      "seo_country": "China",
+      "stage77_disposition": "VERIFIED_MAPPING",
+      "review_key": "xiamen",
+      "mapped_app_port_id": "xiamen",
+      "review_matches_map": true,
+      "country_alignment": true,
+      "ambiguous_slug_peers": null,
+      "guide_slot_exists": false,
+      "guide_record_app_port_id": null,
+      "identifier_manifest_status": "inferred",
+      "evidence": [
+        {
+          "type": "review_key_name_country_match",
+          "value": "xiamen"
+        },
+        {
+          "type": "slug_to_app_map",
+          "value": "xiamen"
+        },
+        {
+          "type": "cruise_data_picker_country_file",
+          "app_port_id": "xiamen",
+          "country_id": "china"
+        },
+        {
+          "type": "identifier_manifest_method",
+          "value": "review_key_picker_id"
+        }
+      ],
+      "safe_correction": {
+        "landing_slug": "xiamen-china",
+        "app_port_id": "xiamen",
+        "action": "wire researchImport.app_port_id + byAppPortId slot on landing only",
+        "safe_to_apply": false,
+        "owner_publication_still_required": true
+      },
+      "notes": [
+        "Independent: review_key from name+country match; cruise-data picker id exists; country file matches SEO; no guide slot yet"
+      ],
+      "owner_decision": "Approve landing JSON wiring for verified app_port_id; no app DB mutation"
+    }
+  ]
+}

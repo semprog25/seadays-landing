@@ -1,0 +1,367 @@
+{
+  "generated_at_utc": "2026-11-09T19:48:08.878Z",
+  "html_files_changed_merge_to_bot": 41,
+  "prior_regen_slug_count": 35,
+  "stage76_net_new_count": 6,
+  "checks_run": 35,
+  "pre_existing_passenger_leak_slugs": [
+    "boston-ma-united-states",
+    "cabo-san-lucas-mexico",
+    "galveston-tx-united-states",
+    "seattle-wa-united-states"
+  ],
+  "new_regressions": [],
+  "all_ok": true,
+  "rows": [
+    {
+      "slug": "perfect-day-at-cococay-bahamas",
+      "category": "protected_priority",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": false,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "cape-liberty-bayonne-nj-united-states",
+      "category": "protected_priority",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "vancouver-bc-canada",
+      "category": "protected_priority",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "bali-benoa-indonesia",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "baltimore-md-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "boston-ma-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": true,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "cabo-san-lucas-mexico",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": true,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "charlottetown-pe-canada",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "corner-brook-canada",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "costa-maya-mexico",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "galveston-tx-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": true,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "huatulco-mexico",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "key-west-fl-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "kona-hi-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "manama-bahrain",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "maui-kahului-hi-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "mazatlan-mexico",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "miami-fl-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "mobile-al-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "panama-city-panama",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "philadelphia-pa-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "portland-me-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "progreso-mexico",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "puerto-vallarta-mexico",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "quebec-city-qc-canada",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "saint-john-nb-canada",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "san-diego-ca-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "seattle-wa-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": true,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "sitka-ak-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "skagway-ak-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "st-croix-frederiksted-us-virgin-islands",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": false,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "st-kitts-basseterre-st-kitts",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": false,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "svolv-r-norway",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": false,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "tampa-fl-united-states",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    },
+    {
+      "slug": "victoria-bc-canada",
+      "category": "catalogue_bot_regen",
+      "http": 200,
+      "call_plan_cards": 12,
+      "page_leak": false,
+      "passenger_leak_at_stage75_merge": true,
+      "stage77_new_regression": false,
+      "ok": true
+    }
+  ]
+}
