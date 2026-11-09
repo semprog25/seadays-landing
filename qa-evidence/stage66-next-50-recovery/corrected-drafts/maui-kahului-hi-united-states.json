@@ -1,0 +1,72 @@
+{
+  "landing_slug": "maui-kahului-hi-united-states",
+  "draft": {
+    "landing_slug": "maui-kahului-hi-united-states",
+    "appPortId": "maui-kahului",
+    "portName": "Maui (Kahului)",
+    "country": "United States",
+    "portInfo": {
+      "description": "Kahului Harbor is Maui’s principal commercial harbour. HDOT’s Kahului Harbor Development Plan describes Pier 1 as a multiple-use facility primarily used by Matson, Pasha and cruise ships, with the Pier 1 shed serving as the cruise passenger terminal and equipment storage. Cruise ships can moor at Berths 1A or 1C but are more likely to use Berth 1A to reduce conflicts with cargo; passengers using Berth 1C are separated from cargo operations by barriers and fencing. Public access uses Ala Luina Street or Perimeter Road connected to Ka‘ahumanu Avenue / Hana Highway corridors. Berth scheduling for State commercial harbours runs through Hawaii.PortCall.Com."
+    },
+    "gettingThere": {
+      "fromTerminal": "Kahului Harbor — Pier 1 (Berth 1A primary cruise) — Kahului Harbor, Maui, HI (access via Ala Luina Street / Perimeter Road per HDOT plan)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town. Kahului commercial core is near the harbour; walk minutes Not verified. Island tours. Road to Hāna and Haleakalā require large time budgets — not quantified here. Airport (OGG). Adjacent; transfer minutes vary.",
+      "distanceAnswer": "Town. Kahului commercial core is near the harbour; walk minutes Not verified. Island tours. Road to Hāna and Haleakalā require large time budgets — not quantified here. Airport (OGG). Adjacent; transfer minutes vary.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Kahului / Wailuku short loop — ~90–120 min.",
+        "West- or south-Maui beaches — traffic-dependent.",
+        "Road to Hāna — only with ≥8–10 h ashore and ≥120 min return buffer; often unrealistic.",
+        "Hāna Highway / Road to Hāna"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Pier 1 is a working cargo pier — expect industrial surroundings and follow the fenced passenger path rather than wandering the yard."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ad30f6d58b947355f6b182d2d06c04e4060bd277391e7159913a09641aa7a920",
+      "existing_guide_hash": "b840a9bcf3bf7f48",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/maui-kahului-hi-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.060Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

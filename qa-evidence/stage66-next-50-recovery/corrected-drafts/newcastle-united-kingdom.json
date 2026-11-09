@@ -1,0 +1,73 @@
+{
+  "landing_slug": "newcastle-united-kingdom",
+  "draft": {
+    "landing_slug": "newcastle-united-kingdom",
+    "appPortId": "newcastle",
+    "portName": "Newcastle",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "North Shields IPT is the berth; Newcastle Quayside, Durham, and Hadrian's Wall are transfer/coach products. DFDS ferry operations share the passenger campus — follow cruise vs ferry signage."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Tyne International Passenger Terminal — Port of Tyne International Passenger Terminal (North Shields / Coble Dene area)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "~9 miles to Newcastle centre per authority — coach/taxi/Metro planning required.",
+      "distanceAnswer": "~9 miles to Newcastle centre per authority — coach/taxi/Metro planning required.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Newcastle Quayside / Gateshead — transfer",
+        "Newcastle Quayside / Gateshead approaches",
+        "Durham Cathedral / Castle",
+        "Hadrian's Wall approaches"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Budget the nine-mile hop before promising BALTIC or Sage timed entries."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9a25cf0636c34c6b8537ee853461b99c49f94bd05e5c180002591511607488dc",
+      "existing_guide_hash": "e2236836946e0b3e",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/newcastle-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.086Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,73 @@
+{
+  "landing_slug": "new-orleans-la-united-states",
+  "draft": {
+    "landing_slug": "new-orleans-la-united-states",
+    "appPortId": "new-orleans",
+    "portName": "New Orleans",
+    "country": "United States",
+    "portInfo": {
+      "description": "Port of New Orleans operates two named cruise passenger terminals on Port of New Orleans Place: Erato Street and Julia Street, side by side on the Mississippi riverfront. Erato is listed for Carnival Cruise Line and advertises more than 1,000 parking spots within the terminal; Julia is listed for Norwegian Cruise Line and Royal Caribbean International with secured parking adjacent. Both are described as climate-controlled with ADA-compliant passenger gangways. Driving directions warn not to try accessing the terminals from Port of New Orleans Place entrances at Julia St. or Poydras St.; the published approach uses U.S. 90 W / Tchoupitoulas / Henderson onto Port of New Orleans Place. Line assignment is as published by Port NOLA and can change — confirm the terminal printed on cruise documents."
+    },
+    "gettingThere": {
+      "fromTerminal": "Erato Street Cruise Terminal — 1100 Port of New Orleans Place, New Orleans, LA 70130",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "French Quarter — Port NOLA frames terminals as near the historic French Quarter — ~120 min.",
+        "Riverwalk / riverfront — Julia sits between Erato and the Riverwalk Outlet Collection — ~60 min.",
+        "Streetcar corridor — riverfront streetcar line noted by Port NOLA; fare/schedule Not verified here.",
+        "Garden District / streetcar beyond — longer-call only; transfer minutes not audited.",
+        "Mississippi riverfront parks — weather-dependent; flood/heat caution Jun–Aug."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Erato vs Julia on your cruise documents before rideshare drop-off — Port NOLA assigns Carnival to Erato and NCL/Royal Caribbean to Julia, and the wrong driveway wastes embarkation buffer."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "bfa57387927666e5ff0d7038e819306dc59a00f78455526afbdab6a756b819a2",
+      "existing_guide_hash": "f80ef4cd9083bcac",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/new-orleans-la-united-states.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.083Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

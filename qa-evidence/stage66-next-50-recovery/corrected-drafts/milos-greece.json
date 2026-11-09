@@ -1,0 +1,78 @@
+{
+  "landing_slug": "milos-greece",
+  "draft": {
+    "landing_slug": "milos-greece",
+    "appPortId": "milos",
+    "portName": "Milos",
+    "country": "Greece",
+    "portInfo": {
+      "description": "White volcanic rock at Sarakiniko, the mining story in Adamas and archaeology near Trypiti make a coherent shore day. Kleftiko is a sea excursion with its own weather and return constraints; it is not a quick drive to add after the museum. The island’s original Aphrodite statue is in the Louvre: the Plaka museum’s copy is not advertised as the original."
+    },
+    "gettingThere": {
+      "fromTerminal": "Adamas cruise jetty",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "For a tender call allow 45 minutes each way for queue, boat and landing; a docked small vessel may need less, but do not spend the difference before clearance. Reserve a vehicle from Adamas for Trypiti/Plaka/Sarakiniko and agree the return at the actual landing. The 30–45-minute road legs below are deliberately padded planning budgets, not straight-line distances or bus schedules.",
+      "distanceAnswer": "For a tender call allow 45 minutes each way for queue, boat and landing; a docked small vessel may need less, but do not spend the difference before clearance. Reserve a vehicle from Adamas for Trypiti/Plaka/Sarakiniko and agree the return at the actual landing. The 30–45-minute road legs below are deliberately padded planning budgets, not straight-line distances or bus schedules.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Milos Mining Museum — Adamas, Milos. The port-town museum explains why the island’s landscape and economy are linked. Allow 75 minutes; official source.",
+        "Sarakiniko — Sarakiniko volcanic shore, Milos. Bare white rock is the attraction; swimming is optional and conditions-dependent. Allow 75 minutes; official source.",
+        "Catacombs of Melos — Trypiti catacombs archaeological site, Milos. Only designated halls are visitable; the winter calendar shown permits Thursday/Sunday, not an everyday visit. Allow 45 minutes; official source.",
+        "Ancient Theatre of Melos — Ancient Melos theatre site, near Trypiti. A separate open-air archaeological stop with uneven ground. Allow 60 minutes; official source.",
+        "Archaeological Museum of Melos — Plaka, Milos. Look for island archaeology and the Aphrodite copy; confirm current opening. Allow 60 minutes; official source."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "The culture authority’s winter catacomb calendar currently shows Thursday/Sunday access only. Do not turn “winter hours” into seven-day availability; use the theatre/port museum alternative when the site is closed."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "5ff26118322f9cd3ebd904a3bfce91227db8cac0f1385f913501ca96a41f19d7",
+      "existing_guide_hash": "5b1fae3d8962192a",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/milos-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_truncated_standardCall",
+        "replaced_research_itinerary_standardCall",
+        "dropped_truncated_longerCall",
+        "replaced_research_itinerary_longerCall"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.068Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

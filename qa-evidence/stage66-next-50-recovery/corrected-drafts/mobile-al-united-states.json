@@ -1,0 +1,74 @@
+{
+  "landing_slug": "mobile-al-united-states",
+  "draft": {
+    "landing_slug": "mobile-al-united-states",
+    "appPortId": "mobile",
+    "portName": "Mobile",
+    "country": "United States",
+    "portInfo": {
+      "description": "Mobile is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Mobile Alabama Cruise Terminal — 201 South Water Street, Mobile, AL 36602",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Driving. FAQ directs garage entry via Eslava Street with officer/attendant guidance; stevedores tag luggage before parking. Overflow parking. Civic-center off-site lot with shuttle when garage full. Downtown. Walking to nearby hotels/restaurants plausible; minutes Not verified.",
+      "distanceAnswer": "Driving. FAQ directs garage entry via Eslava Street with officer/attendant guidance; stevedores tag luggage before parking. Overflow parking. Civic-center off-site lot with shuttle when garage full. Downtown. Walking to nearby hotels/restaurants plausible; minutes Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Downtown Mobile historic/commercial core — ~120 min.",
+        "Mobile Bay waterfront — flexible.",
+        "Downtown Mobile"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Keep travel documents on your person — FAQ stresses documents must not be packed in luggage when stevedores take bags."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9e63cc54951e621d1e48a715e9dc3b68db610d8c859de9a91af685983dc4b7ce",
+      "existing_guide_hash": "62b61a93a74f24df",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/mobile-al-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.072Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

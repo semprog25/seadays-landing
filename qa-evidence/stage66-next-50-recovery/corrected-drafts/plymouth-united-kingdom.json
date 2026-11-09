@@ -1,0 +1,73 @@
+{
+  "landing_slug": "plymouth-united-kingdom",
+  "draft": {
+    "landing_slug": "plymouth-united-kingdom",
+    "appPortId": "plymouth",
+    "portName": "Plymouth",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Plymouth splits cruise landings between Associated British Ports’ Millbay Docks passenger terminal (West Wharf and Trinity Pier limits above) and the Barbican Landing Stage, a Cattewater Harbour Commissioners tender pontoon used from a sheltered anchorage inside the Plymouth Breakwater. Destination Plymouth’s trade berthing page is the source for LOA/draft, tender time and Millbay terminal amenities (check-in desks, lounge, ISPS screening). Confirm which model your line uses before planning walk times — tender and Millbay are different start points."
+    },
+    "gettingThere": {
+      "fromTerminal": "Millbay Docks Cruise Terminal (ABP) — Millbay Docks, Plymouth (ABP)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Barbican waterfront / Mayflower Steps area — ~60–90 min.",
+        "Plymouth Hoe & Smeaton’s Tower — ~60 min.",
+        "National Marine Aquarium (harbour entrance) — hours/tickets not verified here.",
+        "Barbican / Plymouth Hoe"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask the ship whether you are Millbay alongside or Barbican tender before planning Hoe walking times."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "208de75219389d1f149723ac892bf389173fd60027ea2b96a47ecb21ae588d58",
+      "existing_guide_hash": "9903d90f9afe46be",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/plymouth-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_distance",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.103Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

@@ -1,0 +1,73 @@
+{
+  "landing_slug": "tampa-fl-united-states",
+  "draft": {
+    "landing_slug": "tampa-fl-united-states",
+    "appPortId": "tampa",
+    "portName": "Tampa",
+    "country": "United States",
+    "portInfo": {
+      "description": "Port Tampa Bay publishes a terminal guide naming three passenger cruise terminals with street addresses on Channelside Drive and McKay Street. Overview pages state Tampa homeports eight vessels from five cruise lines. Parking is sold by cruise line through the port’s parking flows; some lots activate only when a ship is in port. Confirm which terminal your line uses — T6 is not on Channelside Drive."
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise Terminal 2 — 651 Channelside Drive, Tampa, Florida 33602",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Channelside / downtown. Walking between hotels and T2/T3 possible for some properties — minutes Not verified. T6 needs separate navigation to McKay Street. Airport (TPA): Not verified. Parking: Pre-purchase by cruise line via Port Tampa Bay.",
+      "distanceAnswer": "Channelside / downtown. Walking between hotels and T2/T3 possible for some properties — minutes Not verified. T6 needs separate navigation to McKay Street. Airport (TPA): Not verified. Parking: Pre-purchase by cruise line via Port Tampa Bay.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Channelside / Riverwalk — near T2/T3 — ~90 min.",
+        "Ybor City — short transfer; minutes Not verified.",
+        "Downtown museums — embarkation-eve.",
+        "Clearwater / beaches — long transfer; not same-day embarkation casual.",
+        "Busch Gardens — full day / overnight."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Match Terminal 2 vs 3 vs 6 in rideshare apps — McKay Street is easy to miss if the pin defaults to Channelside."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "1d12c7527c465b6d4045b9a7742519f898d7377d3b1a047271284f95044581c7",
+      "existing_guide_hash": "84b499fa8c16f6f9",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tampa-fl-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.148Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

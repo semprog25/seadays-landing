@@ -1,0 +1,75 @@
+{
+  "landing_slug": "ketchikan-ak-united-states",
+  "draft": {
+    "landing_slug": "ketchikan-ak-united-states",
+    "appPortId": "ketchikan",
+    "portName": "Ketchikan",
+    "country": "United States",
+    "portInfo": {
+      "description": "Ketchikan is a cruise call—confirm your berth on the daily programme before you plan the day."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Ketchikan — Berth I — Downtown waterfront, Ketchikan, AK (Port office contact 334 Front Street)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Downtown. Waterfront berths place passengers into the commercial core; measured walk minutes to Creek Street Not verified. Tours. Floatplane and coach pickups concentrate near the berths on busy days — follow city vendor-zone rules when published.",
+      "distanceAnswer": "Downtown. Waterfront berths place passengers into the commercial core; measured walk minutes to Creek Street Not verified. Tours. Floatplane and coach pickups concentrate near the berths on busy days — follow city vendor-zone rules when published.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Downtown waterfront / Creek Street — ~90 min.",
+        "Misty Fjords / flightseeing — long call + weather only.",
+        "Creek Street historic boardwalk"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "On peak days all four berths may be occupied — confirm your berth number on the city’s assignment sheet before meeting a tour."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "64251b48392c2fce76812597c07d429348ff6e7bbd721f6c2e7c61683ab05820",
+      "existing_guide_hash": "b65d7d320a9a4a44",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ketchikan-ak-united-states.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "synthetic_minimal_overview",
+        "dropped_truncated_fromTerminal",
+        "dropped_research_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.022Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

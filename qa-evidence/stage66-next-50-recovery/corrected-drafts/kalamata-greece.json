@@ -1,0 +1,72 @@
+{
+  "landing_slug": "kalamata-greece",
+  "draft": {
+    "landing_slug": "kalamata-greece",
+    "appPortId": "kalamata",
+    "portName": "Kalamata",
+    "country": "Greece",
+    "portInfo": {
+      "description": "events.kalamata.gr places the city at the head of the Messinian Gulf under Mount Taygetos and recounts harbour construction completed in 1901, with entrance about 145 m wide and roughly 10 m deep, protected by breakwaters (south ~1,100 m; south-southeast ~395 m) on a ~40,000 m² land footprint. visit.kalamata.gr emphasises a working harbour of fishing boats beside leisure walking rather than a purpose-built tourist marina aesthetic."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Kalamata — Kalamata harbour / central pier, Messinian Gulf",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Seafront and Central Pier are the immediate walk. visit.kalamata.gr cruise page groups pier, Navarinou beach and parks as nature/sea options “designed for cruise schedules,” and separately flags historic-centre and Messene excursions. No minute-perfect shuttle table is published in the capture — do not invent one.",
+      "distanceAnswer": "Seafront and Central Pier are the immediate walk. visit.kalamata.gr cruise page groups pier, Navarinou beach and parks as nature/sea options “designed for cruise schedules,” and separately flags historic-centre and Messene excursions. No minute-perfect shuttle table is published in the capture — do not invent one.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Central Pier / port promenade — municipal seafront walk.",
+        "Historic Centre and Castle hill — Frankish castle above Pharae / city symbol churches per municipal city page.",
+        "Ancient Messene — EMAS site with theatre, stadium, agora, Asclepieion; only with timed road transport.",
+        "Port and Central Pier seafront walk",
+        "Historic Centre and Castle hill"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "The pier looks endless at sunset; the castle climb consumes the minutes you thought you had for Messene. Pick one vertical plan."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "a4bddd5aafc664c16e3d52838816be55964a55b79f29dba495963e60db300afa",
+      "existing_guide_hash": "9641d6c6f9554ee7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kalamata-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.013Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

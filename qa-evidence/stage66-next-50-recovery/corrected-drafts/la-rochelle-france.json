@@ -1,0 +1,73 @@
+{
+  "landing_slug": "la-rochelle-france",
+  "draft": {
+    "landing_slug": "la-rochelle-france",
+    "appPortId": "la-rochelle",
+    "portName": "La Rochelle",
+    "country": "France",
+    "portInfo": {
+      "description": "Port missions listed include building/maintaining basins, platforms and land/rail links. Recent news mentions yacht-refit ambitions. Visitor sightseeing lives in the old city — tourism-board deep pages were not captured (TLS failure)."
+    },
+    "gettingThere": {
+      "fromTerminal": "Port Atlantique La Rochelle (La Pallice area) — La Pallice, La Rochelle",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Assume a shuttle/taxi to Vieux-Port unless the ship publishes a walkable exception (rare). No invented minutes.",
+      "distanceAnswer": "Assume a shuttle/taxi to Vieux-Port unless the ship publishes a walkable exception (rare). No invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Vieux-Port towers circuit after transfer",
+        "Vieux-Port and towers",
+        "Port Atlantique industrial waterfront context",
+        "Aquarium / old town museums"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Budget transfer as a first-class schedule item, not an afterthought."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "ad89dfeab197d2e6e78ab6ac79986dc6e2249873882e74809e67e3363aa0a1e8",
+      "existing_guide_hash": "347d5cc9c55d43eb",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/la-rochelle-france.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.037Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

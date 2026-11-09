@@ -1,0 +1,73 @@
+{
+  "landing_slug": "victoria-bc-canada",
+  "draft": {
+    "landing_slug": "victoria-bc-canada",
+    "appPortId": "victoria",
+    "portName": "Victoria",
+    "country": "Canada",
+    "portInfo": {
+      "description": "Greater Victoria Harbour Authority operates the deep-water cruise terminal at Ogden Point under the Breakwater District brand. Terminal information lists Pier A (1,100 ft and 800 ft berths; 100,000 ft² warehouse) and Pier B berths extended to 1,040 ft. Passenger guidance highlights James Bay adjacency and walk/shuttle options into the Inner Harbour for the Royal BC Museum, Parliament Buildings and downtown. Many Alaska-season calls are evening arrivals — verify hours ashore before booking distant gardens."
+    },
+    "gettingThere": {
+      "fromTerminal": "The Breakwater District at Ogden Point (Piers A & B) — Ogden Point / Breakwater District, Victoria, BC (James Bay)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Inner Harbour / downtown. Walk or shuttle — minutes Not verified. James Bay. Adjacent neighbourhood. Butchart Gardens. Organised only. Airport (YYJ): Not verified.",
+      "distanceAnswer": "Inner Harbour / downtown. Walk or shuttle — minutes Not verified. James Bay. Adjacent neighbourhood. Butchart Gardens. Organised only. Airport (YYJ): Not verified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Inner Harbour / Parliament — shuttle/walk — ~120 min.",
+        "Royal BC Museum — adjacent harbour framing; hours Not verified.",
+        "James Bay stroll — nearest.",
+        "Butchart Gardens — organised long call.",
+        "Whale watching — weather/season dependent."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Evening Alaska-itinerary calls are common — do not book a 4-hour Butchart tour without checking actual shore hours against all-aboard."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9246ceca38320c64cb08c39fae04bc9d2bf9ce9413e0b8ad3e74c4c3d9e0266f",
+      "existing_guide_hash": "5b78bc666cf1f9d6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/victoria-bc-canada.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.161Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

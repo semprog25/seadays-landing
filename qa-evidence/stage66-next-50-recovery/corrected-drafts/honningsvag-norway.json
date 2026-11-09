@@ -1,0 +1,72 @@
+{
+  "landing_slug": "honningsvag-norway",
+  "draft": {
+    "landing_slug": "honningsvag-norway",
+    "appPortId": "honningsvag",
+    "portName": "Honningsvåg",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Magerøya gateway for North Cape excursions. Town is near the pier; the plateau is a coach/tour commitment, not a stroll."
+    },
+    "gettingThere": {
+      "fromTerminal": "Berth North — Port of North Cape, Honningsvåg",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Manual: city centre ~150 m. North Cape plateau requires booked transport — distance/time gap on harbour pages alone.",
+      "distanceAnswer": "Manual: city centre ~150 m. North Cape plateau requires booked transport — distance/time gap on harbour pages alone.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Honningsvåg town walk (~150 m)",
+        "Honningsvåg town walk",
+        "North Cape plateau (Nordkapp)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Plateau weather closes roads — build abort time into every North Cape plan."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "37f5b34b20b466b9c59e6af222e71c98c09ef95a385e2c34ba6148160d3e5db5",
+      "existing_guide_hash": "f14d880babb227b7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/honningsvag-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:55.993Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

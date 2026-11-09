@@ -1,0 +1,74 @@
+{
+  "landing_slug": "perfect-day-at-cococay-bahamas",
+  "draft": {
+    "landing_slug": "perfect-day-at-cococay-bahamas",
+    "appPortId": "coco-cay",
+    "portName": "Perfect Day at CocoCay",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Line-exclusive Bahamas cay, not a public town call. Attractions are on-island; off-island taxi sightseeing does not apply."
+    },
+    "gettingThere": {
+      "fromTerminal": "Perfect Day at CocoCay cruise pier — Perfect Day at CocoCay, Bahamas (Royal Caribbean private destination)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Pier walk or Pier Tram to Arrivals Plaza; Island Tram onward. Accessible tram on request via Guest Services.",
+      "distanceAnswer": "Pier walk or Pier Tram to Arrivals Plaza; Island Tram onward. Accessible tram on request via Guest Services.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Oasis Lagoon (~8 min)",
+        "Hideaway Beach (dedicated tram / ~7 min walk)",
+        "Thrill Waterpark",
+        "Oasis Lagoon",
+        "Hideaway Beach"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Build pier walk/tram queue into every buffer — the 6-minute pier is not zero."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e4e727418e4036c7eb94503997ae1c9dd0769738504b4cdf8aafe0a774c0a099",
+      "existing_guide_hash": "4aa9db89e4654cec",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/perfect-day-at-cococay-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.097Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

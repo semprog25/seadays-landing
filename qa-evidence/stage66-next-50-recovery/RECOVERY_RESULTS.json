@@ -1,0 +1,480 @@
+{
+  "generated_at": "2026-11-09T08:46:55.919Z",
+  "ports": [
+    {
+      "landing_slug": "ponce-puerto-rico",
+      "app_port_id": "ponce",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_top_things_1",
+        "passenger_top_things_1_of_3",
+        "factual_insufficient_attractions_1"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "fort-lauderdale-fl-united-states",
+      "app_port_id": "fort-lauderdale",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "gudvangen-norway",
+      "app_port_id": "gudvangen",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "hammerfest-norway",
+      "app_port_id": "hammerfest",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "harwich-united-kingdom",
+      "app_port_id": "harwich",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "hellesylt-norway",
+      "app_port_id": "hellesylt",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "heraklion-crete-greece",
+      "app_port_id": "heraklion",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "honfleur-france",
+      "app_port_id": "honfleur",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "hong-kong-hong-kong",
+      "app_port_id": "hong-kong",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "honningsvag-norway",
+      "app_port_id": "honningsvag",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "huatulco-mexico",
+      "app_port_id": "huatulco",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "hydra-greece",
+      "app_port_id": "hydra",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "invergordon-loch-ness-united-kingdom",
+      "app_port_id": "invergordon",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "juneau-ak-united-states",
+      "app_port_id": "juneau",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kalamata-greece",
+      "app_port_id": "kalamata",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kauai-nawiliwili-hi-united-states",
+      "app_port_id": "kauai-nawiliwili",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "ketchikan-ak-united-states",
+      "app_port_id": "ketchikan",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "key-west-fl-united-states",
+      "app_port_id": "key-west",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kona-hi-united-states",
+      "app_port_id": "kona",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "la-paz-mexico",
+      "app_port_id": "la-paz",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "la-rochelle-france",
+      "app_port_id": "la-rochelle",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "la-spezia-cinque-terre-italy",
+      "app_port_id": "la-spezia",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "lerwick-shetland-united-kingdom",
+      "app_port_id": "lerwick",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "lesbos-greece",
+      "app_port_id": "lesbos",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "lisbon-portugal",
+      "app_port_id": "lisbon",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "long-beach-ca-united-states",
+      "app_port_id": "long-beach",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_top_things_2",
+        "passenger_top_things_2_of_3",
+        "factual_insufficient_attractions_2"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "lubeck-travemunde-germany",
+      "app_port_id": "lubeck-travemunde",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "maui-kahului-hi-united-states",
+      "app_port_id": "maui-kahului",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "mazatlan-mexico",
+      "app_port_id": "mazatlan",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "milos-greece",
+      "app_port_id": "milos",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "mobile-al-united-states",
+      "app_port_id": "mobile",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "montreal-qc-canada",
+      "app_port_id": "montreal",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_missing_gettingThere_fromTerminal",
+        "passenger_missing_from_terminal"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "nantes-france",
+      "app_port_id": "nantes",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "new-orleans-la-united-states",
+      "app_port_id": "new-orleans",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "newcastle-united-kingdom",
+      "app_port_id": "newcastle",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "paros-greece",
+      "app_port_id": "paros",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "patmos-greece",
+      "app_port_id": "patmos",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "perfect-day-at-cococay-bahamas",
+      "app_port_id": "coco-cay",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "philadelphia-pa-united-states",
+      "app_port_id": "philadelphia",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "plymouth-united-kingdom",
+      "app_port_id": "plymouth",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "portimao-portugal",
+      "app_port_id": "portimao",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "porto-leixoes-portugal",
+      "app_port_id": "porto",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "portofino-italy",
+      "app_port_id": "portofino",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "progreso-mexico",
+      "app_port_id": "progreso",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "puerto-chiapas-mexico",
+      "app_port_id": "puerto-chiapas",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "quebec-city-qc-canada",
+      "app_port_id": "quebec-city",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "rostock-germany",
+      "app_port_id": "rostock",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "seward-ak-united-states",
+      "app_port_id": "seward",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "sitka-ak-united-states",
+      "app_port_id": "sitka",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "skagway-ak-united-states",
+      "app_port_id": "skagway",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "spetses-greece",
+      "app_port_id": "spetses",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "sydney-ns-canada",
+      "app_port_id": "sydney-ns",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "symi-greece",
+      "app_port_id": "symi",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "tampa-fl-united-states",
+      "app_port_id": "tampa",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "taormina-italy",
+      "app_port_id": "taormina",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "thessaloniki-greece",
+      "app_port_id": "thessaloniki",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "victoria-bc-canada",
+      "app_port_id": "victoria",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "vlore-albania",
+      "app_port_id": "vlore",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    }
+  ]
+}

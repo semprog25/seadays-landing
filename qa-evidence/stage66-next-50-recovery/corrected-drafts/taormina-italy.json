@@ -1,0 +1,73 @@
+{
+  "landing_slug": "taormina-italy",
+  "draft": {
+    "landing_slug": "taormina-italy",
+    "appPortId": "taormina",
+    "portName": "Taormina (Giardini Naxos)",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Giardini Naxos is the landing town; Taormina sits above with the ancient theatre as the usual headline. Without a captured theatre ticket primary, hours stay unverified."
+    },
+    "gettingThere": {
+      "fromTerminal": "Giardini Naxos tender landing (Porto Scaro Nuovo area) — Giardini Naxos waterfront, Sicily",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Tender then road uphill to Taormina — no invented minutes.",
+      "distanceAnswer": "Tender then road uphill to Taormina — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Taormina centre + theatre if transfer timing works (hours gap)",
+        "Giardini Naxos lungomare as fallback",
+        "Etna — only with ship-organised timing (gap on operator)",
+        "Ancient theatre of Taormina",
+        "Corso Umberto / historic centre"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "If the first shuttle queue looks bad, keep Giardini as Plan B rather than missing the ship."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "f7552e6c952ed5e97fee5560491c0e73a6f1fde0caadf59095ab0ef5f1c96184",
+      "existing_guide_hash": "e91c1edea9a27f6c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/taormina-italy.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.151Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}

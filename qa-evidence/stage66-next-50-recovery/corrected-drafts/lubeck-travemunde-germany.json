@@ -1,0 +1,74 @@
+{
+  "landing_slug": "lubeck-travemunde-germany",
+  "draft": {
+    "landing_slug": "lubeck-travemunde-germany",
+    "appPortId": "lubeck-travemunde",
+    "portName": "Lübeck / Travemünde",
+    "country": "Germany",
+    "portInfo": {
+      "description": "Two geographies share this SeaDays slug: the seaside/ferry district of Travemünde and the UNESCO-listed Hanseatic Altstadt inland. Do not invent a dock-to-Holstentor walk."
+    },
+    "gettingThere": {
+      "fromTerminal": "LHG cruise terminals (Lübeck / Travemünde complex) — Lübecker Hafen-Gesellschaft terminals incl. Travemünde area",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Altstadt needs a transfer from Travemünde docks — no invented minutes.",
+      "distanceAnswer": "Altstadt needs a transfer from Travemünde docks — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "UNESCO Altstadt / Holstentor approaches",
+        "Travemünde waterfront",
+        "Hanseatic City of Lübeck (UNESCO WH Altstadt)",
+        "Travemünde seaside resort waterfront",
+        "Holstentor"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Travemünde vs any inner-Lübeck landing before planning."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4744a64df066f43e3f16041d7e8e21a877a09f5a73bc752ec4911247bdaa8419",
+      "existing_guide_hash": "8e3d0727aeedbd9f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/lubeck-travemunde-germany.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T08:46:56.057Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage66-blocked-bootstrap-editorial"
+}
