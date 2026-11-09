@@ -1,0 +1,31 @@
+{
+  "generated_at_utc": "2026-11-09T20:10:00.000Z",
+  "verdict": "READY_FOR_OWNER_PUBLICATION_APPROVAL",
+  "production_baseline_sha": "79bad4262963a7299304a406c4b0dd755c80ec48",
+  "baseline_passenger_editorial": 350,
+  "candidate_passenger_editorial": 355,
+  "montreal_leak_repair": {
+    "fixed_phrases": [
+      "ticket hours not verified → basilica official hours/tickets guidance",
+      "door pin null → full Grand Quay street address"
+    ],
+    "regen": "targeted --only=montreal-qc-canada"
+  },
+  "five_guide_leak_scan": "PASS (test-stage78-candidate-leak-guard: JSON, HTML main, JSON-LD, gettingThere, thingsToDo)",
+  "pr_104_disposition": "SUPERSEDED_BY_105 — identical stage77 evidence payloads; close #104 without merge to avoid duplicate evidence commit",
+  "merge_order_recommended": [
+    "1. Merge #106 (legacy cleanup) → main stays 350 PE",
+    "2. Rebase #105 onto updated main (expect public-port-guides.json auto-merge: #106 edits boston/cabo/galveston/seattle; #105 adds 5 slots — orthogonal)",
+    "3. Merge #105 only after owner publication authorize"
+  ],
+  "pr_106_readiness": "READY_FOR_OWNER_REVIEW — test-stage78-legacy-copy-cleanup PASS on 078fcfd10",
+  "owner_flags": {
+    "owner_publication_authorized": false,
+    "production_apply_permitted": false
+  },
+  "tests": [
+    "npm run test:stage78-publication-5",
+    "npm run test:stage78-candidate-leak-guard",
+    "npm run test:stage78-legacy-copy-cleanup (on #106 branch)"
+  ]
+}
