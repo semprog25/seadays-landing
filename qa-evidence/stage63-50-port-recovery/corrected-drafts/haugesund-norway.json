@@ -1,0 +1,76 @@
+{
+  "landing_slug": "haugesund-norway",
+  "draft": {
+    "landing_slug": "haugesund-norway",
+    "appPortId": "haugesund",
+    "portName": "Haugesund",
+    "country": "Norway",
+    "portInfo": {
+      "description": "South-west Norway growth port between Stavanger and Bergen. Centre is a short transfer, not a gangway stroll of zero metres — plan the kilometre.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Haugesund cruise terminal",
+      "transportation": [
+        "Walking",
+        "Local bus"
+      ],
+      "distanceToCity": "Terminal located close to city center",
+      "walkingTime": "5-15 minutes to downtown—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Local bus system available",
+      "distanceAnswer": "Terminal located close to city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Haugesund centre (~1 km)",
+        "Haugesund town centre",
+        "Avaldsnes / Nordvegen History Centre"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not treat Garpeskjær as zero-metre city docking — budget the kilometre each way."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "c018dc6ed89e80a9decc226e996be38d5ef84591346cf7f476cbde8ed305656f",
+      "existing_guide_hash": "98b2878b59442c69",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/haugesund-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.250Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

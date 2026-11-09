@@ -1,0 +1,77 @@
+{
+  "landing_slug": "southampton-united-kingdom",
+  "draft": {
+    "landing_slug": "southampton-united-kingdom",
+    "appPortId": "southampton",
+    "portName": "Southampton",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Southampton is the United Kingdom’s leading cruise turnaround port, with ABP terminals in the Eastern Docks (Ocean, QEII) and Western Docks (City, Horizon, Mayflower). London is reachable by rail for pre- and post-cruise stays, while the city center is close enough for short embarkation-day errands once you know your dock gate.",
+      "location": "South coast of England, Hampshire, United Kingdom",
+      "timezone": "GMT (UTC+0) / BST (UTC+1)",
+      "language": "English",
+      "currency": "Pound sterling (GBP)",
+      "population": "Southampton roughly 250,000+; London is the main tourist draw for many guests"
+    },
+    "gettingThere": {
+      "fromTerminal": "Eastern Docks (Ocean / QEII via Dock Gate 4) vs Western Docks (City / Horizon / Mayflower via Dock Gate 10)—confirm berth on your cruise documents",
+      "transportation": [
+        "Cruise line transfer",
+        "Rail + taxi",
+        "Car / parking"
+      ],
+      "distanceToCity": "Western Docks terminals are close to city-center hotels; Eastern Docks are a short drive/taxi from central Southampton",
+      "walkingTime": "Possible between some city hotels and Western Docks with light bags; not ideal with full luggage",
+      "taxiInfo": "Taxis and prebooked transfers are the usual airport/station solution; allow buffer for dock security queues",
+      "publicTransport": "Southampton Central station connects to London and regional rail; complete the last mile by taxi or scheduled cruise transfer to your specific terminal Eastern Docks (Gate 4: Ocean/QEII) and Western Docks (Gate 10: City/Horizon/Mayflower) are different approaches—use the gate on your cruise documents. Arrive only in the embarkation window your line provides.",
+      "distanceAnswer": "Western Docks terminals are close to city-center hotels; Eastern Docks are a short drive/taxi from central Southampton"
+    },
+    "thingsToDo": {
+      "intro": "Southampton is the UK’s main turnaround port. “Things to do” often means embarkation logistics, a short city errand, or a London pre/post stay—not a packed transit sightseeing day.",
+      "topThings": [
+        "SeaCity Museum: allow 1.5–2.5 hours.",
+        "Old Town walls / waterfront: allow 60–90 minutes.",
+        "Organised New Forest or coastal tour: only with ship-timed return.",
+        "SeaCity Museum",
+        "Southampton Old Town walls / waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Luggage + Dock Gate mistakes cost more time than the map implies. Match Gate 4 vs Gate 10 to your berth before ordering a taxi."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "21f88255f9ba34b2cb79042b71476e6d9ab6624a84a8e7686d39cb5cc38afb8d",
+      "existing_guide_hash": "f269975a0df1a697",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/southampton-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.384Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

@@ -1,0 +1,77 @@
+{
+  "landing_slug": "stockholm-sweden",
+  "draft": {
+    "landing_slug": "stockholm-sweden",
+    "appPortId": "stockholm",
+    "portName": "Stockholm",
+    "country": "Sweden",
+    "portInfo": {
+      "description": "Stockholm cruise ships use several Ports of Stockholm areas—commonly Stadsgården (close to Gamla Stan/Slussen) or Värtahamnen/Frihamnen farther northeast. Confirm your terminal: walking into Gamla Stan is realistic from Stadsgården, while Värtan calls usually need bus, taxi, or metro connections.",
+      "location": "Eastern Sweden on Lake Mälaren / Baltic approaches",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Swedish; English widely spoken",
+      "currency": "Swedish krona (SEK)",
+      "population": "City roughly 1 million; metro area ~2.4 million"
+    },
+    "gettingThere": {
+      "fromTerminal": "Identify Stadsgården vs Värtahamnen/Frihamnen before planning a walk. Ships publish terminal assignments in final documents.",
+      "transportation": [
+        "Walking (Stadsgården)",
+        "SL bus/metro/tram",
+        "Djurgården ferry connections"
+      ],
+      "distanceToCity": "Stadsgården often ~1–2 km to Gamla Stan/Slussen; Värtan area roughly 4–6+ km to the old town",
+      "walkingTime": "Stadsgården: frequently 15–30 minutes to Gamla Stan. Värtan: plan transit, not a casual walk—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Readily available; useful from Värtan with limited time",
+      "publicTransport": "SL tickets cover buses, metro, and trams. From Värtan, bus/metro combinations reach T-Centralen and Gamla Stan",
+      "distanceAnswer": "Stadsgården often ~1–2 km to Gamla Stan/Slussen; Värtan area roughly 4–6+ km to the old town"
+    },
+    "thingsToDo": {
+      "intro": "Stadsgården can be walkable to Gamla Stan; Värtahamnen/Frihamnen usually need bus, metro, or taxi. Identify the terminal before planning a stroll.",
+      "topThings": [
+        "Gamla Stan (Old Town) lanes and Stortorget: allow 75–90 minutes. Cobbles; keep valuables simple.",
+        "Vasa Museum (Djurgården): allow 90–120 minutes inside plus Djurgården transfer—ticket ahead when possible.",
+        "City Hall (Stadshuset) exterior / waterfront: allow 30–45 minutes.",
+        "ABBA The Museum / Djurgården cluster: only on longer calls with timed tickets.",
+        "Södermalm viewpoints (Stadsgården berths): allow 45–60 minutes local walk when alongside there."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "SL tickets cover buses/metro/trams. Do not assume every Stockholm berth is a Gamla Stan walk."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "9faebb0f363ef487b9b4fbbe8ae7d5ba5e77620e4ec6f751fff0061ad3c215bb",
+      "existing_guide_hash": "81ef1706a271ee7c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/stockholm-sweden.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.359Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

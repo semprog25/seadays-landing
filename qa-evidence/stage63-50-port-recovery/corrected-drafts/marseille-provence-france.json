@@ -1,0 +1,79 @@
+{
+  "landing_slug": "marseille-provence-france",
+  "draft": {
+    "landing_slug": "marseille-provence-france",
+    "appPortId": "marseille",
+    "portName": "Marseille (Provence)",
+    "country": "France",
+    "portInfo": {
+      "description": "Marseille handles large ships primarily at Marseille Provence Cruise Terminal (MPCT / Môle Léon Gourret), several kilometres from the Vieux-Port, while smaller vessels may use La Joliette closer to the waterfront. A port shuttle is the usual first link from MPCT toward Joliette shopping/metro connections.",
+      "location": "Southern France, Bouches-du-Rhône, on the Mediterranean",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "French; English in tourist zones",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 870,000; metro area over 1.5 million"
+    },
+    "gettingThere": {
+      "fromTerminal": "Confirm whether you are at MPCT (large ships) or Joliette. MPCT sits in a secured port zone—do not plan to walk through industrial areas.",
+      "transportation": [
+        "Port shuttle",
+        "Taxi / rideshare",
+        "Metro (after reaching Joliette)",
+        "Cruise shuttle"
+      ],
+      "distanceToCity": "MPCT is about 8 km from the Vieux-Port by road (commonly cited ~7–10 km depending on routing); Joliette berths are much closer (~1–2 km)",
+      "walkingTime": "Joliette to Vieux-Port often 20–30 minutes. MPCT walking is not practical/permitted through the port—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Direct taxis from MPCT to Vieux-Port are the fastest door-to-door option when queues are long",
+      "publicTransport": "Free port shuttle (cruise days): from the ship, follow the green line 5–12 min to the stop near Gate 4. In town, the stop is at 9 Quai du Lazaret, between Les Terrasses du Port and the maritime station. RTM 35T: links the Terminal Croisières stop with Place de la Joliette; the timetable is adapted to ship arrivals. From the stop it can be 600 m to 2.5 km to the boarding platform. Joliette → Vieux-",
+      "distanceAnswer": "MPCT is about 8 km from the Vieux-Port by road (commonly cited ~7–10 km depending on routing); Joliette berths are much closer (~1–2 km)"
+    },
+    "thingsToDo": {
+      "intro": "Large ships use MPCT far from the Vieux-Port; smaller ships may berth nearer Joliette. Your terminal choice decides whether the day feels walkable.",
+      "topThings": [
+        "Vieux-Port. 45 min.",
+        "Le Panier, the old quarter above the port. 60 min.",
+        "MuCEM. 90 min.",
+        "Notre-Dame de la Garde, the hilltop basilica. 75 min including the climb or bus.",
+        "Cathédrale de la Major."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not walk through the industrial port from MPCT. Use the port/city shuttle or a taxi toward Joliette / Vieux-Port."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6a95b22d1cbbd9551dee253cb76de10233ff11d4c2025ce88d39224ff719fd19",
+      "existing_guide_hash": "af8475767925180c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/marseille-provence-france.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_publicTransport"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.328Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

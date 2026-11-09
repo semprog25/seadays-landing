@@ -1,0 +1,79 @@
+{
+  "landing_slug": "rome-civitavecchia-italy",
+  "draft": {
+    "landing_slug": "rome-civitavecchia-italy",
+    "appPortId": "civitavecchia",
+    "portName": "Rome (Civitavecchia)",
+    "country": "Italy",
+    "portInfo": {
+      "description": "Civitavecchia is Rome’s principal cruise gateway. Roma Cruise Terminal manages multiple passenger facilities (including Amerigo Vespucci and Donato Bramante). Free port shuttles typically link piers with the Largo della Pace service area; Rome itself is about an hour away by regional train plus local transfer.",
+      "location": "Lazio coast, about 70 km northwest of central Rome, Italy",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Italian; English common at terminals and tourist services",
+      "currency": "Euro (EUR)",
+      "population": "Civitavecchia town roughly 50,000; Rome metro destination for most guests"
+    },
+    "gettingThere": {
+      "fromTerminal": "Ships berth at RCT piers (commonly Terminal Amerigo Vespucci, Terminal Donato Bramante on Quay 12 South, Terminal 10, or Terminal 25 South). Free shuttle buses commonly run between docks and Largo della Pace—confirm your building on arrival-day signage.",
+      "transportation": [
+        "Free port shuttle",
+        "Regional train to Rome",
+        "CSP / local bus station–port links",
+        "Cruise shore excursions"
+      ],
+      "distanceToCity": "Civitavecchia center is near the port; central Rome is roughly 70 km / about 60–90 minutes by train plus local transfer",
+      "walkingTime": "Train station is about 1–1.5 km from port approaches—many guests use bus/taxi rather than walking with luggage",
+      "taxiInfo": "Taxis available for station or Rome transfers; agree approach/fare expectations for longer Rome trips",
+      "publicTransport": "Frequent Trenitalia regional trains link Civitavecchia with Roma Termini and other Rome stations; local buses and a seasonal direct station–ship service may operate on turnaround days Rome needs a realistic all-aboard buffer (train + station/port transfer + security). If your call is under ~8–9 hours, consider a tighter Rome plan or stay nearer the coast rather than overpacking sights.",
+      "distanceAnswer": "Civitavecchia center is near the port; central Rome is roughly 70 km / about 60–90 minutes by train plus local transfer"
+    },
+    "thingsToDo": {
+      "intro": "Most guests treat Civitavecchia as Rome’s gateway. A Rome day is rewarding but tight; staying local or choosing Tarquinia can be smarter on shorter calls.",
+      "topThings": [
+        "St Peter's Basilica — 10–15 min walk from Roma San Pietro station (estimate). Security queues can be long; allow 90 min+.",
+        "Vatican Museums & Sistine Chapel — timed entry strongly advised; 2.5 h minimum.",
+        "Pantheon and Piazza Navona — compact central loop.",
+        "Trevi Fountain — crowded but quick.",
+        "Colosseum & Forum area — easiest via Ostiense (Metro B, Piramide) per Port Mobility guidance."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Note your RCT terminal (Vespucci, Donato Bramante / Pier 12, Terminal 10, or 25 South). Use the free pier shuttle and keep passport/ID on you in Rome."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "909b5adb7b262d666e5ed5962d74762daea7cc097d08db5b6aad0aefdb78e6ad",
+      "existing_guide_hash": "388bddf10d9e2b41",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/rome-civitavecchia-italy.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_liveTop"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.341Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

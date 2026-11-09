@@ -1,0 +1,80 @@
+{
+  "landing_slug": "vigo-spain",
+  "draft": {
+    "landing_slug": "vigo-spain",
+    "appPortId": "vigo",
+    "portName": "Vigo",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Vigo is Galicia’s principal Atlantic cruise call. Ships dock at the Alberto Durán maritime station on Muelle de Trasatlánticos, one building shared by two concessionaires, and on multi-ship days at Muelle de Comercio (El Tinglado). Casco Vello, oyster bars, and the promenade are a short walk away.",
+      "location": "Northwest Spain (Galicia) on the Ría de Vigo",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish and Galician; some English in tourist services",
+      "currency": "Euro (EUR)",
+      "population": "Municipality roughly 290,000–300,000 residents"
+    },
+    "gettingThere": {
+      "fromTerminal": "Primary calls use Muelle de Trasatlánticos inside the Alberto Durán Maritime Station, where two concessioned terminals operate: Vigo Cruise Terminal and Atlantic Vigo Cruise Terminal (same building complex). Multi-ship days may also use El Tinglado on Muelle de Comercio.",
+      "transportation": [
+        "Walking",
+        "City bus",
+        "Train station ~15 min walk (per port authority)"
+      ],
+      "distanceToCity": "Waterfront terminals sit beside the historic center—typically a few hundred meters to Casco Vello",
+      "walkingTime": "Often 5–15 minutes uphill into the old town and commercial streets—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxis available at the maritime station area for Cíes ferry connections, Samil, or longer trips",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Waterfront terminals sit beside the historic center—typically a few hundred meters to Casco Vello"
+    },
+    "thingsToDo": {
+      "intro": "Vigo is one of Spain’s most walkable Atlantic cruise calls: the Trasatlánticos waterfront sits beside Casco Vello. Save long transfers for Cíes or Santiago only when time truly allows.",
+      "topThings": [
+        "Casco Vello / waterfront",
+        "Cíes — permits gap",
+        "Casco Vello / waterfront approaches",
+        "Cíes Islands (Illas Atlánticas)",
+        "Castro hill viewpoints"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Uphill lanes in Casco Vello take longer than the map suggests. Wear comfortable shoes and keep an eye on ship time even though the pier is close."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "53af7be91c6fa7c62fd04534265eacc38a9498dd0f0323105f5abc8fed4c8f00",
+      "existing_guide_hash": "87861aa5699664c8",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/vigo-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_publicTransport",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.375Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

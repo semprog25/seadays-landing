@@ -1,0 +1,77 @@
+{
+  "landing_slug": "tokyo-yokohama-japan",
+  "draft": {
+    "landing_slug": "tokyo-yokohama-japan",
+    "appPortId": "yokohama",
+    "portName": "Tokyo / Yokohama",
+    "country": "Japan",
+    "portInfo": {
+      "description": "Cruise itineraries labelled Tokyo often berth in Yokohama or at Tokyo Port facilities. The City of Yokohama publishes Osanbashi Passenger Terminal metrics: berths A&B 450 m at 12 m depth and C&D 450 m at 10–11 m, with four mobile boarding bridges and a ~5-minute walk to Nihon-odori Station; vessels approaching Osanbashi must respect Yokohama Bay Bridge air draft (56 m at spring high tide). Tokyo Port Terminal Corporation opened Tokyo International Cruise Terminal on 10 September 2020 at Aomi and explicitly warns that Tokyo also still uses Harumi Passenger Terminal — passengers must match ship name to terminal name. MLIT’s Cruise Port Guide of Japan lists Harumi Wharf, Oi Wharf and Tokyo International Cruise Wharf under Tokyo Port management by the Tokyo Metropolitan Government Bureau of Port and Harbor. Quay LOA for TICT was not on the captured TPTC overview page.",
+      "location": "",
+      "timezone": "JST (UTC+9)",
+      "language": "Japanese",
+      "currency": "Japanese Yen (JPY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Osanbashi Pier or Daikoku Pier",
+      "transportation": [
+        "Walking to Minato Mirai",
+        "Train",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Yokohama city",
+      "walkingTime": "5-15 minutes depending on pier",
+      "taxiInfo": "Taxis available at all terminals",
+      "publicTransport": "Excellent train connections to Tokyo and elsewhere",
+      "distanceAnswer": "Within Yokohama city"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Minato Mirai / Chinatown (Yokohama) — ~120 min from Osanbashi.",
+        "Tokyo neighbourhood day — from TICT/Harumi with rail.",
+        "Kamakura / Hakone coaches — full-day only.",
+        "Minato Mirai / Yokohama waterfront"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the exact terminal name on sailing docs — TICT ≠ Harumi ≠ Osanbashi."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7e1a1016bff4d827fe7fa1246531b3c242a8b9d5584b0c0126e917e3fbf6d017",
+      "existing_guide_hash": "200fc60de059bfd6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tokyo-yokohama-japan.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.209Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_FACT_CHECK",
+  "recovery_mode": "stage63-targeted-editorial"
+}

@@ -1,0 +1,79 @@
+{
+  "landing_slug": "malaga-spain",
+  "draft": {
+    "landing_slug": "malaga-spain",
+    "appPortId": "malaga",
+    "portName": "Málaga",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Málaga is a walkable Costa del Sol cruise call for many ships berthing near Muelle Uno and the central passenger terminals. The Alcazaba, cathedral, and Picasso Museum sit within a short taxi or energetic walk, with day trips to Granada possible on longer calls.",
+      "location": "Andalusia, southern Spain, on the Costa del Sol",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish; English widely spoken in tourism",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 570,000+"
+    },
+    "gettingThere": {
+      "fromTerminal": "Most cruise berths are on the downtown waterfront near the cruise terminal / Muelle Uno promenade—confirm the exact gate on ship signage.",
+      "transportation": [
+        "Walking",
+        "City bus",
+        "Train/coach for Granada (long excursion)"
+      ],
+      "distanceToCity": "Often under 1–2 km to the historic center from central berths",
+      "walkingTime": "Frequently 10–25 minutes to cathedral / Atarazanas area from central piers—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Short taxi hops help for Gibralfaro or travelers avoiding hills/heat",
+      "publicTransport": "Local buses cover hill neighborhoods. Granada is a longer rail/coach excursion—not a casual add-on to a short Málaga walk.",
+      "distanceAnswer": "Often under 1–2 km to the historic center from central berths"
+    },
+    "thingsToDo": {
+      "intro": "Málaga is often a walkable Costa del Sol call from central berths near Muelle Uno. Granada is a separate full-day excursion—not a casual add-on.",
+      "topThings": [
+        "Port-city waterfront / Palmeral",
+        "Alcazaba + cathedral approaches",
+        "Picasso/museums — confirm hours same-day (partial gap)",
+        "Palmeral de las Sorpresas / port-city waterfront",
+        "Alcazaba and cathedral approaches"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Midday Alcazaba climbs are hot. If Granada is on your list, assume it consumes the day—do not also plan a full Málaga museum crawl."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "82149ea5273fc1074c9b7732aca30ede1557b5a02a341f38154f5f70ea04f7df",
+      "existing_guide_hash": "de48271d3b8d8554",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/malaga-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.368Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

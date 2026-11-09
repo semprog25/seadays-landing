@@ -1,0 +1,79 @@
+{
+  "landing_slug": "barcelona-spain",
+  "draft": {
+    "landing_slug": "barcelona-spain",
+    "appPortId": "barcelona",
+    "portName": "Barcelona",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Barcelona is one of Europe’s busiest cruise homeports and a major Western Mediterranean turnaround city. Most large ships berth on Moll Adossat (Terminals A–E). The World Trade Center pier at Port Vell is the short walk, about 400 m in the port brochure. Shore days typically combine Gothic Quarter lanes, Gaudí landmarks, and the beachfront before returning via the Blue Port shuttle or taxi.",
+      "location": "Northeast Spain on the Mediterranean (Catalonia); cruise piers at Port Vell / Moll Adossat",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish and Catalan; English widely used in tourist areas",
+      "currency": "Euro (EUR)",
+      "population": "City population approximately 1.6 million (municipality)"
+    },
+    "gettingThere": {
+      "fromTerminal": "Large ships usually use Moll Adossat (A–D); some calls use the World Trade Center pier closer to Port Vell",
+      "transportation": [
+        "Blue Port shuttle",
+        "City bus connections",
+        "Walking from WTC pier"
+      ],
+      "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+      "walkingTime": "WTC pier: often 10–20 minutes toward Drassanes/Ramblas. Adossat: walking is long—use shuttle/taxi—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "Taxi ranks operate at the cruise piers; confirm fare estimate or meter use before departure",
+      "publicTransport": "The port shuttle links Adossat with the city bus hub, then metro and buses cover the center. Check the daily program for your pier.",
+      "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
+    },
+    "thingsToDo": {
+      "intro": "Barcelona rewards a focused plan: Adossat berths need a shuttle or taxi into town, while the World Trade Center pier is closer to Port Vell. Pick one district cluster rather than racing across the city.",
+      "topThings": [
+        "Barri Gòtic and the Cathedral — lanes around Carrer del Bisbe; about 1 km walk from the shuttle stop. 60–90 min.",
+        "La Boqueria market — on La Rambla; go before midday for full stalls. 30–45 min.",
+        "Museu Marítim (Drassanes Reials) — medieval royal shipyards right by the shuttle stop; good rainy-day option.",
+        "Sagrada Família — Gaudí's basilica in the Eixample, about 3.3 km north of the Columbus Monument (straight-line); book a timed slot on the official site. Allow 90 min inside.",
+        "Casa Batlló, Passeig de Gràcia — modernista façade and interior; 75 min."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Adossat vs World Trade Center before planning a walk. From Adossat, treat the Blue Port shuttle or a taxi as part of your schedule—not optional."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fe292451efee0ece5f0cc570e6ce885acc96337381d5de62468ba4dfd6ef1b47",
+      "existing_guide_hash": "69147b9021832731",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/barcelona-spain.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_distance",
+        "dropped_research_distance"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.302Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

@@ -1,0 +1,78 @@
+{
+  "landing_slug": "la-coruna-spain",
+  "draft": {
+    "landing_slug": "la-coruna-spain",
+    "appPortId": "la-coruna",
+    "portName": "A Coruña",
+    "country": "Spain",
+    "portInfo": {
+      "description": "AP Coruña’s site covers interior vs exterior (Punta Langosteira) docks; cruises use the city-facing interior. Passenger service tariffs appear on the pasaje page. BOE/AP materials extend the Corunna Cruise Terminal concession at Trasatlánticos (exploitation of the maritime station). Tourism board turismocoruna.com is the city visitor primary.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish, Galician",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Muelle de Trasatlánticos / Corunna Cruise Terminal — Interior port, A Coruña (Trasatlánticos quay)",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "City centre from Trasatlánticos is a short urban walk/taxi. Outer quays may use AP-organised shuttles on peak days.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "City centre from Trasatlánticos is a short urban walk/taxi. Outer quays may use AP-organised shuttles on peak days."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "City paseo / María Pita area",
+        "Tower of Hercules — timed north trip",
+        "Know your quay — check if you are on Trasatlánticos or an overflow berth",
+        "Tower of Hercules",
+        "Interior port / city paseo"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "On five-ship mornings, follow AP/Corunna Cruise Terminal shuttle signage — do not walk unknown dock roads."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "36985269b05b9e0736036fd8e92a1ca409053321b946071e717da0b72983cc94",
+      "existing_guide_hash": "465fd27177a10404",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/la-coruna-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.276Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

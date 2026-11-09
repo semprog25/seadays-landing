@@ -1,0 +1,82 @@
+{
+  "landing_slug": "london-tilbury-united-kingdom",
+  "draft": {
+    "landing_slug": "london-tilbury-united-kingdom",
+    "appPortId": "tilbury",
+    "portName": "London (Tilbury)",
+    "country": "United Kingdom",
+    "portInfo": {
+      "description": "Tilbury puts you on the Thames estuary with Gravesend across the water and London as a deliberate transfer, not a stroll. Follow Ferry Road / cruise-terminal signage; the main port/Asda-style entrance is the wrong gate for cruise passengers. Local Thames-side time is realistic on short calls; Tower of London or museum days need a pre-booked transfer and an honest buffer.",
+      "location": "",
+      "timezone": "GMT (UTC+0) / BST (UTC+1)",
+      "language": "English",
+      "currency": "British Pound (GBP)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "London International Cruise Terminal",
+      "transportation": [
+        "Shuttle bus to station",
+        "Train to London",
+        "Local buses"
+      ],
+      "distanceToCity": "40 km to central London",
+      "walkingTime": "Not walkable to London",
+      "taxiInfo": "",
+      "publicTransport": "Train from Tilbury Town to London stations",
+      "distanceAnswer": "40 km to central London"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Tilbury / Thames-side orientation (fort area / landing-stage views): allow 60–90 minutes without leaving for London.",
+        "Tower of London: allow 2–3 hours inside plus the Tilbury–London transfer pair. Book timed entry.",
+        "British Museum: allow 2–3 hours plus transfers.",
+        "Organised London coach tour: only with confirmed ship-timed return. Estimate markers: transfers 90–120 min each way.",
+        "Tower of London"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Follow Ferry Road cruise-terminal signs; the Asda/main port entrance is the wrong gate. Photograph the terminal façade before boarding a London coach."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "2331eb3c18de95bde6928bf084e7727627018e021dd5a0e89686f523000370fe",
+      "existing_guide_hash": "c3fcc62952506523",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/london-tilbury-united-kingdom.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.227Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Piraeus — stage63 preview</title>
+<style>
+.pg-section { margin: 40px 0 28px; scroll-margin-top: 72px; }
+.pg-section h2 { font-size: 24px; font-weight: 800; margin: 0 0 14px; color: #fff; }
+.pg-section h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; color: #fff; }
+.pg-prose { font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.88); margin: 0 0 14px; }
+.pg-lead-guide { font-size: 18px; color: rgba(255,255,255,0.82); }
+.pg-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin: 12px 0 8px; font-weight: 700; }
+.pg-things-layout { display: grid; gap: 18px; }
+.pg-things-intro { margin-bottom: 0; }
+.pg-call-plans { display: grid; gap: 12px; }
+@media (min-width: 900px) { .pg-call-plans { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pg-call-plan-card { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); display: flex; flex-direction: column; gap: 10px; min-height: 0; }
+.pg-call-plan-card--short { border-top: 3px solid rgba(34,211,238,0.75); }
+.pg-call-plan-card--standard { border-top: 3px solid rgba(255,0,51,0.55); }
+.pg-call-plan-card--longer { border-top: 3px solid rgba(255,255,255,0.35); }
+.pg-call-plan-head { display: flex; align-items: flex-start; gap: 12px; }
+.pg-call-plan-icon { flex: 0 0 36px; width: 36px; height: 36px; border-radius: 12px; background: rgba(6,182,212,0.14); border: 1px solid rgba(34,211,238,0.35); position: relative; }
+.pg-call-plan-icon::after { content: ''; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -9px 0 0 -7px; border: 2px solid rgba(255,255,255,0.82); border-radius: 50%; box-sizing: border-box; }
+.pg-call-plan-icon::before { content: ''; position: absolute; left: 50%; top: 50%; width: 2px; height: 6px; margin: -8px 0 0 -1px; background: rgba(255,255,255,0.82); border-radius: 1px; }
+.pg-call-plan-duration { margin: 0 0 4px; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.48); }
+.pg-call-plan-title { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: #fff; }
+.pg-call-plan-body { margin: 0; font-size: 14px; line-height: 1.58; color: rgba(255,255,255,0.86); }
+.pg-top-things { padding: 16px 16px 14px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+.pg-top-things-heading { margin: 0 0 12px; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(255,255,255,0.92); }
+.pg-top-things-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.pg-top-things-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.48; color: rgba(255,255,255,0.88); overflow-wrap: anywhere; word-break: break-word; max-width: 100%; }
+.pg-top-things-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,0,51,0.85); box-shadow: 0 0 0 3px rgba(255,0,51,0.12); }
+.pg-cruise-tip { margin: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(34,211,238,0.35); border-left: 4px solid #22d3ee; background: linear-gradient(120deg, rgba(6,182,212,0.16), rgba(255,255,255,0.03)); }
+.pg-cruise-tip-label { margin: 0 0 8px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #22d3ee; }
+.pg-cruise-tip-body { margin: 0; font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.92); font-weight: 650; }
+.pg-section#things-to-do ul:not(.pg-top-things-list) { margin: 0 0 14px; padding-left: 1.2em; color: rgba(255,255,255,0.88); line-height: 1.65; }
+.pg-section#things-to-do li:not(.pg-top-things-list li) { margin: 0 0 6px; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download) { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:visited,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):visited { color: #9ae4ff; }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:hover,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):hover { color: #a8e8ff; text-decoration-color: rgba(168,232,255,0.75); }
+.seo-detail .pg-section .pg-prose a.pg-editorial-link:focus-visible,
+.seo-detail .pg-section .pg-prose a:not(.pg-booking-cta):not(.pg-btn):not(.guest-reviews-download):focus-visible { outline: 2px solid #79D8FF; outline-offset: 3px; border-radius: 4px; }
+.pg-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0 8px; }
+.pg-fact { padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+.pg-fact dt { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); margin-bottom: 6px; }
+.pg-fact dd { margin: 0; font-size: 15px; font-weight: 650; color: rgba(255,255,255,0.92); line-height: 1.45; }
+.pg-terminal-grid, .pg-qa-grid { display: grid; gap: 14px; align-items: stretch; grid-template-columns: 1fr; }
+.pg-terminal-card, .pg-qa-card { padding: 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); font-family: Inter, system-ui, sans-serif; font-weight: 400; min-height: 0; max-width: 100%; box-sizing: border-box; }
+/* port-guide-mobile-overflow-v1 */
+.pg-terminal-card { overflow: hidden; }
+.pg-terminal-card--has-photo { display: flex; flex-direction: column; height: 100%; padding: 18px; }
+.pg-terminal-card-badge-row { margin: 0 0 12px; min-height: 26px; display: flex; align-items: flex-start; flex: 0 0 auto; }
+.pg-terminal-card-title { margin: 0 0 10px; font-size: 17px; font-weight: 700; line-height: 1.4; letter-spacing: normal; color: #fff; flex: 0 0 auto; overflow-wrap: anywhere; word-break: break-word; max-width: 100%; }
+.pg-terminal-card:not(.pg-terminal-card--has-photo) > summary .pg-terminal-card-title { font-size: 17px; font-weight: 700; }
+.pg-terminal-card > p { display: block; margin: 0 0 10px; }
+.pg-terminal-card-desc { font-size: 16px; font-weight: 400; line-height: 1.65; color: rgba(255,255,255,0.88); margin: 0 0 4px !important; flex: 1 1 auto; }
+.pg-terminal-card summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; cursor: pointer; font-weight: 700; color: #fff; list-style: none; line-height: 1.4; }
+.pg-terminal-card summary::-webkit-details-marker { display: none; }
+.pg-terminal-card-photo { margin: 0 0 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 2; width: 100%; flex: 0 0 auto; background: rgba(255,255,255,0.06); }
+.pg-terminal-card-photo img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+.pg-terminal-card-photo figcaption { margin: 0; padding: 8px 10px; min-height: 40px; box-sizing: border-box; font-size: 11px; line-height: 1.4; color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.35); }
+.pg-terminal-card-photo figcaption a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.pg-terminal-card-photo figcaption a:hover { color: #a8e8ff; }
+@media (min-width: 1100px) {
+  .seo-detail-wide .pg-terminal-grid { align-items: stretch; }
+  .seo-detail-wide .pg-terminal-grid > .pg-terminal-card--has-photo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+  .seo-detail-wide .pg-terminal-grid .pg-terminal-card-photo { flex-shrink: 0; }
+  .seo-detail-wide .pg-terminal-grid .pg-terminal-card-desc { flex: 1 1 auto; }
+}
+.port-jump { display: flex; gap: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 18px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); max-width: 100%; width: 100%; box-sizing: border-box; }
+.port-jump a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.port-jump a:hover { color: #fff; }
+.port-jump a:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
+.pg-quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.port-terminal-map { height: 380px; margin: 0 0 8px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.12); z-index: 1; }
+.pg-terminal-map-focus { display: inline-flex; align-items: center; min-height: 44px; margin: 0; padding: 0; border: 0; background: none; font: inherit; font-size: 15px; font-weight: 600; color: #79D8FF; text-decoration: underline; cursor: pointer; }
+.pg-terminal-map-focus:focus-visible { outline: 2px solid rgba(6,182,212,0.85); outline-offset: 3px; border-radius: 4px; }
+.pg-map-credit { font-size: 12px; line-height: 1.45; color: rgba(255,255,255,0.55); margin: 0 0 14px; }
+.pg-map-credit a { color: #79D8FF; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(121,216,255,0.45); text-underline-offset: 3px; }
+.pg-map-credit a:hover { color: #a8e8ff; }
+.pg-meta { font-size: 15px; font-weight: 400; line-height: 1.55; letter-spacing: normal; color: rgba(255,255,255,0.62); margin: 0 0 8px; flex: 0 0 auto; }
+.pg-terminal-card .pg-meta { color: rgba(255,255,255,0.68); }
+.pg-pill { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(6,182,212,0.18); border: 1px solid rgba(6,182,212,0.45); color: #fff; }
+.pg-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; }
+.pg-tags li { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+.pg-eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(16,185,129,0.95); margin: 0 0 10px; }
+.pg-booking-banner { display: grid; grid-template-columns: 1.4fr auto; gap: 18px; align-items: center; padding: 22px; border-radius: 20px; border: 1px solid rgba(16,185,129,0.35); background: linear-gradient(120deg, rgba(6,95,70,0.55), rgba(6,182,212,0.18) 55%, rgba(255,255,255,0.04)); box-shadow: 0 18px 50px rgba(0,0,0,0.28); }
+.pg-booking-badge { display: inline-flex; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; font-size: 11px; font-weight: 800; background: rgba(16,185,129,0.22); border: 1px solid rgba(16,185,129,0.45); }
+.pg-booking-copy h2 { margin: 0 0 8px; font-size: 26px; }
+.pg-booking-copy p { margin: 0 0 8px; color: rgba(255,255,255,0.86); }
+.pg-booking-trust { font-size: 13px; color: rgba(255,255,255,0.65) !important; }
+.pg-booking-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 800; text-decoration: none; color: #042f2e; background: linear-gradient(90deg, #34d399, #22d3ee); white-space: nowrap; }
+.pg-booking-cta:hover { filter: brightness(1.05); }
+.pg-affiliate-note { margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+.pg-app-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 18px 0 8px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1); background: rgba(6,182,212,0.07); }
+.pg-app-cta strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.pg-app-cta p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.pg-app-cta-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.pg-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); }
+.pg-btn-primary { background: rgba(255,0,51,0.2); border-color: rgba(255,0,51,0.45); }
+.pg-btn-ghost { background: transparent; }
+.pg-btn:hover { border-color: rgba(255,0,51,0.7); }
+.pg-breadcrumbs { font-size: 13px; color: rgba(255,255,255,0.55); margin: 0 0 18px; }
+.pg-breadcrumbs a { color: rgba(255,255,255,0.75); text-decoration: none; }
+.pg-breadcrumbs a:hover { color: var(--neon-red); }
+.pg-section#weather-best-time { margin-top: 36px; }
+.pg-section#weather-best-time .pg-prose { margin-bottom: 10px; }
+.pg-section#weather-best-time .pg-facts { margin-top: 6px; margin-bottom: 0; }
+.pg-section#entry-requirements { margin-top: 32px; }
+.pg-section#entry-requirements .pg-prose { margin-bottom: 0; padding: 16px 18px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+@media (max-width: 720px) {
+  .pg-facts, .pg-booking-banner { grid-template-columns: 1fr; }
+  .pg-app-cta { flex-direction: column; align-items: flex-start; }
+  .pg-app-cta-actions { width: 100%; }
+  .pg-booking-cta { width: 100%; }
+  .pg-terminal-grid { align-items: stretch; }
+  .pg-terminal-card--has-photo { height: auto; }
+}
+</style>
+</head><body class="pg-dark"><main class="pg-main"><p class="pg-prose pg-lead-guide">Piraeus is the cruise port for Athens. Ships use dedicated cruise terminals (commonly referenced as Terminal A / Miaoulis and additional berths). The Acropolis sits roughly 10–13 km away—plan metro, bus, taxi, or organized excursions rather than walking.</p>
+<section class="pg-section" id="things-to-do"><h2>Things to do</h2><div class="pg-things-layout"><p class="pg-prose pg-things-intro">Piraeus is Athens’ cruise gate. The Acropolis area is roughly 10–13 km away—plan metro, taxi, or an organized tour, not a walk from the pier.</p>
+<div class="pg-call-plans"><article class="pg-call-plan-card pg-call-plan-card--short"><header class="pg-call-plan-head"><span class="pg-call-plan-icon" aria-hidden="true"></span><div class="pg-call-plan-titles"><p class="pg-call-plan-duration">About 4–5 hours ashore</p><h3 class="pg-call-plan-title">Short call</h3></div></header><p class="pg-call-plan-body">Stay near the port area and keep a generous buffer before all-aboard.</p></article>
+<article class="pg-call-plan-card pg-call-plan-card--standard"><header class="pg-call-plan-head"><span class="pg-call-plan-icon" aria-hidden="true"></span><div class="pg-call-plan-titles"><p class="pg-call-plan-duration">About 6–8 hours ashore</p><h3 class="pg-call-plan-title">Standard call</h3></div></header><p class="pg-call-plan-body">Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.</p></article>
+<article class="pg-call-plan-card pg-call-plan-card--longer"><header class="pg-call-plan-head"><span class="pg-call-plan-icon" aria-hidden="true"></span><div class="pg-call-plan-titles"><p class="pg-call-plan-duration">8+ hours or overnight</p><h3 class="pg-call-plan-title">Longer call</h3></div></header><p class="pg-call-plan-body">A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.</p></article></div>
+<div class="pg-top-things"><h3 class="pg-top-things-heading">Top things to do</h3><ul class="pg-top-things-list"><li>Ancient Agora + National Archaeological Museum (city): after the standard Acropolis/Museum core, add Agora (≈75 min) and/or the National Museum (≈90 min) only if the remaining time still leaves a 75 min terminal buffer after the inbound X80/taxi. Publish a personal minimum before leaving the ship.</li><li>Cape Sounion: transfer time/distance not verified from a primary operator. Do not attempt as an independent cruise-day plan until a dated coach/train timetable and return buffer are confirmed; use a ship excursion or skip.</li><li>Overnight: Acropolis late afternoon, Plaka dinner (editorial).</li><li>Acropolis — 2 h; timed tickets; go early.</li><li>Acropolis Museum — 90 min; air-conditioned refuge.</li></ul></div>
+<aside class="pg-cruise-tip" aria-label="Practical cruise tip"><p class="pg-cruise-tip-label">Practical cruise tip</p><p class="pg-cruise-tip-body">Midday Acropolis climbs in summer are demanding. Go early, carry water, and watch for heat-related site measures.</p></aside></div></section>
+<section class="pg-section" id="quick-facts"><h2>Quick facts</h2><dl class="pg-facts pg-quick"><div class="pg-fact"><dt>Port type</dt><dd>Port call</dd></div><div class="pg-fact"><dt>Country</dt><dd>Greece</dd></div><div class="pg-fact"><dt>Getting to the city</dt><dd>Roughly 10–13 km to the Acropolis / central Athens</dd></div><div class="pg-fact"><dt>Currency</dt><dd>Euro (EUR)</dd></div><div class="pg-fact"><dt>Language</dt><dd>Greek; English widely used in tourism</dd></div><div class="pg-fact"><dt>Best months</dt><dd>April, May, June, September, October</dd></div></dl></section>
+<section class="guest-reviews" id="guest-reviews" aria-labelledby="guest-reviews-heading"><h2 id="guest-reviews-heading">Guest reviews</h2><p class="guest-reviews-empty">No guest reviews yet.</p><p class="guest-reviews-cta">Sailed on Piraeus? Share your experience in SeaDays after your cruise.</p><p class="guest-reviews-cta"><a class="guest-reviews-download" href="/download/">Get SeaDays</a></p></section>
+<section class="pg-section" id="getting-there"><h2>Getting there &amp; terminals</h2><dl class="pg-facts"><div class="pg-fact"><dt>From the terminal</dt><dd>Note your berth (Terminal A vs further piers). Internal free shuttles often link outer berths to the main terminal area.</dd></div><div class="pg-fact"><dt>Distance to city</dt><dd>Roughly 10–13 km to the Acropolis / central Athens</dd></div><div class="pg-fact"><dt>Walking</dt><dd>Metro stations are a meaningful walk from cruise gates (often ~20 minutes from the main terminal area, longer from outer berths)—many guests use taxi or an organized transfer when time is tight</dd></div><div class="pg-fact"><dt>Taxi</dt><dd>Taxis are the simplest timed option to the Acropolis; agree destination clearly</dd></div><div class="pg-fact"><dt>Public transport</dt><dd>X80 Piraeus–Acropolis–Syntagma Express (seasonal): re-launched 23 May 2026; stops at both cruise-terminal exits; every 35–40 min, 07:00–21:15; ~35 min to central Athens. Separate fares from metro (secondary: €4.10 day ticket). Metro Line 3: from Piraeus / Dimotiko Theatro to Monastiraki ~22 min (secondary). Terminal A → metro ~20–25 min walk; B/C 35–45 min — taxi recommended. Airport: X96 bus from</dd></div></dl><p class="pg-label">Transportation options</p><ul><li>Metro</li><li>Taxi / rideshare</li><li>Bus</li><li>Organized shore excursion</li></ul></section>
+<section class="pg-section" id="weather-best-time"><h2>Weather &amp; best time</h2><p class="pg-prose">In Piraeus, summer Acropolis visits are defined by heat and sun exposure. In Piraeus, early entries and water are practical necessities, not tips.</p><p class="pg-prose">Average temperature in Piraeus: Hot, dry summers; mild winters.</p><p class="pg-prose">Best months: April, May, June, September, October.</p><dl class="pg-facts"><div class="pg-fact"><dt>Climate</dt><dd>Mediterranean</dd></div><div class="pg-fact"><dt>Best months</dt><dd>April, May, June, September, October</dd></div></dl></section>
+<section class="pg-section" id="entry-requirements"><h2>Entry &amp; documents</h2><details class="pg-terminal-card"><summary><span>Documents and entry rules</span></summary><p class="pg-prose">For Piraeus, Greece follows Schengen / European short-stay frameworks for many travelers, but visa and passport rules depend on nationality and can change. For Piraeus, Confirm with official government sources and your cruise line before travel.</p><p class="pg-prose">For Piraeus, Carry a valid passport (or a national ID only where your cruise line and destination authorities explicitly accept it). For Piraeus, Shore excursions do not change document rules—keep required ID with you ashore.</p></details></section>
+<section class="pg-section" id="traveler-questions"><h2>Traveler questions</h2><div class="pg-qa-grid"><article class="pg-qa-card"><h3>How far is Piraeus cruise terminal from the city center?</h3><p>For Piraeus, Roughly 10–13 km to the Acropolis / central Athens</p></article><article class="pg-qa-card"><h3>What transport options are available from the Piraeus cruise port?</h3><p>X80 Piraeus–Acropolis–Syntagma Express (seasonal): re-launched 23 May 2026; stops at both cruise-terminal exits; every 35–40 min, 07:00–21:15; ~35 min to central Athens.</p></article></div></section>
+<aside class="pg-app-cta" id="plan-port-day" aria-label="Plan this port day in SeaDays"><div class="pg-app-cta-copy"><strong>Plan your Piraeus port day in SeaDays.</strong><p>Read cruiser reviews, ask questions and save this port to your voyage. Free to use, with optional paid upgrades.</p></div><div class="pg-app-cta-actions"><a class="pg-btn" href="https://apps.apple.com/app/id6759758357?utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_single_cta&amp;utm_content=port_single_cta&amp;ct=port_single_cta&amp;mt=8" target="_blank" rel="noopener noreferrer">App Store</a><a class="pg-btn pg-btn-ghost" href="https://play.google.com/store/apps/details?id=com.seadays.app&amp;utm_source=seadays_web&amp;utm_medium=port_guide&amp;utm_campaign=port_single_cta&amp;utm_content=port_single_cta&amp;referrer=utm_source%3Dseadays_web%26utm_medium%3Dport_guide%26utm_campaign%3Dport_single_cta%26utm_content%3Dport_single_cta" target="_blank" rel="noopener noreferrer">Google Play</a></div></aside></main></body></html>

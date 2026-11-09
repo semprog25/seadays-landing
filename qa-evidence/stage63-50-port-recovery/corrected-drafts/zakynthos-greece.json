@@ -1,0 +1,78 @@
+{
+  "landing_slug": "zakynthos-greece",
+  "draft": {
+    "landing_slug": "zakynthos-greece",
+    "appPortId": "zakynthos",
+    "portName": "Zakynthos",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Navagio is a boat product, not a pier stroll. Marine-park rules were not captured (NMP TLS failed). Keep the conservative call inside Hora until quay and boat permits are verified.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Zakynthos cruise terminal",
+      "transportation": [
+        "Walking to town",
+        "Taxi to beaches",
+        "Local buses"
+      ],
+      "distanceToCity": "Within Zakynthos town",
+      "walkingTime": "5-10 minutes to town center—confirm on your sailing programme before you rely on a fixed walk time.",
+      "taxiInfo": "",
+      "publicTransport": "Local buses to beaches and villages",
+      "distanceAnswer": "Within Zakynthos town"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Hora / Venetian townscape",
+        "Zakynthos Hora / Venetian heritage townscape",
+        "Navagio (Shipwreck Beach)",
+        "National Marine Park / Caretta caretta habitats"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not promise Shipwreck Beach on a short clock without a booked boat and return margin."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "3aa7bbc6a8bbf0264a097aca5d80464628efb7425b9f5dc4bbea4e3008d5faa8",
+      "existing_guide_hash": "86ab225d496d286c",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/zakynthos-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.288Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

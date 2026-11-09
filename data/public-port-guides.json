@@ -1402,23 +1402,43 @@
           "Walking"
         ],
         "distanceToCity": "PTA is roughly 2–3 km east of Centraal / historic core",
-        "walkingTime": "About 25–40 minutes to Centraal area; trams are faster in wet weather",
+        "walkingTime": "About 25–40 minutes to Centraal area; trams are faster in wet weather—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis available at PTA; trams are usually sufficient for the center",
-        "publicTransport": "GVB trams/metro connect PTA toward Centraal and Museumplein; free GVB ferries cross the IJ for north-shore neighborhoods"
+        "publicTransport": "GVB trams/metro connect PTA toward Centraal and Museumplein; free GVB ferries cross the IJ for north-shore neighborhoods",
+        "distanceAnswer": "PTA is roughly 2–3 km east of Centraal / historic core"
       },
       "thingsToDo": {
         "intro": "Downtown calls usually use Passenger Terminal Amsterdam (PTA) on the IJ. Some itineraries use outlying options such as IJmuiden—confirm before planning a walk.",
         "topThings": [
-          "Canal-belt walking or cycling",
-          "Museumplein (Rijksmuseum area) with timed tickets",
-          "Anne Frank House only with advance tickets",
-          "Jordaan cafés and side canals",
-          "GVB tram/metro from PTA toward Centraal"
+          "Rijksmuseum, Museumstraat 1: allow 2–3 hours for a focused art visit. Book an entry time. The museum describes metro 52 to Vijzelgracht followed by less than ten minutes walking; confirm the terminal-to-station connection separately.",
+          "Anne Frank House, entrance Westermarkt 20: allow 60–90 minutes. Admission is time-specific and online. The official page gives about one hour inside and warns of steep stairs, limited luggage space and no photography. It also reports no tram to Westermarkt from February 2025 to February 2028.",
+          "National Maritime Museum, Kattenburgerplein 1: allow two hours. The museum describes a 19-minute walk from Centraal. Galleries have lift access; the replica ship is only partly accessible. Check individual exhibit closures.",
+          "NEMO, Oosterdok 2: allow two hours for a family science visit. Its route page gives 15 minutes walking from Centraal and directs visitors to current journey planners. Check admission and access for the intended visit; rooftop availability is not assumed.",
+          "Royal Palace, Dam Square: allow 60–90 minutes when open to visitors. It remains an official reception palace, with an opening calendar subject to change. Do not treat the building's presence on Dam as guaranteed interior access."
         ],
-        "shortCall": "Tram toward Centraal and a compact canal walk. Skip major museums unless tickets and timing are already locked.",
-        "standardCall": "One museum or Anne Frank House (ticketed) plus a neighborhood stroll is realistic from PTA. Do not stack multiple timed museums.",
-        "longerCall": "Museumplein + canal belt + a relaxed dinner district can fit a long day. Confirm you are not at an outlying berth before assuming PTA distances.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Trams beat a long walk in rain. If your ship lists IJmuiden or another outlying berth, rebuild the day around transfers."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "978964e7b8797249c1ad3f6f595447ef17341f9a751c0060a7ee0ea15da4c69a",
+        "landing_slug": "amsterdam-netherlands",
+        "candidate_content_hash": "666361ac1deb334a36fd3cd75583598a4e66db680c284d32043d9fea553e2231",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.213Z"
       }
     },
     "andal-ne": {
@@ -2994,24 +3014,44 @@
           "City bus connections",
           "Walking from WTC pier"
         ],
-        "distanceToCity": "Adossat is about 2–3 km from the center and the World Trade Center pier is about 400 m",
-        "walkingTime": "WTC pier: often 10–20 minutes toward Drassanes/Ramblas. Adossat: walking is long—use shuttle/taxi",
+        "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
+        "walkingTime": "WTC pier: often 10–20 minutes toward Drassanes/Ramblas. Adossat: walking is long—use shuttle/taxi—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxi ranks operate at the cruise piers; confirm fare estimate or meter use before departure",
-        "publicTransport": "The port shuttle links Adossat with the city bus hub, then metro and buses cover the center. Check the daily program for your pier."
+        "publicTransport": "The port shuttle links Adossat with the city bus hub, then metro and buses cover the center. Check the daily program for your pier.",
+        "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
       },
       "thingsToDo": {
         "intro": "Barcelona rewards a focused plan: Adossat berths need a shuttle or taxi into town, while the World Trade Center pier is closer to Port Vell. Pick one district cluster rather than racing across the city.",
         "topThings": [
-          "Gothic Quarter lanes and Barcelona Cathedral area",
-          "La Rambla and Boqueria market (short visits work best)",
-          "Sagrada Família (timed entry strongly recommended)",
-          "Park Güell (book ahead; allow transfer time)",
-          "Barceloneta beachfront or Montjuïc viewpoints on lighter days"
+          "Barri Gòtic and the Cathedral — lanes around Carrer del Bisbe; about 1 km walk from the shuttle stop. 60–90 min.",
+          "La Boqueria market — on La Rambla; go before midday for full stalls. 30–45 min.",
+          "Museu Marítim (Drassanes Reials) — medieval royal shipyards right by the shuttle stop; good rainy-day option.",
+          "Sagrada Família — Gaudí's basilica in the Eixample, about 3.3 km north of the Columbus Monument (straight-line); book a timed slot on the official site. Allow 90 min inside.",
+          "Casa Batlló, Passeig de Gràcia — modernista façade and interior; 75 min."
         ],
-        "shortCall": "Stay near Port Vell / Gothic Quarter / Ramblas. A cathedral-area walk, a market stop, and a café work well. Skip Sagrada Família and Park Güell unless you already hold tickets and have a private transfer waiting.",
-        "standardCall": "Choose either (A) Gothic Quarter + Ramblas/Boqueria + waterfront return, or (B) timed Sagrada Família plus one nearby neighborhood—not both Park Güell and Sagrada Família with a tight all-aboard from Adossat.",
-        "longerCall": "With a long day or overnight, combine a major Gaudí ticket with a second district (Eixample, Montjuïc, or Barceloneta). Still leave a generous buffer for Adossat shuttle queues.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Confirm Adossat vs World Trade Center before planning a walk. From Adossat, treat the Blue Port shuttle or a taxi as part of your schedule—not optional."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "fe292451efee0ece5f0cc570e6ce885acc96337381d5de62468ba4dfd6ef1b47",
+        "landing_slug": "barcelona-spain",
+        "candidate_content_hash": "b7f4629d58755d1028b5c74cff5c8b2be3e0b958829e36479e600256f62ea26c",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.214Z"
       }
     },
     "bari": {
@@ -5816,21 +5856,41 @@
         "distanceToCity": "Civitavecchia center is near the port; central Rome is roughly 70 km / about 60–90 minutes by train plus local transfer",
         "walkingTime": "Train station is about 1–1.5 km from port approaches—many guests use bus/taxi rather than walking with luggage",
         "taxiInfo": "Taxis available for station or Rome transfers; agree approach/fare expectations for longer Rome trips",
-        "publicTransport": "Frequent Trenitalia regional trains link Civitavecchia with Roma Termini and other Rome stations; local buses and a seasonal direct station–ship service may operate on turnaround days Rome needs a realistic all-aboard buffer (train + station/port transfer + security). If your call is under ~8–9 hours, consider a tighter Rome plan or stay nearer the coast rather than overpacking sights."
+        "publicTransport": "Frequent Trenitalia regional trains link Civitavecchia with Roma Termini and other Rome stations; local buses and a seasonal direct station–ship service may operate on turnaround days Rome needs a realistic all-aboard buffer (train + station/port transfer + security). If your call is under ~8–9 hours, consider a tighter Rome plan or stay nearer the coast rather than overpacking sights.",
+        "distanceAnswer": "Civitavecchia center is near the port; central Rome is roughly 70 km / about 60–90 minutes by train plus local transfer"
       },
       "thingsToDo": {
         "intro": "Most guests treat Civitavecchia as Rome’s gateway. A Rome day is rewarding but tight; staying local or choosing Tarquinia can be smarter on shorter calls.",
         "topThings": [
-          "Rome classics (Colosseum area, historic center, or Vatican—pick one cluster)",
-          "Regional train via Civitavecchia station + local transfer in Rome",
-          "Organized Rome shore excursion with guaranteed return timing",
-          "Civitavecchia fortress / waterfront if remaining in town",
-          "Tarquinia or coastal Lazio on a lighter cultural day"
+          "St Peter's Basilica — 10–15 min walk from Roma San Pietro station (estimate). Security queues can be long; allow 90 min+.",
+          "Vatican Museums & Sistine Chapel — timed entry strongly advised; 2.5 h minimum.",
+          "Pantheon and Piazza Navona — compact central loop.",
+          "Trevi Fountain — crowded but quick.",
+          "Colosseum & Forum area — easiest via Ostiense (Metro B, Piramide) per Port Mobility guidance."
         ],
-        "shortCall": "Skip Rome. Explore Civitavecchia’s waterfront and fortress area, or take a short taxi/bus loop nearby. A rushed Rome round-trip with only ~4–5 hours ashore is a common miss-ship risk.",
-        "standardCall": "Rome is possible with an early start: free port shuttle to Largo della Pace, train toward Rome, one landmark cluster, then a disciplined return. Many guests prefer a line excursion for timing insurance. Do not plan Colosseum + Vatican + historic center in one call.",
-        "longerCall": "A long day supports one major Rome cluster plus a neighborhood meal, or a more relaxed Tarquinia/coast option. Overnight or embarkation stays change the math entirely.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Note your RCT terminal (Vespucci, Donato Bramante / Pier 12, Terminal 10, or 25 South). Use the free pier shuttle and keep passport/ID on you in Rome."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "909b5adb7b262d666e5ed5962d74762daea7cc097d08db5b6aad0aefdb78e6ad",
+        "landing_slug": "rome-civitavecchia-italy",
+        "candidate_content_hash": "e60b1af33d3f04afcaaa5b8646ae563341776e376b1d7f61da8523684dd0f6a3",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "colombo": {
@@ -6048,21 +6108,41 @@
         "distanceToCity": "Approx. distances published for planning: Nordre Toldbod ~3 km, Langelinie ~4 km, Oceankaj ~8 km to city center",
         "walkingTime": "Langelinie/Nordre Toldbod can be walkable for energetic guests; Oceankaj is a transit ride",
         "taxiInfo": "Taxis available; Oceankaj–center fares are higher—public transport is usually straightforward",
-        "publicTransport": "Oceankaj commonly pairs bus links with Metro M4 (Orientkaj). Use Rejseplanen for real-time combinations to Tivoli, Nørreport, or the airport"
+        "publicTransport": "Oceankaj commonly pairs bus links with Metro M4 (Orientkaj). Use Rejseplanen for real-time combinations to Tivoli, Nørreport, or the airport",
+        "distanceAnswer": "Approx. distances published for planning: Nordre Toldbod ~3 km, Langelinie ~4 km, Oceankaj ~8 km to city center"
       },
       "thingsToDo": {
         "intro": "Terminal choice changes everything: Oceankaj is a transit ride; Langelinie and Nordre Toldbod sit closer to the classic waterfront.",
         "topThings": [
-          "Nyhavn waterfront",
-          "Historic center / royal sights area",
-          "Tivoli Gardens when open for the season",
-          "Little Mermaid promenade if berthed near Langelinie",
-          "Vesterbro or Nørrebro cafés on a longer stroll"
+          "Rosenborg Castle, Øster Voldgade 4A: allow 90 minutes for a focused royal-collection visit. Check admission slots and accessibility before committing; a palace interior is not interchangeable with its surrounding garden.",
+          "Langelinie promenade, Langeliniekaj 2: allow an hour for waterfront views. This outdoor route suits passengers already at Langelinie, but the permitted ship exit still depends on berth operations.",
+          "Amalienborg, Amalienborg square: allow 45–60 minutes for the exterior and, only with confirmed admission, the museum. Royal use can affect room access. Do not schedule the whole day around a ceremony time that has not been checked.",
+          "Nyhavn, Nyhavn 1–71: allow 45 minutes for the canal frontage and a break. Boat tours have their own tickets and boarding points; a canal walk does not guarantee a cruise departure.",
+          "Tivoli Gardens, Vesterbrogade 3: allow at least three hours when its calendar permits. Admission and ride access are separate planning questions. Check ride restrictions and special-needs guidance for your party."
         ],
-        "shortCall": "From Langelinie/Nordre Toldbod, walk a waterfront loop. From Oceankaj, use metro/bus straight to one central pocket (Nyhavn or Tivoli)—not both plus a long return.",
-        "standardCall": "Nyhavn + one museum or Tivoli (seasonal) is a strong day from closer quays. From Oceankaj, keep the plan to one district cluster after transit.",
-        "longerCall": "Add a second neighborhood or a longer bike loop when daylight and berth location cooperate. Summer evenings are long—still protect all-aboard time.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Check Oceankaj vs Langelinie vs Nordre Toldbod on final documents before you assume a walkable call."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "115c5394d21c0fcf096aa0292777e9ee58bbb2e0d2fa39855111ac516f4bfefe",
+        "landing_slug": "copenhagen-denmark",
+        "candidate_content_hash": "8bf1cb6d9de05ea40d2c57f90c4ef29c9686f5dc7f900ac8b2db14479970ca96",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.214Z"
       }
     },
     "corfu": {
@@ -6615,21 +6695,41 @@
         "distanceToCity": "Punta Langosta: waterfront downtown. Puerta Maya / International Pier: typically a few kilometres south of San Miguel (often ~10 minutes by taxi in light traffic)",
         "walkingTime": "Easy from Punta Langosta. From Puerta Maya / International Pier, walking to downtown is long and hot—taxis are the usual choice",
         "taxiInfo": "Fixed-rate taxi boards are common—agree destination and rate before departure",
-        "publicTransport": "Limited urban transit for visitors; most independents walk near downtown or taxi to beaches/ruins. Tendering is uncommon and usually only when pier capacity or operations require it."
+        "publicTransport": "Limited urban transit for visitors; most independents walk near downtown or taxi to beaches/ruins. Tendering is uncommon and usually only when pier capacity or operations require it.",
+        "distanceAnswer": "Punta Langosta: waterfront downtown. Puerta Maya / International Pier: typically a few kilometres south of San Miguel (often ~10 minutes by taxi in light traffic)"
       },
       "thingsToDo": {
         "intro": "Cozumel has three main cruise piers. Your assigned pier (posted on the daily program) changes whether downtown is a walk or a taxi.",
         "topThings": [
-          "San Miguel waterfront shopping and dining",
-          "Beach clubs along the west coast",
-          "Snorkeling or diving on Cozumel’s reefs",
-          "San Gervasio Maya ruins inland",
-          "East-coast wild beaches on a guided island loop"
+          "Chankanaab, Carretera Costera Sur km 9, Zona Hotelera Sur, Cozumel 77600: A reef/lagoon family-park day, reached by taxi or organised vehicle. Allow about 240 minutes (editorial estimate). Normally closed Sundays unless an opening is announced; water access depends on conditions.",
+          "Punta Sur Ecotourism Park, Laguna Colombia State Ecological Park, southern Cozumel: Lagoons, mangroves, coastal wildlife and maritime history. Allow about 360 minutes (editorial estimate). Normally closed Sundays; opening listed 09:00–16:00 and only selected lighthouse/museum areas remain available later.",
+          "San Gervasio, San Gervasio archaeological visitor centre, inland Cozumel: A Maya-history alternative with uneven outdoor walking. Allow about 120 minutes (editorial estimate). Allow the internal access-road leg; highway entrance closes 15:45 under the captured schedule.",
+          "Island Museum of Cozumel, Av. Rafael E. Melgar at Calle 6 Norte, San Miguel: Indoor interpretation of the island’s nature, origins and cultural identity. Allow about 60 minutes (editorial estimate). Closed Mondays under the schedule read 5 November 2026.",
+          "Punta Celarain Lighthouse and Navigation Museum, Lighthouse keeper’s house/lighthouse area inside Punta Sur, Cozumel: A focused maritime-history component of the Punta Sur outing, not an additional distant park. Allow about 60 minutes (editorial estimate). Lighthouse climbing requires a personal mobility assessment; do not count this again as a separate admission/transfer."
         ],
-        "shortCall": "From Punta Langosta, walk downtown. From Puerta Maya or International Pier, taxi to a nearby beach club or into San Miguel—then return with time to spare.",
-        "standardCall": "Beach club + light downtown time, or a focused snorkel trip, fits most calls. Island-wide east-coast loops need an earlier start.",
-        "longerCall": "Ruins + beach, or a longer reef outing, become realistic. Still confirm pier assignment before assuming you can walk into town.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Puerta Maya and International Pier sit near each other south of town; Punta Langosta is the downtown pier. Tendering is uncommon and usually only when pier capacity or operations require it—follow ship instructions."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a2e4a59a1f4f5e881e90511d9b5996a9486958e7395339a10acaf0d2c0fb7843",
+        "landing_slug": "cozumel-mexico",
+        "candidate_content_hash": "edd7a489453a4c4698a54ece1492749f7d24e2d634f198edf35dfca6a21af88d",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "crist-bal": {
@@ -7612,23 +7712,43 @@
           "Walking (long)"
         ],
         "distanceToCity": "Approximately 3 km from Gruž to Pile Gate / Old City",
-        "walkingTime": "About 30–40 minutes along the coastal road; limited shade in summer",
+        "walkingTime": "About 30–40 minutes along the coastal road; limited shade in summer—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxi ranks outside the port; short ride to Pile Gate—confirm fare approach before departure",
-        "publicTransport": "Libertas buses (commonly lines serving Pile) run frequently; tickets are cheaper from kiosks than onboard per port guidance Gruž is ~3 km from Pile Gate. In summer heat, bus/shuttle beats the 30–40 minute walk. City Walls tickets and early starts reduce peak crowding."
+        "publicTransport": "",
+        "distanceAnswer": "Approximately 3 km from Gruž to Pile Gate / Old City"
       },
       "thingsToDo": {
         "intro": "Ships use Port Gruž, roughly 3 km from Pile Gate. Summer heat and wall queues define the day more than the attraction list.",
         "topThings": [
-          "Old City via Pile Gate and the Stradun",
-          "City Walls circuit (buy tickets strategically; go early)",
-          "Cable car viewpoint above the Old City",
-          "Lokrum Island boat trips when schedules fit",
-          "Fortresses and side streets away from the densest cruise surge"
+          "City Walls — the full circuit takes about an hour, longer when crowded. Go first thing.",
+          "Stradun — the Old City's main street, for a coffee and people-watching.",
+          "Rector's Palace — palace with a museum inside. 60 min.",
+          "Dubrovnik Cathedral — central Old City.",
+          "Banje Beach — a few minutes' walk east of the Old City."
         ],
-        "shortCall": "Bus or taxi to Pile Gate, walk the Stradun and main squares, then return. Skip the full walls circuit if time or heat is tight.",
-        "standardCall": "Old Town + either City Walls or the cable car is a strong day. Stacking walls + cable car + Lokrum usually overruns a standard call once queues appear.",
-        "longerCall": "Add Lokrum or a slower walls + viewpoint combo when you have a long day and can start early. Midsummer midday on the walls is punishing—hydrate and pace.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "The coastal walk from Gruž is ~30–40 minutes with limited shade. In summer, bus/shuttle usually beats walking for both comfort and timing."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "566d314ab03a99af025363c54f9569b242aa30c537c13635269c416069394976",
+        "landing_slug": "dubrovnik-croatia",
+        "candidate_content_hash": "66a35b3506840af3e81ecf8a86a750c6d299c2ea98ab82a7b1bbb6cbba749b4e",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "dun-laoghaire": {
@@ -9440,23 +9560,43 @@
           "Train station connections"
         ],
         "distanceToCity": "Passenger terminals sit beside Porto Antico; historic center is typically within about 0.5–1.5 km depending on berth and route",
-        "walkingTime": "Often 5–20 minutes to aquarium/waterfront; longer uphill into historic lanes",
+        "walkingTime": "Often 5–20 minutes to aquarium/waterfront; longer uphill into historic lanes—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis available for hill neighborhoods, Nervi, or Cinque Terre connections when time allows",
-        "publicTransport": "Genova Piazza Principe station is the main rail hub for Milan/Rome connections; local transit includes buses and vertical lifts/funiculars"
+        "publicTransport": "On foot: the city centre is a few hundred metres away. Allow about 15 min to the Porto Antico and Aquarium (estimate). Metro and rail: metro stops are nearby, and Genova Piazza Principe station is about 500 m away. Regional trains toward La Spezia/Cinque Terre exist in principle; no dated Trenitalia sample is cited here — do not plan Cinque Terre independently from this guide. Airport: 5 km.",
+        "distanceAnswer": "Passenger terminals sit beside Porto Antico; historic center is typically within about 0.5–1.5 km depending on berth and route"
       },
       "thingsToDo": {
         "intro": "Genoa’s Stazioni Marittime berths put Porto Antico and the steep centro storico within walking range—comfortable shoes matter as much as the itinerary.",
         "topThings": [
-          "Porto Antico waterfront and Aquarium of Genoa",
-          "Centro storico caruggi (alleyways)",
-          "Via Garibaldi / Palazzi dei Rolli exteriors",
-          "Pesto and focaccia food stops",
-          "Nervi or Cinque Terre only on long, well-buffered calls"
+          "Via Garibaldi and the Palazzi dei Rolli, Renaissance palaces. 75 min.",
+          "Caruggi of the old town (editorial). 60 min.",
+          "Palazzo Ducale. 60 min.",
+          "Acquario di Genova. 2 h.",
+          "Porto Antico waterfront (editorial)."
         ],
-        "shortCall": "Porto Antico + a short climb into the nearest historic lanes. Save museum interiors and hill neighborhoods for another day.",
-        "standardCall": "Aquarium or waterfront time plus a focused centro storico loop is a classic Genoa call. Cinque Terre is a stretch unless the ship day is long and transport is pre-booked.",
-        "longerCall": "Add a palace museum street, a viewpoint, or a cautious Cinque Terre excursion with a guaranteed return plan. Steep streets slow every schedule.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Confirm Ponte dei Mille vs Ponte Andrea Doria on your documents. Both sit by the passenger complex, but walking routes differ slightly."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "4ce85f8892d2c51db2bebd367c862c405e71fabe89397dec6adbeb84d9d70b38",
+        "landing_slug": "genoa-italy",
+        "candidate_content_hash": "cc7b3f0ebec698d0b9295ef07a09513a50c2b00938e980eb34bb220d4fe67da5",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "geraldton": {
@@ -10741,7 +10881,7 @@
       "portName": "Haugesund",
       "country": "Norway",
       "portInfo": {
-        "description": "Norwegian port city on the west coast, known for its Viking history and as the homeland of Norway's first kings.",
+        "description": "South-west Norway growth port between Stavanger and Bergen. Centre is a short transfer, not a gangway stroll of zero metres — plan the kilometre.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -10794,9 +10934,41 @@
           "Local bus"
         ],
         "distanceToCity": "Terminal located close to city center",
-        "walkingTime": "5-15 minutes to downtown",
+        "walkingTime": "5-15 minutes to downtown—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Local bus system available"
+        "publicTransport": "Local bus system available",
+        "distanceAnswer": "Terminal located close to city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Haugesund centre (~1 km)",
+          "Haugesund town centre",
+          "Avaldsnes / Nordvegen History Centre"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not treat Garpeskjær as zero-metre city docking — budget the kilometre each way."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c018dc6ed89e80a9decc226e996be38d5ef84591346cf7f476cbde8ed305656f",
+        "landing_slug": "haugesund-norway",
+        "candidate_content_hash": "90d5836d9406c2686bec6918568b89a722483c55b3a9795f59fe4d67cc73cc00",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "havanna": {
@@ -11042,7 +11214,7 @@
       "portName": "Hilo",
       "country": "USA",
       "portInfo": {
-        "description": "Largest city on Hawaii Island, known for its rainfall, tropical gardens, and proximity to active volcanoes.",
+        "description": "Hilo Harbor on the windward side of Hawaiʻi Island is managed by the State of Hawaiʻi Department of Transportation Harbors Division and regularly hosts cruise ships. HDOT’s Hawaiʻi Island Commercial Harbors 2035 Master Plan states Pier 1 is used by interisland container barges, cargo ships and large cruise ships, and that Pier 1 can accommodate cruise ships measuring up to 965 feet long. HDOT has also published Pier 1 shed / passenger-terminal improvement projects aimed at a more comfortable cruise passenger environment. A future dedicated passenger Pier 5 appears in the master plan preferred alternative; it is not treated here as the current landing. Berth reservations for Hawaiʻi commercial ports run through Hawaii.PortCall.Com per HDOT scheduling notice.",
         "location": "Located on the Big Island of Hawaii, USA",
         "timezone": "HST (UTC-10)",
         "language": "English, Hawaiian",
@@ -11095,7 +11267,40 @@
         "distanceToCity": "Terminal located about 3 km from downtown Hilo",
         "walkingTime": "Not recommended, use transportation",
         "taxiInfo": "",
-        "publicTransport": "Hele-On bus service available"
+        "publicTransport": "Hele-On bus service available",
+        "distanceAnswer": "Terminal located about 3 km from downtown Hilo"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Hilo bayfront / downtown — ~90 min.",
+          "Hawaiʻi Volcanoes National Park — long call only; NPS fees/hours Not verified here.",
+          "Hawaiʻi Volcanoes National Park",
+          "Hilo bayfront / downtown"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Pier 1 is a shared cargo/cruise facility — expect industrial harbour surroundings and confirm passenger routing through the Pier 1 shed area rather than assuming a resort-style terminal campus."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "5ab522f9ebe17e27f5a5e81b273666b1c36be43cc86cdde86b756c307fbd6c5d",
+        "landing_slug": "hilo-hi-united-states",
+        "candidate_content_hash": "8b72f5791915785db7af3dc40421e4e76e516f532100a7faab1336fda2c83b06",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "hobart": {
@@ -11947,7 +12152,7 @@
           "City Lines ferries from Karaköy",
           "Taxi and ship shuttles"
         ],
-        "distanceToCity": "You step into Karaköy at Galataport; the historic peninsula (Sultanahmet) is usually reached via T1, not a single fixed walk from every pier",
+        "distanceToCity": "Galataport puts you on the Karaköy waterfront. Your pier along the quay and terminal entrance (Block D when using the main building) can change with port traffic—read the ship’s daily programme or ask at the gangway before you plan transport. Ambarlı and other far-west commercial ports are not typical Istanbul cruise calls; verify urgently if your documents show them.",
         "distanceAnswer": "Galataport puts you on the Karaköy waterfront. Your pier along the quay and terminal entrance (Block D when using the main building) can change with port traffic—read the ship’s daily programme or ask at the gangway before you plan transport. Ambarlı and other far-west commercial ports are not typical Istanbul cruise calls; verify urgently if your documents show them.",
         "walkingTime": "Karaköy, Galata Bridge viewpoints, and uphill lanes toward Galata Tower are realistic on foot; Sultanahmet is usually tram-first for time and energy",
         "taxiInfo": "Galataport routes taxis and coaches via underground road access; use official ranks and confirm destination before departure",
@@ -11956,16 +12161,34 @@
       "thingsToDo": {
         "intro": "Pick one compact cluster and keep a generous return buffer—terminal security and multi-ship queues often beat the last museum minute.",
         "topThings": [
-          "Sultanahmet: Hagia Sophia or Blue Mosque plus Hippodrome circuit",
-          "Galata Tower and Galata Bridge views from Karaköy",
-          "Grand Bazaar or Spice Bazaar (allow time—or skip depth on short calls)",
-          "Bosphorus ferry from Karaköy/Eminönü when schedules fit",
-          "Galataport promenade and Karaköy café culture without crossing the peninsula"
+          "Hagia Sophia. 60 min; dress code and prayer-time closures apply (editorial).",
+          "Sultan Ahmed (Blue) Mosque. 40 min.",
+          "Basilica Cistern. 45 min.",
+          "Topkapı Palace. 2 h.",
+          "Galata Tower. 45 min, plus a likely queue."
         ],
-        "shortCall": "Option A — T1 from Karaköy to Sultanahmet: focus on Hagia Sophia or Blue Mosque (respect prayer times and dress codes) plus Hippodrome exteriors; skip deep Grand Bazaar time. Option B — stay in Karaköy/Galata: promenade, bridge views, Galata Tower area if ticket lines allow. Option C — ship excursion if it matches all-aboard. Do not stack Sultanahmet, full Bosphorus cruise, and bazaar depth on a 4–5 hour independent day.",
-        "standardCall": "With about 6–8 hours, choose one peninsula focus or one Bosphorus-side add-on—not both distant clusters. Example: Sultanahmet core plus a short Eminönü/Spice Bazaar stop, or Galata walk plus one timed museum if you already hold tickets.",
-        "longerCall": "With 8+ hours and a stable pier: morning Sultanahmet (timed tickets where required; confirm Topkapı hours on official sites day-of); midday Eminönü or tram-line lunch; afternoon pick one—Bosphorus ferry, Dolmabahçe/Beşiktaş via Kabataş end connections, or Grand Bazaar plus Süleymaniye quarter. Homeport embark/disembark: follow Galataport Block D and line reporting times.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Common mistakes: assuming a fixed pier without checking the programme; planning Sultanahmet and distant Bosphorus suburbs on a short call; underestimating terminal security on multi-ship days; confusing Galataport with Ambarlı; visa guesswork instead of MFA cruise-entry rules; Friday prayer surprises at active mosques; missing ship time in the bazaar. Typically not a tender port unless announced."
+      },
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "c377dd603758040fb21146582873245726c813ed4574d6f833469560aa247acf",
+        "landing_slug": "istanbul-turkey",
+        "candidate_content_hash": "e4b130ed4e978595385422242a38d5e5a0ee1b127df77a23c1bda95d9291d891",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "izmir": {
@@ -13297,7 +13520,7 @@
       "portName": "Kirkwall",
       "country": "United Kingdom",
       "portInfo": {
-        "description": "The main town and port of Orkney Islands in Scotland, known for its Norse history and St. Magnus Cathedral.",
+        "description": "Hatston is the usual large-ship pier; Kirkwall town and the West Mainland Neolithic WH cluster are coach/transfer products. Confirm landing vs tender before planning a cathedral walk.",
         "location": "",
         "timezone": "GMT (UTC+0) / BST (UTC+1)",
         "language": "English",
@@ -13336,12 +13559,50 @@
         "entryRequirements": "Valid passport required. EU citizens may need visa depending on nationality."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Hatston Pier (cruise) — Hatston, Orkney — Orkney Islands Council Harbour Authority",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town and Neolithic sites need transfers from Hatston — no invented minutes.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Town and Neolithic sites need transfers from Hatston — no invented minutes."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "St Magnus Cathedral / Kirkwall",
+          "Skara Brae / Brodgar / Maeshowe",
+          "Stromness — landing gap",
+          "St Magnus Cathedral",
+          "Skara Brae / Heart of Neolithic Orkney"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Book West Mainland returns with weather and ferry/road delays in mind."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "61382224711f89fbfecdb21ccaa95a91c7727ac5436f11e6fa5e3f976509da5a",
+        "landing_slug": "kirkwall-orkney-united-kingdom",
+        "candidate_content_hash": "787d3831e64edf80d27d4956ee1cdbf0742561625ef29ba22ceca913a8cde9e0",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "klaipeda": {
@@ -13603,7 +13864,7 @@
       "portName": "Kos",
       "country": "Greece",
       "portInfo": {
-        "description": "A Greek island port in the Dodecanese, known for its ancient medical sites and beautiful beaches.",
+        "description": "kos.gr introduces Hippocrates (born Kos, 460 BC) and the Asklepieion as medical-history anchors while pushing island beaches. Visit Greece’s Dodecanese Kos SPA capture was chrome-heavy; municipal portal used as the tourism primary.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -13644,12 +13905,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Kos harbour waterfront — Kos Town harbour",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Town is harbour-adjacent. Asklepieion requires bike/taxi/bus — no invented minutes.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Town is harbour-adjacent. Asklepieion requires bike/taxi/bus — no invented minutes."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Kos Town harbour circuit",
+          "Asklepieion — timed inland visit",
+          "Beach hop — only with return buffer; operator beach pages not captured.",
+          "Kos Town harbour and plane-tree square area",
+          "Asklepieion of Kos"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do Asklepieion early; shop the harbour on the walk back."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "b0e0f691fcd2fb1952e82842b5abbe848b3a40845f3c4b432eac91dff57e4426",
+        "landing_slug": "kos-greece",
+        "candidate_content_hash": "f3206439896069785f8e9915e43be975a963f064bcb1746f6f9b0307c978076f",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.215Z"
       }
     },
     "kobe": {
@@ -14537,7 +14836,7 @@
       "portName": "Kristiansund",
       "country": "Norway",
       "portInfo": {
-        "description": "A coastal city in Norway built on several islands, known for its cod fisheries and Atlantic Ocean Road.",
+        "description": "Nordmøre coastal town marketed as Atlantic Ocean Road gateway. Centre calls are pier-side; the Ocean Road is a coach outing (~30 minutes drive per PDF).",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -14576,12 +14875,49 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Storkaia — Kristiansund inner harbour — Storkaia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "PDF: two cruise quays in town centre; coaches park on quay. Airport Kvernberget 8 km.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "PDF: two cruise quays in town centre; coaches park on quay. Airport Kvernberget 8 km."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town centre / harbour shopping",
+          "Atlantic Ocean Road — ~30 min drive; return buffer critical",
+          "Kristiansund town centre / harbour shopping",
+          "Atlantic Ocean Road"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not start the Ocean Road without a timed last-call plan — it is not a harbour stroll."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a04dedcb26b93e48c39fd5fae1d7bc4d6e72eec8bc027cc5f9eaab53a8e508e4",
+        "landing_slug": "kristiansund-norway",
+        "candidate_content_hash": "c7d7e88f17a5f97b02c2f037ff2a613ce858aa9e1986f9ff914ad987bbcd66b8",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "kuala-terengganu": {
@@ -14706,7 +15042,7 @@
       "portName": "La Coruna",
       "country": "Spain",
       "portInfo": {
-        "description": "A port city in Galicia, northwest Spain, known for its Roman lighthouse and glass-fronted buildings.",
+        "description": "AP Coruña’s site covers interior vs exterior (Punta Langosteira) docks; cruises use the city-facing interior. Passenger service tariffs appear on the pasaje page. BOE/AP materials extend the Corunna Cruise Terminal concession at Trasatlánticos (exploitation of the maritime station). Tourism board turismocoruna.com is the city visitor primary.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish, Galician",
@@ -14746,12 +15082,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Muelle de Trasatlánticos / Corunna Cruise Terminal — Interior port, A Coruña (Trasatlánticos quay)",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "City centre from Trasatlánticos is a short urban walk/taxi. Outer quays may use AP-organised shuttles on peak days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "City centre from Trasatlánticos is a short urban walk/taxi. Outer quays may use AP-organised shuttles on peak days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "City paseo / María Pita area",
+          "Tower of Hercules — timed north trip",
+          "Know your quay — check if you are on Trasatlánticos or an overflow berth",
+          "Tower of Hercules",
+          "Interior port / city paseo"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "On five-ship mornings, follow AP/Corunna Cruise Terminal shuttle signage — do not walk unknown dock roads."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "36985269b05b9e0736036fd8e92a1ca409053321b946071e717da0b72983cc94",
+        "landing_slug": "la-coruna-spain",
+        "candidate_content_hash": "f195b79c48a1648590fe6ad5e8f7eac444952d33bb5f5c0b1760b1205286902c",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "la-digue": {
@@ -17010,23 +17384,43 @@
           "Train/coach for Granada (long excursion)"
         ],
         "distanceToCity": "Often under 1–2 km to the historic center from central berths",
-        "walkingTime": "Frequently 10–25 minutes to cathedral / Atarazanas area from central piers",
+        "walkingTime": "Frequently 10–25 minutes to cathedral / Atarazanas area from central piers—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Short taxi hops help for Gibralfaro or travelers avoiding hills/heat",
-        "publicTransport": "Local buses cover hill neighborhoods. Granada is a longer rail/coach excursion—not a casual add-on to a short Málaga walk."
+        "publicTransport": "Local buses cover hill neighborhoods. Granada is a longer rail/coach excursion—not a casual add-on to a short Málaga walk.",
+        "distanceAnswer": "Often under 1–2 km to the historic center from central berths"
       },
       "thingsToDo": {
         "intro": "Málaga is often a walkable Costa del Sol call from central berths near Muelle Uno. Granada is a separate full-day excursion—not a casual add-on.",
         "topThings": [
-          "Muelle Uno waterfront promenade",
-          "Alcazaba fortress",
-          "Málaga Cathedral",
-          "Picasso Museum (timed entry helps)",
-          "Gibralfaro viewpoint by taxi or energetic climb"
+          "Port-city waterfront / Palmeral",
+          "Alcazaba + cathedral approaches",
+          "Picasso/museums — confirm hours same-day (partial gap)",
+          "Palmeral de las Sorpresas / port-city waterfront",
+          "Alcazaba and cathedral approaches"
         ],
-        "shortCall": "Muelle Uno + cathedral area or a quick Alcazaba visit. Keep the radius tight and skip Granada entirely.",
-        "standardCall": "Alcazaba + cathedral/Picasso neighborhood is a strong independent day. Gibralfaro is optional if heat and hills allow.",
-        "longerCall": "Granada (Alhambra) only belongs on a long call or organized excursion with reserved tickets and a firm return plan. Do not treat it like a nearby Málaga sight.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Midday Alcazaba climbs are hot. If Granada is on your list, assume it consumes the day—do not also plan a full Málaga museum crawl."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "82149ea5273fc1074c9b7732aca30ede1557b5a02a341f38154f5f70ea04f7df",
+        "landing_slug": "malaga-spain",
+        "candidate_content_hash": "883c01778b332e3352b6bf8d67c72d630356db0e8f2c57de9fec27903776802d",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "male": {
@@ -17706,23 +18100,43 @@
           "Cruise shuttle"
         ],
         "distanceToCity": "MPCT is about 8 km from the Vieux-Port by road (commonly cited ~7–10 km depending on routing); Joliette berths are much closer (~1–2 km)",
-        "walkingTime": "Joliette to Vieux-Port often 20–30 minutes. MPCT walking is not practical/permitted through the port",
+        "walkingTime": "Joliette to Vieux-Port often 20–30 minutes. MPCT walking is not practical/permitted through the port—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Direct taxis from MPCT to Vieux-Port are the fastest door-to-door option when queues are long",
-        "publicTransport": "From MPCT, use the port/city shuttle toward the Joliette / Terrasses du Port area (do not walk through the industrial port), then continue by metro, tram, walking, or taxi to the Vieux-Port. Exact shuttle branding/stops can vary—follow port signage on the day"
+        "publicTransport": "Free port shuttle (cruise days): from the ship, follow the green line 5–12 min to the stop near Gate 4. In town, the stop is at 9 Quai du Lazaret, between Les Terrasses du Port and the maritime station. RTM 35T: links the Terminal Croisières stop with Place de la Joliette; the timetable is adapted to ship arrivals. From the stop it can be 600 m to 2.5 km to the boarding platform. Joliette → Vieux-",
+        "distanceAnswer": "MPCT is about 8 km from the Vieux-Port by road (commonly cited ~7–10 km depending on routing); Joliette berths are much closer (~1–2 km)"
       },
       "thingsToDo": {
         "intro": "Large ships use MPCT far from the Vieux-Port; smaller ships may berth nearer Joliette. Your terminal choice decides whether the day feels walkable.",
         "topThings": [
-          "Vieux-Port waterfront and Le Panier lanes",
-          "Notre-Dame de la Garde (uphill; allow time and water)",
-          "MuCEM and modern waterfront museums",
-          "Bouillabaisse / Provençal market stops",
-          "Aix-en-Provence or Calanques only with confirmed timing"
+          "Vieux-Port. 45 min.",
+          "Le Panier, the old quarter above the port. 60 min.",
+          "MuCEM. 90 min.",
+          "Notre-Dame de la Garde, the hilltop basilica. 75 min including the climb or bus.",
+          "Cathédrale de la Major."
         ],
-        "shortCall": "From Joliette, walk or short-hop to Vieux-Port and Le Panier. From MPCT, budget shuttle time first—then keep the plan to the harbor front only.",
-        "standardCall": "Vieux-Port + Le Panier + one viewpoint or museum is realistic after the MPCT shuttle. Notre-Dame de la Garde needs extra walking/heat margin.",
-        "longerCall": "Aix or a Calanques outing can work on a long call with an organized transfer. Do not combine both with a full Old Port wander on a tight return.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Do not walk through the industrial port from MPCT. Use the port/city shuttle or a taxi toward Joliette / Vieux-Port."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "6a95b22d1cbbd9551dee253cb76de10233ff11d4c2025ce88d39224ff719fd19",
+        "landing_slug": "marseille-provence-france",
+        "candidate_content_hash": "4be778e8661aa8fea199d88a66c2f3e75b7add11c0897117f5175efe2d565ac1",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "martinique": {
@@ -18055,21 +18469,41 @@
         "distanceToCity": "Roughly 3–5 km to downtown Miami / Brickell depending on terminal and route",
         "walkingTime": "Not practical between mainland hotels and terminals—use vehicle access",
         "taxiInfo": "Rideshare and taxi drop-off zones serve each terminal; allow extra time on weekend turnarounds",
-        "publicTransport": "Most guests use private transfer, taxi, or hotel shuttle from MIA or downtown; plan buffer for tunnel/causeway traffic Confirm your lettered terminal before rideshare drop-off. Weekend turnarounds are slow—leave generous airport→port buffer. PortMiami is primarily an embarkation hub rather than a long shore-day destination."
+        "publicTransport": "Most guests use private transfer, taxi, or hotel shuttle from MIA or downtown; plan buffer for tunnel/causeway traffic Confirm your lettered terminal before rideshare drop-off. Weekend turnarounds are slow—leave generous airport→port buffer. PortMiami is primarily an embarkation hub rather than a long shore-day destination.",
+        "distanceAnswer": "Roughly 3–5 km to downtown Miami / Brickell depending on terminal and route"
       },
       "thingsToDo": {
         "intro": "PortMiami is primarily an embarkation/turnaround hub. Shore “sightseeing” usually means pre-cruise hotel time or a short post-arrival window—not a classic 6-hour transit call.",
         "topThings": [
-          "Confirm your lettered terminal (AA, A–F) before rideshare drop-off",
-          "Downtown Miami / Brickell for a pre-cruise night",
-          "South Beach Art Deco District on a longer layover",
-          "Wynwood walls if you have a half-day free before embarkation",
-          "On-port parking and tunnel/causeway traffic planning"
+          "Downtown / Bayfront — Metromover-adjacent framing — ~120 min.",
+          "Wynwood / museums — short rideshare; minutes Not verified.",
+          "South Beach — heavy traffic risk; long buffer only.",
+          "Vizcaya — organised timing.",
+          "Little Havana food stroll — mid-length call."
         ],
-        "shortCall": "If you only have a few hours before embarkation, stay near downtown/Brickell hotels and transfer straight to your assigned terminal. Do not attempt South Beach plus PortMiami on a tight clock.",
-        "standardCall": "A half-day layover can fit one neighborhood (South Beach or Wynwood) plus hotel checkout and port transfer—with heavy weekend traffic buffers.",
-        "longerCall": "A full pre-cruise day in Miami can combine beach time and a neighborhood meal, then an early evening or next-morning embarkation. Always reconfirm terminal letters the night before.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Weekend turnarounds congest the PortMiami Tunnel and causeway. Arrive inside your cruise line’s check-in window with luggage already organized."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a58ba8c5bdb333926fc5c365f6d1001baaacef9644a36ea223c87184f432b051",
+        "landing_slug": "miami-fl-united-states",
+        "candidate_content_hash": "debe426788c8fb4a250fbb5386c157c49aea5b06cbe6a2bd01260bf05d98e3d9",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "milazzo": {
@@ -19558,23 +19992,43 @@
           "Ferry"
         ],
         "distanceToCity": "Terminal sits beside the historic center and ferry port",
-        "walkingTime": "Often 10–25 minutes to Piazza del Plebiscito / centro storico edges",
+        "walkingTime": "Often 10–25 minutes to Piazza del Plebiscito / centro storico edges—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis for Pompeii or coast trips—use official ranks and confirm destination",
-        "publicTransport": "City metro/buses serve the center; trains toward Pompeii require a station transfer—allow generous buffers for return to ship"
+        "publicTransport": "City centre: walk from the terminal to Piazza Municipio and Castel Nuovo, then about 10 min on to Piazza del Plebiscito (estimate). Pompeii: take the Circumvesuviana Napoli–Sorrento line to Pompei Villa dei Misteri (the Porta Marina and Piazza Esedra entrances), or the FS Napoli–Salerno train to Pompei. Circumvesuviana trains leave from Napoli Porta Nolana / Garibaldi; allow about 45 min (estimate",
+        "distanceAnswer": "Terminal sits beside the historic center and ferry port"
       },
       "thingsToDo": {
         "intro": "The central Stazione Marittima berth is walkable to the historic core, but Pompeii, Herculaneum, and Capri each consume most of a call on their own.",
         "topThings": [
-          "Centro storico / Spaccanapoli and pizza culture",
-          "Piazza del Plebiscito area",
-          "Pompeii archaeological site (train/coach time required)",
-          "Herculaneum as a somewhat tighter archaeology option than Pompeii",
-          "Capri ferries only with careful timetable discipline"
+          "Castel Nuovo, right by the port. 60 min.",
+          "Piazza del Plebiscito and the Royal Palace. 30–60 min.",
+          "Spaccanapoli and the historic centre (UNESCO). 90 min.",
+          "Museo Archeologico Nazionale, with Pompeii's finds. 2 h.",
+          "Pompeii archaeological park. 3 h on site."
         ],
-        "shortCall": "Stay in Naples: historic center lanes, a classic pizza stop, and waterfront views. Do not attempt Pompeii or Capri.",
-        "standardCall": "Choose ONE: Naples walking day, OR Pompeii, OR Herculaneum, OR Capri. Combining Naples sightseeing with Pompeii on a standard call is how guests run late.",
-        "longerCall": "Pompeii with a little buffer, or Capri with ferry margins, can work on a long day. Amalfi Coast coach tours need an early start and a reliable return.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Circumvesuviana/trains toward Pompeii need station transfer time. Prefer official taxis and keep a wide return margin."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "13cd5348ad2bdcdbb4ee715c59dcecffb9eacb4ce280ddd820a1ea203d49b185",
+        "landing_slug": "naples-italy",
+        "candidate_content_hash": "0a6e18b2fbfc1694c4d439520db5893f658a0e023cf40d24e68e294cb20a6c8c",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "narvik": {
@@ -19700,23 +20154,43 @@
           "Water taxi to Paradise Island"
         ],
         "distanceToCity": "Immediate downtown access from the cruise port complex",
-        "walkingTime": "Often 5–15 minutes to Bay Street shops and 10–20 minutes toward Junkanoo Beach",
+        "walkingTime": "Often 5–15 minutes to Bay Street shops and 10–20 minutes toward Junkanoo Beach—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis for Atlantis/Paradise Island or island tours—agree rates before departure",
-        "publicTransport": "Walking covers most downtown sights; jitneys serve local routes; water taxis link Paradise Island"
+        "publicTransport": "Walking covers most downtown sights; jitneys serve local routes; water taxis link Paradise Island",
+        "distanceAnswer": "Immediate downtown access from the cruise port complex"
       },
       "thingsToDo": {
         "intro": "Downtown Nassau Cruise Port opens onto Bay Street. Beach time and Paradise Island/Atlantis compete for the same clock.",
         "topThings": [
-          "Bay Street and downtown colonial streets",
-          "Junkanoo Beach for a quick swim",
-          "Queen’s Staircase / Fort Fincastle area",
-          "Straw Market crafts",
-          "Atlantis / Paradise Island as a paid longer outing"
+          "Queen’s Staircase, Queen’s Staircase, eastern downtown Nassau: A limestone-cut historic pedestrian link to the fort area. Allow about 45 minutes (editorial estimate). Steps and uphill approaches matter; vehicle access alternatives need checking.",
+          "Fort Fincastle, Fort Fincastle, Bennett’s Hill, Nassau: A compact fort/harbour-view stop paired with the staircase. Allow about 45 minutes (editorial estimate). Confirm interior admission; the hill is not a flat accessible walk.",
+          "Pompey Museum of Slavery and Emancipation, Vendue House, downtown Nassau waterfront: A serious cultural-history stop close to the port. Allow about 75 minutes (editorial estimate). Current museum hours/tickets must fit the visit.",
+          "National Art Gallery of The Bahamas, Villa Doyle, Nassau: Bahamian art rather than another duty-free shop. Allow about 90 minutes (editorial estimate). Check gallery schedule and the sloping approach.",
+          "Junkanoo Beach, Junkanoo Beach, west of downtown Nassau: A convenient urban waterfront break. Allow about 90 minutes (editorial estimate). Swimming is conditional on current sea quality, lifeguards and weather; do not assume beach services are included."
         ],
-        "shortCall": "Bay Street + Junkanoo Beach or the Queen’s Staircase loop. Skip Atlantis if the window is short.",
-        "standardCall": "Downtown highlights plus beach time, OR a focused Atlantis/Paradise Island visit—not both at a leisurely pace.",
-        "longerCall": "Combine a longer Atlantis visit with a brief downtown stop only if transfers are smooth and all-aboard is late.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Agree taxi rates before Paradise Island runs. Walking covers most downtown sights if heat allows."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a433277e300897d3d9c48da43969ba4c034afdbaf6d6fe5d581a6b349e7fe7ca",
+        "landing_slug": "nassau-bahamas",
+        "candidate_content_hash": "724c95a546a2690f1f851068d7a430a54a2f7639f43e071083e5d397e7906012",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "nawiliwili-kauai": {
@@ -21409,21 +21883,41 @@
         "distanceToCity": "Rough planning ranges: EM 1–4 often about 4–5.5 km to La Seu / Old Town; EM 5–6 often about 6–7+ km depending on berth and routing",
         "walkingTime": "A full waterfront walk from nearer berths can take roughly 45–60+ minutes; from Dique del Oeste it is longer and usually not worth it on a short call",
         "taxiInfo": "Taxis at the cruise terminals for cathedral drop-off or island tours—confirm destination first",
-        "publicTransport": "City buses link the Portopí / cruise zone with central Palma; many guests still prefer the cruise shuttle on multi-ship days"
+        "publicTransport": "",
+        "distanceAnswer": "Rough planning ranges: EM 1–4 often about 4–5.5 km to La Seu / Old Town; EM 5–6 often about 6–7+ km depending on berth and routing"
       },
       "thingsToDo": {
         "intro": "Ships use Estació Marítima terminals along Palma’s commercial waterfront. Poniente/Paraires (EM 1–4) are nearer the promenade route; Dique del Oeste (EM 5–6) sits farther out.",
         "topThings": [
-          "Cathedral of Santa Maria (La Seu) and Parc de la Mar",
-          "Old Town lanes and Passeig del Born",
-          "Arab Baths or palace exteriors nearby",
-          "Waterfront promenade (Passeig Marítim) if berthed closer in",
-          "Bellver Castle or island tours only with spare time"
+          "La Seu cathedral. 60 min.",
+          "Palau de l'Almudaina. 45 min.",
+          "La Lonja and the old-town lanes. 60 min.",
+          "Castell de Bellver, a circular castle above the bay. 60 min.",
+          "Passeig Marítim promenade (editorial)."
         ],
-        "shortCall": "Shuttle or taxi to La Seu / Parc de la Mar, short Old Town loop, return. Walking the full waterfront from outer berths usually eats the call.",
-        "standardCall": "Cathedral + Old Town + Born-area tapas is the classic independent day. Add Bellver only if transport is quick and all-aboard is late.",
-        "longerCall": "Island interior, beach club, or Bellver become realistic. Still confirm whether you are at EM 1–4 or EM 5–6 before assuming walk times.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Cruise shuttles toward the cathedral area are the default on busy days. Heat makes the long waterfront walk slower than guidebooks imply."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "fd613c70c3fa70c0a1b2928416f1faf3c44ec60cfe49f002305853676f4628bc",
+        "landing_slug": "palma-de-mallorca-spain",
+        "candidate_content_hash": "de13a102eeca280a0e23c042bf6c0ec8b8be102868348442b79340b86a6bc479",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "palma": {
@@ -22005,21 +22499,41 @@
         "distanceToCity": "Roughly 10–13 km to the Acropolis / central Athens",
         "walkingTime": "Metro stations are a meaningful walk from cruise gates (often ~20 minutes from the main terminal area, longer from outer berths)—many guests use taxi or an organized transfer when time is tight",
         "taxiInfo": "Taxis are the simplest timed option to the Acropolis; agree destination clearly",
-        "publicTransport": "Free internal port shuttles often link outer berths to the main terminal area. From outside the port, Athens metro/bus options reach the center; buy validated tickets and allow generous return buffers"
+        "publicTransport": "X80 Piraeus–Acropolis–Syntagma Express (seasonal): re-launched 23 May 2026; stops at both cruise-terminal exits; every 35–40 min, 07:00–21:15; ~35 min to central Athens. Separate fares from metro (secondary: €4.10 day ticket). Metro Line 3: from Piraeus / Dimotiko Theatro to Monastiraki ~22 min (secondary). Terminal A → metro ~20–25 min walk; B/C 35–45 min — taxi recommended. Airport: X96 bus from",
+        "distanceAnswer": "Roughly 10–13 km to the Acropolis / central Athens"
       },
       "thingsToDo": {
         "intro": "Piraeus is Athens’ cruise gate. The Acropolis area is roughly 10–13 km away—plan metro, taxi, or an organized tour, not a walk from the pier.",
         "topThings": [
-          "Acropolis and Acropolis Museum (one tightly planned visit)",
-          "Plaka / Monastiraki lanes after the site",
-          "Ancient Agora if time remains nearby",
-          "Piraeus waterfront if you stay local",
-          "Island ferries are a separate complex—do not confuse them with cruise gates"
+          "Ancient Agora + National Archaeological Museum (city): after the standard Acropolis/Museum core, add Agora (≈75 min) and/or the National Museum (≈90 min) only if the remaining time still leaves a 75 min terminal buffer after the inbound X80/taxi. Publish a personal minimum before leaving the ship.",
+          "Cape Sounion: transfer time/distance not verified from a primary operator. Do not attempt as an independent cruise-day plan until a dated coach/train timetable and return buffer are confirmed; use a ship excursion or skip.",
+          "Overnight: Acropolis late afternoon, Plaka dinner (editorial).",
+          "Acropolis — 2 h; timed tickets; go early.",
+          "Acropolis Museum — 90 min; air-conditioned refuge."
         ],
-        "shortCall": "Stay near Piraeus or take a taxi for a single nearby highlight. A full Acropolis visit with only ~4–5 hours ashore is often too tight once port shuttles and heat are factored in.",
-        "standardCall": "Acropolis (early) + short Plaka walk is the standard independent plan. Use the internal port shuttle from outer berths before you start the city clock.",
-        "longerCall": "Add the Acropolis Museum or Ancient Agora when queues cooperate. Do not also chase distant neighborhoods or a Greek-island hop on the same call.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Midday Acropolis climbs in summer are demanding. Go early, carry water, and watch for heat-related site measures."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "629be58257b07a03858088f4e159700eade045cc6ab1e35f66affa55671872a4",
+        "landing_slug": "athens-piraeus-greece",
+        "candidate_content_hash": "8aebd775137a9d45598963c23c310695887c30c930b300ff43b0d394374e409b",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.214Z"
       }
     },
     "pitcairn": {
@@ -27031,21 +27545,41 @@
         "distanceToCity": "Vertical ascent from Old Port to Fira; Oia is a further island transfer",
         "walkingTime": "Stairs from Old Port to Fira are steep and strenuous (hundreds of steps)",
         "taxiInfo": "Taxis and buses operate from Fira once you reach the clifftop",
-        "publicTransport": "Cable car is the main bottleneck—budget queue time. Local buses link Fira with Oia and other villages Tender + cable-car queues are the main timing risk. On multi-ship days, prioritize Fira first and leave extra time to descend before tender cutoff."
+        "publicTransport": "",
+        "distanceAnswer": "Vertical ascent from Old Port to Fira; Oia is a further island transfer"
       },
       "thingsToDo": {
         "intro": "Santorini is primarily a tender call to the Old Port (Skala) below Fira; some excursions use Athinios for coaches. Cable-car queues dominate the clock.",
         "topThings": [
-          "Fira caldera paths and viewpoints",
-          "Cable car between Old Port and Fira (or steep stairs)",
-          "Oia (needs transfer time from Fira)",
-          "Akrotiri archaeological site on coach-based plans",
-          "Local wine tasting on longer island loops"
+          "≥8.5 h ashore: standard plan (≈410 min) + Imerovigli rim walk (≈75 min, estimate) ≈485 min.",
+          "≥9.5 h ashore: standard plan + Nea Kameni boat trip from the Old Port (≈150 min, estimate) ≈560 min.",
+          "Fira caldera rim — the classic view, a few minutes from the cable car top.",
+          "Museum of Prehistoric Thera, Fira — Akrotiri finds; good heat refuge. ~60 min.",
+          "Fira–Imerovigli rim walk — ~2 km straight-line north (pins); 60–75 min return at an easy pace (estimate)."
         ],
-        "shortCall": "Tender up to Fira, walk the caldera edge, descend with extra queue time. Skip Oia unless you have a private transfer and a late all-aboard.",
-        "standardCall": "Fira first. Oia is optional only with disciplined transfer timing. Do not browse endlessly before joining the cable-car line down.",
-        "longerCall": "Fira + Oia or an Akrotiri/wine loop can fit a long day. Athinios coach operations follow excursion plans—not the Old Port stroll.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Budget tender + cable-car queues as real attractions that consume time. On multi-ship days, prioritize getting up to Fira early and leaving extra time to descend."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "805f7230afc3cf836b3ea484594b1902288fd80aaa2e698bbcae74c254c06cbd",
+        "landing_slug": "santorini-greece",
+        "candidate_content_hash": "d85f252e8602ee309c938ad4c2a1aeaa3fb809d717ddedd011463d0c65cf58db",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "sanya": {
@@ -28415,21 +28949,41 @@
         "distanceToCity": "Western Docks terminals are close to city-center hotels; Eastern Docks are a short drive/taxi from central Southampton",
         "walkingTime": "Possible between some city hotels and Western Docks with light bags; not ideal with full luggage",
         "taxiInfo": "Taxis and prebooked transfers are the usual airport/station solution; allow buffer for dock security queues",
-        "publicTransport": "Southampton Central station connects to London and regional rail; complete the last mile by taxi or scheduled cruise transfer to your specific terminal Eastern Docks (Gate 4: Ocean/QEII) and Western Docks (Gate 10: City/Horizon/Mayflower) are different approaches—use the gate on your cruise documents. Arrive only in the embarkation window your line provides."
+        "publicTransport": "Southampton Central station connects to London and regional rail; complete the last mile by taxi or scheduled cruise transfer to your specific terminal Eastern Docks (Gate 4: Ocean/QEII) and Western Docks (Gate 10: City/Horizon/Mayflower) are different approaches—use the gate on your cruise documents. Arrive only in the embarkation window your line provides.",
+        "distanceAnswer": "Western Docks terminals are close to city-center hotels; Eastern Docks are a short drive/taxi from central Southampton"
       },
       "thingsToDo": {
         "intro": "Southampton is the UK’s main turnaround port. “Things to do” often means embarkation logistics, a short city errand, or a London pre/post stay—not a packed transit sightseeing day.",
         "topThings": [
-          "Confirm Eastern Docks (Ocean / QEII, Dock Gate 4) vs Western Docks (City / Horizon / Mayflower, Dock Gate 10)",
-          "Ocean Village / waterfront dining near Western Docks",
-          "SeaCity Museum / Titanic exhibits on a longer free window",
-          "London by rail for pre- or post-cruise nights",
-          "New Forest or Isle of Wight only with ample free time"
+          "SeaCity Museum: allow 1.5–2.5 hours.",
+          "Old Town walls / waterfront: allow 60–90 minutes.",
+          "Organised New Forest or coastal tour: only with ship-timed return.",
+          "SeaCity Museum",
+          "Southampton Old Town walls / waterfront"
         ],
-        "shortCall": "If you are embarking, prioritize check-in. Errands or a quick waterfront meal near Western Docks are realistic; Eastern Docks usually need a taxi for town.",
-        "standardCall": "A free afternoon before sailing can cover Ocean Village or SeaCity plus hotel transfer. Do not attempt a full London day and same-evening embarkation without a proven buffer.",
-        "longerCall": "Pre/post nights in London or a New Forest day trip work when you are not boarding the same evening. Treat dock security queues as part of the schedule.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Luggage + Dock Gate mistakes cost more time than the map implies. Match Gate 4 vs Gate 10 to your berth before ordering a taxi."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "21f88255f9ba34b2cb79042b71476e6d9ab6624a84a8e7686d39cb5cc38afb8d",
+        "landing_slug": "southampton-united-kingdom",
+        "candidate_content_hash": "adaaed783fad2b57aeae75cfb8dbf9f7285a8112d70e3db8aba6db1bc350cf4e",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "split": {
@@ -28852,7 +29406,7 @@
       "portName": "St Thomas",
       "country": "US Virgin Islands",
       "portInfo": {
-        "description": "A US Virgin Island known for beautiful beaches and shopping.",
+        "description": "St. Thomas splits large-ship calls between the VIPA Austin “Babe” Monsanto Marine Terminal in Crown Bay (Subbase) and the privately operated WICO Dock at Havensight/Long Bay. VIPA documents Crown Bay as one of two island cruise ports, with a main dock (940 ft south / 37 ft draft Oasis-capable; 940 ft north / 28 ft draft), a 435 ft adjoining dock (27 ft draft), and a small excursion dock. WICO describes century-plus ownership of the Havensight Dock and publishes schedules that label WICO versus Crown Bay berths separately. VIPA’s Charlotte Amalie Waterfront bulkhead (3,200 ft; 4–14 ft draft) handles tenders and mini-cruise ships beside downtown shopping — not Oasis-class alongside traffic. Always read the day’s pier assignment before planning a “short walk to Main Street.”",
         "location": "",
         "timezone": "AST (UTC-4)",
         "language": "English",
@@ -28896,12 +29450,49 @@
         "entryRequirements": "Valid passport required for non-US citizens."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Austin \"Babe\" Monsanto Marine Terminal (Crown Bay) — Crown Bay / Subbase, St. Thomas, USVI",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Crown Bay Center is on-terminal; downtown minutes unverified. Havensight shops are adjacent to WICO. Waterfront shopping is beside the bulkhead. Use 75–90 min buffers even for “nearby” malls on multi-ship days.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Crown Bay Center is on-terminal; downtown minutes unverified. Havensight shops are adjacent to WICO. Waterfront shopping is beside the bulkhead. Use 75–90 min buffers even for “nearby” malls on multi-ship days."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Pier-side duty-free — ~120–180 min.",
+          "Charlotte Amalie Main Street — transfer depends on pier.",
+          "Magens Bay / skyride — taxi; standard+ calls.",
+          "Charlotte Amalie / Havensight shopping"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Crown Bay ≠ Havensight — taxi fares and walk times differ; check the boarding pass pier code."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e5f39a23251cd4efd249385c7b6066f92f9ad27e6178d4b116340f03f078553c",
+        "landing_slug": "st-thomas-charlotte-amalie-us-virgin-islands",
+        "candidate_content_hash": "8ebfb68193a3bbcab15bf72629e600d75d10fe5dbda5767ae43f8e70a0b55c09",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "st-vincent": {
@@ -29114,23 +29705,43 @@
           "Djurgården ferry connections"
         ],
         "distanceToCity": "Stadsgården often ~1–2 km to Gamla Stan/Slussen; Värtan area roughly 4–6+ km to the old town",
-        "walkingTime": "Stadsgården: frequently 15–30 minutes to Gamla Stan. Värtan: plan transit, not a casual walk",
+        "walkingTime": "Stadsgården: frequently 15–30 minutes to Gamla Stan. Värtan: plan transit, not a casual walk—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Readily available; useful from Värtan with limited time",
-        "publicTransport": "SL tickets cover buses, metro, and trams. From Värtan, bus/metro combinations reach T-Centralen and Gamla Stan"
+        "publicTransport": "SL tickets cover buses, metro, and trams. From Värtan, bus/metro combinations reach T-Centralen and Gamla Stan",
+        "distanceAnswer": "Stadsgården often ~1–2 km to Gamla Stan/Slussen; Värtan area roughly 4–6+ km to the old town"
       },
       "thingsToDo": {
         "intro": "Stadsgården can be walkable to Gamla Stan; Värtahamnen/Frihamnen usually need bus, metro, or taxi. Identify the terminal before planning a stroll.",
         "topThings": [
-          "Gamla Stan (Old Town) lanes and palace exteriors",
-          "Vasa Museum on Djurgården",
-          "Waterfront promenades and fika stops",
-          "ABBA Museum / Skansen on longer calls",
-          "Archipelago boats when schedules and berth location allow"
+          "Gamla Stan (Old Town) lanes and Stortorget: allow 75–90 minutes. Cobbles; keep valuables simple.",
+          "Vasa Museum (Djurgården): allow 90–120 minutes inside plus Djurgården transfer—ticket ahead when possible.",
+          "City Hall (Stadshuset) exterior / waterfront: allow 30–45 minutes.",
+          "ABBA The Museum / Djurgården cluster: only on longer calls with timed tickets.",
+          "Södermalm viewpoints (Stadsgården berths): allow 45–60 minutes local walk when alongside there."
         ],
-        "shortCall": "From Stadsgården, walk Gamla Stan. From Värtan/Frihamnen, take transit to Old Town only—skip Djurgården museums.",
-        "standardCall": "Gamla Stan + Vasa Museum is a strong independent day when transfers cooperate. From Värtan, keep the plan tighter.",
-        "longerCall": "Add Skansen/ABBA or an archipelago hop on a long day. Still protect return time from the farther harbors.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "SL tickets cover buses/metro/trams. Do not assume every Stockholm berth is a Gamla Stan walk."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "9faebb0f363ef487b9b4fbbe8ae7d5ba5e77620e4ec6f751fff0061ad3c215bb",
+        "landing_slug": "stockholm-sweden",
+        "candidate_content_hash": "c4ca0b11ff3d0cfef7542cba0b1873c38408a31705b8e5d6c6aba9553e4b5c16",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "stornoway": {
@@ -29870,7 +30481,7 @@
       "portName": "Tallinn",
       "country": "Estonia",
       "portInfo": {
-        "description": "Estonia's capital, a beautifully preserved medieval port city, a UNESCO World Heritage site with excellent facilities.",
+        "description": "Tallinn pairs a modern cruise terminal with one of Northern Europe’s most compact medieval cores. From the Cruise Terminal roof promenade and the short walk toward Viru Gate you can be among church spires in under half an hour if mobility and crowds cooperate. Ferry terminals A/D share the harbour but use different vehicle gates—follow cruise signage. Estonian Weather Service Tallinn-Harku 1991–2020 normals average about 6.4°C annually with a cool, damp climate; grippy shoes beat fashion.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Estonian",
@@ -29912,12 +30523,50 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Tallinn Cruise Terminal — Logi tn 4/2, Tallinn",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Port of Tallinn: Cruise Terminal at Logi tn 4/2; tram no. 2 stops Vanasadam and Linnahall about 500 m; rooftop promenade open to the public roughly 06:00–01:00 with walk-only rules on the promenade. Allow 20–35 minutes each way between the terminal building and Town Hall Square including cobbles and photo stops—editorial estimate; confirm tram headway in the local journey planner for the call date. Do not confuse Cruise Terminal access with Terminal A/D ferry vehicle gates—use the port map. Taxis and cruise shuttles use marked bays; ISPS rules can close casual shortcuts when ships are alongside. Airport (TLL): plan a separate transfer; do not treat a short Baltic call as an airport day-trip without a live plan and a generous buffer back to the gangway.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Port of Tallinn: Cruise Terminal at Logi tn 4/2; tram no. 2 stops Vanasadam and Linnahall about 500 m; rooftop promenade open to the public roughly 06:00–01:00 with walk-only rules on the promenade. Allow 20–35 minutes each way between the terminal building and Town Hall Square including cobbles and photo stops—editorial estimate; confirm tram headway in the local journey planner for the call date. Do not confuse Cruise Terminal access with Terminal A/D ferry vehicle gates—use the port map. Taxis and cruise shuttles use marked bays; ISPS rules can close casual shortcuts when ships are alongside. Airport (TLL): plan a separate transfer; do not treat a short Baltic call as an airport day-trip without a live plan and a generous buffer back to the gangway."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town Hall Square (Raekoja plats): allow 45–60 minutes for the square, side streets and a coffee. Cobbles and cruise groups slow progress.",
+          "Toompea / Alexander Nevsky / viewing platforms: allow 75–90 minutes including the uphill walk. Skip the tower queue if the call is short.",
+          "Viru Gate and adjacent Bastion / Musumägi area: allow 30–45 minutes as a soft landing from the harbour.",
+          "St. Catherine’s Passage / masters’ workshops lane: allow 30–45 minutes when combining with Town Hall Square.",
+          "Telliskivi / Balti Jaam market (longer calls only): allow 90–120 minutes including tram/taxi—only with a verified return plan. Estimate markers."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Photograph the Cruise Terminal entrance and your ship’s funnel colour before walking into Old Town; multiple ships can share the harbour and lookalikes confuse taxi returns."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "1b4b3101742aa77254835e4d4ef900db71b839df3ab9d5214dbb72bce61679c3",
+        "landing_slug": "tallinn-estonia",
+        "candidate_content_hash": "7f47759afd829b01b793ca736358ae8d5307e03dfd14f81b0d63f2553230ccf3",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "tangier": {
@@ -29925,7 +30574,7 @@
       "portName": "Tangier",
       "country": "Morocco",
       "portInfo": {
-        "description": "A historic Moroccan port at the entrance to the Mediterranean.",
+        "description": "SGPTV (joint SAPT–ANP subsidiary from 2012) rebuilt cruise, ferry and yachting infrastructure and reopened the waterfront to Bab El Marsa / heritage poles. Visit Morocco’s Tangier travel page adds destination colour; venue hours remain thin in the capture.",
         "location": "",
         "timezone": "WEST (UTC+1)",
         "language": "Arabic, French",
@@ -29969,12 +30618,50 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Tangier City Port (cruise) — Tangier City Port / Boulevard Mohamed VI area",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Medina on foot if mobility allows; taxis at maritime station exit per operator.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Medina on foot if mobility allows; taxis at maritime station exit per operator."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Medina lanes",
+          "Kasbah Museum area",
+          "Further city — hours gap beyond Visit Morocco chrome",
+          "Medina adjacent to the port",
+          "Broader Visit Morocco itinerary"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Stay oriented to the Bab El Marsa / port edge — Medina alleys branch fast."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "a7d0dff43853f3d6573b135bc85f9dec6a096e2d8dea9186a3ff741ec1371666",
+        "landing_slug": "tangier-morocco",
+        "candidate_content_hash": "2bae59e8d7c63ce1b171ce8c0a9970751d725a0762ca32fe4bf3bf86e75236ce",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "taranto": {
@@ -30039,7 +30726,7 @@
       "portName": "Tarragona",
       "country": "Spain",
       "portInfo": {
-        "description": "A Spanish port destination with excellent facilities, Mediterranean charm, and access to beautiful Spanish attractions.",
+        "description": "UNESCO describes Tárraco as a major Roman administrative and mercantile city and imperial-cult centre for the Iberian provinces, with excavated monumental remains. APT’s Catalan/Spanish portal covers port governance, Moll de Costa and cruise-city messaging.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Spanish, Catalan",
@@ -30096,7 +30783,41 @@
         "distanceToCity": "1 km to city center",
         "walkingTime": "15 minutes",
         "taxiInfo": "Taxis available at terminal entrance",
-        "publicTransport": "Local buses connect terminal to city and train station"
+        "publicTransport": "Local buses connect terminal to city and train station",
+        "distanceAnswer": "1 km to city center"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Tárraco UNESCO circuit",
+          "Moll de Costa waterfront",
+          "Archaeological Ensemble of Tárraco (UNESCO)",
+          "Moll de Costa / port-city waterfront",
+          "Roman amphitheatre ticket desk"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Buy a combined monument ticket plan before wandering between amphitheatre and circus fragments."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e4fb0d86b8f2dda62136b7f658407b5c309f081907cdb41eeabfab0ee75d03e6",
+        "landing_slug": "tarragona-spain",
+        "candidate_content_hash": "36dfdff3ba42acb7872f0d49b7aea937ceb9ef186a388dae8445c50eaaab48ec",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "tauranga": {
@@ -30291,7 +31012,7 @@
       "portName": "Tilbury",
       "country": "United Kingdom",
       "portInfo": {
-        "description": "Major port on the River Thames, serving London and southeastern England.",
+        "description": "Tilbury puts you on the Thames estuary with Gravesend across the water and London as a deliberate transfer, not a stroll. Follow Ferry Road / cruise-terminal signage; the main port/Asda-style entrance is the wrong gate for cruise passengers. Local Thames-side time is realistic on short calls; Tower of London or museum days need a pre-booked transfer and an honest buffer.",
         "location": "",
         "timezone": "GMT (UTC+0) / BST (UTC+1)",
         "language": "English",
@@ -30339,7 +31060,7 @@
         "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
       },
       "gettingThere": {
-        "fromTerminal": "London Cruise Terminal at Tilbury",
+        "fromTerminal": "London International Cruise Terminal",
         "transportation": [
           "Shuttle bus to station",
           "Train to London",
@@ -30348,7 +31069,41 @@
         "distanceToCity": "40 km to central London",
         "walkingTime": "Not walkable to London",
         "taxiInfo": "",
-        "publicTransport": "Train from Tilbury Town to London stations"
+        "publicTransport": "Train from Tilbury Town to London stations",
+        "distanceAnswer": "40 km to central London"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Tilbury / Thames-side orientation (fort area / landing-stage views): allow 60–90 minutes without leaving for London.",
+          "Tower of London: allow 2–3 hours inside plus the Tilbury–London transfer pair. Book timed entry.",
+          "British Museum: allow 2–3 hours plus transfers.",
+          "Organised London coach tour: only with confirmed ship-timed return. Estimate markers: transfers 90–120 min each way.",
+          "Tower of London"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Follow Ferry Road cruise-terminal signs; the Asda/main port entrance is the wrong gate. Photograph the terminal façade before boarding a London coach."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "2331eb3c18de95bde6928bf084e7727627018e021dd5a0e89686f523000370fe",
+        "landing_slug": "london-tilbury-united-kingdom",
+        "candidate_content_hash": "089a26a6dc656d54031000e05a2ca777559caba4206efa61ac97fd838a0db9ec",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.216Z"
       }
     },
     "toamasina": {
@@ -30542,7 +31297,7 @@
       "portName": "Toulon",
       "country": "France",
       "portInfo": {
-        "description": "Major Mediterranean naval port and gateway to Provence with excellent facilities.",
+        "description": "VPCC is the Var cruise industry alliance for transit/turnaround queries. Destination colour beyond the network page is thin in this capture — city monuments need separate primaries (gap).",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "French",
@@ -30597,9 +31352,43 @@
           "Local buses"
         ],
         "distanceToCity": "Within Toulon city",
-        "walkingTime": "10-15 minutes to city center",
+        "walkingTime": "10-15 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Good local bus network"
+        "publicTransport": "Good local bus network",
+        "distanceAnswer": "Within Toulon city"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Assigned waterfront town",
+          "La Seyne or Toulon centre per berth",
+          "Toulon waterfront / harbour town",
+          "La Seyne-sur-Mer call area",
+          "Mont Faron / cable car"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Read the berth name twice — Toulon and La Seyne are not interchangeable walks."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "300d547365d8e4a2f261ce36e426b1d0dbcdfe6d2ce439d899aaa7e03008d242",
+        "landing_slug": "toulon-france",
+        "candidate_content_hash": "63ca4154dc2c8a244379512a942418bbdb68994ea4d1fdc9a460091d3fae5f87",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "trieste": {
@@ -31219,21 +32008,41 @@
         "distanceToCity": "Roughly 5–8 km to the historic center depending on routing",
         "walkingTime": "Not practical from the terminal gates through the commercial port",
         "taxiInfo": "Taxis available for Cathedral / City of Arts drop-offs",
-        "publicTransport": "Port shuttle plus city buses/metro connect toward Xàtiva, Colón, and beach lines—allow return buffer"
+        "publicTransport": "Port shuttle plus city buses/metro connect toward Xàtiva, Colón, and beach lines—allow return buffer",
+        "distanceAnswer": "Roughly 5–8 km to the historic center depending on routing"
       },
       "thingsToDo": {
         "intro": "The cruise terminal sits in the commercial port—shuttle or taxi first. Downtown Gothic Valencia and the City of Arts and Sciences are different directions; pick a theme.",
         "topThings": [
-          "Cathedral / historic center and Central Market",
-          "Lonja and Gothic streets",
-          "City of Arts and Sciences architecture",
-          "Turia Gardens walking ribbon",
-          "Malvarrosa / Cabanyal beach districts on a beach-focused day"
+          "Historic centre",
+          "Port orientation",
+          "Ciutat Vella / historic centre",
+          "City of Arts and Sciences",
+          "Port waterfront orientation"
         ],
-        "shortCall": "Shuttle/taxi to the historic center for cathedral + market. Leave the City of Arts for another call.",
-        "standardCall": "Historic center OR City of Arts and Sciences plus a short garden/beach add-on—not a full double-feature with long photo stops at both.",
-        "longerCall": "Center + Turia Gardens + beach, or a deeper City of Arts visit, can fit a long day with disciplined transfers back to the port zone.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Do not walk out through the commercial port gates expecting a short stroll to the cathedral. Budget the shuttle/taxi both ways."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "4f70943a17594ad199380e4a12e5efc2726a670c8f73a42e3a8571b061bf36db",
+        "landing_slug": "valencia-spain",
+        "candidate_content_hash": "6bc68cdf9202f662d083b165baed328b968507282343c42126a3c89f545e3f97",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "valletta": {
@@ -31241,7 +32050,7 @@
       "portName": "Valletta",
       "country": "Malta",
       "portInfo": {
-        "description": "UNESCO World Heritage capital city with fortified harbor and rich historical heritage.",
+        "description": "Valletta's Grand Harbour arrival is one of the most dramatic in the Mediterranean: honey-coloured bastions rise straight from the quay. The cruise port, operated by Global Ports Holding as Valletta Cruise Port (VCP), runs along the Valletta Waterfront at Floriana. It handles ships up to 360 m and is used for turnarounds as well as port calls. The main practical issue is height, not distance: the city centre is about 1.5 km away but up the hill, which is why the lift matters.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Maltese, English",
@@ -31297,9 +32106,43 @@
           "Local buses"
         ],
         "distanceToCity": "At city gates",
-        "walkingTime": "5-10 minutes to city center",
+        "walkingTime": "5-10 minutes to city center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Bus terminal nearby"
+        "publicTransport": "",
+        "distanceAnswer": "At city gates"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Upper Barrakka Gardens — terraces over the Grand Harbour, right at the top of the lift. 30 min.",
+          "St John's Co-Cathedral — the Knights' baroque church. 60 min.",
+          "Grand Master's Palace. 60 min.",
+          "Republic Street and Merchants Street — the city's spine (editorial).",
+          "Fort St Elmo — the star fort at the tip of the peninsula. 75 min."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Ask on board which quay you are at. Pinto Wharf (Quays 1–5) is next to the Upper Barrakka Lift walk. LAB Wharf and Boiler Wharf are across the harbour on the VCP map; Deep Water Quay and Wine Wharf are also separate. For any spill-over berth, use the line's shuttle or a taxi and build in extra return time until a quay-specific walk is verified."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "e23d8db832e40540f5957bb1bc9229ace0f97315f2340b466ab33dafdf05f513",
+        "landing_slug": "valletta-malta",
+        "candidate_content_hash": "29d89cd8601839ee32e3e3698785cb7dcfb8250bce98c05d931c72b9317cb21d",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "valpara-so": {
@@ -31619,23 +32462,43 @@
           "Train station ~15 min walk (per port authority)"
         ],
         "distanceToCity": "Waterfront terminals sit beside the historic center—typically a few hundred meters to Casco Vello",
-        "walkingTime": "Often 5–15 minutes uphill into the old town and commercial streets",
+        "walkingTime": "Often 5–15 minutes uphill into the old town and commercial streets—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "Taxis available at the maritime station area for Cíes ferry connections, Samil, or longer trips",
-        "publicTransport": "City buses serve the waterfront; Vigo-Urzáiz train station is about a 15-minute walk according to the port authority; airport roughly 15 minutes by car"
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Waterfront terminals sit beside the historic center—typically a few hundred meters to Casco Vello"
       },
       "thingsToDo": {
         "intro": "Vigo is one of Spain’s most walkable Atlantic cruise calls: the Trasatlánticos waterfront sits beside Casco Vello. Save long transfers for Cíes or Santiago only when time truly allows.",
         "topThings": [
-          "Casco Vello (old town) lanes and viewpoints",
-          "Oyster stalls and seafood along the waterfront",
-          "Jardines del Cable / promenade near the maritime station",
-          "Castro de Vigo hill views",
-          "Cíes Islands ferries or Santiago de Compostela only on longer calls"
+          "Casco Vello / waterfront",
+          "Cíes — permits gap",
+          "Casco Vello / waterfront approaches",
+          "Cíes Islands (Illas Atlánticas)",
+          "Castro hill viewpoints"
         ],
-        "shortCall": "Walk into Casco Vello, sample oysters or tapas near the port, and stroll the waterfront gardens. Stay within a short walk of the maritime station.",
-        "standardCall": "Old town + Castro viewpoint or a longer waterfront loop still leaves time to return on foot. Add Samil beach only if your ship’s schedule is generous and taxis are quick.",
-        "longerCall": "Cíes Islands or Santiago are realistic only with an early start, confirmed ferry/train timing, and a disciplined return buffer. Do not stack both with a casual city walk.",
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
         "practicalTip": "Uphill lanes in Casco Vello take longer than the map suggests. Wear comfortable shoes and keep an eye on ship time even though the pier is close."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "53af7be91c6fa7c62fd04534265eacc38a9498dd0f0323105f5abc8fed4c8f00",
+        "landing_slug": "vigo-spain",
+        "candidate_content_hash": "5240c822b69708254e7e217dcf47d4f0216718dbdb761ae80d8f20b1d08bdd6e",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.217Z"
       }
     },
     "villefranche-sur-mer": {
@@ -32026,7 +32889,7 @@
       "portName": "Warnemünde",
       "country": "Germany",
       "portInfo": {
-        "description": "Seaside resort and cruise port on Baltic Sea, gateway to Berlin and Mecklenburg-Vorpommern.",
+        "description": "Warnemünde combines a beach-resort promenade with a serious cruise terminal. Guests split between lighthouse/Alter Strom strolls, Rostock’s city centre via S-Bahn, and ambitious Berlin day coaches. Multi-ship days (165 calls in 2025) mean queues—protect the return buffer.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "German",
@@ -32080,9 +32943,43 @@
           "Local buses"
         ],
         "distanceToCity": "Within Warnemünde village",
-        "walkingTime": "5-10 minutes to village center",
+        "walkingTime": "5-10 minutes to village center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Train station with connections to Rostock and Berlin"
+        "publicTransport": "Train station with connections to Rostock and Berlin",
+        "distanceAnswer": "Within Warnemünde village"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Alter Strom / Warnemünde lighthouse and beach promenade: allow 60–90 minutes. Sand and wind.",
+          "Rostock old town (via S-Bahn): allow 2.5–3.5 hours including the ~20-minute S-Bahn each way and a city walk—estimate.",
+          "Local seafood lunch along Alter Strom: allow 45–60 minutes.",
+          "Organised Berlin day tour: only with ship-timed coaches; independent Berlin needs ≥2h rail each way plus urban time and contingency.",
+          "Tea-museum / local indoor option: rainy-day spare—check hours."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Photograph the Cruise Center lettering before boarding a Berlin coach; Warnemünde and Rostock returns can confuse tired guests."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "539d9e99f3c6c5e870d622ac3a140c46b4e3f82b93d588f6cec2b28e479023c5",
+        "landing_slug": "warnemunde-berlin-germany",
+        "candidate_content_hash": "8ce734545f34c3ac7a028b1a06687a8b8cf87e480f57403a6e8412df2b2ba41d",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.218Z"
       }
     },
     "wellington": {
@@ -32380,7 +33277,7 @@
       "portName": "Zakynthos",
       "country": "Greece",
       "portInfo": {
-        "description": "Greek Ionian island known for Navagio Beach (Shipwreck Beach) and loggerhead sea turtles.",
+        "description": "Navagio is a boat product, not a pier stroll. Marine-park rules were not captured (NMP TLS failed). Keep the conservative call inside Hora until quay and boat permits are verified.",
         "location": "",
         "timezone": "EET (UTC+2) / EEST (UTC+3)",
         "language": "Greek",
@@ -32436,9 +33333,42 @@
           "Local buses"
         ],
         "distanceToCity": "Within Zakynthos town",
-        "walkingTime": "5-10 minutes to town center",
+        "walkingTime": "5-10 minutes to town center—confirm on your sailing programme before you rely on a fixed walk time.",
         "taxiInfo": "",
-        "publicTransport": "Local buses to beaches and villages"
+        "publicTransport": "Local buses to beaches and villages",
+        "distanceAnswer": "Within Zakynthos town"
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Hora / Venetian townscape",
+          "Zakynthos Hora / Venetian heritage townscape",
+          "Navagio (Shipwreck Beach)",
+          "National Marine Park / Caretta caretta habitats"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not promise Shipwreck Beach on a short clock without a booked boat and return margin."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "3aa7bbc6a8bbf0264a097aca5d80464628efb7425b9f5dc4bbea4e3008d5faa8",
+        "landing_slug": "zakynthos-greece",
+        "candidate_content_hash": "e0fdd5b7242619c9163ed170d804354b728e4b36949cf628ccd084b7e055063b",
+        "locked_at_utc": "2026-11-09T07:40:41.182Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage63_50_release_candidate": true,
+        "owner_publication_authorized": false,
+        "stage63_50_release_prep": true,
+        "stage63_50_bundle_hash": "28ddf82d6f92065d8d7bf82c2e33db9f3b74144d1e3381cac7e8aaa5c96f7ae8",
+        "applied_at_utc": "2026-11-09T07:40:45.218Z"
       }
     },
     "zeebrugge": {

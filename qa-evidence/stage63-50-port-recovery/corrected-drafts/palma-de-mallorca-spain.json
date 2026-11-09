@@ -1,0 +1,77 @@
+{
+  "landing_slug": "palma-de-mallorca-spain",
+  "draft": {
+    "landing_slug": "palma-de-mallorca-spain",
+    "appPortId": "palma-de-mallorca",
+    "portName": "Palma de Mallorca",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Palma de Mallorca is the Balearic Islands’ primary cruise hub. Ships berth along the commercial waterfront with shuttle or taxi links to the cathedral (La Seu), old town lanes, and Passeig del Born. Many Western Mediterranean itineraries use Palma as both a call and a turnaround.",
+      "location": "Mallorca, Balearic Islands, Spain",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish and Catalan; English widely spoken in tourism",
+      "currency": "Euro (EUR)",
+      "population": "Palma roughly 400,000+"
+    },
+    "gettingThere": {
+      "fromTerminal": "Confirm Estació Marítima number: EM 1–4 (Poniente/Paraires) vs EM 5–6 (Dique del Oeste). Shuttles toward the cathedral / city center are common on busy days.",
+      "transportation": [
+        "City bus",
+        "Walking (long / heat-exposed)"
+      ],
+      "distanceToCity": "Rough planning ranges: EM 1–4 often about 4–5.5 km to La Seu / Old Town; EM 5–6 often about 6–7+ km depending on berth and routing",
+      "walkingTime": "A full waterfront walk from nearer berths can take roughly 45–60+ minutes; from Dique del Oeste it is longer and usually not worth it on a short call",
+      "taxiInfo": "Taxis at the cruise terminals for cathedral drop-off or island tours—confirm destination first",
+      "publicTransport": "",
+      "distanceAnswer": "Rough planning ranges: EM 1–4 often about 4–5.5 km to La Seu / Old Town; EM 5–6 often about 6–7+ km depending on berth and routing"
+    },
+    "thingsToDo": {
+      "intro": "Ships use Estació Marítima terminals along Palma’s commercial waterfront. Poniente/Paraires (EM 1–4) are nearer the promenade route; Dique del Oeste (EM 5–6) sits farther out.",
+      "topThings": [
+        "La Seu cathedral. 60 min.",
+        "Palau de l'Almudaina. 45 min.",
+        "La Lonja and the old-town lanes. 60 min.",
+        "Castell de Bellver, a circular castle above the bay. 60 min.",
+        "Passeig Marítim promenade (editorial)."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Cruise shuttles toward the cathedral area are the default on busy days. Heat makes the long waterfront walk slower than guidebooks imply."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "fd613c70c3fa70c0a1b2928416f1faf3c44ec60cfe49f002305853676f4628bc",
+      "existing_guide_hash": "a9d8b8d422e7f8a1",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/palma-de-mallorca-spain.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_liveTop"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.337Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

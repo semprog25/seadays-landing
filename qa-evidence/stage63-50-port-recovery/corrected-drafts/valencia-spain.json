@@ -1,0 +1,81 @@
+{
+  "landing_slug": "valencia-spain",
+  "draft": {
+    "landing_slug": "valencia-spain",
+    "appPortId": "valencia",
+    "portName": "Valencia",
+    "country": "Spain",
+    "portInfo": {
+      "description": "Valencia’s cruise terminal sits in the commercial port with shuttle or taxi links to the historic center (Cathedral, Central Market) and the futuristic City of Arts and Sciences. The beach districts of Malvarrosa/Cabanyal are additional shore-day options.",
+      "location": "Eastern Spain on the Mediterranean (Valencian Community)",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish and Valencian; English in tourist areas",
+      "currency": "Euro (EUR)",
+      "population": "City roughly 800,000; metro area over 1.5 million"
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise terminal is inside the port zone; shuttles or taxis are the usual first step toward downtown",
+      "transportation": [
+        "Shuttle",
+        "Bus",
+        "Metro/tram after reaching city network"
+      ],
+      "distanceToCity": "Roughly 5–8 km to the historic center depending on routing",
+      "walkingTime": "Not practical from the terminal gates through the commercial port",
+      "taxiInfo": "Taxis available for Cathedral / City of Arts drop-offs",
+      "publicTransport": "Port shuttle plus city buses/metro connect toward Xàtiva, Colón, and beach lines—allow return buffer",
+      "distanceAnswer": "Roughly 5–8 km to the historic center depending on routing"
+    },
+    "thingsToDo": {
+      "intro": "The cruise terminal sits in the commercial port—shuttle or taxi first. Downtown Gothic Valencia and the City of Arts and Sciences are different directions; pick a theme.",
+      "topThings": [
+        "Historic centre",
+        "Port orientation",
+        "Ciutat Vella / historic centre",
+        "City of Arts and Sciences",
+        "Port waterfront orientation"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not walk out through the commercial port gates expecting a short stroll to the cathedral. Budget the shuttle/taxi both ways."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "4f70943a17594ad199380e4a12e5efc2726a670c8f73a42e3a8571b061bf36db",
+      "existing_guide_hash": "cb434abba10ee1c0",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/valencia-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_research_description",
+        "dropped_truncated_thingsBullet",
+        "dropped_truncated_liveTop"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.371Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

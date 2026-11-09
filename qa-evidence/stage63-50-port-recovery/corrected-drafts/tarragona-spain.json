@@ -1,0 +1,78 @@
+{
+  "landing_slug": "tarragona-spain",
+  "draft": {
+    "landing_slug": "tarragona-spain",
+    "appPortId": "tarragona",
+    "portName": "Tarragona",
+    "country": "Spain",
+    "portInfo": {
+      "description": "UNESCO describes Tárraco as a major Roman administrative and mercantile city and imperial-cult centre for the Iberian provinces, with excavated monumental remains. APT’s Catalan/Spanish portal covers port governance, Moll de Costa and cruise-city messaging.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Spanish, Catalan",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Cruise terminal provides access to the city center",
+      "transportation": [
+        "Walking (15 minutes to city center)",
+        "Local buses"
+      ],
+      "distanceToCity": "1 km to city center",
+      "walkingTime": "15 minutes",
+      "taxiInfo": "Taxis available at terminal entrance",
+      "publicTransport": "Local buses connect terminal to city and train station",
+      "distanceAnswer": "1 km to city center"
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Tárraco UNESCO circuit",
+        "Moll de Costa waterfront",
+        "Archaeological Ensemble of Tárraco (UNESCO)",
+        "Moll de Costa / port-city waterfront",
+        "Roman amphitheatre ticket desk"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Buy a combined monument ticket plan before wandering between amphitheatre and circus fragments."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "e4fb0d86b8f2dda62136b7f658407b5c309f081907cdb41eeabfab0ee75d03e6",
+      "existing_guide_hash": "f2bc1cf02100a341",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tarragona-spain.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.284Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

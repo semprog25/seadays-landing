@@ -1,0 +1,80 @@
+{
+  "landing_slug": "copenhagen-denmark",
+  "draft": {
+    "landing_slug": "copenhagen-denmark",
+    "appPortId": "copenhagen",
+    "portName": "Copenhagen",
+    "country": "Denmark",
+    "portInfo": {
+      "description": "Copenhagen offers three CMP cruise areas: Oceankaj (Ocean Quay) for many large ships, plus Langelinie and Nordre Toldbod closer to the classic waterfront. Terminal choice changes your transfer: Oceankaj pairs with metro/bus links, while Langelinie puts you near the Little Mermaid promenade.",
+      "location": "Zealand, Denmark, on the Øresund",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Danish; English widely spoken",
+      "currency": "Danish krone (DKK); cards widely accepted",
+      "population": "City roughly 650,000; capital region ~1.3 million+"
+    },
+    "gettingThere": {
+      "fromTerminal": "Confirm Oceankaj vs Langelinie vs Nordre Toldbod on your cruise documents—transfer times differ substantially",
+      "transportation": [
+        "Metro",
+        "Bus",
+        "Taxi / rideshare",
+        "Bicycle (city)",
+        "Hop-on hop-off (seasonal)"
+      ],
+      "distanceToCity": "Approx. distances published for planning: Nordre Toldbod ~3 km, Langelinie ~4 km, Oceankaj ~8 km to city center",
+      "walkingTime": "Langelinie/Nordre Toldbod can be walkable for energetic guests; Oceankaj is a transit ride",
+      "taxiInfo": "Taxis available; Oceankaj–center fares are higher—public transport is usually straightforward",
+      "publicTransport": "Oceankaj commonly pairs bus links with Metro M4 (Orientkaj). Use Rejseplanen for real-time combinations to Tivoli, Nørreport, or the airport",
+      "distanceAnswer": "Approx. distances published for planning: Nordre Toldbod ~3 km, Langelinie ~4 km, Oceankaj ~8 km to city center"
+    },
+    "thingsToDo": {
+      "intro": "Terminal choice changes everything: Oceankaj is a transit ride; Langelinie and Nordre Toldbod sit closer to the classic waterfront.",
+      "topThings": [
+        "Rosenborg Castle, Øster Voldgade 4A: allow 90 minutes for a focused royal-collection visit. Check admission slots and accessibility before committing; a palace interior is not interchangeable with its surrounding garden.",
+        "Langelinie promenade, Langeliniekaj 2: allow an hour for waterfront views. This outdoor route suits passengers already at Langelinie, but the permitted ship exit still depends on berth operations.",
+        "Amalienborg, Amalienborg square: allow 45–60 minutes for the exterior and, only with confirmed admission, the museum. Royal use can affect room access. Do not schedule the whole day around a ceremony time that has not been checked.",
+        "Nyhavn, Nyhavn 1–71: allow 45 minutes for the canal frontage and a break. Boat tours have their own tickets and boarding points; a canal walk does not guarantee a cruise departure.",
+        "Tivoli Gardens, Vesterbrogade 3: allow at least three hours when its calendar permits. Admission and ride access are separate planning questions. Check ride restrictions and special-needs guidance for your party."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Check Oceankaj vs Langelinie vs Nordre Toldbod on final documents before you assume a walkable call."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "115c5394d21c0fcf096aa0292777e9ee58bbb2e0d2fa39855111ac516f4bfefe",
+      "existing_guide_hash": "9b6093e7bc5098c5",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/copenhagen-denmark.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_truncated_fromTerminal"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.364Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

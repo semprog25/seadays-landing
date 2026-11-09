@@ -1,0 +1,81 @@
+{
+  "landing_slug": "tallinn-estonia",
+  "draft": {
+    "landing_slug": "tallinn-estonia",
+    "appPortId": "tallinn",
+    "portName": "Tallinn",
+    "country": "Estonia",
+    "portInfo": {
+      "description": "Tallinn pairs a modern cruise terminal with one of Northern Europe’s most compact medieval cores. From the Cruise Terminal roof promenade and the short walk toward Viru Gate you can be among church spires in under half an hour if mobility and crowds cooperate. Ferry terminals A/D share the harbour but use different vehicle gates—follow cruise signage. Estonian Weather Service Tallinn-Harku 1991–2020 normals average about 6.4°C annually with a cool, damp climate; grippy shoes beat fashion.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Estonian",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Tallinn Cruise Terminal — Logi tn 4/2, Tallinn",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Port of Tallinn: Cruise Terminal at Logi tn 4/2; tram no. 2 stops Vanasadam and Linnahall about 500 m; rooftop promenade open to the public roughly 06:00–01:00 with walk-only rules on the promenade. Allow 20–35 minutes each way between the terminal building and Town Hall Square including cobbles and photo stops—editorial estimate; confirm tram headway in the local journey planner for the call date. Do not confuse Cruise Terminal access with Terminal A/D ferry vehicle gates—use the port map. Taxis and cruise shuttles use marked bays; ISPS rules can close casual shortcuts when ships are alongside. Airport (TLL): plan a separate transfer; do not treat a short Baltic call as an airport day-trip without a live plan and a generous buffer back to the gangway.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Port of Tallinn: Cruise Terminal at Logi tn 4/2; tram no. 2 stops Vanasadam and Linnahall about 500 m; rooftop promenade open to the public roughly 06:00–01:00 with walk-only rules on the promenade. Allow 20–35 minutes each way between the terminal building and Town Hall Square including cobbles and photo stops—editorial estimate; confirm tram headway in the local journey planner for the call date. Do not confuse Cruise Terminal access with Terminal A/D ferry vehicle gates—use the port map. Taxis and cruise shuttles use marked bays; ISPS rules can close casual shortcuts when ships are alongside. Airport (TLL): plan a separate transfer; do not treat a short Baltic call as an airport day-trip without a live plan and a generous buffer back to the gangway."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town Hall Square (Raekoja plats): allow 45–60 minutes for the square, side streets and a coffee. Cobbles and cruise groups slow progress.",
+        "Toompea / Alexander Nevsky / viewing platforms: allow 75–90 minutes including the uphill walk. Skip the tower queue if the call is short.",
+        "Viru Gate and adjacent Bastion / Musumägi area: allow 30–45 minutes as a soft landing from the harbour.",
+        "St. Catherine’s Passage / masters’ workshops lane: allow 30–45 minutes when combining with Town Hall Square.",
+        "Telliskivi / Balti Jaam market (longer calls only): allow 90–120 minutes including tram/taxi—only with a verified return plan. Estimate markers."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Photograph the Cruise Terminal entrance and your ship’s funnel colour before walking into Old Town; multiple ships can share the harbour and lookalikes confuse taxi returns."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "1b4b3101742aa77254835e4d4ef900db71b839df3ab9d5214dbb72bce61679c3",
+      "existing_guide_hash": "74801d13c8d13e8a",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tallinn-estonia.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review",
+        "dropped_research_shortCall",
+        "replaced_research_itinerary_shortCall",
+        "dropped_research_standardCall",
+        "replaced_research_itinerary_standardCall"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.232Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

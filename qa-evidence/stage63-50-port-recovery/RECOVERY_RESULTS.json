@@ -1,0 +1,313 @@
+{
+  "generated_at": "2026-11-09T07:40:41.182Z",
+  "ports": [
+    {
+      "landing_slug": "st-thomas-charlotte-amalie-us-virgin-islands",
+      "app_port_id": "st-thomas",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "tokyo-yokohama-japan",
+      "app_port_id": "yokohama",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "toulon-france",
+      "app_port_id": "toulon",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "hilo-hi-united-states",
+      "app_port_id": "hilo",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "london-tilbury-united-kingdom",
+      "app_port_id": "tilbury",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "tallinn-estonia",
+      "app_port_id": "tallinn",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "valletta-malta",
+      "app_port_id": "valletta",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "warnemunde-berlin-germany",
+      "app_port_id": "warnem-nde",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "haugesund-norway",
+      "app_port_id": "haugesund",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kirkenes-norway",
+      "app_port_id": "kirkenes",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kirkwall-orkney-united-kingdom",
+      "app_port_id": "kirkwall",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kos-greece",
+      "app_port_id": "ko",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "kristiansund-norway",
+      "app_port_id": "kristiansund",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "la-coruna-spain",
+      "app_port_id": "la-coruna",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "ocho-rios-jamaica",
+      "app_port_id": "ocho-rios",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_top_things_1",
+        "passenger_top_things_1_of_3",
+        "factual_insufficient_attractions_1"
+      ],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "tarragona-spain",
+      "app_port_id": "tarragona",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "zakynthos-greece",
+      "app_port_id": "zakynthos",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "tangier-morocco",
+      "app_port_id": "tangier",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "athens-piraeus-greece",
+      "app_port_id": "piraeus",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "barcelona-spain",
+      "app_port_id": "barcelona",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "cozumel-mexico",
+      "app_port_id": "cozumel",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "dubrovnik-croatia",
+      "app_port_id": "dubrovnik",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "genoa-italy",
+      "app_port_id": "genua",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "istanbul-turkey",
+      "app_port_id": "istanbul",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "marseille-provence-france",
+      "app_port_id": "marseille",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "miami-fl-united-states",
+      "app_port_id": "miami",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "palma-de-mallorca-spain",
+      "app_port_id": "palma-de-mallorca",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "rome-civitavecchia-italy",
+      "app_port_id": "civitavecchia",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "santorini-greece",
+      "app_port_id": "santorini",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "naples-italy",
+      "app_port_id": "naples",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "nassau-bahamas",
+      "app_port_id": "nassau",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "stockholm-sweden",
+      "app_port_id": "stockholm",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "copenhagen-denmark",
+      "app_port_id": "copenhagen",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "malaga-spain",
+      "app_port_id": "malaga",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "valencia-spain",
+      "app_port_id": "valencia",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "vigo-spain",
+      "app_port_id": "vigo",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "amsterdam-netherlands",
+      "app_port_id": "amsterdam",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    },
+    {
+      "landing_slug": "southampton-united-kingdom",
+      "app_port_id": "southampton",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": []
+    }
+  ]
+}

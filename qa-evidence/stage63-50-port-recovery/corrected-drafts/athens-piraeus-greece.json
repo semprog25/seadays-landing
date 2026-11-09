@@ -1,0 +1,78 @@
+{
+  "landing_slug": "athens-piraeus-greece",
+  "draft": {
+    "landing_slug": "athens-piraeus-greece",
+    "appPortId": "piraeus",
+    "portName": "Athens (Piraeus)",
+    "country": "Greece",
+    "portInfo": {
+      "description": "Piraeus is the cruise port for Athens. Ships use dedicated cruise terminals (commonly referenced as Terminal A / Miaoulis and additional berths). The Acropolis sits roughly 10–13 km away—plan metro, bus, taxi, or organized excursions rather than walking.",
+      "location": "Saronic Gulf, southwest of central Athens, Greece",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek; English widely used in tourism",
+      "currency": "Euro (EUR)",
+      "population": "Piraeus municipality ~160,000; Athens metro multi-million"
+    },
+    "gettingThere": {
+      "fromTerminal": "Note your berth (Terminal A vs further piers). Internal free shuttles often link outer berths to the main terminal area.",
+      "transportation": [
+        "Metro",
+        "Taxi / rideshare",
+        "Bus",
+        "Organized shore excursion"
+      ],
+      "distanceToCity": "Roughly 10–13 km to the Acropolis / central Athens",
+      "walkingTime": "Metro stations are a meaningful walk from cruise gates (often ~20 minutes from the main terminal area, longer from outer berths)—many guests use taxi or an organized transfer when time is tight",
+      "taxiInfo": "Taxis are the simplest timed option to the Acropolis; agree destination clearly",
+      "publicTransport": "X80 Piraeus–Acropolis–Syntagma Express (seasonal): re-launched 23 May 2026; stops at both cruise-terminal exits; every 35–40 min, 07:00–21:15; ~35 min to central Athens. Separate fares from metro (secondary: €4.10 day ticket). Metro Line 3: from Piraeus / Dimotiko Theatro to Monastiraki ~22 min (secondary). Terminal A → metro ~20–25 min walk; B/C 35–45 min — taxi recommended. Airport: X96 bus from",
+      "distanceAnswer": "Roughly 10–13 km to the Acropolis / central Athens"
+    },
+    "thingsToDo": {
+      "intro": "Piraeus is Athens’ cruise gate. The Acropolis area is roughly 10–13 km away—plan metro, taxi, or an organized tour, not a walk from the pier.",
+      "topThings": [
+        "Ancient Agora + National Archaeological Museum (city): after the standard Acropolis/Museum core, add Agora (≈75 min) and/or the National Museum (≈90 min) only if the remaining time still leaves a 75 min terminal buffer after the inbound X80/taxi. Publish a personal minimum before leaving the ship.",
+        "Cape Sounion: transfer time/distance not verified from a primary operator. Do not attempt as an independent cruise-day plan until a dated coach/train timetable and return buffer are confirmed; use a ship excursion or skip.",
+        "Overnight: Acropolis late afternoon, Plaka dinner (editorial).",
+        "Acropolis — 2 h; timed tickets; go early.",
+        "Acropolis Museum — 90 min; air-conditioned refuge."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Midday Acropolis climbs in summer are demanding. Go early, carry water, and watch for heat-related site measures."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "629be58257b07a03858088f4e159700eade045cc6ab1e35f66affa55671872a4",
+      "existing_guide_hash": "42eedc129b3ea346",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/athens-piraeus-greece.md"
+      ],
+      "unresolved_claims": [
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.296Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}

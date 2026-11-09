@@ -1,0 +1,78 @@
+{
+  "landing_slug": "kos-greece",
+  "draft": {
+    "landing_slug": "kos-greece",
+    "appPortId": "ko",
+    "portName": "Kos",
+    "country": "Greece",
+    "portInfo": {
+      "description": "kos.gr introduces Hippocrates (born Kos, 460 BC) and the Asklepieion as medical-history anchors while pushing island beaches. Visit Greece’s Dodecanese Kos SPA capture was chrome-heavy; municipal portal used as the tourism primary.",
+      "location": "",
+      "timezone": "EET (UTC+2) / EEST (UTC+3)",
+      "language": "Greek",
+      "currency": "Euro (EUR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Kos harbour waterfront — Kos Town harbour",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Town is harbour-adjacent. Asklepieion requires bike/taxi/bus — no invented minutes.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Town is harbour-adjacent. Asklepieion requires bike/taxi/bus — no invented minutes."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Kos Town harbour circuit",
+        "Asklepieion — timed inland visit",
+        "Beach hop — only with return buffer; operator beach pages not captured.",
+        "Kos Town harbour and plane-tree square area",
+        "Asklepieion of Kos"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do Asklepieion early; shop the harbour on the walk back."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b0e0f691fcd2fb1952e82842b5abbe848b3a40845f3c4b432eac91dff57e4426",
+      "existing_guide_hash": "ad2f27aedcf8e793",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kos-greece.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.264Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "stage63-targeted-editorial"
+}
