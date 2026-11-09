@@ -1,0 +1,38 @@
+{
+  "generated_at_utc": "2026-11-09T14:52:06.003Z",
+  "net_new_cohort_policy": "NEEDS_REVIEW or bootstrap only; PASS-bucket pilots excluded unless STAGE69_ALLOW_PILOT_PROMOTION=1",
+  "selected_count": 25,
+  "selected_slugs": [
+    "lanzarote-spain",
+    "madeira-funchal-portugal",
+    "melbourne-australia",
+    "molde-norway",
+    "narvik-norway",
+    "olden-norway",
+    "ponta-delgada-azores-portugal",
+    "port-canaveral-fl-united-states",
+    "safaga-egypt",
+    "salvador-de-bahia-brazil",
+    "santiago-san-antonio-chile",
+    "sharm-el-sheikh-egypt",
+    "skagen-denmark",
+    "skjolden-norway",
+    "st-george-s-grenada",
+    "st-lucia-castries-st-lucia",
+    "tauranga-new-zealand",
+    "tenerife-spain",
+    "tortola-british-virgin-islands",
+    "trondheim-norway",
+    "turku-finland",
+    "ulvik-norway",
+    "ushuaia-argentina",
+    "visby-sweden",
+    "wellington-new-zealand"
+  ],
+  "pilot_held_from_cohort": [
+    {
+      "landing_slug": "hamburg-germany",
+      "reason": "pilot_pass_bucket_not_net_new"
+    }
+  ]
+}

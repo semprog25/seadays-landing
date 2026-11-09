@@ -1,0 +1,33 @@
+{
+  "generated_at_utc": "2026-11-09T14:52:06.003Z",
+  "verified_research_commit": "f4552cf944e55c1087797567661b948e13e3978c",
+  "category_a_eligible": 32,
+  "needs_review_pool": 31,
+  "recovery_eligible": 31,
+  "selected": 25,
+  "skipped": [],
+  "pilot_promotion_held": [
+    {
+      "landing_slug": "hamburg-germany",
+      "app_port_id": "hamburg",
+      "country": "Germany",
+      "category": "A",
+      "blocker": null,
+      "evidence": [
+        "qa_verdict:PASS",
+        "identifier_status:resolved",
+        "research_sha_verified:true",
+        "by_port_md:true",
+        "publication_bucket:PASS"
+      ],
+      "qa_verdict": "PASS",
+      "identifier_status": "resolved",
+      "research_sha_verified": true,
+      "bootstrap_policy_ok": false,
+      "preparation_candidate": true,
+      "publication_bucket": "PASS",
+      "has_public_port_guide": true,
+      "multi_slug_peers": []
+    }
+  ]
+}
