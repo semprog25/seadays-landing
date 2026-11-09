@@ -57,32 +57,16 @@
     "distanceToCity": "Check the daily programme for your berth and allow extra time on turnaround or tender days.",
     "walkingTime": "",
     "taxiInfo": "",
-    "publicTransport": "",
+    "publicTransport": "Confirm local transport options with the ship on your call date.",
     "distanceAnswer": "Check the daily programme for your berth and allow extra time on turnaround or tender days."
-  },
-  "researchImport": {
-    "landing_slug": "madeira-funchal-portugal",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "fcf521d7d84bf98132dd0bef99f5eb2543ef6cf6cc8d7a7983e19a9dd62aec81",
-    "candidate_content_hash": "267932692d1e25627313d5d60c9f53fd146fbbd2751881b50fa1827b5d5cf27c",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
   },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
     "topThings": [
       "Funchal old town / seafront — short shore call focus.",
-      "Mercado dos Lavradores area — confirm opening hours locally (hours null here).",
-      "Cable car / Monte — allow queue + return buffer; exact pier-to-station transfer null.",
-      "Seafront promenade — low transfer risk if berthed Pontinha.",
+      "Mercado dos Lavradores — check market hours on your call day.",
+      "Cable car to Monte — allow queue and return time; confirm pier-to-station transfer locally.",
+      "Cable car to Monte — allow queue and return time; confirm pier-to-station transfer locally.",
       "Funchal old town / seafront"
     ],
     "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
@@ -90,5 +74,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "Confirm Terminal Sul vs Norte on your boarding pass; both appear on APRAM movements."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "fcf521d7d84bf98132dd0bef99f5eb2543ef6cf6cc8d7a7983e19a9dd62aec81",
+    "landing_slug": "madeira-funchal-portugal",
+    "candidate_content_hash": "7b315a8ac8658e24a911d70e39157b776542848be774c558ffff2d93b954c533",
+    "locked_at_utc": "2026-11-09T15:16:52.771Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }

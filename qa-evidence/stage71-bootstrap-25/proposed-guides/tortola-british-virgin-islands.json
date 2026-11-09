@@ -48,7 +48,7 @@
     "entryRequirements": "Valid passport required. Some nationalities may need visa."
   },
   "gettingThere": {
-    "fromTerminal": "Cyril B. Romney Tortola Pier Park — 1312×60 ft; ≤180k GRT; door null",
+    "fromTerminal": "Cyril B. Romney Tortola Pier Park — published pier dimensions up to 180,000 GRT class.",
     "transportation": [
       "Walking to Road Town",
       "Local ferries"
@@ -56,30 +56,14 @@
     "distanceToCity": "Directly in Road Town",
     "walkingTime": "5-10 minutes to town center—confirm on your sailing programme before you rely on a fixed walk time.",
     "taxiInfo": "Taxis readily available",
-    "publicTransport": "Pier Park is at the pier. Road Town centre minutes unverified. Cane Garden Bay / North Shore taxis need 75–120 min buffers on busy days.",
+    "publicTransport": "The pier park sits at the waterfront. Road Town centre is a short taxi ride — confirm walk time from your gangway if you plan to walk. Cane Garden Bay and North Shore outings need 75–120 minute buffers on busy days.",
     "distanceAnswer": "Directly in Road Town"
-  },
-  "researchImport": {
-    "landing_slug": "tortola-british-virgin-islands",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "166f08618170b26744c05751373ae4d43022e673c21e10029ae333937c5a5fbe",
-    "candidate_content_hash": "a6bab569721cc57f0f644eed32c952d8b28fd910d80d071d0810d1d18a0c2964",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
   },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
     "topThings": [
       "Pier Park shopping / dining — ~120–180 min.",
-      "Road Town stroll — walk minutes unverified.",
+      "Road Town stroll — allow flexible time from the pier; confirm shops and services on your call day.",
       "Beach / island tours — taxi; standard+ calls.",
       "Tortola Pier Park retail / Road Town"
     ],
@@ -88,5 +72,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "If your ship anchors, budget tender time separately from the alongside pier day."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "166f08618170b26744c05751373ae4d43022e673c21e10029ae333937c5a5fbe",
+    "landing_slug": "tortola-british-virgin-islands",
+    "candidate_content_hash": "18564f6020fac45dee8c269986311f397bf95df154d3fa989e56d456b7608fb6",
+    "locked_at_utc": "2026-11-09T15:16:29.431Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }

@@ -61,31 +61,15 @@
     "distanceToCity": "Terminal is in St. George's city center",
     "walkingTime": "10-20 minutes to main shopping areas—confirm on your sailing programme before you rely on a fixed walk time.",
     "taxiInfo": "Taxis available at terminal with fixed rates to popular sites",
-    "publicTransport": "Carenage town is adjacent to the harbour; walk minutes from gangway unverified. Grand Etang / estate tours need coaches + 75–120 min buffers.",
+    "publicTransport": "The Carenage town area is adjacent to the harbour — allow flexible walk time from your gangway. Grand Etang and estate tours need coaches; keep a 75–120 minute buffer on busy days.",
     "distanceAnswer": "Terminal is in St. George's city center"
-  },
-  "researchImport": {
-    "landing_slug": "st-george-s-grenada",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "2c64f1d3b87afeef34d8a5235662414ac0b624be1180cc9c4e757e9f71c69b58",
-    "candidate_content_hash": "4f7d4cd11d30aed355ac4bf72a118eb638e67a092cfc41f25558e146a0231eba",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
   },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
     "topThings": [
       "Carenage / market streets — ~90–120 min if walk-off allowed.",
-      "Fort George views — climb minutes unverified.",
-      "Spice / waterfall tours — coach; standard+ calls.",
+      "Fort George views — allow extra time for the climb; confirm opening hours locally.",
+      "Carenage / St. George's harbour town — keep time for crowds near the gangway.",
       "Carenage / St. George's harbour town"
     ],
     "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
@@ -93,5 +77,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "Do not trust outdated “Melville Street LOA” tables until GPA republishes a terminus sheet."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "2c64f1d3b87afeef34d8a5235662414ac0b624be1180cc9c4e757e9f71c69b58",
+    "landing_slug": "st-george-s-grenada",
+    "candidate_content_hash": "9d196a4798f2de7380004811473e448c3095fe541659d710a2c8c522c4cf8f6e",
+    "locked_at_utc": "2026-11-09T15:16:52.811Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }

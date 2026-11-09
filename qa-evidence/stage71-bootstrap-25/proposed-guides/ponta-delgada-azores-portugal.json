@@ -50,27 +50,11 @@
       "Taxi",
       "Coach excursion"
     ],
-    "distanceToCity": "~200 m to downtown from Portas do Mar per Azores Cruise sheet; taxis and bus parking listed among general services. Airport ~5 km. Exact door-to-Praça walk metres still null beyond the sheet claim.",
+    "distanceToCity": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in.",
     "walkingTime": "",
     "taxiInfo": "",
-    "publicTransport": "~200 m to downtown from Portas do Mar per Azores Cruise sheet; taxis and bus parking listed among general services. Airport ~5 km. Exact door-to-Praça walk metres still null beyond the sheet claim.",
-    "distanceAnswer": "~200 m to downtown from Portas do Mar per Azores Cruise sheet; taxis and bus parking listed among general services. Airport ~5 km. Exact door-to-Praça walk metres still null beyond the sheet claim."
-  },
-  "researchImport": {
-    "landing_slug": "ponta-delgada-azores-portugal",
-    "schema_version": 1,
-    "publication_tier": "passenger_editorial_candidate",
-    "stage24_release_candidate": true,
-    "draft_version": "stage22-deterministic-v2.5-marker-strip",
-    "research_sha256": "e5338e0ae4093a9b46c133a8d3921f4c1bb79f6c3bc118274a5c70813f382555",
-    "candidate_content_hash": "7e0879e29d967b9862dabb7f7187517cd3910d1e91134f356362fbb6326642f8",
-    "locked_at_utc": "2026-11-09T15:03:59.444Z",
-    "field_exclusions": [],
-    "owner_approved": false,
-    "import_tier": "stage24_dry_run_only",
-    "stage71_bootstrap_release_candidate": true,
-    "owner_publication_authorized": false,
-    "identifier_confidence": "verified"
+    "publicTransport": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in.",
+    "distanceAnswer": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port services. Ponta Delgada airport is about 5 km — allow extra time if flying in."
   },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
@@ -86,5 +70,20 @@
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
     "practicalTip": "If assigned the commercial quay, budget the extra ~2 km to centre versus Portas do Mar."
   },
-  "shorePlansFirst": true
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "e5338e0ae4093a9b46c133a8d3921f4c1bb79f6c3bc118274a5c70813f382555",
+    "landing_slug": "ponta-delgada-azores-portugal",
+    "candidate_content_hash": "8a2bbfdbfd3d4cffde5f8acea37c592ae3aa5de1cd84872d7d12ddba13c62517",
+    "locked_at_utc": "2026-11-09T15:16:29.385Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "stage71_bootstrap_release_candidate": true,
+    "owner_publication_authorized": false
+  }
 }

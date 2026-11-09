@@ -6,7 +6,7 @@
     "portName": "Narvik",
     "country": "Norway",
     "portInfo": {
-      "description": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise (central harbour Pier 1/3 / Norkaia NONVK0001 in the ISPS description). The Cruise Norway destination sheet states cruise berths at Pier 3, 500 m to town centre, and landing largest ship 350 m. The live Pir 3 facility page publishes a 150 m quay length and LAT depth figure — treat the 350 m ship line as a sheet claim that still needs a primary LOA/assignment table before map import. Anchorage is also described on the sheet (inner ~1,000 m / outer ~3,000 m to tender pier). Door GPS remains null.",
+      "description": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise. Cruise Norway’s destination sheet cites berths at Pier 3, about 500 m to the town centre, and published quay dimensions that can differ from live port facility tables — confirm berth assignment and gangway location with your cruise line. Anchorage and tender options are also described for some sailings.",
       "location": "",
       "timezone": "CET (UTC+1) / CEST (UTC+2)",
       "language": "Norwegian",
@@ -72,5 +72,6 @@
     "factually_verified": false
   },
   "owner_bucket": "READY_FOR_OWNER_APPROVAL",
-  "recovery_mode": "stage71-needs-review-editorial"
+  "recovery_mode": "stage71-needs-review-editorial",
+  "stage72_publication_repair_at_utc": "2026-11-09T15:16:52.686Z"
 }

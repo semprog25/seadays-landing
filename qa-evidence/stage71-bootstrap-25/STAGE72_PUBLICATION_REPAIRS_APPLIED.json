@@ -1,0 +1,522 @@
+{
+  "generated_at_utc": "2026-11-09T15:16:52.696Z",
+  "slug_count": 18,
+  "slugs": [
+    "madeira-funchal-portugal",
+    "melbourne-australia",
+    "molde-norway",
+    "narvik-norway",
+    "ponta-delgada-azores-portugal",
+    "port-canaveral-fl-united-states",
+    "salvador-de-bahia-brazil",
+    "sharm-el-sheikh-egypt",
+    "skagen-denmark",
+    "skjolden-norway",
+    "st-george-s-grenada",
+    "st-lucia-castries-st-lucia",
+    "tauranga-new-zealand",
+    "tenerife-spain",
+    "tortola-british-virgin-islands",
+    "trondheim-norway",
+    "ulvik-norway",
+    "visby-sweden"
+  ],
+  "detail": [
+    {
+      "landing_slug": "madeira-funchal-portugal",
+      "draft_repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe; removed hours null",
+          "before_snippet": "Mercado dos Lavradores area — confirm opening hours locally (hours null here)."
+        },
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "passenger-safe; removed transfer null",
+          "before_snippet": "Mercado dos Lavradores — check market hours on your call day."
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "passenger-safe; removed hours null",
+          "before_snippet": "Mercado dos Lavradores area — confirm opening hours locally (hours null here)."
+        },
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "passenger-safe; removed transfer null",
+          "before_snippet": "Mercado dos Lavradores — check market hours on your call day."
+        }
+      ]
+    },
+    {
+      "landing_slug": "melbourne-australia",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "research distances; removed null shuttle placeholder",
+          "before_snippet": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follo"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follo"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follo"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "research distances; removed null shuttle placeholder",
+          "before_snippet": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follo"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follo"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "About 3 km to the CBD via tram Route 109 or taxi. Public access to parts of the pier can be limited on ship days — follo"
+        }
+      ]
+    },
+    {
+      "landing_slug": "molde-norway",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "port authority + Cruise Norway; removed door GPS internal",
+          "before_snippet": "Molde sits on Romsdalsfjord and is one of three cruise destinations under Molde og Romsdal Havn IKS (with Åndalsnes and "
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "port authority + Cruise Norway; removed door GPS internal",
+          "before_snippet": "Molde sits on Romsdalsfjord and is one of three cruise destinations under Molde og Romsdal Havn IKS (with Åndalsnes and "
+        }
+      ]
+    },
+    {
+      "landing_slug": "narvik-norway",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "passenger-safe; removed map-import / sheet-claim internal language",
+          "before_snippet": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise. Cruise Norway’s destination sheet cites berths at"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "passenger-safe; removed map-import / sheet-claim internal language",
+          "before_snippet": "Narvik’s public port lists Pier 3 as an ISPS terminal used for cruise. Cruise Norway’s destination sheet cites berths at"
+        }
+      ]
+    },
+    {
+      "landing_slug": "ponta-delgada-azores-portugal",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "Azores Cruise sheet distance",
+          "before_snippet": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port ser"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port ser"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port ser"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "Azores Cruise sheet distance",
+          "before_snippet": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port ser"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port ser"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Azores Cruise materials cite about 200 m from Portas do Mar to downtown; taxis and bus parking are listed among port ser"
+        }
+      ]
+    },
+    {
+      "landing_slug": "port-canaveral-fl-united-states",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "portcanaveral.com [S2]; removed door pins internal",
+          "before_snippet": "Canaveral Port Authority publishes arrival guides for seven passenger terminals in Cape Canaveral, FL 32920. North-side "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "stage72 editorial repair",
+          "before_snippet": "Confirm shuttles, taxis, and parking exits with the port or your cruise line on embarkation day."
+        },
+        {
+          "path": "thingsToDo.topThings[4]",
+          "evidence": "removed Not verified internal tag",
+          "before_snippet": "Orlando theme parks — embarkation-eve hotel nights only; not a realistic same-day turnaround."
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "portcanaveral.com [S2]; removed door pins internal",
+          "before_snippet": "Canaveral Port Authority publishes arrival guides for seven passenger terminals in Cape Canaveral, FL 32920. North-side "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "stage72 editorial repair",
+          "before_snippet": "Confirm shuttles, taxis, and parking exits with the port or your cruise line on embarkation day."
+        },
+        {
+          "path": "thingsToDo.topThings[4]",
+          "evidence": "removed Not verified internal tag",
+          "before_snippet": "Orlando theme parks — embarkation-eve hotel nights only; not a realistic same-day turnaround."
+        }
+      ]
+    },
+    {
+      "landing_slug": "salvador-de-bahia-brazil",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "passenger-safe; removed prices null",
+          "before_snippet": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "passenger-safe; removed prices null",
+          "before_snippet": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical"
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "Waterfront Comércio location; Elevador Lacerda links the lower city to Pelourinho. Taxis and rideshare are the practical"
+        }
+      ]
+    },
+    {
+      "landing_slug": "sharm-el-sheikh-egypt",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "UNCTAD + MedCruise; removed Door GPS null",
+          "before_snippet": "Sharm El Sheikh Port (UNCTAD EGSSH) sits on the southern Sinai Red Sea coast. Official pages publish coordinates 27°51.2"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "UNCTAD + MedCruise; removed Door GPS null",
+          "before_snippet": "Sharm El Sheikh Port (UNCTAD EGSSH) sits on the southern Sinai Red Sea coast. Official pages publish coordinates 27°51.2"
+        }
+      ]
+    },
+    {
+      "landing_slug": "skagen-denmark",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "port distance statement; removed path pins unverified",
+          "before_snippet": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walkin"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walkin"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "port distance statement; removed path pins unverified",
+          "before_snippet": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walkin"
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "The port states about 1,600 yards (roughly 1.5 km) from cruise piers to the pedestrian precinct and marina — plan walkin"
+        }
+      ]
+    },
+    {
+      "landing_slug": "skjolden-norway",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "port fact sheet; removed research-turn / Door GPS null",
+          "before_snippet": "Port of Skjolden markets itself as a call at the head of Lustrafjord, on Norway’s longest ice-free fjord system about 20"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "port fact sheet; removed research-turn / Door GPS null",
+          "before_snippet": "Port of Skjolden markets itself as a call at the head of Lustrafjord, on Norway’s longest ice-free fjord system about 20"
+        }
+      ]
+    },
+    {
+      "landing_slug": "st-george-s-grenada",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "passenger-safe; removed walk minutes unverified",
+          "before_snippet": "The Carenage town area is adjacent to the harbour — allow flexible walk time from your gangway. Grand Etang and estate t"
+        },
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "removed climb minutes unverified",
+          "before_snippet": "Fort George views — climb minutes unverified."
+        },
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "removed duplicate unverified Fort George line",
+          "before_snippet": "Fort George views — allow extra time for the climb; confirm opening hours locally."
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "passenger-safe; removed walk minutes unverified",
+          "before_snippet": "The Carenage town area is adjacent to the harbour — allow flexible walk time from your gangway. Grand Etang and estate t"
+        },
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "removed climb minutes unverified",
+          "before_snippet": "Fort George views — climb minutes unverified."
+        },
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "removed duplicate unverified Fort George line",
+          "before_snippet": "Fort George views — allow extra time for the climb; confirm opening hours locally."
+        }
+      ]
+    },
+    {
+      "landing_slug": "st-lucia-castries-st-lucia",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "SLASPA + GPH; removed SeaDays open-question internal",
+          "before_snippet": "Castries concentrates Saint Lucia’s cruise traffic. SLASPA describes Pointe Seraphine as a dedicated cruise shopping and"
+        },
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "passenger shore-time guidance",
+          "before_snippet": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and "
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and "
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "SLASPA + GPH; removed SeaDays open-question internal",
+          "before_snippet": "Castries concentrates Saint Lucia’s cruise traffic. SLASPA describes Pointe Seraphine as a dedicated cruise shopping and"
+        },
+        {
+          "path": "gettingThere.distanceToCity",
+          "evidence": "passenger shore-time guidance",
+          "before_snippet": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "same",
+          "before_snippet": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and "
+        },
+        {
+          "path": "gettingThere.distanceAnswer",
+          "evidence": "same",
+          "before_snippet": "The downtown market area is a short walk from the cruise terminals — keep time for crowds at the gangway. Soufrière and "
+        }
+      ]
+    },
+    {
+      "landing_slug": "tauranga-new-zealand",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "removed null shuttle/price placeholders",
+          "before_snippet": "The port cites easy access to Tauranga city and Bay of Plenty attractions. Shuttle provision varies by sailing — confirm"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "removed null shuttle/price placeholders",
+          "before_snippet": "The port cites easy access to Tauranga city and Bay of Plenty attractions. Shuttle provision varies by sailing — confirm"
+        }
+      ]
+    },
+    {
+      "landing_slug": "tenerife-spain",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "passenger-safe; removed prices/minutes null",
+          "before_snippet": "Santa Cruz urban core is the nearest option via taxi or bus — confirm fares locally. Teide National Park and southern re"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "passenger-safe; removed prices/minutes null",
+          "before_snippet": "Santa Cruz urban core is the nearest option via taxi or bus — confirm fares locally. Teide National Park and southern re"
+        }
+      ]
+    },
+    {
+      "landing_slug": "tortola-british-virgin-islands",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.fromTerminal",
+          "evidence": "removed door null",
+          "before_snippet": "Cyril B. Romney Tortola Pier Park — published pier dimensions up to 180,000 GRT class."
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "passenger-safe",
+          "before_snippet": "The pier park sits at the waterfront. Road Town centre is a short taxi ride — confirm walk time from your gangway if you"
+        },
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "removed walk minutes unverified",
+          "before_snippet": "Road Town stroll — allow flexible time from the pier; confirm shops and services on your call day."
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.fromTerminal",
+          "evidence": "removed door null",
+          "before_snippet": "Cyril B. Romney Tortola Pier Park — published pier dimensions up to 180,000 GRT class."
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "passenger-safe",
+          "before_snippet": "The pier park sits at the waterfront. Road Town centre is a short taxi ride — confirm walk time from your gangway if you"
+        },
+        {
+          "path": "thingsToDo.topThings[1]",
+          "evidence": "removed walk minutes unverified",
+          "before_snippet": "Road Town stroll — allow flexible time from the pier; confirm shops and services on your call day."
+        }
+      ]
+    },
+    {
+      "landing_slug": "trondheim-norway",
+      "draft_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "TPA pages; removed Door GPS null",
+          "before_snippet": "Trondheim Port Authority (TPA) operates ISPS cruise facilities in Trondheim. Cruise quay 68 at Brattøra is published at "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "removed unsurveyed gap wording",
+          "before_snippet": "Cruise berths are centrally located for city exploring. Confirm whether you start from Brattøra (quay 68) or Ila — walk "
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "portInfo.description",
+          "evidence": "TPA pages; removed Door GPS null",
+          "before_snippet": "Trondheim Port Authority (TPA) operates ISPS cruise facilities in Trondheim. Cruise quay 68 at Brattøra is published at "
+        },
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "removed unsurveyed gap wording",
+          "before_snippet": "Cruise berths are centrally located for city exploring. Confirm whether you start from Brattøra (quay 68) or Ila — walk "
+        }
+      ]
+    },
+    {
+      "landing_slug": "ulvik-norway",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "removed not surveyed gap",
+          "before_snippet": "Expect ship tender to the floating dock when assigned. Ulvik village is compact — allow flexible walk time from the dock"
+        },
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "removed transfer not surveyed",
+          "before_snippet": "Fruit & Cider Route farms — seasonal; transfer not surveyed."
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "removed not surveyed gap",
+          "before_snippet": "Expect ship tender to the floating dock when assigned. Ulvik village is compact — allow flexible walk time from the dock"
+        },
+        {
+          "path": "thingsToDo.topThings[2]",
+          "evidence": "removed transfer not surveyed",
+          "before_snippet": "Fruit & Cider Route farms — seasonal; transfer not surveyed."
+        }
+      ]
+    },
+    {
+      "landing_slug": "visby-sweden",
+      "draft_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "CMP walking distance; removed pins not verified",
+          "before_snippet": "Gotland’s cruise terminal is within walking distance of Visby’s city centre — plan extra time inside the medieval wall w"
+        }
+      ],
+      "proposed_repairs": [
+        {
+          "path": "gettingThere.publicTransport",
+          "evidence": "CMP walking distance; removed pins not verified",
+          "before_snippet": "Gotland’s cruise terminal is within walking distance of Visby’s city centre — plan extra time inside the medieval wall w"
+        }
+      ]
+    }
+  ]
+}
