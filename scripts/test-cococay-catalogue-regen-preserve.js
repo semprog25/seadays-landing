@@ -54,6 +54,12 @@ assert.ok(
   countCallPlanArticleCards(merged) >= 3,
   'mergePassengerEditorialBodyPreservation keeps richer on-disk things-to-do'
 );
+const stubMain = thinHtml;
+const noGuideMerge = mergePassengerEditorialBodyPreservation(stubMain, richHtml, null);
+assert.ok(
+  countCallPlanArticleCards(noGuideMerge) >= 3,
+  'call-plan downgrade guard works without portGuide (full CI regen path)'
+);
 assert.ok(/id="getting-there"[\s\S]*?<dl class="pg-facts">/.test(merged), 'preserves rich getting-there');
 
 const backup = fs.readFileSync(portPath, 'utf8');
