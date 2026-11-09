@@ -7,6 +7,7 @@ const path = require('path')
 const { containsInternalResearchLeak, collectGuidePassengerLeakBlob } = require('./lib/publicGuideCopySanitize')
 const { loadPublicPortGuidesFile } = require('./lib/publicPortGuideAdapter')
 const { researchToGuidePatch, readResearchMarkdown } = require('./lib/portResearchImport/transformResearchToPublic')
+const { sha256File } = require('./lib/portResearchImport/verifyResearchSha')
 
 const REPO = path.join(__dirname, '..')
 const SLUGS = ['cape-liberty-bayonne-nj-united-states', 'vancouver-bc-canada']
@@ -29,6 +30,15 @@ for (const slug of SLUGS) {
   )
   assert.ok(guide, `${slug} guide in JSON`)
   assert.ok(!containsInternalResearchLeak(collectGuidePassengerLeakBlob(guide)), `${slug}: JSON passenger blob leak scan`)
+  const mdPath = path.join(RESEARCH_ROOT, 'by-port', `${slug}.md`)
+  const pinned = guide.researchImport?.research_sha256
+  if (pinned && fs.existsSync(mdPath)) {
+    assert.strictEqual(
+      sha256File(mdPath),
+      pinned,
+      `${slug}: research_sha256 must match on-disk research markdown`
+    )
+  }
 
   if (fs.existsSync(path.join(RESEARCH_ROOT, 'by-port', `${slug}.md`))) {
     const raw = readResearchMarkdown(RESEARCH_ROOT, slug)
