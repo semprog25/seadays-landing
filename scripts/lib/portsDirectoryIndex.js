@@ -34,15 +34,10 @@ function escapeHtml(s) {
     .replace(/'/g, '&#39;');
 }
 
-/** Alias slugs → canonical directory slug (URLs retained; aliases hidden from browse grid). */
-const DIRECTORY_ALIAS_TO_CANONICAL = {
-  'chennai-port-india': 'chennai-india',
-  'cochin-india': 'kochi-india',
-  'cochin-port-india': 'kochi-india',
-  'mumbai-port-india': 'mumbai-india',
-  'vizag-india': 'visakhapatnam-india',
-  'doha-port-qatar': 'doha-qatar',
-};
+const {
+  DIRECTORY_ALIAS_TO_CANONICAL,
+  buildBrowseHiddenAliasMap,
+} = require('./portBrowseAliases');
 
 /** Canonical display names + search aliases for known duplicate destinations. */
 const CANONICAL_DISPLAY = {
@@ -328,7 +323,7 @@ function resolveDirectoryPorts(ports) {
     if (match && match.slug) heuristicAlias.set(slug, String(match.slug));
   }
 
-  const aliasToCanonical = { ...DIRECTORY_ALIAS_TO_CANONICAL };
+  const aliasToCanonical = { ...buildBrowseHiddenAliasMap() };
   for (const [alias, canonical] of heuristicAlias.entries()) {
     if (!aliasToCanonical[alias]) aliasToCanonical[alias] = canonical;
   }

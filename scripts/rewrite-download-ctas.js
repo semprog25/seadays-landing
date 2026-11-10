@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const { downloadPagePath, stripRedundantCampaignParamsInHtml } = require('./lib/storeLinks');
+const { isPortSplitSlug } = require('./lib/portSeoRedirects');
 
 const ROOT = path.join(__dirname, '..');
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -117,9 +118,11 @@ function rewriteHtml(html, rel) {
     next = next.replace(/<section class="app-download-cta"[\s\S]*?<\/section>/, soft);
   }
   const block = contextualBlock(rel, quoted);
-  if (/^(ships|ports)\/[^/]+\/index\.html$/.test(rel)) {
+  const portSlugMatch = /^ports\/([^/]+)\/index\.html$/.exec(rel);
+  const skipContextualCta = portSlugMatch && isPortSplitSlug(portSlugMatch[1]);
+  if (!skipContextualCta && /^(ships|ports)\/[^/]+\/index\.html$/.test(rel)) {
     if (block) next = insertDetailCtaInsideMain(next, block);
-  } else if (!/seadays-contextual-cta/.test(next)) {
+  } else if (!skipContextualCta && !/seadays-contextual-cta/.test(next)) {
     if (block && /<!-- seadays-site-shell:footer -->/.test(next)) {
       next = next.replace(
         '<!-- seadays-site-shell:footer -->',

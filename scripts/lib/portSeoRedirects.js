@@ -12,7 +12,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { DIRECTORY_ALIAS_TO_CANONICAL } = require('./portsDirectoryIndex');
+const { buildPortAliasRedirectMap } = require('./portBrowseAliases');
 const { getSiteFooterHtml } = require('./siteShell');
 
 const BASE_URL = 'https://seadays.app';
@@ -29,25 +29,7 @@ const PORT_STANDALONE_REDIRECTS = {
  * Explicit alias → canonical (includes heuristic-only aliases that must stay stable).
  * Must stay aligned with resolveDirectoryPorts browse-hide set.
  */
-const PORT_ALIAS_REDIRECTS = {
-  ...DIRECTORY_ALIAS_TO_CANONICAL,
-  'doha-port-qatar': 'doha-qatar',
-  'doha-cruise-terminal-qatar': 'doha-qatar',
-  'port-of-aqaba-jordan': 'aqaba-jordan',
-  'port-of-ashdod-israel': 'ashdod-israel',
-  'port-of-haifa-israel': 'haifa-israel',
-  'dubai-cruise-terminal-united-arab-emirates': 'dubai-united-arab-emirates',
-  'port-zayed-abu-dhabi-united-arab-emirates': 'abu-dhabi-united-arab-emirates',
-  'port-sultan-qaboos-muscat-oman': 'muscat-oman',
-  'jeddah-islamic-port-saudi-arabia': 'jeddah-saudi-arabia',
-  'mina-salman-manama-bahrain': 'manama-bahrain',
-  'goa-india': 'mormugao-port-goa-india',
-  'gran-canaria-spain': 'las-palmas-spain',
-  'rostock-germany': 'warnemunde-berlin-germany',
-  'rugen-germany': 'sassnitz-mukran-germany',
-  'glasgow-united-kingdom': 'greenock-united-kingdom',
-  'nordkapp-norway': 'honningsvag-norway',
-};
+const PORT_ALIAS_REDIRECTS = buildPortAliasRedirectMap();
 
 /** One URL that names two different dock towns. No single 301 target. */
 const PORT_SPLIT_PAGES = {
