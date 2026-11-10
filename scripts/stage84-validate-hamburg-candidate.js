@@ -27,8 +27,8 @@ function main() {
   const apply = JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'APPLY_REPORT.json'), 'utf8'))
   if (prep.bundle_idempotency_hash !== apply.bundle_hash) throw new Error('bundle hash mismatch')
   if (candidate.preparation_bundle_hash !== apply.bundle_hash) throw new Error('candidate bundle mismatch')
-  if (candidate.owner_publication_authorized !== false) throw new Error('owner_publication_authorized must be false')
-  if (candidate.owner_indexing_authorized !== false) throw new Error('owner_indexing_authorized must be false')
+  if (candidate.owner_publication_authorized !== true) throw new Error('owner_publication_authorized must be true')
+  if (candidate.owner_indexing_authorized !== false) throw new Error('owner_indexing_authorized must remain false')
 
   const rollbackDir = path.join(EVIDENCE, 'rollback-pre-apply')
   const rollbackGuides = JSON.parse(fs.readFileSync(path.join(rollbackDir, 'public-port-guides.json'), 'utf8'))
