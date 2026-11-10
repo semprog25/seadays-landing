@@ -9,8 +9,15 @@ const {
   DIRECTORY_FEATURED_SIZE,
   buildPortsIndexHtml,
   loadRegionImageManifest,
+  resolveDirectoryPorts,
 } = require('./lib/portsDirectoryIndex');
 const { buildPortAliasRedirectMap } = require('./lib/portBrowseAliases');
+const { buildSeoPortRecords } = require('./lib/seoShipPortPages');
+const { allPorts: APP_ALL_PORTS } = require('./lib/appCruiseDataset');
+const {
+  loadLandingCruiseContentOverrides,
+  applyPortContentOverride,
+} = require('./lib/landingCruiseContentOverrides');
 
 const root = path.join(__dirname, '..');
 const indexPath = path.join(root, 'ports/index.html');
@@ -63,7 +70,35 @@ DEFAULT_FEATURED_SLUGS.forEach((slug) => {
 
 assert.match(html, /rel="canonical" href="https:\/\/seadays\.app\/ports\/"/);
 const cardCount = (html.match(/class="seo-grid-card directory-card[^"]*"/g) || []).length;
-assert.ok(cardCount >= 400, 'directory grid has crawlable cards');
+const cruiseContentOverrides = loadLandingCruiseContentOverrides();
+const fullPortRawList = APP_ALL_PORTS.map((p) => {
+  const slug = String(p.slug || '').trim();
+  const country = p.country || '';
+  const label = String(p.name || '').trim();
+  const portName =
+    country && label.toLowerCase().endsWith(`, ${String(country).toLowerCase()}`)
+      ? label.slice(0, -2 - String(country).length).trim()
+      : label || slug;
+  const base = {
+    id: slug,
+    slug,
+    portName,
+    country,
+    region: p.region || '',
+    description: '',
+    highlights: [],
+    rating: null,
+    reviewCount: null,
+  };
+  return applyPortContentOverride(base, cruiseContentOverrides.ports[slug]);
+});
+const { directoryPorts } = resolveDirectoryPorts(buildSeoPortRecords(fullPortRawList));
+const expectedDirectoryCardCount = directoryPorts.length;
+assert.strictEqual(
+  cardCount,
+  expectedDirectoryCardCount,
+  `directory grid card count (aliases excluded): expected ${expectedDirectoryCardCount}, got ${cardCount}`
+);
 
 const overrides = JSON.parse(
   fs.readFileSync(path.join(root, 'data/landing-cruise-content-overrides.json'), 'utf8')
@@ -82,7 +117,10 @@ const laPazPage = fs.readFileSync(path.join(root, 'ports/la-paz-mexico/index.htm
 assert.ok(html.includes('data-item="skagen-denmark"'), 'Skagen in directory grid');
 assert.ok(html.includes('data-item="la-paz-mexico"'), 'La Paz in directory grid');
 assert.ok(!skagenPage.includes('Fossil Group'), 'Skagen guide: no watch brand bleed');
-assert.ok(skagenPage.includes('northernmost town'), 'Skagen guide: Danish town copy');
+assert.ok(
+  skagenPage.includes('northernmost cruise stop'),
+  'Skagen guide: passenger editorial northernmost cruise stop copy'
+);
 assert.ok(!laPazPage.includes('capital of Bolivia'), 'La Paz guide: no Bolivia bleed');
 assert.ok(laPazPage.includes('Baja California Sur'), 'La Paz guide: Baja copy');
 

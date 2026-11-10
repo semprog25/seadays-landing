@@ -27,6 +27,11 @@ on:
       - 'scripts/lib/directoryRuntimeImageGuard.js'
       - 'scripts/lib/ciClassifyGeneration.js'
       - 'scripts/lib/generateMode.js'
+      - 'scripts/lib/publicPortGuideAdapter.js'
+      - 'scripts/test-landing-slug-slug-map.js'
+      - 'scripts/test-ports-directory.js'
+      - 'scripts/test-cococay-catalogue-regen-preserve.js'
+      - 'package.json'
       - '.github/workflows/deploy.yml'
       - 'ports/index.html'
       - 'data/ports-directory-image-review-state.json'
@@ -50,6 +55,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Port guide slug map regression
+        run: npm run test:landing-slug-slug-map
+
+      - name: Ports directory and CocoCay catalogue regen regressions
+        run: |
+          node scripts/test-ports-directory.js
+          npm run test:cococay-catalogue-regen-preserve
 
       - name: Ports index generator parity (regenerate vs generateBlogs --ports-only)
         run: node scripts/test-ports-index-generator-parity.js
