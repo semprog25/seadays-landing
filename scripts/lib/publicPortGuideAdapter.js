@@ -457,12 +457,27 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
   const portsBySlug = new Map(
     (seoPorts || []).map((p) => [String(p.slug || '').trim(), p]).filter(([slug]) => slug)
   );
+  const landingSlugOwner = new Map();
+  const landingSlugConflict = new Set();
   for (const [guideId, guide] of Object.entries(guidesById || {})) {
     const landingSlug = String(guide?.researchImport?.landing_slug || '').trim();
     if (!landingSlug) continue;
+    const priorOwner = landingSlugOwner.get(landingSlug);
+    if (priorOwner === undefined) {
+      landingSlugOwner.set(landingSlug, guideId);
+      continue;
+    }
+    if (priorOwner !== guideId) {
+      landingSlugConflict.add(landingSlug);
+      landingSlugOwner.delete(landingSlug);
+    }
+  }
+  for (const [landingSlug, guideId] of landingSlugOwner) {
+    if (landingSlugConflict.has(landingSlug)) continue;
+    if (out[landingSlug]) continue;
     const port = portsBySlug.get(landingSlug);
-    const portCountry = port ? port.country : guide.country || '';
-    const accepted = acceptGuideId(guideId, guidesById, portCountry);
+    if (!port) continue;
+    const accepted = acceptGuideId(guideId, guidesById, port.country || '');
     if (accepted) out[landingSlug] = accepted;
   }
   return out;
