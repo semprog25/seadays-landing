@@ -454,6 +454,17 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
     const fromTokens = resolveGuideIdFromSlugTokens(slug, guidesById, country);
     if (fromTokens) out[slug] = fromTokens;
   }
+  const portsBySlug = new Map(
+    (seoPorts || []).map((p) => [String(p.slug || '').trim(), p]).filter(([slug]) => slug)
+  );
+  for (const [guideId, guide] of Object.entries(guidesById || {})) {
+    const landingSlug = String(guide?.researchImport?.landing_slug || '').trim();
+    if (!landingSlug) continue;
+    const port = portsBySlug.get(landingSlug);
+    const portCountry = port ? port.country : guide.country || '';
+    const accepted = acceptGuideId(guideId, guidesById, portCountry);
+    if (accepted) out[landingSlug] = accepted;
+  }
   return out;
 }
 
