@@ -12,6 +12,9 @@ const details = [
   'ports/mumbai-india/index.html',
   'ports/adelaide-australia/index.html',
   'ports/hamburg-germany/index.html',
+  'ports/aalborg-denmark/index.html',
+  'ports/aarhus-denmark/index.html',
+  'ports/aberdeen-united-kingdom/index.html',
   'ships/celebrity-solstice/index.html',
 ];
 const SECTION_RE = /<section class="seadays-contextual-cta"[^>]*>[\s\S]*?<\/section>/g;
@@ -48,4 +51,4 @@ assert.equal(rewriteHtml(redirect, 'ports/goa-india/index.html'), redirect);
 // A fresh generated page without prior CTA still gains exactly one inside main.
 verify('ports/example/index.html', '<html><main><h1>Example</h1></main><!-- seadays-site-shell:footer --></html>');
 
-console.log('test-contextual-cta-layout PASS (read-only, 4 representative pages + fixtures)');
+console.log('test-contextual-cta-layout PASS (read-only, representative pages + fixtures)');
