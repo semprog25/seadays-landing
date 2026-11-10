@@ -45,8 +45,10 @@ const GETTING_THERE_SECTION_RE = /<section class="pg-section" id="getting-there"
 const TRAVELER_QUESTIONS_SECTION_RE = /<section class="pg-section" id="traveler-questions"[\s\S]*?<\/section>/i;
 const QUICK_FACTS_SECTION_RE = /<section class="pg-section" id="quick-facts"[\s\S]*?<\/section>/i;
 const LEAD_GUIDE_RE = /<p class="pg-prose pg-lead-guide">[\s\S]*?<\/p>/i;
-const FAQ_JSON_LD_RE =
-  /<script type="application\/ld\+json">\s*\{[\s\S]*?"@type"\s*:\s*"FAQPage"[\s\S]*?<\/script>/i;
+const HEAD_BLOCK_RE = /<head\b[^>]*>[\s\S]*?<\/head>/i;
+const PORT_DETAIL_JSON_LD_DEDUPE_TYPES = ['TouristDestination', 'BreadcrumbList', 'FAQPage'];
+const JSON_LD_SCRIPT_TAG_RE =
+  /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi;
 
 /** Starfield init + optional directory runtime guard (signed-URL hygiene) before `</body>`. */
 const TAIL_FROM_STARFIELD_SCRIPT_RE =
@@ -55,6 +57,59 @@ const TAIL_FROM_STARFIELD_SCRIPT_RE =
 function extractFirstMatch(html, re) {
   const m = String(html || '').match(re);
   return m ? m[0] : '';
+}
+
+function parseJsonLdScriptInner(inner) {
+  try {
+    const data = JSON.parse(String(inner || '').trim());
+    if (!data || typeof data !== 'object') return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+/** One `<script type="application/ld+json">` whose parsed `@type` matches (never spans multiple tags). */
+function extractJsonLdScriptTagByType(html, schemaType) {
+  const scope = String(html || '');
+  if (!schemaType) return '';
+  JSON_LD_SCRIPT_TAG_RE.lastIndex = 0;
+  let match;
+  while ((match = JSON_LD_SCRIPT_TAG_RE.exec(scope))) {
+    const data = parseJsonLdScriptInner(match[1]);
+    if (data && data['@type'] === schemaType) {
+      return match[0];
+    }
+  }
+  return '';
+}
+
+function headHasJsonLdType(html, schemaType) {
+  const head = extractFirstMatch(html, HEAD_BLOCK_RE);
+  if (!head) return false;
+  return Boolean(extractJsonLdScriptTagByType(head, schemaType));
+}
+
+/**
+ * Catalogue regen must not accumulate duplicate TouristDestination / BreadcrumbList / FAQPage in `<head>`.
+ */
+function dedupePortDetailHeadJsonLd(html) {
+  const s = String(html || '');
+  const headMatch = s.match(HEAD_BLOCK_RE);
+  if (!headMatch) return s;
+  const head = headMatch[0];
+  const seen = new Set();
+  const withoutDupes = head.replace(JSON_LD_SCRIPT_TAG_RE, (full, inner) => {
+    const data = parseJsonLdScriptInner(inner);
+    const type = data && data['@type'];
+    if (!type || !PORT_DETAIL_JSON_LD_DEDUPE_TYPES.includes(type)) {
+      return full;
+    }
+    if (seen.has(type)) return '';
+    seen.add(type);
+    return full;
+  });
+  return s.replace(head, withoutDupes.replace(/\n{3,}/g, '\n\n'));
 }
 
 function replaceFirstMatch(html, re, replacement) {
@@ -127,27 +182,24 @@ function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, po
   if (lead && !LEAD_GUIDE_RE.test(html)) {
     html = html.replace(/(<nav class="port-jump"[\s\S]*?<\/nav>)/, `$1\n${lead}`);
   }
-  const faqJsonLd = extractFirstMatch(existingHtml, FAQ_JSON_LD_RE);
-  if (faqJsonLd && !FAQ_JSON_LD_RE.test(html)) {
-    html = html.replace(
-      /(<script type="application\/ld\+json">[\s\S]*?BreadcrumbList[\s\S]*?<\/script>)/,
-      `$1\n  ${faqJsonLd}`
-    );
-  }
-  const existingDestinationLd = existingHtml.match(
-    /<script type="application\/ld\+json">\s*\{[\s\S]*?"@type"\s*:\s*"TouristDestination"[\s\S]*?<\/script>/
-  );
-  const generatedDestinationLd = html.match(
-    /<script type="application\/ld\+json">\s*\{[\s\S]*?"@type"\s*:\s*"TouristDestination"[\s\S]*?<\/script>/
-  );
-  if (existingDestinationLd && generatedDestinationLd) {
-    const existingDesc = /"description":"[^"]{20,}/.test(existingDestinationLd[0]);
-    const generatedDesc = /"description":"[^"]{20,}/.test(generatedDestinationLd[0]);
-    if (existingDesc && !generatedDesc) {
-      html = html.replace(generatedDestinationLd[0], existingDestinationLd[0]);
+  const faqJsonLd = extractJsonLdScriptTagByType(existingHtml, 'FAQPage');
+  if (faqJsonLd && !headHasJsonLdType(html, 'FAQPage')) {
+    const breadcrumbJsonLd = extractJsonLdScriptTagByType(html, 'BreadcrumbList');
+    const anchor = breadcrumbJsonLd || extractJsonLdScriptTagByType(html, 'TouristDestination');
+    if (anchor) {
+      html = html.replace(anchor, `${anchor}\n  ${faqJsonLd}`);
     }
   }
-  return html;
+  const existingDestinationLd = extractJsonLdScriptTagByType(existingHtml, 'TouristDestination');
+  const generatedDestinationLd = extractJsonLdScriptTagByType(html, 'TouristDestination');
+  if (existingDestinationLd && generatedDestinationLd) {
+    const existingDesc = /"description":"[^"]{20,}/.test(existingDestinationLd);
+    const generatedDesc = /"description":"[^"]{20,}/.test(generatedDestinationLd);
+    if (existingDesc && !generatedDesc) {
+      html = html.replace(generatedDestinationLd, existingDestinationLd);
+    }
+  }
+  return dedupePortDetailHeadJsonLd(html);
 }
 
 /**
@@ -214,7 +266,7 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
     html = html.replace(TAIL_FROM_STARFIELD_SCRIPT_RE, existingTail);
   }
   html = mergePassengerEditorialBodyPreservation(html, existingHtml, opts.portGuide);
-  return html;
+  return dedupePortDetailHeadJsonLd(html);
 }
 
 module.exports = {
@@ -232,6 +284,9 @@ module.exports = {
   replaceSiteShellHeadStyleBlock,
   mergePublishedPortHtmlPreservation,
   mergePassengerEditorialBodyPreservation,
+  dedupePortDetailHeadJsonLd,
+  extractJsonLdScriptTagByType,
+  headHasJsonLdType,
   countCallPlanArticleCards,
   passengerEditorialBodyScore,
   replaceBookableExperiencesSection,
