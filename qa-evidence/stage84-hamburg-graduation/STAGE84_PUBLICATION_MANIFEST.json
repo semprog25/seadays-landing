@@ -1,12 +1,14 @@
 {
   "schema_version": 1,
   "stage": "stage84-hamburg-graduation-candidate",
-  "status": "READY_FOR_OWNER_REVIEW",
-  "candidate_only": true,
-  "owner_publication_authorized": false,
+  "status": "OWNER_AUTHORIZED",
+  "candidate_only": false,
+  "owner_publication_authorized": true,
   "owner_indexing_authorized": false,
-  "production_apply_permitted": false,
-  "slugs_approved": [],
+  "production_apply_permitted": true,
+  "slugs_approved": [
+    "hamburg-germany"
+  ],
   "slugs_publication_candidate": [
     "hamburg-germany"
   ],
