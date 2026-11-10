@@ -27,7 +27,7 @@ const guide = guides.byAppPortId.hamburg
 assert.ok(guide, 'hamburg guide')
 assert.strictEqual(guide.researchImport?.stage84_hamburg_graduation_candidate, true)
 assert.strictEqual(guide.researchImport?.publication_tier, 'passenger_editorial')
-assert.strictEqual(guide.researchImport?.owner_publication_authorized, false)
+assert.strictEqual(guide.researchImport?.owner_publication_authorized, true)
 assert.strictEqual(guide.researchImport?.owner_indexing_authorized, false)
 assert.strictEqual(guide.researchImport?.qa_verdict, 'PASS')
 
