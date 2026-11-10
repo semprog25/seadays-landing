@@ -35,3 +35,6 @@ jobs:
           test -d ports
           test -d ships
           echo "Static GitHub Pages deploy only. No blog/port regeneration."
+
+      - name: Historical policy publication gate (fail closed)
+        run: node scripts/assert-pages-deploy-publication-gate.js

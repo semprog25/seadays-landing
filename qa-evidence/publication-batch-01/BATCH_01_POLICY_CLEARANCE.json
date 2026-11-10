@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-01",
+  "owner_conditional_prep_authorized": true,
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": false,
+  "merge_authorized": false,
+  "deploy_authorized": false,
+  "sitemap_inclusion_authorized": false,
+  "scope": "local_candidate_prep_and_targeted_validation_only",
+  "historical_stage43_hard_exclude_ledger_intact": true,
+  "stage43_per_port_exception_requires_owner_authorization": true,
+  "baseline_main": "4a6bd259707a8933658547e26a9d0657c8758b74",
+  "baseline_live_passenger_editorial": 356,
+  "candidate_slugs_policy_held": [
+    "bod-norway",
+    "mumbai-india",
+    "ravenna-italy",
+    "mormugao-port-goa-india"
+  ],
+  "deferred_not_in_batch": ["eilat-israel"],
+  "runtime_test_exception": {
+    "env_var": "SEADAYS_PUBLICATION_BATCH_01_CANDIDATE",
+    "value": "1",
+    "effect": "active_hard_exclude_lift_for_local_regen_only",
+    "not_publication_authorization": true,
+    "must_not_bypass_pages_deploy_gate": true
+  },
+  "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "proposed_guides_root": "qa-evidence/stage53-11-port-release/proposed-guides",
+  "created_at_utc": "2026-11-10T18:50:00.000Z",
+  "authorization_note": "Batch 01 conditional prep only. No merge, deploy, indexing, or per-port policy exception without explicit owner authorization."
+}
