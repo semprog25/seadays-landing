@@ -10,6 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const { downloadPagePath, stripRedundantCampaignParamsInHtml } = require('./lib/storeLinks');
+const { isPortSplitSlug } = require('./lib/portSeoRedirects');
 
 const ROOT = path.join(__dirname, '..');
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -60,16 +61,17 @@ function trackingForRel(rel) {
 }
 
 function contextualBlock(rel, quotedHref) {
+  let text = '';
   if (/^ships\/[^/]+\/index\.html$/.test(rel)) {
-    return (
-      `<p class="seo-inline-more seadays-contextual-cta">` +
-      `<a href="${quotedHref}">Know your ship before you sail. Plan this cruise in SeaDays.</a></p>\n`
-    );
+    text = 'Know your ship before you sail. Plan this cruise in SeaDays.';
+  } else if (/^ports\/[^/]+\/index\.html$/.test(rel)) {
+    text = 'Save this port in SeaDays.';
   }
-  if (/^ports\/[^/]+\/index\.html$/.test(rel)) {
+  if (text) {
     return (
-      `<p class="seo-inline-more seadays-contextual-cta">` +
-      `<a href="${quotedHref}">Save this port in SeaDays.</a></p>\n`
+      '<section class="seadays-contextual-cta" aria-label="Plan with SeaDays">' +
+      '<p class="seo-inline-more"><a href="' + quotedHref + '">' + text + '</a></p>' +
+      '</section>\n'
     );
   }
   if (/^cruise-(planner|roll-calls|community|budget|drink)/.test(rel)) {
@@ -79,6 +81,21 @@ function contextualBlock(rel, quotedHref) {
     );
   }
   return '';
+}
+
+const LEGACY_CONTEXTUAL_RE =
+  /[ \t]*<p class="seo-inline-more seadays-contextual-cta"[^>]*>[\s\S]*?<\/p>\s*/gi;
+const SECTION_CONTEXTUAL_RE =
+  /[ \t]*<section class="seadays-contextual-cta"[^>]*>[\s\S]*?<\/section>\s*/gi;
+
+function insertDetailCtaInsideMain(html, block) {
+  // Never generate a CTA outside the layout. Redirect-only pages without <main>
+  // remain untouched rather than receiving a broken footer-adjacent block.
+  if (!/<\/main>/i.test(html)) return html;
+  const withoutOld = html
+    .replace(LEGACY_CONTEXTUAL_RE, '')
+    .replace(SECTION_CONTEXTUAL_RE, '');
+  return withoutOld.replace(/[ \t]*<\/main>/i, `    ${block.trimEnd()}\n    </main>`);
 }
 
 function rewriteHtml(html, rel) {
@@ -100,8 +117,12 @@ function rewriteHtml(html, rel) {
       `<section class="app-download-cta" aria-label="SeaDays"><p class="app-download-cta-note">Finished the guide? SeaDays can hold the itinerary, spending notes, and roll call for this sailing. <a href="${quoted}">Open the app</a> when you are ready — the article stands on its own.</p></section>`;
     next = next.replace(/<section class="app-download-cta"[\s\S]*?<\/section>/, soft);
   }
-  if (!/seadays-contextual-cta/.test(next)) {
-    const block = contextualBlock(rel, quoted);
+  const block = contextualBlock(rel, quoted);
+  const portSlugMatch = /^ports\/([^/]+)\/index\.html$/.exec(rel);
+  const skipContextualCta = portSlugMatch && isPortSplitSlug(portSlugMatch[1]);
+  if (!skipContextualCta && /^(ships|ports)\/[^/]+\/index\.html$/.test(rel)) {
+    if (block) next = insertDetailCtaInsideMain(next, block);
+  } else if (!skipContextualCta && !/seadays-contextual-cta/.test(next)) {
     if (block && /<!-- seadays-site-shell:footer -->/.test(next)) {
       next = next.replace(
         '<!-- seadays-site-shell:footer -->',

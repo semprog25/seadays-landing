@@ -10,6 +10,7 @@ const {
   buildPortsIndexHtml,
   loadRegionImageManifest,
 } = require('./lib/portsDirectoryIndex');
+const { buildPortAliasRedirectMap } = require('./lib/portBrowseAliases');
 
 const root = path.join(__dirname, '..');
 const indexPath = path.join(root, 'ports/index.html');
@@ -178,5 +179,18 @@ const sampleHtml = buildPortsIndexHtml({
   regionImages: { 'Test Region': { imageUrl: 'https://seadays.app/example.jpg', alt: 'Test' } },
 });
 assert.ok(sampleHtml.includes('directory-hero--compact'), 'builder smoke');
+
+const gridStart = html.indexOf('id="directoryGrid"');
+const gridEnd = html.indexOf('id="directoryLoadMore"');
+const directoryGridHtml =
+  gridStart >= 0 && gridEnd > gridStart ? html.slice(gridStart, gridEnd) : html;
+const aliasCardsInGrid = Object.keys(buildPortAliasRedirectMap()).filter((slug) =>
+  directoryGridHtml.includes(`data-item="${slug}"`)
+);
+assert.strictEqual(
+  aliasCardsInGrid.length,
+  0,
+  `redirect aliases must not appear in browse grid: ${aliasCardsInGrid.join(', ')}`
+);
 
 console.log('ports directory v2 tests: ok');

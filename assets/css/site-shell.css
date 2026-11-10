@@ -550,3 +550,27 @@ button.seadays-brand-cta:hover,
   margin-bottom: 16px;
   background: rgba(255, 255, 255, 0.05);
 }
+/* Detail guide contextual CTA: stays inside the content layout, before the footer. */
+main > .seadays-contextual-cta {
+  box-sizing: border-box;
+  width: min(100% - 32px, 1120px);
+  margin: clamp(24px, 4vw, 40px) auto;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(121, 216, 255, 0.24);
+  border-radius: 16px;
+  background: rgba(121, 216, 255, 0.055);
+}
+main > .seadays-contextual-cta .seo-inline-more {
+  margin: 0;
+  line-height: 1.6;
+}
+main > .seadays-contextual-cta a {
+  color: var(--seadays-editorial-link, #79d8ff);
+  font-weight: 650;
+  text-underline-offset: 3px;
+}
+main > .seadays-contextual-cta a:hover,
+main > .seadays-contextual-cta a:focus-visible {
+  color: var(--seadays-editorial-link-hover, #a8e8ff);
+  text-decoration: underline;
+}
