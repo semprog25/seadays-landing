@@ -27,6 +27,8 @@
     "test:stage78-candidate-leak-guard": "node scripts/test-stage78-candidate-leak-guard.js",
     "test:stage79-oslo-legacy-leak": "node scripts/test-stage79-oslo-legacy-leak.js",
     "test:stage84-hamburg-graduation": "node scripts/test-stage84-hamburg-graduation.js",
+    "test:stage89-bodo-candidate": "SEADAYS_STAGE89_BODO_CANDIDATE=1 node scripts/test-stage89-bodo-candidate.js",
+    "test:stage92-bodo-publication-safety": "node scripts/test-stage92-bodo-publication-safety.js",
     "test:falmouth-homonym-publication-guard": "node scripts/test-falmouth-homonym-publication-guard.js",
     "test:falmouth-homonym-writer-coverage": "node scripts/test-falmouth-homonym-writer-coverage.js",
     "test:cococay-catalogue-regen-preserve": "node scripts/test-cococay-catalogue-regen-preserve.js",
