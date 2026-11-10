@@ -50,9 +50,22 @@ const STAGE43_HARD_EXCLUDE_HISTORICAL = new Set([
  */
 const STAGE60_OWNER_POLICY_EXCEPTION_SLUGS = new Set(['trieste-italy']);
 
+/**
+ * Stage 89 Bodø conditional candidate — local prep/tests only when
+ * `SEADAYS_STAGE89_BODO_CANDIDATE=1`. Not publication authorization; historical ledger unchanged.
+ * See qa-evidence/stage89-bodo-candidate/STAGE89_POLICY_CLEARANCE.json
+ */
+const STAGE89_CONDITIONAL_CANDIDATE_SLUGS = new Set(['bod-norway']);
+
+function buildStage89ConditionalActiveSlugs() {
+  if (process.env.SEADAYS_STAGE89_BODO_CANDIDATE !== '1') return new Set();
+  return STAGE89_CONDITIONAL_CANDIDATE_SLUGS;
+}
+
 function buildActiveHardExclude() {
   const active = new Set(STAGE43_HARD_EXCLUDE_HISTORICAL);
   for (const slug of STAGE60_OWNER_POLICY_EXCEPTION_SLUGS) active.delete(slug);
+  for (const slug of buildStage89ConditionalActiveSlugs()) active.delete(slug);
   return active;
 }
 
@@ -92,6 +105,12 @@ function exclusionReasonForSlug(slug, publishedSet) {
   ) {
     return 'stage60_owner_policy_exception';
   }
+  if (
+    STAGE43_HARD_EXCLUDE_HISTORICAL.has(slug) &&
+    buildStage89ConditionalActiveSlugs().has(slug)
+  ) {
+    return 'stage89_conditional_candidate_only';
+  }
   return null;
 }
 
@@ -102,6 +121,7 @@ module.exports = {
   STAGE43_HARD_EXCLUDE,
   STAGE43_HARD_EXCLUDE_HISTORICAL,
   STAGE60_OWNER_POLICY_EXCEPTION_SLUGS,
+  STAGE89_CONDITIONAL_CANDIDATE_SLUGS,
   buildPublishedSlugSet,
   exclusionReasonForSlug,
   loadProductionGuides,
