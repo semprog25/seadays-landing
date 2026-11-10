@@ -146,6 +146,8 @@ function main() {
     env: genEnv,
   })
 
+  const candidateAppliedDir = path.join(EVIDENCE, 'candidate-applied', 'ports', LANDING_SLUG)
+  fs.mkdirSync(candidateAppliedDir, { recursive: true })
   if (!fs.existsSync(htmlPath)) fail('regen did not produce bod-norway index.html')
   let html = fs.readFileSync(htmlPath, 'utf8')
   if (!/noindex/i.test(html)) {
@@ -191,6 +193,12 @@ function main() {
     created_at_utc: appliedAt,
   }
   fs.writeFileSync(path.join(EVIDENCE, 'STAGE89_PUBLICATION_MANIFEST.json'), `${JSON.stringify(pubManifest, null, 2)}\n`, 'utf8')
+
+  fs.copyFileSync(htmlPath, path.join(candidateAppliedDir, 'index.html'))
+  fs.writeFileSync(
+    path.join(EVIDENCE, 'candidate-applied/byAppPortId.bodo.json'),
+    `${JSON.stringify(next.byAppPortId[APP_PORT_ID], null, 2)}\n`
+  )
 
   const pe = countPassengerEditorialGuides(loadPublicPortGuidesFile(REPO))
   console.log(JSON.stringify({ ok: true, passenger_editorial: pe, robots: applyReport.robots_after_apply }, null, 2))

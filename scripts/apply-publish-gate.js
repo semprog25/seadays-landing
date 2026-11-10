@@ -7,6 +7,7 @@ const { evaluatePublishGate } = require('./lib/publishGate');
 const { replaceRobotsMeta } = require('./lib/adsenseIndexability');
 const { isPortSeoRedirectSlug } = require('./lib/portSeoRedirects');
 const { buildRestoreContext, mayRestorePageToIndex } = require('./lib/publishGateRestoreEligibility');
+const { assertHistoricalPolicyPublicationGate } = require('./lib/bulkPortPublication/historicalPolicyPublicationGate');
 
 const BASE = 'https://seadays.app';
 
@@ -56,6 +57,7 @@ function addSitemapUrls(xml, urls) {
 
 function main() {
   const repoRoot = path.join(__dirname, '..');
+  assertHistoricalPolicyPublicationGate(repoRoot);
   const ctx = buildRestoreContext(repoRoot);
   const pages = [...listPages(repoRoot, 'port'), ...listPages(repoRoot, 'ship')];
   const results = evaluatePublishGate(pages);

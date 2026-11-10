@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 const { evaluatePublishGate } = require('./lib/publishGate');
+const { assertHistoricalPolicyPublicationGate } = require('./lib/bulkPortPublication/historicalPolicyPublicationGate');
 const { AUDIT_PORT_NOINDEX, AUDIT_SHIP_HIDE_OVERVIEW, isAuditNoindexPort } = require('./lib/auditHoldback');
 
 const root = path.join(__dirname, '..');
@@ -27,6 +28,8 @@ function robots(html) {
 }
 
 function main() {
+  assertHistoricalPolicyPublicationGate(root);
+
   const pages = [...readPages('port'), ...readPages('ship')];
   const results = evaluatePublishGate(pages);
   const bySlug = new Map(results.map((row) => [`${row.kind}:${row.slug}`, row]));
