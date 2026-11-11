@@ -1490,6 +1490,78 @@
       "productionLicenseVerified": true,
       "stockIdentityVerifiedAt": "2026-11-07",
       "geographicVerificationStatus": "OK"
+    },
+    "kristiansund-norway": {
+      "url": "/assets/img/ports-directory/ports/kristiansund-norway/destination-commons-approved-kristiansund-norway.webp",
+      "provider": "wikimedia-commons",
+      "providerImageId": "Port_of_Kristiansund_1",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Port_of_Kristiansund_1.jpg",
+      "photographer": "Davide Mauro",
+      "licenseTerms": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "creditModifications": "Resized and converted to WebP for web delivery",
+      "depictedDestination": "Port of Kristiansund, Nordmøre, Norway (Commons: Port of Kristiansund 1.jpg)",
+      "approvedAt": "2026-11-11",
+      "approvedBy": "owner-commons-hero-approval-20261111",
+      "productionLicenseVerified": true,
+      "geographicVerificationStatus": "OK",
+      "ownerVisuallyApproved": true,
+      "commonsApply": {
+        "commonsFile": "Port of Kristiansund 1.jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Port_of_Kristiansund_1.jpg",
+        "sourceSha256": "d3abdd275e2f0412558ef2204f1d9d1d93d40f6f51cf6b34aeeb2f3cacf4563d",
+        "dimensions": {
+          "width": 4032,
+          "height": 3024
+        },
+        "expectedDimensions": {
+          "width": 4032,
+          "height": 3024
+        },
+        "supersededPortpic": {
+          "provider": "pexels",
+          "providerImageId": 13257229,
+          "sourcePageUrl": "https://www.pexels.com/photo/13257229/",
+          "reason": "LOCATION_MISMATCH — stock depicts Kristiansand, not Kristiansund"
+        },
+        "provenanceStatus": "COMMONS_OWNER_APPROVED_2026-11-11"
+      }
+    },
+    "skjolden-norway": {
+      "url": "/assets/img/ports-directory/ports/skjolden-norway/destination-commons-approved-skjolden-norway.webp",
+      "provider": "wikimedia-commons",
+      "providerImageId": "Queen_Elizabeth_Skjolden_Norway",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_Skjolden_Norway.jpg",
+      "photographer": "Gary Bembridge",
+      "licenseTerms": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "creditModifications": "Resized and converted to WebP for web delivery",
+      "depictedDestination": "Skjolden cruise pier, Luster, Norway (Commons: Queen Elizabeth Skjolden Norway.jpg)",
+      "approvedAt": "2026-11-11",
+      "approvedBy": "owner-commons-hero-approval-20261111",
+      "productionLicenseVerified": true,
+      "geographicVerificationStatus": "OK",
+      "ownerVisuallyApproved": true,
+      "commonsApply": {
+        "commonsFile": "Queen Elizabeth Skjolden Norway.jpg",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Queen_Elizabeth_Skjolden_Norway.jpg",
+        "sourceSha256": "2893d5e5de9e47a36472882d44d87c154124d375d5c7cf4c9cf82d0a0b40441c",
+        "dimensions": {
+          "width": 4896,
+          "height": 3672
+        },
+        "expectedDimensions": {
+          "width": 4896,
+          "height": 3672
+        },
+        "supersededPortpic": {
+          "provider": "pexels",
+          "providerImageId": 13602796,
+          "sourcePageUrl": "https://www.pexels.com/photo/13602796/",
+          "reason": "LOCATION_MISMATCH — stock depicts Olden, not Skjolden"
+        },
+        "provenanceStatus": "COMMONS_OWNER_APPROVED_2026-11-11"
+      }
     }
   },
   "rejectedCommonsFiles": [
@@ -1944,6 +2016,26 @@
       "approvedBy": "owner-visual-review-batch01r2-final",
       "productionLicenseVerified": true,
       "batchId": "destination-photo-batch-01-round2-four"
+    }
+  },
+  "rejectedOwnerPortpicGeography": {
+    "kristiansund-norway": {
+      "provider": "pexels",
+      "providerImageId": 13257229,
+      "sourcePageUrl": "https://www.pexels.com/photo/13257229/",
+      "reason": "LOCATION_MISMATCH — stock depicts Kristiansand, not Kristiansund",
+      "rejectedAt": "2026-11-11",
+      "rejectedBy": "owner-commons-hero-replace-20261111",
+      "supersededByCommons": "https://commons.wikimedia.org/wiki/File:Port_of_Kristiansund_1.jpg"
+    },
+    "skjolden-norway": {
+      "provider": "pexels",
+      "providerImageId": 13602796,
+      "sourcePageUrl": "https://www.pexels.com/photo/13602796/",
+      "reason": "LOCATION_MISMATCH — stock depicts Olden, not Skjolden",
+      "rejectedAt": "2026-11-11",
+      "rejectedBy": "owner-commons-hero-replace-20261111",
+      "supersededByCommons": "https://commons.wikimedia.org/wiki/File:Queen_Elizabeth_Skjolden_Norway.jpg"
     }
   }
 }

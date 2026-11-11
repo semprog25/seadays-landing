@@ -8,7 +8,7 @@ const repoRoot = path.join(__dirname, '..')
 const BASE = 'https://seadays.app'
 
 const INCLUDED_PORT_SLUGS = ['kochi-india', 'reine-norway']
-const EXCLUDED_PORT_SLUGS = ['kristiansund-norway', 'skjolden-norway']
+const COMMONS_HERO_SLUGS = ['kristiansund-norway', 'skjolden-norway']
 const INCLUDED_NORWAY_COUNTRY = 'destination-browse-owner-portpic-norway.webp'
 const INCLUDED_NORTHERN_EUROPE_REGION = 'northern-europe-owner-portpic-20261107.webp'
 
@@ -48,10 +48,13 @@ for (const slug of INCLUDED_PORT_SLUGS) {
   assert(j.image === abs, `${slug} JSON-LD image`)
 }
 
-for (const slug of EXCLUDED_PORT_SLUGS) {
-  assert(!review.humanApproved[slug], `excluded humanApproved ${slug} must be absent`)
+for (const slug of COMMONS_HERO_SLUGS) {
   const html = fs.readFileSync(path.join(repoRoot, 'ports', slug, 'index.html'), 'utf8')
   assert(!html.includes('destination-owner-portpic-'), `${slug} HTML must not reference portpic`)
+  assert(
+    !html.includes('owner-provided download'),
+    `${slug} must not expose internal owner-download QA caption`
+  )
 }
 
 assert(
@@ -75,14 +78,14 @@ assert(
 )
 
 assert(catalogText.includes(INCLUDED_NORTHERN_EUROPE_REGION), 'catalog Northern Europe portpic')
-for (const slug of EXCLUDED_PORT_SLUGS) {
+for (const slug of COMMONS_HERO_SLUGS) {
   assert(!catalogText.includes(`destination-owner-portpic-${slug}`), `catalog must not reference ${slug} portpic`)
 }
 
 const indexHtml = fs.readFileSync(path.join(repoRoot, 'ports', 'index.html'), 'utf8')
 assert(indexHtml.includes(INCLUDED_NORTHERN_EUROPE_REGION), 'ports index Northern Europe region card')
 assert(indexHtml.includes(INCLUDED_NORWAY_COUNTRY), 'ports index Norway browse')
-for (const slug of EXCLUDED_PORT_SLUGS) {
+for (const slug of COMMONS_HERO_SLUGS) {
   assert(!indexHtml.includes(`destination-owner-portpic-${slug}`), `ports index must not reference ${slug} portpic`)
 }
 
