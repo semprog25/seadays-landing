@@ -136,22 +136,34 @@ function buildBookableExperiencesBanner(affiliate, portName) {
   const ctaLabel = hasUrl ? 'Browse Experiences →' : 'Continue in SeaDays →';
   const rel = hasUrl ? 'noopener noreferrer sponsored' : 'noopener noreferrer';
   const target = hasUrl ? '_blank' : '_self';
+  const eyebrow = hasUrl ? 'Bookable Experiences' : 'Port day planning';
+  const aria = hasUrl ? 'Bookable experiences' : 'Port day planning';
+  const badge = 'Explore Shore Experiences';
+  const headline = hasUrl
+    ? `Explore experiences in ${escapeHtml(name)}`
+    : `Plan your port day in ${escapeHtml(name)}`;
+  const body = hasUrl
+    ? 'Browse shore excursions, tours, and activities on our booking partner\u2019s site.'
+    : 'Save itineraries, port tips, and notes in the SeaDays app.';
   const note = hasUrl
-    ? 'Secure checkout · Partner handled'
-    : 'Book shore excursions in the SeaDays app with our partner';
+    ? 'Secure checkout \u00b7 Partner handled'
+    : 'Checkout and excursion booking are not handled on this page.';
+  const disclosure = hasUrl
+    ? `<p class="pg-affiliate-note">SeaDays may earn a commission from qualifying bookings made through partner links. Checkout, payment, and support are handled by the partner.</p>`
+    : '';
   return (
-    `<section class="pg-section pg-booking" id="bookable-experiences" aria-label="Bookable experiences">` +
-    `<p class="pg-eyebrow">Bookable Experiences</p>` +
+    `<section class="pg-section pg-booking" id="bookable-experiences" aria-label="${escapeHtml(aria)}">` +
+    `<p class="pg-eyebrow">${escapeHtml(eyebrow)}</p>` +
     `<div class="pg-booking-banner">` +
     `<div class="pg-booking-copy">` +
-    `<span class="pg-booking-badge">Top Rated Experiences</span>` +
-    `<h2>Explore experiences in ${escapeHtml(name)}</h2>` +
-    `<p>Book shore excursions, tours &amp; activities with our partner</p>` +
+    `<span class="pg-booking-badge">${escapeHtml(badge)}</span>` +
+    `<h2>${headline}</h2>` +
+    `<p>${escapeHtml(body)}</p>` +
     `<p class="pg-booking-trust">${escapeHtml(note)}</p>` +
     `</div>` +
     `<a class="pg-booking-cta" href="${escapeHtml(href)}" target="${target}" rel="${rel}">${escapeHtml(ctaLabel)}</a>` +
     `</div>` +
-    `<p class="pg-affiliate-note">SeaDays may earn a commission from qualifying bookings made through partner links. Checkout, payment, and support are handled by the partner.</p>` +
+    disclosure +
     `</section>`
   );
 }

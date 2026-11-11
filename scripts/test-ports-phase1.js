@@ -10,7 +10,12 @@ const {
   buildWebSearchCampaign,
 } = require('./lib/viatorAffiliate');
 const { buildPortDetailHtml } = require('./lib/seoShipPortPages');
-const { PORT_GUIDE_STYLES, buildThingsToDoSection, buildTerminalsSection } = require('./lib/portGuideSections');
+const {
+  PORT_GUIDE_STYLES,
+  buildThingsToDoSection,
+  buildTerminalsSection,
+  buildBookableExperiencesBanner,
+} = require('./lib/portGuideSections');
 const { DANGLING_SENTENCE_RE, isDanglingSentence } = require('./lib/portCopyHygiene');
 
 const root = path.join(__dirname, '..');
@@ -364,5 +369,41 @@ assert.ok(hamburgRelated[0].includes('/ports/bremerhaven-germany/'));
 assert.strictEqual((hamburgRelated[0].match(/href="\/ports\//g) || []).length, 2);
 const widePages = published.filter((p) => p.html.includes('seo-detail-wide'));
 assert.strictEqual(widePages.length, published.length);
+
+const viatorBanner = buildBookableExperiencesBanner(
+  {
+    show: true,
+    url: 'https://www.viator.com/searchResults/all?text=Barcelona&pid=P00314321&mcid=42383&medium=link&campaign=seadays-web-pbarcelona',
+    destinationLabel: 'Barcelona',
+  },
+  'Barcelona'
+);
+assert.ok(viatorBanner.includes('Explore Shore Experiences'));
+assert.ok(!viatorBanner.includes('Top Rated'));
+assert.ok(viatorBanner.includes('viator.com'));
+assert.ok(viatorBanner.includes('pid=P00314321'));
+assert.ok(viatorBanner.includes('mcid=42383'));
+assert.ok(viatorBanner.includes('campaign=seadays-web-pbarcelona'));
+assert.ok(viatorBanner.includes('rel="noopener noreferrer sponsored"'));
+assert.ok(viatorBanner.includes('pg-affiliate-note'));
+
+const fallbackBanner = buildBookableExperiencesBanner(
+  { show: true, url: null, destinationLabel: 'Juneau', reason: 'not_configured', mode: 'search' },
+  'Juneau'
+);
+assert.ok(fallbackBanner.includes('Explore Shore Experiences'));
+assert.ok(!fallbackBanner.includes('Top Rated'));
+assert.ok(!fallbackBanner.includes('viator.com'));
+assert.ok(!fallbackBanner.includes('Book shore excursions, tours'));
+assert.ok(!fallbackBanner.includes('with our partner'));
+assert.ok(!fallbackBanner.includes('pg-affiliate-note'));
+assert.ok(fallbackBanner.includes('Continue in SeaDays'));
+assert.ok(fallbackBanner.includes('/download'));
+
+const privateBanner = buildBookableExperiencesBanner(
+  { show: false, url: null, privateIsland: true, mode: 'private_island' },
+  'Perfect Day'
+);
+assert.strictEqual(privateBanner, '');
 
 console.log(`ports phase 1 ok (${published.length} published, barcelona ${barcelonaChars} chars)`);
