@@ -254,7 +254,7 @@ function main() {
 
       if (!isDry) {
         writeWebDerivatives(srcAbs, destBase, 1280)
-        const baseAlt = `${regionKey} cruise region (owner download)`
+        const baseAlt = `${regionKey} cruise region`
         regionPayload.regions[regionKey] = {
           ...(prevRegion && typeof prevRegion === 'object' ? prevRegion : {}),
           imageUrl: webpRel,

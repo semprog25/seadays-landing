@@ -379,20 +379,47 @@ function compareLabelsAz(a, b) {
   return String(a || '').localeCompare(String(b || ''), undefined, { sensitivity: 'base' });
 }
 
+function defaultPublicRegionCardAlt(fallbackLabel) {
+  const label = String(fallbackLabel || '').trim();
+  if (!label) return 'Cruise region';
+  return /\bcruise region$/i.test(label) ? label : `${label} cruise region`;
+}
+
 /** Public region-carousel alt only — never internal geography/licence QA strings. */
 function sanitizePublicRegionCardImageAlt(regionKey, alt, fallbackLabel) {
-  const raw = String(alt || fallbackLabel || '').trim();
+  const label = String(fallbackLabel || regionKey || '').trim();
+  const original = String(alt || '').trim();
   const key = String(regionKey || '').trim();
   if (
     key === 'Alaska' &&
-    (/confirm geography/i.test(raw) || /owner-provided download/i.test(raw))
+    (!original ||
+      /confirm geography/i.test(original) ||
+      /owner-provided download/i.test(original) ||
+      /owner download/i.test(original))
   ) {
     return 'Alaska cruise region';
   }
-  if (/confirm licen[sc]e and geography before production/i.test(raw)) {
-    return `${String(fallbackLabel || key || 'Cruise').trim()} cruise region`;
+
+  let s = original;
+  s = s.replace(/\s*\(owner download[^)]*\)/gi, '');
+  s = s.replace(/\s*\(owner-provided download[^)]*\)/gi, '');
+  s = s.replace(/\s*—\s*confirm geography/gi, '');
+  s = s.replace(/confirm licen[sc]e and geography before production/gi, '');
+  s = s.replace(/\s{2,}/g, ' ').trim();
+
+  if (/^__virt_|__virt_/i.test(s) || /^__virt_/i.test(String(regionKey || ''))) {
+    return defaultPublicRegionCardAlt(label);
   }
-  return raw;
+
+  if (!s || /owner download/i.test(s) || /owner-provided/i.test(s)) {
+    return defaultPublicRegionCardAlt(label);
+  }
+
+  if (label && /^[A-Za-z][\w\s&-]*\s+cruise region$/i.test(s) && !s.toLowerCase().includes(label.toLowerCase())) {
+    return defaultPublicRegionCardAlt(label);
+  }
+
+  return s;
 }
 
 function buildRegionCardButton(def, imgMeta) {
