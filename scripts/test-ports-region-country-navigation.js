@@ -16,6 +16,8 @@ function assert(cond, msg) {
   }
 }
 
+assert(html.includes('id="filterRegion"'), 'region <select> fallback in filter bar');
+assert(html.includes('id="filterCountry"'), 'country <select> fallback in filter bar');
 assert(html.includes('id="portsDirectoryCountryImages"'), 'country images manifest injected');
 assert(html.includes('country-card-media'), 'country card photo styles in index');
 
@@ -59,5 +61,6 @@ assert(
   'returnToAllRegions used for country reset'
 );
 assert(clientSrc.includes('clearRegionSelection()'), 'clears region when returning to gallery');
+assert(clientSrc.includes('resetBtn.hidden'), 'clear-filters button shown only when filters active');
 
 console.log('OK test-ports-region-country-navigation');

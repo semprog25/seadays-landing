@@ -469,6 +469,14 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
     <section class="directory-controls directory-scroll-target directory-controls--slim" id="directoryResults" aria-label="Port results">
       <div class="filter-panel">
       <div class="filter-bar">
+        <label class="sr-only" for="filterRegion">Region</label>
+        <select id="filterRegion" class="filter-select">
+          <option value="__all__">All Regions</option><option value="Alaska">Alaska</option><option value="Asia">Asia</option><option value="Atlantic">Atlantic</option><option value="__virt_anz__">Australia &amp; New Zealand</option><option value="Baltic">Baltic Sea</option><option value="British Isles">British Isles</option><option value="Caribbean">Caribbean</option><option value="Mediterranean">Mediterranean</option><option value="Middle East">Middle East</option><option value="__virt_na__">North America</option><option value="Northern Europe">Northern Europe</option><option value="Fjords">Norwegian Fjords</option><option value="Private Island">Private Island</option><option value="South America">South America</option><option value="Arctic">Arctic</option><option value="Atlantic Canada">Atlantic Canada</option><option value="Atlantic Islands">Atlantic Islands</option><option value="Australia">Australia</option><option value="Baja Mexico">Baja Mexico</option><option value="Balearic Islands">Balearic Islands</option><option value="California">California</option><option value="Canary Islands">Canary Islands</option><option value="Florida">Florida</option><option value="Greek Isles">Greek Isles</option><option value="Gulf of Mexico">Gulf of Mexico</option><option value="Hawaii">Hawaii</option><option value="Lofoten">Lofoten</option><option value="Mexican Riviera">Mexican Riviera</option><option value="Mid-Atlantic">Mid-Atlantic</option><option value="New England">New England</option><option value="New Zealand">New Zealand</option><option value="North Sea">North Sea</option><option value="Northeast">Northeast</option><option value="Northern Ireland">Northern Ireland</option><option value="Pacific Coast">Pacific Coast</option><option value="Pacific Northwest">Pacific Northwest</option><option value="Riviera">Riviera</option><option value="Scandinavia">Scandinavia</option><option value="Scotland">Scotland</option><option value="South">South</option><option value="Southern Norway">Southern Norway</option><option value="St. Lawrence">St. Lawrence</option><option value="Texas">Texas</option>
+        </select>
+        <label class="sr-only" for="filterCountry">Country</label>
+        <select id="filterCountry" class="filter-select">
+          <option value="__all__">All countries</option>
+        </select>
         <label class="sr-only" for="filterBookable">Experiences</label>
         <select id="filterBookable" class="filter-select">
           <option value="__all__">All ports</option>
@@ -479,7 +487,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
           <option value="name" selected>Sort: Name</option>
           <option value="country">Sort: Country</option>
         </select>
-        <button type="button" class="directory-btn directory-btn-outline directory-btn-reset" id="directoryReset" aria-label="Reset browse">Start over</button>
+        <button type="button" class="directory-btn directory-btn-outline directory-btn-reset" id="directoryReset" hidden aria-label="Clear filters and return to region browse">Clear filters</button>
       </div>
       <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
       </div>
@@ -1551,6 +1559,20 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
         var showBack = !!(state.regions && state.regions.length) || (state.country && state.country !== '__all__') || state.view === 'browse' || !!state.query;
         directoryBack.hidden = !showBack;
       }
+      if(resetBtn){
+        var showReset =
+          isActiveFilter() ||
+          state.view === 'browse' ||
+          (state.sort && state.sort !== 'name');
+        resetBtn.hidden = !showReset;
+      }
+      if(filterCountry){
+        var countrySelectEnabled =
+          portsResultsActive() &&
+          (!!(state.regions && state.regions.length) || !!state.query || state.view === 'browse');
+        filterCountry.disabled = !countrySelectEnabled;
+        filterCountry.setAttribute('aria-disabled', countrySelectEnabled ? 'false' : 'true');
+      }
       if(directoryBreadcrumb){
         var parts = ['Regions'];
         var regionLabel = activeRegionLabel();
@@ -1718,7 +1740,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
       }
 
       if(filterCountry){
-        var previous = filterCountry.value;
+        var previous = state.syncingHistory && state.country ? state.country : filterCountry.value;
         filterCountry.innerHTML = '<option value="__all__">Back to regions</option>';
         entries.forEach(function(entry){
           var opt = document.createElement('option');
@@ -2006,11 +2028,19 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
           state.regions = parseRegionsAttr(btn);
           state.view = 'discover';
         }
+        if(filterRegion){
+          var regionKeyOpt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === regionKey; });
+          if(regionKeyOpt) filterRegion.value = regionKey;
+        }
       }
       var region = params.get('region');
       if(region){
         state.regions = [region];
         state.view = 'discover';
+        if(filterRegion){
+          var regionOpt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === region; });
+          if(regionOpt) filterRegion.value = region;
+        }
       }
       var country = params.get('country');
       if(country){
@@ -2018,9 +2048,9 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
         if(filterCountry) filterCountry.value = state.country;
         state.view = 'filter';
       }
-      state.syncingHistory = false;
       renderSearchResults();
       apply({ skipHistory: true });
+      state.syncingHistory = false;
       suppressAutoScroll = false;
     }
 
@@ -2079,6 +2109,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
     }
     if(filterRegion){
       filterRegion.addEventListener('change', function(){
+        if(state.syncingHistory) return;
         var val = filterRegion.value;
         if(val === '__all__'){
           clearRegionSelection();
@@ -2098,6 +2129,7 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
     }
     if(filterCountry){
       filterCountry.addEventListener('change', function(){
+        if(state.syncingHistory) return;
         state.country = filterCountry.value || '__all__';
         if(state.country === '__all__' && state.regions && state.regions.length){
           returnToAllRegions({ scrollAfter: 'region' });
