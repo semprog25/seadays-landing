@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "decision_id": "goa-canonical-identity-2026-11-11",
+  "recorded_at_utc": "2026-11-11T10:30:00.000Z",
+  "reconciled_main": "bdd1802dd639a388268dcba5d154c5c12fd93e79",
+  "owner_decision": "APPROVE_GOA_CANONICAL_IDENTITY",
+  "canonical_landing_slug": "mormugao-port-goa-india",
+  "canonical_app_port_id": "mormugao",
+  "alias_landing_slug": "goa-india",
+  "alias_role": "redirect_only",
+  "alias_redirect_target": "mormugao-port-goa-india",
+  "duplicate_passenger_guide_prohibited": true,
+  "collision_group_ref": "scripts/lib/portResearchImport/collisionGroups.js#goa-mormugao",
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": false,
+  "merge_authorized": false,
+  "deploy_authorized": false,
+  "stage43_clearance_authorized": false,
+  "authorization_note": "Identity-only approval. Does not authorize passenger-editorial publication, indexing, Stage 43 clearance, merge, or deploy."
+}
