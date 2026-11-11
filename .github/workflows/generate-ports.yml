@@ -112,6 +112,14 @@ jobs:
       - name: Verify public captions omit internal photo QA warnings
         run: node scripts/test-public-photo-caption-internal-warnings.js
 
+      - name: Assert ports regen banner-only diff (fail closed)
+        env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+          SEADAYS_PORTS_REGEN_DIFF_GATE: auto
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: node scripts/assert-ports-regen-banner-only-diff.js
+
       - name: Check for changes
         id: changes
         run: |
