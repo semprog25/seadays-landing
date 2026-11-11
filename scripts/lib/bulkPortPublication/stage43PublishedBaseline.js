@@ -51,6 +51,18 @@ const STAGE43_HARD_EXCLUDE_HISTORICAL = new Set([
 const STAGE60_OWNER_POLICY_EXCEPTION_SLUGS = new Set(['trieste-italy']);
 
 /**
+ * Batch 01 Wave 1 owner publication (2026-11-11): Mumbai, Ravenna, Bodø only.
+ * Historical STAGE43_HARD_EXCLUDE_HISTORICAL ledger unchanged — active exclude lifted
+ * only for these slugs when owner_publication_authorized on guide JSON.
+ * See qa-evidence/publication-batch-01/wave-01/WAVE_01_POLICY_CLEARANCE.json
+ */
+const WAVE01_OWNER_POLICY_EXCEPTION_SLUGS = new Set([
+  'mumbai-india',
+  'ravenna-italy',
+  'bod-norway',
+]);
+
+/**
  * Stage 89 Bodø conditional candidate — local prep/tests only when
  * `SEADAYS_STAGE89_BODO_CANDIDATE=1`. Not publication authorization; historical ledger unchanged.
  * See qa-evidence/stage89-bodo-candidate/STAGE89_POLICY_CLEARANCE.json
@@ -78,6 +90,7 @@ function buildPublicationBatch01ConditionalActiveSlugs() {
 function buildActiveHardExclude() {
   const active = new Set(STAGE43_HARD_EXCLUDE_HISTORICAL);
   for (const slug of STAGE60_OWNER_POLICY_EXCEPTION_SLUGS) active.delete(slug);
+  for (const slug of WAVE01_OWNER_POLICY_EXCEPTION_SLUGS) active.delete(slug);
   for (const slug of buildStage89ConditionalActiveSlugs()) active.delete(slug);
   for (const slug of buildPublicationBatch01ConditionalActiveSlugs()) active.delete(slug);
   return active;
@@ -121,6 +134,12 @@ function exclusionReasonForSlug(slug, publishedSet) {
   }
   if (
     STAGE43_HARD_EXCLUDE_HISTORICAL.has(slug) &&
+    WAVE01_OWNER_POLICY_EXCEPTION_SLUGS.has(slug)
+  ) {
+    return 'wave01_owner_policy_exception';
+  }
+  if (
+    STAGE43_HARD_EXCLUDE_HISTORICAL.has(slug) &&
     buildStage89ConditionalActiveSlugs().has(slug)
   ) {
     return 'stage89_conditional_candidate_only';
@@ -135,6 +154,7 @@ module.exports = {
   STAGE43_HARD_EXCLUDE,
   STAGE43_HARD_EXCLUDE_HISTORICAL,
   STAGE60_OWNER_POLICY_EXCEPTION_SLUGS,
+  WAVE01_OWNER_POLICY_EXCEPTION_SLUGS,
   STAGE89_CONDITIONAL_CANDIDATE_SLUGS,
   PUBLICATION_BATCH_01_CONDITIONAL_CANDIDATE_SLUGS,
   buildPublishedSlugSet,

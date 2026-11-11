@@ -30,6 +30,7 @@
     "test:stage89-bodo-candidate": "SEADAYS_STAGE89_BODO_CANDIDATE=1 node scripts/test-stage89-bodo-candidate.js",
     "test:stage92-bodo-publication-safety": "node scripts/test-stage92-bodo-publication-safety.js",
     "test:publication-batch-01": "SEADAYS_PUBLICATION_BATCH_01_CANDIDATE=1 node scripts/test-publication-batch-01.js",
+    "test:wave01-publication-release": "node scripts/test-wave01-publication-release.js",
     "test:publication-batch-apply-safety": "SEADAYS_PUBLICATION_BATCH_01_CANDIDATE=1 node scripts/test-publication-batch-apply-safety.js",
     "test:historical-policy-pages-deploy-gate": "node scripts/test-historical-policy-pages-deploy-gate.js",
     "test:pages-actions-migration": "node scripts/test-pages-actions-migration.js",

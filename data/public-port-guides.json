@@ -3640,7 +3640,7 @@
       "portName": "Bodo",
       "country": "Norway",
       "portInfo": {
-        "description": "A Norwegian port destination offering stunning fjord scenery, excellent facilities, and access to Norway's natural beauty.",
+        "description": "Port of Bodø states it collaborates with Visit Bodø and local tourism on sustainable cruise development and notes membership in Cruise Europe, Cruise Norway and Cruise Northern Norway and Svalbard (CNNS). The captured English cruise page does not publish a berth length/depth table, so this guide keeps the landing at port-area precision with null door GPS. Postal address Postboks 138, 8001 Bodø; visiting Bodøterminalen 4th floor, Rønvikleira; +47 75 55 10 80; firmapost@bodohavn.no.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -3679,12 +3679,59 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Bodø cruise landing",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Centre vs terminal distance not verified — ask ship for shuttle/walk guidance.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Centre vs terminal distance not verified — ask ship for shuttle/walk guidance."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town centre / waterfront — only if the ship confirms walking distance from berth.",
+          "Saltstraumen — coach; tidal timing critical.",
+          "Aviation / war museum"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Without a published quay table, treat independent walking distance as unknown until the ship briefs."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "6ec7436c4d9ffe0fa739d681",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "937ad03d7b3d328d8f147f3824f9d6dce461c9349b5b06aecdb33e2b11a434a5",
+        "landing_slug": "bod-norway",
+        "candidate_content_hash": "b761d2406d76ec38b0b900521cc80ff5cdfc4d76bcf48d00f7c5a0f81f727677",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "qa_verdict": "PASS",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "stage89_bodo_conditional_candidate": false,
+        "stage89_preparation_bundle_hash": "c6583225d44188edccc8c05ee60f7ca6b576fb594a65fb50718c60766df1f73e",
+        "stage53_proposed_guide_reused": true,
+        "candidate_applied_at_utc": "2026-11-11T08:08:08.368Z",
+        "owner_publication_authorized": true,
+        "owner_indexing_authorized": false,
+        "conditional_policy_exception": false,
+        "not_publication_authorization": false,
+        "owner_publication_authorized_at_utc": "2026-11-11T08:26:31.229Z",
+        "wave01_owner_policy_exception": true,
+        "publication_batch_01_conditional_candidate": false
       }
     },
     "bodrum": {
@@ -19524,7 +19571,7 @@
       "portName": "Mumbai",
       "country": "India",
       "portInfo": {
-        "description": "India's financial capital and major port, a vibrant city with historic sites, culture, and excellent facilities.",
+        "description": "Mumbai Port Authority publishes Ballard Pier Extension as the Passenger Terminal berth: maximum normal/oversize LOA 221 m, designed draft 9.75 m, permissible displacement 50,000 tons, beam up to 32 m oversize. The Passenger cum Cargo Berths table lists the same berth at 244 m wharf length and designed draft 9.5 m CD. MbPA general-cargo text states these berths mainly cater to cruise when occupied. Door GPS remain null; confirm MICT building exit with the line. Expect dense traffic to Colaba/Gateway.",
         "location": "",
         "timezone": "IST (UTC+5:30)",
         "language": "Marathi, Hindi, English",
@@ -19573,12 +19620,63 @@
         "entryRequirements": "Valid passport with at least 6 months validity. Visa required for most visitors."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Ballard Pier Extension Passenger Terminal",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Confirm with ship — minutes unverified.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Confirm with ship — minutes unverified."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Gateway of India / Colaba (transfer) — with transfer as needed.",
+          "Ship excursion — safest timing."
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Traffic is severe — over-budget return time."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "a6e6ed29b5e65b9719015400",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "9f2197b3a0b75e968c553a2735c4bc01f5b6d7359a46ec88eca32b3180be35a7",
+        "landing_slug": "mumbai-india",
+        "candidate_content_hash": "32b3b9b58ab094f2d2472b0493069e368418d947209ecdeaf2bd121abb357999",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [
+          "thingsToDo.topThings[2]"
+        ],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "qa_verdict": "PASS",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "publication_batch_01_conditional_candidate": false,
+        "batch01_preparation_bundle_hash": null,
+        "stage53_proposed_guide_reused": true,
+        "candidate_applied_at_utc": "2026-11-10T18:49:31.864Z",
+        "owner_publication_authorized": true,
+        "owner_indexing_authorized": false,
+        "conditional_policy_exception": false,
+        "not_publication_authorization": false,
+        "verified_factual_field_exclusions": [
+          "thingsToDo.topThings[2]"
+        ],
+        "owner_publication_authorized_at_utc": "2026-11-11T08:26:31.229Z",
+        "wave01_owner_policy_exception": true,
+        "stage89_bodo_conditional_candidate": false
       }
     },
     "muscat": {
@@ -25175,7 +25273,7 @@
       "portName": "Ravenna",
       "country": "Italy",
       "portInfo": {
-        "description": "A historic city famous for Byzantine mosaics, a UNESCO World Heritage site with excellent port facilities.",
+        "description": "Ravenna Civitas Cruise Port operates a dedicated cruise terminal at Molo Crociere, Porto Corsini, with two berths for simultaneous ships. AdSP’s November 2025 briefing for the 2026 season describes completion of a new maritime station (~5,000 m², two floors, 250×6 m elevated walkway) enabling two-ship operations (~7,000 pax), with 111 planned calls (71 homeport / 40 transit) and about 390,000 passenger movements (~58% above 2025). Historic Ravenna’s UNESCO monuments are inland of Porto Corsini.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Italian",
@@ -25216,12 +25314,60 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Ravenna Civitas Cruise Port — Molo Crociere, Porto Corsini — Molo Crociere, Porto Corsini, 48123 Ravenna, Italy",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Historic Ravenna’s UNESCO monuments are inland of Porto Corsini. Not a short waterfront walk from the cruise terminal — use ship shuttle or verified coach; transfer minutes are not published on the RCCP/AdSP pages we captured. Plan mosaic visits only after transfer timing is confirmed.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Historic Ravenna’s UNESCO monuments are inland of Porto Corsini. Not a short waterfront walk from the cruise terminal — use ship shuttle or verified coach; transfer minutes are not published on the RCCP/AdSP pages we captured. Plan mosaic visits only after transfer timing is confirmed."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "UNESCO mosaic sites (San Vitale et al.) — only after confirmed transfer from Porto Corsini.",
+          "Porto Corsini waterfront — if the ship confirms a short transfer window.",
+          "Ship excursion — safest timing when shuttle minutes are unknown."
+        ],
+        "shortCall": "Stay near Porto Corsini unless the ship confirms a short shuttle round-trip to historic Ravenna.",
+        "standardCall": "One mosaic site or old-town block is realistic only with confirmed shuttle timing—start back well before all-aboard.",
+        "longerCall": "A wider UNESCO circuit needs confirmed transport and a long day ashore—prefer ship excursion if shuttle timing is unknown.",
+        "practicalTip": "Porto Corsini ≠ Ravenna centro — budget transfer before mosaics."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_id": "cfce383c2070683812416440",
+        "draft_version": "stage22-deterministic-v2.4",
+        "research_sha256": "aef11192c59ec7fa6ffea672cf1a5d87380a6f551a847c6f5e8c097d41c23c5a",
+        "landing_slug": "ravenna-italy",
+        "candidate_content_hash": "bbd8facd5fb54e2175fbe2a297e5d50be0b20beb842c390a957fa189e4a04321",
+        "locked_at_utc": "2026-11-09T05:11:00.574Z",
+        "field_exclusions": [],
+        "owner_approved": false,
+        "import_tier": "stage24_dry_run_only",
+        "stage53_release_candidate": true,
+        "stage45_rescore_bundle_hash": "f13e73e56c6a099cdd16de0648f0c6c0c7a9b6059c3a6f8dbcaa668174c59214",
+        "qa_verdict": "PASS",
+        "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+        "publication_batch_01_conditional_candidate": false,
+        "batch01_preparation_bundle_hash": null,
+        "stage53_proposed_guide_reused": true,
+        "candidate_applied_at_utc": "2026-11-11T08:08:51.889Z",
+        "owner_publication_authorized": true,
+        "owner_indexing_authorized": false,
+        "conditional_policy_exception": false,
+        "not_publication_authorization": false,
+        "verified_factual_field_exclusions": [],
+        "owner_publication_authorized_at_utc": "2026-11-11T08:26:31.229Z",
+        "wave01_owner_policy_exception": true,
+        "stage89_bodo_conditional_candidate": false
       }
     },
     "recife": {

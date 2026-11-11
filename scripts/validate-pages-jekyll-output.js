@@ -66,12 +66,12 @@ function main() {
 
   const guides = loadPublicPortGuidesFile(root)
   removeStage65ExcludedGuideEntries(guides)
-  assert.strictEqual(countPassengerEditorialGuides(guides), 356, 'production PE must stay 356/406 at build time')
+  assert.strictEqual(countPassengerEditorialGuides(guides), 359, 'production PE must stay 359/406 at build time (wave 1)')
 
   console.log('validate-pages-jekyll-output PASS', {
     site_dir: siteDir,
     file_count: files.length,
-    passenger_editorial: 356,
+    passenger_editorial: 359,
   })
 }
 
