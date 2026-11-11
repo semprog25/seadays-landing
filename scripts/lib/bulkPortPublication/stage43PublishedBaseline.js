@@ -57,15 +57,29 @@ const STAGE60_OWNER_POLICY_EXCEPTION_SLUGS = new Set(['trieste-italy']);
  */
 const STAGE89_CONDITIONAL_CANDIDATE_SLUGS = new Set(['bod-norway']);
 
+/** Publication Batch 01 — local regen only when SEADAYS_PUBLICATION_BATCH_01_CANDIDATE=1. */
+const PUBLICATION_BATCH_01_CONDITIONAL_CANDIDATE_SLUGS = new Set([
+  'bod-norway',
+  'mumbai-india',
+  'ravenna-italy',
+  'mormugao-port-goa-india',
+]);
+
 function buildStage89ConditionalActiveSlugs() {
   if (process.env.SEADAYS_STAGE89_BODO_CANDIDATE !== '1') return new Set();
   return STAGE89_CONDITIONAL_CANDIDATE_SLUGS;
+}
+
+function buildPublicationBatch01ConditionalActiveSlugs() {
+  if (process.env.SEADAYS_PUBLICATION_BATCH_01_CANDIDATE !== '1') return new Set();
+  return PUBLICATION_BATCH_01_CONDITIONAL_CANDIDATE_SLUGS;
 }
 
 function buildActiveHardExclude() {
   const active = new Set(STAGE43_HARD_EXCLUDE_HISTORICAL);
   for (const slug of STAGE60_OWNER_POLICY_EXCEPTION_SLUGS) active.delete(slug);
   for (const slug of buildStage89ConditionalActiveSlugs()) active.delete(slug);
+  for (const slug of buildPublicationBatch01ConditionalActiveSlugs()) active.delete(slug);
   return active;
 }
 
@@ -122,6 +136,7 @@ module.exports = {
   STAGE43_HARD_EXCLUDE_HISTORICAL,
   STAGE60_OWNER_POLICY_EXCEPTION_SLUGS,
   STAGE89_CONDITIONAL_CANDIDATE_SLUGS,
+  PUBLICATION_BATCH_01_CONDITIONAL_CANDIDATE_SLUGS,
   buildPublishedSlugSet,
   exclusionReasonForSlug,
   loadProductionGuides,
