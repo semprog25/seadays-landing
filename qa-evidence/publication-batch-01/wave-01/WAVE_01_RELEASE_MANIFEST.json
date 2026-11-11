@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "wave_id": "publication-batch-01-wave-1",
+  "status": "DRAFT_PR_BRANCH",
+  "reconciled_against_main": "c14c7792bc7ea3d2e4a49d836d3a103a867d5828",
+  "live_baseline_passenger_editorial": 356,
+  "projected_passenger_editorial_after_wave": 359,
+  "remaining_unpublished_after_wave": 47,
+  "owner_publication_authorized": true,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": false,
+  "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "deferred_slugs": [
+    "mormugao-port-goa-india",
+    "goa-india"
+  ],
+  "deferred_reason": "Goa canonical/gateway policy unresolved — no changes in this wave",
+  "candidate_asset_root": "qa-evidence/publication-batch-01/candidates",
+  "corrections_ref": "qa-evidence/publication-batch-01/BATCH_01_CORRECTIONS_REPORT.md",
+  "bodo_stage29_html_ref": "qa-evidence/publication-batch-01/BATCH_01_STAGE29_BODO_HTML.json",
+  "rollback_root": "qa-evidence/publication-batch-01/rollback-pre-apply",
+  "apply_safety_ref": "scripts/lib/bulkPortPublication/publicationBatchApplySafety.js",
+  "wave_candidates": [
+    {
+      "landing_slug": "mumbai-india",
+      "app_port_id": "mumbai",
+      "prep_source": "stage53_proposed",
+      "proposed_guide_ref": "qa-evidence/stage53-11-port-release/proposed-guides/mumbai-india.json",
+      "proposed_content_hash": "9279720feb86bd7e6fb3a064ac908b20274f37484dae00f8da14f8a5ca7d4b3e",
+      "research_sha256": "9f2197b3a0b75e968c553a2735c4bc01f5b6d7359a46ec88eca32b3180be35a7",
+      "field_exclusions": ["thingsToDo.topThings[2]"],
+      "viator_campaign": "seadays-web-pmumbai",
+      "candidate_html_sha256": "60efe9c653bfe94f2241e0966a04c5b3966ce23a60934f579f57c6018546e145",
+      "candidate_guide_sha256": "6ebe51e153e4749a8c56230a77659f2a26bfcf5f02326abde67cdfc37d6acbd0",
+      "main_tree_candidate_html_matches": true
+    },
+    {
+      "landing_slug": "ravenna-italy",
+      "app_port_id": "ravenna",
+      "prep_source": "stage53_proposed",
+      "proposed_guide_ref": "qa-evidence/stage53-11-port-release/proposed-guides/ravenna-italy.json",
+      "proposed_content_hash": "01edab759b7beaf0734734fa932daa450bcf6c55f094e04fd2541275d1817f7a",
+      "research_sha256": "aef11192c59ec7fa6ffea672cf1a5d87380a6f551a847c6f5e8c097d41c23c5a",
+      "field_exclusions": [],
+      "viator_campaign": "seadays-web-pravenna",
+      "candidate_html_sha256": "cf884cf9305028871ec0ec9087904fc256ab6d0b37d638a4f0420c4a09bf951f",
+      "candidate_guide_sha256": "fb7bea6dc929923a18ba211980e03af2afb93f1d8dc0a4992ba95aa02b9456d8",
+      "main_tree_candidate_html_matches": false
+    },
+    {
+      "landing_slug": "bod-norway",
+      "app_port_id": "bodo",
+      "prep_source": "reuse_stage89",
+      "reuse_candidate_evidence_ref": "qa-evidence/stage89-bodo-candidate",
+      "proposed_guide_ref": "qa-evidence/stage53-11-port-release/proposed-guides/bod-norway.json",
+      "proposed_content_hash": "1e07bf33baf74027c5f674ef3fdbeb256fa4069e93f2043da9e4e06b0ea99cd1",
+      "research_sha256": "937ad03d7b3d328d8f147f3824f9d6dce461c9349b5b06aecdb33e2b11a434a5",
+      "field_exclusions": [],
+      "viator_campaign": "seadays-web-sbod-norway",
+      "candidate_html_sha256": "bde82cafe63c445f695f9760bfe704e515e60936827c436d81e169f2b5d56bdf",
+      "candidate_guide_sha256": "db88c12e346483728b42189fe4f3e1ae2834ad09ffac1030ffaf49162b425a15",
+      "main_tree_candidate_html_matches": false
+    }
+  ],
+  "targeted_tests_at_reconcile_utc": "2026-11-11T08:14:48.000Z",
+  "targeted_tests": {
+    "test_publication_batch_01": "PASS",
+    "test_publication_batch_apply_safety": "PASS",
+    "assert_pages_deploy_publication_gate": "PASS"
+  }
+}

@@ -9,6 +9,8 @@ const {
   isExcludedFromPublicDirectoryRender,
 } = require('./lib/destinationPhotoBatch02GeoPolicy');
 const { resetPortsDirectoryImageCachesForTests } = require('./lib/portsDirectoryImageResolve');
+const { loadPublicPortGuidesFile } = require('./lib/publicPortGuideAdapter');
+const { collectPassengerEditorialLandingSlugs } = require('./lib/portSeoRedirects');
 
 function assert(cond, msg) {
   if (!cond) {
@@ -128,7 +130,12 @@ try {
   assert(pushScript.includes('COMMIT_PATHS'), 'safe push honors COMMIT_PATHS');
   const committed = dirty.filter((file) => file === 'ports' || file.startsWith('ports/'));
   const wouldPublish = committed;
-  const guides = committed.filter((file) => file !== 'ports/index.html');
+  const peSlugs = collectPassengerEditorialLandingSlugs(loadPublicPortGuidesFile(repoRoot));
+  const isPePortGuidePath = (file) => {
+    const m = /^ports\/([^/]+)\/index\.html$/.exec(file);
+    return Boolean(m && peSlugs.has(m[1]));
+  };
+  const guides = committed.filter((file) => file !== 'ports/index.html' && !isPePortGuidePath(file));
   assert(guides.length === 0, `ports channel must not leave port-guide diffs (got ${guides.slice(0, 3).join(', ')})`);
   assert(!wouldPublish.includes('ads.txt'), 'ads.txt is outside the ports commit set');
   assert(dirty.filter((file) => file.startsWith('blog/')).every((file) => !wouldPublish.includes(file)), 'blog files stay out of the ports commit set');
