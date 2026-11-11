@@ -710,7 +710,8 @@ body.ports-directory-v2 .directory-hero { max-width: 720px; margin: 0 auto; padd
 .search-results.is-open { display: block; }
 .search-result-item { display: block; width: 100%; text-align: left; padding: 12px 14px; border: 0; border-bottom: 1px solid rgba(255,255,255,0.06); background: transparent; color: #fff; cursor: pointer; text-decoration: none; }
 .search-result-item:last-child { border-bottom: 0; }
-.search-result-item:hover, .search-result-item:focus { background: rgba(255,255,255,0.06); outline: none; }
+.search-result-item:hover, .search-result-item:focus, .search-result-item.is-active { background: rgba(255,255,255,0.06); outline: none; }
+.search-result-item.is-active { background: rgba(255,0,51,0.12); }
 .search-result-name { display: block; font-weight: 800; font-size: 15px; }
 .search-result-meta { display: block; margin-top: 2px; font-size: 12px; color: rgba(255,255,255,0.55); }
 .search-empty { padding: 14px; font-size: 13px; color: rgba(255,255,255,0.55); }
@@ -953,7 +954,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
     <section class="directory-section directory-section--search" aria-label="Search ports">
       <div class="directory-search-wrap directory-search-wrap--primary">
         <label class="sr-only" for="portSearch">Search ports by name or country</label>
-        <input id="portSearch" class="directory-search directory-search--primary" type="search" placeholder="Search ports by name or country" autocomplete="off">
+        <input id="portSearch" class="directory-search directory-search--primary" type="search" placeholder="Search ports by name or country" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="portSearchResults" aria-expanded="false">
         <div id="portSearchResults" class="search-results" role="listbox" aria-label="Search results"></div>
       </div>
     </section>
