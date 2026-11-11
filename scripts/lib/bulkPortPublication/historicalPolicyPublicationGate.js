@@ -6,6 +6,7 @@ const {
   STAGE43_HARD_EXCLUDE_HISTORICAL,
   STAGE60_OWNER_POLICY_EXCEPTION_SLUGS,
   WAVE01_OWNER_POLICY_EXCEPTION_SLUGS,
+  BATCH02_OWNER_POLICY_EXCEPTION_SLUGS,
 } = require('./stage43PublishedBaseline')
 const { loadPublicPortGuidesFile } = require('../publicPortGuideAdapter')
 const { removeStage65ExcludedGuideEntries } = require('./stage65PublicationGuards')
@@ -22,6 +23,9 @@ function isUnauthorizedHistoricalPassengerEditorial(guide) {
   if (!STAGE43_HARD_EXCLUDE_HISTORICAL.has(slug)) return false
   if (STAGE60_OWNER_POLICY_EXCEPTION_SLUGS.has(slug)) return false
   if (WAVE01_OWNER_POLICY_EXCEPTION_SLUGS.has(slug) && guide?.researchImport?.owner_publication_authorized === true) {
+    return false
+  }
+  if (BATCH02_OWNER_POLICY_EXCEPTION_SLUGS.has(slug) && guide?.researchImport?.owner_publication_authorized === true) {
     return false
   }
   if (guide?.researchImport?.publication_tier !== 'passenger_editorial') return false
@@ -60,6 +64,9 @@ function findUnauthorizedHistoricalEditorialHtml(repoRoot, guides) {
     if (!fs.existsSync(htmlPath)) continue
     const guide = bySlug.get(slug)
     if (WAVE01_OWNER_POLICY_EXCEPTION_SLUGS.has(slug) && guide?.researchImport?.owner_publication_authorized === true) {
+      continue
+    }
+    if (BATCH02_OWNER_POLICY_EXCEPTION_SLUGS.has(slug) && guide?.researchImport?.owner_publication_authorized === true) {
       continue
     }
     if (guide?.researchImport?.owner_publication_authorized === true) continue
