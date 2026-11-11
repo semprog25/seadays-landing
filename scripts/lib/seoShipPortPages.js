@@ -194,6 +194,7 @@ function inferStockSourceLabel(approved) {
   const url = String(approved?.sourcePageUrl || '').toLowerCase();
   if (provider.includes('unsplash') || url.includes('unsplash.com')) return 'Unsplash';
   if (provider.includes('pexels') || url.includes('pexels.com')) return 'Pexels';
+  if (provider.includes('wikimedia') || url.includes('commons.wikimedia.org')) return 'Wikimedia Commons';
   return '';
 }
 
@@ -202,6 +203,8 @@ function shortPublicLicenseLinkLabel(licenseTerms, licenseUrl) {
   const url = String(licenseUrl || '').toLowerCase();
   if (url.includes('unsplash.com') || terms.includes('unsplash')) return 'Unsplash License';
   if (url.includes('pexels.com') || terms.includes('pexels')) return 'Pexels License';
+  if (terms.includes('cc by-sa')) return 'CC BY-SA 4.0';
+  if (terms.includes('cc by 2')) return 'CC BY 2.0';
   const raw = String(licenseTerms || '').trim();
   if (!raw) return 'License';
   return raw.length > 72 ? `${raw.slice(0, 69)}…` : raw;
@@ -218,6 +221,8 @@ function buildHumanApprovedHeroCaption(approved) {
   const sourcePageUrl = String(approved.sourcePageUrl || '').trim();
   const sourceLabel = inferStockSourceLabel(approved);
 
+  const modNote = String(approved.creditModifications || '').trim();
+
   if (photographer && licenseUrl) {
     const authorHtml = escapeHtml(photographer);
     const licenseHtml = `<a href="${escapeHtml(licenseUrl)}">${escapeHtml(
@@ -227,7 +232,8 @@ function buildHumanApprovedHeroCaption(approved) {
       sourcePageUrl && sourceLabel
         ? `<a href="${escapeHtml(sourcePageUrl)}">${escapeHtml(sourceLabel)}</a>`
         : '';
-    const caption = [`Photo: ${authorHtml}`, sourceHtml, licenseHtml].filter(Boolean).join(' — ');
+    const tail = modNote ? ` — ${escapeHtml(modNote)}` : '';
+    const caption = [`Photo: ${authorHtml}`, sourceHtml, licenseHtml].filter(Boolean).join(' — ') + tail;
     return sanitizePublicHeroCaptionHtml(caption);
   }
 
