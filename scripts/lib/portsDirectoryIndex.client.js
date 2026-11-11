@@ -59,6 +59,45 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       displayCount: PAGE_SIZE,
       syncingHistory: false
     };
+    var searchActiveIndex = -1;
+
+    function getSearchOptions(){
+      if(!searchResults) return [];
+      return Array.prototype.slice.call(searchResults.querySelectorAll('[role="option"]'));
+    }
+    function setSearchExpanded(isOpen){
+      if(!search) return;
+      search.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(!isOpen) search.removeAttribute('aria-activedescendant');
+    }
+    function setSearchActiveIndex(nextIndex){
+      var options = getSearchOptions();
+      if(!options.length){
+        searchActiveIndex = -1;
+        if(search) search.removeAttribute('aria-activedescendant');
+        return;
+      }
+      if(nextIndex < 0) nextIndex = options.length - 1;
+      if(nextIndex >= options.length) nextIndex = 0;
+      searchActiveIndex = nextIndex;
+      options.forEach(function(el, i){
+        var on = i === searchActiveIndex;
+        el.classList.toggle('is-active', on);
+        el.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      if(search) search.setAttribute('aria-activedescendant', options[searchActiveIndex].id);
+      try { options[searchActiveIndex].scrollIntoView({ block: 'nearest' }); } catch(scrollErr) {}
+    }
+    function dismissSearchDropdown(){
+      if(!searchResults) return;
+      searchResults.classList.remove('is-open');
+      searchActiveIndex = -1;
+      setSearchExpanded(false);
+      getSearchOptions().forEach(function(el){
+        el.classList.remove('is-active');
+        el.setAttribute('aria-selected', 'false');
+      });
+    }
 
     function escAttr(s){
       return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -476,23 +515,29 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       if(!q){
         searchResults.classList.remove('is-open');
         searchResults.innerHTML = '';
+        searchActiveIndex = -1;
+        setSearchExpanded(false);
         return;
       }
       var hits = sortCards(cards.filter(function(card){ return cardMatchesQuery(card, q); })).slice(0, 8);
       if(!hits.length){
-        searchResults.innerHTML = '<div class="search-empty">No ports found. Try a city, port, or country name.</div>';
+        searchResults.innerHTML = '<div class="search-empty" role="status">No ports found. Try a city, port, or country name.</div>';
         searchResults.classList.add('is-open');
+        searchActiveIndex = -1;
+        setSearchExpanded(true);
         return;
       }
-      searchResults.innerHTML = hits.map(function(card){
+      searchResults.innerHTML = hits.map(function(card, idx){
         var href = card.getAttribute('href') || '#';
         var name = ((card.querySelector('.seo-grid-card-title') || {}).textContent || '').trim();
         var meta = ((card.querySelector('.seo-grid-card-meta') || {}).textContent || '').trim();
-        return '<a class="search-result-item" href="' + href + '">' +
+        return '<a class="search-result-item" id="portSearchOpt' + idx + '" role="option" tabindex="-1" aria-selected="false" href="' + href + '">' +
           '<span class="search-result-name">' + name + '</span>' +
           '<span class="search-result-meta">' + meta + '</span></a>';
       }).join('');
       searchResults.classList.add('is-open');
+      setSearchExpanded(true);
+      setSearchActiveIndex(0);
     }
     function clearRegionSelection(){
       document.querySelectorAll('[data-region-key]').forEach(function(el){
@@ -769,15 +814,36 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         apply();
       });
       search.addEventListener('keydown', function(e){
+        var options = getSearchOptions();
         if(e.key === 'Escape'){
-          searchResults && searchResults.classList.remove('is-open');
+          e.preventDefault();
+          dismissSearchDropdown();
+          return;
+        }
+        if(e.key === 'ArrowDown' && options.length){
+          e.preventDefault();
+          if(!searchResults.classList.contains('is-open')) searchResults.classList.add('is-open');
+          setSearchActiveIndex(searchActiveIndex < 0 ? 0 : searchActiveIndex + 1);
+          return;
+        }
+        if(e.key === 'ArrowUp' && options.length){
+          e.preventDefault();
+          if(!searchResults.classList.contains('is-open')) searchResults.classList.add('is-open');
+          setSearchActiveIndex(searchActiveIndex < 0 ? options.length - 1 : searchActiveIndex - 1);
+          return;
+        }
+        if(e.key === 'Enter' && searchResults && searchResults.classList.contains('is-open') && options.length && searchActiveIndex >= 0){
+          e.preventDefault();
+          var target = options[searchActiveIndex];
+          var href = target && target.getAttribute('href');
+          if(href && href !== '#') window.location.assign(href);
         }
       });
     }
     document.addEventListener('click', function(e){
       if(!searchResults || !search) return;
       if(search.contains(e.target) || searchResults.contains(e.target)) return;
-      searchResults.classList.remove('is-open');
+      dismissSearchDropdown();
     });
     if(resetBtn) resetBtn.addEventListener('click', resetAll);
     if(browseAllBtn) browseAllBtn.addEventListener('click', browseAll);
