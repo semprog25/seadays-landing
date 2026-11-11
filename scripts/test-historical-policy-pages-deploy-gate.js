@@ -12,11 +12,15 @@ const {
   findUnauthorizedHistoricalEditorialHtml,
   countPassengerEditorialCallPlans,
 } = require('./lib/bulkPortPublication/historicalPolicyPublicationGate');
-const { STAGE60_OWNER_POLICY_EXCEPTION_SLUGS } = require('./lib/bulkPortPublication/stage43PublishedBaseline');
+const {
+  STAGE60_OWNER_POLICY_EXCEPTION_SLUGS,
+  WAVE01_OWNER_POLICY_EXCEPTION_SLUGS,
+} = require('./lib/bulkPortPublication/stage43PublishedBaseline');
 
 const REPO = path.join(__dirname, '..');
 const TRIESTE = 'trieste-italy';
 const BODO = 'bod-norway';
+const MORMUGAO = 'mormugao-port-goa-india';
 
 function assertProductionGateOk() {
   assertHistoricalPolicyPublicationGate(REPO);
@@ -41,29 +45,67 @@ function assertUnauthorizedGuidesPromotionFails() {
   assert.throws(() => assertHistoricalPolicyPublicationGate(REPO, leaked), /historical policy publication gate/);
 }
 
+function assertWave01AuthorizedEditorialHtmlOk() {
+  const guides = loadPublicPortGuidesFile(REPO);
+  const violations = findUnauthorizedHistoricalEditorialHtml(REPO, guides);
+  for (const slug of WAVE01_OWNER_POLICY_EXCEPTION_SLUGS) {
+    const guide = Object.values(guides.byAppPortId || {}).find(
+      (g) => g?.researchImport?.landing_slug === slug
+    );
+    assert.ok(guide, `${slug} guide slot`);
+    assert.strictEqual(guide.researchImport.owner_publication_authorized, true, `${slug} wave-1 publication auth`);
+    const htmlPath = path.join(REPO, 'ports', slug, 'index.html');
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    assert.ok(
+      countPassengerEditorialCallPlans(html) >= 3,
+      `${slug} production PE html must have 3 call plans after Wave 1`
+    );
+    assert.ok(!violations.some((v) => v.slug === slug), `${slug} must not be in html violations`);
+  }
+}
+
 function assertUnauthorizedEditorialHtmlFails() {
   const guides = loadPublicPortGuidesFile(REPO);
   const violations = findUnauthorizedHistoricalEditorialHtml(REPO, guides);
-  const bodoViolation = violations.find((v) => v.slug === BODO);
-  assert.ok(!bodoViolation, 'production bodo html must stay stub');
+  const mormugaoViolation = violations.find((v) => v.slug === MORMUGAO);
+  assert.ok(!mormugaoViolation, 'production mormugao html must stay policy-held stub');
 
-  const stubPath = path.join(REPO, 'ports', BODO, 'index.html');
+  const stubPath = path.join(REPO, 'ports', MORMUGAO, 'index.html');
   const stubHtml = fs.readFileSync(stubPath, 'utf8');
-  assert.ok(countPassengerEditorialCallPlans(stubHtml) < 3, 'bodo stub call plans');
+  assert.ok(countPassengerEditorialCallPlans(stubHtml) < 3, 'mormugao stub call plans');
 
   const fakeRoot = fs.mkdtempSync(path.join(require('os').tmpdir(), 'pages-gate-html-'));
   try {
-    fs.mkdirSync(path.join(fakeRoot, 'ports', BODO), { recursive: true });
+    fs.mkdirSync(path.join(fakeRoot, 'ports', MORMUGAO), { recursive: true });
     const fakeHtml = stubHtml + '<article class="pg-call-plan-card"></article>'.repeat(3);
-    fs.writeFileSync(path.join(fakeRoot, 'ports', BODO, 'index.html'), fakeHtml);
+    fs.writeFileSync(path.join(fakeRoot, 'ports', MORMUGAO, 'index.html'), fakeHtml);
     const htmlViolations = findUnauthorizedHistoricalEditorialHtml(fakeRoot, guides);
     assert.ok(
-      htmlViolations.some((v) => v.slug === BODO && v.call_plan_cards >= 3),
-      'synthetic 3-call-plan historical html must fail gate'
+      htmlViolations.some((v) => v.slug === MORMUGAO && v.call_plan_cards >= 3),
+      'synthetic 3-call-plan mormugao html must fail gate'
     );
   } finally {
     fs.rmSync(fakeRoot, { recursive: true, force: true });
   }
+}
+
+function assertMormugaoUnauthorizedGuidePromotionFails() {
+  const guides = loadPublicPortGuidesFile(REPO);
+  const mormugao = guides.byAppPortId?.mormugao;
+  assert.ok(mormugao, 'mormugao slot');
+  const leaked = JSON.parse(JSON.stringify(guides));
+  leaked.byAppPortId.mormugao = {
+    ...mormugao,
+    researchImport: {
+      ...(mormugao.researchImport || {}),
+      landing_slug: MORMUGAO,
+      publication_tier: 'passenger_editorial',
+      owner_publication_authorized: false,
+    },
+  };
+  const violations = findUnauthorizedHistoricalPassengerEditorialInGuides(leaked);
+  assert.ok(violations.some((v) => v.slug === MORMUGAO), 'unauthorized mormugao PE in guides must be detected');
+  assert.throws(() => assertHistoricalPolicyPublicationGate(REPO, leaked), /historical policy publication gate/);
 }
 
 function assertCandidateEnvCannotBypassGate() {
@@ -103,7 +145,9 @@ function assertLegacyPagesGapDocumented() {
 
 function main() {
   assertProductionGateOk();
+  assertWave01AuthorizedEditorialHtmlOk();
   assertUnauthorizedGuidesPromotionFails();
+  assertMormugaoUnauthorizedGuidePromotionFails();
   assertUnauthorizedEditorialHtmlFails();
   assertCandidateEnvCannotBypassGate();
   assertTriesteExceptionRemainsValid();
@@ -112,6 +156,7 @@ function main() {
   console.log('test-historical-policy-pages-deploy-gate PASS', {
     legacy_pages_prebuild_gate: 'NOT_ENFORCED_BY_GITHUB_MANAGED_JEKYLL_BUILD',
     landing_deploy_gate: 'PARTIAL_path_filtered',
+    wave01_authorized_slugs: [...WAVE01_OWNER_POLICY_EXCEPTION_SLUGS],
   });
 }
 

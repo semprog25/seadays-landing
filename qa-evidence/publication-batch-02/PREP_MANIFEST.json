@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-02-mormugao",
+  "status": "READY_FOR_OWNER_REVIEW",
+  "baseline_main": "bdd1802dd639a388268dcba5d154c5c12fd93e79",
+  "baseline_live_passenger_editorial": 359,
+  "policy_clearance_ref": "qa-evidence/publication-batch-02/BATCH_02_POLICY_CLEARANCE.json",
+  "candidates": [
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "app_port_id": "mormugao",
+      "status": "READY_FOR_LOCAL_APPLY",
+      "proposed_guide_ref": "qa-evidence/stage53-11-port-release/proposed-guides/mormugao-port-goa-india.json",
+      "proposed_content_hash": "8caad9f29e041c5f1c4f6b85c3e9699db0e8ab9536ecbd093ff050f7b92420e4",
+      "research_sha256": "2f823be6c62f9da5d7eab23f896e2066cb7c122770e3d9801c190231200b18da",
+      "qa_verdict": "PASS",
+      "field_exclusions": [
+        "thingsToDo.topThings[2]"
+      ],
+      "viator_campaign": "seadays-web-pmormugao",
+      "historical_stage43_active_exclude": true,
+      "owner_publication_authorized": false,
+      "owner_indexing_authorized": false,
+      "production_apply_permitted": false,
+      "candidate_apply_permitted": true
+    }
+  ],
+  "created_at_utc": "2026-11-11T10:25:17.032Z",
+  "bundle_idempotency_hash": "e4c713910d639ff2e27fc9c24988019a1e938b868259bc5ade64281bb1d96c08"
+}

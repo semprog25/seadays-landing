@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-02-mormugao",
+  "status": "READY_FOR_OWNER_REVIEW",
+  "baseline_main": "bdd1802dd639a388268dcba5d154c5c12fd93e79",
+  "baseline_live_passenger_editorial": 359,
+  "catalogue_passenger_editorial_slots": 406,
+  "remaining_unpublished": 47,
+  "projected_passenger_editorial_if_merged": 360,
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": false,
+  "policy_clearance_ref": "qa-evidence/publication-batch-02/BATCH_02_POLICY_CLEARANCE.json",
+  "goa_canonical_decision_ref": "qa-evidence/publication-batch-02/GOA_CANONICAL_OWNER_DECISION.json",
+  "composite_sha_patch_ref": "qa-evidence/publication-batch-01/COMPOSITE_SHA_PATCH.json",
+  "stage53_release_manifest_ref": "qa-evidence/stage53-11-port-release/STAGE53_RELEASE_MANIFEST.json",
+  "evidence_root": "qa-evidence/publication-batch-02",
+  "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+  "candidates": [
+    {
+      "landing_slug": "mormugao-port-goa-india",
+      "app_port_id": "mormugao",
+      "prep_source": "stage53_proposed_corrected",
+      "proposed_guide_ref": "qa-evidence/stage53-11-port-release/proposed-guides/mormugao-port-goa-india.json",
+      "proposed_content_hash": "8caad9f29e041c5f1c4f6b85c3e9699db0e8ab9536ecbd093ff050f7b92420e4",
+      "research_sha256": "2f823be6c62f9da5d7eab23f896e2066cb7c122770e3d9801c190231200b18da",
+      "qa_verdict": "PASS",
+      "field_exclusions": ["thingsToDo.topThings[2]"],
+      "historical_policy_held": true,
+      "viator_campaign": "seadays-web-pmormugao"
+    }
+  ],
+  "excluded_slugs": ["goa-india", "eilat-israel"],
+  "created_at_utc": "2026-11-11T10:30:00.000Z"
+}
