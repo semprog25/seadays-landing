@@ -1,0 +1,101 @@
+name: GitHub Pages (Actions)
+
+# Channel P — sole publisher after cutover from legacy Jekyll (build_type: legacy).
+# Historical publication gate and Jekyll-scope checks run before any artifact upload.
+#
+# Cutover: set repository variable SEADAYS_PAGES_ACTIONS_LIVE=true ONLY after
+# Settings → Pages → Source = GitHub Actions and legacy branch publish is disabled.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run_build_only:
+        description: Build and validate only (no deploy-pages) — for pre-cutover CI rehearsal
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and validate Pages artifact
+    # Required-check friendly: always runs on pull_request (never skipped as optional).
+    if: >-
+      github.event_name == 'pull_request'
+      || vars.SEADAYS_PAGES_ACTIONS_LIVE == 'true'
+      || (github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run_build_only == 'true')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install npm (gate scripts only)
+        run: npm ci --ignore-scripts
+
+      - name: Historical policy publication gate (fail closed)
+        run: node scripts/assert-pages-deploy-publication-gate.js
+
+      - name: Jekyll publication scope (qa-evidence exclude)
+        run: node scripts/test-jekyll-qa-evidence-exclude.js
+
+      - name: Setup Pages
+        if: >-
+          vars.SEADAYS_PAGES_ACTIONS_LIVE == 'true'
+          && github.event_name != 'pull_request'
+          && (github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run_build_only != 'true')
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Validate Pages build output
+        run: node scripts/validate-pages-jekyll-output.js
+
+      - name: Upload Pages artifact
+        if: >-
+          vars.SEADAYS_PAGES_ACTIONS_LIVE == 'true'
+          && github.event_name != 'pull_request'
+          && (github.event_name != 'workflow_dispatch' || github.event.inputs.dry_run_build_only != 'true')
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    needs: build
+    if: >-
+      needs.build.result == 'success'
+      && vars.SEADAYS_PAGES_ACTIONS_LIVE == 'true'
+      && github.event_name != 'pull_request'
+      && (
+        github.event_name == 'push'
+        || (github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run_build_only != 'true')
+      )
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages-actions-production-deploy
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

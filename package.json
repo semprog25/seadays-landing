@@ -32,6 +32,7 @@
     "test:publication-batch-01": "SEADAYS_PUBLICATION_BATCH_01_CANDIDATE=1 node scripts/test-publication-batch-01.js",
     "test:publication-batch-apply-safety": "SEADAYS_PUBLICATION_BATCH_01_CANDIDATE=1 node scripts/test-publication-batch-apply-safety.js",
     "test:historical-policy-pages-deploy-gate": "node scripts/test-historical-policy-pages-deploy-gate.js",
+    "test:pages-actions-migration": "node scripts/test-pages-actions-migration.js",
     "test:barcelona-publish-gate-known-failure": "node scripts/test-barcelona-publish-gate-known-failure.js",
     "publication-batch:matrix": "node scripts/publication-batch-workflow.js matrix",
     "publication-batch:prepare": "node scripts/publication-batch-workflow.js prepare",
