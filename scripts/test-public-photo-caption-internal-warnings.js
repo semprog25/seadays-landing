@@ -15,8 +15,10 @@ const FORBIDDEN_PATTERNS = [
   /confirm licen[sc]e and geography before production/i,
   /geography before production use/i,
   /owner download\s*[—–-]\s*confirm geography/i,
+  /\(owner download\)/i,
   /\(confirm before production\)/i,
   /\bNEEDS_REVIEW\b/,
+  /^__virt_/i,
 ]
 
 const { buildHumanApprovedHeroCaption } = require('./lib/seoShipPortPages')
@@ -81,10 +83,18 @@ function testRegionAltSanitizer() {
   const out = sanitizePublicRegionCardImageAlt('Alaska', legacy, 'Alaska')
   assert(out === 'Alaska cruise region', `Alaska sanitizer expected neutral alt, got: ${out}`)
   const other = sanitizePublicRegionCardImageAlt('Asia', 'Asia cruise region (owner download)', 'Asia')
-  assert(
-    other === 'Asia cruise region (owner download)',
-    'non-Alaska owner-download parenthetical must not be auto-stripped'
+  assert(other === 'Asia cruise region', `Asia sanitizer expected public alt, got: ${other}`)
+  const virt = sanitizePublicRegionCardImageAlt(
+    '__virt_anz__',
+    '__virt_anz__ cruise region (owner download)',
+    'Australia & New Zealand'
   )
+  assert(
+    virt === 'Australia & New Zealand cruise region',
+    `virtual region sanitizer expected display label, got: ${virt}`
+  )
+  const baltic = sanitizePublicRegionCardImageAlt('Baltic', 'Baltic cruise region (owner download)', 'Baltic Sea')
+  assert(baltic === 'Baltic Sea cruise region', `Baltic sanitizer expected label-based alt, got: ${baltic}`)
 }
 
 function testGeneratorNeverEmitsQaWarning() {
