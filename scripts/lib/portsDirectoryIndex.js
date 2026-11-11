@@ -998,6 +998,14 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
     <section class="directory-controls directory-scroll-target directory-controls--slim" id="directoryResults" aria-label="Port results">
       <div class="filter-panel">
       <div class="filter-bar">
+        <label class="sr-only" for="filterRegion">Region</label>
+        <select id="filterRegion" class="filter-select">
+          ${filterRegionOptions}
+        </select>
+        <label class="sr-only" for="filterCountry">Country</label>
+        <select id="filterCountry" class="filter-select">
+          <option value="__all__">All countries</option>
+        </select>
         <label class="sr-only" for="filterBookable">Experiences</label>
         <select id="filterBookable" class="filter-select">
           <option value="__all__">All ports</option>
@@ -1008,7 +1016,7 @@ ${PORTS_DIRECTORY_EXTRA_CSS}
           <option value="name" selected>Sort: Name</option>
           <option value="country">Sort: Country</option>
         </select>
-        <button type="button" class="directory-btn directory-btn-outline directory-btn-reset" id="directoryReset" aria-label="Reset browse">Start over</button>
+        <button type="button" class="directory-btn directory-btn-outline directory-btn-reset" id="directoryReset" hidden aria-label="Clear filters and return to region browse">Clear filters</button>
       </div>
       <p class="results-meta" id="resultsMeta" aria-live="polite"></p>
       </div>

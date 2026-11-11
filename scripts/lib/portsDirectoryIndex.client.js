@@ -162,6 +162,20 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         var showBack = !!(state.regions && state.regions.length) || (state.country && state.country !== '__all__') || state.view === 'browse' || !!state.query;
         directoryBack.hidden = !showBack;
       }
+      if(resetBtn){
+        var showReset =
+          isActiveFilter() ||
+          state.view === 'browse' ||
+          (state.sort && state.sort !== 'name');
+        resetBtn.hidden = !showReset;
+      }
+      if(filterCountry){
+        var countrySelectEnabled =
+          portsResultsActive() &&
+          (!!(state.regions && state.regions.length) || !!state.query || state.view === 'browse');
+        filterCountry.disabled = !countrySelectEnabled;
+        filterCountry.setAttribute('aria-disabled', countrySelectEnabled ? 'false' : 'true');
+      }
       if(directoryBreadcrumb){
         var parts = ['Regions'];
         var regionLabel = activeRegionLabel();
@@ -329,7 +343,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
       }
 
       if(filterCountry){
-        var previous = filterCountry.value;
+        var previous = state.syncingHistory && state.country ? state.country : filterCountry.value;
         filterCountry.innerHTML = '<option value="__all__">Back to regions</option>';
         entries.forEach(function(entry){
           var opt = document.createElement('option');
@@ -617,11 +631,19 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
           state.regions = parseRegionsAttr(btn);
           state.view = 'discover';
         }
+        if(filterRegion){
+          var regionKeyOpt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === regionKey; });
+          if(regionKeyOpt) filterRegion.value = regionKey;
+        }
       }
       var region = params.get('region');
       if(region){
         state.regions = [region];
         state.view = 'discover';
+        if(filterRegion){
+          var regionOpt = Array.prototype.slice.call(filterRegion.options).find(function(o){ return o.value === region; });
+          if(regionOpt) filterRegion.value = region;
+        }
       }
       var country = params.get('country');
       if(country){
@@ -629,9 +651,9 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
         if(filterCountry) filterCountry.value = state.country;
         state.view = 'filter';
       }
-      state.syncingHistory = false;
       renderSearchResults();
       apply({ skipHistory: true });
+      state.syncingHistory = false;
       suppressAutoScroll = false;
     }
 
@@ -690,6 +712,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     }
     if(filterRegion){
       filterRegion.addEventListener('change', function(){
+        if(state.syncingHistory) return;
         var val = filterRegion.value;
         if(val === '__all__'){
           clearRegionSelection();
@@ -709,6 +732,7 @@ module.exports = function buildPortsDirectoryClientScriptSource() {
     }
     if(filterCountry){
       filterCountry.addEventListener('change', function(){
+        if(state.syncingHistory) return;
         state.country = filterCountry.value || '__all__';
         if(state.country === '__all__' && state.regions && state.regions.length){
           returnToAllRegions({ scrollAfter: 'region' });
