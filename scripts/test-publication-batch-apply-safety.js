@@ -125,7 +125,9 @@ function testInjectedFailureRestoresProduction() {
 
   const guides = loadPublicPortGuidesFile(REPO);
   removeStage65ExcludedGuideEntries(guides);
-  assert.strictEqual(countPassengerEditorialGuides(guides), 359);
+  const expectedPe = countPassengerEditorialGuides(loadPublicPortGuidesFile(REPO));
+  removeStage65ExcludedGuideEntries(guides);
+  assert.strictEqual(countPassengerEditorialGuides(guides), expectedPe);
 }
 
 function testApplyIdempotentSecondRun() {

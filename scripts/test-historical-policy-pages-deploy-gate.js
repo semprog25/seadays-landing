@@ -15,12 +15,14 @@ const {
 const {
   STAGE60_OWNER_POLICY_EXCEPTION_SLUGS,
   WAVE01_OWNER_POLICY_EXCEPTION_SLUGS,
+  BATCH02_OWNER_POLICY_EXCEPTION_SLUGS,
 } = require('./lib/bulkPortPublication/stage43PublishedBaseline');
 
 const REPO = path.join(__dirname, '..');
 const TRIESTE = 'trieste-italy';
 const BODO = 'bod-norway';
 const MORMUGAO = 'mormugao-port-goa-india';
+const EILAT = 'eilat-israel';
 
 function assertProductionGateOk() {
   assertHistoricalPolicyPublicationGate(REPO);
@@ -45,6 +47,24 @@ function assertUnauthorizedGuidesPromotionFails() {
   assert.throws(() => assertHistoricalPolicyPublicationGate(REPO, leaked), /historical policy publication gate/);
 }
 
+function assertBatch02AuthorizedEditorialHtmlOk() {
+  const guides = loadPublicPortGuidesFile(REPO);
+  const violations = findUnauthorizedHistoricalEditorialHtml(REPO, guides);
+  for (const slug of BATCH02_OWNER_POLICY_EXCEPTION_SLUGS) {
+    const guide = guides.byAppPortId?.mormugao;
+    assert.ok(guide, `${slug} guide slot`);
+    assert.strictEqual(guide.researchImport.landing_slug, slug);
+    assert.strictEqual(guide.researchImport.owner_publication_authorized, true, `${slug} batch-02 publication auth`);
+    const htmlPath = path.join(REPO, 'ports', slug, 'index.html');
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    assert.ok(
+      countPassengerEditorialCallPlans(html) >= 3,
+      `${slug} production PE html must have 3 call plans after Batch 02`
+    );
+    assert.ok(!violations.some((v) => v.slug === slug), `${slug} must not be in html violations`);
+  }
+}
+
 function assertWave01AuthorizedEditorialHtmlOk() {
   const guides = loadPublicPortGuidesFile(REPO);
   const violations = findUnauthorizedHistoricalEditorialHtml(REPO, guides);
@@ -67,22 +87,22 @@ function assertWave01AuthorizedEditorialHtmlOk() {
 function assertUnauthorizedEditorialHtmlFails() {
   const guides = loadPublicPortGuidesFile(REPO);
   const violations = findUnauthorizedHistoricalEditorialHtml(REPO, guides);
-  const mormugaoViolation = violations.find((v) => v.slug === MORMUGAO);
-  assert.ok(!mormugaoViolation, 'production mormugao html must stay policy-held stub');
+  const eilatViolation = violations.find((v) => v.slug === EILAT);
+  assert.ok(!eilatViolation, 'production eilat html must stay policy-held stub');
 
-  const stubPath = path.join(REPO, 'ports', MORMUGAO, 'index.html');
+  const stubPath = path.join(REPO, 'ports', EILAT, 'index.html');
   const stubHtml = fs.readFileSync(stubPath, 'utf8');
-  assert.ok(countPassengerEditorialCallPlans(stubHtml) < 3, 'mormugao stub call plans');
+  assert.ok(countPassengerEditorialCallPlans(stubHtml) < 3, 'eilat stub call plans');
 
   const fakeRoot = fs.mkdtempSync(path.join(require('os').tmpdir(), 'pages-gate-html-'));
   try {
-    fs.mkdirSync(path.join(fakeRoot, 'ports', MORMUGAO), { recursive: true });
+    fs.mkdirSync(path.join(fakeRoot, 'ports', EILAT), { recursive: true });
     const fakeHtml = stubHtml + '<article class="pg-call-plan-card"></article>'.repeat(3);
-    fs.writeFileSync(path.join(fakeRoot, 'ports', MORMUGAO, 'index.html'), fakeHtml);
+    fs.writeFileSync(path.join(fakeRoot, 'ports', EILAT, 'index.html'), fakeHtml);
     const htmlViolations = findUnauthorizedHistoricalEditorialHtml(fakeRoot, guides);
     assert.ok(
-      htmlViolations.some((v) => v.slug === MORMUGAO && v.call_plan_cards >= 3),
-      'synthetic 3-call-plan mormugao html must fail gate'
+      htmlViolations.some((v) => v.slug === EILAT && v.call_plan_cards >= 3),
+      'synthetic 3-call-plan eilat html must fail gate'
     );
   } finally {
     fs.rmSync(fakeRoot, { recursive: true, force: true });
@@ -146,6 +166,7 @@ function assertLegacyPagesGapDocumented() {
 function main() {
   assertProductionGateOk();
   assertWave01AuthorizedEditorialHtmlOk();
+  assertBatch02AuthorizedEditorialHtmlOk();
   assertUnauthorizedGuidesPromotionFails();
   assertMormugaoUnauthorizedGuidePromotionFails();
   assertUnauthorizedEditorialHtmlFails();
@@ -157,6 +178,7 @@ function main() {
     legacy_pages_prebuild_gate: 'NOT_ENFORCED_BY_GITHUB_MANAGED_JEKYLL_BUILD',
     landing_deploy_gate: 'PARTIAL_path_filtered',
     wave01_authorized_slugs: [...WAVE01_OWNER_POLICY_EXCEPTION_SLUGS],
+    batch02_authorized_slugs: [...BATCH02_OWNER_POLICY_EXCEPTION_SLUGS],
   });
 }
 

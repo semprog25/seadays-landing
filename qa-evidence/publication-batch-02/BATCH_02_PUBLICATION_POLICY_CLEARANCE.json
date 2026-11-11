@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-02-mormugao",
+  "recorded_at_utc": "2026-11-11T11:55:00.000Z",
+  "owner_decision": "APPROVE_MORMUGAO_PASSENGER_EDITORIAL_PUBLICATION",
+  "owner_publication_authorized": true,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": true,
+  "merge_authorized": false,
+  "deploy_authorized": false,
+  "sitemap_inclusion_authorized": false,
+  "global_stage43_hard_exclude_ledger_unchanged": true,
+  "runtime_policy_exception_slugs": ["mormugao-port-goa-india"],
+  "excluded_from_batch": ["goa-india", "eilat-israel"],
+  "goa_canonical_decision_ref": "qa-evidence/publication-batch-02/GOA_CANONICAL_OWNER_DECISION.json",
+  "reconciled_main": "27bcbaf77eb8eebab15d07e49cea8232271615f9",
+  "baseline_live_passenger_editorial": 359,
+  "projected_passenger_editorial_after_batch02": 360,
+  "mormugao_proposed_content_hash": "8caad9f29e041c5f1c4f6b85c3e9699db0e8ab9536ecbd093ff050f7b92420e4",
+  "mormugao_research_sha256": "2f823be6c62f9da5d7eab23f896e2066cb7c122770e3d9801c190231200b18da"
+}

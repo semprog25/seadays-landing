@@ -19,7 +19,7 @@ const { validateGeneratedPortHtml } = require('./lib/bulkPortPublication/validat
 const REPO = path.join(__dirname, '..')
 const WAVE_SLUGS = [...WAVE01_OWNER_POLICY_EXCEPTION_SLUGS]
 const APP_IDS = { 'mumbai-india': 'mumbai', 'ravenna-italy': 'ravenna', 'bod-norway': 'bodo' }
-const DEFERRED = ['mormugao-port-goa-india', 'goa-india']
+const DEFERRED = ['goa-india']
 
 function headJsonLdTypeCounts(html) {
   const head = (String(html).match(/<head\b[^>]*>[\s\S]*?<\/head>/i) || [''])[0]
@@ -47,7 +47,7 @@ function main() {
 
   const guides = loadPublicPortGuidesFile(REPO)
   removeStage65ExcludedGuideEntries(guides)
-  assert.strictEqual(countPassengerEditorialGuides(guides), 359)
+  assert.strictEqual(countPassengerEditorialGuides(guides), 360)
 
   for (const slug of WAVE_SLUGS) {
     assert.ok(STAGE43_HARD_EXCLUDE_HISTORICAL.has(slug), `${slug} must remain on historical ledger`)
@@ -85,16 +85,12 @@ function main() {
 
   for (const slug of DEFERRED) {
     assert.ok(STAGE43_HARD_EXCLUDE_HISTORICAL.has(slug))
-    if (slug === 'mormugao-port-goa-india') {
-      const g = guides.byAppPortId.mormugao
-      assert.notStrictEqual(g?.researchImport?.owner_publication_authorized, true)
-    }
   }
 
   assert.strictEqual(WAVE01_OWNER_POLICY_EXCEPTION_SLUGS.size, 3)
   assertHistoricalPolicyPublicationGate(REPO, guides)
 
-  console.log('test-wave01-publication-release PASS', { pe: 359, wave: WAVE_SLUGS })
+  console.log('test-wave01-publication-release PASS', { pe: 360, wave: WAVE_SLUGS })
 }
 
 main()
