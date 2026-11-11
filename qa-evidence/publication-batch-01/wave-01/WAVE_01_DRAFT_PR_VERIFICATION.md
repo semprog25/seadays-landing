@@ -1,6 +1,6 @@
 # Wave 1 — draft PR verification (branch only)
 
-- **Branch:** `release/wave-01-batch-publication`
+- **Branch:** `release/wave-01-batch-publication` @ **`f915f3617`** (draft PR #123)
 - **Reconciled main:** `c14c7792bc7ea3d2e4a49d836d3a103a867d5828` (PR #121 Ports V2)
 - **Live production (unchanged until merge/deploy):** PE **356** / **406**
 - **Branch PE:** **359** (post-promotion contract)
