@@ -7,6 +7,9 @@ const MIN_SHARED_CHARS = 45;
 const EXEMPT_SENTENCE_KEYS = new Set([
   'book shore excursions tours activities with our partner',
   'book shore excursions in the seadays app with our partner',
+  'browse shore excursions tours and activities on our booking partners site',
+  'save itineraries port tips and notes in the seadays app',
+  'checkout and excursion booking are not handled on this page',
   // Guest-reviews empty-state CTA (ship/port name varies; tail sentence is identical).
   'share your experience in seadays after your cruise',
 ]);
