@@ -17,6 +17,12 @@ const { replaceRobotsMeta } = require('../adsenseIndexability');
 const { stableStringify } = require('../portResearchImport/jsonDiff');
 const { extractTravelerQuestions } = require('../portResearchImport/extractMarkdownSections');
 const { readResearchMarkdown } = require('../portResearchImport/transformResearchToPublic');
+const {
+  restoreProductionFromSlugRollback,
+  writeApplyInProgressMarker,
+  clearApplyInProgressMarker,
+  recoverInterruptedSlugApplies,
+} = require('./publicationBatchApplySafety');
 
 function fail(msg) {
   const err = new Error(msg);
@@ -136,57 +142,71 @@ function applyOneSlug({ repoRoot, batch, prepRow, batchCandidate, evidenceRoot, 
     priorGuideAtSlot: prior,
   });
   removeStage65ExcludedGuideEntries(next);
-  writePublicPortGuidesFile(repoRoot, next);
 
-  if (fs.existsSync(htmlPath)) fs.unlinkSync(htmlPath);
+  writeApplyInProgressMarker(rollbackDir, landingSlug);
+  let productionMutated = false;
+  let applyResult;
+  try {
+    writePublicPortGuidesFile(repoRoot, next);
+    productionMutated = true;
 
-  const genEnv = {
-    ...process.env,
-    SEADAYS_PUBLICATION_BATCH_01_CANDIDATE: '1',
-    SEADAYS_APP_ROOT: process.env.SEADAYS_APP_ROOT || path.resolve(repoRoot, '..', 'Seadays-trust-boundary'),
-    VIATOR_AFFILIATE_PID: process.env.VIATOR_AFFILIATE_PID || 'P00314321',
-    VIATOR_AFFILIATE_MCID: process.env.VIATOR_AFFILIATE_MCID || '42383',
-    VIATOR_AFFILIATE_MEDIUM: process.env.VIATOR_AFFILIATE_MEDIUM || 'link',
-  };
-  execSync(`node scripts/generateBlogs.js --ports-only --only=${landingSlug}`, {
-    cwd: repoRoot,
-    stdio: 'inherit',
-    env: genEnv,
-  });
+    if (process.env.SEADAYS_PUBLICATION_BATCH_INJECT_FAIL === 'after_guides_write') {
+      fail('injected failure after guides write (test only)');
+    }
 
-  if (!fs.existsSync(htmlPath)) fail(`regen missing html ${landingSlug}`);
-  let html = fs.readFileSync(htmlPath, 'utf8');
-  if (!/noindex/i.test(html)) {
-    html = replaceRobotsMeta(html, 'noindex, follow');
-    fs.writeFileSync(htmlPath, html, 'utf8');
+    if (fs.existsSync(htmlPath)) fs.unlinkSync(htmlPath);
+
+    const genEnv = {
+      ...process.env,
+      SEADAYS_PUBLICATION_BATCH_01_CANDIDATE: '1',
+      SEADAYS_APP_ROOT: process.env.SEADAYS_APP_ROOT || path.resolve(repoRoot, '..', 'Seadays-trust-boundary'),
+      VIATOR_AFFILIATE_PID: process.env.VIATOR_AFFILIATE_PID || 'P00314321',
+      VIATOR_AFFILIATE_MCID: process.env.VIATOR_AFFILIATE_MCID || '42383',
+      VIATOR_AFFILIATE_MEDIUM: process.env.VIATOR_AFFILIATE_MEDIUM || 'link',
+    };
+    execSync(`node scripts/generateBlogs.js --ports-only --only=${landingSlug}`, {
+      cwd: repoRoot,
+      stdio: 'inherit',
+      env: genEnv,
+    });
+
+    if (!fs.existsSync(htmlPath)) fail(`regen missing html ${landingSlug}`);
+    let html = fs.readFileSync(htmlPath, 'utf8');
+    if (!/noindex/i.test(html)) {
+      html = replaceRobotsMeta(html, 'noindex, follow');
+      fs.writeFileSync(htmlPath, html, 'utf8');
+    }
+    const campaign = batchCandidate.viator_campaign;
+    if (campaign && !html.includes(campaign)) {
+      fail(`missing Viator campaign ${campaign} on ${landingSlug}`);
+    }
+
+    const candidateDir = path.join(evidenceRoot, 'candidates', landingSlug);
+    fs.mkdirSync(path.join(candidateDir, 'ports', landingSlug), { recursive: true });
+    fs.copyFileSync(htmlPath, path.join(candidateDir, 'ports', landingSlug, 'index.html'));
+    fs.writeFileSync(
+      path.join(candidateDir, `byAppPortId.${appPortId}.json`),
+      `${JSON.stringify(next.byAppPortId[appPortId], null, 2)}\n`
+    );
+
+    applyResult = {
+      landing_slug: landingSlug,
+      app_port_id: appPortId,
+      candidate_dir: candidateDir,
+      production_restored: true,
+    };
+  } finally {
+    if (productionMutated) {
+      restoreProductionFromSlugRollback(repoRoot, rollbackDir, landingSlug);
+    }
+    clearApplyInProgressMarker(rollbackDir);
   }
-  const campaign = batchCandidate.viator_campaign;
-  if (campaign && !html.includes(campaign)) {
-    fail(`missing Viator campaign ${campaign} on ${landingSlug}`);
+
+  if (!applyResult) {
+    fail(`apply did not complete for ${landingSlug}`);
   }
-
-  const candidateDir = path.join(evidenceRoot, 'candidates', landingSlug);
-  fs.mkdirSync(path.join(candidateDir, 'ports', landingSlug), { recursive: true });
-  fs.copyFileSync(htmlPath, path.join(candidateDir, 'ports', landingSlug, 'index.html'));
-  fs.writeFileSync(
-    path.join(candidateDir, `byAppPortId.${appPortId}.json`),
-    `${JSON.stringify(next.byAppPortId[appPortId], null, 2)}\n`
-  );
-
-  fs.copyFileSync(path.join(rollbackDir, 'public-port-guides.json'), guidesPath);
-  if (fs.existsSync(path.join(rollbackDir, 'ports', landingSlug, 'index.html'))) {
-    fs.copyFileSync(path.join(rollbackDir, 'ports', landingSlug, 'index.html'), htmlPath);
-  } else if (fs.existsSync(htmlPath)) {
-    fs.unlinkSync(htmlPath);
-  }
-
-  return {
-    landing_slug: landingSlug,
-    app_port_id: appPortId,
-    candidate_dir: candidateDir,
-    guides_sha256_before_restore: sha256File(guidesPath),
-    production_restored: true,
-  };
+  applyResult.guides_sha256_after_restore = sha256File(guidesPath);
+  return applyResult;
 }
 
 function applyBatchFromManifest(repoRoot, manifestRel, { dryRun } = {}) {
@@ -204,6 +224,17 @@ function applyBatchFromManifest(repoRoot, manifestRel, { dryRun } = {}) {
   removeStage65ExcludedGuideEntries(guidesPeCheck);
   const peBefore = countPassengerEditorialGuides(guidesPeCheck);
   const evidenceRoot = path.join(repo, batch.evidence_root);
+  const interrupted = recoverInterruptedSlugApplies(repo, evidenceRoot);
+  if (interrupted.recovered.length) {
+    console.error(
+      JSON.stringify({
+        warning: 'recovered_interrupted_apply',
+        slugs: interrupted.recovered,
+        passenger_editorial: interrupted.passenger_editorial,
+      })
+    );
+  }
+
   const reports = [];
 
   for (const prepRow of prep.candidates) {
