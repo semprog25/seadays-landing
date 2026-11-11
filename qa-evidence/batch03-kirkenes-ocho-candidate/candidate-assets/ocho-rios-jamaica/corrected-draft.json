@@ -1,0 +1,93 @@
+{
+  "landing_slug": "ocho-rios-jamaica",
+  "draft": {
+    "landing_slug": "ocho-rios-jamaica",
+    "appPortId": "ocho-rios",
+    "portName": "Ocho Rios",
+    "country": "Jamaica",
+    "portInfo": {
+      "description": "North-coast Jamaica call. Treat waterfall/adventure products as booked excursions until ticket primaries are on file.",
+      "location": "",
+      "timezone": "EST (UTC-5)",
+      "language": "English, Jamaican Patois",
+      "currency": "Jamaican Dollar (JMD), US Dollar widely accepted",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Port of Ocho Rios — Turtle Beach Road, Ocho Rios, St. Ann, Jamaica",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Transfer metres to town attractions gap on PAJ cruise page. Confirm day-of pier assignment with the line.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Transfer metres to town attractions gap on PAJ cruise page. Confirm day-of pier assignment with the line."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Town / craft-market stroll — only if your pier placement and programme allow (confirm with the line)",
+        "Booked waterfall or north-coast landscape excursion (Dunn’s River only via organised transfer — not a gangway walk)",
+        "Beach time — confirm operator, access, and transport with your line or excursion desk"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Do not assume Dunn’s River (or any named falls) is walkable from the gangway without a current transfer primary."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "50682517fb65fb632488d2075a6782d1e049956b84f61b91c4e9171d720b99a2",
+      "existing_guide_hash": "2d907ca50b40555f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ocho-rios-jamaica.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "berth_lengths_gap",
+        "transfer_metres_gap"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.280Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial",
+      "batch03_ocho_editorial_repair": true
+    },
+    "facts": {
+      "established": "",
+      "significance": "North-coast Jamaica cruise call under Port Authority of Jamaica",
+      "notableFeatures": [],
+      "culturalHighlights": [
+        "Jamaican culture",
+        "Local crafts"
+      ]
+    },
+    "politics": {
+      "governmentType": "Unitary parliamentary constitutional monarchy",
+      "stability": "Stable",
+      "visaRequirements": "Many visitors on cruise calls use special cruise-passenger rules — confirm passport validity, PICA requirements, and any online declarations (e.g. C5) with your cruise line and official sources for your nationality.",
+      "entryRequirements": "Carry a valid passport. Cruise transit formalities can differ from airport entry — follow your ship’s document list."
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+}

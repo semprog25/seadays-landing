@@ -1,0 +1,76 @@
+{
+  "landing_slug": "kirkenes-norway",
+  "draft": {
+    "landing_slug": "kirkenes-norway",
+    "appPortId": "kirkenes",
+    "portName": "Kirkenes",
+    "country": "Norway",
+    "portInfo": {
+      "description": "Eastern Finnmark / Pasvik border town. King Crab and Borderland Museum are harbour-page themes — treat ticket logistics as gaps until museum primaries are filed.",
+      "location": "",
+      "timezone": "CET (UTC+1) / CEST (UTC+2)",
+      "language": "Norwegian",
+      "currency": "Norwegian Krone (NOK)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Dypvannskaia — Port of Kirkenes — Dypvannskaia",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Authority: berth to town centre; short distance to attractions/malls. Timed metres gap. Other piers on request to Port Authority.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Authority: berth to town centre; short distance to attractions/malls. Timed metres gap. Other piers on request to Port Authority."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Centre / shopping walk",
+        "Kirkenes centre / shopping",
+        "Borderland Museum (Grenselandsmuseet)"
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Confirm Dypvannskaia vs any requested alternate quay before assuming a centre stroll."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8",
+      "existing_guide_hash": "a91ac503b7cee584",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/kirkenes-norway.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "research_status_needs_review",
+        "dropped_truncated_thingsBullet"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.254Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    }
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "NEEDS_FACT_CHECK"
+}

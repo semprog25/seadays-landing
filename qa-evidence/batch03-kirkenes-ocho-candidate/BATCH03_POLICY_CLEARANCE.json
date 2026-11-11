@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch": "batch03-kirkenes-ocho-local-prep",
+  "authorized_at_utc": "2026-11-11T12:45:00Z",
+  "owner_conditional_prep_authorized": true,
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "owner_factual_hold_cleared": false,
+  "baseline_main": "31f873d4d6fad6358c0ea5a12948123257571acd",
+  "baseline_live_passenger_editorial": 360,
+  "catalogue_passenger_editorial_slots": 406,
+  "slugs_authorized_for_local_candidate_prep": [
+    "kirkenes-norway",
+    "ocho-rios-jamaica"
+  ],
+  "excluded_from_scope": [
+    "rostock-germany",
+    "warnemunde-berlin-germany",
+    "eilat-israel"
+  ],
+  "notes": "Gap-forward Kirkenes wording permitted for candidate only; not factual clearance."
+}
