@@ -28,6 +28,17 @@ const CHANNEL_FIX_PUSH_FILES = [
   'scripts/test-ci-classify-generation.js',
 ];
 
+const MORMUGAO_STYLE_RECOVERY_PUSH_FILES = [
+  'scripts/lib/publishedPortHtmlPreserve.js',
+  'scripts/assert-ports-regen-banner-only-diff.js',
+  'scripts/test-mormugao-approved-meta-regen.js',
+  'scripts/test-published-port-html-preserve.js',
+  'scripts/test-ci-classify-generation.js',
+  'scripts/test-ports-regen-banner-scope.js',
+  'scripts/test-batch02-mormugao-publication-release.js',
+  '.github/workflows/generate-ports.yml',
+];
+
 function test(name, fn) {
   fn();
   console.log('PASS', name);
@@ -105,6 +116,22 @@ test('proposed channel-fix PR push classifies ports', () => {
   const plan = resolveGenerationPlan({ eventName: 'push', changedFiles: CHANNEL_FIX_PUSH_FILES });
   assert.strictEqual(plan.channel, 'ports');
   assert.strictEqual(plan.needsViator, true);
+});
+
+test('proposed mormugao style recovery push classifies ports', () => {
+  for (const file of MORMUGAO_STYLE_RECOVERY_PUSH_FILES) {
+    assert(VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST.has(file), `allowlist missing ${file}`);
+  }
+  assert.strictEqual(resolveGateModeFromPushFiles(MORMUGAO_STYLE_RECOVERY_PUSH_FILES), 'banner-only');
+  const plan = resolveGenerationPlan({
+    eventName: 'push',
+    changedFiles: MORMUGAO_STYLE_RECOVERY_PUSH_FILES,
+  });
+  assert.strictEqual(plan.channel, 'ports');
+  assert.strictEqual(plan.skip, false);
+  assert.strictEqual(plan.needsViator, true);
+  assert.strictEqual(plan.blogs, false);
+  assert.strictEqual(plan.ships, false);
 });
 
 test('banner-only recovery plus unexpected path fails closed on push plan', () => {

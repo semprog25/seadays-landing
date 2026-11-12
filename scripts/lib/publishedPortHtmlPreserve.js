@@ -94,6 +94,19 @@ function headHasJsonLdType(html, schemaType) {
 /**
  * Catalogue regen must not accumulate duplicate TouristDestination / BreadcrumbList / FAQPage in `<head>`.
  */
+const HEAD_INLINE_STYLE_BLOCK_RE = /<style>[\s\S]*?<\/style>/i;
+const HEAD_STYLE_DEDUPE_PLACEHOLDER = '<!--SEADAYS_HEAD_STYLE_DEDUPE_GUARD-->';
+
+function collapseHeadExcessNewlinesOutsideStyle(headHtml) {
+  const head = String(headHtml || '');
+  const styleMatch = head.match(HEAD_INLINE_STYLE_BLOCK_RE);
+  if (!styleMatch) return head.replace(/\n{3,}/g, '\n\n');
+  const styleBlock = styleMatch[0];
+  const withoutStyle = head.replace(HEAD_INLINE_STYLE_BLOCK_RE, HEAD_STYLE_DEDUPE_PLACEHOLDER);
+  const collapsed = withoutStyle.replace(/\n{3,}/g, '\n\n');
+  return collapsed.replace(HEAD_STYLE_DEDUPE_PLACEHOLDER, styleBlock);
+}
+
 function dedupePortDetailHeadJsonLd(html) {
   const s = String(html || '');
   const headMatch = s.match(HEAD_BLOCK_RE);
@@ -110,7 +123,7 @@ function dedupePortDetailHeadJsonLd(html) {
     seen.add(type);
     return full;
   });
-  return s.replace(head, withoutDupes.replace(/\n{3,}/g, '\n\n'));
+  return s.replace(head, collapseHeadExcessNewlinesOutsideStyle(withoutDupes));
 }
 
 function replaceFirstMatch(html, re, replacement) {
