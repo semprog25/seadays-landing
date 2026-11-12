@@ -76,13 +76,29 @@ function main() {
 
   const guides = loadPublicPortGuidesFile(REPO)
   removeStage65ExcludedGuideEntries(guides)
-  assert.strictEqual(countPassengerEditorialGuides(guides), BASELINE_PE)
+  const pe = countPassengerEditorialGuides(guides)
+  const ochoLive =
+    guides.byAppPortId['ocho-rios']?.researchImport?.publication_tier === 'passenger_editorial' &&
+    guides.byAppPortId['ocho-rios']?.researchImport?.owner_publication_authorized === true
+  if (ochoLive) {
+    assert.strictEqual(pe, BASELINE_PE + 1, 'batch03 ocho release branch PE')
+  } else {
+    assert.strictEqual(pe, BASELINE_PE)
+  }
 
   const recovery = JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'ROLLBACK_RECOVERY.json'), 'utf8'))
-  assert.strictEqual(
-    sha256File(path.join(REPO, 'data/public-port-guides.json')),
-    recovery.production_public_port_guides_sha256
-  )
+  if (!ochoLive) {
+    assert.strictEqual(
+      sha256File(path.join(REPO, 'data/public-port-guides.json')),
+      recovery.production_public_port_guides_sha256
+    )
+  } else {
+    const ochoRollbackGuides = path.join(
+      REPO,
+      'qa-evidence/publication-batch-03-ocho/rollback-pre-apply/ocho-rios-jamaica/public-port-guides.json'
+    )
+    assert.ok(fs.existsSync(ochoRollbackGuides), 'ocho publication rollback guides snapshot')
+  }
   assert.ok(!fs.existsSync(path.join(EVIDENCE, 'rollback-pre-apply/public-port-guides.json')), 'no full catalogue duplicate in evidence')
 
   const rostockHtml = fs.readFileSync(path.join(REPO, 'ports/rostock-germany/index.html'), 'utf8')
@@ -106,9 +122,16 @@ function main() {
     assert.ok(html.includes('pg-call-plan-card--standard'), `${slug} standard call plan`)
     assert.ok(html.includes('pg-call-plan-card--longer'), `${slug} longer call plan`)
 
-    const prodHtml = fs.readFileSync(path.join(REPO, 'ports', slug, 'index.html'), 'utf8')
-    const rollbackHtml = fs.readFileSync(path.join(EVIDENCE, 'rollback-pre-apply/ports', slug, 'index.html'), 'utf8')
-    assert.strictEqual(sha256File(path.join(REPO, 'ports', slug, 'index.html')), sha256File(path.join(EVIDENCE, 'rollback-pre-apply/ports', slug, 'index.html')), `${slug} production html restored`)
+    if (slug === 'ocho-rios-jamaica' && ochoLive) {
+      const prodPath = path.join(REPO, 'ports', slug, 'index.html')
+      assert.strictEqual(sha256File(prodPath), sha256File(htmlPath), `${slug} live html matches verified candidate`)
+    } else {
+      assert.strictEqual(
+        sha256File(path.join(REPO, 'ports', slug, 'index.html')),
+        sha256File(path.join(EVIDENCE, 'rollback-pre-apply/ports', slug, 'index.html')),
+        `${slug} production html restored to prep stub`
+      )
+    }
 
     const appPortId = slug === 'kirkenes-norway' ? 'kirkenes' : 'ocho-rios'
     const guideJson = JSON.parse(
@@ -150,7 +173,11 @@ function main() {
   const peMatrix = JSON.parse(
     execSync('node scripts/publication-batch-workflow.js matrix', { cwd: REPO, encoding: 'utf8' })
   )
-  assert.strictEqual(peMatrix.baseline.live_passenger_editorial, BASELINE_PE)
+  if (ochoLive) {
+    assert.strictEqual(peMatrix.baseline.live_passenger_editorial, BASELINE_PE + 1)
+  } else {
+    assert.strictEqual(peMatrix.baseline.live_passenger_editorial, BASELINE_PE)
+  }
   assert.strictEqual(peMatrix.baseline.reconcile, true)
 
   console.log('test-batch03-kirkenes-ocho-candidate PASS')

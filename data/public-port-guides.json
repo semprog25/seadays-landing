@@ -21829,7 +21829,7 @@
       "portName": "Ocho Rios",
       "country": "Jamaica",
       "portInfo": {
-        "description": "A town on the north coast of Jamaica, known for its beaches, waterfalls, and cruise ship facilities.",
+        "description": "North-coast Jamaica call. Treat waterfall/adventure products as booked excursions until ticket primaries are on file.",
         "location": "",
         "timezone": "EST (UTC-5)",
         "language": "English, Jamaican Patois",
@@ -21837,23 +21837,18 @@
         "population": ""
       },
       "facts": {
-        "established": "Developed as a tourist destination",
-        "significance": "Popular cruise ship destination",
-        "notableFeatures": [
-          "Dunn's River Falls",
-          "Dolphin Cove",
-          "Ocho Rios Bay Beach"
-        ],
+        "established": "",
+        "significance": "North-coast Jamaica cruise call under Port Authority of Jamaica",
+        "notableFeatures": [],
         "culturalHighlights": [
           "Jamaican culture",
-          "Reggae music",
           "Local crafts"
         ]
       },
       "size": {
         "portCapacity": "",
         "terminalCount": 1,
-        "berthCount": 2,
+        "berthCount": null,
         "annualVisitors": "",
         "citySize": "Tourist town"
       },
@@ -21873,16 +21868,66 @@
       "politics": {
         "governmentType": "Unitary parliamentary constitutional monarchy",
         "stability": "Stable",
-        "visaRequirements": "Visa-free for many nationalities (up to 90 days).",
-        "entryRequirements": "Valid passport required. Return ticket may be required."
+        "visaRequirements": "Many visitors on cruise calls use special cruise-passenger rules — confirm passport validity, PICA requirements, and any online declarations (e.g. C5) with your cruise line and official sources for your nationality.",
+        "entryRequirements": "Carry a valid passport. Cruise transit formalities can differ from airport entry — follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Port of Ocho Rios — Turtle Beach Road, Ocho Rios, St. Ann, Jamaica",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "Confirm your assigned pier with the cruise line. Walking access and transport to town attractions depend on pier placement—do not rely on unverified distance figures.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "Confirm your assigned pier with the cruise line. Walking access and transport to town attractions depend on pier placement—do not rely on unverified distance figures."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town / craft-market stroll — only if your pier placement and programme allow (confirm with the line)",
+          "Booked waterfall or north-coast landscape excursion (Dunn’s River only via organised transfer — not a gangway walk)",
+          "Beach time — confirm operator, access, and transport with your line or excursion desk"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Do not assume Dunn’s River (or any named falls) is walkable from the gangway without a current transfer primary."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "50682517fb65fb632488d2075a6782d1e049956b84f61b91c4e9171d720b99a2",
+        "landing_slug": "ocho-rios-jamaica",
+        "candidate_content_hash": "a1fd4ae20519f217d1d61d7f8c10a7c2c4c8d913127d268c110ccacd75e84749",
+        "locked_at_utc": "2026-11-12T04:39:30.963Z",
+        "field_exclusions": [],
+        "owner_approved": true,
+        "import_tier": "stage24_dry_run_only",
+        "travelerQuestions": [
+          "**Visa for cruise?** MFA cruise-passenger note — still verify nationality/PICA.",
+          "**C5?** Confirm current requirement with line/Visit Jamaica."
+        ],
+        "batch03_kirkenes_ocho_conditional_candidate": true,
+        "batch03_preparation_only": false,
+        "owner_publication_authorized": true,
+        "owner_indexing_authorized": false,
+        "owner_factual_hold_cleared": true,
+        "not_publication_authorization": false,
+        "conditional_policy_clearance_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/BATCH03_POLICY_CLEARANCE.json",
+        "baseline_main": "31f873d4d6fad6358c0ea5a12948123257571acd",
+        "proposed_content_hash": "5635233496acf009f81ec86289e3a165bfb1d93302deaee74709a71f47b3032e",
+        "qa_verdict": "PASS",
+        "batch03_ocho_publication_release": true,
+        "owner_factual_hold_cleared_at_utc": "2026-11-12T06:00:00.000Z",
+        "owner_publication_authorized_at_utc": "2026-11-12T06:01:19.454Z",
+        "publication_policy_clearance_ref": "qa-evidence/publication-batch-03-ocho/BATCH03_OCHO_PUBLICATION_POLICY_CLEARANCE.json",
+        "candidate_applied_at_utc": "2026-11-12T06:01:19.454Z"
       }
     },
     "odense": {

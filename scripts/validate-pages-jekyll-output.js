@@ -9,8 +9,7 @@
 const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
-const { countPassengerEditorialGuides, removeStage65ExcludedGuideEntries } = require('./lib/bulkPortPublication/stage65PublicationGuards')
-const { loadPublicPortGuidesFile } = require('./lib/publicPortGuideAdapter')
+const { assertPagesPassengerEditorialPePolicy } = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
 
 const root = path.join(__dirname, '..')
 const siteDir = process.env.SEADAYS_PAGES_SITE_DIR
@@ -64,14 +63,13 @@ function main() {
   const cname = fs.readFileSync(path.join(siteDir, 'CNAME'), 'utf8').trim()
   assert.strictEqual(cname, 'seadays.app', 'CNAME must remain seadays.app')
 
-  const guides = loadPublicPortGuidesFile(root)
-  removeStage65ExcludedGuideEntries(guides)
-  assert.strictEqual(countPassengerEditorialGuides(guides), 360, 'production PE must stay 360/406 at build time (wave 1 + batch 02 mormugao)')
+  const pePolicy = assertPagesPassengerEditorialPePolicy(root)
 
   console.log('validate-pages-jekyll-output PASS', {
     site_dir: siteDir,
     file_count: files.length,
-    passenger_editorial: 360,
+    passenger_editorial: pePolicy.pe,
+    pe_policy_mode: pePolicy.mode,
   })
 }
 
