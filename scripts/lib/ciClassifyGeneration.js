@@ -260,6 +260,17 @@ function resolveGenerationPlan({
     if (portsReleaseVerdict?.action === 'suppress') {
       return emptyPlan('skip');
     }
+
+    const { resolveGateModeFromPushFiles } = require('../assert-ports-regen-banner-only-diff');
+    const viatorGateMode = resolveGateModeFromPushFiles(changedFiles);
+    if (viatorGateMode === 'block') {
+      throw new Error(
+        '[ci-classify] Viator banner-only push includes unexpected paths (fail closed)',
+      );
+    }
+    if (viatorGateMode === 'banner-only') {
+      return planForChannel('ports');
+    }
   }
 
   return classifyChangedFiles(changedFiles);
