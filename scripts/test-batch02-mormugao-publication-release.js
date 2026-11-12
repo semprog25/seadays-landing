@@ -68,6 +68,9 @@ function main() {
   assert.strictEqual((guide.thingsToDo?.topThings || []).length, 2)
 
   const html = fs.readFileSync(path.join(REPO, 'ports', SLUG, 'index.html'), 'utf8')
+  const approvedMeta =
+    'Mormugao Port (Goa), India: cruise port overview and shore-day tips.'
+  assert.ok(html.includes(`content="${approvedMeta}"`), 'approved meta description on page')
   assert.ok(/noindex/i.test(html), 'mormugao stays noindex')
   const plans = (html.match(/<article class="pg-call-plan-card/g) || []).length
   assert.strictEqual(plans, 3, 'mormugao call plans')
