@@ -9,8 +9,7 @@
 const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
-const { countPassengerEditorialGuides, removeStage65ExcludedGuideEntries } = require('./lib/bulkPortPublication/stage65PublicationGuards')
-const { loadPublicPortGuidesFile } = require('./lib/publicPortGuideAdapter')
+const { assertPagesPassengerEditorialPePolicy } = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
 
 const root = path.join(__dirname, '..')
 const siteDir = process.env.SEADAYS_PAGES_SITE_DIR
@@ -64,24 +63,13 @@ function main() {
   const cname = fs.readFileSync(path.join(siteDir, 'CNAME'), 'utf8').trim()
   assert.strictEqual(cname, 'seadays.app', 'CNAME must remain seadays.app')
 
-  const guides = loadPublicPortGuidesFile(root)
-  removeStage65ExcludedGuideEntries(guides)
-  const pe = countPassengerEditorialGuides(guides)
-  const batch03OchoReleaseClearance = path.join(
-    root,
-    'qa-evidence/publication-batch-03-ocho/BATCH03_OCHO_PUBLICATION_POLICY_CLEARANCE.json',
-  )
-  const hasBatch03OchoReleaseEvidence = fs.existsSync(batch03OchoReleaseClearance)
-  const allowedPe = hasBatch03OchoReleaseEvidence ? [360, 361] : [360]
-  assert.ok(
-    allowedPe.includes(pe),
-    `passenger editorial count ${pe} not in [${allowedPe.join(', ')}] (406 catalogue slots; batch03 ocho release draft allows 361 only with clearance evidence)`,
-  )
+  const pePolicy = assertPagesPassengerEditorialPePolicy(root)
 
   console.log('validate-pages-jekyll-output PASS', {
     site_dir: siteDir,
     file_count: files.length,
-    passenger_editorial: pe,
+    passenger_editorial: pePolicy.pe,
+    pe_policy_mode: pePolicy.mode,
   })
 }
 
