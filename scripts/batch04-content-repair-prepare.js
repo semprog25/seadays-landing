@@ -319,7 +319,7 @@ function main() {
         env: {
           ...process.env,
           SEADAYS_CONTENT_REPAIR_BATCH04: '1',
-          CONTENT_REPAIR_SLUG_MAP: slugMapPatch,
+          STAGE68_PUBLICATION_SLUG_MAP: slugMapPatch,
           SEADAYS_APP_ROOT: process.env.SEADAYS_APP_ROOT || path.resolve(REPO, '..', 'Seadays-trust-boundary'),
           VIATOR_AFFILIATE_PID: process.env.VIATOR_AFFILIATE_PID || 'P00314321',
           VIATOR_AFFILIATE_MCID: process.env.VIATOR_AFFILIATE_MCID || '42383',

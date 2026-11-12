@@ -9,7 +9,7 @@ const {
   evaluatePushReleaseGuard,
   loadReleaseGuard,
 } = require('./lib/ciGenerationReleaseGuard');
-const { resolveGenerationPlan } = require('./lib/ciClassifyGeneration');
+const { classifyChangedFiles, resolveGenerationPlan } = require('./lib/ciClassifyGeneration');
 
 const GUEST_REVIEW_EXACT = [
   '.github/ci-generation-release-guard.json',
@@ -41,22 +41,30 @@ function withTempGuard(body, fn) {
   fs.mkdirSync(guardDir, { recursive: true });
   fs.writeFileSync(path.join(guardDir, 'ci-generation-release-guard.json'), JSON.stringify(body, null, 2));
   const prev = process.cwd();
+  const prevGateRoot = process.env.PORTS_REGEN_GATE_REPO_ROOT;
   try {
     process.chdir(dir);
+    process.env.PORTS_REGEN_GATE_REPO_ROOT = dir;
     fn(dir);
   } finally {
     process.chdir(prev);
+    if (prevGateRoot === undefined) delete process.env.PORTS_REGEN_GATE_REPO_ROOT;
+    else process.env.PORTS_REGEN_GATE_REPO_ROOT = prevGateRoot;
     fs.rmSync(dir, { recursive: true, force: true });
   }
 }
 
 test('no guard file leaves push classification unchanged', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'seadays-noguard-'));
+  const prevGateRoot = process.env.PORTS_REGEN_GATE_REPO_ROOT;
   try {
+    process.env.PORTS_REGEN_GATE_REPO_ROOT = dir;
     assert.strictEqual(evaluatePushReleaseGuard(['scripts/generateBlogs.js'], { repoRoot: dir }), null);
     const plan = resolveGenerationPlan({ eventName: 'push', changedFiles: ['scripts/generateBlogs.js'] });
     assert.strictEqual(plan.channel, 'full');
   } finally {
+    if (prevGateRoot === undefined) delete process.env.PORTS_REGEN_GATE_REPO_ROOT;
+    else process.env.PORTS_REGEN_GATE_REPO_ROOT = prevGateRoot;
     fs.rmSync(dir, { recursive: true, force: true });
   }
 });
@@ -75,7 +83,7 @@ test('approved set plus extra file does not suppress (fail open to normal classi
   withTempGuard({ profile: 'guest-reviews-code-only', exactPaths: GUEST_REVIEW_EXACT }, (dir) => {
     const changed = [...GUEST_REVIEW_EXACT, 'blog/foo/index.html'];
     assert.strictEqual(evaluatePushReleaseGuard(changed, { repoRoot: dir }), null);
-    const plan = resolveGenerationPlan({ eventName: 'push', changedFiles: changed });
+    const plan = classifyChangedFiles(changed);
     assert.strictEqual(plan.channel, 'full');
   });
 });
