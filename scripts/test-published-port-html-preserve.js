@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const {
   mergePublishedPortHtmlPreservation,
+  dedupePortDetailHeadJsonLd,
   extractRobotsContent,
   extractBookableExperiencesSection,
 } = require('./lib/publishedPortHtmlPreserve');
@@ -56,6 +57,23 @@ assert.strictEqual(
   mergePublishedPortHtmlPreservation(wrap(NEW_APP), '', { affiliate: { url: null } }),
   wrap(NEW_APP),
   'missing existing html'
+);
+
+const headWithTripleNewlineInStyle = `<!DOCTYPE html><html><head>
+  <script type="application/ld+json">{"@type":"TouristDestination","name":"X"}</script>
+  <script type="application/ld+json">{"@type":"TouristDestination","name":"Y"}</script>
+  <link rel="stylesheet" href="/assets/css/site-shell.css">
+  <style>
+* { margin: 0; }
+
+
+.seo-detail { color: #fff; }
+</style>
+</head><body></body></html>`;
+const dedupedHead = dedupePortDetailHeadJsonLd(headWithTripleNewlineInStyle);
+assert.ok(
+  dedupedHead.includes('\n\n\n.seo-detail'),
+  'JSON-LD dedupe must not collapse newlines inside inline style blocks'
 );
 
 const { patchPortGuideTerminalCss } = require('./patch-port-guide-pr57-published');

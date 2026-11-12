@@ -35,11 +35,16 @@ const VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST = new Set([
   'scripts/apply-publish-gate.js',
   'scripts/lib/portsRegenScope.js',
   'scripts/lib/ciClassifyGeneration.js',
+  'scripts/lib/publishedPortHtmlPreserve.js',
   'scripts/assert-ports-regen-banner-only-diff.js',
   '.github/workflows/generate-ports.yml',
   'scripts/test-ports-regen-banner-only-diff.js',
   'scripts/test-ports-regen-banner-scope.js',
   'scripts/test-ci-classify-generation.js',
+  'scripts/test-mormugao-approved-meta-regen.js',
+  'scripts/test-batch02-mormugao-publication-release.js',
+  'scripts/test-published-port-html-preserve.js',
+  '.github/workflows/generate-ports.yml',
 ]);
 
 function isViatorRegenRecoveryScopeFile(filePath) {
