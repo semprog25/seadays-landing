@@ -1,81 +1,43 @@
 {
   "appPortId": "yokohama",
-  "portName": "Yokohama",
+  "portName": "Tokyo / Yokohama",
   "country": "Japan",
   "portInfo": {
-    "description": "Cruise itineraries labelled Tokyo often berth in Yokohama or at Tokyo Port facilities. The City of Yokohama publishes Osanbashi Passenger Terminal metrics: berths A&B 450 m at 12 m depth and C&D 450 m at 10–11 m, with four mobile boarding bridges and a ~5-minute walk to Nihon-odori Station; vessels approaching Osanbashi must respect Yokohama Bay Bridge air draft (56 m at spring high tide). Tokyo Port Terminal Corporation opened Tokyo International Cruise Terminal on 10 September 2020 at Aomi and explicitly warns that Tokyo also still uses Harumi Passenger Terminal — passengers must match ship name to terminal name. MLIT’s Cruise Port Guide of Japan lists Harumi Wharf, Oi Wharf and Tokyo International Cruise Wharf under Tokyo Port management by the Tokyo Metropolitan Government Bureau of Port and Harbor. Quay LOA for TICT was not on the captured TPTC overview page.",
+    "description": "Cruise itineraries labelled Tokyo often berth at Yokohama (Osanbashi) or at Tokyo Port facilities. Tokyo International Cruise Terminal (TICT) at Aomi and Harumi Passenger Terminal are different facilities—match the terminal name on your sailing documents. The City of Yokohama publishes Osanbashi berth dimensions and approach limits including Yokohama Bay Bridge air draft. Tokyo Port Terminal Corporation notes that Harumi remains in use alongside TICT—do not assume they are the same pier.",
     "location": "",
     "timezone": "JST (UTC+9)",
     "language": "Japanese",
     "currency": "Japanese Yen (JPY)",
     "population": ""
   },
-  "facts": {
-    "established": "Opened to foreign trade in 1859",
-    "significance": "First Japanese port opened to Western trade",
-    "notableFeatures": [
-      "Minato Mirai 21 district",
-      "Chinatown",
-      "Yamashita Park"
-    ],
-    "culturalHighlights": [
-      "International heritage",
-      "Modern architecture",
-      "Culinary diversity"
-    ]
-  },
-  "size": {
-    "portCapacity": "Major international port",
-    "terminalCount": 4,
-    "berthCount": 12,
-    "annualVisitors": "Important cruise gateway to Tokyo",
-    "citySize": "Second largest city in Japan"
-  },
-  "climate": {
-    "type": "Humid subtropical",
-    "averageTemp": "16°C (61°F)",
-    "bestMonths": [
-      "March",
-      "April",
-      "May",
-      "October",
-      "November"
-    ],
-    "rainySeason": "June to July (tsuyu season)",
-    "humidity": "High in summer",
-    "description": "Four distinct seasons with hot humid summers"
-  },
   "politics": {
     "governmentType": "Unitary parliamentary constitutional monarchy",
     "stability": "Highly stable",
-    "visaRequirements": "Visa-free for US, EU, UK, and many others (15-90 days depending on nationality)",
-    "entryRequirements": "Valid passport required. Some nationalities need visa in advance."
+    "visaRequirements": "Japan sets its own entry and visa rules. Requirements vary by nationality and trip purpose. Confirm with official government sources and your cruise line before travel—not legal advice.",
+    "entryRequirements": "Carry a valid passport. Cruise transit formalities can differ from airport entry—follow your ship’s document checklist and terminal instructions."
   },
   "gettingThere": {
-    "fromTerminal": "Osanbashi Pier or Daikoku Pier",
+    "fromTerminal": "Confirm on sailing documents: Osanbashi International Passenger Terminal (Yokohama) or Tokyo International Cruise Terminal / Harumi Passenger Terminal (Tokyo). These are not interchangeable.",
     "transportation": [
-      "Walking to Minato Mirai",
-      "Train",
-      "Local buses"
+      "Train and metro links",
+      "Local buses",
+      "Taxis"
     ],
-    "distanceToCity": "Within Yokohama city",
-    "walkingTime": "5-15 minutes depending on pier",
-    "taxiInfo": "Taxis available at all terminals",
-    "publicTransport": "Excellent train connections to Tokyo and elsewhere",
-    "distanceAnswer": "Within Yokohama city"
+    "distanceAnswer": "Walking and transfer times depend on which terminal you use. Osanbashi is within Yokohama waterfront; Tokyo terminals require confirmed rail or shuttle plans—verify with your cruise line before planning.",
+    "taxiInfo": "Taxis are generally available when cruise ships are in port; confirm pickup areas with terminal staff.",
+    "publicTransport": "From Osanbashi, Nihon-odori Station on the Minatomirai Line is a short walk per city port information. From TICT or Harumi, use Yurikamome or other Tokyo transit—confirm routes for your sailing date."
   },
   "thingsToDo": {
     "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
     "topThings": [
-      "Minato Mirai / Chinatown (Yokohama) — ~120 min from Osanbashi.",
-      "Tokyo neighbourhood day — from TICT/Harumi with rail.",
-      "Kamakura / Hakone coaches — full-day only.",
-      "Minato Mirai / Yokohama waterfront"
+      "Minato Mirai / Chinatown (Yokohama)—plan only when Osanbashi is your terminal.",
+      "Tokyo neighbourhood day—from TICT or Harumi with confirmed rail transfers.",
+      "Kamakura or Hakone coaches—full-day only with confirmed operators and generous return buffer."
     ],
     "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
     "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
     "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
-    "practicalTip": "Read the exact terminal name on sailing docs — TICT ≠ Harumi ≠ Osanbashi."
+    "practicalTip": "Read the exact terminal name on sailing documents—TICT, Harumi, and Osanbashi are different facilities."
   },
   "shorePlansFirst": true,
   "researchImport": {
@@ -85,12 +47,18 @@
     "draft_version": "stage22-deterministic-v2.5-marker-strip",
     "research_sha256": "7e1a1016bff4d827fe7fa1246531b3c242a8b9d5584b0c0126e917e3fbf6d017",
     "landing_slug": "tokyo-yokohama-japan",
-    "candidate_content_hash": "c1fc93ebd2fdc122d0861e0955cbd1e151f031cffc3e9f06d173f3ed56fe4635",
-    "locked_at_utc": "2026-11-09T07:40:41.182Z",
+    "candidate_content_hash": "9e8167055b21b50b81e3d600fbff0301de667725ce54aa6697ce73db86ef7edd",
+    "locked_at_utc": "2026-11-12T11:31:24.714Z",
     "field_exclusions": [],
     "owner_approved": false,
     "import_tier": "stage24_dry_run_only",
-    "stage63_50_release_candidate": true,
-    "owner_publication_authorized": false
+    "content_repair_batch04": true,
+    "batch04_preparation_only": true,
+    "owner_publication_authorized": false,
+    "owner_indexing_authorized": false,
+    "owner_factual_hold_cleared": false,
+    "not_publication_authorization": true,
+    "conditional_policy_clearance_ref": "qa-evidence/content-repair-batch04/CONTENT_REPAIR_POLICY.json",
+    "baseline_main": "dea758c809c1e8624e99e3248793f987c8d5feb7"
   }
 }

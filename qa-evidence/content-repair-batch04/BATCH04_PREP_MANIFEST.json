@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "stage": "content-repair-batch04",
+  "status": "READY_FOR_OWNER_FACTUAL_REVIEW",
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "owner_factual_hold_cleared": false,
+  "production_apply_permitted": false,
+  "baseline_main": "dea758c809c1e8624e99e3248793f987c8d5feb7",
+  "baseline_live_passenger_editorial": 362,
+  "worktree_head_after_restore": "bc59efb8855f64152c13bbb8dfbd87dbccf8b823",
+  "production_guides_sha256_preserved": "4d650cde9ea93ba10d0bdbdfac8066ffd867aafac0b55253c340905da2403e6f",
+  "ports": [
+    {
+      "landing_slug": "tokyo-yokohama-japan",
+      "app_port_id": "yokohama",
+      "research_sha256": "7e1a1016bff4d827fe7fa1246531b3c242a8b9d5584b0c0126e917e3fbf6d017",
+      "proposed_content_hash": "5dbc4fe518f40e02e0abdd998e4d3bbc943bc5e9cc945364c840a6b75f493b88",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/content-repair-batch04/candidate-assets/tokyo-yokohama-japan/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/content-repair-batch04/candidate-assets/tokyo-yokohama-japan/corrected-draft.json",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "owner_factual_hold_cleared": false,
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "tokyo-yokohama-japan"
+      },
+      "full_html_gates_pass": true
+    }
+  ],
+  "policy_ref": "qa-evidence/content-repair-batch04/CONTENT_REPAIR_POLICY.json",
+  "created_at_utc": "2026-11-12T11:31:39.555Z",
+  "bundle_idempotency_hash": "6384dc20e47090d857a87bdd9303a1987f8267908dcb6d5895eeba993f99f43d"
+}

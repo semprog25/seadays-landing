@@ -3403,6 +3403,10 @@ async function main() {
   if (stage68SlugMapPath && fs.existsSync(stage68SlugMapPath)) {
   Object.assign(slugToAppPortId, JSON.parse(fs.readFileSync(stage68SlugMapPath, 'utf8')));
   }
+  const contentRepairSlugMapPath = process.env.CONTENT_REPAIR_SLUG_MAP;
+  if (contentRepairSlugMapPath && fs.existsSync(contentRepairSlugMapPath)) {
+    Object.assign(slugToAppPortId, JSON.parse(fs.readFileSync(contentRepairSlugMapPath, 'utf8')));
+  }
   const passengerEditorialLandingSlugs = collectPassengerEditorialLandingSlugs(publicGuides);
   const terminalsPayload = loadPublicPortTerminals(repoRoot);
   const knownAffiliatePortIds = (mode.ships || mode.ports) ? loadKnownAffiliatePortIds(appRoot) : new Set();
