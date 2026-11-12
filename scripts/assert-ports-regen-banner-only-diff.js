@@ -28,6 +28,35 @@ const BANNER_COPY_RELEASE_ALLOWLIST = new Set([
   'scripts/lib/publishGate.js',
   'scripts/test-ports-phase1.js',
 ]);
+/** Post–PR #124 recovery: scope-fix push when neutral banner is already on main. */
+const VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST = new Set([
+  'scripts/generateBlogs.js',
+  'scripts/ci-run-channel.sh',
+  'scripts/apply-publish-gate.js',
+  'scripts/lib/portsRegenScope.js',
+  'scripts/assert-ports-regen-banner-only-diff.js',
+  '.github/workflows/generate-ports.yml',
+  'scripts/test-ports-regen-banner-only-diff.js',
+  'scripts/test-ports-regen-banner-scope.js',
+]);
+
+function isViatorRegenRecoveryScopeFile(filePath) {
+  return VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST.has(filePath);
+}
+
+function viatorNeutralBannerCopyOnHead() {
+  try {
+    const headRoot = path.resolve(process.env.PORTS_REGEN_GATE_REPO_ROOT || path.join(__dirname, '..'));
+    const content = execFileSync('git', ['show', `HEAD:${PORT_GUIDE_SECTIONS_FILE}`], {
+      cwd: headRoot,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim();
+    return content.includes('Explore Shore Experiences');
+  } catch {
+    return false;
+  }
+}
 const VIATOR_QUERY_KEYS = ['text', 'pid', 'mcid', 'medium', 'campaign'];
 const PRIVATE_ISLAND_MARKERS = [
   /Excursions are sold by your cruise line/i,
@@ -153,10 +182,16 @@ function assertApprovedBannerCopy(beforeSection, afterSection, slug) {
 function resolveGateModeFromPushFiles(files) {
   const list = Array.isArray(files) ? files.map(String).filter(Boolean) : [];
   if (!list.length) return 'off';
-  const unexpected = list.filter((f) => !BANNER_COPY_RELEASE_ALLOWLIST.has(f));
   const hasPortGuideSections = list.includes(PORT_GUIDE_SECTIONS_FILE);
-  if (hasPortGuideSections && unexpected.length > 0) return 'block';
-  if (hasPortGuideSections && unexpected.length === 0) return 'banner-only';
+  const unexpectedCopy = list.filter((f) => !BANNER_COPY_RELEASE_ALLOWLIST.has(f));
+  if (hasPortGuideSections && unexpectedCopy.length > 0) return 'block';
+  if (hasPortGuideSections && unexpectedCopy.length === 0) return 'banner-only';
+  if (!hasPortGuideSections && viatorNeutralBannerCopyOnHead()) {
+    if (list.every(isViatorRegenRecoveryScopeFile)) return 'banner-only';
+    const hasRecoveryFile = list.some(isViatorRegenRecoveryScopeFile);
+    const outsideRecovery = list.filter((f) => !isViatorRegenRecoveryScopeFile(f));
+    if (hasRecoveryFile && outsideRecovery.length > 0) return 'block';
+  }
   return 'off';
 }
 
@@ -327,6 +362,8 @@ module.exports = {
   resolveGateMode,
   resolveGateModeFromPushFiles,
   BANNER_COPY_RELEASE_ALLOWLIST,
+  VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST,
+  viatorNeutralBannerCopyOnHead,
   PORT_GUIDE_SECTIONS_FILE,
   runBannerOnlyGate,
   decodeHtmlAttrUrl,

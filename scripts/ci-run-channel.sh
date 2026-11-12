@@ -8,6 +8,14 @@ cd "${ROOT}"
 CHANNEL="${1:?channel required (blogs|ports|ships|catalogue|full|sitemap)}"
 ALLOW_ORPHAN="${ALLOW_ORPHAN_CLEANUP:-false}"
 
+if [[ "${CHANNEL}" == "ports" && -n "${SEADAYS_PORTS_REGEN_DIFF_GATE:-}" ]]; then
+  SCOPE_MODE="$(node -e '
+const { resolvePortsRegenScopeMode } = require("./scripts/lib/portsRegenScope");
+console.log(resolvePortsRegenScopeMode());
+')"
+  echo "[ci-run-channel] ports regen scope (gate-linked)=${SCOPE_MODE}"
+fi
+
 mapfile -t ARGS < <(node -e '
 const { generateArgsForChannel } = require("./scripts/lib/generateMode");
 const channel = process.argv[1];
