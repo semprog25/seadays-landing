@@ -40,7 +40,9 @@ const POLICY = path.join(EVIDENCE, 'BATCH03_POLICY_CLEARANCE.json')
 const PATCH = path.join(EVIDENCE, 'COMPOSITE_SHA_PATCH.json')
 const STAGE63 = path.join(REPO, 'qa-evidence/stage63-50-port-recovery')
 const BASELINE_MAIN = process.env.BATCH03_BASELINE_MAIN || '31f873d4d6fad6358c0ea5a12948123257571acd'
-const BASELINE_PE = 360
+const PREPARE_ONLY = process.env.BATCH03_PREPARE_ONLY
+  ? process.env.BATCH03_PREPARE_ONLY.split(',').map((s) => s.trim()).filter(Boolean)
+  : null
 const BY_PORT_ROOT =
   process.env.PORT_RESEARCH_ROOT || '/Users/sharanestone/Semprog/seadays-ports-deliverables'
 const INDEX_ROOT =
@@ -131,6 +133,16 @@ function patchKirkenesDraft(draft) {
     practicalTip:
       'Confirm Dypvannskaia vs any requested alternate quay before assuming a centre stroll. Do not rely on unpublished museum hours or king crab offers.',
   }
+  next.size = {
+    ...(next.size || {}),
+    berthCount: null,
+  }
+  next.facts = {
+    established: '',
+    significance: '',
+    notableFeatures: [],
+    culturalHighlights: [],
+  }
   return next
 }
 
@@ -192,7 +204,7 @@ function mergeBatch03DraftCompanionFields(proposed, draft, portRow) {
   if (draft.politics && typeof draft.politics === 'object') {
     next.politics = JSON.parse(JSON.stringify(draft.politics))
   }
-  if (portRow.landing_slug === 'ocho-rios-jamaica') {
+  if (portRow.landing_slug === 'ocho-rios-jamaica' || portRow.landing_slug === 'kirkenes-norway') {
     next.size = { ...(next.size || {}), ...(draft.size || {}), berthCount: null }
   }
   return next
@@ -244,7 +256,8 @@ function main() {
   const guidesBefore = loadPublicPortGuidesFile(REPO)
   removeStage65ExcludedGuideEntries(guidesBefore)
   const peBefore = countPassengerEditorialGuides(guidesBefore)
-  if (peBefore !== BASELINE_PE) fail(`live PE ${peBefore} !== ${BASELINE_PE}`)
+  const BASELINE_PE = peBefore
+  if (peBefore < 360 || peBefore > 361) fail(`unexpected live PE ${peBefore} (expected 360 or 361 post batch03 ocho)`)
 
   const prodGuidesHashBefore = sha256File(path.join(REPO, 'data/public-port-guides.json'))
   const rostockHtmlBefore = sha256File(path.join(REPO, 'ports/rostock-germany/index.html'))
@@ -275,11 +288,19 @@ function main() {
     fs.copyFileSync(htmlSrc, path.join(rollbackDir, 'ports', p.landing_slug, 'index.html'))
   }
 
+  const portsToRun = PREPARE_ONLY
+    ? PORTS.filter((p) => PREPARE_ONLY.includes(p.landing_slug))
+    : PORTS
+  if (!portsToRun.length) fail('BATCH03_PREPARE_ONLY matched no ports')
+  const priorManifest = fs.existsSync(path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json'))
+    ? JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json'), 'utf8'))
+    : null
+
   const index = loadResearchIndex(INDEX_ROOT)
   const manifestPorts = []
   const gapReport = []
   try {
-    for (const portRow of PORTS) {
+    for (const portRow of portsToRun) {
       const indexRow = index.find((r) => r.slug === portRow.landing_slug)
       if (!indexRow) fail(`${portRow.landing_slug} missing from research index`)
       if (indexRow.qa_verdict !== 'PASS') fail(`qa_verdict not PASS for ${portRow.landing_slug}`)
@@ -486,7 +507,8 @@ function main() {
   }
 
   execSync('git checkout -- data/public-port-guides.json', { cwd: REPO, stdio: 'pipe' })
-  for (const p of PORTS) {
+  const restorePorts = PREPARE_ONLY ? portsToRun : PORTS
+  for (const p of restorePorts) {
     fs.copyFileSync(
       path.join(rollbackDir, 'ports', p.landing_slug, 'index.html'),
       path.join(REPO, 'ports', p.landing_slug, 'index.html')
@@ -516,7 +538,13 @@ function main() {
     baseline_live_passenger_editorial: BASELINE_PE,
     worktree_head_after_restore: execSync('git rev-parse HEAD', { cwd: REPO, encoding: 'utf8' }).trim(),
     production_guides_sha256_preserved: prodGuidesHashBefore,
-    ports: manifestPorts,
+    ports:
+      priorManifest && PREPARE_ONLY
+        ? priorManifest.ports.map((row) => {
+            const updated = manifestPorts.find((p) => p.landing_slug === row.landing_slug)
+            return updated || row
+          })
+        : manifestPorts,
     policy_ref: 'qa-evidence/batch03-kirkenes-ocho-candidate/BATCH03_POLICY_CLEARANCE.json',
     composite_sha_patch_ref: 'qa-evidence/batch03-kirkenes-ocho-candidate/COMPOSITE_SHA_PATCH.json',
     created_at_utc: new Date().toISOString(),
