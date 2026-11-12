@@ -66,12 +66,22 @@ function main() {
 
   const guides = loadPublicPortGuidesFile(root)
   removeStage65ExcludedGuideEntries(guides)
-  assert.strictEqual(countPassengerEditorialGuides(guides), 360, 'production PE must stay 360/406 at build time (wave 1 + batch 02 mormugao)')
+  const pe = countPassengerEditorialGuides(guides)
+  const batch03OchoReleaseClearance = path.join(
+    root,
+    'qa-evidence/publication-batch-03-ocho/BATCH03_OCHO_PUBLICATION_POLICY_CLEARANCE.json',
+  )
+  const hasBatch03OchoReleaseEvidence = fs.existsSync(batch03OchoReleaseClearance)
+  const allowedPe = hasBatch03OchoReleaseEvidence ? [360, 361] : [360]
+  assert.ok(
+    allowedPe.includes(pe),
+    `passenger editorial count ${pe} not in [${allowedPe.join(', ')}] (406 catalogue slots; batch03 ocho release draft allows 361 only with clearance evidence)`,
+  )
 
   console.log('validate-pages-jekyll-output PASS', {
     site_dir: siteDir,
     file_count: files.length,
-    passenger_editorial: 360,
+    passenger_editorial: pe,
   })
 }
 
