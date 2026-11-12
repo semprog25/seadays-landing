@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-03-kirkenes-norway",
+  "recorded_at_utc": "2026-11-12T10:30:00.000Z",
+  "owner_decision": "APPROVE_KIRKENES_FACTUAL_CLEARANCE_AND_PASSENGER_EDITORIAL_PUBLICATION_ELIGIBILITY",
+  "owner_factual_hold_cleared": true,
+  "owner_publication_authorized": true,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": true,
+  "merge_authorized": false,
+  "deploy_authorized": false,
+  "sitemap_inclusion_authorized": false,
+  "ocho_rios_publication_release_unchanged": true,
+  "global_stage43_hard_exclude_ledger_unchanged": true,
+  "runtime_policy_exception_slugs": [],
+  "excluded_from_batch": [
+    "rostock-germany",
+    "warnemunde-berlin-germany",
+    "eilat-israel"
+  ],
+  "reconciled_main": "c874cafb26ed447dfc53bc413042dfcaa80566d3",
+  "baseline_live_passenger_editorial": 361,
+  "projected_passenger_editorial_after_batch03_kirkenes": 362,
+  "kirkenes_norway_proposed_content_hash": "85dbe2f90be7aeb98d61b8f85678b6f10a56bee2dac9e219cbec784d0e0d5294",
+  "kirkenes_norway_research_sha256": "7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8",
+  "candidate_evidence_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/byAppPortId.kirkenes.json",
+  "candidate_html_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/ports/kirkenes-norway/index.html",
+  "ocho_release_clearance_ref": "qa-evidence/publication-batch-03-ocho/BATCH03_OCHO_PUBLICATION_POLICY_CLEARANCE.json",
+  "unresolved_limitations_acknowledged": [
+    "centre_berth_metre_distance_unverified",
+    "borderland_museum_hours_tickets_unverified",
+    "king_crab_operator_primaries_unverified",
+    "berth_decimal_coordinates_null",
+    "annual_passengers_unverified"
+  ],
+  "passenger_restrictions_acknowledged": [
+    "dypvannskaia_berth_confirmation_day_of_call",
+    "qualitative_centre_access_only",
+    "museum_conditional_on_operating_hours",
+    "king_crab_conditional_on_booking_availability",
+    "no_guaranteed_excursions_or_unsupported_transport_figures",
+    "berth_count_remains_null",
+    "conservative_nationality_dependent_visa_guidance"
+  ]
+}

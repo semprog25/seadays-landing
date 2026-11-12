@@ -13602,7 +13602,7 @@
       "portName": "Kirkenes",
       "country": "Norway",
       "portInfo": {
-        "description": "A port town in northern Norway near the Russian border, known for Arctic attractions and the Northern Lights.",
+        "description": "Arctic port town in eastern Finnmark near the Russian border. Confirm Dypvannskaia berth assignment before planning a centre walk; museum visits and king crab experiences depend on opening hours, tickets, and what operators offer on your call day.",
         "location": "",
         "timezone": "CET (UTC+1) / CEST (UTC+2)",
         "language": "Norwegian",
@@ -13618,7 +13618,7 @@
       "size": {
         "portCapacity": "",
         "terminalCount": 1,
-        "berthCount": 2,
+        "berthCount": null,
         "annualVisitors": "",
         "citySize": ""
       },
@@ -13641,12 +13641,62 @@
         "entryRequirements": "Carry a valid passport (or a national ID where your cruise line and destination authorities accept it). Cruise transit formalities can differ from a normal airport entry—follow your ship’s document list."
       },
       "gettingThere": {
-        "fromTerminal": "",
-        "transportation": [],
-        "distanceToCity": "",
+        "fromTerminal": "Dypvannskaia — Port of Kirkenes — Dypvannskaia",
+        "transportation": [
+          "Walking",
+          "Taxi",
+          "Coach excursion"
+        ],
+        "distanceToCity": "From Dypvannskaia, Kirkenes town centre and nearby shops are a short walk when this quay is assigned; exact walking time and metres are not verified. Confirm berth assignment with your ship and Kirkenes Havn.",
         "walkingTime": "",
         "taxiInfo": "",
-        "publicTransport": ""
+        "publicTransport": "Confirm local transport options with the ship on your call date.",
+        "distanceAnswer": "From Dypvannskaia, Kirkenes town centre and nearby shops are a short walk when this quay is assigned; exact walking time and metres are not verified. Confirm berth assignment with your ship and Kirkenes Havn."
+      },
+      "thingsToDo": {
+        "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+        "topThings": [
+          "Town centre / shopping near Dypvannskaia — only when this quay is assigned (confirm with your ship and Kirkenes Havn)",
+          "Borderland Museum (Grenselandsmuseet) — only if open and tickets are available on your call day (hours not verified here)",
+          "King crab or Arctic food experience — only via a booked operator when offered on your call (confirm availability; not a guaranteed excursion)"
+        ],
+        "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+        "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+        "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+        "practicalTip": "Confirm Dypvannskaia vs any requested alternate quay before assuming a centre stroll. Do not rely on unpublished museum hours or king crab offers."
+      },
+      "shorePlansFirst": true,
+      "researchImport": {
+        "schema_version": 1,
+        "publication_tier": "passenger_editorial",
+        "stage24_release_candidate": true,
+        "draft_version": "stage22-deterministic-v2.5-marker-strip",
+        "research_sha256": "7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8",
+        "landing_slug": "kirkenes-norway",
+        "candidate_content_hash": "c2cd0701b4d7d15ee5cd2a027f4ffadec33a577d15793fe84b7586e628aab11d",
+        "locked_at_utc": "2026-11-12T09:32:42.461Z",
+        "field_exclusions": [],
+        "owner_approved": true,
+        "import_tier": "stage24_dry_run_only",
+        "travelerQuestions": [
+          "**Walk to centre?** Authority describes short distance from berth.",
+          "**ETIAS?** Not operating."
+        ],
+        "batch03_kirkenes_ocho_conditional_candidate": true,
+        "batch03_preparation_only": false,
+        "owner_publication_authorized": true,
+        "owner_indexing_authorized": false,
+        "owner_factual_hold_cleared": true,
+        "not_publication_authorization": false,
+        "conditional_policy_clearance_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/BATCH03_POLICY_CLEARANCE.json",
+        "baseline_main": "31f873d4d6fad6358c0ea5a12948123257571acd",
+        "proposed_content_hash": "85dbe2f90be7aeb98d61b8f85678b6f10a56bee2dac9e219cbec784d0e0d5294",
+        "qa_verdict": "PASS",
+        "batch03_kirkenes_publication_release": true,
+        "owner_factual_hold_cleared_at_utc": "2026-11-12T10:30:00.000Z",
+        "owner_publication_authorized_at_utc": "2026-11-12T10:29:22.674Z",
+        "publication_policy_clearance_ref": "qa-evidence/publication-batch-03-kirkenes/BATCH03_KIRKENES_PUBLICATION_POLICY_CLEARANCE.json",
+        "candidate_applied_at_utc": "2026-11-12T10:29:22.674Z"
       }
     },
     "kirkwall": {

@@ -34,7 +34,8 @@ function cloneGuides() {
 }
 
 function main() {
-  assert.strictEqual(countPassengerEditorialGuides(cloneGuides()), 361, 'sanity: repo must be release state')
+  const livePe = countPassengerEditorialGuides(cloneGuides())
+  assert.ok(livePe === 361 || livePe === 362, `sanity: repo must be batch03 release state (361 or 362); got ${livePe}`)
 
   expectFail('unrelated port becomes the 361st PE instead of Ocho', () => {
     const guides = cloneGuides()
@@ -97,18 +98,20 @@ function main() {
   }
   })
 
-  expectFail('kirkenes promoted to passenger_editorial', () => {
-    const guides = cloneGuides()
-    removeStage65ExcludedGuideEntries(guides)
-    guides.byAppPortId.kirkenes.researchImport = {
-      publication_tier: 'passenger_editorial',
-      landing_slug: 'kirkenes-norway',
-      owner_factual_hold_cleared: true,
-      owner_publication_authorized: true,
-      owner_indexing_authorized: false,
-    }
-    assertBatch03OchoRiosReleaseBinding(REPO, guides)
-  })
+  if (livePe === 361) {
+    expectFail('kirkenes promoted to passenger_editorial', () => {
+      const guides = cloneGuides()
+      removeStage65ExcludedGuideEntries(guides)
+      guides.byAppPortId.kirkenes.researchImport = {
+        publication_tier: 'passenger_editorial',
+        landing_slug: 'kirkenes-norway',
+        owner_factual_hold_cleared: true,
+        owner_publication_authorized: true,
+        owner_indexing_authorized: false,
+      }
+      assertBatch03OchoRiosReleaseBinding(REPO, guides)
+    })
+  }
 
   expectFail('clearance file present but ocho not authorized (PE 360)', () => {
     const guides = cloneGuides()

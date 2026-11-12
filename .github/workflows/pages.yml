@@ -46,7 +46,7 @@ jobs:
       - name: Historical policy publication gate (fail closed)
         run: node scripts/assert-pages-deploy-publication-gate.js
 
-      - name: Batch 03 Ocho release binding (fail closed when PE 361)
+      - name: Batch 03 PE release binding (Ocho 361 / Kirkenes 362, fail closed)
         run: node scripts/assert-batch03-ocho-rios-pages-release-binding.js
 
       - name: Jekyll publication scope (qa-evidence exclude)

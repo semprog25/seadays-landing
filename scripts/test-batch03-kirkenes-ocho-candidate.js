@@ -12,7 +12,11 @@ const {
   removeStage65ExcludedGuideEntries,
 } = require('./lib/bulkPortPublication/stage65PublicationGuards')
 const { containsInternalResearchLeak, collectGuidePassengerLeakBlob } = require('./lib/publicGuideCopySanitize')
-const { assertBatch03OchoRiosReleaseBinding } = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
+const {
+  assertBatch03OchoRiosReleaseBinding,
+  assertBatch03OchoRiosReleaseInvariants,
+} = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
+const { assertBatch03KirkenesReleaseBinding } = require('./lib/bulkPortPublication/batch03KirkenesReleaseBinding')
 
 const REPO = path.join(__dirname, '..')
 const EVIDENCE = path.join(REPO, 'qa-evidence/batch03-kirkenes-ocho-candidate')
@@ -80,9 +84,14 @@ function main() {
   const ochoLive =
     guides.byAppPortId['ocho-rios']?.researchImport?.publication_tier === 'passenger_editorial' &&
     guides.byAppPortId['ocho-rios']?.researchImport?.owner_publication_authorized === true
-  const expectedPe = ochoLive ? BASELINE_PE + 1 : BASELINE_PE
+  const kirkenesLive =
+    guides.byAppPortId.kirkenes?.researchImport?.publication_tier === 'passenger_editorial' &&
+    guides.byAppPortId.kirkenes?.researchImport?.owner_publication_authorized === true
+  const expectedPe = BASELINE_PE + (ochoLive ? 1 : 0) + (kirkenesLive ? 1 : 0)
   assert.strictEqual(pe, expectedPe)
-  assert.strictEqual(manifest.baseline_live_passenger_editorial, expectedPe)
+  if (!kirkenesLive) {
+    assert.strictEqual(manifest.baseline_live_passenger_editorial, expectedPe)
+  }
 
   const recovery = JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'ROLLBACK_RECOVERY.json'), 'utf8'))
   if (!ochoLive) {
@@ -120,12 +129,21 @@ function main() {
     assert.ok(html.includes('pg-call-plan-card--standard'), `${slug} standard call plan`)
     assert.ok(html.includes('pg-call-plan-card--longer'), `${slug} longer call plan`)
 
-    if (slug === 'ocho-rios-jamaica' && ochoLive) {
-      assertBatch03OchoRiosReleaseBinding(REPO)
+    const slugLive =
+      (slug === 'ocho-rios-jamaica' && ochoLive) || (slug === 'kirkenes-norway' && kirkenesLive)
+    if (slugLive) {
+      if (slug === 'ocho-rios-jamaica') {
+        if (kirkenesLive) assertBatch03OchoRiosReleaseInvariants(REPO)
+        else assertBatch03OchoRiosReleaseBinding(REPO)
+      } else {
+        assertBatch03KirkenesReleaseBinding(REPO)
+      }
       const prodPath = path.join(REPO, 'ports', slug, 'index.html')
       const prodHash = sha256File(prodPath)
       const candHash = sha256File(htmlPath)
-      if (prodHash === candHash) {
+      if (slug === 'kirkenes-norway') {
+        assert.strictEqual(prodHash, candHash, `${slug} live html matches verified candidate`)
+      } else if (prodHash === candHash) {
         assert.strictEqual(prodHash, candHash, `${slug} live html matches verified candidate`)
       }
     } else {
@@ -194,11 +212,7 @@ function main() {
   const peMatrix = JSON.parse(
     execSync('node scripts/publication-batch-workflow.js matrix', { cwd: REPO, encoding: 'utf8' })
   )
-  if (ochoLive) {
-    assert.strictEqual(peMatrix.baseline.live_passenger_editorial, BASELINE_PE + 1)
-  } else {
-    assert.strictEqual(peMatrix.baseline.live_passenger_editorial, BASELINE_PE)
-  }
+  assert.strictEqual(peMatrix.baseline.live_passenger_editorial, expectedPe)
   assert.strictEqual(peMatrix.baseline.reconcile, true)
 
   console.log('test-batch03-kirkenes-ocho-candidate PASS')

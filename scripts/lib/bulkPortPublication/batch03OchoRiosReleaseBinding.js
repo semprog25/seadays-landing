@@ -80,39 +80,22 @@ function assertNetNewPeSlugIsOchoOnly(repoRoot, guides) {
 }
 
 /**
- * Fail-closed binding for Batch 03 Ocho Rios release (PE 361).
+ * Ocho Rios release invariants — safe to assert alongside Kirkenes at PE 362.
  * @param {string} repoRoot
- * @param {object} [guidesInput] optional pre-loaded guides (mutated exclusions applied)
+ * @param {object} guides
  */
-function assertBatch03OchoRiosReleaseBinding(repoRoot, guidesInput) {
+function assertBatch03OchoRiosReleaseInvariants(repoRoot, guidesInput) {
   const repo = repoRoot || path.join(__dirname, '..', '..', '..')
   assert.ok(fs.existsSync(clearancePath(repo)), `missing policy clearance: ${CLEARANCE_REL}`)
+  const guides = guidesInput || loadPublicPortGuidesFile(repo)
+  removeStage65ExcludedGuideEntries(guides)
 
   const clearance = JSON.parse(fs.readFileSync(clearancePath(repo), 'utf8'))
   assert.strictEqual(clearance.owner_factual_hold_cleared, true)
   assert.strictEqual(clearance.owner_publication_authorized, true)
   assert.strictEqual(clearance.owner_indexing_authorized, false)
-  assert.strictEqual(clearance.kirkenes_norway_factual_hold_cleared, false)
   assert.strictEqual(clearance.ocho_rios_proposed_content_hash, EXPECTED_HASH)
   assert.strictEqual(clearance.ocho_rios_research_sha256, RESEARCH_SHA)
-  assert.strictEqual(clearance.baseline_live_passenger_editorial, BASELINE_PE)
-  assert.strictEqual(clearance.projected_passenger_editorial_after_batch03_ocho, RELEASE_PE)
-
-  const candidatePath = path.join(
-    repo,
-    'qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/byAppPortId.ocho-rios.json',
-  )
-  assert.ok(fs.existsSync(candidatePath), 'missing pinned candidate guide artifact')
-  const candidate = JSON.parse(fs.readFileSync(candidatePath, 'utf8'))
-  const candidateHash = crypto.createHash('sha256').update(stableStringify(candidate)).digest('hex')
-  assert.strictEqual(candidateHash, EXPECTED_HASH)
-
-  const guides = guidesInput || loadPublicPortGuidesFile(repo)
-  removeStage65ExcludedGuideEntries(guides)
-  const pe = countPassengerEditorialGuides(guides)
-  assert.strictEqual(pe, RELEASE_PE, `batch03 ocho release requires PE ${RELEASE_PE}`)
-
-  assertNetNewPeSlugIsOchoOnly(repo, guides)
 
   const guide = guides.byAppPortId[APP_ID]
   assert.ok(guide, 'ocho-rios slot')
@@ -131,10 +114,6 @@ function assertBatch03OchoRiosReleaseBinding(repoRoot, guidesInput) {
   const topsText = tops.join('\n')
   assert.match(topsText, /Dunn/i)
   assert.match(topsText, /gangway walk|organised transfer/i)
-
-  const kirkenes = guides.byAppPortId.kirkenes
-  assert.notStrictEqual(kirkenes?.researchImport?.publication_tier, 'passenger_editorial')
-  assert.notStrictEqual(kirkenes?.researchImport?.owner_factual_hold_cleared, true)
 
   const eilat = guides.byAppPortId?.eilat
   assert.notStrictEqual(eilat?.researchImport?.owner_publication_authorized, true)
@@ -157,7 +136,33 @@ function assertBatch03OchoRiosReleaseBinding(repoRoot, guidesInput) {
 
   const rostock = fs.readFileSync(path.join(repo, 'ports/rostock-germany/index.html'), 'utf8')
   assert.match(rostock, /warnemunde-berlin-germany/i)
+}
 
+/**
+ * Fail-closed binding for Batch 03 Ocho Rios release (PE 361).
+ * @param {string} repoRoot
+ * @param {object} [guidesInput] optional pre-loaded guides (mutated exclusions applied)
+ */
+function assertBatch03OchoRiosReleaseBinding(repoRoot, guidesInput) {
+  const repo = repoRoot || path.join(__dirname, '..', '..', '..')
+
+  const clearance = JSON.parse(fs.readFileSync(clearancePath(repo), 'utf8'))
+  assert.strictEqual(clearance.kirkenes_norway_factual_hold_cleared, false)
+  assert.strictEqual(clearance.baseline_live_passenger_editorial, BASELINE_PE)
+  assert.strictEqual(clearance.projected_passenger_editorial_after_batch03_ocho, RELEASE_PE)
+
+  const guides = guidesInput || loadPublicPortGuidesFile(repo)
+  removeStage65ExcludedGuideEntries(guides)
+  const pe = countPassengerEditorialGuides(guides)
+  assert.strictEqual(pe, RELEASE_PE, `batch03 ocho release requires PE ${RELEASE_PE}`)
+
+  assertNetNewPeSlugIsOchoOnly(repo, guides)
+
+  const kirkenes = guides.byAppPortId.kirkenes
+  assert.notStrictEqual(kirkenes?.researchImport?.publication_tier, 'passenger_editorial')
+  assert.notStrictEqual(kirkenes?.researchImport?.owner_factual_hold_cleared, true)
+
+  assertBatch03OchoRiosReleaseInvariants(repo, guides)
   assertHistoricalPolicyPublicationGate(repo, guides)
 
   return { pe: RELEASE_PE, slug: SLUG, app_port_id: APP_ID }
@@ -168,14 +173,19 @@ function assertBatch03OchoRiosReleaseBinding(repoRoot, guidesInput) {
  * @param {object} [guidesInput]
  */
 function assertPagesPassengerEditorialPePolicy(repoRoot, guidesInput) {
+  const kirkenesBinding = require('./batch03KirkenesReleaseBinding')
   const repo = repoRoot || path.join(__dirname, '..', '..', '..')
   const guides = guidesInput || loadPublicPortGuidesFile(repo)
   removeStage65ExcludedGuideEntries(guides)
   const pe = countPassengerEditorialGuides(guides)
-  const hasClearance = fs.existsSync(clearancePath(repo))
+  const hasOchoClearance = fs.existsSync(clearancePath(repo))
+  const hasKirkenesClearance = fs.existsSync(path.join(repo, kirkenesBinding.CLEARANCE_REL))
+  const kirkenesLive =
+    guides.byAppPortId.kirkenes?.researchImport?.publication_tier === 'passenger_editorial' &&
+    guides.byAppPortId.kirkenes?.researchImport?.owner_publication_authorized === true
 
   if (pe === BASELINE_PE) {
-    if (hasClearance) {
+    if (hasOchoClearance) {
       throw new Error(
         'batch03 ocho policy clearance present but passenger_editorial count still 360 (incomplete or spoofed release)',
       )
@@ -183,13 +193,29 @@ function assertPagesPassengerEditorialPePolicy(repoRoot, guidesInput) {
     return { pe, mode: 'baseline' }
   }
 
-  if (pe === RELEASE_PE) {
+  if (hasKirkenesClearance && pe === kirkenesBinding.BASELINE_PE && !kirkenesLive) {
+    throw new Error(
+      'batch03 kirkenes policy clearance present but passenger_editorial count still 361 (incomplete or spoofed release)',
+    )
+  }
+
+  if (pe === RELEASE_PE && !kirkenesLive) {
     assertBatch03OchoRiosReleaseBinding(repo, guides)
     return { pe, mode: 'batch03_ocho_release' }
   }
 
+  if (pe === kirkenesBinding.RELEASE_PE) {
+    if (hasKirkenesClearance) {
+      kirkenesBinding.assertBatch03KirkenesReleaseBinding(repo, guides)
+      return { pe, mode: 'batch03_kirkenes_release' }
+    }
+    throw new Error(
+      'passenger editorial count 362 but missing batch03 Kirkenes policy clearance (incomplete or spoofed release)',
+    )
+  }
+
   throw new Error(
-    `passenger editorial count ${pe} not allowed (expected ${BASELINE_PE} on main or ${RELEASE_PE} with bound Ocho release)`,
+    `passenger editorial count ${pe} not allowed (expected ${BASELINE_PE}, ${RELEASE_PE} with Ocho, or ${kirkenesBinding.RELEASE_PE} with Kirkenes)`,
   )
 }
 
@@ -202,6 +228,7 @@ module.exports = {
   RELEASE_PE,
   CLEARANCE_REL,
   assertBatch03OchoRiosReleaseBinding,
+  assertBatch03OchoRiosReleaseInvariants,
   assertPagesPassengerEditorialPePolicy,
   passengerEditorialSlugSet,
   headJsonLdTypeCounts,
