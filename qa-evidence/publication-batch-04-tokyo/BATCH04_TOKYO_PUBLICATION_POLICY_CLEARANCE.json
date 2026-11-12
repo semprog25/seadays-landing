@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-04-tokyo-yokohama",
+  "recorded_at_utc": "2026-11-12T12:15:00.000Z",
+  "owner_decision": "APPROVE_TOKYO_YOKOHAMA_FACTUAL_CLEARANCE_AND_PASSENGER_EDITORIAL_PUBLICATION",
+  "owner_factual_hold_cleared": true,
+  "owner_publication_authorized": true,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": true,
+  "merge_authorized": true,
+  "deploy_authorized": true,
+  "sitemap_inclusion_authorized": false,
+  "kirkenes_norway_publication_release_unchanged": true,
+  "ocho_rios_publication_release_unchanged": true,
+  "global_stage43_hard_exclude_ledger_unchanged": true,
+  "runtime_policy_exception_slugs": [],
+  "excluded_from_batch": [
+    "falmouth-jamaica",
+    "glasgow-united-kingdom",
+    "rostock-germany",
+    "warnemunde-berlin-germany",
+    "eilat-israel"
+  ],
+  "reconciled_main": "bc59efb8855f64152c13bbb8dfbd87dbccf8b823",
+  "baseline_live_passenger_editorial": 362,
+  "projected_passenger_editorial_after_batch04_tokyo": 363,
+  "tokyo_yokohama_japan_research_sha256": "7e1a1016bff4d827fe7fa1246531b3c242a8b9d5584b0c0126e917e3fbf6d017",
+  "tokyo_yokohama_japan_proposed_content_hash": "5dbc4fe518f40e02e0abdd998e4d3bbc943bc5e9cc945364c840a6b75f493b88",
+  "batch04_prep_manifest_ref": "qa-evidence/content-repair-batch04/BATCH04_PREP_MANIFEST.json",
+  "candidate_evidence_ref": "qa-evidence/content-repair-batch04/candidate-applied/byAppPortId.yokohama.json",
+  "candidate_html_ref": "qa-evidence/content-repair-batch04/candidate-applied/ports/tokyo-yokohama-japan/index.html",
+  "kirkenes_release_clearance_ref": "qa-evidence/publication-batch-03-kirkenes/BATCH03_KIRKENES_PUBLICATION_POLICY_CLEARANCE.json",
+  "ocho_release_clearance_ref": "qa-evidence/publication-batch-03-ocho/BATCH03_OCHO_PUBLICATION_POLICY_CLEARANCE.json",
+  "unresolved_limitations_acknowledged": [
+    "tict_harumi_quay_loa_unverified",
+    "terminal_door_gps_null",
+    "japan_immigration_primary_not_captured",
+    "daikoku_cruise_use_unverified"
+  ],
+  "passenger_restrictions_acknowledged": [
+    "terminal_name_must_match_sailing_documents",
+    "no_generic_walking_time_or_transfer_guarantees",
+    "conditional_excursion_guidance_not_guaranteed_access",
+    "immigration_confirm_with_official_sources_and_cruise_line",
+    "no_inherited_berth_counts_capacities_or_climate_stub_figures",
+    "yokohama_osanbashi_distinct_from_tokyo_tict_harumi"
+  ]
+}

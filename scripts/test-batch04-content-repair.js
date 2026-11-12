@@ -12,8 +12,9 @@ const {
   removeStage65ExcludedGuideEntries,
 } = require('./lib/bulkPortPublication/stage65PublicationGuards')
 const { containsInternalResearchLeak, collectGuidePassengerLeakBlob } = require('./lib/publicGuideCopySanitize')
-const { assertBatch03KirkenesReleaseBinding } = require('./lib/bulkPortPublication/batch03KirkenesReleaseBinding')
+const { assertBatch03KirkenesReleaseInvariants } = require('./lib/bulkPortPublication/batch03KirkenesReleaseBinding')
 const { assertBatch03OchoRiosReleaseInvariants } = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
+const { assertBatch04TokyoReleaseBinding, RELEASE_PE } = require('./lib/bulkPortPublication/batch04TokyoReleaseBinding')
 const { scanDraftFields, classifyOwnerBucket } = require('./lib/bulkPortPublication/stage23FieldReview')
 const { TOKYO_PASSENGER_LEAD } = require('./lib/bulkPortPublication/tokyoYokohamaPassengerPatch')
 
@@ -76,9 +77,17 @@ function main() {
 
   const guides = loadPublicPortGuidesFile(REPO)
   removeStage65ExcludedGuideEntries(guides)
-  assert.strictEqual(countPassengerEditorialGuides(guides), EXPECTED_PE)
-  assertBatch03KirkenesReleaseBinding(REPO, guides)
-  assertBatch03OchoRiosReleaseInvariants(REPO, guides)
+  const pe = countPassengerEditorialGuides(guides)
+  const releaseLive = fs.existsSync(
+    path.join(REPO, 'qa-evidence/publication-batch-04-tokyo/BATCH04_TOKYO_PUBLICATION_POLICY_CLEARANCE.json'),
+  )
+  if (releaseLive && pe === RELEASE_PE) {
+    assertBatch04TokyoReleaseBinding(REPO, guides)
+  } else {
+    assert.strictEqual(pe, EXPECTED_PE)
+    assertBatch03KirkenesReleaseInvariants(REPO, guides)
+    assertBatch03OchoRiosReleaseInvariants(REPO, guides)
+  }
 
   const tokyoRow = manifest.ports.find((p) => p.landing_slug === 'tokyo-yokohama-japan')
   assert.ok(tokyoRow, 'tokyo manifest row')
@@ -126,14 +135,22 @@ function main() {
   assert.ok(/Tokyo \/ Yokohama|Tokyo \(Yokohama\)/i.test(appliedHtml))
   assert.ok(!/Within Yokohama city/.test(appliedHtml))
 
-  const prodHtml = fs.readFileSync(path.join(REPO, 'ports/tokyo-yokohama-japan/index.html'), 'utf8')
-  const prodHash = sha256File(path.join(EVIDENCE, 'rollback-pre-apply/ports/tokyo-yokohama-japan/index.html'))
-  assert.strictEqual(sha256File(path.join(REPO, 'ports/tokyo-yokohama-japan/index.html')), prodHash, 'production html unchanged on disk')
+  if (!(releaseLive && pe === RELEASE_PE)) {
+    const prodHash = sha256File(path.join(EVIDENCE, 'rollback-pre-apply/ports/tokyo-yokohama-japan/index.html'))
+    assert.strictEqual(
+      sha256File(path.join(REPO, 'ports/tokyo-yokohama-japan/index.html')),
+      prodHash,
+      'production html unchanged on disk',
+    )
+    const yokohama = guides.byAppPortId.yokohama
+    assert.notStrictEqual(yokohama?.researchImport?.publication_tier, 'passenger_editorial')
+  } else {
+    const appliedHash = sha256File(path.join(EVIDENCE, 'candidate-applied/ports/tokyo-yokohama-japan/index.html'))
+    const prodHash = sha256File(path.join(REPO, 'ports/tokyo-yokohama-japan/index.html'))
+    assert.strictEqual(prodHash, appliedHash, 'live tokyo html must match pinned candidate-applied html')
+  }
 
-  const yokohama = guides.byAppPortId.yokohama
-  assert.notStrictEqual(yokohama?.researchImport?.publication_tier, 'passenger_editorial')
-
-  console.log(JSON.stringify({ ok: true, manifest_status: manifest.status, pe: EXPECTED_PE }))
+  console.log(JSON.stringify({ ok: true, manifest_status: manifest.status, pe }))
 }
 
 main()

@@ -314,6 +314,7 @@ module.exports = {
   replaceSiteShellHeadStyleBlock,
   mergePublishedPortHtmlPreservation,
   mergePassengerEditorialBodyPreservation,
+  shouldPreservePassengerEditorialBody,
   dedupePortDetailHeadJsonLd,
   extractJsonLdScriptTagByType,
   headHasJsonLdType,
