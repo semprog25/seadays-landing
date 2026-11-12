@@ -170,6 +170,12 @@ function passengerEditorialBodyScore(html) {
  * blocks, keep the richer on-disk body (guide JSON is source of truth).
  */
 function shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide) {
+  if (
+    portGuide?.researchImport?.batch04_preparation_only === true ||
+    portGuide?.researchImport?.batch03_kirkenes_ocho_conditional_candidate === true
+  ) {
+    return false;
+  }
   const existingCards = countCallPlanArticleCards(existingHtml);
   const generatedCards = countCallPlanArticleCards(generatedHtml);
   if (existingCards >= 3 && generatedCards < existingCards) return true;
@@ -308,6 +314,7 @@ module.exports = {
   replaceSiteShellHeadStyleBlock,
   mergePublishedPortHtmlPreservation,
   mergePassengerEditorialBodyPreservation,
+  shouldPreservePassengerEditorialBody,
   dedupePortDetailHeadJsonLd,
   extractJsonLdScriptTagByType,
   headHasJsonLdType,

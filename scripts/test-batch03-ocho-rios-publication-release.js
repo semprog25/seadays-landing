@@ -10,6 +10,7 @@ const {
   RELEASE_PE,
 } = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
 const { RELEASE_PE: KIRKENES_PE } = require('./lib/bulkPortPublication/batch03KirkenesReleaseBinding')
+const { RELEASE_PE: TOKYO_PE } = require('./lib/bulkPortPublication/batch04TokyoReleaseBinding')
 
 const REPO = path.join(__dirname, '..')
 
@@ -19,9 +20,9 @@ const pe = countPassengerEditorialGuides(guides)
 let result
 if (pe === RELEASE_PE) {
   result = assertBatch03OchoRiosReleaseBinding(REPO, guides)
-} else if (pe === KIRKENES_PE) {
+} else if (pe === KIRKENES_PE || pe === TOKYO_PE) {
   assertBatch03OchoRiosReleaseInvariants(REPO, guides)
-  result = { pe, slug: 'ocho-rios-jamaica', app_port_id: 'ocho-rios', mode: 'invariants_at_pe_362' }
+  result = { pe, slug: 'ocho-rios-jamaica', app_port_id: 'ocho-rios', mode: `invariants_at_pe_${pe}` }
 } else {
   throw new Error(`unexpected PE ${pe} for Ocho release test`)
 }

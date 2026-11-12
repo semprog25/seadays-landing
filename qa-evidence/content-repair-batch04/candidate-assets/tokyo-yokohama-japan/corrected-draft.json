@@ -1,0 +1,91 @@
+{
+  "landing_slug": "tokyo-yokohama-japan",
+  "draft": {
+    "landing_slug": "tokyo-yokohama-japan",
+    "appPortId": "yokohama",
+    "portName": "Tokyo / Yokohama",
+    "country": "Japan",
+    "portInfo": {
+      "description": "Cruise itineraries labelled Tokyo often berth at Yokohama (Osanbashi) or at Tokyo Port facilities. Tokyo International Cruise Terminal (TICT) at Aomi and Harumi Passenger Terminal are different facilities—match the terminal name on your sailing documents. The City of Yokohama publishes Osanbashi berth dimensions and approach limits including Yokohama Bay Bridge air draft. Tokyo Port Terminal Corporation notes that Harumi remains in use alongside TICT—do not assume they are the same pier.",
+      "location": "",
+      "timezone": "JST (UTC+9)",
+      "language": "Japanese",
+      "currency": "Japanese Yen (JPY)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Confirm on sailing documents: Osanbashi International Passenger Terminal (Yokohama) or Tokyo International Cruise Terminal / Harumi Passenger Terminal (Tokyo). These are not interchangeable.",
+      "transportation": [
+        "Train and metro links",
+        "Local buses",
+        "Taxis"
+      ],
+      "distanceAnswer": "Walking and transfer times depend on which terminal you use. Osanbashi is within Yokohama waterfront; Tokyo terminals require confirmed rail or shuttle plans—verify with your cruise line before planning.",
+      "taxiInfo": "Taxis are generally available when cruise ships are in port; confirm pickup areas with terminal staff.",
+      "publicTransport": "From Osanbashi, Nihon-odori Station on the Minatomirai Line is a short walk per city port information. From TICT or Harumi, use Yurikamome or other Tokyo transit—confirm routes for your sailing date."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Minato Mirai / Chinatown (Yokohama)—plan only when Osanbashi is your terminal.",
+        "Tokyo neighbourhood day—from TICT or Harumi with confirmed rail transfers.",
+        "Kamakura or Hakone coaches—full-day only with confirmed operators and generous return buffer."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Read the exact terminal name on sailing documents—TICT, Harumi, and Osanbashi are different facilities."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "7e1a1016bff4d827fe7fa1246531b3c242a8b9d5584b0c0126e917e3fbf6d017",
+      "existing_guide_hash": "200fc60de059bfd6",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/tokyo-yokohama-japan.md"
+      ],
+      "unresolved_claims": [
+        "tict_harumi_quay_loa_unverified",
+        "terminal_door_gps_null",
+        "japan_immigration_primary_not_captured",
+        "daikoku_cruise_use_unverified"
+      ],
+      "generated_at_utc": "2026-11-09T07:40:41.209Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    },
+    "politics": {
+      "governmentType": "Unitary parliamentary constitutional monarchy",
+      "stability": "Highly stable",
+      "visaRequirements": "Japan sets its own entry and visa rules. Requirements vary by nationality and trip purpose. Confirm with official government sources and your cruise line before travel—not legal advice.",
+      "entryRequirements": "Carry a valid passport. Cruise transit formalities can differ from airport entry—follow your ship’s document checklist and terminal instructions."
+    },
+    "passengerSurfaceClear": [
+      "size",
+      "climate",
+      "facts",
+      "hero",
+      "terminals",
+      "reviews",
+      "experiences"
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "batch04-content-repair"
+}

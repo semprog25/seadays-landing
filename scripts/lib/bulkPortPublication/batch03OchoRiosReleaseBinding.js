@@ -214,8 +214,20 @@ function assertPagesPassengerEditorialPePolicy(repoRoot, guidesInput) {
     )
   }
 
+  const batch04Tokyo = require('./batch04TokyoReleaseBinding')
+  const hasBatch04TokyoClearance = fs.existsSync(path.join(repo, batch04Tokyo.CLEARANCE_REL))
+  if (pe === batch04Tokyo.RELEASE_PE) {
+    if (hasBatch04TokyoClearance) {
+      batch04Tokyo.assertBatch04TokyoReleaseBinding(repo, guides)
+      return { pe, mode: 'batch04_tokyo_release' }
+    }
+    throw new Error(
+      'passenger editorial count 363 but missing batch04 Tokyo policy clearance (incomplete or spoofed release)',
+    )
+  }
+
   throw new Error(
-    `passenger editorial count ${pe} not allowed (expected ${BASELINE_PE}, ${RELEASE_PE} with Ocho, or ${kirkenesBinding.RELEASE_PE} with Kirkenes)`,
+    `passenger editorial count ${pe} not allowed (expected ${BASELINE_PE}, ${RELEASE_PE} with Ocho, ${kirkenesBinding.RELEASE_PE} with Kirkenes, or ${batch04Tokyo.RELEASE_PE} with Tokyo)`,
   )
 }
 

@@ -47,6 +47,33 @@ function applyFieldExclusions(out, exclusions, existingGuide) {
   }
 }
 
+const LEGACY_PASSENGER_SECTIONS = ['size', 'politics', 'climate', 'facts'];
+
+function applyPassengerSurfaceClear(out, draft) {
+  const clear = Array.isArray(draft?.passengerSurfaceClear) ? draft.passengerSurfaceClear : [];
+  for (const key of clear) {
+    if (LEGACY_PASSENGER_SECTIONS.includes(key)) delete out[key];
+  }
+  if (draft?.politics && typeof draft.politics === 'object') {
+    out.politics = JSON.parse(JSON.stringify(draft.politics));
+  }
+  if (draft?.climate && typeof draft.climate === 'object') {
+    out.climate = JSON.parse(JSON.stringify(draft.climate));
+  }
+  if (draft?.facts && typeof draft.facts === 'object') {
+    out.facts = JSON.parse(JSON.stringify(draft.facts));
+  }
+  if (draft?.gettingThere && typeof draft.gettingThere === 'object') {
+    for (const gkey of Object.keys(draft.gettingThere)) {
+      if (draft.gettingThere[gkey] === undefined) continue;
+      if (draft.gettingThere[gkey] === null || draft.gettingThere[gkey] === '') {
+        if (out.gettingThere) delete out.gettingThere[gkey];
+        continue;
+      }
+    }
+  }
+}
+
 function applyEditorialDraftToGuide({
   existingGuide,
   draft,
@@ -58,18 +85,25 @@ function applyEditorialDraftToGuide({
   const exclusions = fieldExclusions || [];
 
   out.portInfo = { ...(out.portInfo || {}), ...(patch.portInfo || {}) };
-  out.gettingThere = { ...(out.gettingThere || {}), ...(patch.gettingThere || {}) };
+  if (patch.gettingThere && typeof patch.gettingThere === 'object') {
+    out.gettingThere = JSON.parse(JSON.stringify(patch.gettingThere));
+  } else if (patch.gettingThere) {
+    out.gettingThere = { ...(out.gettingThere || {}), ...(patch.gettingThere || {}) };
+  }
   out.thingsToDo = { ...(out.thingsToDo || {}), ...(patch.thingsToDo || {}) };
   if (patch.shorePlansFirst != null) out.shorePlansFirst = patch.shorePlansFirst;
 
   applyFieldExclusions(out, exclusions, existingGuide);
+  applyPassengerSurfaceClear(out, draft);
 
+  const clearedSections = new Set(draft?.passengerSurfaceClear || []);
   for (const key of PRESERVE_KEYS) {
+    if (clearedSections.has(key)) continue;
     if (existingGuide?.[key] != null) out[key] = existingGuide[key];
   }
 
   out.appPortId = existingGuide?.appPortId || patch.appPortId;
-  out.portName = existingGuide?.portName || patch.portName;
+  out.portName = patch.portName || existingGuide?.portName;
   out.country = existingGuide?.country || patch.country;
 
   const prevImport = existingGuide?.researchImport || {};
@@ -105,4 +139,9 @@ function applyEditorialDraftToGuide({
   return out;
 }
 
-module.exports = { applyEditorialDraftToGuide, PRESERVE_KEYS };
+module.exports = {
+  applyEditorialDraftToGuide,
+  applyPassengerSurfaceClear,
+  PRESERVE_KEYS,
+  LEGACY_PASSENGER_SECTIONS,
+};

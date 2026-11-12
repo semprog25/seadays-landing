@@ -61,36 +61,9 @@ function assertNetNewPeSlugIsKirkenesOnly(repoRoot, guides) {
  * @param {string} repoRoot
  * @param {object} [guidesInput]
  */
-function assertBatch03KirkenesReleaseBinding(repoRoot, guidesInput) {
+function assertBatch03KirkenesReleaseInvariants(repoRoot, guidesInput) {
   const repo = repoRoot || path.join(__dirname, '..', '..', '..')
-  assert.ok(fs.existsSync(clearancePath(repo)), `missing policy clearance: ${CLEARANCE_REL}`)
-
-  const clearance = JSON.parse(fs.readFileSync(clearancePath(repo), 'utf8'))
-  assert.strictEqual(clearance.owner_factual_hold_cleared, true)
-  assert.strictEqual(clearance.owner_publication_authorized, true)
-  assert.strictEqual(clearance.owner_indexing_authorized, false)
-  assert.strictEqual(clearance.ocho_rios_publication_release_unchanged, true)
-  assert.strictEqual(clearance.kirkenes_norway_proposed_content_hash, EXPECTED_HASH)
-  assert.strictEqual(clearance.kirkenes_norway_research_sha256, RESEARCH_SHA)
-  assert.strictEqual(clearance.baseline_live_passenger_editorial, BASELINE_PE)
-  assert.strictEqual(clearance.projected_passenger_editorial_after_batch03_kirkenes, RELEASE_PE)
-
-  const candidatePath = path.join(
-    repo,
-    'qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/byAppPortId.kirkenes.json',
-  )
-  assert.ok(fs.existsSync(candidatePath), 'missing pinned candidate guide artifact')
-  const candidate = JSON.parse(fs.readFileSync(candidatePath, 'utf8'))
-  const candidateHash = crypto.createHash('sha256').update(stableStringify(candidate)).digest('hex')
-  assert.strictEqual(candidateHash, EXPECTED_HASH)
-
   const guides = guidesInput || loadPublicPortGuidesFile(repo)
-  removeStage65ExcludedGuideEntries(guides)
-  const pe = countPassengerEditorialGuides(guides)
-  assert.strictEqual(pe, RELEASE_PE, `batch03 kirkenes release requires PE ${RELEASE_PE}`)
-
-  assertNetNewPeSlugIsKirkenesOnly(repo, guides)
-
   const guide = guides.byAppPortId[APP_ID]
   assert.ok(guide, 'kirkenes slot')
   assert.strictEqual(guide.researchImport?.landing_slug, SLUG)
@@ -128,7 +101,39 @@ function assertBatch03KirkenesReleaseBinding(repoRoot, guidesInput) {
 
   const sitemap = fs.readFileSync(path.join(repo, 'sitemap.xml'), 'utf8')
   assert.ok(!sitemap.includes(`/ports/${SLUG}/`), 'kirkenes must not be in sitemap')
+}
 
+function assertBatch03KirkenesReleaseBinding(repoRoot, guidesInput) {
+  const repo = repoRoot || path.join(__dirname, '..', '..', '..')
+  assert.ok(fs.existsSync(clearancePath(repo)), `missing policy clearance: ${CLEARANCE_REL}`)
+
+  const clearance = JSON.parse(fs.readFileSync(clearancePath(repo), 'utf8'))
+  assert.strictEqual(clearance.owner_factual_hold_cleared, true)
+  assert.strictEqual(clearance.owner_publication_authorized, true)
+  assert.strictEqual(clearance.owner_indexing_authorized, false)
+  assert.strictEqual(clearance.ocho_rios_publication_release_unchanged, true)
+  assert.strictEqual(clearance.kirkenes_norway_proposed_content_hash, EXPECTED_HASH)
+  assert.strictEqual(clearance.kirkenes_norway_research_sha256, RESEARCH_SHA)
+  assert.strictEqual(clearance.baseline_live_passenger_editorial, BASELINE_PE)
+  assert.strictEqual(clearance.projected_passenger_editorial_after_batch03_kirkenes, RELEASE_PE)
+
+  const candidatePath = path.join(
+    repo,
+    'qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/byAppPortId.kirkenes.json',
+  )
+  assert.ok(fs.existsSync(candidatePath), 'missing pinned candidate guide artifact')
+  const candidate = JSON.parse(fs.readFileSync(candidatePath, 'utf8'))
+  const candidateHash = crypto.createHash('sha256').update(stableStringify(candidate)).digest('hex')
+  assert.strictEqual(candidateHash, EXPECTED_HASH)
+
+  const guides = guidesInput || loadPublicPortGuidesFile(repo)
+  removeStage65ExcludedGuideEntries(guides)
+  const pe = countPassengerEditorialGuides(guides)
+  assert.strictEqual(pe, RELEASE_PE, `batch03 kirkenes release requires PE ${RELEASE_PE}`)
+
+  assertNetNewPeSlugIsKirkenesOnly(repo, guides)
+
+  assertBatch03KirkenesReleaseInvariants(repo, guides)
   assertBatch03OchoRiosReleaseInvariants(repo, guides)
   assertHistoricalPolicyPublicationGate(repo, guides)
 
@@ -144,4 +149,5 @@ module.exports = {
   RELEASE_PE,
   CLEARANCE_REL,
   assertBatch03KirkenesReleaseBinding,
+  assertBatch03KirkenesReleaseInvariants,
 }

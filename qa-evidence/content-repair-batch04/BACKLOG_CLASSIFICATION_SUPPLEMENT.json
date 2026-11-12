@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "catalogue_passenger_editorial_slots": 406,
+  "live_passenger_editorial": 362,
+  "remaining_unpublished_slots": 44,
+  "reconcile_note": "362 + 44 = 406. Denominator unchanged.",
+  "generated_at_utc": "2026-11-12T11:35:00.000Z",
+  "matrix_ref": "qa-evidence/publication-batch-01/REMAINING_PORT_STATUS_MATRIX.json",
+  "inventory_ref": "qa-evidence/stage75-remaining-62/REMAINING_62_INVENTORY.json",
+  "classifications": {
+    "proven_alias_not_net_new_pe": [
+      {
+        "landing_slug": "nice-france",
+        "served_by_live_pe_slug": "villefranche-nice-france",
+        "app_port_id": "nice"
+      },
+      {
+        "landing_slug": "port-of-aqaba-jordan",
+        "served_by_live_pe_slug": "aqaba-jordan",
+        "app_port_id": "aqaba"
+      },
+      {
+        "landing_slug": "port-sultan-qaboos-muscat-oman",
+        "served_by_live_pe_slug": "muscat-oman",
+        "app_port_id": "muscat"
+      }
+    ],
+    "redirect_canonical": [
+      {
+        "landing_slug": "rostock-germany",
+        "canonical_live_slug": "warnemunde-berlin-germany"
+      }
+    ],
+    "content_repair_candidate_prepared_batch04": [
+      {
+        "landing_slug": "tokyo-yokohama-japan",
+        "app_port_id": "yokohama",
+        "status": "candidate_evidence_only_not_published",
+        "owner_factual_hold": "active_pending_owner_review"
+      }
+    ],
+    "historical_policy_hold_count": 10,
+    "research_qa_blocked_count": 27,
+    "identity_or_owner_hold_distinct_slots": [
+      "falmouth-jamaica",
+      "glasgow-united-kingdom",
+      "tokyo-yokohama-japan"
+    ]
+  }
+}

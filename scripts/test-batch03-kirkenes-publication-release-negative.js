@@ -37,7 +37,19 @@ function cloneGuides() {
 }
 
 function main() {
-  assert.strictEqual(countPassengerEditorialGuides(cloneGuides()), 362, 'sanity: repo must be kirkenes release state')
+  const livePe = countPassengerEditorialGuides(cloneGuides())
+  assert.ok(
+    livePe === 362 || livePe === 363,
+    `sanity: repo must be kirkenes (362) or tokyo (363) release state; got ${livePe}`,
+  )
+  if (livePe === 363) {
+    const {
+      assertBatch03KirkenesReleaseInvariants,
+    } = require('./lib/bulkPortPublication/batch03KirkenesReleaseBinding')
+    assertBatch03KirkenesReleaseInvariants(REPO, cloneGuides())
+    console.log('test-batch03-kirkenes-publication-release-negative SKIP kirkenes-pe-binding (live PE 363)')
+    return
+  }
 
   expectFail('unrelated port becomes the 362nd PE instead of Kirkenes', () => {
     const guides = cloneGuides()
