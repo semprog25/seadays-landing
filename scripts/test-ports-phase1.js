@@ -89,6 +89,41 @@ const livorno = resolvePortAffiliateCta(
 );
 assert.strictEqual(livorno.destinationLabel, 'Livorno');
 
+const kusadasi = resolvePortAffiliateCta(
+  { slug: 'ephesus-kusadasi-turkey', name: 'Ephesus (Kusadasi)', appPortId: 'kusadasi' },
+  { knownPortIds: new Set(), config: VIATOR }
+);
+assert.strictEqual(kusadasi.destinationLabel, 'Kusadasi');
+
+const civitavecchia = resolvePortAffiliateCta(
+  { slug: 'rome-civitavecchia-italy', name: 'Rome (Civitavecchia), Italy', appPortId: 'civitavecchia' },
+  { knownPortIds: new Set(['civitavecchia']), config: VIATOR }
+);
+assert.strictEqual(civitavecchia.portId, 'civitavecchia');
+assert.strictEqual(civitavecchia.mode, 'known');
+assert.strictEqual(civitavecchia.destinationLabel, 'Civitavecchia');
+assert.ok(civitavecchia.url.includes('text=Civitavecchia'), 'civitavecchia viator search text');
+assert.ok(civitavecchia.url.includes('pid=P00314321'));
+assert.ok(civitavecchia.url.includes('mcid=42383'));
+assert.ok(civitavecchia.url.includes('medium=link'));
+assert.ok(civitavecchia.url.includes(`campaign=${buildWebAffiliateCampaign('civitavecchia')}`));
+assert.ok(!civitavecchia.url.includes('text=Rome'), 'must not use Rome search text');
+
+const unchangedSample = [
+  { slug: 'hamburg-germany', name: 'Hamburg, Germany', appPortId: 'hamburg', label: 'Hamburg' },
+  { slug: 'barcelona-spain', name: 'Barcelona, Spain', appPortId: 'barcelona', label: 'Barcelona' },
+  { slug: 'santorini-greece', name: 'Santorini, Greece', appPortId: 'santorini', label: 'Santorini' },
+  { slug: 'skjolden-norway', name: 'Skjolden, Norway', appPortId: 'skjolden', label: 'Skjolden' },
+];
+for (const sample of unchangedSample) {
+  const cta = resolvePortAffiliateCta(sample, {
+    knownPortIds: new Set([sample.appPortId]),
+    config: VIATOR,
+  });
+  assert.strictEqual(cta.destinationLabel, sample.label, `${sample.slug} search label unchanged`);
+  assert.ok(cta.url.includes(`text=${sample.label}`), `${sample.slug} viator text param`);
+}
+
 const island = resolvePortAffiliateCta(
   { slug: 'perfect-day-at-cococay-bahamas', name: 'Perfect Day at CocoCay', appPortId: 'cococay' },
   { knownPortIds: new Set(['cococay']), config: VIATOR }
