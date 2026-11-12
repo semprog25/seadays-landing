@@ -20,6 +20,8 @@ on:
       - 'scripts/extract-public-port-guides.js'
       - 'scripts/extract-public-port-terminals.js'
       - 'scripts/fix-featured-guide-thumbnails.js'
+      - 'scripts/generateBlogs.js'
+      - 'scripts/ci-run-channel.sh'
       - 'data/public-port-guides.json'
       - 'data/public-port-terminals.json'
       - 'data/known-affiliate-port-ids.json'
@@ -98,6 +100,10 @@ jobs:
 
       - name: Generate channel
         env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+          SEADAYS_PORTS_REGEN_DIFF_GATE: auto
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           SEADAYS_MATERIALIZE_SIGNED: '1'

@@ -57,6 +57,11 @@ function addSitemapUrls(xml, urls) {
 
 function main() {
   const repoRoot = path.join(__dirname, '..');
+  const { isBannerOnlyPortsRegenScope } = require('./lib/portsRegenScope');
+  const preserveSitemap = isBannerOnlyPortsRegenScope();
+  if (preserveSitemap) {
+    console.log('[publish-gate] banner-only ports scope: preserving sitemap.xml');
+  }
   assertHistoricalPolicyPublicationGate(repoRoot);
   const ctx = buildRestoreContext(repoRoot);
   const pages = [...listPages(repoRoot, 'port'), ...listPages(repoRoot, 'ship')];
@@ -93,14 +98,20 @@ function main() {
     }
   }
 
-  const sitemapPath = path.join(repoRoot, 'sitemap.xml');
-  const before = fs.readFileSync(sitemapPath, 'utf8');
-  const after = addSitemapUrls(dropSitemapUrls(before, drop), restore);
-  if (after !== before) fs.writeFileSync(sitemapPath, after, 'utf8');
-  const locs = (after.match(/<loc>/g) || []).length;
-  console.log(
-    `[publish-gate] pages=${pages.length} failing=${failing} downgraded=${downgraded} restored=${restored} sitemap=${locs} droppedCandidates=${drop.size}`
-  );
+  if (!preserveSitemap) {
+    const sitemapPath = path.join(repoRoot, 'sitemap.xml');
+    const before = fs.readFileSync(sitemapPath, 'utf8');
+    const after = addSitemapUrls(dropSitemapUrls(before, drop), restore);
+    if (after !== before) fs.writeFileSync(sitemapPath, after, 'utf8');
+    const locs = (after.match(/<loc>/g) || []).length;
+    console.log(
+      `[publish-gate] pages=${pages.length} failing=${failing} downgraded=${downgraded} restored=${restored} sitemap=${locs} droppedCandidates=${drop.size}`
+    );
+  } else {
+    console.log(
+      `[publish-gate] pages=${pages.length} failing=${failing} downgraded=${downgraded} restored=${restored} sitemap=unchanged droppedCandidates=${drop.size}`
+    );
+  }
 }
 
 main();

@@ -3204,6 +3204,11 @@ async function main() {
   const mode = parseGenerateMode(process.argv);
   validateTargetedOnlyMode(mode);
   const targetedOnly = isTargetedCatalogueMode(mode);
+  const { shouldPreserveGlobalSiteArtifacts } = require('./lib/portsRegenScope');
+  const preserveGlobalSite = shouldPreserveGlobalSiteArtifacts(mode, { targetedOnly });
+  if (preserveGlobalSite) {
+    console.log('[generateBlogs] banner-only ports scope: preserving blog/, ads.txt, sitemap.xml');
+  }
   console.log(`[generateBlogs] generation mode: ${mode.label}${targetedOnly ? ` (targeted: ${mode.onlySlugs.join(', ')})` : ''}`);
   if (mode.sitemapOnly) {
     writeSitemapSnapshotFromDisk(repoRoot);
@@ -3805,7 +3810,7 @@ async function main() {
     console.warn(`  [summary-warn] ${imageQualityStats.fallback} article(s) using fallback image — add thumbnails in CMS`);
   }
 
-  const dupNoindexAlways = targetedOnly ? 0 : noindexDuplicateBlogFolders(repoRoot);
+  const dupNoindexAlways = preserveGlobalSite || targetedOnly ? 0 : noindexDuplicateBlogFolders(repoRoot);
   if (dupNoindexAlways) console.log(`[generateBlogs] noindexed ${dupNoindexAlways} duplicate blog slug(s) (*-1)`);
 
   const { xml: sitemap, count: sitemapCount } = buildSitemapXml(repoRoot, {
@@ -3813,8 +3818,10 @@ async function main() {
     seoShips: mode.ships ? seoShips : [],
     seoPorts: mode.ports ? seoPorts : [],
   });
-  if (targetedOnly) {
-    console.log('[generateBlogs] targeted --only= mode: preserving existing sitemap.xml (not rewritten)');
+  if (preserveGlobalSite || targetedOnly) {
+    console.log(
+      `[generateBlogs] ${preserveGlobalSite ? 'banner-only ports scope' : 'targeted --only= mode'}: preserving existing sitemap.xml (not rewritten)`
+    );
   } else {
     fs.writeFileSync(path.join(repoRoot, 'sitemap.xml'), sitemap, 'utf8');
     const sitemapValid = sitemap.includes('<?xml') && sitemap.includes('<urlset') && sitemap.includes('</urlset>');
@@ -3824,8 +3831,10 @@ async function main() {
 
   const adsTxtBody = getAdsTxtFileContents();
   const adsTxtPath = path.join(repoRoot, 'ads.txt');
-  if (targetedOnly) {
-    console.log('[generateBlogs] targeted --only= mode: preserving existing ads.txt');
+  if (preserveGlobalSite || targetedOnly) {
+    console.log(
+      `[generateBlogs] ${preserveGlobalSite ? 'banner-only ports scope' : 'targeted --only= mode'}: preserving existing ads.txt`
+    );
   } else if (adsTxtBody) {
     fs.writeFileSync(adsTxtPath, adsTxtBody, 'utf8');
     console.log('Wrote ads.txt (AdSense configured)');
