@@ -31,6 +31,9 @@ const INTERNAL_RESEARCH_LEAK_RE = [
   /\bTransfer metres\b/i,
   /\bgap on PAJ\b/i,
   /\bAuthority:\s*berth\b/i,
+  /\bmuseum primaries are filed\b/i,
+  /\bharbour-page themes\b/i,
+  /\btreat ticket logistics as gaps\b/i,
 ];
 
 const MAX_QUICK_FACT_CHARS = 120;

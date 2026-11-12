@@ -107,12 +107,29 @@ const KIRKENES_PASSENGER_DISTANCE =
 const OCHO_PASSENGER_DISTANCE =
   'Confirm your assigned pier with the cruise line. Walking access and transport to town attractions depend on pier placement—do not rely on unverified distance figures.'
 
+const KIRKENES_PASSENGER_LEAD =
+  'Arctic port town in eastern Finnmark near the Russian border. Confirm Dypvannskaia berth assignment before planning a centre walk; museum visits and king crab experiences depend on opening hours, tickets, and what operators offer on your call day.'
+
 function patchKirkenesDraft(draft) {
   const next = JSON.parse(JSON.stringify(draft))
+  next.portInfo = {
+    ...(next.portInfo || {}),
+    description: KIRKENES_PASSENGER_LEAD,
+  }
   next.gettingThere = {
     ...(next.gettingThere || {}),
     distanceToCity: KIRKENES_PASSENGER_DISTANCE,
     distanceAnswer: KIRKENES_PASSENGER_DISTANCE,
+  }
+  next.thingsToDo = {
+    ...(next.thingsToDo || {}),
+    topThings: [
+      'Town centre / shopping near Dypvannskaia — only when this quay is assigned (confirm with your ship and Kirkenes Havn)',
+      'Borderland Museum (Grenselandsmuseet) — only if open and tickets are available on your call day (hours not verified here)',
+      'King crab or Arctic food experience — only via a booked operator when offered on your call (confirm availability; not a guaranteed excursion)',
+    ],
+    practicalTip:
+      'Confirm Dypvannskaia vs any requested alternate quay before assuming a centre stroll. Do not rely on unpublished museum hours or king crab offers.',
   }
   return next
 }
@@ -148,6 +165,10 @@ function patchOchoDraft(draft) {
     practicalTip:
       'Do not assume Dunn’s River (or any named falls) is walkable from the gangway without a current transfer primary.',
   }
+  next.size = {
+    ...(next.size || {}),
+    berthCount: null,
+  }
   next.researchImport = {
     ...(next.researchImport || {}),
     unresolved_claims: [
@@ -157,18 +178,22 @@ function patchOchoDraft(draft) {
       'transfer_metres_gap',
     ],
     batch03_ocho_editorial_repair: true,
+    batch03_berth_count_scrubbed: true,
   }
   return next
 }
 
 /** Draft carries facts/politics; stage24 apply preserves production facts — merge for batch03 only. */
-function mergeBatch03DraftCompanionFields(proposed, draft) {
+function mergeBatch03DraftCompanionFields(proposed, draft, portRow) {
   const next = proposed
   if (draft.facts && typeof draft.facts === 'object') {
     next.facts = JSON.parse(JSON.stringify(draft.facts))
   }
   if (draft.politics && typeof draft.politics === 'object') {
     next.politics = JSON.parse(JSON.stringify(draft.politics))
+  }
+  if (portRow.landing_slug === 'ocho-rios-jamaica') {
+    next.size = { ...(next.size || {}), ...(draft.size || {}), berthCount: null }
   }
   return next
 }
@@ -210,9 +235,10 @@ function main() {
   if (policy.owner_factual_hold_cleared === true) fail('factual hold must not be cleared in policy')
 
   const head = execSync('git rev-parse HEAD', { cwd: REPO, encoding: 'utf8' }).trim()
-  const mergeBase = execSync('git merge-base HEAD origin/main', { cwd: REPO, encoding: 'utf8' }).trim()
-  if (mergeBase !== BASELINE_MAIN) {
-    fail(`branch merge-base ${mergeBase} !== catalogue baseline ${BASELINE_MAIN}`)
+  try {
+    execSync(`git merge-base --is-ancestor ${BASELINE_MAIN} HEAD`, { cwd: REPO, stdio: 'pipe' })
+  } catch {
+    fail(`HEAD ${head} is not descended from catalogue baseline ${BASELINE_MAIN}`)
   }
 
   const guidesBefore = loadPublicPortGuidesFile(REPO)
@@ -304,7 +330,7 @@ function main() {
           draft_source: 'batch03-local-candidate-prep',
         },
       })
-      proposed = mergeBatch03DraftCompanionFields(proposed, draft)
+      proposed = mergeBatch03DraftCompanionFields(proposed, draft, portRow)
       proposed = sanitizePassengerGuideSurfaces(proposed)
       proposed = mergeTravelerQuestions(BY_PORT_ROOT, portRow.landing_slug, proposed)
       proposed.researchImport = {
