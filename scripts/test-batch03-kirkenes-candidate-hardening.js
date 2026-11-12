@@ -64,6 +64,23 @@ function main() {
   assert.ok(tdJson.description.startsWith(lead.slice(0, 80)), 'TouristDestination uses passenger lead')
   assert.ok(!/Girkonjárga|Kirkkoniemi/i.test(tdJson.description), 'no wiki place-name dump in JSON-LD')
 
+  const gapsPath = path.join(REPO, 'qa-evidence/batch03-kirkenes-ocho-candidate/UNRESOLVED_FACTUAL_GAPS.json')
+  const gaps = JSON.parse(fs.readFileSync(gapsPath, 'utf8'))
+  const ochoGaps = gaps.ports.find((p) => p.landing_slug === 'ocho-rios-jamaica')
+  assert.ok(ochoGaps, 'historical Ocho gap ledger row must survive Kirkenes-only prep')
+  assert.deepStrictEqual(ochoGaps.outstanding_factual_gaps, [
+    'paj_berth_lengths_reynolds_assignment_unverified',
+    'transfer_metres_to_town_unverified',
+    'waterfall_ticket_hours_unverified',
+    'beach_operator_primary_unverified',
+    'attraction_decimal_coordinates_null',
+  ])
+  assert.strictEqual(ochoGaps.owner_factual_hold_cleared, false, 'Ocho gap ledger is historical prep record, not clearance')
+
+  const kirkenesGaps = gaps.ports.find((p) => p.landing_slug === 'kirkenes-norway')
+  assert.ok(kirkenesGaps)
+  assert.strictEqual(kirkenesGaps.owner_factual_hold_cleared, false)
+
   console.log('test-batch03-kirkenes-candidate-hardening PASS', { proposed_content_hash: hash })
 }
 

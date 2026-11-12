@@ -295,6 +295,11 @@ function main() {
   const priorManifest = fs.existsSync(path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json'))
     ? JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json'), 'utf8'))
     : null
+  const gapsLedgerPath = path.join(EVIDENCE, 'UNRESOLVED_FACTUAL_GAPS.json')
+  const priorGapPorts =
+    PREPARE_ONLY && fs.existsSync(gapsLedgerPath)
+      ? JSON.parse(fs.readFileSync(gapsLedgerPath, 'utf8')).ports || []
+      : []
 
   const index = loadResearchIndex(INDEX_ROOT)
   const manifestPorts = []
@@ -555,7 +560,13 @@ function main() {
     .digest('hex')
 
   fs.writeFileSync(path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json'), `${JSON.stringify(bundlePayload, null, 2)}\n`)
-  fs.writeFileSync(path.join(EVIDENCE, 'UNRESOLVED_FACTUAL_GAPS.json'), `${JSON.stringify({ ports: gapReport }, null, 2)}\n`)
+  let finalGapPorts = gapReport
+  if (PREPARE_ONLY && priorGapPorts.length) {
+    const bySlug = new Map(priorGapPorts.map((row) => [row.landing_slug, row]))
+    for (const row of gapReport) bySlug.set(row.landing_slug, row)
+    finalGapPorts = [...bySlug.values()].sort((a, b) => a.landing_slug.localeCompare(b.landing_slug))
+  }
+  fs.writeFileSync(gapsLedgerPath, `${JSON.stringify({ ports: finalGapPorts }, null, 2)}\n`)
 
   console.log(
     JSON.stringify(
