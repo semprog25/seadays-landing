@@ -101,6 +101,10 @@ delete process.env.PORTS_REGEN_GATE_REPO_ROOT;
 
 const workflow = fs.readFileSync(path.join(root, '.github/workflows/generate-ports.yml'), 'utf8');
 assert.ok(workflow.includes('scripts/generateBlogs.js'), 'workflow triggers on generateBlogs.js');
+assert.ok(
+  workflow.includes('scripts/lib/ciClassifyGeneration.js'),
+  'workflow triggers on ciClassifyGeneration.js',
+);
 assert.match(workflow, /Generate channel[\s\S]*SEADAYS_PORTS_REGEN_DIFF_GATE: auto/, 'generate step shares gate env');
 
 fs.rmSync(fixtureRoot, { recursive: true, force: true });

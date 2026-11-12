@@ -34,10 +34,12 @@ const VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST = new Set([
   'scripts/ci-run-channel.sh',
   'scripts/apply-publish-gate.js',
   'scripts/lib/portsRegenScope.js',
+  'scripts/lib/ciClassifyGeneration.js',
   'scripts/assert-ports-regen-banner-only-diff.js',
   '.github/workflows/generate-ports.yml',
   'scripts/test-ports-regen-banner-only-diff.js',
   'scripts/test-ports-regen-banner-scope.js',
+  'scripts/test-ci-classify-generation.js',
 ]);
 
 function isViatorRegenRecoveryScopeFile(filePath) {
