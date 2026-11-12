@@ -6,6 +6,27 @@ const {
   classifyChangedFiles,
   resolveGenerationPlan,
 } = require('./lib/ciClassifyGeneration');
+const {
+  resolveGateModeFromPushFiles,
+  VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST,
+} = require('./assert-ports-regen-banner-only-diff');
+
+const PR129_RECOVERY_FILES = [
+  '.github/workflows/generate-ports.yml',
+  'scripts/apply-publish-gate.js',
+  'scripts/assert-ports-regen-banner-only-diff.js',
+  'scripts/ci-run-channel.sh',
+  'scripts/generateBlogs.js',
+  'scripts/lib/portsRegenScope.js',
+  'scripts/test-ports-regen-banner-scope.js',
+];
+
+const CHANNEL_FIX_PUSH_FILES = [
+  'scripts/lib/ciClassifyGeneration.js',
+  'scripts/assert-ports-regen-banner-only-diff.js',
+  '.github/workflows/generate-ports.yml',
+  'scripts/test-ci-classify-generation.js',
+];
 
 function test(name, fn) {
   fn();
@@ -62,6 +83,39 @@ test('generateBlogs.js changes select full without orphan cleanup', () => {
   assert.strictEqual(plan.ships, true);
   assert.strictEqual(plan.ports, true);
   assert.strictEqual(plan.allowOrphanCleanup, false);
+});
+
+test('PR #129 recovery push classifies ports under push plan when banner gate is active', () => {
+  assert.strictEqual(resolveGateModeFromPushFiles(PR129_RECOVERY_FILES), 'banner-only');
+  const plain = classifyChangedFiles(PR129_RECOVERY_FILES);
+  assert.strictEqual(plain.channel, 'full', 'plain classify still full without gate hook');
+  const plan = resolveGenerationPlan({ eventName: 'push', changedFiles: PR129_RECOVERY_FILES });
+  assert.strictEqual(plan.channel, 'ports');
+  assert.strictEqual(plan.skip, false);
+  assert.strictEqual(plan.needsViator, true);
+  assert.strictEqual(plan.blogs, false);
+  assert.strictEqual(plan.ships, false);
+});
+
+test('proposed channel-fix PR push classifies ports', () => {
+  for (const file of CHANNEL_FIX_PUSH_FILES) {
+    assert(VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST.has(file), `allowlist missing ${file}`);
+  }
+  assert.strictEqual(resolveGateModeFromPushFiles(CHANNEL_FIX_PUSH_FILES), 'banner-only');
+  const plan = resolveGenerationPlan({ eventName: 'push', changedFiles: CHANNEL_FIX_PUSH_FILES });
+  assert.strictEqual(plan.channel, 'ports');
+  assert.strictEqual(plan.needsViator, true);
+});
+
+test('banner-only recovery plus unexpected path fails closed on push plan', () => {
+  assert.throws(
+    () =>
+      resolveGenerationPlan({
+        eventName: 'push',
+        changedFiles: [...PR129_RECOVERY_FILES, 'data/public-port-guides.json'],
+      }),
+    /fail closed/,
+  );
 });
 
 test('generateBlogs.js with port directory scripts selects ports-only, not full', () => {

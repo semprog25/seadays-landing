@@ -21,6 +21,7 @@ on:
       - 'scripts/extract-public-port-terminals.js'
       - 'scripts/fix-featured-guide-thumbnails.js'
       - 'scripts/generateBlogs.js'
+      - 'scripts/lib/ciClassifyGeneration.js'
       - 'scripts/ci-run-channel.sh'
       - 'data/public-port-guides.json'
       - 'data/public-port-terminals.json'
