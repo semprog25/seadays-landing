@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "batch_id": "publication-batch-03-ocho-rios",
+  "recorded_at_utc": "2026-11-12T06:00:00.000Z",
+  "owner_decision": "APPROVE_OCHO_RIOS_FACTUAL_CLEARANCE_AND_PASSENGER_EDITORIAL_PUBLICATION_ELIGIBILITY",
+  "owner_factual_hold_cleared": true,
+  "owner_publication_authorized": true,
+  "owner_indexing_authorized": false,
+  "production_apply_permitted": true,
+  "merge_authorized": false,
+  "deploy_authorized": false,
+  "sitemap_inclusion_authorized": false,
+  "kirkenes_norway_factual_hold_cleared": false,
+  "global_stage43_hard_exclude_ledger_unchanged": true,
+  "runtime_policy_exception_slugs": [],
+  "excluded_from_batch": [
+    "kirkenes-norway",
+    "rostock-germany",
+    "warnemunde-berlin-germany",
+    "eilat-israel"
+  ],
+  "reconciled_main": "2a6f8d7d68e7d5f2b15f6ee4f80a62d5a73240c6",
+  "baseline_live_passenger_editorial": 360,
+  "projected_passenger_editorial_after_batch03_ocho": 361,
+  "ocho_rios_proposed_content_hash": "5635233496acf009f81ec86289e3a165bfb1d93302deaee74709a71f47b3032e",
+  "ocho_rios_research_sha256": "50682517fb65fb632488d2075a6782d1e049956b84f61b91c4e9171d720b99a2",
+  "candidate_evidence_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/byAppPortId.ocho-rios.json",
+  "candidate_html_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-applied/ports/ocho-rios-jamaica/index.html",
+  "unresolved_limitations_acknowledged": [
+    "paj_berth_lengths_reynolds_assignment_unverified",
+    "transfer_metres_to_town_unverified",
+    "waterfall_ticket_hours_unverified",
+    "beach_operator_primary_unverified",
+    "attraction_decimal_coordinates_null"
+  ],
+  "passenger_restrictions_acknowledged": [
+    "confirm_pier_with_cruise_line",
+    "dunns_river_transport_dependent_excursion",
+    "no_unsupported_berth_or_transfer_distances",
+    "nationality_dependent_visa_guidance",
+    "no_guaranteed_attraction_access"
+  ]
+}
