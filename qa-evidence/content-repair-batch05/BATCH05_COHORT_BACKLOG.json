@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "baseline_live_passenger_editorial": 363,
+  "catalogue_accounting_slots": 43,
+  "repaired_count": 4,
+  "repaired_slugs": [
+    "freeport-bahamas",
+    "ko-samui-thailand",
+    "new-mangalore-india",
+    "phuket-thailand"
+  ],
+  "remaining_research_blocked": [
+    {
+      "landing_slug": "adabya-egypt",
+      "app_port_id": "adabya",
+      "blocker": "research_qa_not_pass",
+      "reason": "Stage77 RESEARCH_BLOCKED; recoverable_with_approved_sources false — needs approved primary-source recovery before editorial prep."
+    },
+    {
+      "landing_slug": "bangkok-laem-chabang-thailand",
+      "app_port_id": "laem-chabang",
+      "blocker": "research_qa_not_pass",
+      "reason": "Bangkok/Laem Chabang transfer and terminal claims not cleared in research QA; defer until source-backed passenger fields."
+    },
+    {
+      "landing_slug": "buenos-aires-argentina",
+      "app_port_id": "buenos-aires",
+      "blocker": "research_qa_not_pass",
+      "reason": "Immigration and terminal door policy unresolved in research manifest; batch05 scope excluded."
+    },
+    {
+      "landing_slug": "chennai-india",
+      "app_port_id": "chennai",
+      "blocker": "research_qa_not_pass",
+      "reason": "Research layer blocked; insufficient approved-source support for consequential port-door copy."
+    }
+  ],
+  "note": "Four repaired ports remain research_qa BLOCKED in index until owner clears factual/QA holds; candidates are not authorized for publication."
+}

@@ -99,8 +99,11 @@ function usesPassengerEditorialLead(guide) {
   const batch04Conditional =
     tier === 'passenger_editorial_candidate' &&
     guide?.researchImport?.batch04_preparation_only === true
+  const batch05Conditional =
+    tier === 'passenger_editorial_candidate' &&
+    guide?.researchImport?.batch05_preparation_only === true
   const passengerLeadTier =
-    tier === 'passenger_editorial' || batch03Conditional || batch04Conditional
+    tier === 'passenger_editorial' || batch03Conditional || batch04Conditional || batch05Conditional
   return passengerLeadTier && String(guide?.portInfo?.description || '').trim().length > 0
 }
 
