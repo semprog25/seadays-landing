@@ -45,6 +45,9 @@ const BATCH03_FORBIDDEN_COPY_RE = [
   /\bgap on PAJ\b/i,
   /\bAuthority:\s*berth\b/i,
   /\bVisa-free for many nationalities\s*\(\s*up to 90 days\s*\)/i,
+  /\bmuseum primaries are filed\b/i,
+  /\bharbour-page themes\b/i,
+  /\btreat ticket logistics as gaps\b/i,
 ]
 
 function assertNoForbiddenPassengerCopy(label, text) {
@@ -56,8 +59,11 @@ function assertNoForbiddenPassengerCopy(label, text) {
 }
 
 function main() {
-  const mergeBase = execSync('git merge-base HEAD origin/main', { cwd: REPO, encoding: 'utf8' }).trim()
-  assert.strictEqual(mergeBase, BASELINE_MAIN, 'branch must be based on catalogue baseline main')
+  try {
+    execSync(`git merge-base --is-ancestor ${BASELINE_MAIN} HEAD`, { cwd: REPO, stdio: 'pipe' })
+  } catch {
+    assert.fail('HEAD must be descended from catalogue baseline main')
+  }
 
   const manifestPath = path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json')
   assert.ok(fs.existsSync(manifestPath), 'missing BATCH03_PREP_MANIFEST.json')
@@ -126,11 +132,18 @@ function main() {
       assert.match(visa, /nationality|cruise-passenger|confirm/i, 'conservative visa wording')
       assert.ok(!/Visa-free for many nationalities/i.test(visa), 'no unsupported visa-free generalization')
       assert.strictEqual((guideJson.thingsToDo?.topThings || []).length, 3, 'three topThings')
+      assert.strictEqual(guideJson.size?.berthCount ?? null, null, 'unverified berthCount must not leak into candidate guide JSON')
+      assert.ok(!/\"berthCount\":\s*2/.test(html), 'candidate html must not expose numeric berth count')
     }
     if (slug === 'kirkenes-norway') {
       assert.ok(/Dypvannskaia/i.test(html), 'kirkenes pier named')
       assert.ok(!/\d+\s*m(?:etre|eter)?\s+walk/i.test(html), 'no invented metre walk')
       assert.strictEqual((guideJson.thingsToDo?.topThings || []).length, 3, 'three topThings')
+      const tops = (guideJson.thingsToDo?.topThings || []).join('\n')
+      assert.match(tops, /Borderland Museum/i)
+      assert.match(tops, /only if open|hours not verified/i)
+      assert.match(tops, /King crab|king crab/i)
+      assert.match(tops, /booked operator|not a guaranteed/i)
     }
   }
 
