@@ -12,7 +12,11 @@ const { validateEditorialDraft } = require('./lib/bulkPortPublication/validateEd
 const { validateGeneratedPortHtml } = require('./lib/bulkPortPublication/validatePortHtml')
 const { buildPhase1GuideHtml, PORT_GUIDE_STYLES } = require('./lib/portGuideSections')
 const { stableStringify } = require('./lib/portResearchImport/jsonDiff')
-const { containsInternalResearchLeak, preparePassengerGuideText } = require('./lib/publicGuideCopySanitize')
+const {
+  containsInternalResearchLeak,
+  collectGuidePassengerLeakBlob,
+  preparePassengerGuideText,
+} = require('./lib/publicGuideCopySanitize')
 const { verifyResearchPortSha } = require('./lib/portResearchImport/verifyResearchSha')
 const { resolveCompositeResearchRoot } = require('./lib/portResearchImport/resolveCompositeResearchRoot')
 const { loadResearchIndex } = require('./lib/portResearchImport/buildIdentifierManifest')
@@ -50,7 +54,7 @@ const PORTS = [
     research_sha256: '7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8',
     corrected_ref: 'qa-evidence/stage63-50-port-recovery/corrected-drafts/kirkenes-norway.json',
     stage63_rollback_ref: 'qa-evidence/stage63-50-port-recovery/rollback/kirkenes-norway.production-snapshot.json',
-    patchDraft: null,
+    patchDraft: patchKirkenesDraft,
   },
   {
     landing_slug: 'ocho-rios-jamaica',
@@ -97,8 +101,29 @@ function sanitizePassengerGuideSurfaces(guide) {
   return guide
 }
 
+const KIRKENES_PASSENGER_DISTANCE =
+  'From Dypvannskaia, Kirkenes town centre and nearby shops are a short walk when this quay is assigned; exact walking time and metres are not verified. Confirm berth assignment with your ship and Kirkenes Havn.'
+
+const OCHO_PASSENGER_DISTANCE =
+  'Confirm your assigned pier with the cruise line. Walking access and transport to town attractions depend on pier placement—do not rely on unverified distance figures.'
+
+function patchKirkenesDraft(draft) {
+  const next = JSON.parse(JSON.stringify(draft))
+  next.gettingThere = {
+    ...(next.gettingThere || {}),
+    distanceToCity: KIRKENES_PASSENGER_DISTANCE,
+    distanceAnswer: KIRKENES_PASSENGER_DISTANCE,
+  }
+  return next
+}
+
 function patchOchoDraft(draft) {
   const next = JSON.parse(JSON.stringify(draft))
+  next.gettingThere = {
+    ...(next.gettingThere || {}),
+    distanceToCity: OCHO_PASSENGER_DISTANCE,
+    distanceAnswer: OCHO_PASSENGER_DISTANCE,
+  }
   next.facts = {
     established: '',
     significance: 'North-coast Jamaica cruise call under Port Authority of Jamaica',
@@ -132,6 +157,18 @@ function patchOchoDraft(draft) {
       'transfer_metres_gap',
     ],
     batch03_ocho_editorial_repair: true,
+  }
+  return next
+}
+
+/** Draft carries facts/politics; stage24 apply preserves production facts — merge for batch03 only. */
+function mergeBatch03DraftCompanionFields(proposed, draft) {
+  const next = proposed
+  if (draft.facts && typeof draft.facts === 'object') {
+    next.facts = JSON.parse(JSON.stringify(draft.facts))
+  }
+  if (draft.politics && typeof draft.politics === 'object') {
+    next.politics = JSON.parse(JSON.stringify(draft.politics))
   }
   return next
 }
@@ -173,7 +210,10 @@ function main() {
   if (policy.owner_factual_hold_cleared === true) fail('factual hold must not be cleared in policy')
 
   const head = execSync('git rev-parse HEAD', { cwd: REPO, encoding: 'utf8' }).trim()
-  if (head !== BASELINE_MAIN) fail(`HEAD ${head} !== baseline ${BASELINE_MAIN}`)
+  const mergeBase = execSync('git merge-base HEAD origin/main', { cwd: REPO, encoding: 'utf8' }).trim()
+  if (mergeBase !== BASELINE_MAIN) {
+    fail(`branch merge-base ${mergeBase} !== catalogue baseline ${BASELINE_MAIN}`)
+  }
 
   const guidesBefore = loadPublicPortGuidesFile(REPO)
   removeStage65ExcludedGuideEntries(guidesBefore)
@@ -264,6 +304,7 @@ function main() {
           draft_source: 'batch03-local-candidate-prep',
         },
       })
+      proposed = mergeBatch03DraftCompanionFields(proposed, draft)
       proposed = sanitizePassengerGuideSurfaces(proposed)
       proposed = mergeTravelerQuestions(BY_PORT_ROOT, portRow.landing_slug, proposed)
       proposed.researchImport = {
@@ -321,9 +362,7 @@ function main() {
         { gate: 'html_preview_validation', ok: htmlValPreview.ok, issues: htmlValPreview.issues },
         {
           gate: 'passenger_leak_scan',
-          ok: !containsInternalResearchLeak(
-            JSON.stringify({ portInfo: proposed.portInfo, gettingThere: proposed.gettingThere, thingsToDo: proposed.thingsToDo })
-          ),
+          ok: !containsInternalResearchLeak(collectGuidePassengerLeakBlob(proposed)),
         },
         { gate: 'factual_exclude', ok: !factual.exclude_from_release, reason: factual.exclude_reason },
       ]

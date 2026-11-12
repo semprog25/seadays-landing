@@ -27,6 +27,10 @@ const INTERNAL_RESEARCH_LEAK_RE = [
   /\bexact metres unverified\b/i,
   /\bpins remain null\b/i,
   /\bGangway GPS pins remain null\b/i,
+  /\bTimed metres gap\b/i,
+  /\bTransfer metres\b/i,
+  /\bgap on PAJ\b/i,
+  /\bAuthority:\s*berth\b/i,
 ];
 
 const MAX_QUICK_FACT_CHARS = 120;

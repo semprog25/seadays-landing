@@ -9,7 +9,7 @@
   "candidate_apply_permitted": false,
   "baseline_main": "31f873d4d6fad6358c0ea5a12948123257571acd",
   "baseline_live_passenger_editorial": 360,
-  "worktree_head_after_restore": "31f873d4d6fad6358c0ea5a12948123257571acd",
+  "worktree_head_after_restore": "9a668844566e77736a99576b0e7d700283951d4a",
   "production_guides_sha256_preserved": "f1ed7895f8f3eeab7cffba29aff261992d495cc22b8a921540e2b279a2abbdcc",
   "ports": [
     {
@@ -17,8 +17,8 @@
       "app_port_id": "kirkenes",
       "research_sha256": "7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8",
       "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
-      "proposed_content_hash": "d1289d7ad41199b92a29ac0d9768d2ae6fdcd12053a606071ddcd3e12841d5e3",
-      "owner_bucket": "NEEDS_FACT_CHECK",
+      "proposed_content_hash": "0e96ab3eca8c93f65ea4ea13a07d5c9cb210a04bc5c68ecb6389802b8bdd4826",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
       "publication_gates_pass": true,
       "validation_failures": [],
       "validation_warnings": [],
@@ -60,7 +60,7 @@
       "app_port_id": "ocho-rios",
       "research_sha256": "50682517fb65fb632488d2075a6782d1e049956b84f61b91c4e9171d720b99a2",
       "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
-      "proposed_content_hash": "2fcc17877189235ac26b6c9003004bd16a081459fb1794fd9207d15aa3a4f516",
+      "proposed_content_hash": "2bc5c073ad5c52a51a3b78579ef3ee522b36598de7c68b085286ae425655e242",
       "owner_bucket": "READY_FOR_OWNER_APPROVAL",
       "publication_gates_pass": true,
       "validation_failures": [],
@@ -101,6 +101,6 @@
   ],
   "policy_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/BATCH03_POLICY_CLEARANCE.json",
   "composite_sha_patch_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/COMPOSITE_SHA_PATCH.json",
-  "created_at_utc": "2026-11-11T13:23:10.928Z",
-  "bundle_idempotency_hash": "ff60f854739a9771e27be11eb1a9400e2c504fe587e5057381c2bec9d1dc7b2e"
+  "created_at_utc": "2026-11-12T04:25:28.371Z",
+  "bundle_idempotency_hash": "136a5240620e15a0696b17dc67ad5b4a6b059d3dfba04a3ee2f53426ea35ac7d"
 }

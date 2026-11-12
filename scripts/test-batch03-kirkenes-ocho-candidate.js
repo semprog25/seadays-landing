@@ -11,6 +11,7 @@ const {
   countPassengerEditorialGuides,
   removeStage65ExcludedGuideEntries,
 } = require('./lib/bulkPortPublication/stage65PublicationGuards')
+const { containsInternalResearchLeak, collectGuidePassengerLeakBlob } = require('./lib/publicGuideCopySanitize')
 
 const REPO = path.join(__dirname, '..')
 const EVIDENCE = path.join(REPO, 'qa-evidence/batch03-kirkenes-ocho-candidate')
@@ -38,8 +39,25 @@ function headJsonLdTypeCounts(html) {
   return counts
 }
 
+const BATCH03_FORBIDDEN_COPY_RE = [
+  /\bTimed metres gap\b/i,
+  /\bTransfer metres\b/i,
+  /\bgap on PAJ\b/i,
+  /\bAuthority:\s*berth\b/i,
+  /\bVisa-free for many nationalities\s*\(\s*up to 90 days\s*\)/i,
+]
+
+function assertNoForbiddenPassengerCopy(label, text) {
+  const s = String(text || '')
+  for (const re of BATCH03_FORBIDDEN_COPY_RE) {
+    assert.ok(!re.test(s), `${label} must not match ${re}: ${s.slice(0, 120)}`)
+  }
+  assert.ok(!containsInternalResearchLeak(s), `${label} internal research leak: ${s.slice(0, 120)}`)
+}
+
 function main() {
-  assert.strictEqual(execSync('git rev-parse HEAD', { cwd: REPO, encoding: 'utf8' }).trim(), BASELINE_MAIN)
+  const mergeBase = execSync('git merge-base HEAD origin/main', { cwd: REPO, encoding: 'utf8' }).trim()
+  assert.strictEqual(mergeBase, BASELINE_MAIN, 'branch must be based on catalogue baseline main')
 
   const manifestPath = path.join(EVIDENCE, 'BATCH03_PREP_MANIFEST.json')
   assert.ok(fs.existsSync(manifestPath), 'missing BATCH03_PREP_MANIFEST.json')
@@ -86,13 +104,33 @@ function main() {
     const rollbackHtml = fs.readFileSync(path.join(EVIDENCE, 'rollback-pre-apply/ports', slug, 'index.html'), 'utf8')
     assert.strictEqual(sha256File(path.join(REPO, 'ports', slug, 'index.html')), sha256File(path.join(EVIDENCE, 'rollback-pre-apply/ports', slug, 'index.html')), `${slug} production html restored`)
 
+    const appPortId = slug === 'kirkenes-norway' ? 'kirkenes' : 'ocho-rios'
+    const guideJson = JSON.parse(
+      fs.readFileSync(path.join(EVIDENCE, 'candidate-applied', `byAppPortId.${appPortId}.json`), 'utf8')
+    )
+    assertNoForbiddenPassengerCopy(`${slug} guide json`, collectGuidePassengerLeakBlob(guideJson))
+    assertNoForbiddenPassengerCopy(`${slug} candidate html`, html)
+
+    const faqLd = (html.match(/<script type="application\/ld\+json">(\{.*?"@type":"FAQPage"[\s\S]*?\})<\/script>/) || [])[1]
+    if (faqLd) assertNoForbiddenPassengerCopy(`${slug} FAQ JSON-LD`, faqLd)
+
     if (slug === 'ocho-rios-jamaica') {
       assert.ok(!/walkable from the gangway/i.test(html) || /not|Do not assume/i.test(html), 'no bare gangway walk claim')
       assert.ok(/Dunn/i.test(html), 'Dunn’s only in excursion context')
+      const notable = guideJson.facts?.notableFeatures || []
+      assert.ok(
+        !notable.some((f) => /Dunn|Dolphin Cove/i.test(String(f))),
+        'notableFeatures must not imply walk-off Dunn or Dolphin Cove'
+      )
+      const visa = String(guideJson.politics?.visaRequirements || '')
+      assert.match(visa, /nationality|cruise-passenger|confirm/i, 'conservative visa wording')
+      assert.ok(!/Visa-free for many nationalities/i.test(visa), 'no unsupported visa-free generalization')
+      assert.strictEqual((guideJson.thingsToDo?.topThings || []).length, 3, 'three topThings')
     }
     if (slug === 'kirkenes-norway') {
       assert.ok(/Dypvannskaia/i.test(html), 'kirkenes pier named')
       assert.ok(!/\d+\s*m(?:etre|eter)?\s+walk/i.test(html), 'no invented metre walk')
+      assert.strictEqual((guideJson.thingsToDo?.topThings || []).length, 3, 'three topThings')
     }
   }
 
