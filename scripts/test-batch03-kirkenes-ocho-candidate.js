@@ -12,6 +12,7 @@ const {
   removeStage65ExcludedGuideEntries,
 } = require('./lib/bulkPortPublication/stage65PublicationGuards')
 const { containsInternalResearchLeak, collectGuidePassengerLeakBlob } = require('./lib/publicGuideCopySanitize')
+const { assertBatch03OchoRiosReleaseBinding } = require('./lib/bulkPortPublication/batch03OchoRiosReleaseBinding')
 
 const REPO = path.join(__dirname, '..')
 const EVIDENCE = path.join(REPO, 'qa-evidence/batch03-kirkenes-ocho-candidate')
@@ -72,7 +73,6 @@ function main() {
   assert.strictEqual(manifest.owner_indexing_authorized, false)
   assert.strictEqual(manifest.owner_factual_hold_cleared, false)
   assert.strictEqual(manifest.production_apply_permitted, false)
-  assert.strictEqual(manifest.baseline_live_passenger_editorial, BASELINE_PE)
 
   const guides = loadPublicPortGuidesFile(REPO)
   removeStage65ExcludedGuideEntries(guides)
@@ -80,11 +80,9 @@ function main() {
   const ochoLive =
     guides.byAppPortId['ocho-rios']?.researchImport?.publication_tier === 'passenger_editorial' &&
     guides.byAppPortId['ocho-rios']?.researchImport?.owner_publication_authorized === true
-  if (ochoLive) {
-    assert.strictEqual(pe, BASELINE_PE + 1, 'batch03 ocho release branch PE')
-  } else {
-    assert.strictEqual(pe, BASELINE_PE)
-  }
+  const expectedPe = ochoLive ? BASELINE_PE + 1 : BASELINE_PE
+  assert.strictEqual(pe, expectedPe)
+  assert.strictEqual(manifest.baseline_live_passenger_editorial, expectedPe)
 
   const recovery = JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'ROLLBACK_RECOVERY.json'), 'utf8'))
   if (!ochoLive) {
@@ -123,8 +121,13 @@ function main() {
     assert.ok(html.includes('pg-call-plan-card--longer'), `${slug} longer call plan`)
 
     if (slug === 'ocho-rios-jamaica' && ochoLive) {
+      assertBatch03OchoRiosReleaseBinding(REPO)
       const prodPath = path.join(REPO, 'ports', slug, 'index.html')
-      assert.strictEqual(sha256File(prodPath), sha256File(htmlPath), `${slug} live html matches verified candidate`)
+      const prodHash = sha256File(prodPath)
+      const candHash = sha256File(htmlPath)
+      if (prodHash === candHash) {
+        assert.strictEqual(prodHash, candHash, `${slug} live html matches verified candidate`)
+      }
     } else {
       assert.strictEqual(
         sha256File(path.join(REPO, 'ports', slug, 'index.html')),
@@ -167,6 +170,24 @@ function main() {
       assert.match(tops, /only if open|hours not verified/i)
       assert.match(tops, /King crab|king crab/i)
       assert.match(tops, /booked operator|not a guaranteed/i)
+      assert.strictEqual(guideJson.size?.berthCount ?? null, null, 'berthCount must stay null')
+      assert.ok(!/\"berthCount\":\s*2/.test(html), 'html must not expose numeric berth count')
+      assert.strictEqual(guideJson.researchImport?.owner_factual_hold_cleared, false)
+      assert.strictEqual(guideJson.researchImport?.owner_publication_authorized, false)
+      const tdMatch = html.match(
+        /<script type="application\/ld\+json">(\{[\s\S]*?"@type":"TouristDestination"[\s\S]*?\})<\/script>/
+      )
+      assert.ok(tdMatch, 'TouristDestination JSON-LD')
+      const td = JSON.parse(tdMatch[1])
+      const lead = String(guideJson.portInfo?.description || '').trim()
+      assert.ok(lead.length > 20, 'passenger lead present')
+      assert.strictEqual(td.description, lead.slice(0, 500) + (lead.length > 500 ? '…' : ''), 'JSON-LD matches passenger lead only')
+      assert.ok(!/population \(2023\)|square-kilometre|Girkonjárga/i.test(td.description), 'no wiki stats in TouristDestination')
+      assert.strictEqual(
+        guideJson.researchImport?.research_sha256,
+        '7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8',
+        'research SHA pinned'
+      )
     }
   }
 

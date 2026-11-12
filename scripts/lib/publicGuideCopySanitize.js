@@ -92,10 +92,12 @@ function quickFactGettingSummary(guide) {
 }
 
 function usesPassengerEditorialLead(guide) {
-  return (
-    guide?.researchImport?.publication_tier === 'passenger_editorial' &&
-    String(guide?.portInfo?.description || '').trim().length > 0
-  );
+  const tier = guide?.researchImport?.publication_tier
+  const batch03Conditional =
+    tier === 'passenger_editorial_candidate' &&
+    guide?.researchImport?.batch03_kirkenes_ocho_conditional_candidate === true
+  const passengerLeadTier = tier === 'passenger_editorial' || batch03Conditional
+  return passengerLeadTier && String(guide?.portInfo?.description || '').trim().length > 0
 }
 
 function isResearchItineraryCopy(text) {
