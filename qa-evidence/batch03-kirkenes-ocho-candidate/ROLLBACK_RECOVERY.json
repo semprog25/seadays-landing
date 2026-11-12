@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "recovery_mode": "production_sha_plus_stage63_slot_snapshots",
+  "baseline_main": "31f873d4d6fad6358c0ea5a12948123257571acd",
+  "production_public_port_guides_sha256": "f1ed7895f8f3eeab7cffba29aff261992d495cc22b8a921540e2b279a2abbdcc",
+  "slot_snapshots": [
+    {
+      "landing_slug": "kirkenes-norway",
+      "app_port_id": "kirkenes",
+      "stage63_production_snapshot_ref": "qa-evidence/stage63-50-port-recovery/rollback/kirkenes-norway.production-snapshot.json"
+    },
+    {
+      "landing_slug": "ocho-rios-jamaica",
+      "app_port_id": "ocho-rios",
+      "stage63_production_snapshot_ref": "qa-evidence/stage63-50-port-recovery/rollback/ocho-rios-jamaica.production-snapshot.json"
+    }
+  ],
+  "html_rollback_refs": [
+    "qa-evidence/batch03-kirkenes-ocho-candidate/rollback-pre-apply/ports/kirkenes-norway/index.html",
+    "qa-evidence/batch03-kirkenes-ocho-candidate/rollback-pre-apply/ports/ocho-rios-jamaica/index.html"
+  ],
+  "note": "Full catalogue rollback omitted — recover via git checkout of data/public-port-guides.json at baseline_main SHA plus per-port HTML files here."
+}

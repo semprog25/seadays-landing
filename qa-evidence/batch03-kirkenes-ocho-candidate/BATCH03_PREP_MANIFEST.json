@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "stage": "batch03-kirkenes-ocho-candidate-prep",
+  "status": "READY_FOR_OWNER_FACTUAL_REVIEW",
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "owner_factual_hold_cleared": false,
+  "production_apply_permitted": false,
+  "candidate_apply_permitted": false,
+  "baseline_main": "31f873d4d6fad6358c0ea5a12948123257571acd",
+  "baseline_live_passenger_editorial": 360,
+  "worktree_head_after_restore": "9a668844566e77736a99576b0e7d700283951d4a",
+  "production_guides_sha256_preserved": "f1ed7895f8f3eeab7cffba29aff261992d495cc22b8a921540e2b279a2abbdcc",
+  "ports": [
+    {
+      "landing_slug": "kirkenes-norway",
+      "app_port_id": "kirkenes",
+      "research_sha256": "7fb39713a569246163e51f762bdff77d2b473351c4f8b884077ebf752a914fe8",
+      "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+      "proposed_content_hash": "0e96ab3eca8c93f65ea4ea13a07d5c9cb210a04bc5c68ecb6389802b8bdd4826",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "validation_warnings": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-assets/kirkenes-norway/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-assets/kirkenes-norway/corrected-draft.json",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "kirkenes-norway"
+      },
+      "full_html_gates_pass": true
+    },
+    {
+      "landing_slug": "ocho-rios-jamaica",
+      "app_port_id": "ocho-rios",
+      "research_sha256": "50682517fb65fb632488d2075a6782d1e049956b84f61b91c4e9171d720b99a2",
+      "research_main_pin": "e5680f19d3ea86ce2261c3027894f2a45124e36b",
+      "proposed_content_hash": "2bc5c073ad5c52a51a3b78579ef3ee522b36598de7c68b085286ae425655e242",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "validation_warnings": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-assets/ocho-rios-jamaica/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/candidate-assets/ocho-rios-jamaica/corrected-draft.json",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "ocho-rios-jamaica"
+      },
+      "full_html_gates_pass": true
+    }
+  ],
+  "policy_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/BATCH03_POLICY_CLEARANCE.json",
+  "composite_sha_patch_ref": "qa-evidence/batch03-kirkenes-ocho-candidate/COMPOSITE_SHA_PATCH.json",
+  "created_at_utc": "2026-11-12T04:25:28.371Z",
+  "bundle_idempotency_hash": "136a5240620e15a0696b17dc67ad5b4a6b059d3dfba04a3ee2f53426ea35ac7d"
+}
