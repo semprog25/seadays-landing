@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
+const path = require('path');
 const assert = require('assert');
 const {
   classifyChangedFiles,
@@ -140,6 +141,112 @@ test('banner-only recovery plus unexpected path fails closed on push plan', () =
       resolveGenerationPlan({
         eventName: 'push',
         changedFiles: [...PR129_RECOVERY_FILES, 'data/public-port-guides.json'],
+      }),
+    /fail closed/,
+  );
+});
+
+const BATCH5_FAQ_COHORT_FILES = [
+  'scripts/lib/portGuideSections.js',
+  'ports/la-paz-mexico/index.html',
+  'ports/long-beach-ca-united-states/index.html',
+  'ports/los-angeles-ca-united-states/index.html',
+  'ports/portland-me-united-states/index.html',
+  'ports/san-diego-ca-united-states/index.html',
+  'ports/san-francisco-ca-united-states/index.html',
+  'ports/seattle-wa-united-states/index.html',
+  'ports/vancouver-bc-canada/index.html',
+];
+
+test('FAQ cohort push without push SHAs fails closed', () => {
+  const prevBefore = process.env.GITHUB_EVENT_BEFORE;
+  const prevSha = process.env.GITHUB_SHA;
+  delete process.env.GITHUB_EVENT_BEFORE;
+  delete process.env.GITHUB_SHA;
+  try {
+    assert.throws(
+      () =>
+        resolveGenerationPlan({
+          eventName: 'push',
+          changedFiles: BATCH5_FAQ_COHORT_FILES,
+        }),
+      /GITHUB_EVENT_BEFORE/,
+    );
+  } finally {
+    if (prevBefore !== undefined) process.env.GITHUB_EVENT_BEFORE = prevBefore;
+    else delete process.env.GITHUB_EVENT_BEFORE;
+    if (prevSha !== undefined) process.env.GITHUB_SHA = prevSha;
+    else delete process.env.GITHUB_SHA;
+  }
+});
+
+test('FAQ cohort push (#156 range) skips catalogue generation when verified', () => {
+  const prevBefore = process.env.GITHUB_EVENT_BEFORE;
+  const prevSha = process.env.GITHUB_SHA;
+  const prevRoot = process.env.PORTS_REGEN_GATE_REPO_ROOT;
+  process.env.GITHUB_EVENT_BEFORE = 'ac50a355234946278739a26b861f89be01e6656a';
+  process.env.GITHUB_SHA = 'e9df022900cad6b67c251336cd9357f9f2681f24';
+  process.env.PORTS_REGEN_GATE_REPO_ROOT = path.join(__dirname, '..');
+  try {
+    const plan = resolveGenerationPlan({
+      eventName: 'push',
+      changedFiles: BATCH5_FAQ_COHORT_FILES,
+    });
+    assert.strictEqual(plan.channel, 'skip');
+    assert.strictEqual(plan.skip, true);
+  } finally {
+    if (prevBefore !== undefined) process.env.GITHUB_EVENT_BEFORE = prevBefore;
+    else delete process.env.GITHUB_EVENT_BEFORE;
+    if (prevSha !== undefined) process.env.GITHUB_SHA = prevSha;
+    else delete process.env.GITHUB_SHA;
+    if (prevRoot !== undefined) process.env.PORTS_REGEN_GATE_REPO_ROOT = prevRoot;
+    else delete process.env.PORTS_REGEN_GATE_REPO_ROOT;
+  }
+});
+
+test('FAQ cohort rejects non-FAQ portGuideSections.js diff lines', () => {
+  const { assertPortGuideSectionsUnifiedDiffIsFaqCohortOnly } = require('./assert-ports-regen-banner-only-diff');
+  const badDiff = [
+    '@@ -1,1 +1,2 @@',
+    '+  return namedForPort(portName, "hacked transport FAQ");',
+  ].join('\n');
+  assert.throws(
+    () => assertPortGuideSectionsUnifiedDiffIsFaqCohortOnly(badDiff),
+    /outside FAQ overrides/,
+  );
+  const okDiff = [
+    '@@ -1,1 +1,3 @@',
+    '+const BATCH9_FAQ_DISTANCE_COPY = {',
+    "+  'test-port':",
+    "+    'short copy.',",
+    '+};',
+    '+    (portSlug && BATCH9_FAQ_DISTANCE_COPY[portSlug]) ||',
+  ].join('\n');
+  assert.doesNotThrow(() => assertPortGuideSectionsUnifiedDiffIsFaqCohortOnly(okDiff));
+});
+
+test('FAQ cohort attribution drift outside FAQ blocks fails closed', () => {
+  const {
+    htmlWithFaqPublicationBlocksStripped,
+    assertFaqCohortPushTouchesFaqBlocksOnly,
+  } = require('./assert-ports-regen-banner-only-diff');
+  const faqOnly = `<html><head><script type="application/ld+json">{"@type":"FAQPage","mainEntity":[]}</script></head><body><section class="pg-section" id="traveler-questions"><p>ok</p></section></body></html>`;
+  const withHero = faqOnly.replace(
+    '<body>',
+    '<body><figure class="seo-hero"><figcaption>CC BY-SA 4.0</figcaption></figure>',
+  );
+  assert.notStrictEqual(
+    htmlWithFaqPublicationBlocksStripped(faqOnly),
+    htmlWithFaqPublicationBlocksStripped(withHero),
+  );
+});
+
+test('portGuideSections plus non-port-index path still fails closed', () => {
+  assert.throws(
+    () =>
+      resolveGenerationPlan({
+        eventName: 'push',
+        changedFiles: ['scripts/lib/portGuideSections.js', 'data/public-port-guides.json'],
       }),
     /fail closed/,
   );

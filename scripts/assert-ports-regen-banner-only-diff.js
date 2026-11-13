@@ -20,6 +20,11 @@ const {
   sectionHasViatorAffiliate,
 } = require('./lib/publishedPortHtmlPreserve');
 
+const FAQ_PAGE_LD_SCRIPT_RE =
+  /<script type="application\/ld\+json">[\s\S]*?"@type"\s*:\s*"FAQPage"[\s\S]*?<\/script>/gi;
+const TRAVELER_QUESTIONS_SECTION_RE =
+  /<section class="pg-section" id="traveler-questions"[\s\S]*?<\/section>/i;
+
 const SENTINEL = '<!-- SEADAYS_BOOKABLE_EXPERIENCES_SENTINEL -->';
 const PORT_GUIDE_SECTIONS_FILE = 'scripts/lib/portGuideSections.js';
 /** PR #124 and equivalent copy-only releases (must include portGuideSections.js). */
@@ -186,12 +191,101 @@ function assertApprovedBannerCopy(beforeSection, afterSection, slug) {
   assertViatorParamsUnchanged(beforeSection, afterSection, slug);
 }
 
+function isFaqCohortPortIndexPath(filePath) {
+  return /^ports\/[^/]+\/index\.html$/.test(String(filePath || ''));
+}
+
+function htmlWithFaqPublicationBlocksStripped(html) {
+  let h = String(html || '');
+  h = h.replace(FAQ_PAGE_LD_SCRIPT_RE, '');
+  h = h.replace(TRAVELER_QUESTIONS_SECTION_RE, '');
+  return h;
+}
+
+function isFaqCohortPortGuideSectionsDiffLine(body) {
+  const line = String(body || '').trim();
+  if (!line) return true;
+  if (/^const BATCH\d+_FAQ_DISTANCE_COPY = \{/.test(line)) return true;
+  if (line === '};') return true;
+  if (/^'[a-z0-9]+(?:-[a-z0-9]+)*':$/.test(line)) return true;
+  if (/^'[^']*',?$/.test(line)) return true;
+  if (/^\(portSlug && BATCH\d+_FAQ_DISTANCE_COPY\[portSlug\]\) \|\|$/.test(line)) return true;
+  if (/^\(BATCH\d+_FAQ_DISTANCE_COPY\[portSlug\] \|\|$/.test(line)) return true;
+  if (/^BATCH\d+_FAQ_DISTANCE_COPY\[portSlug\] \|\|$/.test(line)) return true;
+  return false;
+}
+
+function assertPortGuideSectionsUnifiedDiffIsFaqCohortOnly(unifiedDiff) {
+  const lines = String(unifiedDiff || '')
+    .split('\n')
+    .filter((l) => (l.startsWith('+') || l.startsWith('-')) && !l.startsWith('+++') && !l.startsWith('---'));
+  for (const raw of lines) {
+    const body = raw.slice(1);
+    if (isFaqCohortPortGuideSectionsDiffLine(body)) continue;
+    throw new Error(
+      `[ci-classify] FAQ cohort push changed portGuideSections.js outside FAQ overrides: ${body.trim().slice(0, 96)}`,
+    );
+  }
+}
+
+function assertPortGuideSectionsFaqCohortDiffOnly(beforeSha, headSha) {
+  const rootDir = path.resolve(process.env.PORTS_REGEN_GATE_REPO_ROOT || path.join(__dirname, '..'));
+  let diff = '';
+  try {
+    diff = execFileSync('git', ['diff', beforeSha, headSha, '--', PORT_GUIDE_SECTIONS_FILE], {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch (err) {
+    throw new Error(
+      `[ci-classify] FAQ cohort portGuideSections.js diff unavailable (fail closed): ${err.message || err}`,
+    );
+  }
+  assertPortGuideSectionsUnifiedDiffIsFaqCohortOnly(diff);
+}
+
+function gitShowPortFileAtRef(rootDir, ref, filePath) {
+  try {
+    return execFileSync('git', ['show', `${ref}:${filePath}`], {
+      cwd: rootDir,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+  } catch {
+    return null;
+  }
+}
+
+/** Fail closed when a FAQ-cohort push edits hero, robots, attribution, or other non-FAQ HTML. */
+function assertFaqCohortPushTouchesFaqBlocksOnly(portIndexFiles, beforeSha, headSha) {
+  const rootDir = path.resolve(process.env.PORTS_REGEN_GATE_REPO_ROOT || path.join(__dirname, '..'));
+  for (const rel of portIndexFiles) {
+    if (!isFaqCohortPortIndexPath(rel)) continue;
+    const before = gitShowPortFileAtRef(rootDir, beforeSha, rel);
+    const after = gitShowPortFileAtRef(rootDir, headSha, rel);
+    if (!before || !after) {
+      throw new Error(
+        `[ci-classify] FAQ cohort push cannot read ${rel} at before/after SHAs (fail closed)`,
+      );
+    }
+    if (htmlWithFaqPublicationBlocksStripped(before) !== htmlWithFaqPublicationBlocksStripped(after)) {
+      throw new Error(
+        `[ci-classify] FAQ cohort push must not change port HTML outside FAQ blocks: ${rel}`,
+      );
+    }
+  }
+}
+
 function resolveGateModeFromPushFiles(files) {
   const list = Array.isArray(files) ? files.map(String).filter(Boolean) : [];
   if (!list.length) return 'off';
   const hasPortGuideSections = list.includes(PORT_GUIDE_SECTIONS_FILE);
   const unexpectedCopy = list.filter((f) => !BANNER_COPY_RELEASE_ALLOWLIST.has(f));
-  if (hasPortGuideSections && unexpectedCopy.length > 0) return 'block';
+  if (hasPortGuideSections && unexpectedCopy.length > 0) {
+    if (unexpectedCopy.every(isFaqCohortPortIndexPath)) return 'faq-cohort';
+    return 'block';
+  }
   if (hasPortGuideSections && unexpectedCopy.length === 0) return 'banner-only';
   if (!hasPortGuideSections && viatorNeutralBannerCopyOnHead()) {
     if (list.every(isViatorRegenRecoveryScopeFile)) return 'banner-only';
@@ -368,6 +462,11 @@ module.exports = {
   assertViatorParamsUnchanged,
   resolveGateMode,
   resolveGateModeFromPushFiles,
+  isFaqCohortPortIndexPath,
+  assertFaqCohortPushTouchesFaqBlocksOnly,
+  assertPortGuideSectionsFaqCohortDiffOnly,
+  assertPortGuideSectionsUnifiedDiffIsFaqCohortOnly,
+  htmlWithFaqPublicationBlocksStripped,
   BANNER_COPY_RELEASE_ALLOWLIST,
   VIATOR_REGEN_RECOVERY_PUSH_ALLOWLIST,
   viatorNeutralBannerCopyOnHead,

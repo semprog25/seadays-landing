@@ -268,6 +268,30 @@ function resolveGenerationPlan({
         '[ci-classify] Viator banner-only push includes unexpected paths (fail closed)',
       );
     }
+    if (viatorGateMode === 'faq-cohort') {
+      const {
+        assertFaqCohortPushTouchesFaqBlocksOnly,
+        assertPortGuideSectionsFaqCohortDiffOnly,
+        isFaqCohortPortIndexPath,
+      } = require('../assert-ports-regen-banner-only-diff');
+      const before = String(process.env.GITHUB_EVENT_BEFORE || '').trim();
+      const headSha = String(process.env.GITHUB_SHA || '').trim();
+      if (!before || !headSha || /^0+$/.test(before)) {
+        throw new Error(
+          '[ci-classify] FAQ cohort push requires GITHUB_EVENT_BEFORE and GITHUB_SHA (fail closed)',
+        );
+      }
+      if (!/^[0-9a-f]{7,40}$/i.test(headSha)) {
+        throw new Error('[ci-classify] FAQ cohort push has invalid GITHUB_SHA (fail closed)');
+      }
+      assertPortGuideSectionsFaqCohortDiffOnly(before, headSha);
+      assertFaqCohortPushTouchesFaqBlocksOnly(
+        changedFiles.filter(isFaqCohortPortIndexPath),
+        before,
+        headSha,
+      );
+      return emptyPlan('skip');
+    }
     if (viatorGateMode === 'banner-only') {
       return planForChannel('ports');
     }
