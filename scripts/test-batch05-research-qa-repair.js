@@ -49,7 +49,8 @@ function main() {
   execSync(`git merge-base --is-ancestor ${BASELINE_MAIN} HEAD`, { cwd: REPO, stdio: 'pipe' })
 
   const policy = JSON.parse(fs.readFileSync(path.join(EVIDENCE, 'BATCH05_RESEARCH_QA_POLICY.json'), 'utf8'))
-  assert.strictEqual(policy.research_qa_verdict_must_remain, 'BLOCKED')
+  const validationPath = path.join(EVIDENCE, 'research-qa/BATCH05_RESEARCH_QA_VALIDATION.json')
+  assert.ok(fs.existsSync(validationPath), 'run batch05-research-qa-validate.js')
   assert.strictEqual(policy.owner_publication_authorized, false)
   assert.strictEqual(policy.baseline_live_passenger_editorial, EXPECTED_PE)
 
@@ -58,7 +59,8 @@ function main() {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
   assert.strictEqual(manifest.owner_publication_authorized, false)
   assert.strictEqual(manifest.production_apply_permitted, false)
-  assert.strictEqual(manifest.research_qa_verdict_must_remain, 'BLOCKED')
+  const validation = JSON.parse(fs.readFileSync(validationPath, 'utf8'))
+  assert.strictEqual(validation.blocked_count, manifest.ports.length)
   assert.strictEqual(manifest.baseline_live_passenger_editorial, EXPECTED_PE)
 
   const guides = loadPublicPortGuidesFile(REPO)

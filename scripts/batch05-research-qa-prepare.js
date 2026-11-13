@@ -142,8 +142,8 @@ function main() {
   }
   if (!fs.existsSync(POLICY)) fail('missing BATCH05_RESEARCH_QA_POLICY.json')
   const policy = JSON.parse(fs.readFileSync(POLICY, 'utf8'))
-  if (policy.research_qa_verdict_must_remain !== 'BLOCKED') {
-    fail('research_qa_verdict_must_remain must be BLOCKED')
+  if (policy.research_qa_index_not_mutated_in_pr !== true) {
+    fail('research_qa_index_not_mutated_in_pr must be true')
   }
   if (policy.owner_conditional_prep_authorized !== true) fail('owner_conditional_prep_authorized must be true')
   if (policy.owner_publication_authorized === true || policy.owner_indexing_authorized === true) {
@@ -439,7 +439,7 @@ function main() {
     production_guides_sha256_preserved: prodGuidesHashBefore,
     ports: manifestPorts,
     policy_ref: 'qa-evidence/content-repair-batch05/BATCH05_RESEARCH_QA_POLICY.json',
-    research_qa_verdict_must_remain: 'BLOCKED',
+    research_qa_validation_ref: 'qa-evidence/content-repair-batch05/research-qa/BATCH05_RESEARCH_QA_VALIDATION.json',
     created_at_utc: new Date().toISOString(),
   }
   bundlePayload.bundle_idempotency_hash = crypto

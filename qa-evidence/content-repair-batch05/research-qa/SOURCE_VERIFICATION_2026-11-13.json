@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-11-13T04:30:00.000Z",
+  "note": "Narrow re-probes only. Does not promote qa_verdict without berth/tender primary.",
+  "probes": [
+    {
+      "landing_slug": "freeport-bahamas",
+      "url": "https://freeportharbour.com/",
+      "http_status": "200",
+      "finding": "Site still shows Launching Soon placeholder; no berth/passenger table.",
+      "confidence": "high",
+      "consequential_claim_supported": false
+    },
+    {
+      "landing_slug": "freeport-bahamas",
+      "url": "https://www.hutchisonports.com/media/d/Hutchison+Ports+Brochure_Mar+2026.pdf",
+      "http_status": "not_reprobed",
+      "finding": "Existing approved source S3 in deliverable; names Hutchison Ports Bahamas (FCP & FHC) but not berth LOA table.",
+      "confidence": "high",
+      "consequential_claim_supported": false
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "url": "https://www.tourismthailand.org/destinations/provinces/koh-samui/38",
+      "http_status": "challenge",
+      "finding": "Cloudflare challenge page; facility/tender mode still unread.",
+      "confidence": "high",
+      "consequential_claim_supported": false
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "url": "https://newmangaloreport.gov.in/cruise-port",
+      "http_status": "200",
+      "finding": "Official NMPA Cruise Port section reachable; captured HTML has no named cruise berth LOA/depth table.",
+      "confidence": "high",
+      "consequential_claim_supported": false
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "url": "https://www.phatuketdeepseaport.com/",
+      "http_status": "dns_fail",
+      "finding": "Deep Sea Port host from research still not resolving; no substitute berth table captured.",
+      "confidence": "high",
+      "consequential_claim_supported": false
+    }
+  ]
+}
