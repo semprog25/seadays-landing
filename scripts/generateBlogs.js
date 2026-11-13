@@ -86,6 +86,8 @@ const { buildPortsIndexHtml: buildPortsIndexHtmlCore } = require('./lib/portsDir
 const { writePortsDirectoryIndexFromCatalogue } = require('./lib/preparePortsDirectoryIndexWrite');
 const { PORTS_DIRECTORY_PAGE_SHELL_STYLES } = require('./lib/portsDirectoryPageShellStyles');
 const { buildDirectoryRuntimeImageGuardScript } = require('./lib/directoryRuntimeImageGuard');
+const buildShipsDirectoryClientScriptSource = require('./lib/shipsDirectoryClient');
+const { enrichSeoShipsForDirectoryIndex } = require('./lib/portsDirectoryImageResolve');
 const { applyHasBookableExperiencesToSeoPorts } = require('./lib/portsDirectoryBookable');
 const { resolvePortsDirectoryFeaturedGuideCardsHtml } = require('./lib/portsDirectoryFeaturedGuides');
 const {
@@ -1968,9 +1970,28 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
     })
     .sort((a, b) => a.line.localeCompare(b.line));
 
-  const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
+  const totalShips = safeShips.length;
+  const popularLines = linePills
+    .slice()
+    .sort((a, b) => b.count - a.count || a.line.localeCompare(b.line))
+    .slice(0, 10)
+    .map((x) => x.line);
 
-  const cards = safeShips
+  const lineSelectOptions = linePills
+    .map(
+      (x) =>
+        `<option value="${escapeHtml(x.line)}">${escapeHtml(x.line)} (${x.count})</option>`
+    )
+    .join('');
+
+  const popularLineButtons = popularLines
+    .map(
+      (line) =>
+        `<button type="button" class="pill pill--line" data-line="${escapeHtml(line)}" aria-pressed="false">${escapeHtml(line)}</button>`
+    )
+    .join('');
+
+  const shipsCatalog = safeShips
     .slice()
     .sort((a, b) => {
       const la = normalizeKey(a.cruise_line).toLowerCase();
@@ -1980,20 +2001,26 @@ function buildShipsIndexHtml({ ships, articles, featuredGuideCardsHtml }) {
     })
     .map((ship) => {
       const line = normalizeKey(ship.cruise_line);
-      const ratingHtml = buildShipDirectoryRatingHtml(ship);
-      return (
-        `<a href="/ships/${escapeHtml(ship.slug)}/" class="seo-grid-card directory-card" ` +
-        `data-group="${escapeHtml(line)}" data-item="${escapeHtml(ship.slug)}">` +
-        `<span class="seo-grid-card-title">${escapeHtml(ship.name)}</span>` +
-        `<span class="seo-grid-card-meta">${escapeHtml(line || 'Cruise line')}</span>` +
-        `<span class="seo-grid-card-bottom">` +
-        ratingHtml +
-        `<span class="seo-grid-card-hint">Open guide</span>` +
-        `</span>` +
-        `</a>`
-      );
-    })
+      const imgUrl = String(ship.directoryImageUrl || '').trim();
+      const hasPhoto = imgUrl && !imgUrl.includes('seadaysfav.png');
+      return {
+        slug: ship.slug,
+        name: ship.name || ship.slug,
+        line,
+        imgUrl: hasPhoto ? imgUrl : '',
+        ratingHtml: buildShipDirectoryRatingHtml(ship),
+      };
+    });
+  const shipsCatalogJson = JSON.stringify(shipsCatalog).replace(/</g, '\\u003c');
+  const shipsNoScriptCrawlHtml = shipsCatalog
+    .map(
+      (ship) =>
+        `<li><a href="/ships/${escapeHtml(ship.slug)}/">${escapeHtml(ship.name)}</a> ` +
+        `<span class="directory-crawl-meta">${escapeHtml(ship.line)}</span></li>`
+    )
     .join('\n');
+
+  const safeFeaturedGuideCardsHtml = typeof featuredGuideCardsHtml === 'string' ? featuredGuideCardsHtml : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -2029,26 +2056,41 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
 .seo-prose p { margin-bottom: 18px; }
 .seo-prose a { color: var(--neon-red); text-decoration: none; font-weight: 600; }
 .seo-prose a:hover { text-decoration: underline; }
-.directory-hero { max-width: 1200px; margin: 0 auto; padding: 140px 20px 36px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
-.directory-hero h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.06; margin-bottom: 14px; }
-.directory-hero p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; }
-.directory-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
-.directory-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
+.directory-hero { max-width: 720px; margin: 0 auto; padding: 24px 20px 0; text-align: center; }
+.directory-hero--compact { padding-bottom: 0; }
+.directory-hero h1 { font-size: clamp(1.85rem, 4.5vw, 2.65rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 14px; }
+.directory-hero p { font-size: 16px; color: rgba(255,255,255,0.58); line-height: 1.55; margin: 0 auto 18px; max-width: 34em; }
+.directory-section--search { margin-top: 0; padding: 8px 20px 12px; }
+.directory-search-wrap--primary { max-width: 620px; margin: 0 auto; }
+.directory-search--primary { width: 100%; padding: 17px 20px 17px 44px; font-size: 17px; border-radius: 16px; border: 1px solid rgba(255,0,51,0.42); background: rgba(8,8,10,0.92); color: #fff; font-weight: 600; box-shadow: 0 0 0 1px rgba(255,0,51,0.18), 0 12px 40px rgba(0,0,0,0.38); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' stroke='%23FF0033' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 14px 50%; }
+.directory-search--primary:focus { outline: none; border-color: rgba(255,0,51,0.82); box-shadow: 0 0 0 2px rgba(255,0,51,0.35), 0 12px 40px rgba(0,0,0,0.45); }
+.directory-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+.directory-section-head h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 0; }
+.directory-section-note { font-size: 13px; color: rgba(255,255,255,0.55); }
+.directory-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 18px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #fff; }
 .directory-btn:hover { border-color: var(--neon-red); box-shadow: 0 10px 32px rgba(255, 0, 51, 0.18); transform: translateY(-1px); }
 .directory-btn-primary { background: rgba(255,0,51,0.18); border-color: rgba(255,0,51,0.4); }
-.directory-hero-art { border-radius: 22px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,0.4); position: relative; }
-.directory-hero-art::after { content: ''; position: absolute; inset: -80px -120px auto auto; width: 240px; height: 240px; background: radial-gradient(circle at center, rgba(255,0,51,0.35), rgba(255,0,51,0)); filter: blur(4px); pointer-events: none; }
-.directory-hero-art img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
-.directory-controls { max-width: 1200px; margin: 0 auto; padding: 0 20px 18px; }
+.directory-controls { max-width: 1200px; margin: 0 auto; padding: 8px 20px 12px; }
+.ships-filter-stack { display: flex; flex-direction: column; gap: 12px; }
+.ships-filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ships-filter-row--meta { justify-content: space-between; gap: 12px; }
+.ships-popular-lines-wrap { position: relative; flex: 1 1 auto; min-width: 0; max-width: 100%; }
+.ships-popular-lines-wrap::after { content: \"\"; position: absolute; top: 0; right: 0; bottom: 0; width: 32px; pointer-events: none; background: linear-gradient(to left, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.45) 45%, transparent 100%); }
+.ships-popular-lines { display: flex; flex: 1 1 auto; gap: 8px; overflow-x: auto; padding-bottom: 2px; padding-right: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+.ships-popular-lines::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; }
+.pill { appearance: none; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.9); padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+.pill--reset { border-color: rgba(6,182,212,0.45); background: rgba(6,182,212,0.1); }
+.pill--reset[aria-pressed=\"true\"] { border-color: rgba(6,182,212,0.85); background: rgba(6,182,212,0.2); }
 .pill:hover { border-color: rgba(255,0,51,0.55); }
 .pill[aria-pressed=\"true\"] { border-color: rgba(255,0,51,0.85); background: rgba(255,0,51,0.16); }
-.subpill-wrap { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.07); }
-.subpill-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
-.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; padding: 0 20px 100px; max-width: 1200px; margin: 0 auto; }
-.seo-grid-card { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s; }
-.seo-grid-card:hover { border-color: var(--neon-red); transform: translateY(-2px); }
+.directory-select { min-height: 44px; padding: 10px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14); background: rgba(8,8,10,0.92); color: #fff; font-weight: 700; font-size: 14px; max-width: 100%; flex: 1 1 220px; }
+.directory-select:focus { outline: none; border-color: rgba(255,0,51,0.65); box-shadow: 0 0 0 2px rgba(255,0,51,0.25); }
+.ships-results-meta { font-size: 14px; color: rgba(255,255,255,0.62); margin: 0; flex: 1 1 200px; }
+.ships-results-meta strong { color: #fff; font-weight: 800; }
+.seo-directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; padding: 0 20px 28px; max-width: 1200px; margin: 0 auto; }
+.seo-grid-card { display: flex; flex-direction: column; gap: 0; padding: 0; border-radius: 18px; border: 1px solid rgba(255,255,255,0.09); background: rgba(16,16,18,0.88); text-decoration: none; color: #fff; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; overflow: hidden; box-shadow: 0 6px 28px rgba(0,0,0,0.28); }
+.seo-grid-card:hover { border-color: rgba(255,0,51,0.65); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(255,0,51,0.12); }
 .seo-grid-card-title { font-weight: 700; font-size: 16px; }
 .seo-grid-card-hint { font-size: 12px; color: rgba(255,255,255,0.45); }
 .seo-grid-card-meta { font-size: 13px; color: rgba(255,255,255,0.55); }
@@ -2058,7 +2100,21 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
 .rating-visual { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 10px; border-radius: 12px; font-size: 12px; font-weight: 800; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.95); min-width: 0; }
 .rating-stars { letter-spacing: 2px; color: #fbbf24; font-size: 15px; line-height: 1; }
 .rating-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.75); }
-.directory-card.is-hidden { display: none; }
+.directory-load-more-wrap { max-width: 1200px; margin: 0 auto 28px; padding: 0 20px; text-align: center; }
+.directory-load-more { min-width: 220px; cursor: pointer; font: inherit; }
+.directory-empty { max-width: 1200px; margin: 0 auto 16px; padding: 16px 18px; color: rgba(255,255,255,0.62); font-size: 15px; border-radius: 14px; border: 1px dashed rgba(255,255,255,0.14); text-align: center; background: rgba(255,255,255,0.02); }
+.directory-crawl-fallback { max-width: 1200px; margin: 0 auto 24px; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; background: rgba(255,255,255,0.03); }
+.directory-crawl-fallback h2 { font-size: 16px; font-weight: 800; margin-bottom: 12px; color: #fff; }
+.directory-crawl-list { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 24px; }
+.directory-crawl-list li { margin-bottom: 8px; break-inside: avoid; }
+.directory-crawl-list a { color: var(--neon-red); font-weight: 700; text-decoration: none; }
+.directory-crawl-list a:hover { text-decoration: underline; }
+.directory-crawl-meta { color: rgba(255,255,255,0.55); font-size: 12px; }
+@media (max-width: 600px) { .directory-crawl-list { columns: 1; } }
+.directory-card--with-photo { display: flex; flex-direction: column; }
+.directory-card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(20,20,20,0.9)); }
+.directory-card-body { padding: 15px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+img.img-loading { filter: blur(8px); transform: scale(1.03); }
 .featured-guides { max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; }
 .featured-guides h2 { font-size: 18px; font-weight: 900; letter-spacing: -0.2px; margin: 8px 0 12px; }
 .featured-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
@@ -2073,46 +2129,66 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
 .app-cta strong { display: block; font-size: 15px; }
 .app-cta span { display: block; font-size: 13px; color: rgba(255,255,255,0.68); margin-top: 2px; }
 .app-cta a { flex: 0 0 auto; }
-.header { position: sticky; top: 0; background: rgba(10,10,10,0.92); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+body.ships-directory-v2 .directory-scroll-target { scroll-margin-top: calc(var(--site-header-height, 72px) + 16px); }
 @media (max-width: 900px) {
-  .directory-hero { grid-template-columns: 1fr; padding-top: 120px; }
-  .directory-hero h1 { font-size: 38px; }
+  .directory-hero { padding-top: 20px; }
   .featured-guides-grid { grid-template-columns: 1fr; }
   .app-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 </style>
   ${getSiteShellCssLinkHtml()}
 </head>
-<body>
+<body class="ships-directory-v2">
   <div class="starfield" id="starfield"></div>
   <div class="grid-overlay"></div>
   <div class="content-layer">
-    ${buildDirectoryHeaderNav()}
-    <section class="directory-hero" aria-labelledby="ships-title">
+    ${buildDirectoryHeaderNav('ships')}
+    <section class="directory-hero directory-hero--compact" aria-labelledby="ships-title">
       <div class="directory-hero-copy">
         <h1 id="ships-title">Cruise ships</h1>
-        <p>Pick a cruise line, then open a ship guide for verified catalog facts. Guest reviews live in the SeaDays app when travelers have submitted them.</p>
-        <div class="directory-cta-row">
-          <a class="directory-btn directory-btn-primary" href="/#download">Download SeaDays</a>
-          <a class="directory-btn" href="/blog/">Read cruise guides</a>
+        <p>Search by ship or cruise line, then open a guide for verified catalog facts. Guest reviews live in the SeaDays app when travelers have submitted them.</p>
+      </div>
+    </section>
+    <section class="directory-section directory-section--search" aria-label="Search ships">
+      <div class="directory-search-wrap directory-search-wrap--primary">
+        <label class="sr-only" for="shipSearch">Search ships by name or cruise line</label>
+        <input id="shipSearch" class="directory-search directory-search--primary" type="search" placeholder="Search ships or cruise lines" autocomplete="off">
+      </div>
+    </section>
+    <section class="directory-section directory-scroll-target" aria-label="Browse by cruise line">
+      <div class="directory-section-head">
+        <h2>Cruise lines</h2>
+        <span class="directory-section-note">${totalShips} ships · filter or search</span>
+      </div>
+    </section>
+    <section class="directory-controls ships-line-filter directory-scroll-target" aria-label="Filters">
+      <div class="ships-filter-stack">
+        <div class="ships-filter-row">
+          <button type="button" class="pill pill--reset" id="shipsReset" aria-pressed="true">All ships</button>
+          <div class="ships-popular-lines-wrap">
+          <div class="ships-popular-lines" id="popularLinePills" role="tablist" aria-label="Popular cruise lines">
+            ${popularLineButtons}
+          </div>
+          </div>
+        </div>
+        <div class="ships-filter-row ships-filter-row--meta">
+          <label class="sr-only" for="filterLine">Cruise line</label>
+          <select id="filterLine" class="directory-select">
+            <option value="__all__">All cruise lines (${totalShips})</option>
+            ${lineSelectOptions}
+          </select>
+          <p class="ships-results-meta" id="shipsResultsMeta" aria-live="polite"></p>
         </div>
       </div>
-      <div class="directory-hero-art" aria-hidden="true">
-        <img src="https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Discover%20Ships%20%20Ports.jpg" alt="" loading="lazy" decoding="async">
-      </div>
     </section>
-    <section class="directory-controls" aria-label="Filters">
-      <div class="pill-row" id="primaryPills" role="tablist" aria-label="Cruise lines">
-        ${linePills
-          .map((x, idx) => `<button type="button" class="pill" data-primary="${escapeHtml(x.line)}" aria-pressed="${idx === 0 ? 'true' : 'false'}">${escapeHtml(x.line)}</button>`)
-          .join('')}
-      </div>
-      <div class="subpill-wrap" id="subpillWrap" style="display:none;">
-        <div class="subpill-label" id="subpillLabel">Ships in this line</div>
-        <div class="pill-row" id="secondaryPills" role="tablist" aria-label="Ships"></div>
-      </div>
-    </section>
-    <div class="seo-directory-grid" id="directoryGrid">${cards}</div>
+    <script type="application/json" id="shipsDirectoryCatalog">${shipsCatalogJson}</script>
+    <div class="seo-directory-grid directory-scroll-target" id="directoryGrid" aria-live="polite"></div>
+    <div class="directory-load-more-wrap" id="shipsLoadMoreWrap" hidden>
+      <button type="button" id="shipsLoadMore" class="directory-btn directory-btn-primary directory-load-more">Load more ships</button>
+    </div>
+    <p class="directory-empty" id="shipsDirectoryEmpty" hidden>No ships match your search or filters.</p>
+    <noscript><section class="directory-crawl-fallback" aria-label="All ship guides"><h2>All ship guides</h2><ul class="directory-crawl-list">${shipsNoScriptCrawlHtml}</ul></section></noscript>
     <section class="app-cta" aria-label="App call to action">
       <div class="app-cta-inner">
         <div>
@@ -2137,91 +2213,7 @@ ${buildSiteOgImageMetaTags(SITE_OG_IMAGE)}
     ${getSiteFooterHtml()}
   </div>
   <script>(function(){var sf=document.getElementById('starfield');if(sf){for(var i=0;i<40;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';sf.appendChild(s);}}})();</script>
-  <script>
-  (function(){
-    var primary = document.getElementById('primaryPills')
-    var secondary = document.getElementById('secondaryPills')
-    var subWrap = document.getElementById('subpillWrap')
-    var grid = document.getElementById('directoryGrid')
-    if(!primary || !secondary || !subWrap || !grid) return
-
-    var cards = Array.prototype.slice.call(grid.querySelectorAll('.directory-card'))
-    function setPressed(container, activeValue){
-      Array.prototype.slice.call(container.querySelectorAll('button.pill')).forEach(function(btn){
-        var v = btn.getAttribute('data-primary') || btn.getAttribute('data-secondary')
-        btn.setAttribute('aria-pressed', String(v === activeValue))
-      })
-    }
-    function clearSecondary(){
-      secondary.innerHTML = ''
-      subWrap.style.display = 'none'
-    }
-    function applyFilter(primaryValue, secondaryValue){
-      cards.forEach(function(card){
-        var group = card.getAttribute('data-group') || ''
-        var item = card.getAttribute('data-item') || ''
-        var ok = true
-        if(primaryValue && primaryValue !== '__all__') ok = ok && group === primaryValue
-        if(secondaryValue && secondaryValue !== '__all__') ok = ok && item === secondaryValue
-        if(ok) card.classList.remove('is-hidden')
-        else card.classList.add('is-hidden')
-      })
-    }
-    function buildSecondaryForGroup(group){
-      clearSecondary()
-      if(!group || group === '__all__') return
-      var groupCards = cards.filter(function(c){ return (c.getAttribute('data-group')||'') === group })
-      if(groupCards.length <= 1) return
-      subWrap.style.display = 'block'
-      var btnAll = document.createElement('button')
-      btnAll.type = 'button'
-      btnAll.className = 'pill'
-      btnAll.setAttribute('data-secondary','__all__')
-      btnAll.setAttribute('aria-pressed','true')
-      btnAll.textContent = 'All ships'
-      secondary.appendChild(btnAll)
-      groupCards.forEach(function(c){
-        var slug = c.getAttribute('data-item')
-        var titleEl = c.querySelector('.seo-grid-card-title')
-        var label = titleEl ? titleEl.textContent.trim() : slug
-        var b = document.createElement('button')
-        b.type = 'button'
-        b.className = 'pill'
-        b.setAttribute('data-secondary', slug)
-        b.setAttribute('aria-pressed', 'false')
-        b.textContent = label
-        secondary.appendChild(b)
-      })
-    }
-
-    primary.addEventListener('click', function(e){
-      var btn = e.target && e.target.closest && e.target.closest('button[data-primary]')
-      if(!btn) return
-      var group = btn.getAttribute('data-primary')
-      setPressed(primary, group)
-      buildSecondaryForGroup(group)
-      applyFilter(group, '__all__')
-    })
-
-    secondary.addEventListener('click', function(e){
-      var btn = e.target && e.target.closest && e.target.closest('button[data-secondary]')
-      if(!btn) return
-      var groupBtn = primary.querySelector('button[aria-pressed=\"true\"]')
-      var group = groupBtn ? groupBtn.getAttribute('data-primary') : '__all__'
-      var item = btn.getAttribute('data-secondary')
-      setPressed(secondary, item)
-      applyFilter(group, item)
-    })
-
-    var initialBtn = primary.querySelector('button[data-primary]')
-    var initialGroup = initialBtn ? initialBtn.getAttribute('data-primary') : ''
-    if(initialGroup){
-      setPressed(primary, initialGroup)
-      buildSecondaryForGroup(initialGroup)
-      applyFilter(initialGroup, '__all__')
-    }
-  })();
-  </script>
+  <script>${buildShipsDirectoryClientScriptSource()}</script>
   ${RUNTIME_GUARD_SCRIPT}
 </body>
 </html>`;
@@ -3632,6 +3624,7 @@ async function main() {
   }
 
   if (mode.ships && !targetedOnly) {
+    enrichSeoShipsForDirectoryIndex(seoShips, { repoRoot });
     const shipGuideCardsHtml = await buildFeaturedGuideCardsHtml(pickShipGuideArticles(), 'ship-guide');
     fs.writeFileSync(
       path.join(repoRoot, 'ships', 'index.html'),
