@@ -16,6 +16,14 @@ const COHORT = [
   'st-tropez-france',
 ];
 
+const BATCH3_COHORT = [
+  'acapulco-mexico',
+  'ensenada-mexico',
+  'bonifacio-france',
+  'boston-ma-united-states',
+  'miami-fl-united-states',
+];
+
 const RESEARCH_IN_FAQ = /\b(claimed|not surveyed|minutes unverified|per VIPA|per VPCC)\b/i;
 const SKIP_ENTRY_FAQ_SLUGS = new Set([
   'st-george-s-grenada',
@@ -47,6 +55,20 @@ assert.match(
   buildDistanceFaqAnswer({}, 'Portofino', 'portofino-italy'),
   /Piazzetta/i
 );
+assert.match(buildDistanceFaqAnswer({}, 'Acapulco', 'acapulco-mexico'), /500-metre walk/i);
+assert.equal(buildDistanceFaqAnswer({}, 'Boston', 'boston-ma-united-states'), '');
+const bostonFaq = collectPortFaqItems(
+  {
+    gettingThere: {
+      distanceToCity: 'Driving. Massport publishes approaches.',
+      publicTransport: 'Confirm local transport options with the ship on your call date.',
+    },
+    politics: { visaRequirements: 'Visa-free for citizens of Visa Waiver Program countries (ESTA required).' },
+  },
+  'Boston',
+  'boston-ma-united-states'
+);
+assert.ok(!bostonFaq.some((item) => /how far is/i.test(item.q)), 'Boston: distance FAQ omitted');
 
 const kittsFaq = collectPortFaqItems(
   {
@@ -97,7 +119,37 @@ for (const slug of COHORT) {
   }
 }
 
-console.log('test-st-faq-abbrev-regression PASS', COHORT.length, 'ports');
+for (const slug of BATCH3_COHORT) {
+  const file = path.join(ROOT, 'ports', slug, 'index.html');
+  const html = fs.readFileSync(file, 'utf8');
+  const cards = [...html.matchAll(/<article class="pg-qa-card">[\s\S]*?<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/g)].map((m) => ({
+    q: decodeHtml(m[1]),
+    a: decodeHtml(m[2].replace(/<[^>]*>/g, '')).trim(),
+  }));
+  for (const { q, a } of cards) {
+    assert.ok(isFaqAnswerComplete(clipFaqAnswer(a)), `${slug}: incomplete visible answer: ${a}`);
+    assert.doesNotMatch(a, /^For [^,]+, \S+\.$/, `${slug}: single-word FAQ fragment`);
+  }
+  if (slug === 'boston-ma-united-states') {
+    assert.ok(!cards.some((c) => /how far is/i.test(c.q)), `${slug}: distance FAQ omitted`);
+  }
+  if (slug === 'acapulco-mexico') {
+    const dist = cards.find((c) => /how far is/i.test(c.q));
+    assert.ok(dist, `${slug}: distance FAQ present`);
+    assert.match(dist.a, /500-metre walk/i, `${slug}: Acapulco distance copy`);
+  }
+  const json = extractFaqPageJsonLd(html);
+  const byQuestion = new Map(cards.map((c) => [c.q, c.a]));
+  assert.equal(json.mainEntity.length, cards.length, `${slug}: JSON-LD count vs visible cards`);
+  for (const entity of json.mainEntity || []) {
+    const text = entity.acceptedAnswer?.text || '';
+    const name = entity.name || '';
+    const visible = byQuestion.get(name);
+    assert.equal(text, visible, `${slug}: JSON-LD answer mismatch for ${name}`);
+  }
+}
+
+console.log('test-st-faq-abbrev-regression PASS', COHORT.length + BATCH3_COHORT.length, 'ports');
 
 function decodeHtml(s) {
   return String(s)

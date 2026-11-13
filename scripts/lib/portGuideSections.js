@@ -598,12 +598,26 @@ const BATCH2_FAQ_DISTANCE_COPY = {
     'Waterfront berths place you in Ketchikan’s downtown commercial core, with shops and Creek Street a short walk for many mobile guests.',
 };
 
+const BATCH3_FAQ_DISTANCE_COPY = {
+  'acapulco-mexico':
+    'the cruise terminal is about a 500-metre walk from the city centre, according to Global Ports Holding port materials.',
+  'bonifacio-france':
+    'From the harbour landing, the haute ville citadel is a steep climb—allow roughly 20–40 minutes depending on pace and heat.',
+  'ensenada-mexico':
+    'Ensenada Cruiseport Village sits on Boulevard Costero in Zona Centro, so the Malecón and downtown are at the waterfront rather than a long transfer from the ship.',
+};
+
 /** Guide distance field is airport/parking notes, not pier-to-centre — omit mismatched distance FAQ. */
-const SKIP_DISTANCE_FAQ_SLUGS = new Set(['galveston-tx-united-states']);
+const SKIP_DISTANCE_FAQ_SLUGS = new Set([
+  'galveston-tx-united-states',
+  'boston-ma-united-states',
+]);
 
 function buildDistanceFaqAnswer(guide, portName, portSlug) {
   if (portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)) return '';
-  const cohort = portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug];
+  const cohort =
+    (portSlug && BATCH3_FAQ_DISTANCE_COPY[portSlug]) ||
+    (portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug]);
   if (cohort) return namedForPort(portName, cohort);
   const src = guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity || '';
   return namedForPort(portName, src);
@@ -639,7 +653,7 @@ function collectPortFaqItems(guide, portName, portSlug) {
   const skipPoliticsFaq =
     (portSlug && skipPoliticsFaqSlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
   const hasDistanceGuide =
-    (portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug]) ||
+    (portSlug && (BATCH3_FAQ_DISTANCE_COPY[portSlug] || BATCH2_FAQ_DISTANCE_COPY[portSlug])) ||
     ((guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) &&
       !(portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)));
   if (hasDistanceGuide) {
