@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "status": "OWNER_DECISIONS_RECORDED",
+  "batchId": "destination-photo-batch-01-major-25",
+  "authorizedAt": "2026-11-13",
+  "authorizedBy": "owner_explicit_chat_batch01r_visual_2026-11-13",
+  "baseMainSha": "e9df022900cad6b67c251336cd9357f9f2681f24",
+  "scope": "Metadata-only owner visual sign-off on published Batch01r heroes. No asset or HTML publication.",
+  "decisions": [
+    {
+      "portSlug": "copenhagen-denmark",
+      "decision": "APPROVE",
+      "provider": "pexels",
+      "providerImageId": 35276893,
+      "photographer": "Mike Norris",
+      "assetPath": "/assets/img/ports-directory/ports/copenhagen-denmark/destination-exterior-batch01r-pexels-35276893.webp",
+      "ownerVisuallyApproved": true
+    },
+    {
+      "portSlug": "oslo-norway",
+      "decision": "APPROVE",
+      "provider": "pexels",
+      "providerImageId": 32991341,
+      "photographer": "Jess Chen",
+      "assetPath": "/assets/img/ports-directory/ports/oslo-norway/destination-exterior-batch01r-pexels-32991341.webp",
+      "ownerVisuallyApproved": true
+    },
+    {
+      "portSlug": "stockholm-sweden",
+      "decision": "NEEDS_FURTHER_REVIEW",
+      "provider": "pexels",
+      "providerImageId": 37499978,
+      "photographer": "Margo Evardson",
+      "assetPath": "/assets/img/ports-directory/ports/stockholm-sweden/destination-exterior-batch01r-pexels-37499978.webp",
+      "ownerVisuallyApproved": false,
+      "reviewNote": "Ferry/quay foreground may read as port infrastructure in directory crops."
+    },
+    {
+      "portSlug": "seattle-wa-united-states",
+      "decision": "APPROVE",
+      "provider": "pexels",
+      "providerImageId": 36486517,
+      "photographer": "Brent Singleton",
+      "assetPath": "/assets/img/ports-directory/ports/seattle-wa-united-states/destination-exterior-batch01r-pexels-36486517.webp",
+      "ownerVisuallyApproved": true
+    }
+  ],
+  "ownerReportedCounts": {
+    "APPROVE": 3,
+    "NEEDS_FURTHER_REVIEW": 1,
+    "REJECT": 0
+  }
+}
