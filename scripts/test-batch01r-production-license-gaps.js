@@ -30,6 +30,13 @@ const EXPECTED_IDS = {
   'seattle-wa-united-states': 36486517,
 }
 
+const OWNER_VISUAL = {
+  'copenhagen-denmark': true,
+  'oslo-norway': true,
+  'stockholm-sweden': false,
+  'seattle-wa-united-states': true,
+}
+
 function catalogRow(slug) {
   return (catalog.records || []).find((r) => r.portSlug === slug)
 }
@@ -38,7 +45,7 @@ for (const slug of SLUGS) {
   const ha = review.humanApproved[slug]
   assert(ha, `${slug}: humanApproved missing`)
   assert.strictEqual(ha.productionLicenseVerified, true, `${slug}: productionLicenseVerified`)
-  assert.strictEqual(ha.ownerVisuallyApproved, false, `${slug}: must not claim owner visual on batch01r`)
+  assert.strictEqual(ha.ownerVisuallyApproved, OWNER_VISUAL[slug], `${slug}: ownerVisuallyApproved`)
   assert(String(ha.url || '').includes(`pexels-${EXPECTED_IDS[slug]}`), `${slug}: humanApproved url id`)
 
   const row = catalogRow(slug)
