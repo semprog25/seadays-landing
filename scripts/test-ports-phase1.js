@@ -109,6 +109,19 @@ assert.ok(civitavecchia.url.includes('medium=link'));
 assert.ok(civitavecchia.url.includes(`campaign=${buildWebAffiliateCampaign('civitavecchia')}`));
 assert.ok(!civitavecchia.url.includes('text=Rome'), 'must not use Rome search text');
 
+const civitavecchiaBanner = buildBookableExperiencesBanner(
+  { show: true, url: civitavecchia.url, destinationLabel: 'Civitavecchia' },
+  'Rome'
+);
+assert.ok(civitavecchiaBanner.includes('<h2>Explore experiences in Civitavecchia</h2>'), 'banner matches Viator search label');
+assert.ok(!civitavecchiaBanner.includes('Explore experiences in Rome</h2>'), 'banner must not keep city label when search differs');
+
+const barcelonaBanner = buildBookableExperiencesBanner(
+  { show: true, url: 'https://www.viator.com/searchResults/all?text=Barcelona', destinationLabel: 'Barcelona' },
+  'Barcelona'
+);
+assert.ok(barcelonaBanner.includes('<h2>Explore experiences in Barcelona</h2>'), 'unchanged when labels match');
+
 const unchangedSample = [
   { slug: 'hamburg-germany', name: 'Hamburg, Germany', appPortId: 'hamburg', label: 'Hamburg' },
   { slug: 'barcelona-spain', name: 'Barcelona, Spain', appPortId: 'barcelona', label: 'Barcelona' },

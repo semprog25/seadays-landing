@@ -128,8 +128,10 @@ function buildAppCommunityCta(opts = {}) {
 
 function buildBookableExperiencesBanner(affiliate, portName) {
   if (!affiliate || !affiliate.show) return '';
-  const name = portName || affiliate.destinationLabel || 'this port';
   const hasUrl = hasText(affiliate.url);
+  const searchLabel = hasText(affiliate.destinationLabel) ? String(affiliate.destinationLabel).trim() : '';
+  const portLabel = portName || searchLabel || 'this port';
+  const name = hasUrl && searchLabel && searchLabel !== portLabel ? searchLabel : portLabel;
   const href = hasUrl
     ? affiliate.url
     : downloadPagePath({ source: 'seadays_web', medium: 'port_guide', campaign: 'port_guide' });

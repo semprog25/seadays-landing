@@ -1,9 +1,11 @@
 {
-  "profile": "blog-datemodified-override-code-only",
+  "profile": "viator-banner-headline-override",
   "exactPaths": [
     ".github/ci-generation-release-guard.json",
-    "package.json",
-    "scripts/generateBlogs.js",
-    "scripts/test-blog-datemodified-override.js"
+    "scripts/lib/portGuideSections.js",
+    "ports/rome-civitavecchia-italy/index.html",
+    "ports/florence-pisa-livorno-italy/index.html",
+    "ports/ephesus-kusadasi-turkey/index.html",
+    "scripts/test-ports-phase1.js"
   ]
 }
