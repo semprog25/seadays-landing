@@ -84,4 +84,42 @@ const once = patchPortGuideTerminalCss(halifaxHtml);
 const twice = patchPortGuideTerminalCss(once);
 assert.strictEqual(once, twice, 'terminal css patch idempotent');
 
+const committedFaqBody = `${head('noindex, follow')}<section class="pg-section" id="traveler-questions"><h2>Traveler questions</h2><div class="pg-qa-grid"><article class="pg-qa-card"><h3>Transport?</h3><p>Committed long transport answer with Rejseplanen and DSB detail.</p></article></div></section>${OLD_BOOK}</body></html>`;
+const generatedFaqBody = `${head('noindex, follow')}<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Transport?","acceptedAnswer":{"@type":"Answer","text":"Short regenerated."}}]}</script><section class="pg-section" id="traveler-questions"><h2>Traveler questions</h2><div class="pg-qa-grid"><article class="pg-qa-card"><h3>Transport?</h3><p>Short regenerated.</p></article></div></section>${NEW_VIATOR}</body></html>`;
+const mergedFaq = mergePublishedPortHtmlPreservation(generatedFaqBody, committedFaqBody, {
+  affiliate: { url: 'https://www.viator.com/x' },
+});
+assert.ok(
+  mergedFaq.includes('Rejseplanen and DSB'),
+  'keeps committed traveler FAQ when merge preserves section (no refreshPreservedPortAnswers drift)',
+);
+assert.ok(
+  !mergedFaq.includes('<p>Short regenerated.</p>'),
+  'does not replace preserved traveler FAQ cards with regenerated copy',
+);
+assert.ok(
+  mergedFaq.includes('Rejseplanen and DSB'),
+  'preserves committed FAQ JSON-LD when traveler block is kept',
+);
+assert.ok(mergedFaq.includes('seadays-web-phalifax-new'), 'banner-only merge still applies generated bookable');
+
+const ldShort =
+  '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Transport?","acceptedAnswer":{"@type":"Answer","text":"Short old."}}]}';
+const ldLong =
+  '{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Transport?","acceptedAnswer":{"@type":"Answer","text":"Intentionally updated long transport answer from regen with Rejseplanen detail."}}]}';
+const committedShortFaq = `${head('noindex, follow')}<script type="application/ld+json">${ldShort}</script><section class="pg-section" id="traveler-questions"><h2>T</h2><div class="pg-qa-grid"><article class="pg-qa-card"><h3>Transport?</h3><p>Short old.</p></article></div></section>${OLD_BOOK}</body></html>`;
+const generatedLongFaq = `${head('noindex, follow')}<script type="application/ld+json">${ldLong}</script><section class="pg-section" id="traveler-questions"><h2>T</h2><div class="pg-qa-grid"><article class="pg-qa-card"><h3>Transport?</h3><p>Intentionally updated long transport answer from regen with Rejseplanen detail.</p></article></div></section>${NEW_VIATOR}</body></html>`;
+const mergedIntentionalFaq = mergePublishedPortHtmlPreservation(generatedLongFaq, committedShortFaq, {
+  affiliate: { url: 'https://www.viator.com/x' },
+});
+assert.ok(
+  mergedIntentionalFaq.includes('Intentionally updated long transport answer'),
+  'intentional FAQ regen updates visible traveler cards',
+);
+assert.ok(
+  mergedIntentionalFaq.includes('Rejseplanen detail'),
+  'intentional FAQ regen updates FAQPage JSON-LD',
+);
+assert.ok(mergedIntentionalFaq.includes('seadays-web-phalifax-new'), 'bookable banner still refreshes');
+
 console.log('test-published-port-html-preserve: OK');

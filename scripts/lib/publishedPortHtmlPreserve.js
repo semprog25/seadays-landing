@@ -188,11 +188,46 @@ function hasTravelerFaqGrid(html) {
   return /<section[^>]*id="traveler-questions"[\s\S]*?pg-qa-grid[\s\S]*?pg-qa-card/.test(String(html || ''));
 }
 
+function decodePassengerHtmlText(value) {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function travelerFaqCardAnswers(blockHtml) {
+  const cards = [];
+  const re = /<article class="pg-qa-card">[\s\S]*?<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>/gi;
+  let match;
+  while ((match = re.exec(String(blockHtml || '')))) {
+    cards.push({
+      question: decodePassengerHtmlText(match[1]),
+      answer: decodePassengerHtmlText(match[2]),
+    });
+  }
+  return cards;
+}
+
+/** Keep on-disk FAQ when regen would shorten committed copy (banner-only), not when regen ships longer fixes. */
 function shouldKeepExistingTravelerQuestions(existingBlock, generatedHtml) {
   if (!existingBlock) return false;
   if (/<p>For St\.<\/p>/.test(existingBlock)) return false;
+  const generatedBlock = extractFirstMatch(generatedHtml, TRAVELER_QUESTIONS_SECTION_RE);
+  if (!generatedBlock) return false;
   if (hasTravelerFaqGrid(generatedHtml) && !hasTravelerFaqGrid(existingBlock)) return false;
-  return true;
+  const generatedByQuestion = new Map(
+    travelerFaqCardAnswers(generatedBlock).map((card) => [card.question, card.answer]),
+  );
+  for (const { question, answer } of travelerFaqCardAnswers(existingBlock)) {
+    const generatedAnswer = generatedByQuestion.get(question);
+    if (generatedAnswer !== undefined && answer.length > generatedAnswer.length) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function refreshPreservedPortAnswers(html) {
@@ -257,41 +292,51 @@ function refreshPreservedPortAnswers(html) {
 
 function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide) {
   if (!existingHtml) return generatedHtml;
-  if (!shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide)) {
-    return generatedHtml;
-  }
   let html = generatedHtml;
-  for (const [re, existingBlock, keepExisting] of [
-    [THINGS_TO_DO_SECTION_RE, extractFirstMatch(existingHtml, THINGS_TO_DO_SECTION_RE), () => true],
-    [GETTING_THERE_SECTION_RE, extractFirstMatch(existingHtml, GETTING_THERE_SECTION_RE), () => true],
-    [
-      TRAVELER_QUESTIONS_SECTION_RE,
-      extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE),
-      (block) => shouldKeepExistingTravelerQuestions(block, generatedHtml),
-    ],
-    [QUICK_FACTS_SECTION_RE, extractFirstMatch(existingHtml, QUICK_FACTS_SECTION_RE), () => true],
-  ]) {
-    if (existingBlock && keepExisting(existingBlock)) html = replaceFirstMatch(html, re, existingBlock);
-  }
-  const lead = extractFirstMatch(existingHtml, LEAD_GUIDE_RE);
-  if (lead && !LEAD_GUIDE_RE.test(html)) {
-    html = html.replace(/(<nav class="port-jump"[\s\S]*?<\/nav>)/, `$1\n${lead}`);
-  }
-  const faqJsonLd = extractJsonLdScriptTagByType(existingHtml, 'FAQPage');
-  if (faqJsonLd && !headHasJsonLdType(html, 'FAQPage')) {
-    const breadcrumbJsonLd = extractJsonLdScriptTagByType(html, 'BreadcrumbList');
-    const anchor = breadcrumbJsonLd || extractJsonLdScriptTagByType(html, 'TouristDestination');
-    if (anchor) {
-      html = html.replace(anchor, `${anchor}\n  ${faqJsonLd}`);
+  const preserveAll = shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide);
+  if (preserveAll) {
+    for (const [re, existingBlock, keepExisting] of [
+      [THINGS_TO_DO_SECTION_RE, extractFirstMatch(existingHtml, THINGS_TO_DO_SECTION_RE), () => true],
+      [GETTING_THERE_SECTION_RE, extractFirstMatch(existingHtml, GETTING_THERE_SECTION_RE), () => true],
+      [
+        TRAVELER_QUESTIONS_SECTION_RE,
+        extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE),
+        (block) => shouldKeepExistingTravelerQuestions(block, generatedHtml),
+      ],
+      [QUICK_FACTS_SECTION_RE, extractFirstMatch(existingHtml, QUICK_FACTS_SECTION_RE), () => true],
+    ]) {
+      if (existingBlock && keepExisting(existingBlock)) {
+        html = replaceFirstMatch(html, re, existingBlock);
+      }
     }
-  }
-  const existingDestinationLd = extractJsonLdScriptTagByType(existingHtml, 'TouristDestination');
-  const generatedDestinationLd = extractJsonLdScriptTagByType(html, 'TouristDestination');
-  if (existingDestinationLd && generatedDestinationLd) {
-    const existingDesc = /"description":"[^"]{20,}/.test(existingDestinationLd);
-    const generatedDesc = /"description":"[^"]{20,}/.test(generatedDestinationLd);
-    if (existingDesc && !generatedDesc) {
-      html = html.replace(generatedDestinationLd, existingDestinationLd);
+    const lead = extractFirstMatch(existingHtml, LEAD_GUIDE_RE);
+    if (lead && !LEAD_GUIDE_RE.test(html)) {
+      html = html.replace(/(<nav class="port-jump"[\s\S]*?<\/nav>)/, `$1\n${lead}`);
+    }
+    const faqJsonLd = extractJsonLdScriptTagByType(existingHtml, 'FAQPage');
+    if (faqJsonLd && !headHasJsonLdType(html, 'FAQPage')) {
+      const breadcrumbJsonLd = extractJsonLdScriptTagByType(html, 'BreadcrumbList');
+      const anchor = breadcrumbJsonLd || extractJsonLdScriptTagByType(html, 'TouristDestination');
+      if (anchor) {
+        html = html.replace(anchor, `${anchor}\n  ${faqJsonLd}`);
+      }
+    }
+    const existingDestinationLd = extractJsonLdScriptTagByType(existingHtml, 'TouristDestination');
+    const generatedDestinationLd = extractJsonLdScriptTagByType(html, 'TouristDestination');
+    if (existingDestinationLd && generatedDestinationLd) {
+      const existingDesc = /"description":"[^"]{20,}/.test(existingDestinationLd);
+      const generatedDesc = /"description":"[^"]{20,}/.test(generatedDestinationLd);
+      if (existingDesc && !generatedDesc) {
+        html = html.replace(generatedDestinationLd, existingDestinationLd);
+      }
+    }
+  } else {
+    const existingTraveler = extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE);
+    if (
+      existingTraveler &&
+      shouldKeepExistingTravelerQuestions(existingTraveler, generatedHtml)
+    ) {
+      html = replaceFirstMatch(html, TRAVELER_QUESTIONS_SECTION_RE, existingTraveler);
     }
   }
   return dedupePortDetailHeadJsonLd(html);
@@ -360,7 +405,33 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
     html = html.replace(TAIL_FROM_STARFIELD_SCRIPT_RE, existingTail);
   }
   html = mergePassengerEditorialBodyPreservation(html, existingHtml, opts.portGuide);
+  const existingTraveler = extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE);
+  const mergedTraveler = extractFirstMatch(html, TRAVELER_QUESTIONS_SECTION_RE);
+  const keptCommittedTravelerFaq =
+    Boolean(existingTraveler) && existingTraveler === mergedTraveler;
+  const preserveEditorialBody = shouldPreservePassengerEditorialBody(
+    generatedHtml,
+    existingHtml,
+    opts.portGuide,
+  );
+  if (keptCommittedTravelerFaq || preserveEditorialBody) {
+    const existingFaqJsonLd = extractJsonLdScriptTagByType(existingHtml, 'FAQPage');
+    const generatedFaqJsonLd = extractJsonLdScriptTagByType(html, 'FAQPage');
+    if (existingFaqJsonLd && generatedFaqJsonLd && existingFaqJsonLd !== generatedFaqJsonLd) {
+      html = html.replace(generatedFaqJsonLd, existingFaqJsonLd);
+    }
+    html = alignMainCloseIndentToExisting(html, existingHtml);
+    return dedupePortDetailHeadJsonLd(html);
+  }
+  html = alignMainCloseIndentToExisting(html, existingHtml);
   return refreshPreservedPortAnswers(dedupePortDetailHeadJsonLd(html));
+}
+
+function alignMainCloseIndentToExisting(html, existingHtml) {
+  const existing = String(existingHtml || '').match(/\n([ \t]*)<\/main>/);
+  if (!existing) return html;
+  const prefix = existing[1];
+  return String(html || '').replace(/\n[ \t]*<\/main>/, `\n${prefix}</main>`);
 }
 
 module.exports = {
