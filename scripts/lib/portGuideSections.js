@@ -586,6 +586,29 @@ const ST_FAQ_COHORT_TRANSPORT_COPY = {
     'Walking suits Frederiksted’s waterfront and nearby shops; taxis and coach excursions reach Christiansted and estate tours—confirm return before all-aboard.',
 };
 
+/** FAQ distance answers where guide prose fragments on sentence split; passenger copy only. */
+const BATCH2_FAQ_DISTANCE_COPY = {
+  'falmouth-united-kingdom':
+    'When your ship is alongside at Falmouth Harbour, the town waterfront is nearby; from an anchorage call, allow extra time for the tender.',
+  'portofino-italy':
+    'From the tender landing in Portofino harbour, the Piazzetta and village lanes are immediately at hand.',
+  'copenhagen-denmark':
+    'Distances to the city centre depend on your terminal: about 3 km from Nordre Toldbod, about 4 km from Langelinie, and about 8 km from Oceankaj—confirm your berth on the sailing programme.',
+  'ketchikan-ak-united-states':
+    'Waterfront berths place you in Ketchikan’s downtown commercial core, with shops and Creek Street a short walk for many mobile guests.',
+};
+
+/** Guide distance field is airport/parking notes, not pier-to-centre — omit mismatched distance FAQ. */
+const SKIP_DISTANCE_FAQ_SLUGS = new Set(['galveston-tx-united-states']);
+
+function buildDistanceFaqAnswer(guide, portName, portSlug) {
+  if (portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)) return '';
+  const cohort = portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug];
+  if (cohort) return namedForPort(portName, cohort);
+  const src = guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity || '';
+  return namedForPort(portName, src);
+}
+
 function buildTransportFaqAnswer(guide, portName, portSlug) {
   const distance = guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity || '';
   const transport = guide?.gettingThere?.publicTransport || '';
@@ -615,11 +638,18 @@ function collectPortFaqItems(guide, portName, portSlug) {
   ]);
   const skipPoliticsFaq =
     (portSlug && skipPoliticsFaqSlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
-  if (guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) {
-    questions.push({
-      q: `How far is ${portName} cruise terminal from the city center?`,
-      a: namedForPort(portName, guide.gettingThere.distanceAnswer || guide.gettingThere.distanceToCity),
-    });
+  const hasDistanceGuide =
+    (portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug]) ||
+    ((guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) &&
+      !(portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)));
+  if (hasDistanceGuide) {
+    const distanceAnswer = buildDistanceFaqAnswer(guide, portName, portSlug);
+    if (distanceAnswer) {
+      questions.push({
+        q: `How far is ${portName} cruise terminal from the city center?`,
+        a: distanceAnswer,
+      });
+    }
   }
   const transportAnswer = buildTransportFaqAnswer(guide, portName, portSlug);
   if (transportAnswer) {
@@ -1165,6 +1195,7 @@ module.exports = {
   buildThingsToDoSection,
   hasRichThingsToDo,
   collectPortFaqItems,
+  buildDistanceFaqAnswer,
   buildPhase1GuideHtml,
   buildSinglePortAppPrompt,
   portCallsAsHomeport,

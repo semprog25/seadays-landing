@@ -38,6 +38,16 @@ assert.match(
   /one nautical mile/i
 );
 
+const { buildDistanceFaqAnswer } = require('./lib/portGuideSections');
+assert.match(
+  buildDistanceFaqAnswer({}, 'Copenhagen', 'copenhagen-denmark'),
+  /Nordre Toldbod.*Langelinie.*Oceankaj/i
+);
+assert.match(
+  buildDistanceFaqAnswer({}, 'Portofino', 'portofino-italy'),
+  /Piazzetta/i
+);
+
 const kittsFaq = collectPortFaqItems(
   {
     gettingThere: {
