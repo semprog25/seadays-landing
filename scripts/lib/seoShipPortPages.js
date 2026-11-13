@@ -203,6 +203,12 @@ function shortPublicLicenseLinkLabel(licenseTerms, licenseUrl) {
   const url = String(licenseUrl || '').toLowerCase();
   if (url.includes('unsplash.com') || terms.includes('unsplash')) return 'Unsplash License';
   if (url.includes('pexels.com') || terms.includes('pexels')) return 'Pexels License';
+  const bySaFromUrl = url.match(/creativecommons\.org\/licenses\/by-sa\/(\d+\.\d)/);
+  if (bySaFromUrl) return `CC BY-SA ${bySaFromUrl[1]}`;
+  const byFromUrl = url.match(/creativecommons\.org\/licenses\/by\/(\d+\.\d)/);
+  if (byFromUrl) return `CC BY ${byFromUrl[1]}`;
+  const bySaFromTerms = terms.match(/cc\s+by-sa\s+(\d+(?:\.\d+)?)/);
+  if (bySaFromTerms) return `CC BY-SA ${bySaFromTerms[1]}`;
   if (terms.includes('cc by-sa')) return 'CC BY-SA 4.0';
   if (terms.includes('cc by 2')) return 'CC BY 2.0';
   const raw = String(licenseTerms || '').trim();
