@@ -46,6 +46,7 @@ const SKIP_SLUGS = new Set([
   'rotterdam-netherlands',
   'mumbai-india',
   'le-havre-paris-france',
+  'nice-france',
 ])
 const GEO_REVIEW_SLUGS = new Set([])
 

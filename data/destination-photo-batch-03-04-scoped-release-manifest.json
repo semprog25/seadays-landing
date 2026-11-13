@@ -1,13 +1,12 @@
 {
   "releaseId": "ports-directory-batch03-04-photography",
   "preparedAt": "2026-11-13",
-  "description": "Batch 03/04 frozen approvals — 10 ports; Le Havre excluded",
+  "description": "Batch 03/04 — 9 ports; Le Havre + Nice excluded",
   "portSlugs": [
     "juneau-ak-united-states",
     "sydney-australia",
     "helsinki-finland",
     "auckland-new-zealand",
-    "nice-france",
     "tallinn-estonia",
     "valparaiso-chile",
     "malaga-spain",
@@ -38,7 +37,6 @@
     "ports/sydney-australia/index.html",
     "ports/helsinki-finland/index.html",
     "ports/auckland-new-zealand/index.html",
-    "ports/nice-france/index.html",
     "ports/tallinn-estonia/index.html",
     "ports/valparaiso-chile/index.html",
     "ports/malaga-spain/index.html",
@@ -47,28 +45,32 @@
     "qa-evidence/port-images-batch03-04-20261113/**",
     "scripts/apply-destination-photo-batch-03-04-publication.js",
     "scripts/reconcile-port-image-coverage.js",
-    "scripts/test-port-images-batch03-04-publication.js",
-    "ports/juneau-ak-united-states/index.html",
-    "ports/sydney-australia/index.html",
-    "ports/helsinki-finland/index.html",
-    "ports/auckland-new-zealand/index.html",
-    "ports/nice-france/index.html",
-    "ports/tallinn-estonia/index.html",
-    "ports/valparaiso-chile/index.html",
-    "ports/malaga-spain/index.html",
-    "ports/casablanca-morocco/index.html",
-    "ports/buenos-aires-argentina/index.html"
+    "scripts/revert-destination-photo-batch-excluded-slugs.js",
+    "scripts/test-destination-photo-batch-04-owner-decisions.js",
+    "scripts/test-port-images-batch03-04-publication.js"
   ],
   "excludeFromPr": [
     "ships/**",
     "blog/**",
     "data/public-port-guides.json"
   ],
-  "appliedCount": 10,
+  "appliedCount": 9,
   "excludedSlugs": [
     {
       "portSlug": "le-havre-paris-france",
-      "reason": "NEEDS_GEO_REVIEW — owner veto; ledger frozen, not published"
+      "reason": "NEEDS_GEO_REVIEW — owner veto"
+    },
+    {
+      "portSlug": "nice-france",
+      "reason": "Stage 80/81 DUPLICATE_OR_INVALID — no public directory photo restore (PR #113 policy)"
+    },
+    {
+      "portSlug": "rotterdam-netherlands",
+      "reason": "owner-downloads-53 live"
+    },
+    {
+      "portSlug": "mumbai-india",
+      "reason": "owner-downloads-53 live"
     }
   ]
 }
