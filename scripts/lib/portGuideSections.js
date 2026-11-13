@@ -618,6 +618,25 @@ const BATCH4_FAQ_DISTANCE_COPY = {
     'Esbjerg is primarily a turnaround port; pier-to-town walk minutes are not verified on official pages—confirm local transfer options on your sailing day.',
 };
 
+const BATCH5_FAQ_DISTANCE_COPY = {
+  'la-paz-mexico':
+    'the cruise pier is about 17 km by road from central La Paz; independent taxis and coaches are typical—confirm return time with the ship.',
+  'long-beach-ca-united-states':
+    'Cruise ships use the downtown Long Beach terminal near Pine Avenue and Shoreline Village, in the city centre rather than a separate transfer zone.',
+  'los-angeles-ca-united-states':
+    'The San Pedro cruise terminals publish an approximate 25-mile drive to downtown Los Angeles Union Station; allow extra time for harbor-area traffic.',
+  'portland-me-united-states':
+    'Ocean Terminal berths downtown with walking access toward the Old Port; published walk minutes are not verified on official sources.',
+  'san-diego-ca-united-states':
+    'The Embarcadero cruise terminal sits in downtown San Diego, about two blocks west of Santa Fe Depot; the airport is roughly two miles north by road.',
+  'san-francisco-ca-united-states':
+    'From the Embarcadero BART/Muni area, port materials cite about a 20-minute walk to Pier 27 and similar walks for other cruise piers—confirm your berth.',
+  'seattle-wa-united-states':
+    'From Seattle-Tacoma International Airport, port and airport materials cite about 30–40 minutes by taxi, rideshare, or motor coach to the cruise terminals, depending on terminal and traffic.',
+  'vancouver-bc-canada':
+    'Canada Place and the downtown cruise piers are at the city centre waterfront; Waterfront Station SkyTrain and SeaBus links are at the foot of Howe Street.',
+};
+
 /** Guide distance field is airport/parking notes, not pier-to-centre — omit mismatched distance FAQ. */
 const SKIP_DISTANCE_FAQ_SLUGS = new Set([
   'galveston-tx-united-states',
@@ -628,6 +647,7 @@ const SKIP_DISTANCE_FAQ_SLUGS = new Set([
 function buildDistanceFaqAnswer(guide, portName, portSlug) {
   if (portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)) return '';
   const cohort =
+    (portSlug && BATCH5_FAQ_DISTANCE_COPY[portSlug]) ||
     (portSlug && BATCH4_FAQ_DISTANCE_COPY[portSlug]) ||
     (portSlug && BATCH3_FAQ_DISTANCE_COPY[portSlug]) ||
     (portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug]);
@@ -667,7 +687,8 @@ function collectPortFaqItems(guide, portName, portSlug) {
     (portSlug && skipPoliticsFaqSlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
   const hasDistanceGuide =
     (portSlug &&
-      (BATCH4_FAQ_DISTANCE_COPY[portSlug] ||
+      (BATCH5_FAQ_DISTANCE_COPY[portSlug] ||
+        BATCH4_FAQ_DISTANCE_COPY[portSlug] ||
         BATCH3_FAQ_DISTANCE_COPY[portSlug] ||
         BATCH2_FAQ_DISTANCE_COPY[portSlug])) ||
     ((guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) &&
