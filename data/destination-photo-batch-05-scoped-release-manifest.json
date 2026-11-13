@@ -1,0 +1,69 @@
+{
+  "releaseId": "ports-directory-batch05-photography",
+  "preparedAt": "2026-11-13",
+  "description": "Frozen Batch 05 (15 owner decisions). Applies 12 ports: excludes Dubai/Aberdeen (NEEDS_GEO_REVIEW), Ålesund (existing humanApproved).",
+  "portSlugs": [
+    "abu-dhabi-united-arab-emirates",
+    "akureyri-iceland",
+    "alexandria-egypt",
+    "anchorage-ak-united-states",
+    "antalya-turkey",
+    "antwerp-belgium",
+    "boston-ma-united-states",
+    "brisbane-australia",
+    "galveston-tx-united-states",
+    "new-orleans-la-united-states",
+    "port-canaveral-fl-united-states",
+    "vancouver-bc-canada"
+  ],
+  "excludedFromPublication": [
+    "dubai-united-arab-emirates",
+    "aberdeen-united-kingdom"
+  ],
+  "skippedSlugs": [
+    {
+      "portSlug": "alesund-norway",
+      "reason": "skip_replace_existing_humanApproved"
+    },
+    {
+      "portSlug": "dubai-united-arab-emirates",
+      "reason": "NEEDS_GEO_REVIEW_unresolved_owner_frozen_not_publication_cleared"
+    },
+    {
+      "portSlug": "aberdeen-united-kingdom",
+      "reason": "NEEDS_GEO_REVIEW_unresolved_owner_frozen_not_publication_cleared"
+    }
+  ],
+  "includeGlobs": [
+    "data/destination-photo-batch-05-*.json",
+    "data/destination-photo-batch-05-scoped-release-manifest.json",
+    "data/ports-directory-image-review-state.json",
+    "data/ports-directory-destination-owner-candidates.json",
+    "data/destination-image-catalog.json",
+    "assets/img/ports-directory/ports/*/destination-exterior-batch05-*.webp",
+    "ports/index.html",
+    "ports/abu-dhabi-united-arab-emirates/index.html",
+    "ports/akureyri-iceland/index.html",
+    "ports/alexandria-egypt/index.html",
+    "ports/anchorage-ak-united-states/index.html",
+    "ports/antalya-turkey/index.html",
+    "ports/antwerp-belgium/index.html",
+    "ports/boston-ma-united-states/index.html",
+    "ports/brisbane-australia/index.html",
+    "ports/galveston-tx-united-states/index.html",
+    "ports/new-orleans-la-united-states/index.html",
+    "ports/port-canaveral-fl-united-states/index.html",
+    "ports/vancouver-bc-canada/index.html",
+    "qa-evidence/port-images-batch05-20261113/**",
+    "qa-evidence/destination-batch-05-20261106/BATCH05_DECISIONS_RECONCILIATION_REPORT.md",
+    "scripts/apply-destination-photo-batch-05-publication.js",
+    "scripts/test-port-images-batch05-publication.js",
+    "scripts/test-destination-photo-batch-05-owner-decisions.js"
+  ],
+  "excludeFromPr": [
+    "ships/**",
+    "blog/**",
+    "data/public-port-guides.json"
+  ],
+  "appliedCount": 12
+}

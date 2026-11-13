@@ -1,0 +1,23 @@
+{
+  "batchId": "destination-photo-batch-05-missing-v1",
+  "generatedAt": "2026-11-06",
+  "selectionRule": "Directory ports with empty verified image, excluding Batch 02/03/04 decision slugs, humanApproved, and Hamburg hero.",
+  "ports": [
+    {"portSlug": "abu-dhabi-united-arab-emirates", "whyMissing": "empty_url — no verified destination KV or approved directory asset"},
+    {"portSlug": "akureyri-iceland", "whyMissing": "empty_url"},
+    {"portSlug": "alesund-norway", "whyMissing": "empty_url"},
+    {"portSlug": "alexandria-egypt", "whyMissing": "empty_url"},
+    {"portSlug": "anchorage-ak-united-states", "whyMissing": "empty_url"},
+    {"portSlug": "antalya-turkey", "whyMissing": "empty_url"},
+    {"portSlug": "antwerp-belgium", "whyMissing": "empty_url; candidate B portrait so port stays NEEDS_RESEARCH"},
+    {"portSlug": "boston-ma-united-states", "whyMissing": "empty_url"},
+    {"portSlug": "brisbane-australia", "whyMissing": "empty_url"},
+    {"portSlug": "dubai-united-arab-emirates", "whyMissing": "empty_url"},
+    {"portSlug": "galveston-tx-united-states", "whyMissing": "empty_url"},
+    {"portSlug": "new-orleans-la-united-states", "whyMissing": "empty_url"},
+    {"portSlug": "port-canaveral-fl-united-states", "whyMissing": "empty_url; two credible landscape CDN ids not confirmed — NEEDS_RESEARCH"},
+    {"portSlug": "vancouver-bc-canada", "whyMissing": "empty_url"},
+    {"portSlug": "aberdeen-united-kingdom", "whyMissing": "empty_url"}
+  ],
+  "excludedNotes": "Batch 02/03/04 slugs and humanApproved removed before selection. Le Havre B geo flag, Hamburg worktree, and regional image set were not edited."
+}
