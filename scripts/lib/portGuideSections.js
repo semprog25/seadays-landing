@@ -23,6 +23,8 @@ const {
 } = require('./terminalOperationalStatus');
 const {
   preparePassengerGuideText,
+  prepareFaqPassengerText,
+  splitPassengerSentences,
   quickFactGettingSummary,
   usesPassengerEditorialLead,
 } = require('./publicGuideCopySanitize');
@@ -563,29 +565,67 @@ function prefixEachSentence(place, text, lead) {
     .join(' ');
 }
 
+function normalizeFaqSource(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function namedForPort(portName, text) {
-  return prefixEachSentence(portName, text, 'For');
+  const clean = prepareFaqPassengerText(cleanPortCopy(text));
+  if (!isFaqAnswerComplete(clean)) return '';
+  return !portName || clean.toLowerCase().includes(portName.toLowerCase()) ? clean : `For ${portName}, ${clean}`;
+}
+
+const ST_FAQ_COHORT_TRANSPORT_COPY = {
+  'st-kitts-basseterre-st-kitts':
+    'Walking suits Basseterre from Port Zante; taxis and coach excursions cover Brimstone Hill, beaches, and other island stops—confirm return before all-aboard.',
+  'st-croix-frederiksted-us-virgin-islands':
+    'Walking suits Frederiksted’s waterfront and nearby shops; taxis and coach excursions reach Christiansted and estate tours—confirm return before all-aboard.',
+};
+
+function buildTransportFaqAnswer(guide, portName, portSlug) {
+  const distance = guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity || '';
+  const transport = guide?.gettingThere?.publicTransport || '';
+  const modes = (guide?.gettingThere?.transportation || []).filter(Boolean);
+  if (transport && normalizeFaqSource(transport) !== normalizeFaqSource(distance)) {
+    return namedForPort(portName, transport);
+  }
+  if (!modes.length) return '';
+  const cohortCopy = portSlug && ST_FAQ_COHORT_TRANSPORT_COPY[portSlug];
+  if (cohortCopy) return namedForPort(portName, cohortCopy);
+  const list = modes.map((m) => String(m).toLowerCase()).join(', ');
+  return namedForPort(
+    portName,
+    `Most guests use ${list} from the cruise piers; confirm schedules and return time with the ship on your call day.`
+  );
 }
 
 function collectPortFaqItems(guide, portName, portSlug) {
   const questions = [];
-  const officialEntrySlugs = new Set(['hamburg-germany', 'aalborg-denmark', 'aarhus-denmark']);
+  const skipPoliticsFaqSlugs = new Set([
+    'hamburg-germany',
+    'aalborg-denmark',
+    'aarhus-denmark',
+    'st-george-s-grenada',
+    'st-lucia-castries-st-lucia',
+    'st-thomas-charlotte-amalie-us-virgin-islands',
+  ]);
   const skipPoliticsFaq =
-    (portSlug && officialEntrySlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
+    (portSlug && skipPoliticsFaqSlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
   if (guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) {
     questions.push({
       q: `How far is ${portName} cruise terminal from the city center?`,
       a: namedForPort(portName, guide.gettingThere.distanceAnswer || guide.gettingThere.distanceToCity),
     });
   }
-  if (guide?.gettingThere?.publicTransport || (guide?.gettingThere?.transportation || []).length) {
+  const transportAnswer = buildTransportFaqAnswer(guide, portName, portSlug);
+  if (transportAnswer) {
     questions.push({
       q: `What transport options are available from the ${portName} cruise port?`,
-      a: namedForPort(
-        portName,
-        guide.gettingThere.publicTransport ||
-          (guide.gettingThere.transportation || []).join(', ')
-      ),
+      a: transportAnswer,
     });
   }
   if (!skipPoliticsFaq && (guide?.politics?.visaRequirements || guide?.politics?.entryRequirements)) {
@@ -606,36 +646,44 @@ function collectPortFaqItems(guide, portName, portSlug) {
   return questions
     .map((item) => ({
       q: String(item.q || '').trim(),
-      a: String(item.a || '').trim(),
+      a: clipFaqAnswer(item.a),
     }))
     .filter((item) => item.q && item.a)
     .slice(0, 6);
 }
 
+function isFaqAnswerComplete(text) {
+  const body = String(text || '').replace(/^For [^,]+,\s*/i, '');
+  return body.split(/\s+/).filter(Boolean).length > 6;
+}
+
+const DISTANCE_FAQ_EXCURSION_RE =
+  /\b(Brimstone|Christiansted|estate tours?|Nevis ferry|Soufrière|Pitons|75–120|90 min buffer)\b/i;
+
 function clipFaqAnswer(text) {
-  const clean = preparePassengerGuideText(cleanPortCopy(text));
+  const clean = prepareFaqPassengerText(cleanPortCopy(text));
   if (!clean) return '';
-  const first = clean.split(/(?<=[.!?])\s+/)[0] || clean;
-  if (first.length <= 220) return first;
-  return `${first.slice(0, 217).replace(/\s+\S*$/, '').trim()}…`;
+  const sentences = splitPassengerSentences(clean);
+  let acc = '';
+  for (const sentence of sentences) {
+    if (acc && isFaqAnswerComplete(acc) && DISTANCE_FAQ_EXCURSION_RE.test(sentence)) break;
+    acc = acc ? `${acc} ${sentence}` : sentence;
+    if (isFaqAnswerComplete(acc)) break;
+  }
+  if (!isFaqAnswerComplete(acc)) return '';
+  if (acc.length <= 220) return acc;
+  return `${acc.slice(0, 217).replace(/\s+\S*$/, '').trim()}…`;
 }
 
 function buildTravelerQuestionsSection(guide, portName, opts = {}) {
-  const gate = typeof opts.gate === 'function' ? opts.gate : (s) => s;
   const questions = collectPortFaqItems(guide, portName, opts.portSlug)
     .map((item) => {
       const clipped = clipFaqAnswer(item.a);
-      return { q: item.q, a: gate(clipped) };
+      return { q: item.q, a: clipped };
     })
     .filter((item) => item.q && item.a)
     .slice(0, 3);
-  if (!questions.length) {
-    return section(
-      'Traveler questions',
-      `<p class="pg-prose">Cruisers ask about walking distance, taxis, and shore-day timing for ${escapeHtml(portName)}.</p>`,
-      'traveler-questions'
-    );
-  }
+  if (!questions.length) return '';
   const cards = questions
     .slice(0, 4)
     .map(
@@ -1102,6 +1150,7 @@ function buildBreadcrumbJsonLd(port, canonical) {
 }
 
 module.exports = {
+  clipFaqAnswer,
   escapeHtml,
   PORT_GUIDE_STYLES,
   buildPortGuideSectionsHtml,

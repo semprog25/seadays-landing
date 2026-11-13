@@ -65,12 +65,80 @@ function collectGuidePassengerLeakBlob(guide) {
   return parts.join('\n');
 }
 
+// Shared by sanitization and FAQs so place abbreviations cannot create fragments.
+function splitPassengerSentences(text) {
+  const parts = String(text || '').trim().split(/(?<=[.!?])\s+/);
+  const sentences = [];
+  for (const part of parts) {
+    if (sentences.length && /\b(?:St|Mt|Ft|No|Dr|Mr|Mrs|Ms|Prof|Jr|Sr|Ave|Rd|e\.g|i\.e)\.$/i.test(sentences[sentences.length - 1])) {
+      sentences[sentences.length - 1] += ' ' + part;
+    } else if (part) sentences.push(part);
+  }
+  return sentences;
+}
+
+function sanitizePassengerRenderCopy(value) {
+  if (typeof value === 'string') {
+    return containsInternalResearchLeak(value) ? preparePassengerGuideText(value) : value;
+  }
+  if (Array.isArray(value)) return value.map(sanitizePassengerRenderCopy);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, sanitizePassengerRenderCopy(item)]));
+  }
+  return value;
+}
+
+function faqResearchSentence(sentence) {
+  const s = String(sentence || '');
+  return (
+    /\bclaimed\b/i.test(s) ||
+    /\bnot surveyed\b/i.test(s) ||
+    /\bminutes unverified\b/i.test(s) ||
+    /\bper VIPA\b/i.test(s) ||
+    /\bper VPCC\b/i.test(s) ||
+    /\bunverified\b/i.test(s)
+  );
+}
+
+/** FAQ-only polish: drop research-note phrasing; does not alter non-FAQ passenger blocks. */
+function prepareFaqPassengerText(text) {
+  const raw = preparePassengerGuideText(text);
+  if (!raw) return '';
+  const sentences = [];
+  for (const sentence of splitPassengerSentences(raw)) {
+    let s = sentence
+      .replace(
+        /\bTown centre walk claimed ~\d+\s*min\.?/gi,
+        'The town centre is a short walk from the cruise piers for many mobile guests'
+      )
+      .replace(
+        /\bShopping\/restaurants within walking distance of the pier per VIPA;?\s*minutes not surveyed\.?/gi,
+        'Shops and restaurants are within walking distance of the pier'
+      )
+      .replace(/;\s*downtown minutes unverified\.?/gi, '.')
+      .replace(/\bdowntown minutes unverified\.?/gi, '')
+      .replace(/\bper VIPA;?\s*/gi, '')
+      .replace(/\bminutes not surveyed\.?/gi, '')
+      .replace(
+        /\bTender ~1\s*NM then short walk into village\.?/gi,
+        'Tender ride of about one nautical mile, then a short walk into the village'
+      )
+      .replace(/\bNo cruise shuttle per VPCC\.?/gi, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!s || faqResearchSentence(s)) continue;
+    if (!/[.!?…]$/.test(s)) s = `${s}.`;
+    sentences.push(s);
+  }
+  return sentences.join(' ').trim();
+}
+
 function preparePassengerGuideText(text, opts = {}) {
-  const raw = stripWikiCitationMarkers(stripMarkdownEmphasis(text));
+  let raw = stripWikiCitationMarkers(stripMarkdownEmphasis(text));
   if (!raw) return '';
   if (containsInternalResearchLeak(raw)) {
     if (opts.strict) throw new Error(`Blocked internal research copy: ${raw.slice(0, 80)}…`);
-    return '';
+    raw = splitPassengerSentences(raw).filter((sentence) => !containsInternalResearchLeak(sentence)).join(' ');
   }
   if (isTruncatedResearchCopy(raw)) {
     if (opts.strict) assertResearchCopyNotTruncated(raw, opts.label || 'passenger copy');
@@ -138,6 +206,9 @@ module.exports = {
   collectGuidePassengerLeakBlob,
   isResearchItineraryCopy,
   preparePassengerGuideText,
+  prepareFaqPassengerText,
+  sanitizePassengerRenderCopy,
+  splitPassengerSentences,
   quickFactGettingSummary,
   usesPassengerEditorialLead,
   assertPassengerReadyGuideFields,

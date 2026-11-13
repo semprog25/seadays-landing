@@ -309,6 +309,12 @@ function normalizeCountryKey(country) {
     'st lucia': 'saint lucia',
     'st. lucia': 'saint lucia',
     'saint lucia': 'saint lucia',
+    'st kitts': 'saint kitts and nevis',
+    'st. kitts': 'saint kitts and nevis',
+    'saint kitts and nevis': 'saint kitts and nevis',
+    'us virgin islands': 'united states virgin islands',
+    'u s virgin islands': 'united states virgin islands',
+    'united states virgin islands': 'united states virgin islands',
   };
   if (aliases[raw]) return aliases[raw];
   return raw;
