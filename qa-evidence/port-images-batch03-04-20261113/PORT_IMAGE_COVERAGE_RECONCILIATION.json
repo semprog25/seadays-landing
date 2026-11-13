@@ -1,20 +1,27 @@
 {
-  "generatedAt": "2026-11-13T04:57:03.200Z",
-  "totalPortCatalogue": null,
-  "humanApprovedCount": 38,
+  "generatedAt": "2026-11-13T15:46:57.784Z",
+  "totalPortCatalogue": 412,
+  "humanApprovedCount": 51,
   "counts": {
-    "approved_and_live": 38,
+    "approved_and_live": 51,
     "approved_but_unpublished": 0,
     "reviewed_but_rejected": 0,
-    "candidate_awaiting_owner_approval": 60,
-    "missing_suitable_image": 14,
-    "licensing_or_identity_unverified": 4
+    "candidate_awaiting_owner_approval": 64,
+    "missing_suitable_image": 1,
+    "licensing_or_identity_unverified": 0
   },
   "slugsByClass": {
     "approved_and_live": [
+      "aberdeen-united-kingdom",
+      "abu-dhabi-united-arab-emirates",
       "ajaccio-corsica-france",
+      "akureyri-iceland",
+      "alexandria-egypt",
       "amber-cove-puerto-plata-dominican-republic",
+      "anchorage-ak-united-states",
+      "antalya-turkey",
       "antigua-st-john-s-antigua",
+      "antwerp-belgium",
       "aruba-oranjestad-aruba",
       "auckland-new-zealand",
       "bar-montenegro",
@@ -23,6 +30,8 @@
       "belize-city-belize",
       "bodrum-turkey",
       "bonaire-bonaire",
+      "boston-ma-united-states",
+      "brisbane-australia",
       "buenos-aires-argentina",
       "cartagena-colombia",
       "casablanca-morocco",
@@ -31,7 +40,9 @@
       "corfu-greece",
       "costa-maya-mexico",
       "curacao-willemstad-curacao",
+      "dubai-united-arab-emirates",
       "florence-pisa-livorno-italy",
+      "galveston-tx-united-states",
       "george-town-cayman-islands",
       "helsinki-finland",
       "heraklion-crete-greece",
@@ -40,7 +51,8 @@
       "kristiansund-norway",
       "le-havre-paris-france",
       "malaga-spain",
-      "nice-france",
+      "new-orleans-la-united-states",
+      "port-canaveral-fl-united-states",
       "rhodes-greece",
       "san-juan-puerto-rico",
       "sicily-palermo-italy",
@@ -49,7 +61,8 @@
       "st-thomas-charlotte-amalie-us-virgin-islands",
       "sydney-australia",
       "tallinn-estonia",
-      "valparaiso-chile"
+      "valparaiso-chile",
+      "vancouver-bc-canada"
     ],
     "approved_but_unpublished": [],
     "reviewed_but_rejected": [],
@@ -65,6 +78,7 @@
       "bremen-germany",
       "bremerhaven-germany",
       "chennai-india",
+      "copenhagen-denmark",
       "cozumel-mexico",
       "cuxhaven-germany",
       "dubrovnik-croatia",
@@ -98,15 +112,18 @@
       "new-mangalore-india",
       "nordfjordeid-norway",
       "olden-norway",
+      "oslo-norway",
       "palma-de-mallorca-spain",
       "port-blair-india",
       "reine-norway",
       "rome-civitavecchia-italy",
       "rotterdam-netherlands",
       "santorini-greece",
+      "seattle-wa-united-states",
       "singapore-singapore",
       "southampton-united-kingdom",
       "stavanger-norway",
+      "stockholm-sweden",
       "svolv-r-norway",
       "trondheim-norway",
       "ulvik-norway",
@@ -116,29 +133,15 @@
       "wilhelmshaven-germany"
     ],
     "missing_suitable_image": [
-      "aberdeen-united-kingdom",
-      "abu-dhabi-united-arab-emirates",
-      "akureyri-iceland",
-      "alexandria-egypt",
-      "anchorage-ak-united-states",
-      "antalya-turkey",
-      "antwerp-belgium",
-      "boston-ma-united-states",
-      "brisbane-australia",
-      "dubai-united-arab-emirates",
-      "galveston-tx-united-states",
-      "new-orleans-la-united-states",
-      "port-canaveral-fl-united-states",
-      "vancouver-bc-canada"
+      "nice-france"
     ],
-    "licensing_or_identity_unverified": [
-      "copenhagen-denmark",
-      "oslo-norway",
-      "seattle-wa-united-states",
-      "stockholm-sweden"
-    ]
+    "licensing_or_identity_unverified": []
   },
   "frozenApprovedNotYetHumanApproved": [
+    {
+      "batch": "batch03",
+      "portSlug": "nice-france"
+    },
     {
       "batch": "batch03",
       "portSlug": "rotterdam-netherlands"
@@ -149,69 +152,13 @@
     },
     {
       "batch": "batch05",
-      "portSlug": "abu-dhabi-united-arab-emirates"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "akureyri-iceland"
-    },
-    {
-      "batch": "batch05",
       "portSlug": "alesund-norway"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "alexandria-egypt"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "anchorage-ak-united-states"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "antalya-turkey"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "antwerp-belgium"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "boston-ma-united-states"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "brisbane-australia"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "dubai-united-arab-emirates"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "galveston-tx-united-states"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "new-orleans-la-united-states"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "port-canaveral-fl-united-states"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "vancouver-bc-canada"
-    },
-    {
-      "batch": "batch05",
-      "portSlug": "aberdeen-united-kingdom"
     }
   ],
   "batchLedgerSources": [
     {
       "batch": "batch02",
-      "path": "/Users/sharanestone/Semprog/seadays-landing/.worktrees/port-images-batch03-04-20261113/data/destination-photo-batch-02-final-approvals.json",
+      "path": "/Users/sharanestone/Semprog/seadays-landing/.worktrees/port-image-license-gaps-release-20261113/data/destination-photo-batch-02-final-approvals.json",
       "exists": true
     },
     {
