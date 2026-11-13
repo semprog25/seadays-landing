@@ -1,0 +1,17 @@
+{
+  "baseSha": "00cb0a6aa0d4a188933b0fdb9d485168dd616107",
+  "changedFileCount": 40,
+  "pushClassification": {
+    "skip": true,
+    "channel": "skip",
+    "interpretation": "Committed port HTML + image manifests only; no generator/script triggers → no post-merge bot catalogue regen"
+  },
+  "expectedPrWorkflows": [
+    "ports-directory-photography.yml (paths: ports/index.html, data/ports-directory-image-review-state.json, data/destination-image-catalog.json)"
+  ],
+  "workflowGaps": [
+    "ports-directory-photography.yml path filter still names destination-photo-batch-02-final-approvals.json only; batch 03/04 ledger files are not listed but PR still matches review-state + ports/index.html"
+  ],
+  "leHavre": "EXCLUDED — batch03-selected-photo-verification-v2 NEEDS_GEO_REVIEW; owner veto",
+  "niceFrance": "INCLUDED — canonical /ports/nice-france/, noindex unchanged, distinct from villefranche-nice-france directory card, Pexels VERIFIED batch03"
+}

@@ -1,0 +1,72 @@
+{
+  "batchId": "destination-photo-batch-04-reject3-v1",
+  "updatedAt": "2026-11-06",
+  "strategyVersion": "port-name-first-then-keyword-ladder-v1",
+  "keywordLadder": [
+    "[City] landmarks",
+    "[City] skyline",
+    "[City] waterfront",
+    "[City] harbour",
+    "[City] old town",
+    "[City] historic centre",
+    "[City] architecture",
+    "[City] cityscape",
+    "[City] tourism",
+    "[City] famous attractions",
+    "[City] aerial view",
+    "[City] coastal landscape"
+  ],
+  "ports": {
+    "malaga-spain": {
+      "displayName": "Málaga, Spain",
+      "localizedQueries": [
+        "Málaga Spain port cruise",
+        "Malaga harbour cityscape",
+        "Málaga Alcazaba view",
+        "Malaga cathedral waterfront",
+        "Málaga cruise ship harbour sunset"
+      ],
+      "excludedProviderIds": {
+        "batch03RejectBoth": ["37475645", "16901490"],
+        "batch04Round1SupersededUnreviewed": ["19034510", "39625501"]
+      },
+      "activeRound": 2,
+      "activeCandidateIds": { "A": "38322213", "B": "36096738" }
+    },
+    "casablanca-morocco": {
+      "displayName": "Casablanca, Morocco",
+      "localizedQueries": [
+        "Casablanca Morocco Hassan II mosque waterfront",
+        "Casablanca corniche Atlantic",
+        "Casablanca harbour fishing port",
+        "Casablanca coastline sunset",
+        "Casablanca landmarks architecture"
+      ],
+      "excludedProviderIds": {
+        "batch03RejectBoth": ["31890453", "33143809"],
+        "batch04Round1SupersededUnreviewed": ["1378421"]
+      },
+      "activeRound": 2,
+      "activeCandidateIds": { "A": "JkG4jwyZaL4", "B": "30668291" },
+      "notes": "Round 2 A: Unsplash Hassan II landmark. B: retained Pexels 30668291 coast sunset from round 1 (still NOT_REVIEWED)."
+    },
+    "buenos-aires-argentina": {
+      "displayName": "Buenos Aires, Argentina",
+      "localizedQueries": [
+        "Buenos Aires Puerto Madero skyline",
+        "Buenos Aires Obelisco aerial",
+        "Buenos Aires harbour port ships",
+        "Buenos Aires waterfront cityscape",
+        "Buenos Aires marina dusk"
+      ],
+      "excludedProviderIds": {
+        "batch03RejectBoth": ["8242976", "5274072"],
+        "batch04Round1SupersededUnreviewed": ["18274061"]
+      },
+      "activeRound": 2,
+      "activeCandidateIds": { "A": "40135622", "B": "34993431" }
+    }
+  },
+  "unresolvedPorts": [],
+  "ownerDecisionState": "FROZEN — data/destination-photo-batch-04-owner-review-v1-decisions.json (2026-11-06)"
+}
