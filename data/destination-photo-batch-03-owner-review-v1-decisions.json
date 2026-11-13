@@ -393,5 +393,33 @@
     37690012,
     38424230,
     40570782
+  ],
+  "ownerApprovedReplacements": [
+    {
+      "portSlug": "le-havre-paris-france",
+      "status": "OWNER_APPROVED_REPLACEMENT",
+      "publishedAt": "2026-11-13",
+      "supersedesFrozen": {
+        "batchId": "destination-photo-batch-03-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:11691091",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW"
+      },
+      "publishedOwnerDecision": "APPROVE_A",
+      "publishedCandidateId": "pexels:31781110",
+      "geographicStatus": "VERIFIED"
+    }
+  ],
+  "geographicResolution": [
+    {
+      "portSlug": "le-havre-paris-france",
+      "selectedCandidateId": "pexels:31781110",
+      "supersededFrozenCandidateId": "pexels:11691091",
+      "verdict": "VERIFIED",
+      "cityIdentity": "Le Havre, France",
+      "cruiseTerminal": "City/estuary waterfront — not asserted as a named cruise terminal.",
+      "evidence": "Owner switch to Batch 03 Pexels A (Zarina Maizel). Pexels location Le Havre, France. Supersedes frozen pexels:11691091 geo hold.",
+      "ownerApprovedReplacementAt": "2026-11-13"
+    }
   ]
 }

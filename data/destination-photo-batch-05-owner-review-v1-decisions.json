@@ -26,25 +26,20 @@
     },
     {
       "portSlug": "aberdeen-united-kingdom",
-      "selectedCandidateId": "pexels:5684661",
-      "verdict": "NEEDS_GEO_REVIEW",
-      "cityIdentity": "Not confirmed as Aberdeen",
-      "cruiseTerminal": "Historic river bridge would qualify as a city landmark if the city were confirmed.",
-      "evidence": "Title says Aberdeen. Location field is only United Kingdom. Tags include Lake District, York, Cotswolds and Newcastle. Photographer Kieren Ridley. Pexels License. Page dimensions 5184×3888. JPEG XMP has no GPS or city. The single stone arch is not uniquely identifiable from the page.",
+      "selectedCandidateId": "wikimedia:Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+      "verdict": "VERIFIED",
+      "cityIdentity": "Aberdeen Harbour, Aberdeen, United Kingdom",
+      "cruiseTerminal": "Harbour/city waterfront — not asserted as a named cruise berth.",
+      "evidence": "Owner-approved Commons Harbour A (Graeme Smith, CC BY-SA 2.0). Exif/object location ~57.146°N, 2.089°W. Supersedes frozen pexels:5684661 (NEEDS_GEO_REVIEW).",
       "ownerRetention": {
         "retainedAt": "2026-11-06",
         "note": "Owner retained pexels:5684661 after review of verified Commons alternatives (see qa-evidence/destination-batch-05-20261106/ABERDEEN_ALTERNATIVES.md). Geographic verification remains open."
-      }
+      },
+      "supersededFrozenCandidateId": "pexels:5684661",
+      "ownerApprovedReplacementAt": "2026-11-13"
     }
   ],
-  "geoReviewStillOpen": [
-    {
-      "portSlug": "aberdeen-united-kingdom",
-      "selectedCandidateId": "pexels:5684661",
-      "manifestGeoStatus": "NEEDS_GEO_REVIEW",
-      "ownerAcceptedPendingGeo": true
-    }
-  ],
+  "geoReviewStillOpen": [],
   "decisions": [
     {
       "portSlug": "abu-dhabi-united-arab-emirates",
@@ -533,5 +528,20 @@
     "Exploration_Tower_Port_Canaveral_Florida_2024.jpg",
     30452908,
     5684661
+  ],
+  "ownerApprovedReplacements": [
+    {
+      "portSlug": "aberdeen-united-kingdom",
+      "status": "OWNER_APPROVED_REPLACEMENT",
+      "publishedAt": "2026-11-13",
+      "supersedesFrozen": {
+        "batchId": "destination-photo-batch-05-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:5684661",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW"
+      },
+      "publishedCandidateId": "wikimedia:Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+      "geographicStatus": "VERIFIED"
+    }
   ]
 }

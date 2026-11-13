@@ -1,0 +1,35 @@
+{
+  "releaseId": "ports-directory-geo-replacements-v1",
+  "preparedAt": "2026-11-13",
+  "description": "Owner-approved Aberdeen (Commons harbour A) and Le Havre (Batch 03 Pexels A).",
+  "portSlugs": [
+    "aberdeen-united-kingdom",
+    "le-havre-paris-france"
+  ],
+  "baseMainSha": "8c94f38a292766b5b36aeb867e332b9de7669ba3",
+  "includeGlobs": [
+    "data/destination-photo-geo-replacements-v1-*.json",
+    "data/destination-photo-batch-05-owner-review-v1-decisions.json",
+    "data/destination-photo-batch-03-owner-review-v1-decisions.json",
+    "data/destination-photo-batch-05-scoped-release-manifest.json",
+    "data/destination-photo-batch-03-04-scoped-release-manifest.json",
+    "data/ports-directory-image-review-state.json",
+    "data/ports-directory-destination-owner-candidates.json",
+    "data/destination-image-catalog.json",
+    "assets/img/ports-directory/ports/aberdeen-united-kingdom/destination-exterior-batch05-wikimedia-*.webp",
+    "assets/img/ports-directory/ports/le-havre-paris-france/destination-exterior-batch03-pexels-31781110.webp",
+    "ports/index.html",
+    "ports/aberdeen-united-kingdom/index.html",
+    "ports/le-havre-paris-france/index.html",
+    "qa-evidence/geo-replacements-20261113/GEO_REPLACEMENTS_APPLY_REPORT.json",
+    "scripts/apply-destination-photo-geo-replacements-publication.js",
+    "scripts/test-port-images-geo-replacements-publication.js"
+  ],
+  "excludeFromPr": [
+    "ships/**",
+    "blog/**",
+    "data/public-port-guides.json",
+    "qa-evidence/geo-replacements-20261113/previews/**"
+  ],
+  "appliedCount": 2
+}

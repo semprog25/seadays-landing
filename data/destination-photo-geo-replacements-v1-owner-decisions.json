@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "status": "OWNER_APPROVED_PUBLICATION_READY",
+  "authorizedAt": "2026-11-13",
+  "authorizedBy": "owner_explicit_chat_2026-11-13",
+  "baseMainSha": "64d6b97a31a809ab40072371c54e3f4fc449bcf8",
+  "proposalsPath": "data/proposed-destination-photo-geo-replacements-v1.json",
+  "replacements": [
+    {
+      "portSlug": "aberdeen-united-kingdom",
+      "publicationStatus": "OWNER_APPROVED_REPLACEMENT",
+      "geographicStatus": "VERIFIED",
+      "frozenHistorical": {
+        "batchId": "destination-photo-batch-05-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:5684661",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW"
+      },
+      "published": {
+        "recommendationId": "aberdeen-commons-harbour-a",
+        "ownerDecision": "OWNER_APPROVED_REPLACEMENT",
+        "provider": "wikimedia",
+        "providerImageId": "Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+        "photographer": "Graeme Smith",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseTerms": "CC BY-SA 2.0 (attribution required; share-alike if adapted)",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+        "geographicEvidence": "Aberdeen Harbour, approximately 57.146°N, 2.089°W"
+      }
+    },
+    {
+      "portSlug": "le-havre-paris-france",
+      "publicationStatus": "OWNER_APPROVED_REPLACEMENT",
+      "geographicStatus": "VERIFIED",
+      "frozenHistorical": {
+        "batchId": "destination-photo-batch-03-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:11691091",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW"
+      },
+      "published": {
+        "recommendationId": "le-havre-batch03-pexels-a",
+        "ownerDecision": "APPROVE_A",
+        "provider": "pexels",
+        "providerImageId": 31781110,
+        "photographer": "Zarina Maizel",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-river-and-town-in-le-havre-france-31781110/",
+        "geographicEvidence": "Le Havre, France"
+      }
+    }
+  ]
+}
