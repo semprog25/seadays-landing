@@ -638,10 +638,19 @@
       "approvedBy": "production-license-verification-batch01r",
       "batchId": "destination-photo-batch-01-major-25",
       "replacementOfBatch01PexelsId": 1118872,
-      "ownerDecision": "NEEDS_FURTHER_REVIEW",
+      "ownerDecision": "APPROVE_ADJUSTED_CROP",
+      "priorOwnerDecision": "NEEDS_FURTHER_REVIEW",
+      "priorOwnerDecisionAt": "2026-11-13",
       "ownerVisualReviewEvidence": "data/destination-photo-batch01r-owner-decisions.json",
       "ownerVisualReviewAt": "2026-11-13",
-      "ownerVisuallyApproved": false,
+      "ownerVisuallyApprovedAt": "2026-11-13",
+      "ownerVisuallyApprovedBy": "owner_explicit_stockholm_crop_2026-11-13",
+      "ownerVisuallyApproved": true,
+      "approvedBy": "owner-visual-review-batch01r-final",
+      "cropFocal": {
+        "directory": { "x": 50, "y": 28 },
+        "hero": { "x": 58, "y": 32 }
+      },
       "productionLicenseVerified": true,
       "productionGeoVerified": true,
       "excludedFromPublicDirectoryRender": false

@@ -1,9 +1,17 @@
 {
-  "profile": "aberdeen-licence-label-v1",
+  "profile": "stockholm-crop-release-v1",
   "exactPaths": [
     ".github/ci-generation-release-guard.json",
-    "ports/aberdeen-united-kingdom/index.html",
+    "data/destination-image-catalog.json",
+    "data/destination-photo-batch01r-owner-decisions.json",
+    "data/ports-directory-destination-owner-candidates.json",
+    "data/ports-directory-image-review-state.json",
+    "ports/index.html",
+    "ports/stockholm-sweden/index.html",
+    "scripts/lib/destinationDirectoryCard.js",
     "scripts/lib/seoShipPortPages.js",
-    "scripts/test-public-photo-caption-internal-warnings.js"
+    "scripts/test-batch01r-owner-visual-decisions.js",
+    "scripts/test-batch01r-production-license-gaps.js",
+    "scripts/test-stockholm-crop-focal.js"
   ]
 }

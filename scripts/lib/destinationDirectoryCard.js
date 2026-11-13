@@ -44,6 +44,7 @@ function buildDestinationCardMediaHtml(media) {
   const loading = media?.loading === 'eager' ? 'eager' : 'lazy';
   const extraClass = media?.imgClassExtra ? ` ${media.imgClassExtra}` : '';
   const focalAttr = buildDirectoryCardFocalDataAttr(media?.objectPosition);
+  const styleAttr = buildDirectoryCardImageStyleAttr(media?.objectPosition);
   const onErr =
     "this.onerror=null;this.src='" +
     SEADAYS_NO_PHOTO_WEBP_PATH +
@@ -54,7 +55,7 @@ function buildDestinationCardMediaHtml(media) {
     hasPhoto: true,
     html:
       `<img class="directory-card-image img-loading${extraClass}" src="${escapeHtml(url)}" alt="${escapeHtml(alt)}" ` +
-      `width="1280" loading="${loading}" decoding="async" data-img-source="directory"${focalAttr} ` +
+      `width="1280" loading="${loading}" decoding="async" data-img-source="directory"${focalAttr}${styleAttr} ` +
       `onload="this.classList.remove('img-loading')" onerror="${onErr}">`,
   };
 }

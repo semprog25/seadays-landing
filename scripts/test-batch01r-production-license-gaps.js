@@ -33,7 +33,7 @@ const EXPECTED_IDS = {
 const OWNER_VISUAL = {
   'copenhagen-denmark': true,
   'oslo-norway': true,
-  'stockholm-sweden': false,
+  'stockholm-sweden': true,
   'seattle-wa-united-states': true,
 }
 
@@ -60,5 +60,16 @@ for (const slug of SLUGS) {
   assert(html.includes(ha.photographer), `${slug}: photographer credit`)
   assert(html.includes('pexels.com/license'), `${slug}: license link`)
 }
+
+const stockholmGuide = fs.readFileSync(
+  path.join(repoRoot, 'ports', 'stockholm-sweden', 'index.html'),
+  'utf8',
+)
+assert(stockholmGuide.includes('--seo-hero-focal: 58% 32%;'), 'stockholm: hero focal')
+const portsIndex = fs.readFileSync(path.join(repoRoot, 'ports', 'index.html'), 'utf8')
+assert(
+  portsIndex.includes('stockholm-sweden') && portsIndex.includes('object-position:50% 28%;'),
+  'stockholm: directory object-position',
+)
 
 console.log('OK test-batch01r-production-license-gaps', { slugs: SLUGS.length })
