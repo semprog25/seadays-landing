@@ -1164,7 +1164,9 @@ function buildPhase1GuideHtml({ port, guide, terminals, affiliate }) {
   const city = cityLabel(name);
   const gate = createSentenceGate();
   const isHomeport = portCallsAsHomeport(port, terminals);
-  const lead = gate(cleanPortCopy((guide && guide.portInfo && guide.portInfo.description) || ''));
+  const lead = preparePassengerGuideText(
+    gate(cleanPortCopy((guide && guide.portInfo && guide.portInfo.description) || ''))
+  );
   const skipDatasetWikiOverview = Boolean(lead && usesPassengerEditorialLead(guide));
   const extra = skipDatasetWikiOverview ? '' : gate(cleanPortCopy(port?.overviewText || ''));
   const attribution =

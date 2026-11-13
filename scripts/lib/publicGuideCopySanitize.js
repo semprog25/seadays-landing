@@ -6,10 +6,29 @@ const { isTruncatedResearchCopy, assertResearchCopyNotTruncated } = require('./r
 const { listPassengerTextFields } = require('./publicPortGuidePassengerTextFields');
 
 const INTERNAL_RESEARCH_LEAK_RE = [
+  /\b(?:remain|remains|stays?|keep)\s+null\b/i,
   /\bnull\s*\/\s*unverified\b/i,
+  /\bGPS\s+null\b/i,
+  /\bcoordinates?\s+remain\s+null\b/i,
+  /\b(?:door|pins?|metrics|hours|prices|transfer|shuttle)\s+null\b/i,
+  /\bWGS\s*84\b/i,
+  /\bdoor\s+(?:GPS|pins?)\b/i,
+  /\bdoor-threshold\b/i,
+  /\b(?:ticket primaries|primaries are on file)\b/i,
+  /\(GAP\)/i,
+  /\bnot fetched\b/i,
+  /\b(?:pages?|HTML|sources?|evidence|snapshots?|data|primar(?:y|ies)|claims?|rules|listing)\b[^.!?]*\bcaptured\b/i,
+  /\bcaptured\b[^.!?]*\b(?:pages?|HTML|sources?|evidence|snapshots?|data|primar(?:y|ies)|schedule|homepage)\b/i,
+  /\b(?:page|HTML|source|evidence|snapshot|data)\s+(?:was\s+)?captured\b/i,
+  /\bcaptured\s+(?:HTML|source|evidence|snapshot|data)\b/i,
+  /\bTBD\b/i,
+  /\bHTTP\s*(?:status\s*)?[45]\d\d\b/i,
+  /\bdeep URL 404\b/i,
+  /\b404\b/i,
   /\bnot copied without matching\b/i,
   /\bresearch pass\b/i,
   /\bthis pass\b/i,
+  /\bresearch notes\b/i,
   /\bverified_approx\b/i,
   /\bway\/\d+\b/i,
   /\beditorial estimates\b/i,
@@ -34,6 +53,13 @@ const INTERNAL_RESEARCH_LEAK_RE = [
   /\bmuseum primaries are filed\b/i,
   /\bharbour-page themes\b/i,
   /\btreat ticket logistics as gaps\b/i,
+  /\bCatalog flag:/i,
+  /\bbefore import\b/i,
+  /\bowner policy governs\b/i,
+  /\bTLS fails\b/i,
+  /\breconcile with\b/i,
+  /\bnot treated here as\b/i,
+  /\b\[S\d+(?:\s+[^\]]*)?\]/i,
 ];
 
 const MAX_QUICK_FACT_CHARS = 120;
