@@ -1,0 +1,76 @@
+{
+  "releaseId": "ports-directory-batch03-04-photography",
+  "preparedAt": "2026-11-13",
+  "description": "Batch 03/04 — 9 ports; Le Havre + Nice excluded",
+  "portSlugs": [
+    "juneau-ak-united-states",
+    "sydney-australia",
+    "helsinki-finland",
+    "auckland-new-zealand",
+    "tallinn-estonia",
+    "valparaiso-chile",
+    "malaga-spain",
+    "casablanca-morocco",
+    "buenos-aires-argentina"
+  ],
+  "skippedSlugs": [
+    {
+      "portSlug": "rotterdam-netherlands",
+      "reason": "skip_replace_existing_humanApproved"
+    },
+    {
+      "portSlug": "mumbai-india",
+      "reason": "skip_replace_existing_humanApproved"
+    }
+  ],
+  "includeGlobs": [
+    "data/destination-photo-batch-03-*.json",
+    "data/destination-photo-batch-04-*.json",
+    "data/destination-photo-batch-03-04-scoped-release-manifest.json",
+    "data/ports-directory-image-review-state.json",
+    "data/ports-directory-destination-owner-candidates.json",
+    "data/destination-image-catalog.json",
+    "assets/img/ports-directory/ports/*/destination-exterior-batch03-*.webp",
+    "assets/img/ports-directory/ports/*/destination-exterior-batch04-*.webp",
+    "ports/index.html",
+    "ports/juneau-ak-united-states/index.html",
+    "ports/sydney-australia/index.html",
+    "ports/helsinki-finland/index.html",
+    "ports/auckland-new-zealand/index.html",
+    "ports/tallinn-estonia/index.html",
+    "ports/valparaiso-chile/index.html",
+    "ports/malaga-spain/index.html",
+    "ports/casablanca-morocco/index.html",
+    "ports/buenos-aires-argentina/index.html",
+    "qa-evidence/port-images-batch03-04-20261113/**",
+    "scripts/apply-destination-photo-batch-03-04-publication.js",
+    "scripts/reconcile-port-image-coverage.js",
+    "scripts/revert-destination-photo-batch-excluded-slugs.js",
+    "scripts/test-destination-photo-batch-04-owner-decisions.js",
+    "scripts/test-port-images-batch03-04-publication.js"
+  ],
+  "excludeFromPr": [
+    "ships/**",
+    "blog/**",
+    "data/public-port-guides.json"
+  ],
+  "appliedCount": 9,
+  "excludedSlugs": [
+    {
+      "portSlug": "le-havre-paris-france",
+      "reason": "NEEDS_GEO_REVIEW — owner veto"
+    },
+    {
+      "portSlug": "nice-france",
+      "reason": "Stage 80/81 DUPLICATE_OR_INVALID — no public directory photo restore (PR #113 policy)"
+    },
+    {
+      "portSlug": "rotterdam-netherlands",
+      "reason": "owner-downloads-53 live"
+    },
+    {
+      "portSlug": "mumbai-india",
+      "reason": "owner-downloads-53 live"
+    }
+  ]
+}

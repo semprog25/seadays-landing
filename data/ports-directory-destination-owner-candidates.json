@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "policy": "Destination photography: Pexels and Unsplash primary; Pixabay optional script-time fallback (assets downloaded under /assets/img/ports-directory/ only — no Pixabay CDN hotlinks). Wikimedia is not used for region/country/port destination heroes or directory tiles. Terminal infrastructure photos in port guides may remain verified Wikimedia.",
+  "policy": "Destination photography order: Pexels, then Unsplash, then Wikimedia Commons for region and country browse only when those have no suitable landscape, then the Seadays no-photo placeholder. Commons files must have a commercial-reuse licence (CC0, CC BY, CC BY-SA, or public domain). Port destination heroes are not filled from Commons until an owner-approved country or region image is published. Ship heroes and terminal infrastructure photos are unchanged.",
   "ports": {
     "hamburg-germany": {
       "verificationStatus": "NEEDS_REVIEW",
@@ -1258,6 +1258,186 @@
         "summary": "Pexels structured location lists Maldives while this port is Costa Maya, Mexico. Owner selection retained; public directory render withheld pending explicit override."
       },
       "ownerApprovedAt": "2026-11-05"
+    },
+    "juneau-ak-united-states": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/juneau-ak-united-states/destination-exterior-batch03-pexels-12847675.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/juneau-ak-united-states/destination-exterior-batch03-pexels-12847675.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/icebergs-floating-on-water-near-mountains-12847675/",
+      "photographer": "Fernando B M",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Icebergs and mountains under dramatic sky — Pexels location Juneau, Alaska",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 12847675
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "sydney-australia": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/sydney-australia/destination-exterior-batch03-pexels-32311511.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/sydney-australia/destination-exterior-batch03-pexels-32311511.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/sydney-harbor-with-opera-house-and-bridge-32311511/",
+      "photographer": "Augustus Reyes",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Opera House and Harbour Bridge on Sydney Harbour",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 32311511
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "helsinki-finland": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/helsinki-finland/destination-exterior-batch03-pexels-38424230.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/helsinki-finland/destination-exterior-batch03-pexels-38424230.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-helsinki-harborfront-in-summer-38424230/",
+      "photographer": "Marlon Castor",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "South Harbour market front and historic waterfront — Helsinki cruise pier area",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 38424230
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "auckland-new-zealand": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/auckland-new-zealand/destination-exterior-batch03-pexels-30285119.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/auckland-new-zealand/destination-exterior-batch03-pexels-30285119.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/auckland-skyline-with-harbor-view-under-blue-sky-30285119/",
+      "photographer": "Gaurav Kumar",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Waitematā Harbour skyline with boats — Auckland cruise terminal views",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 30285119
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "tallinn-estonia": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/tallinn-estonia/destination-exterior-batch03-pexels-37690012.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/tallinn-estonia/destination-exterior-batch03-pexels-37690012.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/tallinn-harbor-with-cruise-ship-docked-in-summer-37690012/",
+      "photographer": "Margo Evardson",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Cruise ship at Tallinn harbour — primary cruise pier context",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 37690012
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "valparaiso-chile": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/valparaiso-chile/destination-exterior-batch03-pexels-33139344.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/valparaiso-chile/destination-exterior-batch03-pexels-33139344.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/colorful-hillside-houses-in-valparaiso-chile-33139344/",
+      "photographer": "Miguel Cuenca",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Hillside cerros architecture — Valparaíso UNESCO old town",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 33139344
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "malaga-spain": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-04-reject3-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/malaga-spain/destination-exterior-batch04-pexels-38322213.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/malaga-spain/destination-exterior-batch04-pexels-38322213.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/panoramic-view-of-malaga-harbor-and-cityscape-38322213/",
+      "photographer": "Ramon Karolan",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Panoramic Málaga harbour, city and mountains — Pexels location Málaga (search: Malaga harbour cityscape)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 38322213
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "casablanca-morocco": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "unsplash",
+      "batchId": "destination-photo-batch-04-reject3-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/casablanca-morocco/destination-exterior-batch04-unsplash-JkG4jwyZaL4.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/casablanca-morocco/destination-exterior-batch04-unsplash-JkG4jwyZaL4.webp",
+      "sourcePageUrl": "https://unsplash.com/photos/hassan-ii-mosque-with-blue-sky-in-casablanca-JkG4jwyZaL4",
+      "photographer": "Haydn",
+      "license": "Unsplash License (free for commercial use)",
+      "licenseUrl": "https://unsplash.com/license",
+      "depictedDestination": "Hassan II Mosque landmark with blue sky — Unsplash map pin Casablanca (search: Casablanca Hassan II landmarks)",
+      "unsplashPhotoIds": {
+        "directoryAndHero": "JkG4jwyZaL4"
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
+    },
+    "buenos-aires-argentina": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-04-reject3-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/buenos-aires-argentina/destination-exterior-batch04-pexels-40135622.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/buenos-aires-argentina/destination-exterior-batch04-pexels-40135622.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/iconic-view-of-obelisco-in-buenos-aires-40135622/",
+      "photographer": "Jose Luis Vanasco",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Obelisco and city grid — iconic Buenos Aires landmark (search: Buenos Aires Obelisco aerial / landmarks)",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 40135622
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
     }
   }
 }

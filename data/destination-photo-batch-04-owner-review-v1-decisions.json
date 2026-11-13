@@ -1,0 +1,131 @@
+{
+  "batchId": "destination-photo-batch-04-reject3-v1",
+  "reviewGalleryVersion": "owner-review-v1",
+  "localStorageKey": "seadays-photo-review:destination-photo-batch-04-reject3-v1:owner-review-v1",
+  "pairsManifestPath": "data/destination-photo-batch-04-review-pairs.json",
+  "searchLedgerPath": "data/destination-photo-batch-04-search-ledger.json",
+  "researchRound": 2,
+  "frozenAt": "2026-11-06",
+  "frozenSource": "owner_explicit_chat_confirmation_batch04_round2",
+  "ownerReportedCounts": {
+    "totalPorts": 3,
+    "APPROVE_A": 3,
+    "APPROVE_B": 0,
+    "REJECT_BOTH": 0,
+    "NOT_REVIEWED": 0
+  },
+  "historicalEvidence": [
+    {
+      "artifact": "data/destination-photo-batch-04-search-ledger.json",
+      "note": "Keyword search round 2; round-1 superseded IDs preserved in ledger."
+    },
+    {
+      "artifact": "qa-evidence/destination-batch-04-20261106/batch04-owner-review-export-snapshot.txt",
+      "note": "Synthetic export snapshot from owner chat confirmation (same line format as gallery export)."
+    }
+  ],
+  "decisions": [
+    {
+      "portSlug": "malaga-spain",
+      "portName": "Malaga, Spain",
+      "decision": "APPROVE_A",
+      "selectedProviderImageId": 38322213,
+      "selectedCandidateId": "pexels:38322213",
+      "candidateAId": "pexels:38322213",
+      "candidateBId": "pexels:36096738"
+    },
+    {
+      "portSlug": "casablanca-morocco",
+      "portName": "Casablanca, Morocco",
+      "decision": "APPROVE_A",
+      "selectedProviderImageId": "JkG4jwyZaL4",
+      "selectedCandidateId": "unsplash:JkG4jwyZaL4",
+      "candidateAId": "unsplash:JkG4jwyZaL4",
+      "candidateBId": "pexels:30668291"
+    },
+    {
+      "portSlug": "buenos-aires-argentina",
+      "portName": "Buenos Aires, Argentina",
+      "decision": "APPROVE_A",
+      "selectedProviderImageId": 40135622,
+      "selectedCandidateId": "pexels:40135622",
+      "candidateAId": "pexels:40135622",
+      "candidateBId": "pexels:34993431"
+    }
+  ],
+  "approved": [
+    {
+      "portSlug": "malaga-spain",
+      "portName": "Malaga, Spain",
+      "country": "Spain",
+      "region": "Mediterranean",
+      "decision": "APPROVE_A",
+      "selectedSlot": "A",
+      "provider": "pexels",
+      "providerImageId": 38322213,
+      "selectedCandidateId": "pexels:38322213",
+      "rejectedCandidateId": "pexels:36096738",
+      "candidateAId": "pexels:38322213",
+      "candidateBId": "pexels:36096738",
+      "sourcePageUrl": "https://www.pexels.com/photo/panoramic-view-of-malaga-harbor-and-cityscape-38322213/",
+      "photographer": "Ramon Karolan",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "licenseTerms": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "nativeDimensions": "7728×5152",
+      "geographicEvidence": "Panoramic Málaga harbour, city and mountains — Pexels location Málaga (search: Malaga harbour cityscape)",
+      "manifestGeoStatus": "OK",
+      "researchRound": 2
+    },
+    {
+      "portSlug": "casablanca-morocco",
+      "portName": "Casablanca, Morocco",
+      "country": "Morocco",
+      "region": "Atlantic",
+      "decision": "APPROVE_A",
+      "selectedSlot": "A",
+      "provider": "unsplash",
+      "providerImageId": "JkG4jwyZaL4",
+      "unsplashPhotoId": "photo-1775259332414-45bc6b2e5c4b",
+      "selectedCandidateId": "unsplash:JkG4jwyZaL4",
+      "rejectedCandidateId": "pexels:30668291",
+      "candidateAId": "unsplash:JkG4jwyZaL4",
+      "candidateBId": "pexels:30668291",
+      "sourcePageUrl": "https://unsplash.com/photos/hassan-ii-mosque-with-blue-sky-in-casablanca-JkG4jwyZaL4",
+      "photographer": "Haydn",
+      "licenseUrl": "https://unsplash.com/license",
+      "licenseTerms": "Unsplash License (free for commercial use)",
+      "nativeDimensions": "2400×1600",
+      "geographicEvidence": "Hassan II Mosque landmark with blue sky — Unsplash map pin Casablanca (search: Casablanca Hassan II landmarks)",
+      "manifestGeoStatus": "OK",
+      "researchRound": 2
+    },
+    {
+      "portSlug": "buenos-aires-argentina",
+      "portName": "Buenos Aires, Argentina",
+      "country": "Argentina",
+      "region": "South America",
+      "decision": "APPROVE_A",
+      "selectedSlot": "A",
+      "provider": "pexels",
+      "providerImageId": 40135622,
+      "selectedCandidateId": "pexels:40135622",
+      "rejectedCandidateId": "pexels:34993431",
+      "candidateAId": "pexels:40135622",
+      "candidateBId": "pexels:34993431",
+      "sourcePageUrl": "https://www.pexels.com/photo/iconic-view-of-obelisco-in-buenos-aires-40135622/",
+      "photographer": "Jose Luis Vanasco",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "licenseTerms": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "nativeDimensions": "6192×3483",
+      "geographicEvidence": "Obelisco and city grid — iconic Buenos Aires landmark (search: Buenos Aires Obelisco aerial / landmarks)",
+      "manifestGeoStatus": "OK",
+      "researchRound": 2
+    }
+  ],
+  "rejectBoth": [],
+  "selectedProviderImageIds": [
+    38322213,
+    "JkG4jwyZaL4",
+    40135622
+  ]
+}

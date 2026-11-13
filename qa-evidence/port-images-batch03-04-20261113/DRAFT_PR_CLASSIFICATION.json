@@ -1,0 +1,18 @@
+{
+  "baseSha": "00cb0a6aa0d4a188933b0fdb9d485168dd616107",
+  "changedFileCount": 39,
+  "fileCountReconciliation": "41 commit paths originally included 10 WebPs + nice-france guide/asset; workflow dry-run counted 40 pre-commit untracked. Final release: 39 paths vs origin/main (9 WebPs, 9 port pages, index, data, scripts, QA).",
+  "pushClassification": {
+    "skip": true,
+    "channel": "skip",
+    "interpretation": "Committed port HTML + image manifests only; no generator/script triggers → no post-merge bot catalogue regen"
+  },
+  "expectedPrWorkflows": [
+    "ports-directory-photography.yml (paths: ports/index.html, data/ports-directory-image-review-state.json, data/destination-image-catalog.json)"
+  ],
+  "workflowGaps": [
+    "ports-directory-photography.yml path filter still names destination-photo-batch-02-final-approvals.json only; batch 03/04 ledger files are not listed but PR still matches review-state + ports/index.html"
+  ],
+  "leHavre": "EXCLUDED — batch03-selected-photo-verification-v2 NEEDS_GEO_REVIEW; owner veto",
+  "niceFrance": "EXCLUDED — Stage 80/81 DUPLICATE_OR_INVALID / ledger-only; PR #113 browse parity; no directory verified-photo restore (verified-photo=0 placeholder on main)"
+}
