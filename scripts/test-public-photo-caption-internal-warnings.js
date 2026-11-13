@@ -97,6 +97,32 @@ function testRegionAltSanitizer() {
   assert(baltic === 'Baltic Sea cruise region', `Baltic sanitizer expected label-based alt, got: ${baltic}`)
 }
 
+function testLicenseLinkLabelMatchesUrl() {
+  const aberdeen = {
+    photographer: 'Graeme Smith',
+    licenseTerms: 'CC BY-SA 2.0 (attribution required; share-alike if adapted)',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/2.0/',
+    sourcePageUrl:
+      'https://commons.wikimedia.org/wiki/File:Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg',
+    provider: 'wikimedia',
+  }
+  const caption = buildHumanApprovedHeroCaption(aberdeen)
+  assert(caption.includes('CC BY-SA 2.0'), `aberdeen caption must show CC BY-SA 2.0: ${caption}`)
+  assert(!caption.includes('CC BY-SA 4.0'), `aberdeen caption must not show CC BY-SA 4.0: ${caption}`)
+  assert(caption.includes('creativecommons.org/licenses/by-sa/2.0'), `aberdeen licence href: ${caption}`)
+
+  const canaveral = {
+    photographer: 'Larry D. Moore',
+    licenseTerms: 'CC BY 4.0 (attribution required)',
+    licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Exploration_Tower_Port_Canaveral_Florida_2024.jpg',
+    provider: 'wikimedia',
+  }
+  const capCaption = buildHumanApprovedHeroCaption(canaveral)
+  assert(capCaption.includes('CC BY 4.0'), `canaveral caption: ${capCaption}`)
+  assert(!capCaption.includes('CC BY-SA'), `canaveral must not imply BY-SA: ${capCaption}`)
+}
+
 function testGeneratorNeverEmitsQaWarning() {
   const cases = [
     { slug: 'owner-download-no-meta', input: { url: '/x.webp', provider: 'owner' } },
@@ -130,6 +156,7 @@ function testGeneratorNeverEmitsQaWarning() {
 }
 
 function main() {
+  testLicenseLinkLabelMatchesUrl()
   testGeneratorNeverEmitsQaWarning()
   testRegionAltSanitizer()
   const violations = scanPublicHtml()

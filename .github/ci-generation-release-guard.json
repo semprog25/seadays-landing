@@ -1,15 +1,9 @@
 {
-  "profile": "ships-directory-ux-v2",
+  "profile": "aberdeen-licence-label-v1",
   "exactPaths": [
     ".github/ci-generation-release-guard.json",
-    "scripts/generateBlogs.js",
-    "scripts/lib/shipsDirectoryClient.js",
-    "scripts/regenerate-ships-index.js",
-    "ships/index.html",
-    "scripts/test-ships-directory-ratings.js",
-    "scripts/test-ships-directory-filter.js",
-    "scripts/test-ships-directory-progressive.js",
-    "scripts/test-ships-directory-photos.js",
-    "scripts/test-horizontal-scroll-wheel.js"
+    "ports/aberdeen-united-kingdom/index.html",
+    "scripts/lib/seoShipPortPages.js",
+    "scripts/test-public-photo-caption-internal-warnings.js"
   ]
 }
