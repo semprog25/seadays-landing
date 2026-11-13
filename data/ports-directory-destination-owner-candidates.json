@@ -1698,6 +1698,59 @@
       "geoResolutionEvidence": "qa-evidence/destination-batch-05-20261106/BATCH05_GEO_FLAG_RESOLUTION.md + ledger geographicResolution VERIFIED (Dubai Marina city card; Pexels location Dubai UAE)",
       "excludedFromPublicDirectoryRender": false,
       "ownerApprovedAt": "2026-11-13"
+    },
+    "aberdeen-united-kingdom": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "wikimedia",
+      "batchId": "destination-photo-batch-05-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/aberdeen-united-kingdom/destination-exterior-batch05-wikimedia-AberdeenHarbour-geographorguk-3122252jpg.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/aberdeen-united-kingdom/destination-exterior-batch05-wikimedia-AberdeenHarbour-geographorguk-3122252jpg.webp",
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+      "photographer": "Graeme Smith",
+      "license": "CC BY-SA 2.0 (attribution required; share-alike if adapted)",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "depictedDestination": "Aberdeen Harbour — Commons/Exif ~57.146°N, 2.089°W; city harbour context (not a named cruise berth).",
+      "wikimediaFileName": "Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "geoReplacementEvidence": "data/destination-photo-geo-replacements-v1-owner-decisions.json",
+      "supersededFrozenDecision": {
+        "batchId": "destination-photo-batch-05-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:5684661",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW"
+      },
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13",
+      "attributionRequired": true
+    },
+    "le-havre-paris-france": {
+      "verificationStatus": "OWNER_APPROVED",
+      "provider": "pexels",
+      "batchId": "destination-photo-batch-03-missing-v1",
+      "directoryImageUrl": "/assets/img/ports-directory/ports/le-havre-paris-france/destination-exterior-batch03-pexels-31781110.webp",
+      "heroImageUrl": "/assets/img/ports-directory/ports/le-havre-paris-france/destination-exterior-batch03-pexels-31781110.webp",
+      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-river-and-town-in-le-havre-france-31781110/",
+      "photographer": "Zarina Maizel",
+      "license": "Pexels License (free for commercial use; no attribution required — credit appreciated)",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "depictedDestination": "Seine estuary waterfront and Le Havre town architecture",
+      "pexelsPhotoIds": {
+        "directoryAndHero": 31781110
+      },
+      "ownerVisuallyApproved": true,
+      "productionLicenseVerified": true,
+      "productionGeoVerified": true,
+      "geoReplacementEvidence": "data/destination-photo-geo-replacements-v1-owner-decisions.json",
+      "supersededFrozenDecision": {
+        "batchId": "destination-photo-batch-03-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:11691091",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW"
+      },
+      "excludedFromPublicDirectoryRender": false,
+      "ownerApprovedAt": "2026-11-13"
     }
   }
 }

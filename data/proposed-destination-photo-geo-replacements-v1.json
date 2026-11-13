@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-11-13",
+  "status": "OWNER_APPROVED_SUPERSEDES_FROZEN",
+  "baseMainSha": "64d6b97a31a809ab40072371c54e3f4fc449bcf8",
+  "note": "Not humanApproved. Owner must confirm before any publication apply.",
+  "proposals": [
+    {
+      "portSlug": "aberdeen-united-kingdom",
+      "frozenCurrent": {
+        "batchId": "destination-photo-batch-05-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:5684661",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW",
+        "verdict": "NEEDS_GEO_REVIEW"
+      },
+      "recommendedReplacement": {
+        "recommendationId": "aberdeen-commons-harbour-a",
+        "provider": "wikimedia",
+        "providerImageId": "Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+        "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Aberdeen_Harbour_-_geograph.org.uk_-_3122252.jpg",
+        "geographUrl": "https://www.geograph.org.uk/photo/3122252",
+        "photographer": "Graeme Smith",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "licenseTerms": "CC BY-SA 2.0 (attribution required; share-alike if adapted)",
+        "geographicEvidence": "Commons + Exif: camera 57°08′44.1″ N, 2°05′24″ W; object 57°08′46.3″ N, 2°05′26″ W. Describes Aberdeen Harbour, port, city center.",
+        "productionGeoVerified": true,
+        "stagingWebp": "qa-evidence/destination-batch-05-20261106/staging/aberdeen-united-kingdom-alt-A-harbour.webp",
+        "localPreview": "qa-evidence/geo-replacements-20261113/previews/aberdeen-united-kingdom-alt-A-harbour.webp",
+        "attributionRequired": true,
+        "reason": "Harbour scene with verified Aberdeen GPS; cruise-relevant vs unverified Pexels bridge."
+      },
+      "ownerChoices": [
+        "APPROVE_REPLACEMENT_COMMONS_HARBOUR_A",
+        "RETAIN_FROZEN_PEXELS_5684661_GEO_UNVERIFIED",
+        "APPROVE_ALTERNATIVE_COMMONS_MARISCHAL_B"
+      ]
+    },
+    {
+      "portSlug": "le-havre-paris-france",
+      "frozenCurrent": {
+        "batchId": "destination-photo-batch-03-missing-v1",
+        "ownerDecision": "APPROVE_B",
+        "selectedCandidateId": "pexels:11691091",
+        "manifestGeoStatus": "NEEDS_GEO_REVIEW",
+        "verdict": "NEEDS_GEO_REVIEW"
+      },
+      "recommendedReplacement": {
+        "recommendationId": "le-havre-batch03-pexels-a",
+        "provider": "pexels",
+        "providerImageId": 31781110,
+        "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-river-and-town-in-le-havre-france-31781110/",
+        "photographer": "Zarina Maizel",
+        "licenseUrl": "https://www.pexels.com/license/",
+        "licenseTerms": "Pexels License (free for commercial use; credit appreciated)",
+        "geographicEvidence": "Pexels location Le Havre, France; title/description river and town architecture in Le Havre; rejected in favour of B in frozen export but stronger than generic marina B.",
+        "productionGeoVerified": true,
+        "pairGeoStatus": "OK",
+        "stagingWebp": "qa-evidence/destination-batch-03-20261105/staging/le-havre-paris-france-batch03-A-pexels-31781110.webp",
+        "localPreview": "qa-evidence/geo-replacements-20261113/previews/le-havre-paris-france-batch03-A-pexels-31781110.webp",
+        "attributionRequired": false,
+        "reason": "Existing Batch 03 candidate A — identifiable Le Havre waterfront/town; no new research required."
+      },
+      "ownerChoices": [
+        "APPROVE_SWITCH_TO_BATCH03_PEXELS_A",
+        "RETAIN_FROZEN_PEXELS_11691091_GEO_UNVERIFIED",
+        "REQUEST_NEW_ROUND4_PORT_SPECIFIC"
+      ]
+    }
+  ]
+}

@@ -17,8 +17,7 @@
     "vancouver-bc-canada"
   ],
   "excludedFromPublication": [
-    "dubai-united-arab-emirates",
-    "aberdeen-united-kingdom"
+    "dubai-united-arab-emirates"
   ],
   "skippedSlugs": [
     {
@@ -31,7 +30,7 @@
     },
     {
       "portSlug": "aberdeen-united-kingdom",
-      "reason": "NEEDS_GEO_REVIEW_unresolved_owner_frozen_not_publication_cleared"
+      "reason": "published_via_geo_replacement_owner_authorized"
     }
   ],
   "includeGlobs": [
@@ -65,5 +64,12 @@
     "blog/**",
     "data/public-port-guides.json"
   ],
-  "appliedCount": 12
+  "appliedCount": 12,
+  "geoReplacementsPublished": [
+    {
+      "portSlug": "aberdeen-united-kingdom",
+      "publishedAt": "2026-11-13",
+      "manifest": "data/destination-photo-geo-replacements-v1-scoped-release-manifest.json"
+    }
+  ]
 }

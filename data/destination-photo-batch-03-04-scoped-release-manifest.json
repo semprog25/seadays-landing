@@ -57,10 +57,6 @@
   "appliedCount": 9,
   "excludedSlugs": [
     {
-      "portSlug": "le-havre-paris-france",
-      "reason": "NEEDS_GEO_REVIEW — owner veto"
-    },
-    {
       "portSlug": "nice-france",
       "reason": "Stage 80/81 DUPLICATE_OR_INVALID — no public directory photo restore (PR #113 policy)"
     },
@@ -71,6 +67,13 @@
     {
       "portSlug": "mumbai-india",
       "reason": "owner-downloads-53 live"
+    }
+  ],
+  "geoReplacementsPublished": [
+    {
+      "portSlug": "le-havre-paris-france",
+      "publishedAt": "2026-11-13",
+      "manifest": "data/destination-photo-geo-replacements-v1-scoped-release-manifest.json"
     }
   ]
 }
