@@ -1731,8 +1731,10 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   } else if (displayImageUrl) {
     const focal =
       heroSource === 'human'
-        ? humanApproved?.cropFocal?.directory ||
-          humanApproved?.cropFocal?.hero ||
+        ? humanApproved?.cropFocal?.hero ||
+          humanApproved?.cropFocal?.directory ||
+          ownerEntry?.cropFocal?.hero ||
+          ownerEntry?.cropFocal?.directory ||
           ownerEntry?.heroFocal ||
           ownerEntry?.directoryImageFocal ||
           null

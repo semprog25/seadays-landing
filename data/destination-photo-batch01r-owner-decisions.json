@@ -27,13 +27,20 @@
     },
     {
       "portSlug": "stockholm-sweden",
-      "decision": "NEEDS_FURTHER_REVIEW",
+      "decision": "APPROVE_ADJUSTED_CROP",
       "provider": "pexels",
       "providerImageId": 37499978,
       "photographer": "Margo Evardson",
       "assetPath": "/assets/img/ports-directory/ports/stockholm-sweden/destination-exterior-batch01r-pexels-37499978.webp",
-      "ownerVisuallyApproved": false,
-      "reviewNote": "Ferry/quay foreground may read as port infrastructure in directory crops."
+      "ownerVisuallyApproved": true,
+      "priorOwnerDecision": "NEEDS_FURTHER_REVIEW",
+      "priorOwnerDecisionAt": "2026-11-13",
+      "priorReviewNote": "Ferry/quay foreground may read as port infrastructure in directory crops.",
+      "cropFocal": {
+        "directory": { "x": 50, "y": 28 },
+        "hero": { "x": 58, "y": 32 }
+      },
+      "reviewNote": "Owner accepts quay remains visible in directory thumbnail; adjusted crop on same Pexels 37499978."
     },
     {
       "portSlug": "seattle-wa-united-states",
@@ -47,7 +54,9 @@
   ],
   "ownerReportedCounts": {
     "APPROVE": 3,
-    "NEEDS_FURTHER_REVIEW": 1,
+    "APPROVE_ADJUSTED_CROP": 1,
+    "NEEDS_FURTHER_REVIEW": 0,
     "REJECT": 0
-  }
+  },
+  "ownerReportedCountsFinalAt": "2026-11-13"
 }

@@ -18,16 +18,17 @@ const review = JSON.parse(fs.readFileSync(reviewPath, 'utf8'))
 assert.strictEqual(ledger.status, 'OWNER_DECISIONS_RECORDED')
 assert.strictEqual(ledger.decisions.length, 4)
 assert.strictEqual(ledger.ownerReportedCounts.APPROVE, 3)
-assert.strictEqual(ledger.ownerReportedCounts.NEEDS_FURTHER_REVIEW, 1)
+assert.strictEqual(ledger.ownerReportedCounts.APPROVE_ADJUSTED_CROP, 1)
+assert.strictEqual(ledger.ownerReportedCounts.NEEDS_FURTHER_REVIEW, 0)
 
 const APPROVE_SLUGS = ['copenhagen-denmark', 'oslo-norway', 'seattle-wa-united-states']
-const PENDING_SLUG = 'stockholm-sweden'
+const STOCKHOLM = 'stockholm-sweden'
 
 let ownerVisualCount = 0
 for (const v of Object.values(review.humanApproved || {})) {
   if (v.ownerVisuallyApproved === true) ownerVisualCount++
 }
-assert.strictEqual(ownerVisualCount, 54, 'ownerVisuallyApproved count after +3')
+assert.strictEqual(ownerVisualCount, 55, 'ownerVisuallyApproved count after Stockholm +1')
 
 for (const d of ledger.decisions) {
   const ha = review.humanApproved[d.portSlug]
@@ -47,13 +48,16 @@ for (const slug of APPROVE_SLUGS) {
   assert.strictEqual(ha.approvedBy, 'owner-visual-review-batch01r-final', slug)
 }
 
-const st = review.humanApproved[PENDING_SLUG]
-assert.strictEqual(st.ownerVisuallyApproved, false, PENDING_SLUG)
-assert.strictEqual(st.ownerDecision, 'NEEDS_FURTHER_REVIEW', PENDING_SLUG)
-assert.strictEqual(st.approvedBy, 'production-license-verification-batch01r', PENDING_SLUG)
+const st = review.humanApproved[STOCKHOLM]
+assert.strictEqual(st.ownerVisuallyApproved, true, STOCKHOLM)
+assert.strictEqual(st.ownerDecision, 'APPROVE_ADJUSTED_CROP', STOCKHOLM)
+assert.strictEqual(st.priorOwnerDecision, 'NEEDS_FURTHER_REVIEW', STOCKHOLM)
+assert.strictEqual(st.cropFocal?.hero?.x, 58)
+assert.strictEqual(st.cropFocal?.hero?.y, 32)
+assert.strictEqual(st.cropFocal?.directory?.y, 28)
 
 console.log('OK test-batch01r-owner-visual-decisions', {
   ownerVisuallyApproved: ownerVisualCount,
   approve: APPROVE_SLUGS.length,
-  pending: PENDING_SLUG,
+  stockholm: STOCKHOLM,
 })
