@@ -211,8 +211,12 @@ function travelerFaqCardAnswers(blockHtml) {
   return cards;
 }
 
-/** Keep on-disk FAQ when regen would shorten committed copy (banner-only), not when regen ships longer fixes. */
-function shouldKeepExistingTravelerQuestions(existingBlock, generatedHtml) {
+/**
+ * Banner-only catalogue regen: keep committed FAQ when regen would clip answers or drop questions.
+ * Normal FAQ regen (bannerOnlyFaqPreserve off) keeps generator FAQ cards + FAQPage JSON-LD as built.
+ */
+function shouldKeepExistingTravelerQuestions(existingBlock, generatedHtml, { bannerOnlyFaqPreserve = false } = {}) {
+  if (!bannerOnlyFaqPreserve) return false;
   if (!existingBlock) return false;
   if (/<p>For St\.<\/p>/.test(existingBlock)) return false;
   const generatedBlock = extractFirstMatch(generatedHtml, TRAVELER_QUESTIONS_SECTION_RE);
@@ -223,9 +227,8 @@ function shouldKeepExistingTravelerQuestions(existingBlock, generatedHtml) {
   );
   for (const { question, answer } of travelerFaqCardAnswers(existingBlock)) {
     const generatedAnswer = generatedByQuestion.get(question);
-    if (generatedAnswer !== undefined && answer.length > generatedAnswer.length) {
-      return true;
-    }
+    if (generatedAnswer === undefined) return true;
+    if (answer.length > generatedAnswer.length) return true;
   }
   return false;
 }
@@ -290,10 +293,11 @@ function refreshPreservedPortAnswers(html) {
   return html;
 }
 
-function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide) {
+function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide, mergeOpts = {}) {
   if (!existingHtml) return generatedHtml;
   let html = generatedHtml;
   const preserveAll = shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide);
+  const keepTravelerFaq = (block) => shouldKeepExistingTravelerQuestions(block, generatedHtml, mergeOpts);
   if (preserveAll) {
     for (const [re, existingBlock, keepExisting] of [
       [THINGS_TO_DO_SECTION_RE, extractFirstMatch(existingHtml, THINGS_TO_DO_SECTION_RE), () => true],
@@ -301,7 +305,7 @@ function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, po
       [
         TRAVELER_QUESTIONS_SECTION_RE,
         extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE),
-        (block) => shouldKeepExistingTravelerQuestions(block, generatedHtml),
+        keepTravelerFaq,
       ],
       [QUICK_FACTS_SECTION_RE, extractFirstMatch(existingHtml, QUICK_FACTS_SECTION_RE), () => true],
     ]) {
@@ -332,10 +336,7 @@ function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, po
     }
   } else {
     const existingTraveler = extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE);
-    if (
-      existingTraveler &&
-      shouldKeepExistingTravelerQuestions(existingTraveler, generatedHtml)
-    ) {
+    if (existingTraveler && keepTravelerFaq(existingTraveler)) {
       html = replaceFirstMatch(html, TRAVELER_QUESTIONS_SECTION_RE, existingTraveler);
     }
   }
@@ -404,7 +405,8 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
   if (existingTail && TAIL_FROM_STARFIELD_SCRIPT_RE.test(html)) {
     html = html.replace(TAIL_FROM_STARFIELD_SCRIPT_RE, existingTail);
   }
-  html = mergePassengerEditorialBodyPreservation(html, existingHtml, opts.portGuide);
+  const bannerOnlyFaqPreserve = Boolean(opts.bannerOnlyFaqPreserve);
+  html = mergePassengerEditorialBodyPreservation(html, existingHtml, opts.portGuide, opts);
   const existingTraveler = extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE);
   const mergedTraveler = extractFirstMatch(html, TRAVELER_QUESTIONS_SECTION_RE);
   const keptCommittedTravelerFaq =
@@ -414,7 +416,7 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
     existingHtml,
     opts.portGuide,
   );
-  if (keptCommittedTravelerFaq || preserveEditorialBody) {
+  if (bannerOnlyFaqPreserve && (keptCommittedTravelerFaq || preserveEditorialBody)) {
     const existingFaqJsonLd = extractJsonLdScriptTagByType(existingHtml, 'FAQPage');
     const generatedFaqJsonLd = extractJsonLdScriptTagByType(html, 'FAQPage');
     if (existingFaqJsonLd && generatedFaqJsonLd && existingFaqJsonLd !== generatedFaqJsonLd) {
@@ -424,7 +426,7 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
     return dedupePortDetailHeadJsonLd(html);
   }
   html = alignMainCloseIndentToExisting(html, existingHtml);
-  return refreshPreservedPortAnswers(dedupePortDetailHeadJsonLd(html));
+  return dedupePortDetailHeadJsonLd(html);
 }
 
 function alignMainCloseIndentToExisting(html, existingHtml) {

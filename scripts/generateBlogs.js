@@ -3546,9 +3546,13 @@ async function main() {
     });
     if (fs.existsSync(outPath)) {
       const { mergePublishedPortHtmlPreservation } = require('./lib/publishedPortHtmlPreserve');
+      const { isBannerOnlyPortsRegenScope } = require('./lib/portsRegenScope');
+      // FAQ clip-keep is CI banner-only catalogue regen only — not `--only=` FAQ/content refreshes.
+      const bannerOnlyFaqPreserve = isBannerOnlyPortsRegenScope();
       portHtml = mergePublishedPortHtmlPreservation(portHtml, fs.readFileSync(outPath, 'utf8'), {
         affiliate,
         portGuide,
+        bannerOnlyFaqPreserve,
       });
     }
     fs.writeFileSync(outPath, portHtml, 'utf8');
