@@ -64,8 +64,6 @@ function contextualBlock(rel, quotedHref) {
   let text = '';
   if (/^ships\/[^/]+\/index\.html$/.test(rel)) {
     text = 'Know your ship before you sail. Plan this cruise in SeaDays.';
-  } else if (/^ports\/[^/]+\/index\.html$/.test(rel)) {
-    text = 'Save this port in SeaDays.';
   }
   if (text) {
     return (
@@ -107,6 +105,9 @@ function rewriteHtml(html, rel) {
   });
   const quoted = href.replace(/&/g, '&amp;');
   let next = html;
+  if (/^ports\/[^/]+\/index\.html$/.test(rel)) {
+    next = next.replace(LEGACY_CONTEXTUAL_RE, '').replace(SECTION_CONTEXTUAL_RE, '');
+  }
   next = next.replace(/href=(["'])\/?#download\1/g, `href="${quoted}"`);
   next = next.replace(
     /href=(["'])https:\/\/seadays\.app\/?#download\1/g,

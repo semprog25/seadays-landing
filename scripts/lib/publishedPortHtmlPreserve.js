@@ -230,7 +230,7 @@ function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, po
  * - Head styles: keep committed inline `<style>` after `/assets/css/site-shell.css` when regen uses minimal INDEX_STYLES.
  * - Site shell: keep committed header/footer HTML between `seadays-site-shell` markers when generator ships a newer shell.
  * - More reading: keep committed `#more-reading` cards so local blog picks do not churn vs production.
- * - Contextual CTA: retain one block inside <main>, never adjacent to the footer.
+ * - Contextual CTA: strip retired port guide blocks; do not re-insert duplicate CTAs.
  * - Body tail: keep scripts after the starfield bootstrap (`directoryRuntimeImageGuard`) when generator omits them.
  */
 function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = {}) {
@@ -275,20 +275,10 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
   const existingMore = extractFirstMatch(existingHtml, MORE_READING_RE);
   if (existingMore) html = replaceFirstMatch(html, MORE_READING_RE, existingMore);
 
-  const existingCta =
-    extractFirstMatch(existingHtml, CONTEXTUAL_CTA_SECTION_RE) ||
-    extractFirstMatch(existingHtml, CONTEXTUAL_CTA_RE);
-  const generatedCta =
-    extractFirstMatch(html, CONTEXTUAL_CTA_SECTION_RE) ||
-    extractFirstMatch(html, CONTEXTUAL_CTA_RE);
-  // Preserve a single CTA in the layout; never restore the footer orphan.
+  // Port pages retain header, reviews, and footer links without an extra contextual CTA.
   html = String(html)
     .replace(new RegExp(CONTEXTUAL_CTA_RE.source, 'gi'), '')
     .replace(new RegExp(CONTEXTUAL_CTA_SECTION_RE.source, 'gi'), '');
-  const retainedCta = generatedCta || existingCta;
-  if (retainedCta && /<\/main>/i.test(html)) {
-    html = html.replace(/<\/main>/i, `${retainedCta}\n    </main>`);
-  }
 
   const existingTail = extractFirstMatch(existingHtml, TAIL_FROM_STARFIELD_SCRIPT_RE);
   if (existingTail && TAIL_FROM_STARFIELD_SCRIPT_RE.test(html)) {

@@ -22,6 +22,14 @@ const OLD_RE = /<p class="seo-inline-more seadays-contextual-cta"/g;
 
 function verify(rel, html) {
   const rewritten = rewriteHtml(html, rel);
+  if (rel.startsWith('ports/')) {
+    assert.equal((rewritten.match(SECTION_RE) || []).length, 0);
+    assert.equal((rewritten.match(OLD_RE) || []).length, 0);
+    assert.equal(rewriteHtml(rewritten, rel), rewritten);
+    const merged = mergePublishedPortHtmlPreservation(rewritten, html, {});
+    assert.equal((merged.match(SECTION_RE) || []).length, 0);
+    return;
+  }
   const mainEnd = rewritten.indexOf('</main>');
   const ctaStart = rewritten.indexOf('<section class="seadays-contextual-cta"');
   assert.ok(mainEnd !== -1 && ctaStart !== -1 && ctaStart < mainEnd, `${rel}: CTA must be inside main`);
@@ -29,13 +37,6 @@ function verify(rel, html) {
   assert.equal((rewritten.match(OLD_RE) || []).length, 0, `${rel}: no legacy CTA`);
   assert.match(rewritten.slice(ctaStart, mainEnd), /href="\/download\/\?utm_source=seadays_web&amp;utm_medium=(?:port_guide|ship_guide)/);
   assert.equal(rewriteHtml(rewritten, rel), rewritten, `${rel}: idempotent rewrite`);
-
-  // Regeneration against the currently published HTML must never restore the orphan.
-  const merged = mergePublishedPortHtmlPreservation(rewritten, html, {});
-  const finalHtml = rewriteHtml(merged, rel);
-  assert.equal((finalHtml.match(SECTION_RE) || []).length, 1, `${rel}: regenerated CTA count`);
-  assert.ok(finalHtml.indexOf('<section class="seadays-contextual-cta"') < finalHtml.indexOf('</main>'), `${rel}: regenerated CTA remains inside main`);
-  assert.equal((finalHtml.match(OLD_RE) || []).length, 0, `${rel}: regen must not restore legacy markup`);
 }
 
 for (const rel of details) {
@@ -48,7 +49,12 @@ for (const rel of details) {
 const redirect = '<html><body><script>location.replace("/ports/other/")</script></body></html>';
 assert.equal(rewriteHtml(redirect, 'ports/goa-india/index.html'), redirect);
 
-// A fresh generated page without prior CTA still gains exactly one inside main.
+// A fresh port page must not gain the retired CTA.
 verify('ports/example/index.html', '<html><main><h1>Example</h1></main><!-- seadays-site-shell:footer --></html>');
+
+assert.match(
+  rewriteHtml('<main></main><!-- seadays-site-shell:footer -->', 'cruise-planner/index.html'),
+  /Plan this cruise in SeaDays/
+);
 
 console.log('test-contextual-cta-layout PASS (read-only, representative pages + fixtures)');
