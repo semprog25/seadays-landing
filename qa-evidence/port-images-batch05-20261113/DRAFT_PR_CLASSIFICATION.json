@@ -1,0 +1,20 @@
+{
+  "baseSha": "00706a8fda0cd61e5d198bf518943c872f0abcae",
+  "confirmedBaselineSha": "418dd0df86f9d763c68a51da369eee975030b2c9",
+  "worktree": ".worktrees/port-images-batch05-20261113",
+  "branch": "chore/port-images-batch05-publication-prep",
+  "changedFileCount": 42,
+  "pushClassification": {
+    "skip": true,
+    "channel": "skip",
+    "interpretation": "Port HTML, local WebP assets, batch-05 data ledgers, review-state, and apply/test scripts — no PORT_PATTERNS / catalogue generator edits → no post-merge bot 412-port catalogue regen"
+  },
+  "expectedPrWorkflows": [
+    "ports-directory-photography.yml (paths: ports/index.html, data/ports-directory-image-review-state.json, data/destination-image-catalog.json)"
+  ],
+  "excludedPorts": {
+    "dubai-united-arab-emirates": "NEEDS_GEO_REVIEW — Dubai Marina not Port Rashid; frozen owner B not publication-cleared",
+    "aberdeen-united-kingdom": "NEEDS_GEO_REVIEW — city/bridge identity not confirmed; frozen owner B not publication-cleared",
+    "alesund-norway": "SKIP_REPLACE — existing humanApproved owner-downloads-53 asset on production main"
+  }
+}
