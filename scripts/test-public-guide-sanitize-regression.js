@@ -28,6 +28,12 @@ function main() {
   const leak = 'Coordinates remain null/unverified until research pass completes.';
   assert.strictEqual(preparePassengerGuideText(leak), '', 'internal leak stripped');
 
+  const doorGps =
+    'MbPA lists the berth. Door GPS remain null; confirm MICT building exit with the line. Expect traffic downtown.';
+  const doorScrubbed = preparePassengerGuideText(doorGps);
+  assert.ok(!/Door GPS/i.test(doorScrubbed), 'door GPS research note stripped');
+  assert.ok(/MICT|terminal exit|cruise line/i.test(doorScrubbed) || doorScrubbed.includes('Expect traffic'), 'passenger advice retained when present');
+
   const mdLink =
     'Allow 45 minutes; [official source](https://www.explorenicecotedazur.com/en/explore/towns-villages/coastal-area/nice/what-to-do-in-nice/).';
   assert.strictEqual(

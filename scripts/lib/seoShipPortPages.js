@@ -28,7 +28,7 @@ const {
   cityLabel,
   portCallsAsHomeport,
 } = require('./portGuideSections');
-const { usesPassengerEditorialLead } = require('./publicGuideCopySanitize');
+const { usesPassengerEditorialLead, preparePassengerGuideText } = require('./publicGuideCopySanitize');
 const { isApprovedDestinationPhotographyUrl } = require('./destinationImageSourcePolicy');
 const { loadDestinationOwnerPortEntryBySlug } = require('./portsDirectoryImageResolve');
 const {
@@ -1684,9 +1684,11 @@ function buildPortDetailHtml(port, relatedPorts, relatedShips, blogArticles, opt
   const jumpNav = buildPortJumpNav(`${guideHtml}\n${relatedHtml}`);
 
   const omitDatasetOverviewForLd = usesPassengerEditorialLead(guide);
-  const bodyForLd = omitDatasetOverviewForLd
-    ? String(guide.portInfo.description).trim()
-    : [guide?.portInfo?.description || '', overviewText].filter(Boolean).join(' ');
+  const bodyForLd = preparePassengerGuideText(
+    omitDatasetOverviewForLd
+      ? String(guide.portInfo.description).trim()
+      : [guide?.portInfo?.description || '', overviewText].filter(Boolean).join(' ')
+  );
   const jsonLdDesc = bodyForLd.slice(0, 500) + (bodyForLd.length > 500 ? '…' : '');
   const lat = pickFirstFiniteNumber(port.latitude, port.lat);
   const lng = pickFirstFiniteNumber(port.longitude, port.lng);
