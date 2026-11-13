@@ -607,15 +607,28 @@ const BATCH3_FAQ_DISTANCE_COPY = {
     'Ensenada Cruiseport Village sits on Boulevard Costero in Zona Centro, so the Malecón and downtown are at the waterfront rather than a long transfer from the ship.',
 };
 
+const BATCH4_FAQ_DISTANCE_COPY = {
+  'aberdeen-united-kingdom':
+    'Cruise ships berth in the heart of Aberdeen; official walk times from the pier are not published on the sources we cite.',
+  'bodrum-turkey':
+    'From the harbour, Bodrum Castle and the marina promenade are a short walk—allow roughly 10–20 minutes plus security or ticket time at the castle.',
+  'bremerhaven-germany':
+    'From the cruise terminal area, Havenwelten and downtown Bremerhaven are about a 30-minute walk via the promenade and Kaiserschleuse, or use cruise-day shuttles—confirm times with the ship.',
+  'esbjerg-denmark':
+    'Esbjerg is primarily a turnaround port; pier-to-town walk minutes are not verified on official pages—confirm local transfer options on your sailing day.',
+};
+
 /** Guide distance field is airport/parking notes, not pier-to-centre — omit mismatched distance FAQ. */
 const SKIP_DISTANCE_FAQ_SLUGS = new Set([
   'galveston-tx-united-states',
   'boston-ma-united-states',
+  'cape-liberty-bayonne-nj-united-states',
 ]);
 
 function buildDistanceFaqAnswer(guide, portName, portSlug) {
   if (portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)) return '';
   const cohort =
+    (portSlug && BATCH4_FAQ_DISTANCE_COPY[portSlug]) ||
     (portSlug && BATCH3_FAQ_DISTANCE_COPY[portSlug]) ||
     (portSlug && BATCH2_FAQ_DISTANCE_COPY[portSlug]);
   if (cohort) return namedForPort(portName, cohort);
@@ -653,7 +666,10 @@ function collectPortFaqItems(guide, portName, portSlug) {
   const skipPoliticsFaq =
     (portSlug && skipPoliticsFaqSlugs.has(portSlug)) || portName === 'Hamburg' || portName === 'Aalborg';
   const hasDistanceGuide =
-    (portSlug && (BATCH3_FAQ_DISTANCE_COPY[portSlug] || BATCH2_FAQ_DISTANCE_COPY[portSlug])) ||
+    (portSlug &&
+      (BATCH4_FAQ_DISTANCE_COPY[portSlug] ||
+        BATCH3_FAQ_DISTANCE_COPY[portSlug] ||
+        BATCH2_FAQ_DISTANCE_COPY[portSlug])) ||
     ((guide?.gettingThere?.distanceAnswer || guide?.gettingThere?.distanceToCity) &&
       !(portSlug && SKIP_DISTANCE_FAQ_SLUGS.has(portSlug)));
   if (hasDistanceGuide) {
