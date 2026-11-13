@@ -64,7 +64,7 @@ const {
 } = require('./lib/siteShell');
 const { EDITORIAL_LINK_CSS } = require('./lib/editorialLinkCss');
 const { applyEditorialCopyToHtml, sanitizeArticleCopy } = require('./lib/editorialCopy');
-const { applyBlogProductionHygieneToHtml } = require('./lib/blogProductionHygiene');
+const { applyBlogProductionHygieneToHtml, resolveRelatedReadingCardTitle } = require('./lib/blogProductionHygiene');
 const {
   buildSeoShipRecords,
   buildSeoPortRecords,
@@ -2487,7 +2487,9 @@ async function buildArticleHtml(
   { publishSlug = '', sourceSlug = '', titleOverride = '' } = {}
 ) {
   const slugForUrls = publishSlug || article.slug;
-  const overrideMeta = loadBlogOverrideMeta(path.join(__dirname, '..'))[article.slug] || {};
+  const repoRoot = path.join(__dirname, '..');
+  const titleBySourceSlug = loadBlogArticleCorrections(repoRoot).titleBySourceSlug;
+  const overrideMeta = loadBlogOverrideMeta(repoRoot)[article.slug] || {};
   const rawTitle = titleOverride || overrideMeta.title || article.seoTitle || article.title || 'Article';
   const title = escapeHtml(rawTitle);
   const rawDescription = (
@@ -2507,10 +2509,12 @@ async function buildArticleHtml(
 
   let navHtml = '';
   if (prevArticle) {
-    navHtml += `<a href="${blogRelPath(prevArticle.slug)}" class="article-nav-prev"><span class="article-nav-label">Previous</span><span>${escapeHtml(prevArticle.title || 'Previous')}</span></a>`;
+    const prevLabel = resolveRelatedReadingCardTitle(prevArticle, titleBySourceSlug) || 'Previous';
+    navHtml += `<a href="${blogRelPath(prevArticle.slug)}" class="article-nav-prev"><span class="article-nav-label">Previous</span><span>${escapeHtml(prevLabel)}</span></a>`;
   }
   if (nextArticle) {
-    navHtml += `<a href="${blogRelPath(nextArticle.slug)}" class="article-nav-next"><span class="article-nav-label">Next</span><span>${escapeHtml(nextArticle.title || 'Next')}</span></a>`;
+    const nextLabel = resolveRelatedReadingCardTitle(nextArticle, titleBySourceSlug) || 'Next';
+    navHtml += `<a href="${blogRelPath(nextArticle.slug)}" class="article-nav-next"><span class="article-nav-label">Next</span><span>${escapeHtml(nextLabel)}</span></a>`;
   }
 
   let moreHtml = '';
@@ -2519,9 +2523,13 @@ async function buildArticleHtml(
     for (let i = 0; i < moreArticles.length; i++) {
       const a = moreArticles[i];
       const { url: moreImgUrl, source: moreSource, type: moreType } = await pickCardImage(a, 'more-' + i);
-      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, a.title || 'Related article', 'more-card-image', { width: 400, height: 160 });
-      const relatedMeta = loadBlogOverrideMeta(path.join(__dirname, '..'))[a.slug] || {};
-      const relatedTitle = loadBlogArticleCorrections(path.join(__dirname, '..')).titleBySourceSlug[a.slug] || relatedMeta.title || a.title || 'Untitled';
+      const relatedMeta = loadBlogOverrideMeta(repoRoot)[a.slug] || {};
+      const relatedTitle =
+        resolveRelatedReadingCardTitle(a, titleBySourceSlug) ||
+        relatedMeta.title ||
+        a.title ||
+        'Untitled';
+      const imgTag = buildImgTag(moreImgUrl, moreSource, moreType, relatedTitle, 'more-card-image', { width: 400, height: 160 });
       const relatedExcerpt = relatedMeta.description || a.excerpt || (a.content ? String(a.content).replace(/<[^>]+>/g, '').slice(0, 180) : '') || '';
       moreCards.push(`<a href="${blogRelPath(a.slug)}" class="more-card">${imgTag}<div class="more-card-body"><h3 class="more-card-title">${escapeHtml(relatedTitle)}</h3><p class="more-card-excerpt">${escapeHtml(relatedExcerpt)}</p></div></a>`);
     }
