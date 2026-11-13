@@ -184,19 +184,94 @@ function shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portG
   return passengerEditorialBodyScore(existingHtml) > passengerEditorialBodyScore(generatedHtml);
 }
 
+function hasTravelerFaqGrid(html) {
+  return /<section[^>]*id="traveler-questions"[\s\S]*?pg-qa-grid[\s\S]*?pg-qa-card/.test(String(html || ''));
+}
+
+function shouldKeepExistingTravelerQuestions(existingBlock, generatedHtml) {
+  if (!existingBlock) return false;
+  if (/<p>For St\.<\/p>/.test(existingBlock)) return false;
+  if (hasTravelerFaqGrid(generatedHtml) && !hasTravelerFaqGrid(existingBlock)) return false;
+  return true;
+}
+
+function refreshPreservedPortAnswers(html) {
+  const { clipFaqAnswer } = require('./portGuideSections');
+  const { sanitizePassengerRenderCopy, containsInternalResearchLeak, preparePassengerGuideText } = require('./publicGuideCopySanitize');
+  const decode = (s) => String(s).replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+  const escape = (s) =>
+    String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  html = html.replace(/<(p|dd|li)\b([^>]*)>([\s\S]*?)<\/\1>/gi, (block, tagName, attributes, body) => {
+    const text = decode(body.replace(/<[^>]*>/g, ' '));
+    if (!containsInternalResearchLeak(text)) return block;
+    const clean = preparePassengerGuideText(text);
+    return clean ? `<${tagName}${attributes}>${escape(clean)}</${tagName}>` : '';
+  });
+  html = html.replace(/(<script\b[^>]*type=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/gi, (block, open, json, close) => {
+    const parsed = JSON.parse(json);
+    const clean = sanitizePassengerRenderCopy(parsed);
+    return JSON.stringify(parsed) === JSON.stringify(clean) ? block : open + JSON.stringify(clean).replace(/</g, '\\u003c') + close;
+  });
+  let faq;
+  const tag = extractJsonLdScriptTagByType(html, 'FAQPage');
+  if (tag) faq = JSON.parse(tag.replace(/^[\s\S]*?>/, '').replace(/<\/script>[\s\S]*$/, ''));
+  const retainedQuestions = new Set();
+  html = html.replace(/<article class="pg-qa-card">([\s\S]*?)<h3>([\s\S]*?)<\/h3>\s*<p>([\s\S]*?)<\/p>\s*<\/article>/g, (card, before, question, answer) => {
+    const full = faq?.mainEntity?.find((item) => item.name === decode(question))?.acceptedAnswer?.text;
+    const clipped = clipFaqAnswer(full || decode(answer));
+    if (!clipped) return '';
+    retainedQuestions.add(decode(question));
+    return `<article class="pg-qa-card">${before}<h3>${question}</h3><p>${escape(clipped)}</p></article>`;
+  });
+  if (faq) {
+    faq.mainEntity = faq.mainEntity
+      .filter((item) => retainedQuestions.has(item.name))
+      .map((item) => ({
+        ...item,
+        acceptedAnswer: { ...item.acceptedAnswer, text: clipFaqAnswer(item.acceptedAnswer.text) },
+      }));
+    html = html.replace(
+      tag,
+      faq.mainEntity.length
+        ? `<script type="application/ld+json">${JSON.stringify(sanitizePassengerRenderCopy(faq)).replace(/</g, '\\u003c')}</script>`
+        : ''
+    );
+  }
+  html = html.replace(TRAVELER_QUESTIONS_SECTION_RE, (section) =>
+    /<article class="pg-qa-card">/.test(section) ? section : ''
+  );
+  const row = (label) => new RegExp(`<div class="pg-fact"><dt>${label}</dt><dd>([\\s\\S]*?)</dd></div>`);
+  const distance = row('Distance to city').exec(html);
+  const transport = row('Public transport').exec(html);
+  const norm = (s) => decode(s).replace(/<[^>]*>/g, '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+  if (distance && transport) {
+    const d = norm(distance[1]);
+    const t = norm(transport[1]);
+    if (d && t && (d.includes(t) || t.includes(d))) {
+      if (t.length > d.length) html = html.replace(distance[0], distance[0].replace(distance[1], transport[1]));
+      html = html.replace(transport[0], '');
+    }
+  }
+  return html;
+}
+
 function mergePassengerEditorialBodyPreservation(generatedHtml, existingHtml, portGuide) {
   if (!existingHtml) return generatedHtml;
   if (!shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide)) {
     return generatedHtml;
   }
   let html = generatedHtml;
-  for (const [re, existingBlock] of [
-    [THINGS_TO_DO_SECTION_RE, extractFirstMatch(existingHtml, THINGS_TO_DO_SECTION_RE)],
-    [GETTING_THERE_SECTION_RE, extractFirstMatch(existingHtml, GETTING_THERE_SECTION_RE)],
-    [TRAVELER_QUESTIONS_SECTION_RE, extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE)],
-    [QUICK_FACTS_SECTION_RE, extractFirstMatch(existingHtml, QUICK_FACTS_SECTION_RE)],
+  for (const [re, existingBlock, keepExisting] of [
+    [THINGS_TO_DO_SECTION_RE, extractFirstMatch(existingHtml, THINGS_TO_DO_SECTION_RE), () => true],
+    [GETTING_THERE_SECTION_RE, extractFirstMatch(existingHtml, GETTING_THERE_SECTION_RE), () => true],
+    [
+      TRAVELER_QUESTIONS_SECTION_RE,
+      extractFirstMatch(existingHtml, TRAVELER_QUESTIONS_SECTION_RE),
+      (block) => shouldKeepExistingTravelerQuestions(block, generatedHtml),
+    ],
+    [QUICK_FACTS_SECTION_RE, extractFirstMatch(existingHtml, QUICK_FACTS_SECTION_RE), () => true],
   ]) {
-    if (existingBlock) html = replaceFirstMatch(html, re, existingBlock);
+    if (existingBlock && keepExisting(existingBlock)) html = replaceFirstMatch(html, re, existingBlock);
   }
   const lead = extractFirstMatch(existingHtml, LEAD_GUIDE_RE);
   if (lead && !LEAD_GUIDE_RE.test(html)) {
@@ -285,7 +360,7 @@ function mergePublishedPortHtmlPreservation(generatedHtml, existingHtml, opts = 
     html = html.replace(TAIL_FROM_STARFIELD_SCRIPT_RE, existingTail);
   }
   html = mergePassengerEditorialBodyPreservation(html, existingHtml, opts.portGuide);
-  return dedupePortDetailHeadJsonLd(html);
+  return refreshPreservedPortAnswers(dedupePortDetailHeadJsonLd(html));
 }
 
 module.exports = {
@@ -305,6 +380,7 @@ module.exports = {
   mergePublishedPortHtmlPreservation,
   mergePassengerEditorialBodyPreservation,
   shouldPreservePassengerEditorialBody,
+  refreshPreservedPortAnswers,
   dedupePortDetailHeadJsonLd,
   extractJsonLdScriptTagByType,
   headHasJsonLdType,
