@@ -42,6 +42,7 @@
     "test:batch04-tokyo-publication-release": "node scripts/test-batch04-tokyo-publication-release.js",
     "test:batch04-tokyo-publication-release-negative": "node scripts/test-batch04-tokyo-publication-release-negative.js",
     "test:batch04-html-preserve-regression": "node scripts/test-batch04-html-preserve-regression.js",
+    "test:batch05-research-qa-repair": "node scripts/test-batch05-research-qa-validate.js && node scripts/test-batch05-research-qa-repair.js",
     "publication-batch:matrix": "node scripts/publication-batch-workflow.js matrix",
     "publication-batch:prepare": "node scripts/publication-batch-workflow.js prepare",
     "publication-batch:apply": "SEADAYS_PUBLICATION_BATCH_01_CANDIDATE=1 node scripts/publication-batch-workflow.js apply",

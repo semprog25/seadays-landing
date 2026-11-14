@@ -1,0 +1,82 @@
+{
+  "landing_slug": "ko-samui-thailand",
+  "draft": {
+    "landing_slug": "ko-samui-thailand",
+    "appPortId": "ko-samui",
+    "portName": "Ko Samui",
+    "country": "Thailand",
+    "portInfo": {
+      "description": "A Thai island port destination with beautiful beaches, luxury resorts, and tropical attractions.",
+      "location": "",
+      "timezone": "ICT (UTC+7)",
+      "language": "Thai",
+      "currency": "Thai Baht (THB)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Unverified Samui landing",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Songthaew/taxi after landing — minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Songthaew/taxi after landing — minutes unverified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Beach (Chaweng/Lamai) — with transfer.",
+        "Big Buddha / viewpoints — coach.",
+        "Ship beach club — if offered."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Tender queues eat clock — leave early for independent taxis."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "6c3e039f39c77b559d8b8a311da9ac17f7ec28708e64a94a7346cba428924aff",
+      "existing_guide_hash": "ef5fffbece3d8e7f",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/ko-samui-thailand.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-12T13:03:15.723Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    },
+    "passengerSurfaceClear": [
+      "size",
+      "climate",
+      "facts"
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "batch05-research-qa-repair",
+  "research_qa_verdict": "BLOCKED"
+}

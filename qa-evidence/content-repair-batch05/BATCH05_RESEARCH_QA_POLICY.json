@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "lock_version": "content-repair-batch05-v1",
+  "owner_conditional_prep_authorized": true,
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "owner_factual_hold_cleared": false,
+  "production_apply_permitted": false,
+  "candidate_apply_permitted": false,
+  "baseline_main": "5da04ec12cb7be9bc82242a1fb421f4d0ddde7ad",
+  "baseline_live_passenger_editorial": 363,
+  "research_qa_validation_ref": "qa-evidence/content-repair-batch05/research-qa/BATCH05_RESEARCH_QA_VALIDATION.json",
+  "research_qa_index_not_mutated_in_pr": true,
+  "allowed_slugs": [
+    "freeport-bahamas",
+    "ko-samui-thailand",
+    "new-mangalore-india",
+    "phuket-thailand"
+  ],
+  "created_at_utc": "2026-11-12T13:15:00.000Z",
+  "note": "Candidate-only research-QA editorial repairs. Does not clear research QA or authorize publication."
+}

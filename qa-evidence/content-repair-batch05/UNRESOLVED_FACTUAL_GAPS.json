@@ -1,0 +1,34 @@
+{
+  "ports": [
+    {
+      "landing_slug": "freeport-bahamas",
+      "outstanding_factual_gaps": [
+        "port_door_gps_null",
+        "loa_unverified",
+        "transfer_minutes_unverified"
+      ],
+      "owner_factual_hold_cleared": false
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "outstanding_factual_gaps": [
+        "terminal_transit_primary_not_captured"
+      ],
+      "owner_factual_hold_cleared": false
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "outstanding_factual_gaps": [
+        "terminal_or_transit_facts_unverified"
+      ],
+      "owner_factual_hold_cleared": false
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "outstanding_factual_gaps": [
+        "unverified_fields_in_research_manifest"
+      ],
+      "owner_factual_hold_cleared": false
+    }
+  ]
+}
