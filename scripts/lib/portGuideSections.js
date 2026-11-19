@@ -576,7 +576,12 @@ function normalizeFaqSource(text) {
 function namedForPort(portName, text) {
   const clean = prepareFaqPassengerText(cleanPortCopy(text));
   if (!isFaqAnswerComplete(clean)) return '';
-  return !portName || clean.toLowerCase().includes(portName.toLowerCase()) ? clean : `For ${portName}, ${clean}`;
+  const normalized = clean.charAt(0).toUpperCase() + clean.slice(1);
+  if (!portName || normalized.toLowerCase().includes(portName.toLowerCase())) {
+    return normalized;
+  }
+  const body = clean.charAt(0).toLowerCase() + clean.slice(1);
+  return `For ${portName}, ${body}`;
 }
 
 const ST_FAQ_COHORT_TRANSPORT_COPY = {
