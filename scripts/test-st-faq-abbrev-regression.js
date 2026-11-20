@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { splitPassengerSentences, prepareFaqPassengerText } = require('./lib/publicGuideCopySanitize');
-const { collectPortFaqItems, clipFaqAnswer } = require('./lib/portGuideSections');
+const { collectPortFaqItems, clipFaqAnswer, buildDistanceFaqAnswer } = require('./lib/portGuideSections');
 
 const ROOT = path.join(__dirname, '..');
 const COHORT = [
@@ -25,6 +25,7 @@ const BATCH3_COHORT = [
 ];
 
 const RESEARCH_IN_FAQ = /\b(claimed|not surveyed|minutes unverified|per VIPA|per VPCC)\b/i;
+const AWKWARD_FAQ_LEAD_RE = /For [^,]+, The /;
 const SKIP_ENTRY_FAQ_SLUGS = new Set([
   'st-george-s-grenada',
   'st-lucia-castries-st-lucia',
@@ -46,7 +47,6 @@ assert.match(
   /one nautical mile/i
 );
 
-const { buildDistanceFaqAnswer } = require('./lib/portGuideSections');
 assert.match(
   buildDistanceFaqAnswer({}, 'Copenhagen', 'copenhagen-denmark'),
   /Nordre Toldbod.*Langelinie.*Oceankaj/i
@@ -82,6 +82,23 @@ const kittsFaq = collectPortFaqItems(
 assert.ok(kittsFaq.length >= 1);
 assert.match(kittsFaq[0].a, /St\. Kitts/);
 assert.ok(kittsFaq[0].a.endsWith('centre.'));
+assert.doesNotMatch(kittsFaq[0].a, AWKWARD_FAQ_LEAD_RE);
+
+assert.match(
+  buildDistanceFaqAnswer({}, 'Copenhagen', 'copenhagen-denmark'),
+  /For Copenhagen, distances to the city centre depend on your terminal: about 3 km from Nordre Toldbod/,
+  'cohort distance copy keeps terminal proper nouns after lowercase body prefix'
+);
+assert.match(
+  collectPortFaqItems({ gettingThere: { distanceToCity: 'Copenhagen city centre is near the terminals.' } }, 'Copenhagen')[0].a,
+  /Copenhagen city centre/,
+  'body containing port name is not double-prefixed'
+);
+assert.match(
+  collectPortFaqItems({ gettingThere: { distanceToCity: 'the UN plaza is 2 km north.' } }, 'New York')[0].a,
+  /For New York, the UN plaza/,
+  'prefixed bodies lower-case first word only'
+);
 
 for (const slug of COHORT) {
   const file = path.join(ROOT, 'ports', slug, 'index.html');
@@ -95,6 +112,7 @@ for (const slug of COHORT) {
     if (!a) continue;
     assert.ok(isFaqAnswerComplete(clipFaqAnswer(a)), `${slug}: incomplete visible answer`);
     assert.doesNotMatch(a, RESEARCH_IN_FAQ, `${slug}: research phrasing in FAQ body`);
+    assert.doesNotMatch(a, AWKWARD_FAQ_LEAD_RE, `${slug}: awkward FAQ lead after St. name`);
     if (SKIP_ENTRY_FAQ_SLUGS.has(slug)) {
       assert.doesNotMatch(q, /entry or visa requirements/i, `${slug}: entry FAQ should be omitted`);
     }
@@ -113,6 +131,7 @@ for (const slug of COHORT) {
     assert.ok(text.split(/\s+/).length > 6, `${slug}: JSON-LD FAQ too short: ${text}`);
     assert.doesNotMatch(text, /^For St\.$/);
     assert.doesNotMatch(text, RESEARCH_IN_FAQ, `${slug}: research phrasing in JSON-LD`);
+    assert.doesNotMatch(text, AWKWARD_FAQ_LEAD_RE, `${slug}: awkward FAQ lead in JSON-LD`);
     const visible = byQuestion.get(name);
     assert.ok(visible, `${slug}: JSON-LD question missing in HTML: ${name}`);
     assert.equal(text, visible, `${slug}: JSON-LD answer mismatch for ${name}`);
