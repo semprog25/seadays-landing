@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "stage": "content-repair-batch05",
+  "status": "READY_FOR_OWNER_FACTUAL_REVIEW",
+  "owner_publication_authorized": false,
+  "owner_indexing_authorized": false,
+  "owner_factual_hold_cleared": false,
+  "production_apply_permitted": false,
+  "baseline_main": "5da04ec12cb7be9bc82242a1fb421f4d0ddde7ad",
+  "baseline_live_passenger_editorial": 363,
+  "worktree_head_after_restore": "5da04ec12cb7be9bc82242a1fb421f4d0ddde7ad",
+  "production_guides_sha256_preserved": "f388525d9493071d4d326db49880f68afee8fb9b74fb84baee35905b7a14efc5",
+  "ports": [
+    {
+      "landing_slug": "freeport-bahamas",
+      "app_port_id": "freeport",
+      "research_sha256": "b907bbecbd618dc401ab544899c0f7c9053b7e1a1291153989d7ddfbe309135d",
+      "proposed_content_hash": "f8ff3ae8cf6df7b315ea30d739214afc97e9625ef46a6ffe6c9435d6fc156bbb",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/content-repair-batch05/candidate-assets/freeport-bahamas/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/content-repair-batch05/candidate-assets/freeport-bahamas/corrected-draft.json",
+      "research_qa_verdict": "BLOCKED",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "owner_factual_hold_cleared": false,
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "freeport-bahamas"
+      },
+      "full_html_gates_pass": true
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "app_port_id": "ko-samui",
+      "research_sha256": "6c3e039f39c77b559d8b8a311da9ac17f7ec28708e64a94a7346cba428924aff",
+      "proposed_content_hash": "eeb4181ec629b2a9288fa451bbe8884bd05042b4c23896fd08fa03f0c23cabe0",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/content-repair-batch05/candidate-assets/ko-samui-thailand/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/content-repair-batch05/candidate-assets/ko-samui-thailand/corrected-draft.json",
+      "research_qa_verdict": "BLOCKED",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "owner_factual_hold_cleared": false,
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "ko-samui-thailand"
+      },
+      "full_html_gates_pass": true
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "app_port_id": "new-mangalore",
+      "research_sha256": "dd8423f9ede431663f03b75ae944a21953f72068f3052845c06b3697ea0e1c67",
+      "proposed_content_hash": "4264be6e3166b575e90dec3b9a3b3cba4cfcdaa66565505a83941a8778397845",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/content-repair-batch05/candidate-assets/new-mangalore-india/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/content-repair-batch05/candidate-assets/new-mangalore-india/corrected-draft.json",
+      "research_qa_verdict": "BLOCKED",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "owner_factual_hold_cleared": false,
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "new-mangalore-india"
+      },
+      "full_html_gates_pass": true
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "app_port_id": "ko-phuket",
+      "research_sha256": "debb95baed938dfb3b1fe5bfaaa5318851a517714d4d9b12498b3f2532f67b3b",
+      "proposed_content_hash": "84f75c76912b903c33483573f7eea5dd3dffd2d0600eb492b66f06ad620bf91f",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        }
+      ],
+      "proposed_guide_ref": "qa-evidence/content-repair-batch05/candidate-assets/phuket-thailand/proposed-guide.json",
+      "corrected_draft_ref": "qa-evidence/content-repair-batch05/candidate-assets/phuket-thailand/corrected-draft.json",
+      "research_qa_verdict": "BLOCKED",
+      "production_apply_allowed": false,
+      "owner_approval_status": "PENDING",
+      "owner_factual_hold_cleared": false,
+      "full_html_validation": {
+        "ok": true,
+        "issues": [],
+        "slug": "phuket-thailand"
+      },
+      "full_html_gates_pass": true
+    }
+  ],
+  "policy_ref": "qa-evidence/content-repair-batch05/BATCH05_RESEARCH_QA_POLICY.json",
+  "research_qa_verdict_must_remain": "BLOCKED",
+  "created_at_utc": "2026-11-12T13:04:52.865Z",
+  "bundle_idempotency_hash": "75af5231763f293b1249b8b8f4283374a0ebe261dbad538d853c3ecef0142eb5"
+}

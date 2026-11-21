@@ -1,0 +1,85 @@
+{
+  "landing_slug": "freeport-bahamas",
+  "draft": {
+    "landing_slug": "freeport-bahamas",
+    "appPortId": "freeport",
+    "portName": "Freeport",
+    "country": "Bahamas",
+    "portInfo": {
+      "description": "Grand Bahama cruise calls use the Freeport Harbour complex (Hutchison Ports Bahamas FCP and FHC). Operator websites may not list pier dimensions or passenger-door coordinates—confirm your berth and shuttle plan on sailing documents and with the cruise line before you go ashore.",
+      "location": "",
+      "timezone": "EST (UTC-5) / EDT (UTC-4)",
+      "language": "English",
+      "currency": "Bahamian Dollar (BSD), US Dollar accepted",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Confirm whether you berth at Lucayan Harbour / Freeport Harbour cruise facilities—names on daily port programmes differ. These are not interchangeable with Nassau.",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Walking and transfer times depend on which berth or tender point you use. Confirm with terminal staff and your ship before planning independent transport.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Taxis and resort shuttles are common when ships are in port; routes to Port Lucaya or beaches are not guaranteed without a confirmed pier—verify locally.",
+      "distanceAnswer": "Walking and transfer times depend on which berth or tender point you use. Confirm with terminal staff and your ship before planning independent transport."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Port Lucaya / marketplace—only when your call uses confirmed Freeport Harbour landings and transfers.",
+        "Grand Bahama beach time—conditional on berth, weather, and agreed return time.",
+        "Organised snorkel or nature tours—book through the ship or verified operators with a generous all-aboard buffer."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Match the facility name on your sailing documents before booking independent transport."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "b907bbecbd618dc401ab544899c0f7c9053b7e1a1291153989d7ddfbe309135d",
+      "existing_guide_hash": "ffae242b70317a63",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/freeport-bahamas.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell"
+      ],
+      "generated_at_utc": "2026-11-12T13:02:51.950Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    },
+    "passengerSurfaceClear": [
+      "size",
+      "climate",
+      "facts",
+      "hero",
+      "terminals",
+      "reviews",
+      "experiences"
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "batch05-research-qa-repair",
+  "research_qa_verdict": "BLOCKED"
+}

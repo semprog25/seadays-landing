@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source": "final/QA_REPORT.md + final/PORTS_MASTER_INDEX.json (2026-11-06 deliverable)",
+  "ports": [
+    {
+      "landing_slug": "freeport-bahamas",
+      "qa_verdict": "BLOCKED",
+      "blocked_reason": "freeportharbour.com Launching Soon; no Lucayan Harbour berth/passenger table",
+      "stage77_failing_gate": "terminal_or_transit_facts_unverified"
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "qa_verdict": "BLOCKED",
+      "blocked_reason": "TAT 403; harbour/tender mode null",
+      "stage77_failing_gate": "unverified_fields"
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "qa_verdict": "BLOCKED",
+      "blocked_reason": "NMPA no cruise/passenger berth LOA primary",
+      "stage77_failing_gate": "terminal_or_transit_facts_unverified"
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "qa_verdict": "BLOCKED",
+      "blocked_reason": "Deep Sea Port/TAT TLS/403; no berth table",
+      "stage77_failing_gate": "unverified_fields"
+    }
+  ]
+}

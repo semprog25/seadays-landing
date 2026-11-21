@@ -1,0 +1,524 @@
+{
+  "schema_version": 1,
+  "stage": "content-repair-batch05-research-qa",
+  "validated_at_utc": "2026-11-13T04:25:16.102Z",
+  "index_source": "/Users/sharanestone/Downloads/seadays-ports-deliverables-2026-11-06/final/PORTS_MASTER_INDEX.json",
+  "by_port_root": "/Users/sharanestone/Downloads/seadays-ports-deliverables-2026-11-06",
+  "authoritative_rule": "qa_verdict PASS only when official cruise/tender terminal source binding OR readable berth LOA primary; index row not edited manually",
+  "pass_count": 0,
+  "blocked_count": 4,
+  "ports": [
+    {
+      "landing_slug": "freeport-bahamas",
+      "app_port_id": "freeport",
+      "qa_verdict": "BLOCKED",
+      "gates": [
+        {
+          "gate": "index_baseline_verdict",
+          "ok": true,
+          "value": "BLOCKED",
+          "blocked_reason": "freeportharbour.com Launching Soon; no Lucayan Harbour berth/passenger table"
+        },
+        {
+          "gate": "yaml_parse",
+          "ok": true
+        },
+        {
+          "gate": "research_sha_match_index",
+          "ok": true,
+          "expected": "38ed434c191fe4b0ce65eb121acc4f9c5513e14b2e708536caeb73563d64b028",
+          "actual": "38ed434c191fe4b0ce65eb121acc4f9c5513e14b2e708536caeb73563d64b028"
+        },
+        {
+          "gate": "official_cruise_terminal_binding",
+          "ok": false,
+          "named_official_terminals": 0,
+          "detail": []
+        },
+        {
+          "gate": "readable_berth_loa_primary",
+          "ok": false
+        },
+        {
+          "gate": "consequential_terminal_evidence",
+          "ok": false
+        },
+        {
+          "gate": "targeted_source_verification",
+          "ok": false,
+          "probe": {
+            "consequential_claim_supported": false,
+            "confidence": "high",
+            "url": "https://www.hutchisonports.com/media/d/Hutchison+Ports+Brochure_Mar+2026.pdf"
+          }
+        }
+      ],
+      "failures": [
+        "no_official_cruise_terminal_source_binding",
+        "missing_readable_berth_loa_primary",
+        "terminal_or_transit_facts_unverified",
+        "owner_index_blocked_reason_unresolved"
+      ],
+      "index_blocked_reason": "freeportharbour.com Launching Soon; no Lucayan Harbour berth/passenger table",
+      "index_baseline_verdict": "BLOCKED",
+      "recomputed_verdict": "BLOCKED",
+      "verdict_aligned_with_index": true,
+      "research_sha256": "38ed434c191fe4b0ce65eb121acc4f9c5513e14b2e708536caeb73563d64b028",
+      "deliverable_baseline": {
+        "landing_slug": "freeport-bahamas",
+        "qa_verdict": "BLOCKED",
+        "gates": [
+          {
+            "gate": "index_baseline_verdict",
+            "ok": true,
+            "value": "BLOCKED",
+            "blocked_reason": "freeportharbour.com Launching Soon; no Lucayan Harbour berth/passenger table"
+          },
+          {
+            "gate": "yaml_parse",
+            "ok": false,
+            "error": "Missing , or : between flow sequence items at line 49, column 39:\n\nunverified_fields: [port_id, terminals[0].latitude, facility_name, loa, related…\n                                      ^\n"
+          },
+          {
+            "gate": "research_sha_match_index",
+            "ok": true,
+            "expected": "b907bbecbd618dc401ab544899c0f7c9053b7e1a1291153989d7ddfbe309135d",
+            "actual": "b907bbecbd618dc401ab544899c0f7c9053b7e1a1291153989d7ddfbe309135d"
+          },
+          {
+            "gate": "official_cruise_terminal_binding",
+            "ok": false,
+            "named_official_terminals": 0,
+            "detail": []
+          },
+          {
+            "gate": "readable_berth_loa_primary",
+            "ok": false
+          },
+          {
+            "gate": "consequential_terminal_evidence",
+            "ok": false
+          },
+          {
+            "gate": "targeted_source_verification",
+            "ok": false,
+            "probe": {
+              "consequential_claim_supported": false,
+              "confidence": "high",
+              "url": "https://www.hutchisonports.com/media/d/Hutchison+Ports+Brochure_Mar+2026.pdf"
+            }
+          }
+        ],
+        "failures": [
+          "yaml_parse_error",
+          "no_official_cruise_terminal_source_binding",
+          "missing_readable_berth_loa_primary",
+          "terminal_or_transit_facts_unverified",
+          "owner_index_blocked_reason_unresolved"
+        ],
+        "index_blocked_reason": "freeportharbour.com Launching Soon; no Lucayan Harbour berth/passenger table",
+        "index_baseline_verdict": "BLOCKED",
+        "recomputed_verdict": "BLOCKED",
+        "verdict_aligned_with_index": true,
+        "research_sha256": "b907bbecbd618dc401ab544899c0f7c9053b7e1a1291153989d7ddfbe309135d"
+      },
+      "source_verification": {
+        "landing_slug": "freeport-bahamas",
+        "url": "https://www.hutchisonports.com/media/d/Hutchison+Ports+Brochure_Mar+2026.pdf",
+        "http_status": "not_reprobed",
+        "finding": "Existing approved source S3 in deliverable; names Hutchison Ports Bahamas (FCP & FHC) but not berth LOA table.",
+        "confidence": "high",
+        "consequential_claim_supported": false
+      },
+      "research_repair_overlay": {
+        "path": "qa-evidence/content-repair-batch05/research-repairs/by-port/freeport-bahamas.md"
+      },
+      "mechanical_note": "deliverable unverified_fields flow-seq brackets require quoted strings; overlay fixes YAML for validation"
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "app_port_id": "ko-samui",
+      "qa_verdict": "BLOCKED",
+      "gates": [
+        {
+          "gate": "index_baseline_verdict",
+          "ok": true,
+          "value": "BLOCKED",
+          "blocked_reason": "TAT 403; harbour/tender mode null"
+        },
+        {
+          "gate": "yaml_parse",
+          "ok": true
+        },
+        {
+          "gate": "research_sha_match_index",
+          "ok": true,
+          "expected": "4b16b288545786758edaca64c3875d64b78c00e63a609826245c735a8b36273e",
+          "actual": "4b16b288545786758edaca64c3875d64b78c00e63a609826245c735a8b36273e"
+        },
+        {
+          "gate": "official_cruise_terminal_binding",
+          "ok": false,
+          "named_official_terminals": 0,
+          "detail": [
+            "terminal_port_area_without_official_source"
+          ]
+        },
+        {
+          "gate": "readable_berth_loa_primary",
+          "ok": false
+        },
+        {
+          "gate": "consequential_terminal_evidence",
+          "ok": false
+        },
+        {
+          "gate": "targeted_source_verification",
+          "ok": false,
+          "probe": {
+            "consequential_claim_supported": false,
+            "confidence": "high",
+            "url": "https://www.tourismthailand.org/destinations/provinces/koh-samui/38"
+          }
+        }
+      ],
+      "failures": [
+        "no_official_cruise_terminal_source_binding",
+        "missing_readable_berth_loa_primary",
+        "terminal_or_transit_facts_unverified",
+        "owner_index_blocked_reason_unresolved"
+      ],
+      "index_blocked_reason": "TAT 403; harbour/tender mode null",
+      "index_baseline_verdict": "BLOCKED",
+      "recomputed_verdict": "BLOCKED",
+      "verdict_aligned_with_index": true,
+      "research_sha256": "4b16b288545786758edaca64c3875d64b78c00e63a609826245c735a8b36273e",
+      "deliverable_baseline": {
+        "landing_slug": "ko-samui-thailand",
+        "qa_verdict": "BLOCKED",
+        "gates": [
+          {
+            "gate": "index_baseline_verdict",
+            "ok": true,
+            "value": "BLOCKED",
+            "blocked_reason": "TAT 403; harbour/tender mode null"
+          },
+          {
+            "gate": "yaml_parse",
+            "ok": false,
+            "error": "Missing , or : between flow sequence items at line 49, column 39:\n\nunverified_fields: [port_id, terminals[0].latitude, facility_name, loa, related…\n                                      ^\n"
+          },
+          {
+            "gate": "research_sha_match_index",
+            "ok": true,
+            "expected": "6c3e039f39c77b559d8b8a311da9ac17f7ec28708e64a94a7346cba428924aff",
+            "actual": "6c3e039f39c77b559d8b8a311da9ac17f7ec28708e64a94a7346cba428924aff"
+          },
+          {
+            "gate": "official_cruise_terminal_binding",
+            "ok": false,
+            "named_official_terminals": 0,
+            "detail": []
+          },
+          {
+            "gate": "readable_berth_loa_primary",
+            "ok": false
+          },
+          {
+            "gate": "consequential_terminal_evidence",
+            "ok": false
+          },
+          {
+            "gate": "targeted_source_verification",
+            "ok": false,
+            "probe": {
+              "consequential_claim_supported": false,
+              "confidence": "high",
+              "url": "https://www.tourismthailand.org/destinations/provinces/koh-samui/38"
+            }
+          }
+        ],
+        "failures": [
+          "yaml_parse_error",
+          "no_official_cruise_terminal_source_binding",
+          "missing_readable_berth_loa_primary",
+          "terminal_or_transit_facts_unverified",
+          "owner_index_blocked_reason_unresolved"
+        ],
+        "index_blocked_reason": "TAT 403; harbour/tender mode null",
+        "index_baseline_verdict": "BLOCKED",
+        "recomputed_verdict": "BLOCKED",
+        "verdict_aligned_with_index": true,
+        "research_sha256": "6c3e039f39c77b559d8b8a311da9ac17f7ec28708e64a94a7346cba428924aff"
+      },
+      "source_verification": {
+        "landing_slug": "ko-samui-thailand",
+        "url": "https://www.tourismthailand.org/destinations/provinces/koh-samui/38",
+        "http_status": "challenge",
+        "finding": "Cloudflare challenge page; facility/tender mode still unread.",
+        "confidence": "high",
+        "consequential_claim_supported": false
+      },
+      "research_repair_overlay": {
+        "path": "qa-evidence/content-repair-batch05/research-repairs/by-port/ko-samui-thailand.md"
+      },
+      "mechanical_note": "deliverable unverified_fields flow-seq brackets require quoted strings; overlay fixes YAML for validation"
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "app_port_id": "new-mangalore",
+      "qa_verdict": "BLOCKED",
+      "gates": [
+        {
+          "gate": "index_baseline_verdict",
+          "ok": true,
+          "value": "BLOCKED",
+          "blocked_reason": "NMPA no cruise/passenger berth LOA primary"
+        },
+        {
+          "gate": "yaml_parse",
+          "ok": true
+        },
+        {
+          "gate": "research_sha_match_index",
+          "ok": true,
+          "expected": "ae02a8cf49cb67849e231439ba56ff04d0e87d73149003a6b89503e20192e6cf",
+          "actual": "ae02a8cf49cb67849e231439ba56ff04d0e87d73149003a6b89503e20192e6cf"
+        },
+        {
+          "gate": "official_cruise_terminal_binding",
+          "ok": false,
+          "named_official_terminals": 0,
+          "detail": []
+        },
+        {
+          "gate": "readable_berth_loa_primary",
+          "ok": false
+        },
+        {
+          "gate": "consequential_terminal_evidence",
+          "ok": false
+        },
+        {
+          "gate": "targeted_source_verification",
+          "ok": false,
+          "probe": {
+            "consequential_claim_supported": false,
+            "confidence": "high",
+            "url": "https://newmangaloreport.gov.in/cruise-port"
+          }
+        }
+      ],
+      "failures": [
+        "no_official_cruise_terminal_source_binding",
+        "missing_readable_berth_loa_primary",
+        "terminal_or_transit_facts_unverified",
+        "owner_index_blocked_reason_unresolved"
+      ],
+      "index_blocked_reason": "NMPA no cruise/passenger berth LOA primary",
+      "index_baseline_verdict": "BLOCKED",
+      "recomputed_verdict": "BLOCKED",
+      "verdict_aligned_with_index": true,
+      "research_sha256": "ae02a8cf49cb67849e231439ba56ff04d0e87d73149003a6b89503e20192e6cf",
+      "deliverable_baseline": {
+        "landing_slug": "new-mangalore-india",
+        "qa_verdict": "BLOCKED",
+        "gates": [
+          {
+            "gate": "index_baseline_verdict",
+            "ok": true,
+            "value": "BLOCKED",
+            "blocked_reason": "NMPA no cruise/passenger berth LOA primary"
+          },
+          {
+            "gate": "yaml_parse",
+            "ok": false,
+            "error": "Missing , or : between flow sequence items at line 49, column 39:\n\nunverified_fields: [port_id, terminals[0].latitude, loa, related_port_ids]\n                                      ^\n"
+          },
+          {
+            "gate": "research_sha_match_index",
+            "ok": true,
+            "expected": "dd8423f9ede431663f03b75ae944a21953f72068f3052845c06b3697ea0e1c67",
+            "actual": "dd8423f9ede431663f03b75ae944a21953f72068f3052845c06b3697ea0e1c67"
+          },
+          {
+            "gate": "official_cruise_terminal_binding",
+            "ok": false,
+            "named_official_terminals": 0,
+            "detail": []
+          },
+          {
+            "gate": "readable_berth_loa_primary",
+            "ok": false
+          },
+          {
+            "gate": "consequential_terminal_evidence",
+            "ok": false
+          },
+          {
+            "gate": "targeted_source_verification",
+            "ok": false,
+            "probe": {
+              "consequential_claim_supported": false,
+              "confidence": "high",
+              "url": "https://newmangaloreport.gov.in/cruise-port"
+            }
+          }
+        ],
+        "failures": [
+          "yaml_parse_error",
+          "no_official_cruise_terminal_source_binding",
+          "missing_readable_berth_loa_primary",
+          "terminal_or_transit_facts_unverified",
+          "owner_index_blocked_reason_unresolved"
+        ],
+        "index_blocked_reason": "NMPA no cruise/passenger berth LOA primary",
+        "index_baseline_verdict": "BLOCKED",
+        "recomputed_verdict": "BLOCKED",
+        "verdict_aligned_with_index": true,
+        "research_sha256": "dd8423f9ede431663f03b75ae944a21953f72068f3052845c06b3697ea0e1c67"
+      },
+      "source_verification": {
+        "landing_slug": "new-mangalore-india",
+        "url": "https://newmangaloreport.gov.in/cruise-port",
+        "http_status": "200",
+        "finding": "Official NMPA Cruise Port section reachable; captured HTML has no named cruise berth LOA/depth table.",
+        "confidence": "high",
+        "consequential_claim_supported": false
+      },
+      "research_repair_overlay": {
+        "path": "qa-evidence/content-repair-batch05/research-repairs/by-port/new-mangalore-india.md"
+      },
+      "mechanical_note": "deliverable unverified_fields flow-seq brackets require quoted strings; overlay fixes YAML for validation"
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "app_port_id": "ko-phuket",
+      "qa_verdict": "BLOCKED",
+      "gates": [
+        {
+          "gate": "index_baseline_verdict",
+          "ok": true,
+          "value": "BLOCKED",
+          "blocked_reason": "Deep Sea Port/TAT TLS/403; no berth table"
+        },
+        {
+          "gate": "yaml_parse",
+          "ok": true
+        },
+        {
+          "gate": "research_sha_match_index",
+          "ok": true,
+          "expected": "8de5219d2feea9d2fde01f67451aa56e719c6bf738650b0c9e67458147303726",
+          "actual": "8de5219d2feea9d2fde01f67451aa56e719c6bf738650b0c9e67458147303726"
+        },
+        {
+          "gate": "official_cruise_terminal_binding",
+          "ok": false,
+          "named_official_terminals": 0,
+          "detail": [
+            "terminal_port_area_without_official_source"
+          ]
+        },
+        {
+          "gate": "readable_berth_loa_primary",
+          "ok": false
+        },
+        {
+          "gate": "consequential_terminal_evidence",
+          "ok": false
+        },
+        {
+          "gate": "targeted_source_verification",
+          "ok": false,
+          "probe": {
+            "consequential_claim_supported": false,
+            "confidence": "high",
+            "url": "https://www.phatuketdeepseaport.com/"
+          }
+        }
+      ],
+      "failures": [
+        "no_official_cruise_terminal_source_binding",
+        "missing_readable_berth_loa_primary",
+        "terminal_or_transit_facts_unverified",
+        "owner_index_blocked_reason_unresolved"
+      ],
+      "index_blocked_reason": "Deep Sea Port/TAT TLS/403; no berth table",
+      "index_baseline_verdict": "BLOCKED",
+      "recomputed_verdict": "BLOCKED",
+      "verdict_aligned_with_index": true,
+      "research_sha256": "8de5219d2feea9d2fde01f67451aa56e719c6bf738650b0c9e67458147303726",
+      "deliverable_baseline": {
+        "landing_slug": "phuket-thailand",
+        "qa_verdict": "BLOCKED",
+        "gates": [
+          {
+            "gate": "index_baseline_verdict",
+            "ok": true,
+            "value": "BLOCKED",
+            "blocked_reason": "Deep Sea Port/TAT TLS/403; no berth table"
+          },
+          {
+            "gate": "yaml_parse",
+            "ok": false,
+            "error": "Missing , or : between flow sequence items at line 49, column 39:\n\nunverified_fields: [port_id, terminals[0].latitude, loa, related_port_ids]\n                                      ^\n"
+          },
+          {
+            "gate": "research_sha_match_index",
+            "ok": true,
+            "expected": "debb95baed938dfb3b1fe5bfaaa5318851a517714d4d9b12498b3f2532f67b3b",
+            "actual": "debb95baed938dfb3b1fe5bfaaa5318851a517714d4d9b12498b3f2532f67b3b"
+          },
+          {
+            "gate": "official_cruise_terminal_binding",
+            "ok": false,
+            "named_official_terminals": 0,
+            "detail": []
+          },
+          {
+            "gate": "readable_berth_loa_primary",
+            "ok": false
+          },
+          {
+            "gate": "consequential_terminal_evidence",
+            "ok": false
+          },
+          {
+            "gate": "targeted_source_verification",
+            "ok": false,
+            "probe": {
+              "consequential_claim_supported": false,
+              "confidence": "high",
+              "url": "https://www.phatuketdeepseaport.com/"
+            }
+          }
+        ],
+        "failures": [
+          "yaml_parse_error",
+          "no_official_cruise_terminal_source_binding",
+          "missing_readable_berth_loa_primary",
+          "terminal_or_transit_facts_unverified",
+          "owner_index_blocked_reason_unresolved"
+        ],
+        "index_blocked_reason": "Deep Sea Port/TAT TLS/403; no berth table",
+        "index_baseline_verdict": "BLOCKED",
+        "recomputed_verdict": "BLOCKED",
+        "verdict_aligned_with_index": true,
+        "research_sha256": "debb95baed938dfb3b1fe5bfaaa5318851a517714d4d9b12498b3f2532f67b3b"
+      },
+      "source_verification": {
+        "landing_slug": "phuket-thailand",
+        "url": "https://www.phatuketdeepseaport.com/",
+        "http_status": "dns_fail",
+        "finding": "Deep Sea Port host from research still not resolving; no substitute berth table captured.",
+        "confidence": "high",
+        "consequential_claim_supported": false
+      },
+      "research_repair_overlay": {
+        "path": "qa-evidence/content-repair-batch05/research-repairs/by-port/phuket-thailand.md"
+      },
+      "mechanical_note": "deliverable unverified_fields flow-seq brackets require quoted strings; overlay fixes YAML for validation"
+    }
+  ]
+}

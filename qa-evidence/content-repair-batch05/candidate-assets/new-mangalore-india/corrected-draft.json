@@ -1,0 +1,82 @@
+{
+  "landing_slug": "new-mangalore-india",
+  "draft": {
+    "landing_slug": "new-mangalore-india",
+    "appPortId": "new-mangalore",
+    "portName": "New Mangalore",
+    "country": "India",
+    "portInfo": {
+      "description": "A major port in Karnataka, India, serving the city of Mangalore and the surrounding region.",
+      "location": "",
+      "timezone": "IST (UTC+5:30)",
+      "language": "Kannada, English",
+      "currency": "Indian Rupee (INR)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "New Mangalore, India cruise landing",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Confirm with ship — minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Confirm with ship — minutes unverified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Mangaluru / temple belt (transfer) — with transfer as needed.",
+        "Ship excursion — safest timing.",
+        "Local centre — hours not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Industrial port setting — expect coaches for beaches/temples."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "dd8423f9ede431663f03b75ae944a21953f72068f3052845c06b3697ea0e1c67",
+      "existing_guide_hash": "7c452919da6636b8",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/new-mangalore-india.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "dropped_research_description"
+      ],
+      "generated_at_utc": "2026-11-12T13:03:30.008Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    },
+    "passengerSurfaceClear": [
+      "size",
+      "climate",
+      "facts"
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "batch05-research-qa-repair",
+  "research_qa_verdict": "BLOCKED"
+}

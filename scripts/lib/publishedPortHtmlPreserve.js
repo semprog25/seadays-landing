@@ -172,6 +172,7 @@ function passengerEditorialBodyScore(html) {
 function shouldPreservePassengerEditorialBody(generatedHtml, existingHtml, portGuide) {
   if (
     portGuide?.researchImport?.batch04_preparation_only === true ||
+    portGuide?.researchImport?.batch05_preparation_only === true ||
     portGuide?.researchImport?.batch03_kirkenes_ocho_conditional_candidate === true
   ) {
     return false;

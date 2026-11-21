@@ -1,0 +1,83 @@
+{
+  "landing_slug": "phuket-thailand",
+  "draft": {
+    "landing_slug": "phuket-thailand",
+    "appPortId": "ko-phuket",
+    "portName": "Phuket",
+    "country": "Thailand",
+    "portInfo": {
+      "description": "Phuket is a cruise call—confirm your berth on the daily programme before you plan the day.",
+      "location": "",
+      "timezone": "ICT (UTC+7)",
+      "language": "Thai",
+      "currency": "Thai Baht (THB)",
+      "population": ""
+    },
+    "gettingThere": {
+      "fromTerminal": "Phuket, Thailand cruise landing",
+      "transportation": [
+        "Walking",
+        "Taxi",
+        "Coach excursion"
+      ],
+      "distanceToCity": "Confirm with ship — minutes unverified.",
+      "walkingTime": "",
+      "taxiInfo": "",
+      "publicTransport": "Confirm local transport options with the ship on your call date.",
+      "distanceAnswer": "Confirm with ship — minutes unverified."
+    },
+    "thingsToDo": {
+      "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+      "topThings": [
+        "Patong / Old Town (transfer) — with transfer as needed.",
+        "Ship excursion — safest timing.",
+        "Local centre — hours not verified."
+      ],
+      "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+      "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+      "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+      "practicalTip": "Ask tender vs Deep Sea Port — changes the entire day."
+    },
+    "shorePlansFirst": true,
+    "researchImport": {
+      "schema_version": 1,
+      "prompt_version": "stage22-deterministic-v2.5-marker-strip",
+      "draft_status": "draft",
+      "publication_tier": "passenger_editorial_draft",
+      "research_sha256": "debb95baed938dfb3b1fe5bfaaa5318851a517714d4d9b12498b3f2532f67b3b",
+      "existing_guide_hash": "a6e287e9053c6de7",
+      "source_provenance": [
+        "research_markdown",
+        "by-port/phuket-thailand.md"
+      ],
+      "unresolved_claims": [
+        "truncated_table_cell",
+        "dropped_research_description",
+        "synthetic_minimal_overview"
+      ],
+      "generated_at_utc": "2026-11-12T13:03:47.529Z",
+      "cache_key": null,
+      "recovery_mode": "stage62-targeted-editorial"
+    },
+    "passengerSurfaceClear": [
+      "size",
+      "climate",
+      "facts"
+    ]
+  },
+  "validation": {
+    "ok": true,
+    "failures": [],
+    "warnings": [],
+    "factual": {
+      "flags": [],
+      "factually_verified": false,
+      "schema_pass_alone_is_insufficient": true
+    },
+    "editorial_passenger_ready": true,
+    "factually_verified": false
+  },
+  "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+  "recovery_mode": "batch05-research-qa-repair",
+  "research_qa_verdict": "BLOCKED"
+}

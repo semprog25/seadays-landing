@@ -1,0 +1,65 @@
+{
+  "appPortId": "ko-samui",
+  "portName": "Ko Samui",
+  "country": "Thailand",
+  "portInfo": {
+    "description": "A Thai island port destination with beautiful beaches, luxury resorts, and tropical attractions.",
+    "location": "",
+    "timezone": "ICT (UTC+7)",
+    "language": "Thai",
+    "currency": "Thai Baht (THB)",
+    "population": ""
+  },
+  "politics": {
+    "governmentType": "Constitutional monarchy",
+    "stability": "Stable",
+    "visaRequirements": "Visa-free for many nationalities (30 days). Visa on arrival available for some (15-30 days).",
+    "entryRequirements": "Valid passport with at least 6 months validity. Return ticket may be required."
+  },
+  "gettingThere": {
+    "fromTerminal": "Unverified Samui landing",
+    "transportation": [
+      "Walking",
+      "Taxi",
+      "Coach excursion"
+    ],
+    "distanceToCity": "Songthaew/taxi after landing — minutes unverified.",
+    "publicTransport": "Confirm local transport options with the ship on your call date.",
+    "distanceAnswer": "Songthaew/taxi after landing — minutes unverified."
+  },
+  "thingsToDo": {
+    "intro": "Pick one neighbourhood or excursion scale and keep time for the gangway queue on the way back.",
+    "topThings": [
+      "Beach (Chaweng/Lamai) — with transfer.",
+      "Big Buddha / viewpoints — coach.",
+      "Ship beach club — if offered."
+    ],
+    "shortCall": "Stay near the port area and keep a generous buffer before all-aboard.",
+    "standardCall": "Combine a central walk, one attraction, and lunch if times allow—start back well before all-aboard.",
+    "longerCall": "A second stop or coach outing is realistic only with confirmed transport and an eight-hour or longer window.",
+    "practicalTip": "Tender queues eat clock — leave early for independent taxis."
+  },
+  "shorePlansFirst": true,
+  "researchImport": {
+    "schema_version": 1,
+    "publication_tier": "passenger_editorial_candidate",
+    "stage24_release_candidate": true,
+    "draft_version": "stage22-deterministic-v2.5-marker-strip",
+    "research_sha256": "6c3e039f39c77b559d8b8a311da9ac17f7ec28708e64a94a7346cba428924aff",
+    "landing_slug": "ko-samui-thailand",
+    "candidate_content_hash": "da626f706c7e8f9fa417482d329a5039821e6f0cc6ab6a371123a0eef7a4d3df",
+    "locked_at_utc": "2026-11-12T13:03:15.728Z",
+    "field_exclusions": [],
+    "owner_approved": false,
+    "import_tier": "stage24_dry_run_only",
+    "content_repair_batch05": true,
+    "batch05_preparation_only": true,
+    "research_qa_verdict": "BLOCKED",
+    "owner_publication_authorized": false,
+    "owner_indexing_authorized": false,
+    "owner_factual_hold_cleared": false,
+    "not_publication_authorization": true,
+    "conditional_policy_clearance_ref": "qa-evidence/content-repair-batch05/BATCH05_RESEARCH_QA_POLICY.json",
+    "baseline_main": "5da04ec12cb7be9bc82242a1fb421f4d0ddde7ad"
+  }
+}
