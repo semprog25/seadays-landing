@@ -1,0 +1,2083 @@
+{
+  "generated_at": "2026-11-09T11:35:04.876Z",
+  "ports": [
+    {
+      "landing_slug": "alesund-norway",
+      "app_port_id": "alesund",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "curacao-willemstad-curacao",
+      "app_port_id": "willemstad",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "eleuthera-bahamas",
+      "app_port_id": "eleuthera",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "geiranger-norway",
+      "app_port_id": "geiranger",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "george-town-cayman-islands",
+      "app_port_id": "george-town",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "oslo-norway",
+      "app_port_id": "oslo",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_FACT_CHECK"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "roatan-honduras",
+      "app_port_id": "roatan",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "st-croix-frederiksted-us-virgin-islands",
+      "app_port_id": "frederiksted",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_FACT_CHECK"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "st-kitts-basseterre-st-kitts",
+      "app_port_id": "basseterre",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "acapulco-mexico",
+      "app_port_id": "acapulco",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "adelaide-australia",
+      "app_port_id": "adelaide",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "andalsnes-norway",
+      "app_port_id": "andalsnes",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "angra-do-heroismo-azores-portugal",
+      "app_port_id": "angra-do-heroismo",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "bar-harbor-me-united-states",
+      "app_port_id": "bar-harbor",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "cabo-san-lucas-mexico",
+      "app_port_id": "cabo-san-lucas",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "cape-liberty-bayonne-nj-united-states",
+      "app_port_id": "bayonne",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "dunedin-new-zealand",
+      "app_port_id": "dunedin",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "great-stirrup-cay-bahamas",
+      "app_port_id": "great-stirrup-cay",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "half-moon-cay-bahamas",
+      "app_port_id": "half-moon-cay",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "hurghada-egypt",
+      "app_port_id": "hurghada",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "jeddah-islamic-port-saudi-arabia",
+      "app_port_id": "jeddah-islamic-port",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "jeddah-saudi-arabia",
+      "app_port_id": "jeddah",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "kefalonia-greece",
+      "app_port_id": "kefalonia",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": false,
+          "issues": [
+            "unexpected_terminal_map"
+          ]
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "las-palmas-spain",
+      "app_port_id": "las-palmas",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "manama-bahrain",
+      "app_port_id": "manama",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "mina-salman-manama-bahrain",
+      "app_port_id": "mina-salman",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "new-york-ny-united-states",
+      "app_port_id": "new-york",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_FACT_CHECK"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "nordkapp-norway",
+      "app_port_id": "nordkapp",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "ocean-cay-msc-reserve-bahamas",
+      "app_port_id": "ocean-cay",
+      "owner_bucket": "NEEDS_FACT_CHECK",
+      "publication_gates_pass": false,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_FACT_CHECK"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "perth-australia",
+      "app_port_id": "perth",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "ras-al-khaimah-united-arab-emirates",
+      "app_port_id": "ras-al-khaimah",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "reine-norway",
+      "app_port_id": "reine",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "rugen-germany",
+      "app_port_id": "rugen",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "sao-paulo-santos-brazil",
+      "app_port_id": "santos",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "sassnitz-mukran-germany",
+      "app_port_id": "sassnitz",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "seattle-wa-united-states",
+      "app_port_id": "seattle",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "stralsund-germany",
+      "app_port_id": "stralsund",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "suez-egypt",
+      "app_port_id": "suez",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "svolv-r-norway",
+      "app_port_id": "svolvaer",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "swinoujscie-poland",
+      "app_port_id": "swinoujscie",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "tel-aviv-israel",
+      "app_port_id": "tel-aviv",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "valparaiso-chile",
+      "app_port_id": "valparaiso",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "vancouver-bc-canada",
+      "app_port_id": "vancouver",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "waterford-ireland",
+      "app_port_id": "waterford",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "wilhelmshaven-germany",
+      "app_port_id": "wilhelmshaven",
+      "owner_bucket": "NEEDS_EDITORIAL_FIX",
+      "publication_gates_pass": false,
+      "validation_failures": [
+        "schema_top_things_1",
+        "passenger_top_things_1_of_3",
+        "factual_insufficient_attractions_1"
+      ],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": false,
+          "failures": [
+            "schema_top_things_1",
+            "passenger_top_things_1_of_3",
+            "factual_insufficient_attractions_1"
+          ]
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": false,
+          "owner_bucket": "NEEDS_EDITORIAL_FIX"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "wismar-germany",
+      "app_port_id": "wismar",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "landing_slug": "yanbu-saudi-arabia",
+      "app_port_id": "yanbu",
+      "owner_bucket": "READY_FOR_OWNER_APPROVAL",
+      "publication_gates_pass": true,
+      "validation_failures": [],
+      "factual_flags": [],
+      "call_plan_cards": 10,
+      "gates": [
+        {
+          "gate": "editorial_draft_validation",
+          "ok": true,
+          "failures": []
+        },
+        {
+          "gate": "owner_bucket_ready",
+          "ok": true,
+          "owner_bucket": "READY_FOR_OWNER_APPROVAL"
+        },
+        {
+          "gate": "html_preview_validation",
+          "ok": true,
+          "issues": []
+        },
+        {
+          "gate": "call_plan_cards",
+          "ok": true,
+          "count": 10
+        },
+        {
+          "gate": "passenger_leak_scan",
+          "ok": true
+        },
+        {
+          "gate": "factual_exclude",
+          "ok": true,
+          "reason": null
+        },
+        {
+          "gate": "identifier_confidence_not_unresolved",
+          "ok": true
+        }
+      ]
+    }
+  ]
+}
