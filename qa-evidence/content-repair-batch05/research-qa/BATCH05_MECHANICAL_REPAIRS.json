@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "repairs": [
+    {
+      "landing_slug": "freeport-bahamas",
+      "type": "yaml_unverified_fields_quoting",
+      "detail": "Quoted unverified_fields list keys so strict YAML parse succeeds (deliverable flow-seq typo)."
+    },
+    {
+      "landing_slug": "ko-samui-thailand",
+      "type": "yaml_unverified_fields_quoting",
+      "detail": "Quoted unverified_fields list keys for YAML parse gate."
+    },
+    {
+      "landing_slug": "phuket-thailand",
+      "type": "yaml_unverified_fields_quoting",
+      "detail": "Quoted unverified_fields list keys for YAML parse gate."
+    },
+    {
+      "landing_slug": "new-mangalore-india",
+      "type": "source_provenance_and_yaml",
+      "detail": "S1 NMPA cruise-port URL + terminal source binding; quoted unverified_fields; berth LOA still absent."
+    }
+  ]
+}
