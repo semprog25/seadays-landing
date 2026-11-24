@@ -103,4 +103,14 @@ assert.strictEqual(
   'landing_slug respects country guard vs catalogue port'
 );
 
+const tokyoYokohamaSeo = [
+  { slug: 'tokyo-yokohama-japan', name: 'Tokyo (Yokohama), Japan', country: 'Japan' },
+];
+const tokyoMap = buildSlugToAppPortIdMap(tokyoYokohamaSeo, null, live.byAppPortId);
+assert.strictEqual(
+  tokyoMap['tokyo-yokohama-japan'],
+  'yokohama',
+  'tokyo-yokohama-japan must bind passenger editorial yokohama guide, not stub tokyo token'
+);
+
 console.log('test-landing-slug-slug-map: PASS');
