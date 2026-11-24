@@ -122,8 +122,29 @@ function faqResearchSentence(sentence) {
     /\bminutes unverified\b/i.test(s) ||
     /\bper VIPA\b/i.test(s) ||
     /\bper VPCC\b/i.test(s) ||
-    /\bunverified\b/i.test(s)
+    /\bunverified\b/i.test(s) ||
+    /\bnot verified\b/i.test(s)
   );
+}
+
+/** Drops research QA shorthand such as "hours Not verified" without inventing replacement facts. */
+function stripResearchNotVerifiedShorthand(text) {
+  let s = String(text || '');
+  if (!/\bnot verified\b/i.test(s) && !/\bunverified\b/i.test(s)) return s;
+  s = s.replace(/\bNot verified until[^.!?…]+[.!?…]?/gi, '');
+  s = s.replace(/—\s*[^—]{0,80}?\s+Not verified\.?/gi, '—');
+  s = s.replace(/;\s*[^;]{0,160}?\s+Not verified\.?/gi, '');
+  s = s.replace(/,\s*[^,]{0,100}?\s+Not verified\.?/gi, '');
+  s = s.replace(/\b(?:Timed\s+)?taxi fares Not verified\.?/gi, '');
+  s = s.replace(
+    /\b(?:hours?|transfer|fares?|ticket|street address|road times?|parking)\s+Not verified\.?/gi,
+    ''
+  );
+  s = s.replace(/\bTimed taxi\.?\s*/gi, '');
+  s = s.replace(/\([^)]*\b(?:Not verified|unverified)[^)]*\)/gi, '');
+  s = s.replace(/\bNot verified\.?(?=\s|$|[.;])/gi, '');
+  s = s.replace(/\s+—\s*(?=[.;]|$)/g, '');
+  return s.replace(/\s+/g, ' ').replace(/([.;])\s*\1+/g, '$1').replace(/;\s*([.;])/g, '$1').trim();
 }
 
 /** FAQ-only polish: drop research-note phrasing; does not alter non-FAQ passenger blocks. */
@@ -160,7 +181,7 @@ function prepareFaqPassengerText(text) {
 }
 
 function preparePassengerGuideText(text, opts = {}) {
-  let raw = stripWikiCitationMarkers(stripMarkdownEmphasis(text));
+  let raw = stripResearchNotVerifiedShorthand(stripWikiCitationMarkers(stripMarkdownEmphasis(text)));
   if (!raw) return '';
   if (containsInternalResearchLeak(raw)) {
     if (opts.strict) throw new Error(`Blocked internal research copy: ${raw.slice(0, 80)}…`);
@@ -228,6 +249,7 @@ function assertPassengerReadyGuideFields(guide, portId) {
 
 module.exports = {
   stripMarkdownEmphasis,
+  stripResearchNotVerifiedShorthand,
   containsInternalResearchLeak,
   collectGuidePassengerLeakBlob,
   isResearchItineraryCopy,

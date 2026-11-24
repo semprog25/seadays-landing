@@ -9,6 +9,7 @@ const REPO = path.join(__dirname, '..');
 const PORTS_DIR = path.join(REPO, 'ports');
 
 const EXTRA_SURFACE_PATTERNS = [
+  /\bNot verified\b/i,
   /\bDoor[- ]?GPS\b/i,
   /\bdoor-threshold\b/i,
   /\bWGS\s*84\b/i,

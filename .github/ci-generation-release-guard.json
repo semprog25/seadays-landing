@@ -1,14 +1,13 @@
 {
-  "profile": "st-faq-six-port-release",
+  "profile": "port-content-quality-pilot-release",
   "exactPaths": [
     ".github/ci-generation-release-guard.json",
-    "scripts/lib/portGuideSections.js",
-    "scripts/test-st-faq-abbrev-regression.js",
-    "ports/st-kitts-basseterre-st-kitts/index.html",
-    "ports/st-croix-frederiksted-us-virgin-islands/index.html",
-    "ports/st-george-s-grenada/index.html",
-    "ports/st-lucia-castries-st-lucia/index.html",
-    "ports/st-thomas-charlotte-amalie-us-virgin-islands/index.html",
-    "ports/st-tropez-france/index.html"
+    "scripts/lib/publicGuideCopySanitize.js",
+    "scripts/audit-published-port-html-research-leak.js",
+    "scripts/audit-passenger-visible-research-shorthand.js",
+    "scripts/test-port-content-quality-pilot.js",
+    "ports/acapulco-mexico/index.html",
+    "ports/wismar-germany/index.html",
+    "ports/skagway-ak-united-states/index.html"
   ]
 }
