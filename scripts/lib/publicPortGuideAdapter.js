@@ -390,6 +390,25 @@ function resolveGuideIdFromSlugTokens(slug, guidesById, portCountry) {
 }
 
 /**
+ * When exactly one guide claims this catalogue slug via researchImport.landing_slug,
+ * prefer that owner over slug-token heuristics (e.g. tokyo-yokohama-japan → yokohama, not stub tokyo).
+ */
+function resolveUniqueLandingSlugOwner(catalogueSlug, guidesById, portCountry) {
+  const slug = String(catalogueSlug || '').trim();
+  if (!slug) return '';
+  let owner = '';
+  for (const [guideId, guide] of Object.entries(guidesById || {})) {
+    const landingSlug = String(guide?.researchImport?.landing_slug || '').trim();
+    if (landingSlug !== slug) continue;
+    const accepted = acceptGuideId(guideId, guidesById, portCountry);
+    if (!accepted) continue;
+    if (owner && owner !== accepted) return '';
+    owner = accepted;
+  }
+  return owner;
+}
+
+/**
  * Build website-slug → appPortId using review key map + name heuristics.
  */
 function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
@@ -425,6 +444,11 @@ function buildSlugToAppPortIdMap(seoPorts, portSlugToReviewKey, guidesById) {
     const fromReview = acceptGuideId(resolveGuideId(reviewKey, guidesById), guidesById, country);
     if (fromReview) {
       out[slug] = fromReview;
+      continue;
+    }
+    const fromLandingSlug = resolveUniqueLandingSlugOwner(slug, guidesById, country);
+    if (fromLandingSlug) {
+      out[slug] = fromLandingSlug;
       continue;
     }
     const fromSlug = acceptGuideId(resolveGuideId(slug, guidesById), guidesById, country);
@@ -582,6 +606,7 @@ module.exports = {
   resolveGuideId,
   acceptGuideId,
   resolveGuideIdFromSlugTokens,
+  resolveUniqueLandingSlugOwner,
   extractPortNameCandidates,
   normalizeCountryKey,
   countriesCompatible,
