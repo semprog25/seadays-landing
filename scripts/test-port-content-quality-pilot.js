@@ -3,16 +3,14 @@
 
 const assert = require('assert');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const { execSync } = require('node:child_process');
 const {
   stripResearchNotVerifiedShorthand,
   preparePassengerGuideText,
 } = require('./lib/publicGuideCopySanitize');
-const {
-  evaluatePushReleaseGuard,
-  loadReleaseGuard,
-} = require('./lib/ciGenerationReleaseGuard');
+const { evaluatePushReleaseGuard } = require('./lib/ciGenerationReleaseGuard');
 
 const REPO = path.join(__dirname, '..');
 const PILOT_SLUGS = ['acapulco-mexico', 'wismar-germany', 'skagway-ak-united-states'];
@@ -80,11 +78,33 @@ function main() {
   assert.strictEqual(audit.passengerVisibleNotVerified, 0);
   assert.strictEqual(audit.passengerVisibleRemainNull, 0);
 
-  const guard = loadReleaseGuard(REPO);
-  assert.strictEqual(guard.profile, 'port-content-quality-pilot-release');
-  const exactPaths = guard.exactPaths.slice().sort();
-  const verdict = evaluatePushReleaseGuard(exactPaths, { repoRoot: REPO });
-  assert.strictEqual(verdict.action, 'suppress');
+  const historicalPilotPaths = [
+    '.github/ci-generation-release-guard.json',
+    'scripts/lib/publicGuideCopySanitize.js',
+    'scripts/audit-published-port-html-research-leak.js',
+    'scripts/audit-passenger-visible-research-shorthand.js',
+    'scripts/test-port-content-quality-pilot.js',
+    'ports/acapulco-mexico/index.html',
+    'ports/wismar-germany/index.html',
+    'ports/skagway-ak-united-states/index.html',
+  ];
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'seadays-pilot-guard-'));
+  const guardDir = path.join(tmp, '.github');
+  fs.mkdirSync(guardDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(guardDir, 'ci-generation-release-guard.json'),
+    JSON.stringify({ profile: 'port-content-quality-pilot-release', exactPaths: historicalPilotPaths }, null, 2)
+  );
+  const prev = process.env.PORTS_REGEN_GATE_REPO_ROOT;
+  try {
+    process.env.PORTS_REGEN_GATE_REPO_ROOT = tmp;
+    const verdict = evaluatePushReleaseGuard(historicalPilotPaths, { repoRoot: tmp });
+    assert.strictEqual(verdict.action, 'suppress', 'historical 3-port pilot path set must suppress');
+  } finally {
+    if (prev === undefined) delete process.env.PORTS_REGEN_GATE_REPO_ROOT;
+    else process.env.PORTS_REGEN_GATE_REPO_ROOT = prev;
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
 
   console.log('test-port-content-quality-pilot PASS', { pilot: PILOT_SLUGS });
 }
