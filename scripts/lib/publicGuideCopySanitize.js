@@ -131,6 +131,8 @@ function faqResearchSentence(sentence) {
 function stripResearchNotVerifiedShorthand(text) {
   let s = String(text || '');
   if (!/\bnot verified\b/i.test(s) && !/\bunverified\b/i.test(s)) return s;
+  s = s.replace(/\bnot verified here\.?/gi, '');
+  s = s.replace(/\b(?:specifics|duration|timing|coach timing)\s+not verified\.?/gi, '');
   s = s.replace(/\bNot verified until[^.!?…]+[.!?…]?/gi, '');
   s = s.replace(/—\s*[^—]{0,80}?\s+Not verified\.?/gi, '—');
   s = s.replace(/;\s*[^;]{0,160}?\s+Not verified\.?/gi, '');
@@ -143,6 +145,7 @@ function stripResearchNotVerifiedShorthand(text) {
   s = s.replace(/\bTimed taxi\.?\s*/gi, '');
   s = s.replace(/\([^)]*\b(?:Not verified|unverified)[^)]*\)/gi, '');
   s = s.replace(/\bNot verified\.?(?=\s|$|[.;])/gi, '');
+  s = s.replace(/\s+—\s*here\.?/gi, '');
   s = s.replace(/\s+—\s*(?=[.;]|$)/g, '');
   return s.replace(/\s+/g, ' ').replace(/([.;])\s*\1+/g, '$1').replace(/;\s*([.;])/g, '$1').trim();
 }

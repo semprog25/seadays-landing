@@ -312,7 +312,9 @@ function main() {
   for (const port of seoPorts) {
     if (portSlugFilter && !portSlugFilter.has(port.slug)) continue;
     // Browse-hidden aliases: publish as noindex redirects (batch-written below).
-    if (getAliasRedirectTarget(port.slug) || isPortSplitSlug(port.slug)) continue;
+  const aliasTarget = getAliasRedirectTarget(port.slug);
+  const isSplit = isPortSplitSlug(port.slug);
+  if ((aliasTarget || isSplit) && !(portSlugFilter && portSlugFilter.has(port.slug))) continue;
     const dir = path.join(repoRoot, 'ports', port.slug);
     fs.mkdirSync(dir, { recursive: true });
     const appPortId = slugToAppPortId[port.slug] || '';
