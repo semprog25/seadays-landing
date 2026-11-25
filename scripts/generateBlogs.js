@@ -3451,6 +3451,7 @@ async function main() {
   }
 
   if (mode.ships) {
+  enrichSeoShipsForDirectoryIndex(seoShips, { repoRoot });
   let shipsWritten = 0;
   for (const ship of seoShips) {
     if (!shouldWriteShipDetail(mode, ship.slug)) continue;
