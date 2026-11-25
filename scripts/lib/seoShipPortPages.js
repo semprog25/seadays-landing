@@ -1085,13 +1085,16 @@ function buildArticleCards(articles, label = 'Read more') {
 function buildFunVisualPanel(kind, entity, relatedArticles) {
   const firstArticle = relatedArticles.find((a) => pickArticleImage(a));
   const articleImg = firstArticle ? pickArticleImage(firstArticle) : '';
+  const skipArticleThumb =
+    kind === 'ship' &&
+    Boolean(String(entity?.image_url || entity?.directoryImageUrl || entity?.verifiedHeroGuide?.url || '').trim());
   const label = kind === 'ship' ? 'Ship planning snapshot' : 'Port day snapshot';
   const title = kind === 'ship'
     ? `${entity.name} at a glance`
     : `${entity.name} shore-day mood`;
   const statOne = kind === 'ship' ? entity.cruise_line : (entity.country || entity.region || 'Cruise port');
   const statTwo = kind === 'ship' ? (entity.shipClass || 'Cruise ship') : (entity.region || 'Shore day');
-  const visual = articleImg
+  const visual = articleImg && !skipArticleThumb
     ? `<img class="seo-visual-img" src="${escapeHtml(articleImg)}" alt="${escapeHtml(title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://auth.seadays.app/storage/v1/object/public/SeadaysPublic/Websitehomebucket/Cruise%20planner.jpg'">`
     : `<div class="seo-visual-art"><span></span><span></span><span></span></div>`;
   return `<section class="seo-visual-panel" aria-label="${escapeHtml(label)}">
@@ -1404,7 +1407,10 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const title = `${ship.name} Cruise Ship Guide | ${ship.cruise_line}`;
   const h1 = `${ship.name} Cruise Ship Guide`;
   const metaDesc = buildShipMetaDescription(ship);
-  const ogImage = ship.image_url || opts.defaultImage;
+  const licensedHero = ship.verifiedHeroGuide
+    ? buildLicensedHero({ hero: ship.verifiedHeroGuide }, `${ship.name} cruise ship`)
+    : { html: '', url: '' };
+  const ogImage = licensedHero.url || ship.image_url || opts.defaultImage;
   const whyBullets = buildShipWhyBullets(ship, overviewText);
   const faqItems = buildShipFaqItems(ship);
 
@@ -1491,6 +1497,7 @@ function buildShipDetailHtml(ship, relatedShips, relatedPorts, blogArticles, opt
   const heroImg = ship.image_url
     ? `<img class="seo-hero-img" src="${escapeHtml(ship.image_url)}" alt="${escapeHtml(ship.name)} cruise ship" width="800" height="420" loading="eager" decoding="async">`
     : '';
+  const heroBlock = licensedHero.html || heroImg;
   const overviewHtml = introParas.length
     ? `<h2>Overview</h2><article class="seo-body">${introParas.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n')}</article>`
     : '';
@@ -1533,7 +1540,7 @@ ${getFaviconHeadHtml()}
     ${buildDirectoryHeaderNav()}
     <main class="seo-detail container">
       ${buildShipBreadcrumbsHtml(ship)}
-      ${heroImg}
+      ${heroBlock}
       <h1>${escapeHtml(h1)}</h1>
       <p class="lead">${escapeHtml(ship.cruise_line)} · ${escapeHtml(shipClass)}</p>
       ${visualPanel}
@@ -1830,4 +1837,5 @@ module.exports = {
   buildShipBreadcrumbsHtml,
   buildShipAggregateRatingJsonLd,
   buildHumanApprovedHeroCaption,
+  buildLicensedHero,
 };

@@ -38,6 +38,7 @@ function reviewStateRejectedCommons(repoRoot) {
 }
 
 let verifiedDestinationUrlBySlugCache = null;
+let verifiedShipHeroBySlugCache = null;
 let verifiedShipHeroUrlBySlugCache = null;
 let destinationOwnerCandidatesCache = null;
 let destinationOwnerPortEntriesCache = null;
@@ -47,6 +48,33 @@ function resetPortsDirectoryImageCachesForTests() {
   destinationOwnerCandidatesCache = null;
   destinationOwnerPortEntriesCache = null;
   verifiedShipHeroUrlBySlugCache = null;
+  verifiedShipHeroBySlugCache = null;
+}
+
+function verifiedShipHeroGuideFromRecord(raw, url) {
+  const creator = String(raw?.attribution?.creator || '').trim();
+  const license = String(raw?.attribution?.license || '').trim();
+  const licenseUrl = String(raw?.attribution?.licenseUrl || '').trim();
+  if (!url || !creator || !license || !licenseUrl) return null;
+  return {
+    url,
+    alt: String(raw?.media?.alt || '').trim(),
+    author: creator,
+    license,
+    licenseUrl,
+    sourceName: 'Wikimedia Commons',
+    sourceUrl: String(raw?.commons?.pageUrl || '').trim(),
+  };
+}
+
+function shipImageUrlLooksGeneric(url) {
+  const u = String(url || '').trim();
+  if (!u) return true;
+  if (/seadaysfav\.png/i.test(u)) return true;
+  if (/Websitehomebucket\/Cruise/i.test(u)) return true;
+  if (/Cruise_ships\.jpg/i.test(u)) return true;
+  if (/blog-images\/materialized/i.test(u)) return true;
+  return false;
 }
 
 function readDestinationOwnerPayload(repoRoot) {
@@ -270,8 +298,8 @@ function enrichSeoPortsForDirectoryIndex(
   return seoPorts;
 }
 
-function loadVerifiedShipHeroUrlBySlug(repoRoot) {
-  if (verifiedShipHeroUrlBySlugCache) return verifiedShipHeroUrlBySlugCache;
+function loadVerifiedShipHeroBySlug(repoRoot) {
+  if (verifiedShipHeroBySlugCache) return verifiedShipHeroBySlugCache;
   const map = Object.create(null);
   const harvestPath = path.join(repoRoot, 'data', 'wikimedia-harvest', 'local-verified-records.json');
   const harvestPayload = readJsonFileHarvest(harvestPath);
@@ -303,17 +331,35 @@ function loadVerifiedShipHeroUrlBySlug(repoRoot) {
     if (/commons\/5\/56\/Cruise_ships\.jpg/i.test(url) || /\/Cruise_ships\.jpg/i.test(url)) {
       continue;
     }
-    map[slug] = url;
+    const guide = verifiedShipHeroGuideFromRecord(raw, url);
+    map[slug] = { url, guide };
+  }
+  verifiedShipHeroBySlugCache = map;
+  return map;
+}
+
+function loadVerifiedShipHeroUrlBySlug(repoRoot) {
+  if (verifiedShipHeroUrlBySlugCache) return verifiedShipHeroUrlBySlugCache;
+  const bySlug = loadVerifiedShipHeroBySlug(repoRoot);
+  const map = Object.create(null);
+  for (const [slug, entry] of Object.entries(bySlug)) {
+    map[slug] = entry.url;
   }
   verifiedShipHeroUrlBySlugCache = map;
   return map;
 }
 
 function enrichSeoShipsForDirectoryIndex(seoShips, { repoRoot }) {
-  const verifiedBySlug = loadVerifiedShipHeroUrlBySlug(repoRoot);
+  const verifiedBySlug = loadVerifiedShipHeroBySlug(repoRoot);
   for (const ship of seoShips) {
-    const url = ship?.slug ? String(verifiedBySlug[ship.slug] || '').trim() : '';
+    const entry = ship?.slug ? verifiedBySlug[ship.slug] : null;
+    const url = entry?.url ? String(entry.url).trim() : '';
     ship.directoryImageUrl = url;
+    if (!url) continue;
+    if (shipImageUrlLooksGeneric(ship.image_url)) {
+      ship.image_url = url;
+    }
+    if (entry.guide) ship.verifiedHeroGuide = entry.guide;
   }
   return seoShips;
 }
@@ -322,6 +368,7 @@ module.exports = {
   extractOgImageFromPortPage,
   loadVerifiedPortDestinationUrlBySlug,
   loadVerifiedShipHeroUrlBySlug,
+  loadVerifiedShipHeroBySlug,
   loadDestinationOwnerCandidatesBySlug,
   loadDestinationOwnerPortEntryBySlug,
   resolveDirectoryImageUrl,
@@ -329,4 +376,5 @@ module.exports = {
   enrichSeoShipsForDirectoryIndex,
   resetPortsDirectoryImageCachesForTests,
   resolveApprovedPortDestinationDisplayUrl,
+  shipImageUrlLooksGeneric,
 };
