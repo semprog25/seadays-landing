@@ -734,6 +734,7 @@ function formatCapacityLabel(ship) {
   if (!Number.isFinite(ship.capacity)) return '';
   const n = Math.round(ship.capacity).toLocaleString('en-US');
   if (ship.capacityBasis === 'maximum') return `${n} (maximum)`;
+  if (ship.capacityBasis === 'published_guest_capacity') return `${n} (published guest capacity)`;
   return `${n} (lower berth / double occupancy)`;
 }
 

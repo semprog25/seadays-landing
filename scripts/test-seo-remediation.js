@@ -35,6 +35,19 @@ test('fake ratings cannot be emitted without real reviewCount >= 1', () => {
   assert.strictEqual(buildShipAggregateRatingJsonLd({}), null);
 });
 
+test('ship detail preserves the carrier’s published guest capacity measurement', () => {
+  const ship = {
+    slug: 'wind-surf', name: 'Wind Surf', cruise_line: 'Windstar Cruises', lineId: 'windstar',
+    capacity: 346, capacityBasis: 'published_guest_capacity', highlights: [], description: 'Windstar sailing ship.',
+  };
+  const html = buildShipDetailHtml(ship, [], [], [], {
+    baseUrl: 'https://seadays.app', defaultImage: 'https://seadays.app/logo.png',
+    indexStyles: '', runtimeGuardScript: '',
+  });
+  assert.match(html, /346 \(published guest capacity\)/);
+  assert.doesNotMatch(html, /346 \(lower berth/);
+});
+
 test('ship HTML uses guide titles and WebPage schema, never Product-by-default', () => {
   const ship = {
     slug: 'aidacosma',
